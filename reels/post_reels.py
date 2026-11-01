@@ -199,14 +199,54 @@ def token_days_left(token):
     return (min(ends) - now().timestamp()) / 86400
 
 
-LOCATIONS = []  # filled from library.json "locations": Facebook place Page ids
+LOCATIONS = []  # filled from library.json "locations"
+_RESOLVED = {}
 
 
-def location_for(ig_id, caption):
-    """Rotate through the location tags in library.json, one per day."""
-    if not LOCATIONS:
+def wikidata_place_id(qid, name):
+    """Facebook Places ID (Wikidata P1997) for a city, or None."""
+    try:
+        with urllib.request.urlopen(f"https://www.wikidata.org/wiki/Special:EntityData/{qid}.json",
+                                    timeout=20) as r:
+            ent = json.loads(r.read())["entities"][qid]
+    except Exception as e:  # network or format trouble: just skip the tag
+        print(f"  wikidata lookup failed for {name}: {e}")
         return None
-    return str(LOCATIONS[now().toordinal() % len(LOCATIONS)]["id"])
+    label = ent.get("labels", {}).get("en", {}).get("value", "")
+    if not name.lower().startswith(label.lower()):
+        print(f"  wikidata {qid} is '{label}', not {name}; skipping")
+        return None
+    for c in ent.get("claims", {}).get("P1997", []):
+        v = c.get("mainsnak", {}).get("datavalue", {}).get("value")
+        if v:
+            return str(v)
+    return None
+
+
+def location_entry(day=None):
+    """Today's place from library.json "locations": each entry has a name and
+    either a Facebook place Page `id` or a Wikidata `wikidata` id to look one
+    up, plus an optional `weight` (days per cycle)."""
+    cycle = [loc for loc in LOCATIONS for _ in range(int(loc.get("weight", 1)))]
+    if not cycle:
+        return None
+    return cycle[(day if day is not None else now().toordinal()) % len(cycle)]
+
+
+def location_for(ig_id, caption, day=None):
+    loc = location_entry(day)
+    if not loc:
+        return None
+    key = loc["name"]
+    if key not in _RESOLVED:
+        _RESOLVED[key] = str(loc["id"]) if loc.get("id") else (
+            wikidata_place_id(loc["wikidata"], loc["name"]) if loc.get("wikidata") else None)
+        print(f"  location tag: {key} -> {_RESOLVED[key]}")
+    if _RESOLVED[key]:
+        return _RESOLVED[key]
+    # No id for today's city: fall back to the first place with a fixed id.
+    first = next((l for l in LOCATIONS if l.get("id")), None)
+    return str(first["id"]) if first else None
 
 
 def ig_last_post_time(token, ig_id):
@@ -360,6 +400,19 @@ def main():
     posted = load(POSTED, [])
     summary, failed = [], False
     scores = None
+
+    if dry and LOCATIONS:
+        # Show every place in the rotation; with a token, ask Meta what each id is.
+        for d in range(sum(int(l.get("weight", 1)) for l in LOCATIONS)):
+            pid = location_for(ig_id, "", now().toordinal() + d)
+            if pid and token:
+                try:
+                    info = graph("GET", pid, token, fields="name,location")
+                    summary.append(f"location day+{d}: {pid} = {info.get('name')} {info.get('location', {}).get('city', '')}")
+                except GraphError as e:
+                    summary.append(f"location day+{d}: {pid} REFUSED by Meta: {str(e)[:150]}")
+            else:
+                summary.append(f"location day+{d}: {location_entry(now().toordinal() + d)['name']} -> {pid}")
 
     reel_platforms = [p for p in platforms if p in ("instagram", "facebook")]
     story_platforms = [p for p in platforms if p in STORY_BASE]
