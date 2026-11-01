@@ -2,7 +2,25 @@
  "locations": [
   {
    "name": "Houston, Texas",
-   "id": "115963528414384"
+   "id": "115963528414384",
+   "wikidata": "Q16555",
+   "weight": 3
+  },
+  {
+   "name": "Dallas, Texas",
+   "wikidata": "Q16557"
+  },
+  {
+   "name": "El Paso, Texas",
+   "wikidata": "Q16562"
+  },
+  {
+   "name": "San Antonio, Texas",
+   "wikidata": "Q975"
+  },
+  {
+   "name": "Austin, Texas",
+   "wikidata": "Q16559"
   }
  ],
  "videos": [
