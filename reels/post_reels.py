@@ -4,13 +4,15 @@
 Runs from .github/workflows/reels.yml twice a day. Standard library only.
 
 Picks the next video from reels/library.json (never-posted first, newest
-first; then the one posted longest ago, at least MIN_GAP_DAYS ago), builds
+first; then, among videos posted at least MIN_GAP_DAYS ago, the one whose
+past Reels earned the most follows, shares, comments and likes), builds
 the seller-first caption, uploads the file bytes straight to Meta (no public
 URL needed) and appends the result to reels/posted.json.
 
 Env:
-  META_PAGE_TOKEN  Page access token for the YardSwaps Facebook Page that
-                   never expires (secret). Missing = log a notice and exit 0.
+  META_PAGE_TOKEN  Page access token for the YardSwaps Facebook Page (secret;
+                   expires, see reels/README.md Renewal). Missing = log a
+                   notice and exit 0.
   FB_PAGE_ID       default 1291163214083476
   IG_USER_ID       default 17841429324062623 (@yardswaps)
   PLATFORMS        "instagram,facebook" (default) or one of them
@@ -56,16 +58,22 @@ def parse_time(s):
 
 # ---------- captions ----------
 
+FOLLOW_IG = "Follow @yardswaps for a new one every day."
+FOLLOW_FB = "Follow the YardSwaps page for a new one every day."
+
+
 def ig_caption(v):
-    return (f"{v['body']}\n\n{v['question']} Tell us in the comments.\n\n"
-            f"Link in bio.\n{v['ig_tags']}")
+    # Instagram captions don't click, so the short link is typed or found in bio.
+    return (f"{v['body']}\n\n{FOLLOW_IG} Get the free YardSwaps app: "
+            f"yardswaps.com/i (link in bio).\n\n{v['ig_tags']}\n\n{v['question']}")
 
 
 def fb_caption(v):
+    # Facebook captions click, so the link carries a per-Reel tag (UTM-LINKS.md).
     link = ("https://www.yardswaps.com/sell-equipment?utm_source=facebook"
             f"&utm_medium=social&utm_campaign=reels_{v['slug']}")
-    return (f"{v['body']}\n\n{v['question']} Tell us in the comments.\n\n"
-            f"List it free: {link}\n{FB_TAGS}")
+    return (f"{v['body']}\n\n{FOLLOW_FB} Get the free app and list it free: {link}"
+            f"\n\n{FB_TAGS}\n\n{v['question']}")
 
 
 # ---------- HTTP ----------
@@ -107,7 +115,7 @@ def load(path, default):
         return default
 
 
-def pick(videos, posted, platform, force=None):
+def pick(videos, posted, platform, force=None, scores=None):
     ok = [p for p in posted if p["platform"] == platform and p.get("status") == "posted"]
     last = {}
     for p in ok:
@@ -124,8 +132,53 @@ def pick(videos, posted, platform, force=None):
     old = [v for v in usable if last[v["slug"]] <= cutoff]
     if not old:
         return None, False
-    old.sort(key=lambda v: last[v["slug"]])
+    # Repeats: best performer first (follows weigh most), then the one
+    # posted longest ago. `boost` in library.json lets the weekly batch push
+    # a cut up by hand, for example one that brought app signups.
+    scores = scores or {}
+    old.sort(key=lambda v: (-(scores.get(v["slug"], 0) + v.get("boost", 0)), last[v["slug"]]))
     return old[0], True
+
+
+# ---------- engagement score (for repeats) ----------
+
+SCORE_WEIGHTS = {"follows": 10, "shares": 4, "saved": 3, "comments": 3, "likes": 1}
+
+
+def ig_scores(token, posted, days=60):
+    """Score each slug by what its Instagram Reels earned.
+
+    like_count and comments_count come with instagram_basic. follows, shares
+    and saved need instagram_manage_insights; if the token lacks it the first
+    insights call fails and the score falls back to likes and comments.
+    """
+    since = now() - dt.timedelta(days=days)
+    mine = [p for p in posted if p["platform"] == "instagram" and p.get("status") == "posted"
+            and p.get("id") and parse_time(p["time"]) >= since]
+    scores, insights_ok = {}, True
+    for i in range(0, len(mine), 50):
+        chunk = mine[i:i + 50]
+        try:
+            r = graph("GET", "", token, ids=",".join(p["id"] for p in chunk),
+                      fields="like_count,comments_count")
+        except GraphError as e:
+            print(f"  could not read Reel likes/comments: {e}")
+            r = {}
+        for p in chunk:
+            m = r.get(p["id"], {})
+            s = SCORE_WEIGHTS["likes"] * int(m.get("like_count", 0) or 0) \
+                + SCORE_WEIGHTS["comments"] * int(m.get("comments_count", 0) or 0)
+            if insights_ok:
+                try:
+                    ins = graph("GET", f"{p['id']}/insights", token, metric="follows,shares,saved")
+                    for row in ins.get("data", []):
+                        val = (row.get("values") or [{}])[0].get("value", row.get("total_value", {}).get("value", 0))
+                        s += SCORE_WEIGHTS.get(row.get("name"), 0) * int(val or 0)
+                except GraphError as e:
+                    insights_ok = False
+                    print(f"  Reel insights unavailable, scoring by likes and comments only: {str(e)[:200]}")
+            scores[p["slug"]] = scores.get(p["slug"], 0) + s
+    return scores
 
 
 def ours_recent(posted, platform):
@@ -246,9 +299,18 @@ def main():
     videos = load(LIBRARY, {"videos": []})["videos"]
     posted = load(POSTED, [])
     summary, failed = [], False
+    scores = None
 
     for platform in platforms:
         video, repeat = pick(videos, posted, platform, force)
+        if repeat and not force and token:
+            # Only score when a repeat is due, so fresh weeks cost no extra calls.
+            if scores is None:
+                scores = ig_scores(token, posted)
+                if scores:
+                    top = sorted(scores.items(), key=lambda kv: -kv[1])[:5]
+                    print("  top Reels by engagement: " + ", ".join(f"{k} {v}" for k, v in top))
+            video, repeat = pick(videos, posted, platform, force, scores)
         if not video:
             summary.append(f"{platform}: skipped, every video was posted in the last {MIN_GAP_DAYS} days")
             continue
