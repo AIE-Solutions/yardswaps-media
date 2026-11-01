@@ -7,7 +7,8 @@
    "added": "2026-11-01",
    "body": "POV: you finally deal with the forklift that's been sitting there.\n\nSnap one photo. AI fills in the details and picks the power, mast and tires. Add the hours and capacity you know, set your price, post.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "Electric or propane: which forklift do you trust more?",
-   "ig_tags": "#forklift #forkliftforsale #warehouse #usedequipment #yardswaps"
+   "ig_tags": "#forklift #forkliftforsale #warehouse #usedequipment #yardswaps",
+   "boost": 50
   },
   {
    "slug": "that-trailer-next-season",
@@ -19,67 +20,67 @@
    "ig_tags": "#cargotrailer #enclosedtrailer #trailersforsale #usedequipment #yardswaps"
   },
   {
-   "slug": "sold-it-list-the-next",
-   "file": "reels/library/yardswaps-sold-it-list-the-next-9x16.mp4",
-   "priority": 2,
-   "added": "2026-11-01",
-   "body": "The buyer shows up and it starts first try.\n\nMark it sold in one tap from My Listings, so buyers see it's gone. Then list the next machine: one photo, AI fills in the details, you check it and post.\n\nFree to list. No cut of the sale. Free boosts.",
-   "question": "What's sitting in your yard that you'd sell next?",
-   "ig_tags": "#equipmentforsale #usedequipment #fleettrucks #sellequipment #yardswaps"
-  },
-  {
-   "slug": "spare-part",
-   "file": "reels/library/yardswaps-spare-part-9x16.mp4",
-   "priority": 3,
-   "added": "2026-11-01",
-   "body": "That spare motor doesn't fit anything you own.\n\nSnap one photo of the part. AI fills in the title, category, condition and description, and suggests a price. Check it, set your price, publish.\n\nFree to list. No cut of the sale. Free boosts.",
-   "question": "What spare parts are sitting in your shop?",
-   "ig_tags": "#spareparts #usedequipment #equipmentforsale #sellequipment #yardswaps"
-  },
-  {
-   "slug": "show-the-cold-start",
-   "file": "reels/library/yardswaps-show-the-cold-start-9x16.mp4",
-   "priority": 4,
-   "added": "2026-11-01",
-   "body": "Every buyer asks: does it start?\n\nShow them. Add a walkaround video to your YardSwaps listing, up to 3 minutes. Film the cold start and let it run.\n\nFree to list. No cut of the sale. Free boosts.",
-   "question": "Which of your machines is hardest to start?",
-   "ig_tags": "#usedequipment #aircompressor #equipmentforsale #contractor #yardswaps"
-  },
-  {
-   "slug": "snap-it-list-it",
-   "file": "reels/library/yardswaps-snap-it-list-it-9x16.mp4",
-   "priority": 5,
-   "added": "2026-11-01",
-   "body": "That compressor hasn't run since the move.\n\nSnap one photo. AI fills in the title, category, condition, description and a suggested price. Check it, publish, done.\n\nFree to list. Free boosts.",
-   "question": "What would you snap first?",
-   "ig_tags": "#equipmentforsale #usedequipment #sellequipment #aircompressor #yardswaps"
-  },
-  {
-   "slug": "invite-a-seller",
-   "file": "reels/library/yardswaps-invite-a-seller-9x16.mp4",
-   "priority": 6,
-   "added": "2026-11-01",
-   "body": "Your buddy's tractor hasn't moved since spring.\n\nSend them your YardSwaps invite. They sign up with your code, and you both get a free 7-day boost after their first listing has been live for 3 days.\n\nFree to list. Free boosts.",
-   "question": "Who do you know with gear sitting idle?",
-   "ig_tags": "#sellyourequipment #usedequipment #farmequipment #equipmentforsale #yardswaps"
-  },
-  {
    "slug": "commercial-idle-forklift",
    "file": "reels/library/yardswaps-commercial-idle-forklift-9x16.mp4",
-   "priority": 7,
+   "priority": 2,
    "added": "2026-11-01",
    "body": "POV: the forklift hasn't moved in months.\n\nA seller lists it with one photo, AI fills in the specs, a buyer 6 miles away sends an offer, and the seller accepts in a tap.\n\nFree to list. Free boosts. No cut of the sale.\n\nDemo listings and accounts. Dramatization.",
    "question": "What's been sitting idle in your yard the longest?",
    "ig_tags": "#forklift #usedequipment #sellequipment #heavyequipment #yardswaps"
   },
   {
+   "slug": "snap-it-list-it",
+   "file": "reels/library/yardswaps-snap-it-list-it-9x16.mp4",
+   "priority": 3,
+   "added": "2026-11-01",
+   "body": "That compressor hasn't run since the move.\n\nSnap one photo. AI fills in the title, category, condition, description and a suggested price. Check it, publish, done.\n\nFree to list. Free boosts.",
+   "question": "What would you snap first?",
+   "ig_tags": "#equipmentforsale #usedequipment #sellequipment #aircompressor #yardswaps"
+  },
+  {
    "slug": "list-4-boosted-free",
    "file": "reels/library/yardswaps-list-4-boosted-free-9x16.mp4",
-   "priority": 8,
+   "priority": 4,
    "added": "2026-11-01",
    "body": "POV: the trailer, the generator and the pump have sat in your yard all year.\n\nList them on YardSwaps. Post 4 listings within 14 days of your first and every listing you have is boosted free for 14 days. Once per account.\n\nFree to list. Free boosts.",
    "question": "Which 4 things in your yard would you list today?",
    "ig_tags": "#sellyourequipment #usedequipment #equipmentforsale #contractor #yardswaps"
+  },
+  {
+   "slug": "invite-a-seller",
+   "file": "reels/library/yardswaps-invite-a-seller-9x16.mp4",
+   "priority": 5,
+   "added": "2026-11-01",
+   "body": "Your buddy's tractor hasn't moved since spring.\n\nSend them your YardSwaps invite. They sign up with your code, and you both get a free 7-day boost after their first listing has been live for 3 days.\n\nFree to list. Free boosts.",
+   "question": "Who do you know with gear sitting idle?",
+   "ig_tags": "#sellyourequipment #usedequipment #farmequipment #equipmentforsale #yardswaps"
+  },
+  {
+   "slug": "spare-part",
+   "file": "reels/library/yardswaps-spare-part-9x16.mp4",
+   "priority": 6,
+   "added": "2026-11-01",
+   "body": "That spare motor doesn't fit anything you own.\n\nSnap one photo of the part. AI fills in the title, category, condition and description, and suggests a price. Check it, set your price, publish.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What spare parts are sitting in your shop?",
+   "ig_tags": "#spareparts #usedequipment #equipmentforsale #sellequipment #yardswaps"
+  },
+  {
+   "slug": "sold-it-list-the-next",
+   "file": "reels/library/yardswaps-sold-it-list-the-next-9x16.mp4",
+   "priority": 7,
+   "added": "2026-11-01",
+   "body": "The buyer shows up and it starts first try.\n\nMark it sold in one tap from My Listings, so buyers see it's gone. Then list the next machine: one photo, AI fills in the details, you check it and post.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What's sitting in your yard that you'd sell next?",
+   "ig_tags": "#equipmentforsale #usedequipment #fleettrucks #sellequipment #yardswaps"
+  },
+  {
+   "slug": "show-the-cold-start",
+   "file": "reels/library/yardswaps-show-the-cold-start-9x16.mp4",
+   "priority": 8,
+   "added": "2026-11-01",
+   "body": "Every buyer asks: does it start?\n\nShow them. Add a walkaround video to your YardSwaps listing, up to 3 minutes. Film the cold start and let it run.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "Which of your machines is hardest to start?",
+   "ig_tags": "#usedequipment #aircompressor #equipmentforsale #contractor #yardswaps"
   },
   {
    "slug": "already-on-craigslist",
