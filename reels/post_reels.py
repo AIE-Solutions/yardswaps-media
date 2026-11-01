@@ -37,6 +37,7 @@ POSTED = os.path.join(ROOT, "reels", "posted.json")
 MIN_GAP_DAYS = 10          # same video never twice on a platform inside this
 CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (HeyCatch)
 MAX_OURS_PER_20H = 2       # safety cap per platform, matches the two daily slots
+SLOT_HOURS = 3             # backup cron runs skip a slot that already posted this recently
 
 
 
@@ -221,6 +222,12 @@ def ours_recent(posted, platform):
     since = now() - dt.timedelta(hours=20)
     return sum(1 for p in posted if p["platform"] == platform and p.get("status") == "posted"
                and not p.get("forced") and parse_time(p["time"]) >= since)
+
+
+def slot_done(posted, platform):
+    since = now() - dt.timedelta(hours=SLOT_HOURS)
+    return any(p["platform"] == platform and p.get("status") == "posted"
+               and not p.get("forced") and parse_time(p["time"]) >= since for p in posted)
 
 
 def is_ours(posted, platform, when, slack_minutes=10):
@@ -486,6 +493,12 @@ def main():
         caption = ig_caption(video, turn) if platform == "instagram" else fb_caption(video)
         if dry:
             summary.append(f"{platform}: would post {video['slug']} (repeat={repeat})\n{caption}\n")
+            continue
+        # GitHub sometimes starts a scheduled run late or drops it, so each slot
+        # has backup crons. The first one that runs posts; the rest see a
+        # scheduled post in the last few hours and stop.
+        if not force and slot_done(posted, platform):
+            summary.append(f"{platform}: skipped, this slot already posted (backup run)")
             continue
         if not force and ours_recent(posted, platform) >= MAX_OURS_PER_20H:
             summary.append(f"{platform}: skipped, already posted {MAX_OURS_PER_20H} in the last 20 hours")
