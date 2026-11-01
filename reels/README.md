@@ -24,14 +24,15 @@ Never delete `reels/` when clearing a week folder.
 Actions tab > "Reels to Instagram and Facebook" > Run workflow. `dry_run` = 1 shows the pick and both captions without posting; `slug` forces a video; `platforms` can be just `instagram` or `facebook`.
 
 ## One-time setup (Alan, about 10 minutes, all free)
-The workflow needs one Page access token that never expires, saved as the repo secret `META_PAGE_TOKEN`. Until it exists every run logs "not set yet" and posts nothing.
+The workflow needs one Page access token, saved as the repo secret `META_PAGE_TOKEN`. Until it exists every run logs "not set yet" and posts nothing.
 1. On the PC, in Chrome logged in to the Facebook account that manages the YardSwaps Page, open https://developers.facebook.com/apps and click **Create app** (accept the developer terms if asked).
 2. Name `YardSwaps Reels`, contact email yardswaps@gmail.com. Use cases: tick **Manage everything on your Page** and **Manage messaging & content on Instagram** (if the screen instead asks for an app type, pick **Business**). Skip connecting a business portfolio. Create the app.
 3. Open https://developers.facebook.com/tools/explorer/ . Meta App: **YardSwaps Reels**. Under Permissions add: `pages_show_list`, `pages_read_engagement`, `pages_manage_posts`, `instagram_basic`, `instagram_content_publish`, `business_management`. Click **Generate Access Token**, and in the Facebook window choose the YardSwaps Page and the @yardswaps Instagram account, then Continue/Save.
 4. Back in the Explorer, in **User or Page** pick **YardSwaps** (the Page, not "Sunfire Corals"). The token box now holds a Page token.
-5. Click the blue **i** next to the token > **Open in Access Token Tool** > **Extend Access Token** at the bottom. Copy the new token; the tool should say Expires: Never.
+5. Click the blue **i** next to the token > **Open in Access Token Tool** > **Extend Access Token** at the bottom. Copy the new token. (The token set on 2026-11-01 shows an expiry around Dec 31 2026, so it has to be renewed: see Renewal below.)
 6. Open https://github.com/AIE-Solutions/yardswaps-media/settings/secrets/actions/new , Name `META_PAGE_TOKEN`, paste the token as the Secret, **Add secret**.
 7. In the app's dashboard: App settings > Basic, Privacy Policy URL `https://www.yardswaps.com/privacy`, Category Business, Save. Then switch the app to **Live** (the "Publish" / App Mode toggle at the top) so posts are public.
 Then tell the project thread "token added": it runs one test post to each platform.
 
-The token stops working if the Facebook password changes, the app is removed, or the account loses admin of the Page. A failed run emails the repo admin; redo steps 3 to 6.
+## Renewal
+Current token: Page token for page 1291163214083476 from Meta app "YardSwaps Reels" (id 2302671600666026), set 2026-11-01, expires about 2026-12-31. Every run checks the expiry: under 14 days left it adds a warning to the run summary, and under 7 days the run fails so GitHub emails the repo admin (it still posts that run). To renew, redo steps 3 to 6 and replace the secret. The token also stops early if the Facebook password changes, the app is removed, or the account loses admin of the Page.
