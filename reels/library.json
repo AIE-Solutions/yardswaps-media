@@ -32,7 +32,9 @@
    "body": "POV: you finally deal with the forklift that's been sitting there.\n\nSnap one photo. AI fills in the details and picks the power, mast and tires. Add the hours and capacity you know, set your price, post.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "Electric or propane: which forklift do you trust more?",
    "ig_tags": "#forklift #forkliftforsale #warehouse #usedequipment #yardswaps",
-   "boost": 50
+   "boost": 50,
+   "hold": true,
+   "hold_reason": "2026-11-01: opening shot shows warehouse racks, not a forklift. Fixed cut goes in as a new slug; keep this one held."
   },
   {
    "slug": "that-trailer-next-season",

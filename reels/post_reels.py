@@ -123,7 +123,9 @@ def pick(videos, posted, platform, force=None, scores=None):
     if force:
         return next((v for v in videos if v["slug"] == force), None), force in last
     cutoff = now() - dt.timedelta(days=MIN_GAP_DAYS)
-    usable = [v for v in videos if os.path.exists(os.path.join(ROOT, v["file"]))]
+    # "hold": true keeps a video out of the queue (for example while its cut
+    # is being fixed) without losing its place or history.
+    usable = [v for v in videos if not v.get("hold") and os.path.exists(os.path.join(ROOT, v["file"]))]
     fresh = [v for v in usable if v["slug"] not in last]
     if fresh:
         fresh.sort(key=lambda v: (-int(v.get("added", "0").replace("-", "")), v.get("priority", 999)))
@@ -364,7 +366,7 @@ def story_pick(videos, posted, story_platform):
                    key=lambda p: p["time"], reverse=True)
     for r in reels:
         v = next((v for v in videos if v["slug"] == r["slug"]), None)
-        if v and os.path.exists(os.path.join(ROOT, v["file"])):
+        if v and not v.get("hold") and os.path.exists(os.path.join(ROOT, v["file"])):
             return v
     return None
 
