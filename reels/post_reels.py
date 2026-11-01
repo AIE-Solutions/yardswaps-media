@@ -206,12 +206,16 @@ def ig_last_post_time(token, ig_id):
     return max(times) if times else None
 
 
-def ig_publish(token, ig_id, path, caption, repeat):
+def ig_publish(token, ig_id, path, caption, repeat, story=False):
     size = os.path.getsize(path)
-    fields = {"media_type": "REELS", "upload_type": "resumable",
-              "caption": caption, "share_to_feed": "true"}
+    if story:
+        # Stories take no caption; the API cannot add a link sticker.
+        fields = {"media_type": "STORIES", "upload_type": "resumable"}
+    else:
+        fields = {"media_type": "REELS", "upload_type": "resumable",
+                  "caption": caption, "share_to_feed": "true"}
     container = None
-    if repeat:
+    if repeat and not story:
         # Repeats go out as Trial Reels: shown to non-followers first, shared
         # to followers only if they do well. Fall back to a normal Reel.
         try:
@@ -268,6 +272,42 @@ def fb_publish(token, page_id, path, caption):
     return vid, f"https://www.facebook.com/reel/{vid}"
 
 
+def fb_story_publish(token, page_id, path):
+    size = os.path.getsize(path)
+    start = graph("POST", f"{page_id}/video_stories", token, upload_phase="start")
+    vid = start["video_id"]
+    url = start.get("upload_url") or f"https://rupload.facebook.com/video-upload/v23.0/{vid}"
+    with open(path, "rb") as f:
+        blob = f.read()
+    call("POST", url, data=blob, headers={
+        "Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size)})
+    fin = graph("POST", f"{page_id}/video_stories", token, upload_phase="finish", video_id=vid)
+    return fin.get("post_id") or vid, f"https://www.facebook.com/stories/{page_id}"
+
+
+# ---------- Stories ----------
+# A Story re-shares the newest Reel posted on the same platform in the last
+# 24 hours that has not been a Story yet. Stories never count toward the Reel
+# cap or the 90-minute HeyCatch spacing (they don't appear in the feed).
+
+STORY_BASE = {"instagram_story": "instagram", "facebook_story": "facebook"}
+
+
+def story_pick(videos, posted, story_platform):
+    base = STORY_BASE[story_platform]
+    since = now() - dt.timedelta(hours=24)
+    done = {p["slug"] for p in posted if p["platform"] == story_platform
+            and p.get("status") == "posted" and parse_time(p["time"]) >= since}
+    reels = sorted((p for p in posted if p["platform"] == base and p.get("status") == "posted"
+                    and parse_time(p["time"]) >= since and p["slug"] not in done),
+                   key=lambda p: p["time"], reverse=True)
+    for r in reels:
+        v = next((v for v in videos if v["slug"] == r["slug"]), None)
+        if v and os.path.exists(os.path.join(ROOT, v["file"])):
+            return v
+    return None
+
+
 # ---------- main ----------
 
 def main():
@@ -275,7 +315,7 @@ def main():
     dry = os.environ.get("DRY_RUN") == "1"
     page_id = os.environ.get("FB_PAGE_ID") or "1291163214083476"
     ig_id = os.environ.get("IG_USER_ID") or "17841429324062623"
-    platforms = [p.strip() for p in (os.environ.get("PLATFORMS") or "instagram,facebook").split(",") if p.strip()]
+    platforms = [p.strip() for p in (os.environ.get("PLATFORMS") or "instagram,facebook,instagram_story,facebook_story").split(",") if p.strip()]
     force = (os.environ.get("SLUG") or "").strip() or None
 
     if not token and not dry:
@@ -301,7 +341,10 @@ def main():
     summary, failed = [], False
     scores = None
 
-    for platform in platforms:
+    reel_platforms = [p for p in platforms if p in ("instagram", "facebook")]
+    story_platforms = [p for p in platforms if p in STORY_BASE]
+
+    for platform in reel_platforms:
         video, repeat = pick(videos, posted, platform, force)
         if repeat and not force and token:
             # Only score when a repeat is due, so fresh weeks cost no extra calls.
@@ -341,6 +384,31 @@ def main():
             entry.update(status="failed", error=str(e)[:500])
             summary.append(f"{platform}: FAILED {video['slug']}: {e}")
             failed = True
+        posted.append(entry)
+
+    for platform in story_platforms:
+        video = story_pick(videos, posted, platform)
+        if dry:
+            # In a dry run the Reel above is not logged, so show what it would be.
+            summary.append(f"{platform}: would re-share {video['slug'] if video else 'the Reel posted above'} as a Story")
+            continue
+        if not video:
+            summary.append(f"{platform}: skipped, no new Reel in the last 24 hours to re-share")
+            continue
+        path = os.path.join(ROOT, video["file"])
+        entry = {"time": iso(now()), "platform": platform, "slug": video["slug"], "repeat": False}
+        try:
+            if platform == "instagram_story":
+                mid, link = ig_publish(token, ig_id, path, "", False, story=True)
+            else:
+                mid, link = fb_story_publish(token, page_id, path)
+            entry.update(status="posted", id=mid, url=link)
+            summary.append(f"{platform}: posted {video['slug']} {link}")
+        except GraphError as e:
+            # A failed Story never fails the run: the Reels are what matter.
+            entry.update(status="failed", error=str(e)[:500])
+            summary.append(f"{platform}: FAILED {video['slug']}: {e}")
+            print(f"::warning::{platform} failed: {str(e)[:300]}")
         posted.append(entry)
 
     if not dry:

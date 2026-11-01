@@ -1,6 +1,7 @@
 name: Reels to Instagram and Facebook
 
-# Two Reels a day on each platform. GitHub cron is UTC:
+# Two Reels a day on each platform, each re-shared to Stories right after.
+# GitHub cron is UTC:
 #   13:00 UTC = 7:00 am Central in winter (8:00 am in summer)
 #   22:30 UTC = 4:30 pm Central in winter (5:30 pm in summer)
 # HeyCatch posts at about :33 past 4 am, 12 pm and 8 pm Central, so both
@@ -13,8 +14,8 @@ on:
   workflow_dispatch:
     inputs:
       platforms:
-        description: "instagram,facebook or just one"
-        default: "instagram,facebook"
+        description: "any of instagram,facebook,instagram_story,facebook_story"
+        default: "instagram,facebook,instagram_story,facebook_story"
       slug:
         description: "Force one video (optional), e.g. spare-part"
         default: ""
@@ -38,7 +39,7 @@ jobs:
       - name: Post the next Reel
         env:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
-          PLATFORMS: ${{ inputs.platforms || 'instagram,facebook' }}
+          PLATFORMS: ${{ inputs.platforms || 'instagram,facebook,instagram_story,facebook_story' }}
           SLUG: ${{ inputs.slug }}
           DRY_RUN: ${{ inputs.dry_run || '0' }}
         run: python3 reels/post_reels.py
