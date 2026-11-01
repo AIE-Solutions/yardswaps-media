@@ -47,6 +47,28 @@ PLATFORM = "tiktok"
 MAX_OURS_PER_20H = 2
 SCHEDULE_AHEAD_MIN = 5      # Buffer publishes this many minutes after the run
 JSDELIVR_MAX_BYTES = 19_000_000  # jsDelivr serves GitHub files up to 20 MB
+HEYCATCH = os.path.join(ROOT, "reels", "heycatch-tiktok.json")
+# HeyCatch posts to TikTok at about :33 past 4 am, 12 pm and 8 pm Central.
+HEYCATCH_SLOTS_CENTRAL = [(4, 33), (12, 33), (20, 33)]
+HEYCATCH_CLEAR_MIN = 90
+
+
+def clear_of_heycatch(due):
+    """Move `due` (UTC) later until it is 90+ minutes from every HeyCatch slot."""
+    from zoneinfo import ZoneInfo
+    tz = ZoneInfo("America/Chicago")
+    for _ in range(6):
+        local = due.astimezone(tz)
+        clash = None
+        for day in (-1, 0, 1):
+            for h, m in HEYCATCH_SLOTS_CENTRAL:
+                slot = (local + dt.timedelta(days=day)).replace(hour=h, minute=m, second=0, microsecond=0)
+                if abs((local - slot).total_seconds()) < HEYCATCH_CLEAR_MIN * 60:
+                    clash = slot
+        if clash is None:
+            return due
+        due = (clash + dt.timedelta(minutes=HEYCATCH_CLEAR_MIN + 1)).astimezone(dt.timezone.utc)
+    return due
 
 
 # ---------- caption ----------
@@ -169,10 +191,14 @@ def main():
     # Count scheduled and posted as "used" for picking and the daily cap.
     used = [dict(p, platform=PLATFORM, status="posted") for p in posted
             if p.get("status") in ("posted", "scheduled", "unconfirmed")]
-    video, repeat = reels.pick(videos, used, PLATFORM, force)
+    # Videos HeyCatch already put on TikTok count as posted for the 10-day
+    # rule (but not for the daily cap): [{"slug": ..., "time": ISO}, ...].
+    hc = [dict(p, platform=PLATFORM, status="posted") for p in reels.load(HEYCATCH, [])
+          if p.get("slug") and p.get("time")]
+    video, repeat = reels.pick(videos, used + hc, PLATFORM, force)
     if repeat and not force and meta:
         scores = reels.ig_scores(meta, reels.load(reels.POSTED, []))
-        video, repeat = reels.pick(videos, used, PLATFORM, force, scores)
+        video, repeat = reels.pick(videos, used + hc, PLATFORM, force, scores)
 
     if not video:
         summary.append(f"tiktok: skipped, every video was posted in the last {reels.MIN_GAP_DAYS} days")
@@ -185,7 +211,7 @@ def main():
         elif not force and reels.ours_recent(used, PLATFORM) >= MAX_OURS_PER_20H:
             summary.append(f"tiktok: skipped, already posted {MAX_OURS_PER_20H} in the last 20 hours")
         else:
-            due = reels.now() + dt.timedelta(minutes=SCHEDULE_AHEAD_MIN)
+            due = clear_of_heycatch(reels.now() + dt.timedelta(minutes=SCHEDULE_AHEAD_MIN))
             entry = {"time": reels.iso(reels.now()), "platform": PLATFORM,
                      "slug": video["slug"], "repeat": repeat}
             try:

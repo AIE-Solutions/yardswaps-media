@@ -3,14 +3,15 @@ name: Videos to TikTok
 # Two TikToks a day through Buffer's free plan (see reels/post_tiktok.py for
 # why not TikTok's own API). GitHub cron is UTC:
 #   13:30 UTC = 7:30 am Central in winter (8:30 am in summer)
-#   00:30 UTC = 6:30 pm Central in winter (7:30 pm in summer)
+#   23:30 UTC = 5:30 pm Central in winter (6:30 pm in summer)
 # Both inside TikTok's morning and evening windows (POSTING-PACK.md) and 2+
-# hours clear of HeyCatch's 4:30 am / 12:30 pm / 8:30 pm Central slots.
+# hours clear of HeyCatch's 4:30 am / 12:30 pm / 8:30 pm Central slots,
+# and the script moves the publish time if it ever lands within 90 minutes.
 # The script hands each video to Buffer 5 minutes ahead; Buffer publishes it.
 on:
   schedule:
     - cron: "30 13 * * *"
-    - cron: "30 0 * * *"
+    - cron: "30 23 * * *"
   workflow_dispatch:
     inputs:
       slug:
