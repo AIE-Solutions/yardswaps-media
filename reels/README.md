@@ -1,4 +1,4 @@
-# Reels to Instagram and Facebook
+# Reels and Stories to Instagram and Facebook
 
 Free, automatic Reels for @yardswaps (Instagram) and the YardSwaps Facebook Page, posted by GitHub Actions (free for this public repo) through Meta's own API. No scheduler subscription, no Zapier tasks, nothing on anyone's computer.
 
@@ -7,6 +7,7 @@ Free, automatic Reels for @yardswaps (Instagram) and the YardSwaps Facebook Page
 - Picks the next video from `library.json`: videos never posted on that platform first (newest `added` first, then `priority`). Once every video has run, repeats go best performer first: each video's past Instagram Reels are scored by follows x10, shares x4, saves x3, comments x3, likes x1 (follows, shares and saves need the `instagram_manage_insights` permission; without it the score uses likes and comments). An optional `boost` number on a library entry adds to its score, so the weekly batch can push a cut that brought app signups. The same video never goes out twice on a platform within 10 days. On Instagram a repeat goes out as a Trial Reel (shown to non-followers first, shared to followers only if it does well), so followers don't see reruns.
 - Uploads the file from `library/` directly, builds the caption and writes the result to `posted.json` (time, platform, video, post id, link).
 - Safety cap: at most 2 of our Reels per platform in any 20 hours.
+- Stories: right after each Reel, the same video goes to the @yardswaps Instagram Story and the YardSwaps Page Story (2 Stories a day on each, each live 24 hours). A Story re-shares the newest Reel from the last 24 hours that hasn't been a Story yet, so a skipped Reel slot means no Story that slot. Stories don't count toward the Reel cap or the 90-minute spacing, and a failed Story never fails the run (it shows as a warning and `failed` in `posted.json`). The API can't add link stickers or captions to Stories, so the link lives in the bio and in the Reel caption. Same token and permissions as Reels (`instagram_content_publish`, `pages_manage_posts`).
 
 ## Captions (built by `post_reels.py` from each video's `body`, `question`, `ig_tags`)
 Goal: engagement, follows and app downloads. Every caption has the body, a follow line, the app link, hashtags, and ends with the open question.
@@ -22,7 +23,7 @@ For each new 9:16 video with music:
 Never delete `reels/` when clearing a week folder.
 
 ## Manual run
-Actions tab > "Reels to Instagram and Facebook" > Run workflow. `dry_run` = 1 shows the pick and both captions without posting; `slug` forces a video; `platforms` can be just `instagram` or `facebook`.
+Actions tab > "Reels to Instagram and Facebook" > Run workflow. `dry_run` = 1 shows the pick and both captions without posting; `slug` forces a video; `platforms` takes any of `instagram,facebook,instagram_story,facebook_story` (Stories alone re-share the latest Reel).
 
 ## One-time setup (Alan, about 10 minutes, all free)
 The workflow needs one Page access token, saved as the repo secret `META_PAGE_TOKEN`. Until it exists every run logs "not set yet" and posts nothing.
