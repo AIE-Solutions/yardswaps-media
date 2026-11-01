@@ -61,10 +61,44 @@ FOLLOW_IG = "Follow @yardswaps for a new one every day."
 FOLLOW_FB = "Follow the YardSwaps page for a new one every day."
 
 
-def ig_caption(v):
+# Broad hashtags from Meta's Page assistant (Nov 1): jobsite / trade tags reach
+# past people who already search a machine. Instagram allows 5 per post, so a
+# Reel keeps its 2 machine tags, always gets #UsedEquipment, and rotates 2 of the
+# rest. Facebook has no cap and gets the whole set. library.json "broad_tags"
+# overrides the list.
+BROAD_TAGS = ["#UsedEquipment", "#Jobsite", "#Tradespeople", "#IndustrialEquipment",
+              "#EquipmentMarketplace", "#VerifiedSeller"]
+GENERIC = {"#usedequipment", "#yardswaps", "#equipmentforsale", "#sellequipment",
+           "#sellyourequipment"}
+
+
+def machine_tags(v, n=2):
+    """The video's own tags that name a machine or trade, generic ones last."""
+    tags = v["ig_tags"].split()
+    specific = [t for t in tags if t.lower() not in GENERIC]
+    return (specific + [t for t in tags if t.lower() in GENERIC
+                        and t.lower() != "#usedequipment"])[:n]
+
+
+def ig_tags(v, turn=0):
+    if v.get("ig_tags_fixed"):
+        return v["ig_tags"]
+    rest = [t for t in BROAD_TAGS if t.lower() != "#usedequipment"]
+    k = (turn * 2) % len(rest)
+    rot = (rest + rest)[k:k + 2]
+    return " ".join(machine_tags(v) + [BROAD_TAGS[0]] + rot)
+
+
+def fb_tags(v):
+    if v.get("fb_tags"):
+        return v["fb_tags"]
+    return " ".join(machine_tags(v) + ["#YardSwaps"] + BROAD_TAGS)
+
+
+def ig_caption(v, turn=0):
     # Instagram captions don't click, so the short link is typed or found in bio.
     return (f"{v['body']}\n\n{FOLLOW_IG} Get the free YardSwaps app: "
-            f"yardswaps.com/i (link in bio).\n\n{v['ig_tags']}\n\n{v['question']}")
+            f"yardswaps.com/i (link in bio).\n\n{ig_tags(v, turn)}\n\n{v['question']}")
 
 
 def fb_caption(v):
@@ -72,7 +106,7 @@ def fb_caption(v):
     link = ("https://www.yardswaps.com/sell-equipment?utm_source=facebook"
             f"&utm_medium=social&utm_campaign=reels_{v['slug']}")
     return (f"{v['body']}\n\n{FOLLOW_FB} Get the free app and list it free: {link}"
-            f"\n\n{v.get('fb_tags') or v['ig_tags']}\n\n{v['question']}")
+            f"\n\n{fb_tags(v)}\n\n{v['question']}")
 
 
 # ---------- HTTP ----------
@@ -183,9 +217,17 @@ def ig_scores(token, posted, days=60):
 
 
 def ours_recent(posted, platform):
+    # One-off posts run by hand (SLUG set) are extra and don't use up a daily slot.
     since = now() - dt.timedelta(hours=20)
     return sum(1 for p in posted if p["platform"] == platform and p.get("status") == "posted"
-               and parse_time(p["time"]) >= since)
+               and not p.get("forced") and parse_time(p["time"]) >= since)
+
+
+def is_ours(posted, platform, when, slack_minutes=10):
+    """True when a post time on the account is one of our own logged posts."""
+    return any(p["platform"] == platform and p.get("status") == "posted"
+               and abs((parse_time(p["time"]) - when).total_seconds()) <= slack_minutes * 60
+               for p in posted)
 
 
 # ---------- Instagram ----------
@@ -402,6 +444,8 @@ def main():
     lib = load(LIBRARY, {"videos": []})
     videos = lib["videos"]
     LOCATIONS[:] = lib.get("locations", [])
+    if lib.get("broad_tags"):
+        BROAD_TAGS[:] = lib["broad_tags"]
     posted = load(POSTED, [])
     summary, failed = [], False
     scores = None
@@ -438,7 +482,8 @@ def main():
             summary.append(f"{platform}: skipped, every video was posted in the last {MIN_GAP_DAYS} days")
             continue
         path = os.path.join(ROOT, video["file"])
-        caption = ig_caption(video) if platform == "instagram" else fb_caption(video)
+        turn = sum(1 for p in posted if p["platform"] == platform and p.get("status") == "posted")
+        caption = ig_caption(video, turn) if platform == "instagram" else fb_caption(video)
         if dry:
             summary.append(f"{platform}: would post {video['slug']} (repeat={repeat})\n{caption}\n")
             continue
@@ -446,9 +491,13 @@ def main():
             summary.append(f"{platform}: skipped, already posted {MAX_OURS_PER_20H} in the last 20 hours")
             continue
         entry = {"time": iso(now()), "platform": platform, "slug": video["slug"], "repeat": repeat}
+        if force:
+            entry["forced"] = True
         try:
             last = ig_last_post_time(token, ig_id) if platform == "instagram" else fb_last_post_time(token, page_id)
-            if not force and last and now() - last < dt.timedelta(minutes=CLEAR_MINUTES):
+            # The 90-minute gap keeps clear of HeyCatch; our own one-off posts don't count.
+            if (not force and last and now() - last < dt.timedelta(minutes=CLEAR_MINUTES)
+                    and not is_ours(posted, platform, last)):
                 summary.append(f"{platform}: skipped, a post went up {int((now()-last).total_seconds()//60)} min ago (HeyCatch spacing)")
                 continue
         except GraphError as e:
