@@ -206,8 +206,11 @@ _RESOLVED = {}
 def wikidata_place_id(qid, name):
     """Facebook Places ID (Wikidata P1997) for a city, or None."""
     try:
-        with urllib.request.urlopen(f"https://www.wikidata.org/wiki/Special:EntityData/{qid}.json",
-                                    timeout=20) as r:
+        # Wikimedia refuses requests without a descriptive User-Agent.
+        req = urllib.request.Request(
+            f"https://www.wikidata.org/wiki/Special:EntityData/{qid}.json",
+            headers={"User-Agent": "yardswaps-reels/1.0 (https://github.com/AIE-Solutions/yardswaps-media; yardswaps@gmail.com)"})
+        with urllib.request.urlopen(req, timeout=20) as r:
             ent = json.loads(r.read())["entities"][qid]
     except Exception as e:  # network or format trouble: just skip the tag
         print(f"  wikidata lookup failed for {name}: {e}")
@@ -410,7 +413,9 @@ def main():
                     info = graph("GET", pid, token, fields="name,location")
                     summary.append(f"location day+{d}: {pid} = {info.get('name')} {info.get('location', {}).get('city', '')}")
                 except GraphError as e:
-                    summary.append(f"location day+{d}: {pid} REFUSED by Meta: {str(e)[:150]}")
+                    # Reading another Page needs extra Meta access; the real
+                    # test is whether a Reel container accepts the id.
+                    summary.append(f"location day+{d}: {location_entry(now().toordinal() + d)['name']} -> {pid} (Meta lookup not allowed: {str(e)[60:140]})")
             else:
                 summary.append(f"location day+{d}: {location_entry(now().toordinal() + d)['name']} -> {pid}")
 
