@@ -136,6 +136,17 @@ def ours_recent(posted, platform):
 
 # ---------- Instagram ----------
 
+def token_days_left(token):
+    """Days until the token stops working, or None if it never expires."""
+    d = graph("GET", "debug_token", token, input_token=token).get("data", {})
+    if d and not d.get("is_valid", True):
+        print(f"::warning::debug_token says META_PAGE_TOKEN is not valid: {d.get('error', d)}")
+    ends = [t for t in (d.get("expires_at"), d.get("data_access_expires_at")) if t]
+    if not ends:
+        return None
+    return (min(ends) - now().timestamp()) / 86400
+
+
 def ig_last_post_time(token, ig_id):
     r = graph("GET", f"{ig_id}/media", token, fields="timestamp", limit="3")
     times = [parse_time(m["timestamp"]) for m in r.get("data", []) if m.get("timestamp")]
@@ -218,6 +229,20 @@ def main():
         print("::notice::META_PAGE_TOKEN is not set yet, so nothing was posted. See reels/README.md.")
         return 0
 
+    renew_warning = None
+    if not dry:
+        try:
+            left = token_days_left(token)
+            if left is not None and left < 14:
+                renew_warning = (f"META_PAGE_TOKEN stops working in {left:.0f} days. "
+                                 "Make a new one (reels/README.md, steps 3-6) and replace the secret.")
+                print(f"::warning::{renew_warning}")
+        except GraphError as e:
+            # debug_token may refuse a Page token; the real calls below still
+            # fail loudly if the token is dead.
+            left = None
+            print(f"::warning::Could not check the token's expiry: {e}")
+
     videos = load(LIBRARY, {"videos": []})["videos"]
     posted = load(POSTED, [])
     summary, failed = [], False
@@ -265,6 +290,12 @@ def main():
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
             f.write("### Reels run\n\n```\n" + text + "\n```\n")
+    if renew_warning:
+        with open(os.environ.get("GITHUB_STEP_SUMMARY", os.devnull), "a", encoding="utf-8") as f:
+            f.write(f"\n**{renew_warning}**\n")
+    # Fail the run (GitHub emails the repo admin) once fewer than 7 days are left.
+    if renew_warning and left is not None and left < 7:
+        return 1
     return 1 if failed else 0
 
 
