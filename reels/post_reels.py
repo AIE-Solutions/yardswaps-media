@@ -38,7 +38,6 @@ MIN_GAP_DAYS = 10          # same video never twice on a platform inside this
 CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (HeyCatch)
 MAX_OURS_PER_20H = 2       # safety cap per platform, matches the two daily slots
 
-FB_TAGS = "#usedequipment #equipmentforsale #sellequipment"
 
 
 def now():
@@ -73,7 +72,7 @@ def fb_caption(v):
     link = ("https://www.yardswaps.com/sell-equipment?utm_source=facebook"
             f"&utm_medium=social&utm_campaign=reels_{v['slug']}")
     return (f"{v['body']}\n\n{FOLLOW_FB} Get the free app and list it free: {link}"
-            f"\n\n{FB_TAGS}\n\n{v['question']}")
+            f"\n\n{v.get('fb_tags') or v['ig_tags']}\n\n{v['question']}")
 
 
 # ---------- HTTP ----------
@@ -200,6 +199,16 @@ def token_days_left(token):
     return (min(ends) - now().timestamp()) / 86400
 
 
+LOCATIONS = []  # filled from library.json "locations": Facebook place Page ids
+
+
+def location_for(ig_id, caption):
+    """Rotate through the location tags in library.json, one per day."""
+    if not LOCATIONS:
+        return None
+    return str(LOCATIONS[now().toordinal() % len(LOCATIONS)]["id"])
+
+
 def ig_last_post_time(token, ig_id):
     r = graph("GET", f"{ig_id}/media", token, fields="timestamp", limit="3")
     times = [parse_time(m["timestamp"]) for m in r.get("data", []) if m.get("timestamp")]
@@ -214,18 +223,27 @@ def ig_publish(token, ig_id, path, caption, repeat, story=False):
     else:
         fields = {"media_type": "REELS", "upload_type": "resumable",
                   "caption": caption, "share_to_feed": "true"}
-    container = None
+    # Try the richest container first and fall back if Meta refuses a part:
+    # Trial Reel (repeats only) and location tag (Reels only).
+    attempts = []
+    loc = None if story else location_for(ig_id, caption)
     if repeat and not story:
-        # Repeats go out as Trial Reels: shown to non-followers first, shared
-        # to followers only if they do well. Fall back to a normal Reel.
+        trial = {"trial_params": json.dumps({"graduation_strategy": "SS_PERFORMANCE"})}
+        if loc:
+            attempts.append({**fields, **trial, "location_id": loc})
+        attempts.append({**fields, **trial})
+    if loc:
+        attempts.append({**fields, "location_id": loc})
+    attempts.append(fields)
+    container = None
+    for i, a in enumerate(attempts):
         try:
-            container = graph("POST", f"{ig_id}/media", token,
-                              trial_params=json.dumps({"graduation_strategy": "SS_PERFORMANCE"}),
-                              **fields)
+            container = graph("POST", f"{ig_id}/media", token, **a)
+            break
         except GraphError as e:
-            print(f"  trial reel refused, posting as a normal reel: {e}")
-    if container is None:
-        container = graph("POST", f"{ig_id}/media", token, **fields)
+            if i == len(attempts) - 1:
+                raise
+            print(f"  container refused ({', '.join(k for k in a if k in ('trial_params', 'location_id')) or 'plain'}), trying simpler: {str(e)[:200]}")
     cid = container["id"]
     with open(path, "rb") as f:
         blob = f.read()
@@ -336,7 +354,9 @@ def main():
             left = None
             print(f"::warning::Could not check the token's expiry: {e}")
 
-    videos = load(LIBRARY, {"videos": []})["videos"]
+    lib = load(LIBRARY, {"videos": []})
+    videos = lib["videos"]
+    LOCATIONS[:] = lib.get("locations", [])
     posted = load(POSTED, [])
     summary, failed = [], False
     scores = None

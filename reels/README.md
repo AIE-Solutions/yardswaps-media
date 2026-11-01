@@ -12,7 +12,9 @@ Free, automatic Reels for @yardswaps (Instagram) and the YardSwaps Facebook Page
 ## Captions (built by `post_reels.py` from each video's `body`, `question`, `ig_tags`)
 Goal: engagement, follows and app downloads. Every caption has the body, a follow line, the app link, hashtags, and ends with the open question.
 - Instagram: body; "Follow @yardswaps for a new one every day. Get the free YardSwaps app: yardswaps.com/i (link in bio)."; up to 5 hashtags; the question.
-- Facebook: body; "Follow the YardSwaps page for a new one every day. Get the free app and list it free: https://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=reels_<slug>" (clickable, so it carries a per-Reel tag instead of the /f short link); 3 hashtags; the question.
+- Facebook: body; "Follow the YardSwaps page for a new one every day. Get the free app and list it free: https://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=reels_<slug>" (clickable, so it carries a per-Reel tag instead of the /f short link); the video's own 5 hashtags (`fb_tags` if set, else `ig_tags`); the question.
+- Hashtags: Instagram allows at most 5 per post since Dec 2025, so each video carries 5 specific ones: 2-3 for its equipment (#forklift #forkliftforsale), 1 broad (#usedequipment) and #yardswaps. Facebook now uses the same 5.
+- Location tag: Instagram Reels are tagged with a place from `locations` in `library.json` (rotates daily; starts with Houston, Texas, Facebook place id 115963528414384). Add more `{"name", "id"}` entries (a Facebook place Page id) to rotate. If Meta refuses an id, the Reel posts without a location. Stories can't take a location or hashtags through the API.
 - Rules (CAPTIONS.md, ENGAGEMENT-PLAYBOOK.md, UTM-LINKS.md in the campaign folder): seller-first, the body says "Free to list" and "Free boosts", plain words, no emoji or icons, one open question about the viewer's own gear ending in "?", never promise views or sales, posted as the business. No #smallbusiness, #fyp, #reels, #explore.
 
 ## Adding new videos (weekly batch)
