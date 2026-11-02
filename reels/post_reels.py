@@ -37,7 +37,12 @@ POSTED = os.path.join(ROOT, "reels", "posted.json")
 MIN_GAP_DAYS = 10          # same video never twice on a platform inside this
 CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (HeyCatch)
 MAX_OURS_PER_20H = 2       # safety cap per platform, matches the two daily slots
-SLOT_HOURS = 3             # backup cron runs skip a slot that already posted this recently
+# Each day has two posting halves (UTC; Central is UTC-6 in winter). A scheduled
+# run posts only if its half has no scheduled post yet, so a late or backup run
+# never doubles up, and nothing posts overnight Central.
+MORNING_HALF_UTC = 10      # 10:00-20:00 UTC = 4 am-2 pm Central (slot 13:00 UTC)
+EVENING_HALF_UTC = 20      # 20:00-06:00 UTC = 2 pm-midnight Central (slot 22:30 UTC)
+QUIET_END_UTC = 6          # 06:00-10:00 UTC (midnight-4 am Central): no scheduled posts
 
 
 
@@ -224,8 +229,22 @@ def ours_recent(posted, platform):
                and not p.get("forced") and parse_time(p["time"]) >= since)
 
 
+def half_start(t):
+    """Start of the posting half that time t falls in, or None in the quiet hours."""
+    day = t.replace(minute=0, second=0, microsecond=0)
+    if MORNING_HALF_UTC <= t.hour < EVENING_HALF_UTC:
+        return day.replace(hour=MORNING_HALF_UTC)
+    if t.hour >= EVENING_HALF_UTC:
+        return day.replace(hour=EVENING_HALF_UTC)
+    if t.hour < QUIET_END_UTC:
+        return day.replace(hour=EVENING_HALF_UTC) - dt.timedelta(days=1)
+    return None
+
+
 def slot_done(posted, platform):
-    since = now() - dt.timedelta(hours=SLOT_HOURS)
+    since = half_start(now())
+    if since is None:
+        return True
     return any(p["platform"] == platform and p.get("status") == "posted"
                and not p.get("forced") and parse_time(p["time"]) >= since for p in posted)
 
@@ -494,11 +513,13 @@ def main():
         if dry:
             summary.append(f"{platform}: would post {video['slug']} (repeat={repeat})\n{caption}\n")
             continue
-        # GitHub sometimes starts a scheduled run late or drops it, so each slot
-        # has backup crons. The first one that runs posts; the rest see a
-        # scheduled post in the last few hours and stop.
+        # GitHub can start a scheduled run hours late or drop it, so each slot
+        # has backup crons. The first run in a half-day posts; the rest stop.
+        if not force and half_start(now()) is None:
+            summary.append(f"{platform}: skipped, overnight Central (no scheduled posts 06:00-10:00 UTC)")
+            continue
         if not force and slot_done(posted, platform):
-            summary.append(f"{platform}: skipped, this slot already posted (backup run)")
+            summary.append(f"{platform}: skipped, this half-day already posted (late or backup run)")
             continue
         if not force and ours_recent(posted, platform) >= MAX_OURS_PER_20H:
             summary.append(f"{platform}: skipped, already posted {MAX_OURS_PER_20H} in the last 20 hours")
