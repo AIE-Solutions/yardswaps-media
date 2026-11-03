@@ -1,0 +1,50 @@
+name: Metrics snapshot and scorecard
+
+# Daily: snapshot Instagram + Facebook numbers with the Reels token, then
+# rebuild metrics/scorecard.json, SCORECARD.md and rank.json (what the Reels
+# poster boosts and retires). Also runs when the Monday report pushes new
+# inputs (app growth digest, YouTube numbers) to metrics/inputs/.
+# On a pull request it runs both steps and commits nothing (a test run).
+on:
+  schedule:
+    - cron: "10 12 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "metrics/inputs/**"
+      - "metrics/formats.json"
+  pull_request:
+    paths:
+      - "metrics/**"
+      - ".github/workflows/metrics.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metrics
+  cancel-in-progress: false
+
+jobs:
+  scorecard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Snapshot Instagram and Facebook
+        if: github.event_name != 'push'
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+        run: python3 metrics/collect_meta.py
+      - name: Build the scorecard
+        run: python3 metrics/scorecard.py && cat metrics/SCORECARD.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Save
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "yardswaps-metrics-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add metrics/meta metrics/scorecard.json metrics/SCORECARD.md metrics/rank.json metrics/history.csv
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Scorecard $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3 4; do git pull --rebase -q && git push -q && break; sleep 7; done

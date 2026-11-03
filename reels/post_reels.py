@@ -33,6 +33,9 @@ RUPLOAD_IG = "https://rupload.facebook.com/ig-api-upload/v23.0"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIBRARY = os.path.join(ROOT, "reels", "library.json")
 POSTED = os.path.join(ROOT, "reels", "posted.json")
+# Written by metrics/scorecard.py (daily, metrics.yml): "boost" per slug for the
+# week's best Reels and "retire" for clear losers, which stop repeating.
+RANK = os.path.join(ROOT, "metrics", "rank.json")
 
 MIN_GAP_DAYS = 10          # same video never twice on a platform inside this
 CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (HeyCatch)
@@ -170,14 +173,23 @@ def pick(videos, posted, platform, force=None, scores=None):
     if fresh:
         fresh.sort(key=lambda v: (-int(v.get("added", "0").replace("-", "")), v.get("priority", 999)))
         return fresh[0], False
-    old = [v for v in usable if last[v["slug"]] <= cutoff]
+    rank = load(RANK, {})
+    retired = rank.get("retire") or {}
+    old = [v for v in usable if last[v["slug"]] <= cutoff and v["slug"] not in retired]
     if not old:
         return None, False
     # Repeats: best performer first (follows weigh most), then the one
     # posted longest ago. `boost` in library.json lets the weekly batch push
-    # a cut up by hand, for example one that brought app signups.
+    # a cut up by hand; metrics/rank.json adds the scorecard's boost for the
+    # week's measured winners (IG + FB engagement and Reel-link signups).
     scores = scores or {}
-    old.sort(key=lambda v: (-(scores.get(v["slug"], 0) + v.get("boost", 0)), last[v["slug"]]))
+    auto = rank.get("boost") or {}
+    # Once the scorecard is running (rank.json from the last 8 days), its
+    # measured boosts replace the hand-set ones; an entry can keep its hand
+    # boost with "boost_keep": true.
+    fresh_rank = bool(rank.get("generatedAt")) and parse_time(rank["generatedAt"]) >= now() - dt.timedelta(days=8)
+    hand = lambda v: v.get("boost", 0) if (not fresh_rank or v.get("boost_keep")) else 0
+    old.sort(key=lambda v: (-(scores.get(v["slug"], 0) + hand(v) + auto.get(v["slug"], 0)), last[v["slug"]]))
     return old[0], True
 
 
