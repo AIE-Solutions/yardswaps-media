@@ -46,6 +46,9 @@ MAX_OURS_PER_20H = 2       # safety cap per platform, matches the two daily slot
 MORNING_HALF_UTC = 10      # 10:00-20:00 UTC = 4 am-2 pm Central (slot 13:00 UTC)
 EVENING_HALF_UTC = 20      # 20:00-06:00 UTC = 2 pm-midnight Central (slot 22:30 UTC)
 QUIET_END_UTC = 6          # 06:00-10:00 UTC (midnight-4 am Central): no scheduled posts
+MORNING_OPEN_UTC = (12, 55)  # a scheduled run posts the morning Reel from 12:55 UTC on
+EVENING_OPEN_UTC = (22, 25)  # and the evening Reel from 22:25 UTC on, so a morning run that
+                             # GitHub starts 7 hours late doesn't post the 4:30 pm Reel at 2 pm
 
 
 
@@ -251,6 +254,16 @@ def half_start(t):
     if t.hour < QUIET_END_UTC:
         return day.replace(hour=EVENING_HALF_UTC) - dt.timedelta(days=1)
     return None
+
+
+def before_slot(t):
+    """True between the start of a half-day and its slot time, when a scheduled run waits."""
+    hm = (t.hour, t.minute)
+    if MORNING_HALF_UTC <= t.hour < EVENING_HALF_UTC:
+        return hm < MORNING_OPEN_UTC
+    if t.hour >= EVENING_HALF_UTC:
+        return hm < EVENING_OPEN_UTC
+    return False
 
 
 def slot_done(posted, platform):
@@ -529,6 +542,9 @@ def main():
         # has backup crons. The first run in a half-day posts; the rest stop.
         if not force and half_start(now()) is None:
             summary.append(f"{platform}: skipped, overnight Central (no scheduled posts 06:00-10:00 UTC)")
+            continue
+        if not force and before_slot(now()):
+            summary.append(f"{platform}: skipped, before this half-day's slot time (a late run from the last slot)")
             continue
         if not force and slot_done(posted, platform):
             summary.append(f"{platform}: skipped, this half-day already posted (late or backup run)")
