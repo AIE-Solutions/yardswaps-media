@@ -6,10 +6,10 @@
    "id": "1291163214083476"
   },
   "instagram": {
-   "followers_count": 12,
+   "followers_count": 13,
    "follows_count": 56,
    "id": "17841429324062623",
-   "media_count": 102
+   "media_count": 104
   }
  },
  "errors": [],
@@ -45,30 +45,38 @@
    "repeat": false,
    "slug": "part-tag-scan",
    "time": "2026-11-02T22:14:39Z"
+  },
+  {
+   "comments": 0,
+   "id": "1109218535312659",
+   "likes": 0,
+   "repeat": false,
+   "slug": "plumbing-part-label",
+   "time": "2026-11-03T14:58:08Z"
   }
  ],
  "insights": {
   "refused": [
-   "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ARpHxLSlJkCW4Oe7ltSUn7V\"}}",
-   "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AFGPBoxrDt1GzG31FVGMU8s\"}}",
-   "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AeahBWFlUaNIrO0d12im-jg\"}}",
-   "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AjQKMuCKYSmz3IIQI4YTmA6\"}}",
-   "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AwfZMWOwcUQLtfrsySAM7cI\"}}",
-   "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AnjY4sStzMEKm6IDqUKcS1X\"}}",
-   "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ara-fYyuDV8TxG5UePY9xum\"}}",
-   "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AkWuD920fkMvhP8pj2TlU6K\"}}",
-   "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AKGpuZBM0GZ4Bx0ocYnDdEs\"}}",
-   "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AqzIapA4Bh2T9SPIVheu9dj\"}}",
-   "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AIcVGXfYqovZFVh82T7VlhC\"}}",
-   "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AIYZ6Vqgv_PUp-VG402LP14\"}}",
-   "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AvBxLByuOfOFFLT3dwYQsis\"}}",
-   "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AmXJCbvhXXvivWq_neAJNYz\"}}",
-   "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AGyBGZ86gTi7amN2P8JnXf4\"}}",
-   "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"Ac7w_kWEV_xdlpPxVNhjl84\"}}",
-   "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"ADXeQMqY1bdC_anLLO1J5jf\"}}",
-   "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AVKohs2L88dFaROC4_hK9M3\"}}",
-   "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AEf2ZGpzb7Zf55niH4caobh\"}}",
-   "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AL9vMhhjIHNHV_6HrJghZFo\"}}"
+   "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AGfG4HVqVo62_0FGMTK7iQi\"}}",
+   "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AKQ_ysXa-QqXptCXrXGbil9\"}}",
+   "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AxD7VTlgdi0iBmmiBTEp52P\"}}",
+   "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ai13VqnEqMNgBydTN5eJL4z\"}}",
+   "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AuUaGd-lTm6c-OUUdYhyv0x\"}}",
+   "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AFXWTC4WL9v8WNVT8aJjgce\"}}",
+   "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AEEpXYXl8p98ng79m4GJ9oy\"}}",
+   "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ac5nQCVNZG80IG4O-qiNcxv\"}}",
+   "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AwvoYTtrJ2rk42SK4mTguNx\"}}",
+   "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A46VQ2nfPbIc0yGAPryx7O2\"}}",
+   "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A0RmN1IBpRsVAsA1CPer7Ub\"}}",
+   "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ao23XUZ_EcAng8jZO_PGrSR\"}}",
+   "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A7x-P2MyNijlkRLbZl3dM5T\"}}",
+   "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ALXgNUPtEV7t4znI4UsySmc\"}}",
+   "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Awmb0tDGoaD3TIQgyjeMazd\"}}",
+   "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AXDofJMbgaKWqnBhjS-NtE5\"}}",
+   "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AWTeuRCo00xQESH9L4S9xNy\"}}",
+   "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AXUYOCqxfOWpB74-5O63y_f\"}}",
+   "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"ArlpPKUCyvrQrn2SrI-IGdk\"}}",
+   "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AIMsyl6WX6b2q_iZbSEClXM\"}}"
   ],
   "usable": {
    "fb_reels_total_plays,blue_reels_play_count,post_impressions_unique,post_video_avg_time_watched,post_video_followers,post_video_social_actions": [],
@@ -77,6 +85,30 @@
   }
  },
  "instagram": [
+  {
+   "caption": "the part number is missing",
+   "comments": 0,
+   "id": "18141395254616024",
+   "likes": 1,
+   "ours": false,
+   "permalink": "https://www.instagram.com/reel/DfSiNq2mQfq/",
+   "repeat": false,
+   "slug": null,
+   "time": "2026-11-03T18:33:42Z",
+   "type": "REELS"
+  },
+  {
+   "caption": "POV: one brass fitting left from the water job.",
+   "comments": 0,
+   "id": "18114741290274727",
+   "likes": 1,
+   "ours": true,
+   "permalink": "https://www.instagram.com/reel/DfSJivFiQ8p/",
+   "repeat": false,
+   "slug": "plumbing-part-label",
+   "time": "2026-11-03T14:58:01Z",
+   "type": "REELS"
+  },
   {
    "caption": "No clue what those cylinders on the pallet are? The tag knows, and so does the app.",
    "comments": 0,
@@ -652,32 +684,8 @@
    "slug": null,
    "time": "2026-10-19T05:35:54Z",
    "type": "FEED"
-  },
-  {
-   "caption": "YardSwaps says the new-equipment bill ain't touching my cash flow",
-   "comments": 0,
-   "id": "17898158847608662",
-   "likes": 2,
-   "ours": false,
-   "permalink": "https://www.instagram.com/reel/DeqG5JMDeRk/",
-   "repeat": false,
-   "slug": null,
-   "time": "2026-10-19T01:45:23Z",
-   "type": "REELS"
-  },
-  {
-   "caption": "POV: me signing the no-new-debt anthem after finding used commercial equipment nearby",
-   "comments": 0,
-   "id": "17887132785623470",
-   "likes": 1,
-   "ours": false,
-   "permalink": "https://www.instagram.com/reel/DepQDzhDP6i/",
-   "repeat": false,
-   "slug": null,
-   "time": "2026-10-18T17:46:29Z",
-   "type": "REELS"
   }
  ],
- "takenAt": "2026-11-03T12:01:13Z",
+ "takenAt": "2026-11-03T19:30:54Z",
  "v": 1
 }
