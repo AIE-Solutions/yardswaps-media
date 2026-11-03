@@ -32,8 +32,8 @@ DAYS = 45
 IG_REEL_METRICS = ["views", "reach", "likes", "comments", "shares", "saved", "follows",
                    "total_interactions", "ig_reels_avg_watch_time"]
 IG_FEED_METRICS = ["views", "reach", "shares", "saved", "follows", "total_interactions"]
-FB_REEL_METRICS = ["blue_reels_play_count", "post_impressions_unique", "post_video_avg_time_watched",
-                   "post_video_followers", "post_video_social_actions"]
+FB_REEL_METRICS = ["fb_reels_total_plays", "blue_reels_play_count", "post_impressions_unique",
+                   "post_video_avg_time_watched", "post_video_followers", "post_video_social_actions"]
 
 
 def first_line(text, n=90):

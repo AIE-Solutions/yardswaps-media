@@ -72,7 +72,11 @@ def num(x):
 
 def points(row):
     p = sum(w * num(row.get(k)) for k, w in WEIGHTS.items())
-    return p + VIEW_POINTS * num(row.get("views") or row.get("blue_reels_play_count"))
+    return p + VIEW_POINTS * reel_views(row)
+
+
+def reel_views(row):
+    return num(row.get("views") or row.get("fb_reels_total_plays") or row.get("blue_reels_play_count"))
 
 
 def snapshots():
@@ -133,7 +137,7 @@ def reel_scores(snap, formats, growth, now):
         s["posts"] += 1
         for k in ("likes", "comments", "shares", "saved", "follows"):
             s[k] += int(num(r.get(k)))
-        s["views"] += int(num(r.get("views") or r.get("blue_reels_play_count")))
+        s["views"] += int(reel_views(r))
         if settled:
             s["settled"] += 1
             s["igSettled"] += r["platform"] == "instagram"
