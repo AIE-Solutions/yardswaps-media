@@ -44,7 +44,9 @@ jobs:
         run: |
           git config user.name "yardswaps-metrics-bot"
           git config user.email "yardswaps@gmail.com"
-          git add metrics/meta metrics/scorecard.json metrics/SCORECARD.md metrics/rank.json metrics/history.csv
+          for f in metrics/meta metrics/scorecard.json metrics/SCORECARD.md metrics/rank.json metrics/history.csv; do
+            if [ -e "$f" ]; then git add "$f"; fi
+          done
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Scorecard $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3 4; do git pull --rebase -q && git push -q && break; sleep 7; done
