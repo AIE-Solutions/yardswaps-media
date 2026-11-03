@@ -43,3 +43,6 @@ Then tell the project thread "token added": it runs one test post to each platfo
 
 ## Renewal
 Current token: Page token for page 1291163214083476 from Meta app "YardSwaps Reels" (id 2302671600666026), set 2026-11-01, expires about 2026-12-31. Every run checks the expiry: under 14 days left it adds a warning to the run summary, and under 7 days the run fails so GitHub emails the repo admin (it still posts that run). To renew, redo steps 3 to 6 and replace the secret. The token also stops early if the Facebook password changes, the app is removed, or the account loses admin of the Page.
+
+## Scorecard (added 2026-11-03)
+`metrics/` measures every Reel daily (`.github/workflows/metrics.yml`) and writes `metrics/rank.json`. Repeats now use it: the 3 best measured Reels get a boost, clear losers stop repeating ("retire"), and while the scorecard is fresh the hand-set `boost` numbers here are ignored unless the entry says `"boost_keep": true`. Each new slug also needs a row in `metrics/formats.json` (hook, angle, category). Details: `metrics/README.md`.
