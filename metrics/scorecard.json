@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-03",
- "generatedAt": "2026-11-03T19:31:01Z",
+ "generatedAt": "2026-11-04T15:23:16Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": false,
@@ -33,14 +33,33 @@
   "heardFrom7d": null
  },
  "reels": {
-  "median": null,
+  "median": 1.0,
   "slugs": [
+   {
+    "slug": "surplus-parts-cash-flow",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 9.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 2,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 4.5,
+    "hook": "pov-idle",
+    "angle": "parts-spec",
+    "category": "parts",
+    "ratio": 4.5
+   },
    {
     "slug": "forklift-finally-deal",
     "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 2.0,
     "views": 0,
     "likes": 2,
     "comments": 0,
@@ -48,18 +67,18 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 1.0,
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "forklifts",
-    "ratio": null
+    "ratio": 1.0
    },
    {
     "slug": "forklift-sitting-there",
     "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 2.0,
     "views": 0,
     "likes": 2,
     "comments": 0,
@@ -67,11 +86,11 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 1.0,
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "forklifts",
-    "ratio": null
+    "ratio": 1.0
    },
    {
     "slug": "part-tag-scan",
@@ -110,25 +129,6 @@
     "angle": "shelf-parts",
     "category": "parts",
     "ratio": null
-   },
-   {
-    "slug": "surplus-parts-cash-flow",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 3,
-    "comments": 2,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "parts-spec",
-    "category": "parts",
-    "ratio": null
    }
   ],
   "insights": {
@@ -162,9 +162,66 @@
   }
  },
  "formats": {
-  "hook": [],
-  "angle": [],
-  "category": []
+  "hook": [
+   {
+    "value": "pov-idle",
+    "posts": 6,
+    "perPost": 2.17,
+    "ratio": 2.17,
+    "verdict": "winner",
+    "slugs": [
+     "surplus-parts-cash-flow",
+     "forklift-finally-deal",
+     "forklift-sitting-there"
+    ]
+   }
+  ],
+  "angle": [
+   {
+    "value": "parts-spec",
+    "posts": 2,
+    "perPost": 4.5,
+    "ratio": 4.5,
+    "verdict": "testing",
+    "slugs": [
+     "surplus-parts-cash-flow"
+    ]
+   },
+   {
+    "value": "idle-gear",
+    "posts": 4,
+    "perPost": 1.0,
+    "ratio": 1.0,
+    "verdict": "average",
+    "slugs": [
+     "forklift-finally-deal",
+     "forklift-sitting-there"
+    ]
+   }
+  ],
+  "category": [
+   {
+    "value": "parts",
+    "posts": 2,
+    "perPost": 4.5,
+    "ratio": 4.5,
+    "verdict": "testing",
+    "slugs": [
+     "surplus-parts-cash-flow"
+    ]
+   },
+   {
+    "value": "forklifts",
+    "posts": 4,
+    "perPost": 1.0,
+    "ratio": 1.0,
+    "verdict": "average",
+    "slugs": [
+     "forklift-finally-deal",
+     "forklift-sitting-there"
+    ]
+   }
+  ]
  },
  "youtube": null,
  "demand": {
@@ -174,11 +231,17 @@
  },
  "outreach": null,
  "actions": {
-  "boost": {},
+  "boost": {
+   "surplus-parts-cash-flow": 60
+  },
   "retire": {},
   "buildNext": {
-   "hooks": [],
-   "angles": [],
+   "hooks": [
+    "pov-idle"
+   ],
+   "angles": [
+    "parts-spec"
+   ],
    "categories": [],
    "stopMaking": []
   }
