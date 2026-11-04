@@ -1,185 +1,200 @@
 {
- "_about": "Format tags per video slug, read by metrics/scorecard.py to rank opener shapes (hook), topics (angle) and categories. The Monday batch adds a row for every new slug. hook: pov-idle (POV: the X nobody has touched), question-problem (a jobsite question or problem), me-humor, feature-statement (states an app feature). angle: idle-gear, parts-spec, shelf-parts (Alan's Nov 3 theme: gear laying around, parts stuck on a shelf, scan them for extra cash), small-items, buyer-feature, seller-offer, seller-tip, dealer. category: an id from CATEGORIES in the app (packages/shared/src/listings.ts).",
- "videos": {
-  "part-tag-scan": {
-   "hook": "question-problem",
-   "angle": "parts-spec",
-   "category": "parts"
-  },
-  "forklift-finally-deal": {
-   "hook": "pov-idle",
-   "angle": "idle-gear",
-   "category": "forklifts"
-  },
-  "forklift-sitting-there": {
-   "hook": "pov-idle",
-   "angle": "idle-gear",
-   "category": "forklifts"
-  },
-  "surplus-parts-cash-flow": {
-   "hook": "pov-idle",
-   "angle": "parts-spec",
-   "category": "parts"
-  },
-  "surplus-parts-labels": {
-   "hook": "pov-idle",
-   "angle": "parts-spec",
-   "category": "parts"
-  },
-  "find-it-nearby": {
-   "hook": "feature-statement",
-   "angle": "buyer-feature",
-   "category": "forklifts"
-  },
-  "micrometer-set-small-tools": {
-   "hook": "pov-idle",
-   "angle": "small-items",
-   "category": "machining"
-  },
-  "spare-part": {
-   "hook": "question-problem",
-   "angle": "parts-spec",
-   "category": "pumps"
-  },
-  "that-trailer-next-season": {
-   "hook": "me-humor",
-   "angle": "idle-gear",
-   "category": "trailers"
-  },
-  "condenser-changeout": {
-   "hook": "pov-idle",
-   "angle": "idle-gear",
-   "category": "hvac"
-  },
-  "save-a-search": {
-   "hook": "feature-statement",
-   "angle": "buyer-feature",
-   "category": "aerial"
-  },
-  "commercial-idle-forklift": {
-   "hook": "pov-idle",
-   "angle": "idle-gear",
-   "category": "forklifts"
-  },
-  "pressure-washer-replaced": {
-   "hook": "pov-idle",
-   "angle": "idle-gear",
-   "category": "pressure"
-  },
-  "message-the-seller": {
-   "hook": "feature-statement",
-   "angle": "buyer-feature",
-   "category": "forklifts"
-  },
-  "snap-it-list-it": {
-   "hook": "question-problem",
-   "angle": "idle-gear",
-   "category": "compressors"
-  },
-  "air-mover-fleet": {
-   "hook": "pov-idle",
-   "angle": "small-items",
-   "category": "environmental"
-  },
-  "make-an-offer": {
-   "hook": "feature-statement",
-   "angle": "buyer-feature",
-   "category": "forklifts"
-  },
-  "list-4-boosted-free": {
-   "hook": "pov-idle",
-   "angle": "seller-offer",
-   "category": "trailers"
-  },
-  "boring-bars-tooling": {
-   "hook": "pov-idle",
-   "angle": "small-items",
-   "category": "machining"
-  },
-  "ai-lists-it": {
-   "hook": "feature-statement",
-   "angle": "seller-offer",
-   "category": "compressors"
-  },
-  "invite-a-seller": {
-   "hook": "question-problem",
-   "angle": "seller-offer",
-   "category": "agriculture"
-  },
-  "spare-truck-wheel": {
-   "hook": "pov-idle",
-   "angle": "parts-spec",
-   "category": "fleet"
-  },
-  "show-the-cold-start": {
-   "hook": "question-problem",
-   "angle": "seller-tip",
-   "category": "compressors"
-  },
-  "sold-it-list-the-next": {
-   "hook": "question-problem",
-   "angle": "seller-tip",
-   "category": "fleet"
-  },
-  "chop-saw-small-tools": {
-   "hook": "pov-idle",
-   "angle": "small-items",
-   "category": "tools"
-  },
-  "already-on-craigslist": {
-   "hook": "pov-idle",
-   "angle": "seller-offer",
-   "category": "fleet"
-  },
-  "free-to-list": {
-   "hook": "feature-statement",
-   "angle": "seller-offer",
-   "category": "parts"
-  },
-  "leftover-anchor-adhesive": {
-   "hook": "pov-idle",
-   "angle": "small-items",
-   "category": "concrete"
-  },
-  "every-category": {
-   "hook": "feature-statement",
-   "angle": "seller-offer",
-   "category": "parts"
-  },
-  "follow-a-seller": {
-   "hook": "feature-statement",
-   "angle": "buyer-feature",
-   "category": "parts"
-  },
-  "dealer-storefront": {
-   "hook": "question-problem",
-   "angle": "dealer",
-   "category": "parts"
-  },
-  "see-what-buyers-want": {
-   "hook": "feature-statement",
-   "angle": "dealer",
-   "category": "aerial"
-  },
-  "parts-donor-thumb": {
-   "hook": "pov-idle",
-   "angle": "shelf-parts",
-   "category": "excavators"
-  },
-  "parts-bin-lot": {
-   "hook": "pov-idle",
-   "angle": "shelf-parts",
-   "category": "machining"
-  },
-  "plumbing-part-label": {
-   "hook": "pov-idle",
-   "angle": "shelf-parts",
-   "category": "parts"
-  },
-  "leftover-fittings-lot": {
-   "hook": "pov-idle",
-   "angle": "shelf-parts",
-   "category": "parts"
+  "_about": "Format tags per video slug, read by metrics/scorecard.py to rank opener shapes (hook), topics (angle) and categories. The Monday batch adds a row for every new slug. hook: pov-idle (POV: the X nobody has touched), question-problem (a jobsite question or problem), me-humor, feature-statement (states an app feature). angle: idle-gear, parts-spec, shelf-parts (Alan's Nov 3 theme: gear laying around, parts stuck on a shelf, scan them for extra cash), small-items, buyer-feature, seller-offer, seller-tip, dealer. category: an id from CATEGORIES in the app (packages/shared/src/listings.ts).",
+  "videos": {
+    "part-tag-scan": {
+      "hook": "question-problem",
+      "angle": "parts-spec",
+      "category": "parts"
+    },
+    "forklift-finally-deal": {
+      "hook": "pov-idle",
+      "angle": "idle-gear",
+      "category": "forklifts"
+    },
+    "forklift-sitting-there": {
+      "hook": "pov-idle",
+      "angle": "idle-gear",
+      "category": "forklifts"
+    },
+    "surplus-parts-cash-flow": {
+      "hook": "pov-idle",
+      "angle": "parts-spec",
+      "category": "parts"
+    },
+    "surplus-parts-labels": {
+      "hook": "pov-idle",
+      "angle": "parts-spec",
+      "category": "parts"
+    },
+    "find-it-nearby": {
+      "hook": "feature-statement",
+      "angle": "buyer-feature",
+      "category": "forklifts"
+    },
+    "micrometer-set-small-tools": {
+      "hook": "pov-idle",
+      "angle": "small-items",
+      "category": "machining"
+    },
+    "spare-part": {
+      "hook": "question-problem",
+      "angle": "parts-spec",
+      "category": "pumps"
+    },
+    "that-trailer-next-season": {
+      "hook": "me-humor",
+      "angle": "idle-gear",
+      "category": "trailers"
+    },
+    "condenser-changeout": {
+      "hook": "pov-idle",
+      "angle": "idle-gear",
+      "category": "hvac"
+    },
+    "save-a-search": {
+      "hook": "feature-statement",
+      "angle": "buyer-feature",
+      "category": "aerial"
+    },
+    "commercial-idle-forklift": {
+      "hook": "pov-idle",
+      "angle": "idle-gear",
+      "category": "forklifts"
+    },
+    "pressure-washer-replaced": {
+      "hook": "pov-idle",
+      "angle": "idle-gear",
+      "category": "pressure"
+    },
+    "message-the-seller": {
+      "hook": "feature-statement",
+      "angle": "buyer-feature",
+      "category": "forklifts"
+    },
+    "snap-it-list-it": {
+      "hook": "question-problem",
+      "angle": "idle-gear",
+      "category": "compressors"
+    },
+    "air-mover-fleet": {
+      "hook": "pov-idle",
+      "angle": "small-items",
+      "category": "environmental"
+    },
+    "make-an-offer": {
+      "hook": "feature-statement",
+      "angle": "buyer-feature",
+      "category": "forklifts"
+    },
+    "list-4-boosted-free": {
+      "hook": "pov-idle",
+      "angle": "seller-offer",
+      "category": "trailers"
+    },
+    "boring-bars-tooling": {
+      "hook": "pov-idle",
+      "angle": "small-items",
+      "category": "machining"
+    },
+    "ai-lists-it": {
+      "hook": "feature-statement",
+      "angle": "seller-offer",
+      "category": "compressors"
+    },
+    "invite-a-seller": {
+      "hook": "question-problem",
+      "angle": "seller-offer",
+      "category": "agriculture"
+    },
+    "spare-truck-wheel": {
+      "hook": "pov-idle",
+      "angle": "parts-spec",
+      "category": "fleet"
+    },
+    "show-the-cold-start": {
+      "hook": "question-problem",
+      "angle": "seller-tip",
+      "category": "compressors"
+    },
+    "sold-it-list-the-next": {
+      "hook": "question-problem",
+      "angle": "seller-tip",
+      "category": "fleet"
+    },
+    "chop-saw-small-tools": {
+      "hook": "pov-idle",
+      "angle": "small-items",
+      "category": "tools"
+    },
+    "already-on-craigslist": {
+      "hook": "pov-idle",
+      "angle": "seller-offer",
+      "category": "fleet"
+    },
+    "free-to-list": {
+      "hook": "feature-statement",
+      "angle": "seller-offer",
+      "category": "parts"
+    },
+    "leftover-anchor-adhesive": {
+      "hook": "pov-idle",
+      "angle": "small-items",
+      "category": "concrete"
+    },
+    "every-category": {
+      "hook": "feature-statement",
+      "angle": "seller-offer",
+      "category": "parts"
+    },
+    "follow-a-seller": {
+      "hook": "feature-statement",
+      "angle": "buyer-feature",
+      "category": "parts"
+    },
+    "dealer-storefront": {
+      "hook": "question-problem",
+      "angle": "dealer",
+      "category": "parts"
+    },
+    "see-what-buyers-want": {
+      "hook": "feature-statement",
+      "angle": "dealer",
+      "category": "aerial"
+    },
+    "parts-donor-thumb": {
+      "hook": "pov-idle",
+      "angle": "shelf-parts",
+      "category": "excavators"
+    },
+    "parts-bin-lot": {
+      "hook": "pov-idle",
+      "angle": "shelf-parts",
+      "category": "machining"
+    },
+    "plumbing-part-label": {
+      "hook": "pov-idle",
+      "angle": "shelf-parts",
+      "category": "parts"
+    },
+    "leftover-fittings-lot": {
+      "hook": "pov-idle",
+      "angle": "shelf-parts",
+      "category": "parts"
+    },
+    "stripped-well-pump": {
+      "hook": "pov-idle",
+      "angle": "shelf-parts",
+      "category": "parts"
+    },
+    "control-panel-pulled": {
+      "hook": "pov-idle",
+      "angle": "idle-gear",
+      "category": "electrical"
+    },
+    "drilling-rig-parked": {
+      "hook": "pov-idle",
+      "angle": "idle-gear",
+      "category": "drilling"
+    }
   }
- }
 }
