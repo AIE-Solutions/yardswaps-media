@@ -1,9 +1,9 @@
 # YardSwaps weekly scorecard (2026-11-03)
 
-Generated 2026-11-04T15:23:16Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest MISSING, app ops digest yes, youtube MISSING, metricool MISSING.
+Generated 2026-11-04T19:43:46Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest MISSING, app ops digest yes, youtube MISSING, metricool MISSING.
 
 ## Goals
-- Instagram followers: 13 (0 in 7 days)
+- Instagram followers: 53 (+40 in 7 days)
 - Facebook followers: 11 (0 in 7 days)
 - Signups 7d: 10 (prev 5); from the app (iOS/Android): 2
 - Listings published 7d: 15 (prev 8); live now: 29
@@ -16,8 +16,10 @@ Median points per post: 1.0. Points = follows x10, shares x4, saves x3, comments
 | surplus-parts-cash-flow | 2 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | 4.5 | 4.5 |
 | forklift-finally-deal | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | forklift-sitting-there | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
+| find-it-nearby | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | part-tag-scan | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| plumbing-part-label | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| parts-donor-thumb | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| plumbing-part-label | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
 
 ### Opener shapes
 - pov-idle: 2.17 points/post over 6 posts (winner)
