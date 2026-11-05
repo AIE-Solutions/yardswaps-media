@@ -82,6 +82,10 @@ def main():
     posted = load(POSTED, [])
     ours_ig = {p["id"]: p for p in posted if p.get("platform") == "instagram" and p.get("status") == "posted" and p.get("id")}
     ours_fb = [p for p in posted if p.get("platform") == "facebook" and p.get("status") == "posted" and p.get("id")]
+    # Daily "Just listed" photo posts (listings/just_listed.py): ours, tagged so
+    # the scorecard can compare them with Reels.
+    listing_ig = {p["id"]: p for p in load(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "listings", "posted.json"), [])
+                  if p.get("platform") == "instagram" and p.get("status") == "posted" and p.get("id")}
     snap = {"v": 1, "takenAt": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "account": {}, "instagram": [], "facebook": [], "insights": {}}
     errors = []
 
@@ -107,7 +111,8 @@ def main():
                 "id": m["id"], "time": m["timestamp"][:19] + "Z", "type": m.get("media_product_type") or m.get("media_type"),
                 "permalink": m.get("permalink"), "caption": first_line(m.get("caption")),
                 "likes": m.get("like_count", 0), "comments": m.get("comments_count", 0),
-                "ours": m["id"] in ours_ig, "slug": ours_ig.get(m["id"], {}).get("slug"),
+                "ours": m["id"] in ours_ig or m["id"] in listing_ig, "slug": ours_ig.get(m["id"], {}).get("slug"),
+                "listing": listing_ig.get(m["id"], {}).get("listing_id"),
                 "repeat": bool(ours_ig.get(m["id"], {}).get("repeat")),
             }
             row.update(insights(f"{m['id']}/insights", IG_REEL_METRICS if reel else IG_FEED_METRICS, token, cache))

@@ -274,11 +274,15 @@ def slot_done(posted, platform):
                and not p.get("forced") and parse_time(p["time"]) >= since for p in posted)
 
 
+LISTINGS_POSTED = os.path.join(ROOT, "listings", "posted.json")
+
+
 def is_ours(posted, platform, when, slack_minutes=10):
-    """True when a post time on the account is one of our own logged posts."""
+    """True when a post time on the account is one of our own logged posts
+    (Reels, or the daily "Just listed" photo post from listings/)."""
     return any(p["platform"] == platform and p.get("status") == "posted"
                and abs((parse_time(p["time"]) - when).total_seconds()) <= slack_minutes * 60
-               for p in posted)
+               for p in posted + load(LISTINGS_POSTED, []))
 
 
 # ---------- Instagram ----------
