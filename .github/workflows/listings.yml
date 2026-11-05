@@ -1,0 +1,85 @@
+name: Just listed posts (Instagram and Facebook)
+
+# One live YardSwaps listing a day as a photo post (listings/README.md).
+#   prep  15:10 UTC (9:10 am Central): queue up to 3 cards for review.
+#   A Claude task reviews pending cards around 11:30 am Central.
+#   post  20:15 UTC (2:15 pm Central): post the oldest approved card.
+# GitHub can start scheduled runs hours late, so each step has a backup run;
+# the script posts at most once a day and only between 20:15 and 03:00 UTC.
+# On a pull request it renders cards and posts nothing (a test run).
+on:
+  schedule:
+    - cron: "10 15 * * *"
+    - cron: "40 17 * * *"
+    - cron: "17 20 * * *"
+    - cron: "48 20 * * *"
+    - cron: "12 0 * * *"
+  pull_request:
+    paths:
+      - "listings/**"
+      - ".github/workflows/listings.yml"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "prep or post"
+        default: "prep"
+      listing_id:
+        description: "post only: force this approved listing now"
+        default: ""
+      dry_run:
+        description: "1 = render and print only"
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: listings
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pick the step
+        id: step
+        run: |
+          mode="${{ inputs.mode }}"
+          if [ -z "$mode" ]; then
+            case "${{ github.event.schedule }}" in
+              "10 15 * * *"|"40 17 * * *") mode=prep ;;
+              "") mode=prep ;;
+              *) mode=post ;;
+            esac
+          fi
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+      - name: Install photo tools
+        if: steps.step.outputs.mode == 'prep'
+        run: |
+          sudo apt-get install -y -q tesseract-ocr >/dev/null
+          pip install -q "opencv-python-headless==4.10.0.84" pytesseract pillow numpy
+      - name: Run
+        env:
+          MODE: ${{ steps.step.outputs.mode }}
+          META_PAGE_TOKEN: ${{ steps.step.outputs.mode == 'post' && secrets.META_PAGE_TOKEN || '' }}
+          LISTING_ID: ${{ inputs.listing_id }}
+          DRY_RUN: ${{ github.event_name == 'pull_request' && '1' || inputs.dry_run || '0' }}
+        run: python3 listings/just_listed.py
+      - name: Keep test cards
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: cards
+          path: listings/cards/
+          if-no-files-found: ignore
+      - name: Save the queue and log
+        if: always() && github.event_name != 'pull_request'
+        run: |
+          git config user.name "yardswaps-reels-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add listings/queue.json listings/posted.json listings/cards
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Listings ${{ steps.step.outputs.mode }} $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
