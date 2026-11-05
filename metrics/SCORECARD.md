@@ -1,6 +1,6 @@
 # YardSwaps weekly scorecard (2026-11-03)
 
-Generated 2026-11-05T19:53:55Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest MISSING, app ops digest yes, youtube MISSING, metricool MISSING.
+Generated 2026-11-05T20:37:09Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest MISSING, app ops digest yes, youtube MISSING, metricool MISSING.
 
 ## Goals
 - Instagram followers: 95 (+82 in 7 days)
@@ -19,22 +19,26 @@ Median points per post: 1.0. Points = follows x10, shares x4, saves x3, comments
 | forklift-sitting-there | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | plumbing-part-label | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | control-panel-pulled | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| find-it-nearby | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| find-it-nearby | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
 | parts-donor-thumb | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | stripped-well-pump | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 
 ### Opener shapes
 - pov-idle: 1.88 points/post over 8 posts (winner)
 - question-problem: 1.5 points/post over 2 posts (testing)
+- feature-statement: 0.0 points/post over 2 posts (testing)
 
 ### Topics
 - parts-spec: 3.0 points/post over 4 posts (winner)
 - idle-gear: 1.0 points/post over 4 posts (average)
 - shelf-parts: 1.0 points/post over 2 posts (testing)
+- buyer-feature: 0.0 points/post over 2 posts (testing)
 
 ### Categories
 - parts: 2.33 points/post over 6 posts (winner)
-- forklifts: 1.0 points/post over 4 posts (average)
+- forklifts: 0.67 points/post over 6 posts (average)
+
+### Video structure tests
 
 ## Buyer demand we can't serve yet (30 days)
 Zero-result search rate: None
