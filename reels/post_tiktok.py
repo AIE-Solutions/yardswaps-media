@@ -73,11 +73,11 @@ def clear_of_heycatch(due):
 
 # ---------- caption ----------
 
-def tiktok_caption(v):
+def tiktok_caption(v, turn=0):
     # TikTok captions don't click, so the short link is for typing or the bio.
     # No handle in the text: the account is still being renamed.
     return (f"{v['body']}\n\nFollow for a new one every day. Get the free YardSwaps app: "
-            f"yardswaps.com/t (link in bio).\n\n{v['ig_tags']}\n\n{v['question']}")
+            f"yardswaps.com/t (link in bio).\n\n{reels.tt_tags(v, turn)}\n\n{v['question']}")
 
 
 # ---------- Buffer GraphQL ----------
@@ -204,7 +204,7 @@ def main():
         summary.append(f"tiktok: skipped, every video was posted in the last {reels.MIN_GAP_DAYS} days")
     else:
         path = os.path.join(ROOT, video["file"])
-        caption = tiktok_caption(video)
+        caption = tiktok_caption(video, turn=len(used))
         url = video_url(path)
         if dry:
             summary.append(f"tiktok: would post {video['slug']} (repeat={repeat})\n{url}\n\n{caption}\n")
