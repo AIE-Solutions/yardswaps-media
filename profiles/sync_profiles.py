@@ -10,6 +10,7 @@ drift, so the weekly run never blocks other work; read status.json instead.
 """
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reels"))
@@ -18,6 +19,16 @@ from post_reels import GraphError, graph, iso, now  # noqa: E402
 HERE = os.path.dirname(os.path.abspath(__file__))
 PAGE_ID = "1291163214083476"
 IG_ID = "17841429324062623"
+
+
+def urls(s):
+    return sorted(u.rstrip("/").lower() for u in re.findall(r"https?://[^\s,]+", s or ""))
+
+
+def same(field, live, want):
+    if field == "website":
+        return urls(live) == urls(want)
+    return norm(live) == norm(want)
 
 
 def norm(s):
@@ -35,14 +46,15 @@ def main():
     fb_target = {
         "about": fb_want["intro"],
         "description": want["long_about"] + fb_want["link"],
-        "website": fb_want["link"],
+        # The Page keeps several websites; the short link goes first, then both stores.
+        "website": " ".join([fb_want["link"], want["app_links"]["ios"], want["app_links"]["android"]]),
     }
     rows, status = [], {"checked": iso(now()), "mode": mode, "facebook": {}, "instagram": {}}
 
     fb = graph("GET", PAGE_ID, token, fields="name,username,about,description,website,emails,link,picture{url}")
     fixes = {}
     for k, v in fb_target.items():
-        ok = norm(fb.get(k)) == norm(v)
+        ok = same(k, fb.get(k), v)
         status["facebook"][k] = {"ok": ok, "live": fb.get(k)}
         if not ok:
             fixes[k] = v
@@ -60,7 +72,7 @@ def main():
 
     ig = graph("GET", IG_ID, token, fields="username,name,biography,website,profile_picture_url")
     for k, v in (("name", ig_want["display_name"]), ("biography", ig_want["bio"]), ("website", ig_want["link"])):
-        status["instagram"][k] = {"ok": norm(ig.get(k)) == norm(v), "live": ig.get(k)}
+        status["instagram"][k] = {"ok": same(k, ig.get(k), v), "live": ig.get(k)}
     status["instagram"]["username"] = ig.get("username")
     status["instagram"]["picture"] = ig.get("profile_picture_url")
 
