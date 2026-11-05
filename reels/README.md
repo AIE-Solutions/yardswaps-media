@@ -1,4 +1,4 @@
-# Reels and Stories to Instagram and Facebook
+# Reels and Stories to Instagram and Facebook, plus TikTok
 
 Free, automatic Reels for @yardswaps (Instagram) and the YardSwaps Facebook Page, posted by GitHub Actions (free for this public repo) through Meta's own API. No scheduler subscription, no Zapier tasks, nothing on anyone's computer.
 
@@ -46,3 +46,19 @@ Current token: Page token for page 1291163214083476 from Meta app "YardSwaps Ree
 
 ## Scorecard (added 2026-11-03)
 `metrics/` measures every Reel daily (`.github/workflows/metrics.yml`) and writes `metrics/rank.json`. Repeats now use it: the 3 best measured Reels get a boost, clear losers stop repeating ("retire"), and while the scorecard is fresh the hand-set `boost` numbers here are ignored unless the entry says `"boost_keep": true`. Each new slug also needs a row in `metrics/formats.json` (hook, angle, category). Details: `metrics/README.md`.
+
+## TikTok
+`.github/workflows/tiktok.yml` runs `post_tiktok.py` twice a day: 7:30 am and 5:30 pm Central in winter (8:30 am and 6:30 pm in summer), inside TikTok's morning and evening windows and 2+ hours clear of HeyCatch, which also posts to TikTok at about 4:30 am, 12:30 pm and 8:30 pm Central. If a manual run would land within 90 minutes of a HeyCatch slot, the script moves the Buffer publish time to 91 minutes after it. Same `library/`, same pick order, same 10-day no-repeat, at most 2 in 20 hours. Repeats are ranked by the video's Instagram engagement. If HeyCatch posts one of our library videos to TikTok, add `{"slug": "<slug>", "time": "<ISO time>"}` to `heycatch-tiktok.json` and it counts as posted for the 10-day rule. Log: `tiktok-posted.json` (each entry goes `scheduled`, then `posted` with the TikTok link on the next run; `unconfirmed` after 3 hours means look in Buffer for a failed post).
+
+Caption: body; "Follow for a new one every day. Get the free YardSwaps app: yardswaps.com/t (link in bio)."; TikTok's own 5 hashtags from `tt_tags()` in `post_reels.py` (2 machine tags, #BlueCollar, #UsedEquipment, 1 rotating; a `tt_tags` entry in `library.json` overrides); the question. No @handle while the TikTok account is being renamed.
+
+Why Buffer and not TikTok's own API: TikTok lets an unaudited app post only private ("only me") videos from a private account, and its guidelines say the audit is not granted for "a utility tool to help upload contents to the account(s) you or your team manages" (https://developers.tiktok.com/doc/content-sharing-guidelines). Buffer is an audited TikTok partner and its free plan includes the API (1 key, 1,000 requests per channel per 30 days; this uses about 150) and 10 queued posts per channel that refill as they publish (this keeps 1 queued at a time). Buffer only takes a public link, so the video is served from this public repo through jsDelivr at the exact commit.
+
+### One-time setup (Alan, about 5 minutes, free, no card)
+1. On the PC in Chrome, open https://buffer.com and click **Get started** / **Sign up**. Use yardswaps@gmail.com (Continue with Google is fine). If it offers a paid trial, choose the **Free** plan; never enter a card.
+2. When it asks to connect a channel, pick **TikTok**, sign in to the YardSwaps TikTok account, and click **Authorize**. Connect only TikTok. If Buffer asks whether to publish automatically or send reminders, pick **automatic**.
+3. In Buffer open **Settings**, then **API**, click **Create API key** (name it `YardSwaps TikTok`) and copy the key. Don't paste it anywhere except the next step.
+4. Open https://github.com/AIE-Solutions/yardswaps-media/settings/secrets/actions/new , Name `BUFFER_API_KEY`, paste the key as the Secret, **Add secret**.
+Then tell the project thread "Buffer key added": it runs the check (Actions > "Videos to TikTok" > Run workflow with `check` = 1) and one test post.
+
+Manual run: Actions > "Videos to TikTok" > Run workflow. `dry_run` = 1 prints the pick, link and caption; `slug` forces a video; `check` = 1 only confirms the key and the TikTok channel.
