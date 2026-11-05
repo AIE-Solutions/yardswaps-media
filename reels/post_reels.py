@@ -78,8 +78,15 @@ FOLLOW_FB = "Follow the YardSwaps page for a new one every day."
 # Reel keeps its 2 machine tags, always gets #UsedEquipment, and rotates 2 of the
 # rest. Facebook has no cap and gets the whole set. library.json "broad_tags"
 # overrides the list.
-BROAD_TAGS = ["#UsedEquipment", "#Jobsite", "#Tradespeople", "#IndustrialEquipment",
+# Nov 5: TikTok Creator Search Insights showed #BlueCollar (2.02M searches),
+# Construction Life and small business trending, so they join the rotation,
+# ordered so each pair of 2 mixes a search term with a Meta jobsite tag.
+BROAD_TAGS = ["#UsedEquipment", "#BlueCollar", "#Jobsite", "#ConstructionLife",
+              "#Tradespeople", "#SmallBusiness", "#IndustrialEquipment",
               "#EquipmentMarketplace", "#VerifiedSeller"]
+# TikTok (5 tags): 2 machine tags + #BlueCollar + #UsedEquipment + 1 of these,
+# rotating. library.json "tt_tags" on a video replaces the lot.
+TT_ROTATE = ["#ConstructionLife", "#SmallBusiness", "#BuildingThings", "#Jobsite"]
 GENERIC = {"#usedequipment", "#yardswaps", "#equipmentforsale", "#sellequipment",
            "#sellyourequipment"}
 
@@ -99,6 +106,14 @@ def ig_tags(v, turn=0):
     k = (turn * 2) % len(rest)
     rot = (rest + rest)[k:k + 2]
     return " ".join(machine_tags(v) + [BROAD_TAGS[0]] + rot)
+
+
+def tt_tags(v, turn=0):
+    """TikTok hashtags: search terms first (CAPTIONS.md, Nov 5)."""
+    if v.get("tt_tags"):
+        return v["tt_tags"]
+    return " ".join(machine_tags(v) + ["#BlueCollar", "#UsedEquipment",
+                                       TT_ROTATE[turn % len(TT_ROTATE)]])
 
 
 def fb_tags(v):
