@@ -1,0 +1,68 @@
+{
+  "_note": "One source of truth for every YardSwaps profile. Seller-first copy from yardswaps-bio-short-links.md (2026-10-26) and PROFILE-FIXES.md (2026-10-28). Each platform links its own short link (yardswaps.com/<letter>), which next.config.ts tags as utm_source=heycatch&utm_campaign=<letter>. sync_profiles.py checks Facebook, Instagram and YouTube every week and re-applies what the APIs allow.",
+  "name": "YardSwaps",
+  "email": "support@yardswaps.com",
+  "avatar": "App icon (assets/app-icon/yardswaps-app-store-icon-1024.png)",
+  "app_links": {
+    "ios": "https://apps.apple.com/app/id6765955041",
+    "android": "https://play.google.com/store/apps/details?id=com.yardswaps.app"
+  },
+  "long_about": "YardSwaps is a US marketplace for buying and selling used industrial and commercial equipment: fleet trucks, trailers, generators, compressors, forklifts, excavators, farm and landscaping gear, shop equipment and more, across 33 categories.\n\nGot a machine sitting idle, a donor unit or spare parts on a shelf? Snap a photo, AI fills in the listing, and buyers nearby find it by category, name or part number and make an offer.\n\nFree to list. No listing fee and no cut of the sale: every deal is a local pickup where the buyer sees it run, then pays the seller directly. New sellers get free listing boosts.\n\nEquipment businesses get a free storefront with bulk upload and listing stats.\n\nOn the web, iPhone and Android: ",
+  "platforms": {
+    "instagram": {
+      "link": "https://www.yardswaps.com/i",
+      "display_name": "YardSwaps: List Equipment Free",
+      "bio": "Sell your used work equipment free\nNo listing fee. No cut of your sale.\nPost 4 in 14 days: all boosted free\nyardswaps.com/i",
+      "bio_limit": 150,
+      "api": "read only (Graph API cannot edit an Instagram bio)"
+    },
+    "facebook": {
+      "link": "https://www.yardswaps.com/f",
+      "intro": "Sell used work equipment free. No listing fee, no cut of the sale. Local pickup. yardswaps.com/f",
+      "intro_limit": 101,
+      "description": "long_about",
+      "api": "Graph API, Page fields about, description, website"
+    },
+    "youtube": {
+      "link": "https://www.yardswaps.com/y",
+      "api": "YouTube Data API through Zapier; the live channel description is the reference copy"
+    },
+    "tiktok": {
+      "link": "https://www.yardswaps.com/t",
+      "bio": "Sell used work equipment free. No listing fee, no cut. yardswaps.com/t",
+      "bio_limit": 80,
+      "api": "none (manual)"
+    },
+    "x": {
+      "link": "https://www.yardswaps.com/x",
+      "bio": "Sell used work equipment free: trucks, trailers, generators, compressors and more. No listing fee, no cut of the sale. Local pickup. yardswaps.com/x",
+      "bio_limit": 160,
+      "api": "none on the free X API (manual)"
+    },
+    "threads": {
+      "link": "https://www.yardswaps.com/h",
+      "bio": "Sell used work equipment free. No listing fee, no cut of the sale. Pricing and inspection tips here. yardswaps.com/h",
+      "bio_limit": 150,
+      "api": "none (manual)"
+    },
+    "linkedin": {
+      "link": "https://www.yardswaps.com/l",
+      "tagline": "Sell used industrial and commercial equipment free. No listing fee, no cut. yardswaps.com/l",
+      "tagline_limit": 120,
+      "description": "long_about",
+      "api": "none for Page details through Zapier (manual)"
+    },
+    "pinterest": {
+      "link": "https://www.yardswaps.com/p",
+      "bio": "Sell used work equipment free. No listing fee, no cut of the sale. Local pickup. yardswaps.com/p",
+      "bio_limit": 500,
+      "api": "none (manual, after the business account exists)"
+    },
+    "reddit": {
+      "link": "https://www.yardswaps.com/r",
+      "bio": "I work on YardSwaps, a free US marketplace for used industrial and commercial equipment. Local pickup only. I post here as myself: gear talk first, no spam. yardswaps.com/r",
+      "bio_limit": 200,
+      "api": "none (manual)"
+    }
+  }
+}
