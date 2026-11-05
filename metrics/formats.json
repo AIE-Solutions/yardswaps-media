@@ -1,5 +1,5 @@
 {
-  "_about": "Format tags per video slug, read by metrics/scorecard.py to rank opener shapes (hook), topics (angle) and categories. The Monday batch adds a row for every new slug. hook: pov-idle (POV: the X nobody has touched), question-problem (a jobsite question or problem), me-humor, feature-statement (states an app feature), search-term (the opener carries a phrase from TikTok Creator Search Insights word for word; 'search' holds the phrase). angle: idle-gear, parts-spec, shelf-parts (Alan's Nov 3 theme: gear laying around, parts stuck on a shelf, scan them for extra cash), small-items, buyer-feature, seller-offer, seller-tip, dealer. category: an id from CATEGORIES in the app (packages/shared/src/listings.ts). demo: true marks a Short built in the demonstrate-first format (real machine or part on screen 4 to 5 s, label close-up, short app part, before/after), from Alan's Nov 5 TikTok account analysis.",
+  "_about": "Format tags per video slug, read by metrics/scorecard.py to rank opener shapes (hook), topics (angle) and categories. The Monday batch adds a row for every new slug. hook: pov-idle (POV: the X nobody has touched), question-problem (a jobsite question or problem), me-humor, feature-statement (states an app feature), search-term (the opener carries a phrase from TikTok Creator Search Insights word for word; 'search' holds the phrase). angle: idle-gear, parts-spec, shelf-parts (Alan's Nov 3 theme: gear laying around, parts stuck on a shelf, scan them for extra cash), small-items, buyer-feature, seller-offer, seller-tip, dealer. category: an id from CATEGORIES in the app (packages/shared/src/listings.ts). demo: true marks a Short built in the demonstrate-first format (real machine or part on screen 4 to 5 s, label close-up, short app part, before/after), from Alan's Nov 5 TikTok account analysis. structure (optional): the 3-post TikTok test from the same analysis; problem-action-result = jobsite problem shown in the first second, then the app action, then the visible result (live listing). The scorecard prints a 'Video structure tests' table for it against the median.",
   "videos": {
     "part-tag-scan": {
       "hook": "question-problem",
@@ -201,21 +201,24 @@
       "angle": "idle-gear",
       "category": "pressure",
       "search": "1000 psi pressure washer",
-      "demo": true
+      "demo": true,
+      "structure": "problem-action-result"
     },
     "electrician-work-leftovers": {
       "hook": "search-term",
       "angle": "shelf-parts",
       "category": "electrical",
       "search": "electrician work",
-      "demo": true
+      "demo": true,
+      "structure": "problem-action-result"
     },
     "building-things-concrete-mixer": {
       "hook": "search-term",
       "angle": "idle-gear",
       "category": "concrete",
       "search": "building things",
-      "demo": true
+      "demo": true,
+      "structure": "problem-action-result"
     },
     "bluecollar-shelf-parts": {
       "hook": "search-term",

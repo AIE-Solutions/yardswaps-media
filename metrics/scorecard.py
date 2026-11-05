@@ -313,9 +313,10 @@ def markdown(card):
     for s in card["reels"]["slugs"]:
         lines.append(f"| {s['slug']} | {s['posts']} | {s['views']} | {s['likes']} | {s['comments']} | {s['shares']} | {s['saved']} | {s['follows']} | {s['signups']} | {s['perPost'] if s['perPost'] is not None else 'too new'} | {s['ratio'] if s['ratio'] is not None else '-'} |")
     lines.append("")
-    for t, label in (("hook", "Opener shapes"), ("angle", "Topics"), ("category", "Categories")):
+    for t, label in (("hook", "Opener shapes"), ("angle", "Topics"), ("category", "Categories"),
+                     ("structure", "Video structure tests")):
         lines.append(f"### {label}")
-        for r in card["formats"][t]:
+        for r in card["formats"].get(t, []):
             lines.append(f"- {r['value']}: {r['perPost']} points/post over {r['posts']} posts ({r['verdict']})")
         lines.append("")
     yt = card.get("youtube")
@@ -363,7 +364,7 @@ def main():
     snap = snaps[-1][1] if snaps else None
 
     scores, med = reel_scores(snap, formats, growth, now)
-    tables = {k: format_table(scores, k, med) for k in ("hook", "angle", "category")}
+    tables = {k: format_table(scores, k, med) for k in ("hook", "angle", "category", "structure")}
     demand = demand_block(growth)
     boost, retire = actions(scores, library, med)
     card = {
