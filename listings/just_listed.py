@@ -393,7 +393,7 @@ def prep(dry):
         u, img2, nblur, ocr = chosen
         card = os.path.join(CARDS, f"{lid}.jpg")
         render_card(img2, l, card)
-        turn = len(posted) // 2
+        turn = len(queue)  # every card ever queued: rotates the question and hashtags
         ig, fb = captions(l, turn)
         entry = {"listing_id": lid, "seller": l.get("sellerId"), "title": nice_title(l["title"]),
                  "category": l.get("category"), "photo": u, "card": f"listings/cards/{lid}.jpg",
