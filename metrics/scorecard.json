@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-03",
- "generatedAt": "2026-11-05T20:37:09Z",
+ "generatedAt": "2026-11-06T19:19:47Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": false,
@@ -12,14 +12,14 @@
  "goals": {
   "followers": {
    "instagram": {
-    "now": 95,
-    "change7d": 82,
-    "asOf": "2026-11-05"
+    "now": 148,
+    "change7d": 135,
+    "asOf": "2026-11-06"
    },
    "facebook": {
     "now": 11,
     "change7d": 0,
-    "asOf": "2026-11-05"
+    "asOf": "2026-11-06"
    },
    "youtube": null
   },
@@ -71,6 +71,25 @@
     "hook": "question-problem",
     "angle": "parts-spec",
     "category": "parts",
+    "ratio": 1.5
+   },
+   {
+    "slug": "parts-donor-thumb",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 3.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.5,
+    "hook": "pov-idle",
+    "angle": "shelf-parts",
+    "category": "excavators",
     "ratio": 1.5
    },
    {
@@ -131,13 +150,32 @@
     "ratio": 1.0
    },
    {
+    "slug": "find-it-nearby",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 1.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 0.5,
+    "hook": "feature-statement",
+    "angle": "buyer-feature",
+    "category": "forklifts",
+    "ratio": 0.5
+   },
+   {
     "slug": "control-panel-pulled",
     "posts": 2,
     "settled": 0,
     "igSettled": 0,
     "points": 0.0,
     "views": 0,
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
     "shares": 0,
     "saved": 0,
@@ -150,26 +188,7 @@
     "ratio": null
    },
    {
-    "slug": "find-it-nearby",
-    "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
-    "points": 0.0,
-    "views": 0,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 0.0,
-    "hook": "feature-statement",
-    "angle": "buyer-feature",
-    "category": "forklifts",
-    "ratio": 0.0
-   },
-   {
-    "slug": "parts-donor-thumb",
+    "slug": "drilling-rig-parked",
     "posts": 2,
     "settled": 0,
     "igSettled": 0,
@@ -183,8 +202,27 @@
     "signups": 0,
     "perPost": null,
     "hook": "pov-idle",
-    "angle": "shelf-parts",
-    "category": "excavators",
+    "angle": "idle-gear",
+    "category": "drilling",
+    "ratio": null
+   },
+   {
+    "slug": "micrometer-set-small-tools",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "small-items",
+    "category": "machining",
     "ratio": null
    },
    {
@@ -194,7 +232,7 @@
     "igSettled": 0,
     "points": 0.0,
     "views": 0,
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
     "shares": 0,
     "saved": 0,
@@ -209,26 +247,26 @@
   ],
   "insights": {
    "refused": [
-    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AdcV68ooH3x-n5s_swxEIPK\"}}",
-    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ALg5yOFY47LJQ4hzUeVvncj\"}}",
-    "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AuTmVvUhF_lJv75oNvEEsng\"}}",
-    "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AbhvuSMiYf48lRSGAQ0kGLQ\"}}",
-    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AmxFGDKRRLs0NppI69UfkQj\"}}",
-    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AV_y-HEXfHIpHclErkVV6rv\"}}",
-    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AeumW1UfAVDvCoLioV6eoTu\"}}",
-    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ANRHSYk33goPQb4hMm6besG\"}}",
-    "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ApCoCYenRbjuOatFEi8eZUb\"}}",
-    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AxpMdY6ZB2yCuVONbnAQlXP\"}}",
-    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aq9P-ZO6RMESeEgubq3GdhA\"}}",
-    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AQKoxSyJkgHPwDLp32r8KY0\"}}",
-    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ASTTh0ujQkQJ1ufym8s7Ju3\"}}",
-    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AxEgus5m1b9wtUP2jf-k2jN\"}}",
-    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AYQSvkfjPu85Z_syrzijsrz\"}}",
-    "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"Azx4XfkUODLol1FZrH0qJa1\"}}",
-    "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"Ar1jQbVyU-fbXx8T64Aztae\"}}",
-    "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AOmlTlshRHCoa41qnlf0SXm\"}}",
-    "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AszkeVwCuCKATnqs4bw5jlK\"}}",
-    "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AUIvuQ7mHbn6lTZzJ4pTQJN\"}}"
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AyQzHHJY-h3R5lKi2xUAeEK\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A2QZ40ZZ-Hs_pK9d8vHdhFP\"}}",
+    "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A9edIzM4-3POHir3ev_r1zJ\"}}",
+    "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ACHxV2N0UK6G5kcxkCoypU0\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AT1Z3FuAL3iHTQ493sk-JFH\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"APehV6-OrDsMsE_l1osbouv\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ADXPLvaHOjy8NHIU9CL8Pva\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AxIwI1qSQY9yB6gd_IYylAj\"}}",
+    "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AXVp8DgR1y65sNK6yOlBRpV\"}}",
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AG8sPJ3M8KMCrAChUkyiUqm\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AnYclCwNcDtPFFq1m8fWMmb\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ARKtcepvzodyrg-DUZ5_neF\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ABGZHDMSBpzFo8x-i1sp6IF\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AtKqRdtyD4WXe2D_dsHTonH\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AqUtwtJCNgJpwVghbiGxW4R\"}}",
+    "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AeQydBW_EKs9F2o7H67Mb2R\"}}",
+    "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"A7dKE3ZpwzyZ03CovPwCTI0\"}}",
+    "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"ADoF0Yx5jOZLZjUcMMdB8yl\"}}",
+    "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"ARvX9WTRe4LeT3PhEPTGckp\"}}",
+    "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AkLRJQu_RBjv6ifGaMK8bYs\"}}"
    ],
    "usable": {
     "fb_reels_total_plays,blue_reels_play_count,post_impressions_unique,post_video_avg_time_watched,post_video_followers,post_video_social_actions": [],
@@ -241,12 +279,13 @@
   "hook": [
    {
     "value": "pov-idle",
-    "posts": 8,
-    "perPost": 1.88,
-    "ratio": 1.88,
+    "posts": 10,
+    "perPost": 1.8,
+    "ratio": 1.8,
     "verdict": "winner",
     "slugs": [
      "surplus-parts-cash-flow",
+     "parts-donor-thumb",
      "forklift-finally-deal",
      "forklift-sitting-there",
      "plumbing-part-label"
@@ -265,8 +304,8 @@
    {
     "value": "feature-statement",
     "posts": 2,
-    "perPost": 0.0,
-    "ratio": 0.0,
+    "perPost": 0.5,
+    "ratio": 0.5,
     "verdict": "testing",
     "slugs": [
      "find-it-nearby"
@@ -286,6 +325,17 @@
     ]
    },
    {
+    "value": "shelf-parts",
+    "posts": 4,
+    "perPost": 1.25,
+    "ratio": 1.25,
+    "verdict": "average",
+    "slugs": [
+     "parts-donor-thumb",
+     "plumbing-part-label"
+    ]
+   },
+   {
     "value": "idle-gear",
     "posts": 4,
     "perPost": 1.0,
@@ -297,20 +347,10 @@
     ]
    },
    {
-    "value": "shelf-parts",
-    "posts": 2,
-    "perPost": 1.0,
-    "ratio": 1.0,
-    "verdict": "testing",
-    "slugs": [
-     "plumbing-part-label"
-    ]
-   },
-   {
     "value": "buyer-feature",
     "posts": 2,
-    "perPost": 0.0,
-    "ratio": 0.0,
+    "perPost": 0.5,
+    "ratio": 0.5,
     "verdict": "testing",
     "slugs": [
      "find-it-nearby"
@@ -331,10 +371,20 @@
     ]
    },
    {
+    "value": "excavators",
+    "posts": 2,
+    "perPost": 1.5,
+    "ratio": 1.5,
+    "verdict": "testing",
+    "slugs": [
+     "parts-donor-thumb"
+    ]
+   },
+   {
     "value": "forklifts",
     "posts": 6,
-    "perPost": 0.67,
-    "ratio": 0.67,
+    "perPost": 0.83,
+    "ratio": 0.83,
     "verdict": "average",
     "slugs": [
      "forklift-finally-deal",
@@ -355,7 +405,8 @@
  "actions": {
   "boost": {
    "surplus-parts-cash-flow": 60,
-   "part-tag-scan": 30
+   "part-tag-scan": 30,
+   "parts-donor-thumb": 30
   },
   "retire": {},
   "buildNext": {
