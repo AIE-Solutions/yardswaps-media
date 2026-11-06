@@ -11,9 +11,10 @@
     "new": true,
     "ig_caption": "Just listed on YardSwaps: 2013 Hino Shred Truck, Work Ready\n\n$15,995 · San Antonio, TX\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#FleetTrucks #WorkTrucks #UsedEquipment #Jobsite #Tradespeople\n\nWhat would you put this to work on first?",
     "fb_caption": "Just listed on YardSwaps: 2013 Hino Shred Truck, Work Ready\n\n$15,995 · San Antonio, TX\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmw3ubbts008lnw3a571oa7d0?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#FleetTrucks #WorkTrucks #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat would you put this to work on first?",
-    "status": "pending",
+    "status": "approved",
     "added": "2026-11-05T21:27:50Z",
-    "updated": "2026-11-05T21:27:50Z"
+    "updated": "2026-11-06T17:32:32Z",
+    "reviewed_by": "claude"
   },
   {
     "listing_id": "cmw128mu5000imi3aeckcajih",
@@ -27,9 +28,11 @@
     "new": true,
     "ig_caption": "Just listed on YardSwaps: McCormick Farmall H tractor, narrow front\n\n$3,250 · El Paso, TX\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#FarmEquipment #Tractor #UsedEquipment #IndustrialEquipment #EquipmentMarketplace\n\nWhat's the one machine your yard can't run without?",
     "fb_caption": "Just listed on YardSwaps: McCormick Farmall H tractor, narrow front\n\n$3,250 · El Paso, TX\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmw128mu5000imi3aeckcajih?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#FarmEquipment #Tractor #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat's the one machine your yard can't run without?",
-    "status": "pending",
+    "status": "rejected",
     "added": "2026-11-05T21:27:55Z",
-    "updated": "2026-11-05T21:27:55Z"
+    "updated": "2026-11-06T17:32:32Z",
+    "reviewed_by": "claude",
+    "reason": "Readable Texas licence plate on the vehicle behind and part of a person at the right edge"
   },
   {
     "listing_id": "cmvvwvduw000aqx3ak505rf16",
@@ -43,8 +46,10 @@
     "new": true,
     "ig_caption": "Just listed on YardSwaps: SpireMT IoT-enabled BTU Meters, Precision Monitoring\n\n$1,000\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#HVAC #HVACLife #UsedEquipment #Jobsite #Tradespeople\n\nBuy it used or new: which way do you go on a machine like this?",
     "fb_caption": "Just listed on YardSwaps: SpireMT IoT-enabled BTU Meters, Precision Monitoring\n\n$1,000\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmvvwvduw000aqx3ak505rf16?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#HVAC #HVACLife #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nBuy it used or new: which way do you go on a machine like this?",
-    "status": "pending",
+    "status": "rejected",
     "added": "2026-11-05T21:27:56Z",
-    "updated": "2026-11-05T21:27:56Z"
+    "updated": "2026-11-06T17:32:32Z",
+    "reviewed_by": "claude",
+    "reason": "Seller business logo, company name and \"Call Today\" ad banner; promo graphic, not a photo of the equipment"
   }
 ]
