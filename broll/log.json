@@ -34,5 +34,77 @@
   "seed": null,
   "file": "broll/ad-app-grassroots-1080x1920.mp4",
   "credits": 656
+ },
+ {
+  "when": "2026-11-07T02:46Z",
+  "slug": "kf-s1",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "hero-mini-excavator.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame. Dawn in a dusty rural West Texas back yard: @machine, the yellow mini excavator, sits parked and idle beside a weathered chain-link fence, its bucket resting on the dirt with a small bird's nest of dry grass inside it, green vines climbing over its rubber tracks, dust on the cab glass. Low warm sun, long shadows, a little dust in the air, mesquite trees and a rusty tin-roof shed behind. Grounded documentary look, natural color, fine film grain. No people, no added text or signs.",
+  "seed": 591781057,
+  "file": "broll/kf-s1-t1-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T02:46Z",
+  "slug": "kf-s1",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "hero-mini-excavator.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame. Dawn in a dusty rural West Texas back yard: @machine, the yellow mini excavator, sits parked and idle beside a weathered chain-link fence, its bucket resting on the dirt with a small bird's nest of dry grass inside it, green vines climbing over its rubber tracks, dust on the cab glass. Low warm sun, long shadows, a little dust in the air, mesquite trees and a rusty tin-roof shed behind. Grounded documentary look, natural color, fine film grain. No people, no added text or signs.",
+  "seed": 2030894456,
+  "file": "broll/kf-s1-t2-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T02:46Z",
+  "slug": "kf-s2",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "hero-mini-excavator.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. Early morning in a dusty West Texas back yard. A Hispanic man in his mid-50s with a grey mustache, a sweat-stained tan cap, a faded denim work shirt and jeans, holding a white coffee mug, stands a few steps from @machine, the yellow mini excavator, parked with vines over its tracks. He looks at it with a tired half-smile. Medium shot from the side, warm low sun, dust in the air, natural color, fine film grain. No text.",
+  "seed": 496739134,
+  "file": "broll/kf-s2-t1-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T02:46Z",
+  "slug": "kf-s2",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "hero-mini-excavator.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. Early morning in a dusty West Texas back yard. A Hispanic man in his mid-50s with a grey mustache, a sweat-stained tan cap, a faded denim work shirt and jeans, holding a white coffee mug, stands a few steps from @machine, the yellow mini excavator, parked with vines over its tracks. He looks at it with a tired half-smile. Medium shot from the side, warm low sun, dust in the air, natural color, fine film grain. No text.",
+  "seed": 1111333197,
+  "file": "broll/kf-s2-t2-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T02:47Z",
+  "slug": "kf-s4",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "",
+  "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. A small residential construction jobsite outside Houston, midday. A woman in her late 30s, a contractor, wearing a hi-vis vest over a navy t-shirt, jeans, work boots and a sun-faded cap, leans on the tailgate of a dusty white pickup with an empty flatbed trailer hitched behind it. She looks down at her phone, which we see only from the back, with a small surprised smile. Concrete forms and rebar behind her, soft natural light, fine film grain. No text, no logos.",
+  "seed": 137929228,
+  "file": "broll/kf-s4-t1-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T02:47Z",
+  "slug": "kf-s4",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "",
+  "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. A small residential construction jobsite outside Houston, midday. A woman in her late 30s, a contractor, wearing a hi-vis vest over a navy t-shirt, jeans, work boots and a sun-faded cap, leans on the tailgate of a dusty white pickup with an empty flatbed trailer hitched behind it. She looks down at her phone, which we see only from the back, with a small surprised smile. Concrete forms and rebar behind her, soft natural light, fine film grain. No text, no logos.",
+  "seed": 578513037,
+  "file": "broll/kf-s4-t2-1080x1920.jpg",
+  "credits": 8
  }
 ]
