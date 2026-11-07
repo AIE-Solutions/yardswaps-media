@@ -7,7 +7,8 @@
     "  1. only=kf-s1,kf-s2,kf-s4 budget=60   -> storyboard stills, 2 takes each (48 credits). Done Nov 7: picked kf-s1-t2 (yard), kf-s2-t1 (owner), kf-s4-t1 (buyer).",
     "  2. only=kf-s2b,kf-s3,kf-s5,kf-s6 budget=70 (64 credits). Done Nov 7: picked kf-s2b-t1, kf-s3-t2, kf-s5-t2, kf-s6-t2. kf-s1b redoes the opening yard with the same open-canopy machine.",
     "  3. the v-* first frames point at the picks; only=v-s0,v-s1,v-s2,v-s3,v-s4,v-s5,v-s6 budget=1900 (1,860 credits, about $18.60)",
-    "  Round 3 (Nov 7, Alan: 'Improve'): kf-s0 adds a macro hook shot of the sparrow in its nest; kf-s4b/s5b/s6b redo the contractor, the handshake and the trailer ending to look candid instead of stock. only=kf-s0,kf-s4b,kf-s5b,kf-s6b budget=70 Picked kf-s0-t1, kf-s4b-t2, kf-s5b-t2, kf-s6b-t2."
+    "  Round 3 (Nov 7, Alan: 'Improve'): kf-s0 adds a macro hook shot of the sparrow in its nest; kf-s4b/s5b/s6b redo the contractor, the handshake and the trailer ending to look candid instead of stock. only=kf-s0,kf-s4b,kf-s5b,kf-s6b budget=70 Picked kf-s0-t1, kf-s4b-t2, kf-s5b-t2, kf-s6b-t2.",
+    "  Round 4 (Nov 7, Alan: 'this all looks super fake'): the Gen-4 Image stills look plastic and the 35mm-film prompts look staged. Testing phone-video style straight from Veo 3.1 text to video (phone-test-owner, 40 credits). The fence-post nest shot is cut."
   ],
   "jobs": [
     {
@@ -172,6 +173,17 @@
       "photo": "first=broll/kf-s6b-t2-1080x1920.jpg",
       "prompt": "Quiet golden-hour shot with a slow handheld drift. The man sets the bird's nest on top of the fence post and steps back; the sparrow hops into the nest and he smiles. Behind him the excavator waits to be hauled off; nothing drives or moves. Warm, calm, gently funny, evening ambience.",
       "negative": "text, captions, logos, vehicles driving, the machine moving, morphing, warping"
+    },
+    {
+      "id": "phone-test-owner",
+      "model": "veo3.1_fast",
+      "ratio": "720:1280",
+      "duration": 4,
+      "takes": 1,
+      "seed": 2201,
+      "photo": "",
+      "prompt": "Vertical phone video, filmed handheld on an iPhone by a family member, a little shaky, auto exposure. Overcast morning in a dusty West Texas back yard with a chain-link fence and a tin shed. A heavyset Hispanic man in his late 50s, faded ball cap, sweat-stained work shirt, reading glasses hanging on his collar, walks up to a small yellow mini excavator half covered in weeds and dried mesquite leaves, squints at it, and holds up his phone to take a photo of it. Ordinary, unglamorous, natural flat colors, real skin, no film look, no color grading. The excavator does not move.",
+      "negative": "cinematic lighting, color grading, film grain, glossy, plastic skin, stock photo, text, captions, logos, the machine moving"
     }
   ]
 }

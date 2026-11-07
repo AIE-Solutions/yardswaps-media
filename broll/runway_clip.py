@@ -20,7 +20,8 @@ Single-clip inputs:
   PHOTO     repo path (broll/in/...) or https URL. Several are comma-separated,
             each optionally tagged as tag=path:
               gen4_image: up to 3 reference photos, named in the prompt as @tag
-              veo / kling: first=path and optionally last=path (end frame)
+              veo / kling: first=path and optionally last=path (end frame);
+              leave PHOTO empty for text to video (veo, kling, gen4.5)
               product_ad: up to 10 product photos, the first is the main one
   PROMPT    the motion / image / ad prompt
   MODEL     see MODELS below
@@ -173,8 +174,8 @@ def validate(job):
         die(f"{job['slug']}: Veo at 1080p only makes 8-second clips")
     if not job["prompt"]:
         die(f"{job['slug']}: prompt is empty")
-    if spec["kind"] != "image" and not job["photos"]:
-        die(f"{job['slug']}: needs a photo")
+    if spec["kind"] != "image" and not job["photos"] and model in ("gen4_turbo", "product_ad"):
+        die(f"{job['slug']}: needs a photo")   # the others can also make a clip from text alone
     if not all(c.isalnum() or c in "-_" for c in job["slug"]):
         die(f"{job['slug']}: slug may only use letters, digits, - and _")
     for tag, path in job["photos"]:
@@ -203,11 +204,21 @@ def body_for(job):
             body["seed"] = int(job["seed"])
         return "/v1/text_to_image", body
     # video
+    limit = 2500 if model.startswith("kling") else 1000
+    if not photos:   # text to video
+        body = {"model": model, "promptText": job["prompt"][:limit], "ratio": job["ratio"],
+                "duration": job["duration"]}
+        if spec.get("audio"):
+            body["audio"] = bool(job.get("audio"))
+        if spec.get("seed") and job.get("seed") is not None:
+            body["seed"] = int(job["seed"])
+        if spec.get("negative") and job.get("negative"):
+            body["negativePrompt"] = job["negative"][:1000]
+        return "/v1/text_to_video", body
     if len(photos) == 1 and photos[0][0] in (None, "first"):
         image = photo_input(photos[0][1])
     else:
         image = [{"uri": photo_input(p), "position": tag or "first"} for tag, p in photos[:2]]
-    limit = 2500 if model.startswith("kling") else 1000
     body = {"model": model, "promptImage": image, "promptText": job["prompt"][:limit],
             "ratio": job["ratio"], "duration": job["duration"]}
     if spec.get("audio"):
