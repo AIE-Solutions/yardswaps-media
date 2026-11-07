@@ -1,9 +1,7 @@
 {
- "generatedAt": "2026-11-07T10:49:14Z",
+ "generatedAt": "2026-11-07T17:45:14Z",
  "boost": {
-  "surplus-parts-cash-flow": 60,
-  "part-tag-scan": 30,
-  "parts-donor-thumb": 30
+  "surplus-parts-cash-flow": 60
  },
  "retire": {}
 }
