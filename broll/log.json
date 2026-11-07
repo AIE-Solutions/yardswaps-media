@@ -10,5 +10,17 @@
   "seed": "4242",
   "file": "broll/forklift-yard-720x1280.mp4",
   "credits": 25
+ },
+ {
+  "when": "2026-11-07T02:06Z",
+  "slug": "ad-dozer",
+  "model": "gen4.5",
+  "ratio": "720:1280",
+  "duration": 5,
+  "photo": "ad-dozer.jpg",
+  "prompt": "Handheld documentary shot, slow walk-in toward the parked yellow bulldozer on a gravel yard in late afternoon, warm golden light, long soft shadows, a little dust drifting in the air, leaves moving in the breeze. The bulldozer stays parked and does not move. Natural, real, unpolished. No people, no text, no logos added, nothing new added to the scene.",
+  "seed": "7101",
+  "file": "broll/ad-dozer-720x1280.mp4",
+  "credits": 60
  }
 ]
