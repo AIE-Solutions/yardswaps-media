@@ -240,6 +240,12 @@
       "category": "cooking",
       "search": "small business",
       "demo": true
+    },
+    "mission-idle-to-work": {
+      "hook": "pov-idle",
+      "angle": "idle-gear",
+      "category": "forklifts",
+      "brand": true
     }
   }
 }
