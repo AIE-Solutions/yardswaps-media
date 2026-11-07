@@ -202,5 +202,29 @@
   "seed": 1622952749,
   "file": "broll/kf-s6-t2-1080x1920.jpg",
   "credits": 8
+ },
+ {
+  "when": "2026-11-07T02:55Z",
+  "slug": "kf-s1b",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "kf-s2b-t1-1080x1920.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame. Dawn in a dusty rural West Texas back yard: @machine, the same yellow mini excavator with the open canopy and the same back yard, sits parked and idle beside a weathered chain-link fence, a small bird's nest of dry grass sitting on its front blade, green vines climbing over its rubber tracks. Low warm sun, long shadows, a little dust in the air, mesquite trees and a rusty tin-roof shed behind. Grounded documentary look, natural color, fine film grain. No people, no added text or signs.",
+  "seed": 1402289283,
+  "file": "broll/kf-s1b-t1-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T02:55Z",
+  "slug": "kf-s1b",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "kf-s2b-t1-1080x1920.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame. Dawn in a dusty rural West Texas back yard: @machine, the same yellow mini excavator with the open canopy and the same back yard, sits parked and idle beside a weathered chain-link fence, a small bird's nest of dry grass sitting on its front blade, green vines climbing over its rubber tracks. Low warm sun, long shadows, a little dust in the air, mesquite trees and a rusty tin-roof shed behind. Grounded documentary look, natural color, fine film grain. No people, no added text or signs.",
+  "seed": 762306035,
+  "file": "broll/kf-s1b-t2-1080x1920.jpg",
+  "credits": 8
  }
 ]
