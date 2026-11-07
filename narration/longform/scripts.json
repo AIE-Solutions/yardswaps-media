@@ -36,7 +36,12 @@
   "parts-donor-thumb": "The thumb off the excavator you sold. Snap it, and the AI writes the title and category. Pulled parts sell with no part number. Set a price and post. Cash, not scrap.",
   "parts-bin-lot": "The parts bin you keep meaning to sort. Snap it and sell it as one lot; the buyer sorts it. Set your price and post. Shelf space back.",
   "plumbing-part-label": "One brass fitting. Snap it with the label in frame. The AI reads the size and connection off the label: a three-quarter inch corp stop. Set a price and post.",
-  "leftover-fittings-lot": "Fittings left over from three jobs, new in the package. Snap the pile and sell it as one lot. Set your price and post. Van space back."
+  "leftover-fittings-lot": "Fittings left over from three jobs, new in the package. Snap the pile and sell it as one lot. Set your price and post. Van space back.",
+  "control-panel-pulled": "A control panel pulled on a changeout. One photo, and the AI writes the title and files it under Electrical.",
+  "drilling-rig-parked": "A drilling rig parked since the last well. Snap it, mast up or down, and the AI files it under Drilling and Boring.",
+  "pressure-washer-1000-psi": "The old pressure washer that stayed after the upgrade. One photo, no typing, listed free.",
+  "building-things-concrete-mixer": "Done building things this season? The mixer stays in the yard. Snap it, the AI fills in the title and category, tap the price, done.",
+  "bluecollar-shelf-parts": "The parts already on your shelf. Snap one fitting, tap Parts and Other, and the AI reads the size off the nut. Listed free."
  },
  "intro": {
   "buyers-find-you": "Here's how buyers find you on YardSwaps. They search nearby, thirty-three categories, all local, tap your listing, and message you to pick it up.",
@@ -50,7 +55,8 @@
   "all-listings-marathon": "Thirty listings back to back in the real YardSwaps app. First, the forklift that's been sitting there: one photo, the AI fills in power, mast and tires, set the price, and it's live. Free.",
   "parts-and-labels": "Nine surplus parts, listed free from one photo each. A cylinder with its tag on: snap it, the AI reads brand, model and part number off the label, set your price and post.",
   "weekly-3": "Three ways to use YardSwaps this week. First, the spare motor that fits nothing you own: one photo, the AI fills it in, set your price, and it's live. Free.",
-  "forklift-start-to-finish": "One forklift, start to finish, in the real YardSwaps app. It's been sitting there. One photo, the AI fills in power, mast and tires, set your price, and it's live. Free."
+  "forklift-start-to-finish": "One forklift, start to finish, in the real YardSwaps app. It's been sitting there. One photo, the AI fills in power, mast and tires, set your price, and it's live. Free.",
+  "weekly-4": "Six listings from this week on YardSwaps. First, the well pump you stripped for parts: snap it, pick Parts and Other, set a price, and it's live. Free to list."
  },
  "close": "Free to list on YardSwaps. Link below."
 }
