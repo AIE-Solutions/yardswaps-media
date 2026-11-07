@@ -13,25 +13,34 @@ on:
         description: "clip (make one) or balance (print credits only)"
         default: "clip"
       photo:
-        description: "broll/in/<file>.jpg in this repo, or an https URL"
+        description: "broll/in/<file>.jpg in this repo, or an https URL (product_ad: up to 10, comma-separated)"
         default: ""
       prompt:
         description: "Motion or edit prompt (no people, no text, no new machines)"
         default: ""
       model:
-        description: "gen4_turbo (5 credits/s) | gen4.5 (12/s, 1080p) | gen4_image (edit a photo)"
+        description: "gen4_turbo (5 credits/s) | gen4.5 (12/s) | gen4_image (edit a photo) | product_ad (finished ad, 200+ credits)"
         default: "gen4_turbo"
       ratio:
-        description: "720:1280 (Shorts) | 1280:720 (YouTube) | 1080:1920 / 1920:1080 (gen4.5 only)"
+        description: "720:1280 (Shorts) | 1280:720 (YouTube) | 1080:1920 / 1920:1080 / 1440:1440 (product_ad only)"
         default: "720:1280"
       duration:
-        description: "5 or 10 seconds (video only)"
+        description: "5 or 10 seconds (video); 4 to 15 for product_ad"
         default: "5"
       seed:
         description: "Optional integer so a run can be repeated"
         default: ""
       slug:
         description: "Output name, e.g. forklift-yard"
+        default: ""
+      style:
+        description: "product_ad only: comma-separated style/ambience photos (up to 4)"
+        default: ""
+      info:
+        description: "product_ad only: what the product is (max 2,500 characters)"
+        default: ""
+      audio:
+        description: "product_ad only: 1 = Runway adds sound (default off, we add our music)"
         default: ""
 
 permissions:
@@ -61,6 +70,9 @@ jobs:
           DURATION: ${{ inputs.duration }}
           SEED: ${{ inputs.seed }}
           SLUG: ${{ inputs.slug }}
+          STYLE: ${{ inputs.style }}
+          INFO: ${{ inputs.info }}
+          AUDIO: ${{ inputs.audio }}
         run: python3 broll/runway_clip.py
       - name: Commit the output
         if: inputs.mode != 'balance'

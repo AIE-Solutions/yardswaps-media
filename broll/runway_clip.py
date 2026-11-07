@@ -9,9 +9,15 @@ Inputs (environment, set by the workflow):
   MODE      clip (default) | balance
   PHOTO     repo path (broll/in/...) or https URL of the start photo
   PROMPT    the motion / edit prompt
-  MODEL     gen4_turbo (default) | gen4.5 | gen4_image
-  RATIO     720:1280 (default) | 1280:720 | 1104:832 | 832:1104 | 960:960 | 1584:672 | 1920:1080 | 1080:1920
-  DURATION  5 (default) | 10   (video models only)
+  MODEL     gen4_turbo (default) | gen4.5 | gen4_image | product_ad
+  RATIO     720:1280 (default) | 1280:720 | 1104:832 | 832:1104 | 960:960 | 1584:672
+            product_ad also takes 1080:1920 | 1920:1080 | 1440:1440 | 834:1112 | 1248:1664 (1080p costs more)
+  DURATION  5 (default) | 10 for video models; 4 to 15 for product_ad
+  STYLE     product_ad only: comma-separated style/ambience photos (up to 4)
+  INFO      product_ad only: product description (max 2,500 characters)
+  AUDIO     product_ad only: 1 to let Runway add sound (default off; we add our own music)
+  product_ad: PHOTO may list up to 10 comma-separated product photos, the first is the main one.
+  Cost (Nov 2026 pricing guide): 720p 200 credits for 4 s + 36/s after; 1080p 216 + 40/s.
   SEED      optional integer
   SLUG      output name, e.g. forklift-yard -> broll/forklift-yard-720x1280.mp4
 """
@@ -30,8 +36,10 @@ API = "https://api.dev.runwayml.com"
 VERSION = "2024-11-06"
 VIDEO_MODELS = {"gen4_turbo", "gen4.5"}
 IMAGE_MODELS = {"gen4_image"}
-RATIOS = {"720:1280", "1280:720", "1104:832", "832:1104", "960:960", "1584:672",
-          "1920:1080", "1080:1920"}
+RECIPES = {"product_ad"}          # POST /v1/recipes/product_ad: product photos + style photos + concept -> finished ad
+RATIOS = {"720:1280", "1280:720", "1104:832", "832:1104", "960:960", "1584:672"}
+RECIPE_RATIOS = {"1280:720", "720:1280", "960:960", "834:1112", "1920:1080", "1080:1920", "1440:1440", "1248:1664"}
+RECIPE_VERSION = "2026-07"
 LOG = "broll/log.json"
 
 
@@ -128,21 +136,44 @@ def main():
     slug = os.environ.get("SLUG", "").strip()
     if not photo or not prompt or not slug:
         die("PHOTO, PROMPT and SLUG are required")
-    if model not in VIDEO_MODELS | IMAGE_MODELS:
-        die(f"model {model} is not on the allow list {sorted(VIDEO_MODELS | IMAGE_MODELS)}")
-    if ratio not in RATIOS:
-        die(f"ratio {ratio} is not on the allow list {sorted(RATIOS)}")
+    allowed = VIDEO_MODELS | IMAGE_MODELS | RECIPES
+    if model not in allowed:
+        die(f"model {model} is not on the allow list {sorted(allowed)}")
+    ratios = RECIPE_RATIOS if model in RECIPES else RATIOS
+    if ratio not in ratios:
+        die(f"ratio {ratio} is not on the allow list {sorted(ratios)}")
     if model in VIDEO_MODELS and duration not in (5, 10):
         die("duration must be 5 or 10")
+    if model in RECIPES and not 4 <= duration <= 15:
+        die("product_ad duration must be 4 to 15 seconds")
     if not all(c.isalnum() or c in "-_" for c in slug):
         die("slug may only use letters, digits, - and _")
 
     before = balance(key)
-    image = photo_input(photo)
     tag = ratio.replace(":", "x")
     os.makedirs("broll", exist_ok=True)
 
-    if model in VIDEO_MODELS:
+    if model in RECIPES:
+        products = [x.strip() for x in photo.split(",") if x.strip()][:10]
+        styles = [x.strip() for x in os.environ.get("STYLE", "").split(",") if x.strip()][:4]
+        info = os.environ.get("INFO", "").strip()[:2500]
+        body = {"version": RECIPE_VERSION, "productImages": [{"uri": photo_input(x)} for x in products],
+                "userConcept": prompt[:3500], "ratio": ratio, "duration": duration,
+                "audio": os.environ.get("AUDIO", "").strip() in ("1", "true", "yes")}
+        if styles:
+            body["styleImages"] = [{"uri": photo_input(x)} for x in styles]
+        if info:
+            body["productInfo"] = info
+        print(f"recipe {model} {ratio} {duration}s products={len(products)} styles={len(styles)} slug={slug}")
+        task = req("POST", f"/v1/recipes/{model}", key, body)
+        task = wait(task["id"], key)
+        out = f"broll/{slug}-{tag}.mp4"
+        download(task["output"][0], out)
+        if len(task["output"]) > 1:
+            for i, u in enumerate(task["output"][1:], 2):
+                download(u, f"broll/{slug}-{tag}-{i}.mp4")
+    elif model in VIDEO_MODELS:
+        image = photo_input(photo)
         body = {"model": model, "promptImage": image, "promptText": prompt,
                 "ratio": ratio, "duration": duration}
         if seed:
@@ -161,6 +192,7 @@ def main():
         except (FileNotFoundError, subprocess.CalledProcessError) as e:
             print(f"no reversed copy ({e}); reverse it in the render step")
     else:
+        image = photo_input(photo)
         body = {"model": model, "promptText": prompt, "ratio": ratio,
                 "referenceImages": [{"uri": image, "tag": "photo"}]}
         if seed:
@@ -173,8 +205,8 @@ def main():
 
     after = balance(key)
     entry = {"when": time.strftime("%Y-%m-%dT%H:%MZ", time.gmtime()), "slug": slug,
-             "model": model, "ratio": ratio, "duration": duration if model in VIDEO_MODELS else None,
-             "photo": photo if photo.startswith("https://") else os.path.basename(photo),
+             "model": model, "ratio": ratio, "duration": duration if model in VIDEO_MODELS | RECIPES else None,
+             "photo": ",".join(x if x.startswith("https://") else os.path.basename(x) for x in photo.split(",")),
              "prompt": prompt, "seed": seed or None, "file": out,
              "credits": (before - after) if (before is not None and after is not None) else None}
     log = []
