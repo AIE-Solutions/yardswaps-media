@@ -5,8 +5,8 @@
     "Machines never drive or dig. Phones are always seen from the back; the real app screens are cut in from our own recording, never generated.",
     "Run in three steps (mode=batch, shots=broll/shots/people-ad.json):",
     "  1. only=kf-s1,kf-s2,kf-s4 budget=60   -> storyboard stills, 2 takes each (48 credits). Done Nov 7: picked kf-s1-t2 (yard), kf-s2-t1 (owner), kf-s4-t1 (buyer).",
-    "  2. only=kf-s2b,kf-s3,kf-s5,kf-s6 budget=70 -> the same owner, buyer and machine in every shot (64 credits)",
-    "  3. point each v-* first frame at the chosen still, then only=v-s1,v-s2,v-s3,v-s4,v-s5,v-s6 budget=1700 (needs about $17 of credits)"
+    "  2. only=kf-s2b,kf-s3,kf-s5,kf-s6 budget=70 (64 credits). Done Nov 7: picked kf-s2b-t1, kf-s3-t2, kf-s5-t2, kf-s6-t2. kf-s1b redoes the opening yard with the same open-canopy machine.",
+    "  3. the v-* first frames point at the picks; only=v-s1,v-s2,v-s3,v-s4,v-s5,v-s6 budget=1700 (1,680 credits, about $17)"
   ],
   "jobs": [
     {
@@ -32,6 +32,14 @@
       "takes": 2,
       "photo": "",
       "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. A small residential construction jobsite outside Houston, midday. A woman in her late 30s, a contractor, wearing a hi-vis vest over a navy t-shirt, jeans, work boots and a sun-faded cap, leans on the tailgate of a dusty white pickup with an empty flatbed trailer hitched behind it. She looks down at her phone, which we see only from the back, with a small surprised smile. Concrete forms and rebar behind her, soft natural light, fine film grain. No text, no logos."
+    },
+    {
+      "id": "kf-s1b",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "machine=broll/kf-s2b-t1-1080x1920.jpg",
+      "prompt": "Photoreal 35mm film still, vertical frame. Dawn in a dusty rural West Texas back yard: @machine, the same yellow mini excavator with the open canopy and the same back yard, sits parked and idle beside a weathered chain-link fence, a small bird's nest of dry grass sitting on its front blade, green vines climbing over its rubber tracks. Low warm sun, long shadows, a little dust in the air, mesquite trees and a rusty tin-roof shed behind. Grounded documentary look, natural color, fine film grain. No people, no added text or signs."
     },
     {
       "id": "kf-s2b",
@@ -72,7 +80,7 @@
       "duration": 8,
       "takes": 3,
       "seed": 1101,
-      "photo": "first=broll/kf-s1-t2-1080x1920.jpg",
+      "photo": "first=broll/kf-s1b-t1-1080x1920.jpg",
       "prompt": "Slow handheld push-in toward the parked yellow mini excavator at dawn. A small sparrow flutters down and lands on the bird's nest sitting on the excavator's front blade. Dust drifts through the low sun, mesquite leaves sway, the vines on the tracks move slightly in the breeze. The excavator stays completely still. Documentary realism, natural light, quiet morning ambience.",
       "negative": "text, captions, logos, people, the machine moving or digging, morphing, warping"
     },
@@ -91,7 +99,7 @@
       "ratio": "1080:1920",
       "duration": 5,
       "takes": 3,
-      "photo": "first=broll/kf-s3-t1-1080x1920.jpg",
+      "photo": "first=broll/kf-s3-t2-1080x1920.jpg",
       "prompt": "Over-the-shoulder handheld shot. He steadies the phone and takes a single photo of the excavator. The sparrow on the nest on the blade tilts its head at him, unimpressed. We only ever see the back of the phone. The excavator does not move. Natural, real, gently funny."
     },
     {
@@ -109,7 +117,7 @@
       "ratio": "1080:1920",
       "duration": 5,
       "takes": 3,
-      "photo": "first=broll/kf-s5-t1-1080x1920.jpg",
+      "photo": "first=broll/kf-s5-t2-1080x1920.jpg",
       "prompt": "Gentle handheld shot in golden light. The two shake hands firmly and laugh; then the man pats the excavator's track twice, like saying goodbye to an old friend. The excavator does not move. Natural, warm, real."
     },
     {
@@ -119,7 +127,7 @@
       "duration": 8,
       "takes": 3,
       "seed": 1601,
-      "photo": "first=broll/kf-s6-t1-1080x1920.jpg",
+      "photo": "first=broll/kf-s6-t2-1080x1920.jpg",
       "prompt": "Quiet golden-hour shot with a slow handheld drift. The man sets the bird's nest on the fence post and steps back; the sparrow hops from the wire into the nest. He smiles. Behind him the excavator sits strapped on the parked trailer; nothing drives away. Warm, calm, gently funny, evening ambience.",
       "negative": "text, captions, logos, vehicles driving, the machine moving, morphing, warping"
     }
