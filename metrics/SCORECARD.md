@@ -1,6 +1,6 @@
 # YardSwaps weekly scorecard (2026-11-03)
 
-Generated 2026-11-06T19:19:47Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest MISSING, app ops digest yes, youtube MISSING, metricool MISSING.
+Generated 2026-11-07T01:55:04Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest MISSING, app ops digest yes, youtube MISSING, metricool MISSING.
 
 ## Goals
 - Instagram followers: 148 (+135 in 7 days)
@@ -20,24 +20,24 @@ Median points per post: 1.0. Points = follows x10, shares x4, saves x3, comments
 | forklift-sitting-there | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | plumbing-part-label | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | find-it-nearby | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.5 |
+| stripped-well-pump | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.5 |
 | control-panel-pulled | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | drilling-rig-parked | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | micrometer-set-small-tools | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| stripped-well-pump | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 
 ### Opener shapes
-- pov-idle: 1.8 points/post over 10 posts (winner)
+- pov-idle: 1.58 points/post over 12 posts (winner)
 - question-problem: 1.5 points/post over 2 posts (testing)
 - feature-statement: 0.5 points/post over 2 posts (testing)
 
 ### Topics
 - parts-spec: 3.0 points/post over 4 posts (winner)
-- shelf-parts: 1.25 points/post over 4 posts (average)
+- shelf-parts: 1.0 points/post over 6 posts (average)
 - idle-gear: 1.0 points/post over 4 posts (average)
 - buyer-feature: 0.5 points/post over 2 posts (testing)
 
 ### Categories
-- parts: 2.33 points/post over 6 posts (winner)
+- parts: 1.88 points/post over 8 posts (winner)
 - excavators: 1.5 points/post over 2 posts (testing)
 - forklifts: 0.83 points/post over 6 posts (average)
 
