@@ -322,5 +322,17 @@
   "seed": 1383795948,
   "file": "broll/kf-s0-t2-1080x1920.jpg",
   "credits": 8
+ },
+ {
+  "when": "2026-11-07T03:17Z",
+  "slug": "phone-test-owner",
+  "model": "veo3.1_fast",
+  "ratio": "720:1280",
+  "duration": 4,
+  "photo": "",
+  "prompt": "Vertical phone video, filmed handheld on an iPhone by a family member, a little shaky, auto exposure. Overcast morning in a dusty West Texas back yard with a chain-link fence and a tin shed. A heavyset Hispanic man in his late 50s, faded ball cap, sweat-stained work shirt, reading glasses hanging on his collar, walks up to a small yellow mini excavator half covered in weeds and dried mesquite leaves, squints at it, and holds up his phone to take a photo of it. Ordinary, unglamorous, natural flat colors, real skin, no film look, no color grading. The excavator does not move.",
+  "seed": 2201,
+  "file": "broll/phone-test-owner-720x1280.mp4",
+  "credits": 40
  }
 ]
