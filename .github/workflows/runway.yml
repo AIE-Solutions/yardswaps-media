@@ -10,22 +10,22 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "clip (make one), balance (print credits only) or fetch (download a finished task)"
+        description: "clip (make one) | batch (a shot list, several takes) | estimate (price a shot list, spends nothing) | balance | fetch"
         default: "clip"
       photo:
         description: "broll/in/<file>.jpg in this repo, or an https URL (product_ad: up to 10, comma-separated)"
         default: ""
       prompt:
-        description: "Motion or edit prompt (no people, no text, no new machines)"
+        description: "Motion, image or ad prompt (machines never drive or dig; no text; phones seen from the back)"
         default: ""
       model:
-        description: "gen4_turbo (5 credits/s) | gen4.5 (12/s) | gen4_image (edit a photo) | product_ad (finished ad, 200+ credits)"
+        description: "gen4_turbo 5/s | gen4.5 12/s | kling3.0_pro 12/s | veo3.1_fast 10/s | veo3.1 20/s | kling3.0_4k 43/s | gen4_image 8 | product_ad 200+"
         default: "gen4_turbo"
       ratio:
-        description: "720:1280 (Shorts) | 1280:720 (YouTube) | 1080:1920 / 1920:1080 / 1440:1440 (product_ad only)"
+        description: "720:1280 (gen4) | 1080:1920 (kling3.0_pro, veo3.1 8 s, gen4_image, product_ad) | 2160:3840 (kling3.0_4k)"
         default: "720:1280"
       duration:
-        description: "5 or 10 seconds (video); 4 to 15 for product_ad"
+        description: "gen4: 5 or 10 | veo: 4, 6, 8 (8 at 1080p) | kling: 3-15 | product_ad: 4-15"
         default: "5"
       seed:
         description: "Optional integer so a run can be repeated"
@@ -40,10 +40,19 @@ on:
         description: "product_ad only: what the product is (max 2,500 characters)"
         default: ""
       audio:
-        description: "product_ad only: 1 = Runway adds sound (default off, we add our music)"
+        description: "1 = the model makes sound (costs more on Veo and Kling; default off, we add our music)"
         default: ""
       task:
         description: "fetch only: the Runway task id printed by a run that timed out"
+        default: ""
+      shots:
+        description: "batch/estimate: shot list, e.g. broll/shots/people-ad.json"
+        default: ""
+      only:
+        description: "batch/estimate: comma-separated job ids to run (empty = all)"
+        default: ""
+      budget:
+        description: "batch: the most credits this run may spend (it stops before spending if the estimate is higher)"
         default: ""
 
 permissions:
@@ -59,8 +68,13 @@ jobs:
     timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Pillow (photo checks, stills saved as JPEG)
+        run: python -m pip install -q pillow
       - name: Install ffmpeg (for the reversed opener copy)
-        if: inputs.mode != 'balance'
+        if: inputs.mode == 'clip' || inputs.mode == ''
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
       - name: Make the clip
         env:
@@ -77,13 +91,16 @@ jobs:
           INFO: ${{ inputs.info }}
           AUDIO: ${{ inputs.audio }}
           TASK: ${{ inputs.task }}
-        run: python3 broll/runway_clip.py
+          SHOTS: ${{ inputs.shots }}
+          ONLY: ${{ inputs.only }}
+          BUDGET: ${{ inputs.budget }}
+        run: python broll/runway_clip.py
       - name: Commit the output
-        if: inputs.mode != 'balance'
+        if: inputs.mode != 'balance' && inputs.mode != 'estimate'
         run: |
           git config user.name "yardswaps-reels-bot"
           git config user.email "yardswaps@gmail.com"
           git add broll/
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "Runway clip ${{ inputs.slug }} ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git commit -m "Runway ${{ inputs.mode }} ${{ inputs.slug }}${{ inputs.only }} ($(date -u +%Y-%m-%dT%H:%MZ))"
           for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
