@@ -6,7 +6,7 @@ environment and never prints it. One run is one generation, so a bad run
 costs at most one clip (25 credits for 5 s of Gen-4 Turbo).
 
 Inputs (environment, set by the workflow):
-  MODE      clip (default) | balance
+  MODE      clip (default) | balance | fetch (TASK = id of a task whose run timed out)
   PHOTO     repo path (broll/in/...) or https URL of the start photo
   PROMPT    the motion / edit prompt
   MODEL     gen4_turbo (default) | gen4.5 | gen4_image | product_ad
@@ -93,7 +93,8 @@ def photo_input(photo):
         return f"data:{mime};base64," + base64.b64encode(f.read()).decode()
 
 
-def wait(task_id, key):
+def wait(task_id, key, limit=900):
+    print(f"  task {task_id} (if this run times out, GET /v1/tasks/{task_id} still has the output)")
     t0 = time.time()
     while True:
         time.sleep(10 + random.random() * 3)
@@ -104,8 +105,8 @@ def wait(task_id, key):
             return task
         if status in ("FAILED", "CANCELLED"):
             die(f"task {status}: {task.get('failure') or task.get('failureCode') or task}")
-        if time.time() - t0 > 900:
-            die("gave up after 15 minutes; the task may still finish, check the Runway portal")
+        if time.time() - t0 > limit:
+            die(f"gave up after {limit // 60} minutes; task {task_id} may still finish, check the Runway portal")
 
 
 def download(url, out):
@@ -125,6 +126,16 @@ def main():
     mode = os.environ.get("MODE", "clip").strip() or "clip"
     if mode == "balance":
         balance(key)
+        return
+    if mode == "fetch":   # download a finished task by id (a run that timed out), no new spend
+        tid = os.environ.get("TASK", "").strip()
+        slug = os.environ.get("SLUG", "").strip() or "fetched"
+        if not tid or not all(c.isalnum() or c in "-_" for c in tid + slug):
+            die("fetch needs TASK (a task id) and a plain SLUG")
+        task = wait(tid, key, limit=2700)
+        os.makedirs("broll", exist_ok=True)
+        for i, u in enumerate(task["output"], 1):
+            download(u, f"broll/{slug}{'' if i == 1 else f'-{i}'}.mp4")
         return
 
     photo = os.environ.get("PHOTO", "").strip()
@@ -166,7 +177,7 @@ def main():
             body["productInfo"] = info
         print(f"recipe {model} {ratio} {duration}s products={len(products)} styles={len(styles)} slug={slug}")
         task = req("POST", f"/v1/recipes/{model}", key, body)
-        task = wait(task["id"], key)
+        task = wait(task["id"], key, limit=2700)
         out = f"broll/{slug}-{tag}.mp4"
         download(task["output"][0], out)
         if len(task["output"]) > 1:

@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "clip (make one) or balance (print credits only)"
+        description: "clip (make one), balance (print credits only) or fetch (download a finished task)"
         default: "clip"
       photo:
         description: "broll/in/<file>.jpg in this repo, or an https URL (product_ad: up to 10, comma-separated)"
@@ -42,6 +42,9 @@ on:
       audio:
         description: "product_ad only: 1 = Runway adds sound (default off, we add our music)"
         default: ""
+      task:
+        description: "fetch only: the Runway task id printed by a run that timed out"
+        default: ""
 
 permissions:
   contents: write
@@ -53,7 +56,7 @@ concurrency:
 jobs:
   make:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
       - name: Install ffmpeg (for the reversed opener copy)
@@ -73,6 +76,7 @@ jobs:
           STYLE: ${{ inputs.style }}
           INFO: ${{ inputs.info }}
           AUDIO: ${{ inputs.audio }}
+          TASK: ${{ inputs.task }}
         run: python3 broll/runway_clip.py
       - name: Commit the output
         if: inputs.mode != 'balance'
