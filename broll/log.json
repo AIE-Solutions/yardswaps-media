@@ -22,5 +22,17 @@
   "seed": "7101",
   "file": "broll/ad-dozer-720x1280.mp4",
   "credits": 60
+ },
+ {
+  "when": "2026-11-07T02:19Z",
+  "slug": "ad-app-grassroots",
+  "model": "product_ad",
+  "ratio": "1080:1920",
+  "duration": 15,
+  "photo": "app-1-feed.jpg,app-2-listing.jpg,app-3-ai-filled.jpg,app-4-live.jpg",
+  "prompt": "A grassroots, honest ad for YardSwaps, a free app for selling used equipment, made by a small team in Texas. Opening: a quiet Texas equipment yard in late-afternoon light, a machine parked and sitting idle, a little dust drifting, handheld documentary camera. Then a work-gloved hand holds the phone up in the yard, showing the YardSwaps app exactly as in the product photos: the home feed of equipment listings, a listing page, the screen where AI filled in the listing, and the Your listing is live screen. Keep every app screen, word and number exactly as in the product photos; do not invent new screens, text or logos. Close: the phone in the foreground with the yard behind it at sunset, warm and calm. No faces, no crowds, the machines never drive or dig. Slow, real, unpolished, not a glossy commercial.",
+  "seed": null,
+  "file": "broll/ad-app-grassroots-1080x1920.mp4",
+  "credits": 656
  }
 ]
