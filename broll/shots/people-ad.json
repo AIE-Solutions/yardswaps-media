@@ -1,0 +1,189 @@
+{
+  "name": "people-ad: The machine nobody runs anymore",
+  "notes": [
+    "A 20-24 s grassroots story with generated people. Real user photos stay faceless; the machine reference is a real listing photo of equipment only.",
+    "Machines never drive or dig. Phones are always seen from the back; the real app screens are cut in from our own recording, never generated.",
+    "Run in three steps (mode=batch, shots=broll/shots/people-ad.json):",
+    "  1. only=kf-s1,kf-s2,kf-s4 budget=60   -> storyboard stills, 2 takes each (48 credits). Done Nov 7: picked kf-s1-t2 (yard), kf-s2-t1 (owner), kf-s4-t1 (buyer).",
+    "  2. only=kf-s2b,kf-s3,kf-s5,kf-s6 budget=70 (64 credits). Done Nov 7: picked kf-s2b-t1, kf-s3-t2, kf-s5-t2, kf-s6-t2. kf-s1b redoes the opening yard with the same open-canopy machine.",
+    "  3. the v-* first frames point at the picks; only=v-s0,v-s1,v-s2,v-s3,v-s4,v-s5,v-s6 budget=1900 (1,860 credits, about $18.60)",
+    "  Round 3 (Nov 7, Alan: 'Improve'): kf-s0 adds a macro hook shot of the sparrow in its nest; kf-s4b/s5b/s6b redo the contractor, the handshake and the trailer ending to look candid instead of stock. only=kf-s0,kf-s4b,kf-s5b,kf-s6b budget=70 Picked kf-s0-t1, kf-s4b-t2, kf-s5b-t2, kf-s6b-t2.",
+    "  Round 4 (Nov 7, Alan: 'this all looks super fake'): the Gen-4 Image stills look plastic and the 35mm-film prompts look staged. Testing phone-video style straight from Veo 3.1 text to video (phone-test-owner, 40 credits). The fence-post nest shot is cut."
+  ],
+  "jobs": [
+    {
+      "id": "kf-s1",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "machine=broll/in/hero-mini-excavator.jpg",
+      "prompt": "Photoreal 35mm film still, vertical frame. Dawn in a dusty rural West Texas back yard: @machine, the yellow mini excavator, sits parked and idle beside a weathered chain-link fence, its bucket resting on the dirt with a small bird's nest of dry grass inside it, green vines climbing over its rubber tracks, dust on the cab glass. Low warm sun, long shadows, a little dust in the air, mesquite trees and a rusty tin-roof shed behind. Grounded documentary look, natural color, fine film grain. No people, no added text or signs."
+    },
+    {
+      "id": "kf-s2",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "machine=broll/in/hero-mini-excavator.jpg",
+      "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. Early morning in a dusty West Texas back yard. A Hispanic man in his mid-50s with a grey mustache, a sweat-stained tan cap, a faded denim work shirt and jeans, holding a white coffee mug, stands a few steps from @machine, the yellow mini excavator, parked with vines over its tracks. He looks at it with a tired half-smile. Medium shot from the side, warm low sun, dust in the air, natural color, fine film grain. No text."
+    },
+    {
+      "id": "kf-s4",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "",
+      "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. A small residential construction jobsite outside Houston, midday. A woman in her late 30s, a contractor, wearing a hi-vis vest over a navy t-shirt, jeans, work boots and a sun-faded cap, leans on the tailgate of a dusty white pickup with an empty flatbed trailer hitched behind it. She looks down at her phone, which we see only from the back, with a small surprised smile. Concrete forms and rebar behind her, soft natural light, fine film grain. No text, no logos."
+    },
+    {
+      "id": "kf-s1b",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "machine=broll/kf-s2b-t1-1080x1920.jpg",
+      "prompt": "Photoreal 35mm film still, vertical frame. Dawn in a dusty rural West Texas back yard: @machine, the same yellow mini excavator with the open canopy and the same back yard, sits parked and idle beside a weathered chain-link fence, a small bird's nest of dry grass sitting on its front blade, green vines climbing over its rubber tracks. Low warm sun, long shadows, a little dust in the air, mesquite trees and a rusty tin-roof shed behind. Grounded documentary look, natural color, fine film grain. No people, no added text or signs."
+    },
+    {
+      "id": "kf-s2b",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "owner=broll/kf-s2-t1-1080x1920.jpg, machine=broll/kf-s1-t2-1080x1920.jpg",
+      "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. Early morning in the dusty West Texas back yard from @machine. @owner, holding a white coffee mug, stands a few steps from @machine, the yellow mini excavator with the enclosed cab exactly as shown, parked with vines over its tracks and a bird's nest on its front blade. He looks at it with a tired half-smile. Medium shot from the side, warm low sun, dust in the air, natural color, fine film grain. No text."
+    },
+    {
+      "id": "kf-s3",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "owner=broll/kf-s2-t1-1080x1920.jpg, machine=broll/kf-s1-t2-1080x1920.jpg",
+      "prompt": "Photoreal 35mm film still, vertical frame. Over-the-shoulder shot from behind @owner as he holds up a phone with both hands to take one photo of @machine, the yellow mini excavator with the enclosed cab, parked in the same yard. We see only the back of the phone, never the screen. A small brown sparrow sits on the bird's nest on the excavator's front blade, looking straight back at him. Morning light, dust in the air, documentary realism, fine film grain. No text."
+    },
+    {
+      "id": "kf-s5",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "owner=broll/kf-s2-t1-1080x1920.jpg, buyer=broll/kf-s4-t1-1080x1920.jpg, machine=broll/kf-s1-t2-1080x1920.jpg",
+      "prompt": "Photoreal 35mm film still, vertical frame. Late afternoon in the same dusty West Texas back yard. @owner and @buyer shake hands and laugh next to @machine, the yellow mini excavator with the enclosed cab, its tracks now cleared of vines. Her dusty white pickup and empty flatbed trailer are parked behind them. Medium-wide shot, golden light, documentary realism, fine film grain. No text."
+    },
+    {
+      "id": "kf-s6",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "owner=broll/kf-s2-t1-1080x1920.jpg, machine=broll/kf-s1-t2-1080x1920.jpg",
+      "prompt": "Photoreal 35mm film still, vertical frame. Golden hour in the same yard. In the background @machine, the yellow mini excavator with the enclosed cab, sits strapped down with yellow ratchet straps on a flatbed trailer hitched to a dusty white pickup. In the foreground @owner gently sets a small bird's nest of dry grass on top of a wooden fence post while a sparrow watches from the fence wire. Warm, quiet and a little funny. Documentary realism, fine film grain. No text."
+    },
+    {
+      "id": "kf-s6b",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "owner=broll/kf-s2-t1-1080x1920.jpg, machine=broll/kf-s1b-t1-1080x1920.jpg",
+      "prompt": "Photoreal 35mm film still, vertical frame. Golden hour at the yard gate. In the background, @machine, the yellow mini excavator with the open canopy, sits on a low flatbed trailer, tied down with yellow ratchet straps over its tracks, hitched to a dusty white pickup; nothing is moving. In the foreground @owner gently sets the small bird's nest of dry grass on top of a weathered wooden fence post while a sparrow perches on the fence wire beside it, watching him. Warm backlight, quiet and a little funny. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos."
+    },
+    {
+      "id": "kf-s5b",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "owner=broll/kf-s2-t1-1080x1920.jpg, buyer=broll/kf-s4-t1-1080x1920.jpg, machine=broll/kf-s1b-t1-1080x1920.jpg",
+      "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. Late afternoon in the dusty West Texas back yard. @owner and @buyer shake hands mid-laugh beside @machine, the yellow mini excavator with the open canopy; its tracks are now pulled clean of vines and the nest still sits on its blade. Her dusty white pickup and empty low flatbed trailer are backed into the yard behind them. Golden side light, long shadows. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos."
+    },
+    {
+      "id": "kf-s4b",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "buyer=broll/kf-s4-t1-1080x1920.jpg",
+      "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. @buyer, a working contractor, at a real residential jobsite outside Houston at midday: dust on her jeans and boots, a worn hi-vis vest, sunburned forearms. She leans on the tailgate of her dusty white pickup, an empty low flatbed equipment trailer hitched behind it, and looks down at her phone (we only see its back) with a small surprised smile. Framing and slab forms behind her, hard midday light. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos."
+    },
+    {
+      "id": "kf-s0",
+      "model": "gen4_image",
+      "ratio": "1080:1920",
+      "takes": 2,
+      "photo": "machine=broll/kf-s1b-t1-1080x1920.jpg",
+      "prompt": "Extreme close-up, photoreal 35mm macro film still, vertical frame. A small brown house sparrow sits in a bird's nest of dry grass resting on the rusty, chipped steel front blade of @machine, the yellow mini excavator. Shallow depth of field, the yellow machine soft behind, warm dawn backlight, dust specks glowing in the air. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos."
+    },
+    {
+      "id": "v-s0",
+      "model": "kling3.0_pro",
+      "ratio": "1080:1920",
+      "duration": 5,
+      "takes": 3,
+      "photo": "first=broll/kf-s0-t1-1080x1920.jpg",
+      "prompt": "Locked-off macro close-up. The sparrow in the nest fluffs its feathers, tilts its head and looks straight into the lens. Dust specks drift through the warm backlight, a dry grass stem trembles in the breeze. The machine behind stays completely still. Natural, real, gently funny."
+    },
+    {
+      "id": "v-s1",
+      "model": "veo3.1",
+      "ratio": "1080:1920",
+      "duration": 8,
+      "takes": 3,
+      "seed": 1101,
+      "photo": "first=broll/kf-s1b-t1-1080x1920.jpg",
+      "prompt": "Slow handheld push-in toward the parked yellow mini excavator at dawn. A small sparrow flutters down and lands on the bird's nest sitting on the excavator's front blade. Dust drifts through the low sun, mesquite leaves sway, the vines on the tracks move slightly in the breeze. The excavator stays completely still. Documentary realism, natural light, quiet morning ambience.",
+      "negative": "text, captions, logos, people, the machine moving or digging, morphing, warping"
+    },
+    {
+      "id": "v-s2",
+      "model": "kling3.0_pro",
+      "ratio": "1080:1920",
+      "duration": 5,
+      "takes": 3,
+      "photo": "first=broll/kf-s2b-t1-1080x1920.jpg",
+      "prompt": "Handheld documentary shot. The man takes a slow sip of his coffee, looks the parked excavator up and down, lets out a small sigh and shakes his head with a half-smile, as if it has been sitting there for two years. Dust floats in the low sun. The excavator stays parked and does not move. Natural, real, unpolished."
+    },
+    {
+      "id": "v-s3",
+      "model": "kling3.0_pro",
+      "ratio": "1080:1920",
+      "duration": 5,
+      "takes": 3,
+      "photo": "first=broll/kf-s3-t2-1080x1920.jpg",
+      "prompt": "Over-the-shoulder handheld shot. He steadies the phone and takes a single photo of the excavator. The sparrow on the nest on the blade tilts its head at him, unimpressed. We only ever see the back of the phone. The excavator does not move. Natural, real, gently funny."
+    },
+    {
+      "id": "v-s4",
+      "model": "kling3.0_pro",
+      "ratio": "1080:1920",
+      "duration": 5,
+      "takes": 3,
+      "photo": "first=broll/kf-s4b-t2-1080x1920.jpg",
+      "prompt": "Handheld documentary shot at a jobsite. The woman reads her phone, her eyebrows go up, she smiles, slides the phone into her back pocket, grabs her keys off the tailgate and heads for the cab. Workers move softly in the background. We only see the back of the phone. Natural, real."
+    },
+    {
+      "id": "v-s5",
+      "model": "kling3.0_pro",
+      "ratio": "1080:1920",
+      "duration": 5,
+      "takes": 3,
+      "photo": "first=broll/kf-s5b-t2-1080x1920.jpg",
+      "prompt": "Gentle handheld shot in golden light. The two shake hands firmly and laugh; then the man pats the excavator's track twice, like saying goodbye to an old friend. The excavator does not move. Natural, warm, real."
+    },
+    {
+      "id": "v-s6",
+      "model": "veo3.1",
+      "ratio": "1080:1920",
+      "duration": 8,
+      "takes": 3,
+      "seed": 1601,
+      "photo": "first=broll/kf-s6b-t2-1080x1920.jpg",
+      "prompt": "Quiet golden-hour shot with a slow handheld drift. The man sets the bird's nest on top of the fence post and steps back; the sparrow hops into the nest and he smiles. Behind him the excavator waits to be hauled off; nothing drives or moves. Warm, calm, gently funny, evening ambience.",
+      "negative": "text, captions, logos, vehicles driving, the machine moving, morphing, warping"
+    },
+    {
+      "id": "phone-test-owner",
+      "model": "veo3.1_fast",
+      "ratio": "720:1280",
+      "duration": 4,
+      "takes": 1,
+      "seed": 2201,
+      "photo": "",
+      "prompt": "Vertical phone video, filmed handheld on an iPhone by a family member, a little shaky, auto exposure. Overcast morning in a dusty West Texas back yard with a chain-link fence and a tin shed. A heavyset Hispanic man in his late 50s, faded ball cap, sweat-stained work shirt, reading glasses hanging on his collar, walks up to a small yellow mini excavator half covered in weeds and dried mesquite leaves, squints at it, and holds up his phone to take a photo of it. Ordinary, unglamorous, natural flat colors, real skin, no film look, no color grading. The excavator does not move.",
+      "negative": "cinematic lighting, color grading, film grain, glossy, plastic skin, stock photo, text, captions, logos, the machine moving"
+    }
+  ]
+}
