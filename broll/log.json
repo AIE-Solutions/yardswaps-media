@@ -226,5 +226,101 @@
   "seed": 762306035,
   "file": "broll/kf-s1b-t2-1080x1920.jpg",
   "credits": 8
+ },
+ {
+  "when": "2026-11-07T03:11Z",
+  "slug": "kf-s6b",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "kf-s2-t1-1080x1920.jpg,kf-s1b-t1-1080x1920.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame. Golden hour at the yard gate. In the background, @machine, the yellow mini excavator with the open canopy, sits on a low flatbed trailer, tied down with yellow ratchet straps over its tracks, hitched to a dusty white pickup; nothing is moving. In the foreground @owner gently sets the small bird's nest of dry grass on top of a weathered wooden fence post while a sparrow perches on the fence wire beside it, watching him. Warm backlight, quiet and a little funny. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos.",
+  "seed": 1646560341,
+  "file": "broll/kf-s6b-t1-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T03:11Z",
+  "slug": "kf-s6b",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "kf-s2-t1-1080x1920.jpg,kf-s1b-t1-1080x1920.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame. Golden hour at the yard gate. In the background, @machine, the yellow mini excavator with the open canopy, sits on a low flatbed trailer, tied down with yellow ratchet straps over its tracks, hitched to a dusty white pickup; nothing is moving. In the foreground @owner gently sets the small bird's nest of dry grass on top of a weathered wooden fence post while a sparrow perches on the fence wire beside it, watching him. Warm backlight, quiet and a little funny. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos.",
+  "seed": 1591120808,
+  "file": "broll/kf-s6b-t2-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T03:11Z",
+  "slug": "kf-s5b",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "kf-s2-t1-1080x1920.jpg,kf-s4-t1-1080x1920.jpg,kf-s1b-t1-1080x1920.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. Late afternoon in the dusty West Texas back yard. @owner and @buyer shake hands mid-laugh beside @machine, the yellow mini excavator with the open canopy; its tracks are now pulled clean of vines and the nest still sits on its blade. Her dusty white pickup and empty low flatbed trailer are backed into the yard behind them. Golden side light, long shadows. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos.",
+  "seed": 1839305810,
+  "file": "broll/kf-s5b-t2-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T03:11Z",
+  "slug": "kf-s5b",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "kf-s2-t1-1080x1920.jpg,kf-s4-t1-1080x1920.jpg,kf-s1b-t1-1080x1920.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. Late afternoon in the dusty West Texas back yard. @owner and @buyer shake hands mid-laugh beside @machine, the yellow mini excavator with the open canopy; its tracks are now pulled clean of vines and the nest still sits on its blade. Her dusty white pickup and empty low flatbed trailer are backed into the yard behind them. Golden side light, long shadows. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos.",
+  "seed": 932761088,
+  "file": "broll/kf-s5b-t1-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T03:11Z",
+  "slug": "kf-s4b",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "kf-s4-t1-1080x1920.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. @buyer, a working contractor, at a real residential jobsite outside Houston at midday: dust on her jeans and boots, a worn hi-vis vest, sunburned forearms. She leans on the tailgate of her dusty white pickup, an empty low flatbed equipment trailer hitched behind it, and looks down at her phone (we only see its back) with a small surprised smile. Framing and slab forms behind her, hard midday light. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos.",
+  "seed": 1051447693,
+  "file": "broll/kf-s4b-t1-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T03:11Z",
+  "slug": "kf-s4b",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "kf-s4-t1-1080x1920.jpg",
+  "prompt": "Photoreal 35mm film still, vertical frame, handheld documentary. @buyer, a working contractor, at a real residential jobsite outside Houston at midday: dust on her jeans and boots, a worn hi-vis vest, sunburned forearms. She leans on the tailgate of her dusty white pickup, an empty low flatbed equipment trailer hitched behind it, and looks down at her phone (we only see its back) with a small surprised smile. Framing and slab forms behind her, hard midday light. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos.",
+  "seed": 1892655992,
+  "file": "broll/kf-s4b-t2-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T03:12Z",
+  "slug": "kf-s0",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "kf-s1b-t1-1080x1920.jpg",
+  "prompt": "Extreme close-up, photoreal 35mm macro film still, vertical frame. A small brown house sparrow sits in a bird's nest of dry grass resting on the rusty, chipped steel front blade of @machine, the yellow mini excavator. Shallow depth of field, the yellow machine soft behind, warm dawn backlight, dust specks glowing in the air. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos.",
+  "seed": 930120304,
+  "file": "broll/kf-s0-t1-1080x1920.jpg",
+  "credits": 8
+ },
+ {
+  "when": "2026-11-07T03:12Z",
+  "slug": "kf-s0",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "duration": null,
+  "photo": "kf-s1b-t1-1080x1920.jpg",
+  "prompt": "Extreme close-up, photoreal 35mm macro film still, vertical frame. A small brown house sparrow sits in a bird's nest of dry grass resting on the rusty, chipped steel front blade of @machine, the yellow mini excavator. Shallow depth of field, the yellow machine soft behind, warm dawn backlight, dust specks glowing in the air. Candid and unposed, natural skin texture and real wear, nothing glossy or stock-photo, fine 35mm film grain. No text, no logos.",
+  "seed": 1383795948,
+  "file": "broll/kf-s0-t2-1080x1920.jpg",
+  "credits": 8
  }
 ]
