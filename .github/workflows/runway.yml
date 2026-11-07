@@ -1,0 +1,70 @@
+name: Runway clip
+
+# Makes one Runway clip (image to video) or one image edit from a photo and
+# commits it to broll/. Manual only: nothing runs on a schedule and nothing is
+# spent unless someone presses "Run workflow". Needs the repo secret
+# RUNWAYML_API_SECRET (a key from dev.runway.com, pay-as-you-go credits).
+# Without it the run stops with "not set yet". See broll/README.md and the
+# campaign folder's RUNWAY.md for the prompts and the credit math.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "clip (make one) or balance (print credits only)"
+        default: "clip"
+      photo:
+        description: "broll/in/<file>.jpg in this repo, or an https URL"
+        default: ""
+      prompt:
+        description: "Motion or edit prompt (no people, no text, no new machines)"
+        default: ""
+      model:
+        description: "gen4_turbo (5 credits/s) | gen4.5 (12/s, 1080p) | gen4_image (edit a photo)"
+        default: "gen4_turbo"
+      ratio:
+        description: "720:1280 (Shorts) | 1280:720 (YouTube) | 1080:1920 / 1920:1080 (gen4.5 only)"
+        default: "720:1280"
+      duration:
+        description: "5 or 10 seconds (video only)"
+        default: "5"
+      seed:
+        description: "Optional integer so a run can be repeated"
+        default: ""
+      slug:
+        description: "Output name, e.g. forklift-yard"
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: runway
+  cancel-in-progress: false
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make the clip
+        env:
+          RUNWAYML_API_SECRET: ${{ secrets.RUNWAYML_API_SECRET }}
+          MODE: ${{ inputs.mode }}
+          PHOTO: ${{ inputs.photo }}
+          PROMPT: ${{ inputs.prompt }}
+          MODEL: ${{ inputs.model }}
+          RATIO: ${{ inputs.ratio }}
+          DURATION: ${{ inputs.duration }}
+          SEED: ${{ inputs.seed }}
+          SLUG: ${{ inputs.slug }}
+        run: python3 broll/runway_clip.py
+      - name: Commit the output
+        if: inputs.mode != 'balance'
+        run: |
+          git config user.name "yardswaps-reels-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add broll/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Runway clip ${{ inputs.slug }} ($(date -u +%Y-%m-%dT%H:%MZ))"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
