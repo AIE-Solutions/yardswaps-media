@@ -1,5 +1,5 @@
 {
-  "_note": "Public feeds only (RSS/Atom). The listener reads these once a day from GitHub Actions. links_ok=false means a reply must not carry a link: most subreddits and trade forums remove self-promotion. Check each place's rules before replying.",
+  "_note": "Public feeds only (RSS/Atom). The listener reads these once a day from GitHub Actions. links_ok=false means a reply must not carry a link: most subreddits and trade forums remove self-promotion. Check each place's rules before replying. Reddit allows about one anonymous search per run from GitHub's runners (a second one got 429 on 11-08), so buyers and sellers share one query.",
   "reddit_subs": [
     "Construction",
     "HeavyEquipment",
@@ -24,12 +24,8 @@
   ],
   "reddit_searches": [
     {
-      "name": "Reddit (buyers)",
-      "q": "\"looking for\" OR WTB OR \"want to buy\" OR \"anyone selling\" OR \"in the market for\""
-    },
-    {
-      "name": "Reddit (sellers)",
-      "q": "\"where to sell\" OR \"selling my\" OR \"for sale\" OR \"getting rid of\" OR \"how to sell\" OR \"closing my\""
+      "name": "Reddit",
+      "q": "\"looking for\" OR WTB OR \"want to buy\" OR \"anyone selling\" OR \"in the market for\" OR \"where to sell\" OR \"selling my\" OR \"for sale\" OR \"getting rid of\" OR \"how to sell\" OR \"closing my\""
     }
   ],
   "forums": [

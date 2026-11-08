@@ -4,7 +4,7 @@ Item 7 of the agency playbook (2026-11-08): every week, a list of people asking 
 
 ## How a week runs
 
-1. **Every day at 6:15 am Central**, `.github/workflows/listening.yml` runs `listen.py`. It reads the public feeds in `sources.json`: two Reddit searches across 20 trade subreddits (one for buyers, one for sellers; Reddit allows only a few anonymous requests a minute, so the subs are searched together) and nine trade-forum RSS feeds. It keeps posts that show buy or sell intent and name equipment, maps each to a YardSwaps category, and adds them to a rolling 8-day pool. The forum feeds only hold a day or two, which is why it runs daily.
+1. **Every day at 6:15 am Central**, `.github/workflows/listening.yml` runs `listen.py`. It reads the public feeds in `sources.json`: one Reddit search across 20 trade subreddits (Reddit refuses a second anonymous search from GitHub within minutes, so buyers and sellers share one query) and nine trade-forum RSS feeds. It keeps posts that show buy or sell intent and name equipment, maps each to a YardSwaps category, and adds them to a rolling 8-day pool. The forum feeds only hold a day or two, which is why it runs daily.
    - `latest.json`: the pool, sellers first, with each source's status on the last run;
    - `LIST.md`: the same as a reading list with a draft reply under each post.
 2. On Mondays the report points to `LIST.md` with the count, so the week's list is in one place.

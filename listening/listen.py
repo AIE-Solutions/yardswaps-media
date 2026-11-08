@@ -62,7 +62,7 @@ CATS = [
     ("inspection", "Pipe Inspection", r"sewer camera|pipe camera|inspection camera"),
     ("compressors", "Compressors", r"compressor"),
     ("welding", "Welding Equipment", r"welder|welding|plasma cutter|miller|lincoln electric|hypertherm"),
-    ("machining", "Metalworking & CNC", r"\blathe\b|mill(?:ing machine)?\b|bridgeport|\bcnc\b|haas|press brake|bandsaw|band saw"),
+    ("machining", "Metalworking & CNC", r"\blathe\b|mill(?:ing machine)?\b|micrometer|measuring tools|bridgeport|\bcnc\b|haas|press brake|bandsaw|band saw"),
     ("automotive", "Auto Shop Equipment", r"car lift|2[- ]post lift|4[- ]post lift|tire changer|wheel balancer|alignment machine"),
     ("excavators", "Excavators & Loaders", r"excavator|backhoe|skid ?steer|bobcat|loader|dozer|mini ex|track loader"),
     ("paving", "Paving & Compaction", r"compactor|drum roller|road roller|plate tamper|paver"),
@@ -156,7 +156,9 @@ def classify(post):
     sell = (2 if SELL.search(title) or TITLE_SELL.search(title) else 0) + (1 if SELL.search(text) else 0)
     if not buy and not sell:
         return None
-    cats = [(cid, name) for cid, name, rx in CAT_RES if rx.search(both)]
+    # Equipment named in the title wins over equipment mentioned in passing.
+    cats = ([(cid, name) for cid, name, rx in CAT_RES if rx.search(title)]
+            or [(cid, name) for cid, name, rx in CAT_RES if rx.search(text)])
     if not cats:
         return None
     # A forum or Reddit post needs the intent in its title, or the equipment
