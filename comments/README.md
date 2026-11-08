@@ -26,8 +26,8 @@ Every day, as the business, free. Set up 2026-11-08 (Alan: "Daily comments would
 
 | Platform | Read | Reply |
 |---|---|---|
-| Instagram | Reels token (free) | Reels token once it has `instagram_manage_comments`; until then Zapier (2 tasks a reply) |
-| Facebook | Reels token (free) | Reels token once it has `pages_manage_engagement`; until then drafted in the digest |
+| Instagram | Reels token (free), works today | Reels token once it has `instagram_manage_comments`; until then Zapier (2 tasks a reply) |
+| Facebook | Reels token (free): Reels today; comments on photo posts (Just listed, wanted cards) once the token has `pages_read_user_content` | Reels token once it has `pages_manage_engagement`; until then drafted in the digest |
 | YouTube | Zapier, 1 read a day | Zapier |
 | LinkedIn | Not possible: reading comments needs LinkedIn's Community Management API (refused on our connection, tested 11-08) | Alan, from the LinkedIn app; the digest has reply drafts for the questions people usually ask |
 | TikTok | No API for our account (Buffer only posts) | Alan, from the TikTok app; same drafts |
