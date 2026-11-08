@@ -18,6 +18,8 @@ One loop, free, no weekly action from anyone:
 ## Scoring
 Points per post = follows x10 + shares x4 + saves x3 + comments x3 + likes x1 + views/100, plus 25 per app signup from that Reel's tagged Facebook link (`utm_campaign=reels_<slug>`). A post is judged after 48 hours. Formats (`formats.json`: hook = opener shape, angle = topic, category = app category id) get a verdict after 3 settled posts: winner at 1.3x the median, loser at 0.6x. Every new slug gets a `formats.json` row in the Monday batch's push.
 
+Hand-set findings go in `directives.json`, for example numbers read from Metricool while the Meta token can't read views. Each directive has an `id` (its Linear issue), `from`/`until` dates, `evidence`, and optional `opener` rules, `categories` to build first and `stopMaking` entries. The scorecard merges every unexpired directive into `actions.buildNext` and prints its evidence in `SCORECARD.md`. When a directive expires, its finding has to be confirmed again by fresh numbers.
+
 ## Limits
 - Store installs (App Store Connect, Play Console) are not read; app signups on iOS/Android are the proxy.
 - Follows/shares/saves per Reel need `instagram_manage_insights` on the token (added at the Dec renewal). Until then the snapshot's `insights.refused` lists what Meta refused and the score runs on likes, comments and views.

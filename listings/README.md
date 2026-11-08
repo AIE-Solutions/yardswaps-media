@@ -49,6 +49,16 @@ Also reject a listing that is plainly not equipment, or a duplicate of a card th
 
 Approve everything else. A rejection needs a one-line `reason`.
 
+## "Buyers are looking" cards (wanted.json)
+
+Between listing cards, prep queues one seller-recruitment card from `wanted.json`: "Buyers are looking for generators", and so on, built from real 30-day search data (seller-growth/WANTED-POSTS.md).
+- At most one every 3 days, the same one at most once in 30 days, and they don't take a listing slot.
+- A post is skipped once its claim stops being true on the live site (for example a generator gets listed), and all of them stop once `as_of` is more than 30 days old. Refresh the numbers and `as_of` from the newest `[GrowthDigest]`.
+- The Facebook caption links the category's seller page, `/sell-equipment/<slug>`, only once that page answers 200; until then it links `/sell-equipment`. Tag: `utm_campaign=post_wanted-<slug>`.
+- Spanish versions wait for Alan or Emmanuel to proofread.
+
+Review a wanted card like a listing card, plus: reject it if the caption promises views or sales, gives an exact search count below 10, or if the card's text is cut off.
+
 ## Run it by hand
 
 Use Actions, then "Just listed posts", then "Run workflow":

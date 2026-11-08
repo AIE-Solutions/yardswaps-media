@@ -4,6 +4,8 @@
 Inputs (all optional; a missing source is reported, never guessed):
   metrics/meta/YYYY-MM-DD.json      daily IG/FB snapshots (collect_meta.py)
   reels/posted.json, reels/library.json, metrics/formats.json
+  metrics/directives.json           hand-set findings (opener rules, categories,
+                                    stop-making) merged into buildNext until they expire
   metrics/inputs/YYYY-MM-DD/        written each Monday by the YouTube report run:
       growth.json   the app's latest [GrowthDigest] log line (Railway logs)
       ops.json      the app's latest [OpsDigest] log line
@@ -261,6 +263,36 @@ def build_next(formats_tables, demand, formats):
     return {"hooks": hooks, "angles": angles, "categories": cats, "stopMaking": retire_shapes}
 
 
+def active_directives(now):
+    """Hand-set findings from metrics/directives.json whose 'until' date hasn't passed."""
+    today = now.strftime("%Y-%m-%d")
+    out = []
+    for d in load(os.path.join(M, "directives.json"), {}).get("directives", []):
+        if d.get("until") and d["until"] < today:
+            continue
+        if d.get("from") and d["from"] > today:
+            continue
+        out.append(d)
+    return out
+
+
+def apply_directives(build, directives):
+    """Directive categories go first, opener rules are added, stop-making lists are merged."""
+    def merge(first, rest):
+        seen, out = set(), []
+        for x in list(first) + list(rest):
+            if x and x not in seen:
+                seen.add(x)
+                out.append(x)
+        return out
+    build = dict(build)
+    build["categories"] = merge([c for d in directives for c in d.get("categories", [])], build["categories"])
+    build["stopMaking"] = merge(build["stopMaking"], [x for d in directives for x in d.get("stopMaking", [])])
+    build["opener"] = merge([], [x for d in directives for x in d.get("opener", [])])
+    build["directives"] = [d.get("id") for d in directives if d.get("id")]
+    return build
+
+
 def goals_block(follow, growth, yt, ops=None):
     w7 = (growth or {}).get("w7") or {}
     if not w7 and ops:
@@ -348,9 +380,18 @@ def markdown(card):
     lines.append("- Reels retired (no more repeats; Motion rebuilds the idea): " + (", ".join(f"{k} ({v})" for k, v in a["retire"].items()) or "none"))
     b = a["buildNext"]
     lines.append(f"- Build next: opener {', '.join(b['hooks']) or 'n/a'}; topic {', '.join(b['angles']) or 'n/a'}; categories buyers want {', '.join(b['categories']) or 'n/a'}")
+    if b.get("opener"):
+        lines.append("- Opener rule: " + " ".join(b["opener"]))
     if b["stopMaking"]:
         lines.append(f"- Stop making: {', '.join(b['stopMaking'])}")
     lines.append("")
+    if card.get("directives"):
+        lines.append("## Hand-set findings in force (metrics/directives.json)")
+        for d in card["directives"]:
+            lines.append(f"### {d.get('id', 'finding')} (until {d.get('until', '?')}; {d.get('source', '')})")
+            for e in d.get("evidence", []):
+                lines.append(f"- {e}")
+            lines.append("")
     return "\n".join(lines)
 
 
@@ -367,6 +408,7 @@ def main():
     tables = {k: format_table(scores, k, med) for k in ("hook", "angle", "category", "structure")}
     demand = demand_block(growth)
     boost, retire = actions(scores, library, med)
+    directives = active_directives(now)
     card = {
         "v": 1,
         "week": week or now.strftime("%Y-%m-%d"),
@@ -379,7 +421,8 @@ def main():
         "youtube": youtube_block(yt),
         "demand": demand,
         "outreach": (growth or {}).get("outreach"),
-        "actions": {"boost": boost, "retire": retire, "buildNext": build_next(tables, demand, formats)},
+        "actions": {"boost": boost, "retire": retire, "buildNext": apply_directives(build_next(tables, demand, formats), directives)},
+        "directives": directives,
     }
     with open(os.path.join(M, "scorecard.json"), "w", encoding="utf-8") as f:
         json.dump(card, f, indent=1)

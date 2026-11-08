@@ -1,0 +1,25 @@
+{
+ "_about": "Hand-set findings that metrics/scorecard.py can't compute on its own (for example numbers read from Metricool while the Meta token can't read views). The scorecard merges every directive whose 'until' date hasn't passed into actions.buildNext: 'opener' rules, 'categories' to build first, and 'stopMaking'. It also prints the evidence in SCORECARD.md. Expired directives are ignored, so a finding has to be confirmed again by fresh numbers to stay in force. 'id' is the Linear issue that tracks it.",
+ "directives": [
+  {
+   "id": "ARK-206",
+   "from": "2026-11-08",
+   "until": "2026-11-23",
+   "source": "Metricool Instagram Reels data, Oct 11 to Nov 7 (views and 3-second hold per Reel)",
+   "evidence": [
+    "Average views per Reel (ours + HeyCatch): 125 on Oct 11-24, 79 on Oct 25-Nov 7, mostly because HeyCatch posted half as many Reels (28 to 14).",
+    "Our Reels: 71 views on average with a 21% 3-second hold; HeyCatch holds 32-40%. Average watch on ours is about 3 seconds of a 12-15 second Reel.",
+    "Our Reels averaged 45 views on Nov 1-3 and 93 on Nov 4-7.",
+    "One leftover item wins: micrometer-set-small-tools 159 views, drilling-rig-parked 134, stripped-well-pump 98, plumbing-part-label 97.",
+    "Flops: forklift-finally-deal 21, forklift-sitting-there 29, find-it-nearby 22 (feature-statement), part-tag-scan 27.",
+    "Signups from a video link in 30 days: 0 of 21."
+   ],
+   "opener": [
+    "Open on the real item with the blue question box on screen in second 1.",
+    "App screens only after the 3-second mark."
+   ],
+   "categories": ["generators", "pumps", "vacuum"],
+   "stopMaking": ["forklifts", "feature-statement"]
+  }
+ ]
+}
