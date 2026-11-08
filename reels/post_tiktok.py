@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Post one YardSwaps video to TikTok per run, through Buffer's free plan.
 
-Runs from .github/workflows/tiktok.yml four times a day. Standard library only.
+Runs from .github/workflows/tiktok.yml five times a day. Standard library only.
 
 Why Buffer and not TikTok's own API: TikTok's Content Posting API only
 lets an unaudited app post private ("only me") videos from a private
@@ -44,8 +44,8 @@ API = "https://api.buffer.com"
 ROOT = reels.ROOT
 LOG = os.path.join(ROOT, "reels", "tiktok-posted.json")
 PLATFORM = "tiktok"
-MAX_OURS_PER_20H = 4   # 43 videos / 10-day no-repeat = about 4 fresh a day
-MIN_GAP_MIN = 100       # a late GitHub cron run never lands right after our last post
+MAX_OURS_PER_20H = 5   # 50 videos / 10-day no-repeat = 5 fresh a day
+MIN_GAP_MIN = 75        # a late GitHub cron run never lands right after our last post
 SCHEDULE_AHEAD_MIN = 5      # Buffer publishes this many minutes after the run
 JSDELIVR_MAX_BYTES = 19_000_000  # jsDelivr serves GitHub files up to 20 MB
 HEYCATCH = os.path.join(ROOT, "reels", "heycatch-tiktok.json")
