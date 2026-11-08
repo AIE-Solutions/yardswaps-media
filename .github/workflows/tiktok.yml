@@ -1,0 +1,56 @@
+name: Videos to TikTok
+
+# Two TikToks a day through Buffer's free plan (see reels/post_tiktok.py for
+# why not TikTok's own API). GitHub cron is UTC:
+#   13:30 UTC = 7:30 am Central in winter (8:30 am in summer)
+#   23:30 UTC = 5:30 pm Central in winter (6:30 pm in summer)
+# Both inside TikTok's morning and evening windows (POSTING-PACK.md) and 2+
+# hours clear of HeyCatch's 4:30 am / 12:30 pm / 8:30 pm Central slots,
+# and the script moves the publish time if it ever lands within 90 minutes.
+# The script hands each video to Buffer 5 minutes ahead; Buffer publishes it.
+on:
+  schedule:
+    - cron: "30 13 * * *"
+    - cron: "30 23 * * *"
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Force one video (optional), e.g. spare-part"
+        default: ""
+      dry_run:
+        description: "1 = only print the pick, link and caption"
+        default: "0"
+      check:
+        description: "1 = only check the Buffer key and TikTok channel"
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tiktok
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Post the next TikTok
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          SLUG: ${{ inputs.slug }}
+          DRY_RUN: ${{ inputs.dry_run || '0' }}
+          CHECK: ${{ inputs.check || '0' }}
+        run: python3 reels/post_tiktok.py
+      - name: Save the posting log
+        if: always()
+        run: |
+          git config user.name "yardswaps-reels-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add reels/tiktok-posted.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "TikTok log $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
