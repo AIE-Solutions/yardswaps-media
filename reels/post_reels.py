@@ -49,14 +49,15 @@ CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (
 # post stays 90+ minutes from HeyCatch (about :33 past 4 am, 12 pm and 8 pm
 # Central, and the extra Instagram/Facebook posts it puts in those same
 # slots) and from the 2:15 pm Just listed post:
-#   7:00 am   until 9:30 am   (HeyCatch 4:33 am is 2.5 h before)
+#   7:00 am   until 8:00 am   (HeyCatch 4:33 am is 2.5 h before)
+#   8:30 am   until 9:30 am   (fifth slot, added Nov 8 when the library reached 50)
 #   10:00 am  until 11:00 am  (HeyCatch 12:33 pm is 93+ min after)
 #   4:30 pm   until 6:00 pm   (Just listed 2:15 pm is 2+ h before)
 #   6:30 pm   until 7:00 pm   (HeyCatch 8:33 pm is 93+ min after)
 # A run GitHub starts too late for its slot does nothing; the next slot's
 # runs pick up. library.json "slots" (["07:00-09:30", ...]) overrides this.
 CENTRAL = ZoneInfo("America/Chicago")
-SLOTS_CT = [((7, 0), (9, 30)), ((10, 0), (11, 0)), ((16, 30), (18, 0)), ((18, 30), (19, 0))]
+SLOTS_CT = [((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((16, 30), (18, 0)), ((18, 30), (19, 0))]
 SLOT_EARLY_MINUTES = 5     # a run that starts up to 5 minutes early counts for the slot
 
 
