@@ -41,6 +41,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
+          # The repo holds the video library; this job only needs a few small files.
+          sparse-checkout: |
+            comments
+            reels/posted.json
+          sparse-checkout-cone-mode: false
       - name: Run
         env:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
