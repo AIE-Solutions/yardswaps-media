@@ -44,6 +44,7 @@ from post_reels import (GraphError, graph, iso, load, now, parse_time,  # noqa: 
 HERE = os.path.join(ROOT, "listings")
 QUEUE = os.path.join(HERE, "queue.json")
 POSTED = os.path.join(HERE, "posted.json")
+WANTED = os.path.join(HERE, "wanted.json")
 CARDS = os.path.join(HERE, "cards")
 FONTS = os.path.join(HERE, "fonts")
 
@@ -63,6 +64,10 @@ PHOTOS_TRIED = 4         # photos checked per listing before giving up on it
 # HeyCatch's 12:33 pm post and 2+ hours before the 4:30 pm Reel.
 POST_OPEN_UTC = (20, 15)
 POST_CLOSE_UTC = 3       # a run GitHub starts after 03:00 UTC waits for tomorrow
+# "Buyers are looking for X" cards (wanted.json) slot in between listing cards.
+WANTED_GAP_DAYS = 3      # at most one wanted card queued or posted per this many days
+WANTED_REPEAT_DAYS = 30  # the same wanted post never twice inside this
+WANTED_MAX_AGE_DAYS = 30 # search numbers older than this are stale: queue none
 
 # Colours from the design system (YardSwaps.css :root).
 BG = (246, 246, 248)
@@ -323,6 +328,135 @@ def render_card(photo_bgr, l, out_path):
     img.save(out_path, "JPEG", quality=88, optimize=True)
 
 
+# ---------- wanted cards ----------
+
+def page_live(url):
+    try:
+        req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return r.status == 200
+    except Exception:
+        return False
+
+
+def wanted_link(w, source):
+    """The category's seller page once it exists (Marketplace PR #261), else /sell-equipment."""
+    tag = f"utm_source={source}&utm_medium=social&utm_campaign=post_wanted-{w['slug'] or w['key']}"
+    if w.get("slug") and page_live(f"{SITE}/sell-equipment/{w['slug']}"):
+        return f"{SITE}/sell-equipment/{w['slug']}?{tag}"
+    return f"{SITE}/sell-equipment?{tag}"
+
+
+def claim_holds(w, listings, complete):
+    """True while the post's "none listed" claim is still true on the live site."""
+    c = w.get("check")
+    if not c:
+        return True
+    if not complete:
+        return False
+    if c.get("category"):
+        n = sum(1 for l in listings if l.get("category") == c["category"])
+    else:
+        word = c["title_has"].lower()
+        n = sum(1 for l in listings if word in (l.get("title") or "").lower())
+    return c.get("min_live", 0) <= n <= c["max_live"]
+
+
+def wanted_captions(w, turn):
+    cat = CATEGORY_TAGS.get(w.get("category"), ["#Equipment", "#SellUsedEquipment"])
+    rot = (ROTATE_TAGS * 2)[(turn * 2) % len(ROTATE_TAGS):(turn * 2) % len(ROTATE_TAGS) + 2]
+    ig = (f"{w['body']}\n\nList it free in the YardSwaps app: yardswaps.com/i (link in bio). "
+          "No listing fee, no cut of the sale.\n\n"
+          f"{' '.join(cat + ['#UsedEquipment'] + rot)}\n\n{w['question']}")
+    fb = (f"{w['body']}\n\nList it free: {wanted_link(w, 'facebook')}\n"
+          "No listing fee, no cut of the sale.\n\n"
+          f"{' '.join(cat + ['#YardSwaps', '#UsedEquipment'] + ROTATE_TAGS)}\n\n{w['question']}")
+    return ig, fb
+
+
+def render_wanted_card(w, out_path):
+    from PIL import Image, ImageDraw
+    W, H, pad = 1080, 1350, 72
+    img = Image.new("RGB", (W, H), BG)
+    d = ImageDraw.Draw(img)
+    lf = font("SpaceGrotesk.ttf", 30, b"Bold")
+    label = "WANTED ON YARDSWAPS"
+    tw = d.textlength(label, font=lf)
+    d.rounded_rectangle((pad - 4, 96, pad + tw + 40, 96 + 58), radius=29, fill=BLUE)
+    d.text((pad + 18, 96 + 12), label, font=lf, fill=(255, 255, 255))
+    hf = font("SpaceGrotesk.ttf", 104, b"Bold")
+    sf = font("Inter.ttf", 44, b"Medium")
+    sub = wrap(d, w["card_sub"], sf, W - 2 * pad, 3)
+    block = 124 * len(w["card"]) + 40 + 60 * len(sub)
+    y = 154 + (H - 210 - 154 - block) // 2  # centred between the label and the footer rule
+    for i, line in enumerate(w["card"]):
+        d.text((pad, y), line, font=hf, fill=BLUE if i == len(w["card"]) - 1 else SLATE)
+        y += 124
+    y += 40
+    for line in sub:
+        d.text((pad, y), line, font=sf, fill=GRAY)
+        y += 60
+    d.rectangle((pad, H - 210, W - pad, H - 206), fill=(216, 216, 218))
+    ff = font("SpaceGrotesk.ttf", 40, b"Bold")
+    d.text((pad, H - 170), "Free to list. Local pickup.", font=ff, fill=SLATE)
+    d.text((pad, H - 110), "yardswaps.com", font=ff, fill=BLUE)
+    img.save(out_path, "JPEG", quality=90, optimize=True)
+
+
+def prep_wanted(listings, complete, queue, posted, dry):
+    """Queue at most one wanted card; returns the new queue."""
+    try:
+        data = load(WANTED, {})
+    except Exception as e:
+        print(f"::warning::wanted.json unreadable: {e}")
+        return queue
+    posts = data.get("posts", [])
+    if not posts:
+        return queue
+    age = (now() - parse_time(data["as_of"] + "T00:00:00Z")).days
+    if age > WANTED_MAX_AGE_DAYS:
+        print(f"::notice::wanted.json numbers are {age} days old; refresh them from the newest "
+              "[GrowthDigest] before any more wanted cards go out.")
+        return queue
+    wanted_ids = {f"wanted-{w['key']}" for w in posts}
+    cutoff = now() - dt.timedelta(days=WANTED_GAP_DAYS)
+    if any(q["listing_id"] in wanted_ids and q["status"] in ("pending", "approved") for q in queue):
+        print("A wanted card is already waiting.")
+        return queue
+    if any(p["listing_id"] in wanted_ids and p.get("status") == "posted" and parse_time(p["time"]) > cutoff
+           for p in posted):
+        print(f"A wanted card went out inside {WANTED_GAP_DAYS} days.")
+        return queue
+    last = {}
+    for p in posted:
+        if p["listing_id"] in wanted_ids and p.get("status") == "posted":
+            last[p["listing_id"]] = max(last.get(p["listing_id"], ""), p["time"])
+    repeat_cut = iso(now() - dt.timedelta(days=WANTED_REPEAT_DAYS))
+    rejected = {q["listing_id"] for q in queue if q["status"] == "rejected" and q["listing_id"] in wanted_ids
+                and q.get("updated", "") >= data["as_of"]}
+    # File order first, then the longest-ago posted.
+    for i, w in sorted(enumerate(posts), key=lambda iw: (f"wanted-{iw[1]['key']}" in last,
+                                                         last.get(f"wanted-{iw[1]['key']}", ""), iw[0])):
+        wid = f"wanted-{w['key']}"
+        if last.get(wid, "") > repeat_cut or wid in rejected:
+            continue
+        if not claim_holds(w, listings, complete):
+            print(f"  skip {wid}: its claim no longer holds on the live site")
+            continue
+        card = os.path.join(CARDS, f"{wid}.jpg")
+        render_wanted_card(w, card)
+        ig, fb = wanted_captions(w, len(queue))
+        entry = {"listing_id": wid, "kind": "wanted", "title": " ".join(w["card"]),
+                 "category": w.get("category"), "card": f"listings/cards/{wid}.jpg",
+                 "ig_caption": ig, "fb_caption": fb, "status": "pending",
+                 "added": iso(now()), "updated": iso(now())}
+        print(f"  queued {wid}")
+        print("    FB caption:\n" + "\n".join("      " + s for s in fb.splitlines()))
+        return [q for q in queue if q["listing_id"] != wid] + [entry]
+    print("No wanted post is due.")
+    return queue
+
+
 # ---------- prep ----------
 
 def prep(dry):
@@ -330,20 +464,28 @@ def prep(dry):
     import numpy as np
     queue = load(QUEUE, [])
     posted = load(POSTED, [])
-    waiting = [q for q in queue if q["status"] in ("pending", "approved")]
-    if len(waiting) >= WAITING_MAX:
-        print(f"{len(waiting)} cards already waiting; nothing to prep.")
-        return 0
-    data = json.loads(fetch(f"{API}?sort=newest&limit=60"))
-    listings = [l for l in data.get("listings", []) if l.get("status") == "active"]
+    os.makedirs(CARDS, exist_ok=True)
+    data = json.loads(fetch(f"{API}?sort=newest&limit=200"))
+    got = data.get("listings", [])
+    listings = [l for l in got if l.get("status") == "active"]
+    complete = data.get("total") is not None and len(got) >= data["total"]
     print(f"API: {len(listings)} active listings (total {data.get('total')}).")
+    before = len(queue)
+    queue = prep_wanted(listings, complete, queue, posted, dry)
+    wanted_added = len(queue) - before
+    # Wanted cards don't take a listing slot.
+    waiting = [q for q in queue if q["status"] in ("pending", "approved") and q.get("kind") != "wanted"]
+    if len(waiting) >= WAITING_MAX:
+        print(f"{len(waiting)} listing cards already waiting.")
+        if wanted_added and not dry:
+            save(QUEUE, queue)
+        return 0
     recent = {p["listing_id"] for p in posted if p.get("status") == "posted"
               and now() - parse_time(p["time"]) < dt.timedelta(days=REFEATURE_DAYS)}
     waiting_ids = {q["listing_id"] for q in waiting}
     # A rejected listing stays out until its seller edits it.
     rejected_at = {q["listing_id"]: q.get("updated", "") for q in queue if q["status"] == "rejected"}
     sellers_waiting = {q.get("seller") for q in waiting}
-    os.makedirs(CARDS, exist_ok=True)
     added = 0
     # Never-featured first (newest first), then the longest-ago featured.
     last_feature = {}
@@ -405,9 +547,9 @@ def prep(dry):
         queue = [q for q in queue if q["listing_id"] != lid] + [entry]
         sellers_waiting.add(l.get("sellerId"))
         added += 1
-    if added and not dry:
+    if (added or wanted_added) and not dry:
         save(QUEUE, queue)
-    print(f"Queued {added} new card(s) for review.")
+    print(f"Queued {added} listing card(s) and {wanted_added} wanted card(s) for review.")
     return 0
 
 
