@@ -4,11 +4,13 @@ Item 7 of the agency playbook (2026-11-08): every week, a list of people asking 
 
 ## How a week runs
 
-1. **Monday 6:15 am Central**, `.github/workflows/listening.yml` runs `listen.py`. It reads the public feeds in `sources.json` (subreddit RSS, Reddit search RSS, trade-forum RSS, Bluesky's public search), keeps posts from the last 8 days that show buy or sell intent and name equipment, maps each to a YardSwaps category, and writes:
-   - `latest.json`: every kept post, sellers first, with source status;
-   - `YYYY-MM-DD.md`: the reading list with a draft reply under each post.
-2. The Monday report picks up the count and the file; a copy goes to the project files as `yardswaps-campaign/listening/LISTENING-YYYY-MM-DD.md`.
+1. **Every day at 6:15 am Central**, `.github/workflows/listening.yml` runs `listen.py`. It reads the public feeds in `sources.json`: two Reddit searches across 20 trade subreddits (one for buyers, one for sellers; Reddit allows only a few anonymous requests a minute, so the subs are searched together) and nine trade-forum RSS feeds. It keeps posts that show buy or sell intent and name equipment, maps each to a YardSwaps category, and adds them to a rolling 8-day pool. The forum feeds only hold a day or two, which is why it runs daily.
+   - `latest.json`: the pool, sellers first, with each source's status on the last run;
+   - `LIST.md`: the same as a reading list with a draft reply under each post.
+2. On Mondays the report points to `LIST.md` with the count, so the week's list is in one place.
 3. Alan (or whoever has the time) opens each post, checks the place's rules, and pastes or adapts the draft.
+
+A post counts when the intent is in its title ("WTB", "for sale", "where to sell", "looking for a used"), or when the body shows intent and the title names the equipment. Intent words deep in a long thread are mostly noise.
 
 Pull requests that touch `listening/` run in probe mode: the job summary shows what every source returned and nothing is committed.
 
@@ -20,6 +22,6 @@ Links: most subreddits and trade forums remove self-promotion, so the default dr
 
 ## Adding a source
 
-Add a subreddit name to `reddit_subs`, a forum feed to `forums` (XenForo forums: `/forums/-/index.rss`; Discourse: `/latest.rss`), or a phrase to `bluesky_queries`. Open a PR: the probe run shows whether the feed answers from GitHub Actions.
+Add a subreddit name to `reddit_subs`, or a forum feed to `forums` (XenForo forums: `/forums/-/index.rss`; Discourse: `/latest.rss`). Open a PR: the probe run shows whether the feed answers from GitHub Actions.
 
-Facebook groups, where most of this talk happens, have no public feed; they stay manual.
+Not covered: Facebook groups (no public feed; most of this talk happens there, so they stay manual), Craigslist wanted ads (no feed since 2024), X and Bluesky (search needs a paid or signed-in API; Bluesky's public search refused GitHub's runners, tested 11-08).

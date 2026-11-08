@@ -1,14 +1,15 @@
-name: Listening list (weekly)
+name: Listening list
 
-# Reads public feeds (subreddits, trade forums, Bluesky search) for people
+# Reads public feeds (trade subreddits, trade forums) for people
 # asking to buy or sell used work equipment and writes listening/latest.json
-# plus listening/YYYY-MM-DD.md with a draft reply per post. Posts nothing.
-# Monday 12:15 UTC = 6:15 am Central (CST), before the Monday report.
+# plus listening/LIST.md with a draft reply per post. Posts nothing.
+# Daily 12:15 UTC = 6:15 am Central (CST): the forum feeds only hold a day or
+# two, so each run adds to a rolling 8-day pool.
 # Pull requests run in probe mode: prints what each source returned, commits
 # nothing. See listening/README.md.
 on:
   schedule:
-    - cron: "15 12 * * 1"
+    - cron: "15 12 * * *"
   pull_request:
     paths:
       - "listening/**"
@@ -42,7 +43,7 @@ jobs:
         run: |
           git config user.name "yardswaps-listening-bot"
           git config user.email "yardswaps@gmail.com"
-          git add listening/latest.json listening/*.md
+          git add listening/latest.json listening/LIST.md
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Listening list $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4; do git pull --rebase -q && git push -q && break; sleep 7; done

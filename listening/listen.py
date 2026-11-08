@@ -3,11 +3,11 @@
 used work equipment, with a draft reply for each (listening/README.md).
 
 Reads the public feeds in sources.json (subreddit and Reddit search RSS,
-trade-forum RSS, Bluesky's public search), keeps posts from the last
+trade-forum RSS), keeps posts from the last
 LOOKBACK_DAYS that show buy or sell intent AND name equipment, and writes:
 
-  listening/latest.json        every kept post, newest first
-  listening/YYYY-MM-DD.md      the same as a reading list with draft replies
+  listening/latest.json        rolling pool of kept posts (last LOOKBACK_DAYS)
+  listening/LIST.md            the same as a reading list with draft replies
 
 Standard library only. Nothing is posted anywhere: a person reads the list
 and replies by hand, as the business, where the place's rules allow it.
@@ -23,6 +23,7 @@ import os
 import re
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -41,9 +42,13 @@ BUY = re.compile(
     r"anyone (?:selling|have (?:a|an) .{0,30}for sale)|where (?:can|do|should) (?:i|we|you) (?:buy|find|get) (?:a |an )?used|"
     r"need (?:a|an) used)", re.I)
 SELL = re.compile(
-    r"\b(where (?:can|do|should) (?:i|we) sell|best (?:place|way|site|website) to sell|how (?:do (?:i|we) |to )sell|"
+    r"\b(where (?:can|do|should) (?:i|we) sell|where to sell|best (?:place|way|site|website) to sell|how (?:do (?:i|we) |to )sell|"
     r"selling (?:my|our|off)|need to sell|trying to sell|getting rid of|liquidat\w+|closing (?:the |my |our )?(?:shop|business|restaurant|doors)|"
     r"retiring and|wts\b|fs:|for sale:)", re.I)
+
+# Classified-style title tags: "WTB lathe", "For sale: 20kw generator".
+TITLE_BUY = re.compile(r"^\s*\[?(wtb|wanted|iso)\b", re.I)
+TITLE_SELL = re.compile(r"(^\s*\[?(fs|wts|for sale)\b)|\bfor sale\b", re.I)
 
 # Equipment words -> YardSwaps category (ids from packages/shared CATEGORIES).
 CATS = [
@@ -84,8 +89,15 @@ HOME_LINK = "https://www.yardswaps.com/?utm_source={src}&utm_medium=social&utm_c
 
 def fetch(url, accept="application/rss+xml, application/atom+xml, application/xml, text/xml, application/json"):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": accept})
-    with urllib.request.urlopen(req, timeout=25) as r:
-        return r.read()
+    for attempt in (1, 2):
+        try:
+            with urllib.request.urlopen(req, timeout=25) as r:
+                return r.read()
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or attempt == 2:
+                raise
+            wait = e.headers.get("Retry-After", "30")
+            time.sleep(min(int(wait) if wait.isdigit() else 30, 90))
 
 
 def clean(text, limit=600):
@@ -131,7 +143,8 @@ def parse_feed(raw):
             "link": link.get("href") if link is not None else "",
             "text": clean(en.findtext(atom + "content") or en.findtext(atom + "summary")),
             "author": clean(en.findtext(atom + "author/" + atom + "name"), 80),
-            "time": parse_date(en.findtext(atom + "updated") or en.findtext(atom + "published")),
+            "time": parse_date(en.findtext(atom + "published") or en.findtext(atom + "updated")),
+            "where": (en.find(atom + "category").get("term", "") if en.find(atom + "category") is not None else ""),
         })
     return out
 
@@ -139,12 +152,16 @@ def parse_feed(raw):
 def classify(post):
     title, text = post["title"], post["text"]
     both = title + " " + text
-    buy = (2 if BUY.search(title) else 0) + (1 if BUY.search(text) else 0)
-    sell = (2 if SELL.search(title) else 0) + (1 if SELL.search(text) else 0)
+    buy = (2 if BUY.search(title) or TITLE_BUY.search(title) else 0) + (1 if BUY.search(text) else 0)
+    sell = (2 if SELL.search(title) or TITLE_SELL.search(title) else 0) + (1 if SELL.search(text) else 0)
     if not buy and not sell:
         return None
     cats = [(cid, name) for cid, name, rx in CAT_RES if rx.search(both)]
     if not cats:
+        return None
+    # A forum or Reddit post needs the intent in its title, or the equipment
+    # in its title: intent words deep in a long thread are mostly noise.
+    if title and max(buy, sell) < 2 and not any(rx.search(title) for _, _, rx in CAT_RES):
         return None
     intent = "sell" if sell >= buy else "buy"
     return {"intent": intent, "category": cats[0][0], "category_name": cats[0][1],
@@ -161,18 +178,17 @@ def rx_in_title(cid, title):
 def drafts(item):
     """Two drafts as the business: no link (default) and with a tagged link
     for places whose rules allow it. Never promises buyers, views or sales."""
-    cat = item["category_name"].lower()
-    src = "reddit" if item["platform"] == "Reddit" else "forum" if item["platform"] == "Forum" else "bluesky"
+    src = "reddit" if item["platform"] == "Reddit" else "forum"
     if item["intent"] == "sell":
-        base = (f"For {cat}, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. "
-                f"We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost "
-                f"(no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hour meter help on any site. "
-                f"What's the condition and hours on it?")
+        base = ("For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. "
+                "We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost "
+                "(no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. "
+                "What's the condition on it?")
         link = SELL_LINK.format(src=src, cat=item["category"])
     else:
-        base = (f"Worth checking local dealers, auctions and Marketplace for used {cat}. "
-                f"We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. "
-                f"What size and budget are you after?")
+        base = ("Worth checking local dealers, auctions and Marketplace for a used one. "
+                "We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. "
+                "What size and budget are you after?")
         link = HOME_LINK.format(src=src, cat=item["category"])
     return {"no_link": base, "with_link": base + "\n" + link}
 
@@ -180,11 +196,13 @@ def drafts(item):
 def collect(sources):
     posts, report = [], []
     feeds = []
-    for sub in sources.get("reddit_subs", []):
-        feeds.append(("Reddit", f"r/{sub}", f"https://www.reddit.com/r/{sub}/new/.rss?limit=100", False))
-    for q in sources.get("reddit_searches", []):
-        u = "https://www.reddit.com/search.rss?" + urllib.parse.urlencode({"q": q, "sort": "new", "t": "week", "limit": 100})
-        feeds.append(("Reddit", "Reddit search: " + q[:40], u, False))
+    # Reddit allows few anonymous requests a minute, so the trade subreddits
+    # are searched together (one multireddit) once per phrase set.
+    multi = "+".join(sources.get("reddit_subs", []))
+    for search in sources.get("reddit_searches", []):
+        base = f"https://www.reddit.com/r/{multi}/search.rss?" if multi else "https://www.reddit.com/search.rss?"
+        u = base + urllib.parse.urlencode({"q": search["q"], "restrict_sr": "1" if multi else "0", "sort": "new", "t": "week", "limit": 100})
+        feeds.append(("Reddit", search["name"], u, False))
     for f in sources.get("forums", []):
         feeds.append(("Forum", f["name"], f["url"], bool(f.get("links_ok"))))
 
@@ -194,33 +212,13 @@ def collect(sources):
             recent = [p for p in items if p["time"] and p["time"] >= SINCE]
             report.append((name, "ok", len(items), len(recent)))
             for p in recent:
-                p.update(platform=platform, source=name, links_ok=links_ok)
+                where = p.pop("where", "")
+                p.update(platform=platform, source=f"r/{where}" if platform == "Reddit" and where else name, links_ok=links_ok)
                 posts.append(p)
         except Exception as e:  # one dead feed must not stop the run
             report.append((name, f"error: {type(e).__name__}: {str(e)[:80]}", 0, 0))
-        time.sleep(2)
+        time.sleep(8 if platform == "Reddit" else 2)
 
-    for q in sources.get("bluesky_queries", []):
-        name = "Bluesky: " + q
-        try:
-            u = "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?" + urllib.parse.urlencode(
-                {"q": q, "sort": "latest", "limit": 50, "since": SINCE.strftime("%Y-%m-%dT%H:%M:%SZ")})
-            data = json.loads(fetch(u, accept="application/json"))
-            got = data.get("posts", [])
-            report.append((name, "ok", len(got), len(got)))
-            for p in got:
-                rec = p.get("record", {})
-                handle = p.get("author", {}).get("handle", "")
-                rkey = p.get("uri", "").rsplit("/", 1)[-1]
-                posts.append({
-                    "title": "", "text": clean(rec.get("text")), "author": handle,
-                    "link": f"https://bsky.app/profile/{handle}/post/{rkey}",
-                    "time": parse_date(rec.get("createdAt")), "platform": "Bluesky",
-                    "source": "Bluesky", "links_ok": True,
-                })
-        except Exception as e:
-            report.append((name, f"error: {type(e).__name__}: {str(e)[:80]}", 0, 0))
-        time.sleep(1)
     return posts, report
 
 
@@ -229,17 +227,32 @@ def main():
         sources = json.load(f)
     posts, report = collect(sources)
 
+    # The forum feeds only hold the last day or two, so the job runs daily
+    # and keeps a rolling pool of the last LOOKBACK_DAYS in latest.json.
+    pool_path = os.path.join(HERE, "latest.json")
+    if MODE != "probe" and os.path.exists(pool_path):
+        try:
+            with open(pool_path) as f:
+                for old in json.load(f).get("posts", []):
+                    old["time"] = parse_date(old.get("time"))
+                    if old["time"] and old["time"] >= SINCE:
+                        posts.append(old)
+        except (OSError, ValueError):
+            pass
+
     kept, seen = [], set()
     for p in posts:
         key = p["link"].split("?")[0].rstrip("/")
         if not key or key in seen:
             continue
         seen.add(key)
-        c = classify(p)
-        if not c:
-            continue
-        p.update(c)
-        p["drafts"] = drafts(p)
+        if "intent" not in p:  # new this run; pooled posts keep their earlier classification
+            c = classify(p)
+            if not c:
+                continue
+            p.update(c)
+            p["drafts"] = drafts(p)
+            p["first_seen"] = NOW.isoformat()
         kept.append(p)
     kept.sort(key=lambda p: (p["intent"] != "sell", -p["score"], -(p["time"] or SINCE).timestamp()))
 
@@ -256,12 +269,12 @@ def main():
         return 0
 
     out = [{**p, "time": p["time"].isoformat() if p["time"] else None} for p in kept]
-    with open(os.path.join(HERE, "latest.json"), "w") as f:
+    with open(pool_path, "w") as f:
         json.dump({"generated_at": NOW.isoformat(), "lookback_days": LOOKBACK_DAYS,
                    "sources": [{"name": n, "status": s, "items": i, "in_window": r} for n, s, i, r in report],
                    "posts": out}, f, indent=1)
 
-    lines = [f"# Listening list, week of {NOW:%b %d, %Y}", "",
+    lines = [f"# Listening list, updated {NOW:%a %b %d, %Y}", "",
              "People asking to buy or sell used work equipment in public places, last "
              f"{LOOKBACK_DAYS} days. Nothing here was posted. Reply by hand, as the business, "
              "only where the place's rules allow it; use the link version only where links are allowed.", ""]
@@ -274,7 +287,7 @@ def main():
                   f"Open: {p['link']}", "", "Draft reply:", "", "```", p["drafts"]["no_link"], "```", ""]
         if p["links_ok"]:
             lines += ["Link version (links allowed here):", "", "```", p["drafts"]["with_link"], "```", ""]
-    with open(os.path.join(HERE, f"{NOW:%Y-%m-%d}.md"), "w") as f:
+    with open(os.path.join(HERE, "LIST.md"), "w") as f:
         f.write("\n".join(lines) + "\n")
     return 0
 

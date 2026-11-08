@@ -1,29 +1,82 @@
 {
-  "_note": "Public feeds only (RSS/Atom and Bluesky's public search). The listener reads these once a week from GitHub Actions. links_ok=false means a reply must not carry a link: most subreddits and trade forums remove self-promotion. Check each place's rules before replying.",
+  "_note": "Public feeds only (RSS/Atom). The listener reads these once a day from GitHub Actions. links_ok=false means a reply must not carry a link: most subreddits and trade forums remove self-promotion. Check each place's rules before replying.",
   "reddit_subs": [
-    "Construction", "HeavyEquipment", "Machinists", "Welding", "pressurewashing",
-    "HVAC", "Plumbing", "electricians", "landscaping", "farming", "KitchenConfidential",
-    "restaurantowners", "sweatystartup", "smallbusiness", "Tools", "Generators",
-    "Concrete", "Truckers", "AutoMechanics", "Skookum"
+    "Construction",
+    "HeavyEquipment",
+    "Machinists",
+    "Welding",
+    "pressurewashing",
+    "HVAC",
+    "Plumbing",
+    "electricians",
+    "landscaping",
+    "farming",
+    "KitchenConfidential",
+    "restaurantowners",
+    "sweatystartup",
+    "smallbusiness",
+    "Tools",
+    "Generators",
+    "Concrete",
+    "Truckers",
+    "AutoMechanics",
+    "Skookum"
   ],
   "reddit_searches": [
-    "\"looking for a used\" (generator OR forklift OR compressor OR trailer OR welder OR excavator OR \"pressure washer\")",
-    "\"where to sell\" (equipment OR forklift OR excavator OR generator OR \"restaurant equipment\" OR welder)",
-    "WTB (forklift OR generator OR \"skid steer\" OR \"vacuum truck\" OR \"jetter\" OR lathe OR \"walk-in cooler\")"
+    {
+      "name": "Reddit (buyers)",
+      "q": "\"looking for\" OR WTB OR \"want to buy\" OR \"anyone selling\" OR \"in the market for\""
+    },
+    {
+      "name": "Reddit (sellers)",
+      "q": "\"where to sell\" OR \"selling my\" OR \"for sale\" OR \"getting rid of\" OR \"how to sell\" OR \"closing my\""
+    }
   ],
   "forums": [
-    {"name": "Practical Machinist", "url": "https://www.practicalmachinist.com/forum/forums/-/index.rss", "links_ok": false},
-    {"name": "Hobby-Machinist", "url": "https://www.hobby-machinist.com/forums/-/index.rss", "links_ok": false},
-    {"name": "Garage Journal", "url": "https://www.garagejournal.com/forum/forums/-/index.rss", "links_ok": false},
-    {"name": "Boom & Bucket forums", "url": "https://forums.boomandbucket.com/forums/-/index.rss", "links_ok": false},
-    {"name": "Heavy Equipment Forums", "url": "https://www.heavyequipmentforums.com/forums/-/index.rss", "links_ok": false},
-    {"name": "LawnSite", "url": "https://www.lawnsite.com/forums/-/index.rss", "links_ok": false},
-    {"name": "ContractorTalk", "url": "https://www.contractortalk.com/forums/-/index.rss", "links_ok": false},
-    {"name": "WeldingWeb", "url": "https://weldingweb.com/forums/-/index.rss", "links_ok": false},
-    {"name": "Pressure Washing Resource", "url": "https://pressurewashingresource.com/community/latest.rss", "links_ok": false}
-  ],
-  "bluesky_queries": [
-    "looking for a used generator", "looking for a used forklift", "looking for a used trailer",
-    "where to sell equipment", "selling my equipment", "used restaurant equipment"
+    {
+      "name": "Practical Machinist",
+      "url": "https://www.practicalmachinist.com/forum/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "Hobby-Machinist",
+      "url": "https://www.hobby-machinist.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "Garage Journal",
+      "url": "https://www.garagejournal.com/forum/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "Boom & Bucket forums",
+      "url": "https://forums.boomandbucket.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "Heavy Equipment Forums",
+      "url": "https://www.heavyequipmentforums.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "LawnSite",
+      "url": "https://www.lawnsite.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "ContractorTalk",
+      "url": "https://www.contractortalk.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "WeldingWeb",
+      "url": "https://weldingweb.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "Pressure Washing Resource",
+      "url": "https://pressurewashingresource.com/community/latest.rss",
+      "links_ok": false
+    }
   ]
 }
