@@ -5,7 +5,7 @@ Runs in GitHub Actions (story.yml). Writes stories/out/<date>-<machine>-bg.<ext>
 and prints KEY=VALUE lines for $GITHUB_OUTPUT (date, machine, bg).
 
 Background: today's existing stories/out/<date>-<machine>-bg.png if present,
-else BG_URL (an https image made elsewhere, e.g. ElevenLabs) if given, else one Runway gen4_image text-to-image at 1080:1920 (about 8 credits).
+else the oldest unused image in stories/bank/<machine>/, else BG_URL (an https image made elsewhere, e.g. ElevenLabs) if given, else one Runway gen4_image text-to-image at 1080:1920 (about 8 credits).
 The image is an illustrative backdrop only, never a real listing.
 """
 import json
@@ -42,9 +42,18 @@ def main():
     os.makedirs("stories/out", exist_ok=True)
     bg_url = (os.environ.get("BG_URL") or "").strip()
     existing = f"stories/out/{date}-{slug}-bg.png"
+    bank_dir = f"stories/bank/{slug}"
+    bank = sorted(f for f in os.listdir(bank_dir) if f.endswith(".png")) if os.path.isdir(bank_dir) else []
     if os.path.isfile(existing) and not bg_url:
         print(f"reusing today's background {existing}")
         out = existing
+    elif bank and not bg_url:
+        # Pre-made backdrops (ElevenLabs, see README): each is used once, then
+        # moved out of the bank, so every Story still gets an unused image.
+        src = os.path.join(bank_dir, bank[0])
+        out = existing
+        os.replace(src, out)
+        print(f"using bank image {src} ({len(bank) - 1} left for {machine})")
     elif bg_url:
         if not bg_url.startswith("https://"):
             rw.die("BG_URL must be https")

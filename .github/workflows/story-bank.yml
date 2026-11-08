@@ -1,0 +1,52 @@
+name: Story backdrop bank
+
+# Adds pre-made 9:16 backdrops for the LIST IT FREE Story to stories/bank/<machine>/.
+# Input: lines of "<machine-slug> <https url>" (e.g. made with ElevenLabs; the
+# signed URLs expire after a few hours, so run this right after making them).
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "Lines of: <machine-slug> <https url>"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: story
+  cancel-in-progress: false
+
+jobs:
+  bank:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: stories
+      - name: Download
+        env:
+          URLS: ${{ inputs.urls }}
+        run: |
+          ok="generator conveyor-oven dump-trailer walk-in-cooler ice-machine zero-turn-mower scissor-lift"
+          stamp=$(date -u +%Y%m%d%H%M)
+          n=0
+          while read -r slug url; do
+            [ -z "$slug" ] && continue
+            case " $ok " in *" $slug "*) ;; *) echo "skip unknown machine $slug"; continue;; esac
+            case "$url" in https://*) ;; *) echo "skip non-https url"; continue;; esac
+            n=$((n+1)); mkdir -p "stories/bank/$slug"
+            f="stories/bank/$slug/$stamp-$n.png"
+            curl -sSfL --max-time 120 -o "$f" "$url" || { echo "download failed for $slug #$n"; rm -f "$f"; continue; }
+            file "$f" | grep -q "image data" || { echo "not an image: $slug #$n"; rm -f "$f"; continue; }
+          done <<< "$URLS"
+          for d in stories/bank/*/; do echo "$d $(ls "$d" | wc -l)"; done | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Commit
+        run: |
+          git config user.name "yardswaps-reels-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add stories/bank/
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Story backdrop bank +images"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done

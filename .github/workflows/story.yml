@@ -71,7 +71,7 @@ jobs:
         run: |
           git config user.name "yardswaps-reels-bot"
           git config user.email "yardswaps@gmail.com"
-          git add stories/out/
+          git add -A stories/out/ stories/bank/
           git diff --cached --quiet || git commit -q -m "Story ${{ steps.bg.outputs.date }} ${{ steps.bg.outputs.machine }}"
           for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
