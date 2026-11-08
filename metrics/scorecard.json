@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-03",
- "generatedAt": "2026-11-07T17:45:14Z",
+ "generatedAt": "2026-11-08T15:07:20Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": false,
@@ -55,6 +55,25 @@
     "ratio": 3.0
    },
    {
+    "slug": "drilling-rig-parked",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 4.0,
+    "views": 0,
+    "likes": 4,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 2.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "drilling",
+    "ratio": 1.33
+   },
+   {
     "slug": "control-panel-pulled",
     "posts": 2,
     "settled": 2,
@@ -71,6 +90,25 @@
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "electrical",
+    "ratio": 1.0
+   },
+   {
+    "slug": "micrometer-set-small-tools",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 3.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.5,
+    "hook": "pov-idle",
+    "angle": "small-items",
+    "category": "machining",
     "ratio": 1.0
    },
    {
@@ -207,25 +245,6 @@
     "ratio": 0.33
    },
    {
-    "slug": "drilling-rig-parked",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 4,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "drilling",
-    "ratio": null
-   },
-   {
     "slug": "leftover-fittings-lot",
     "posts": 2,
     "settled": 0,
@@ -242,25 +261,6 @@
     "hook": "pov-idle",
     "angle": "shelf-parts",
     "category": "parts",
-    "ratio": null
-   },
-   {
-    "slug": "micrometer-set-small-tools",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 3,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "small-items",
-    "category": "machining",
     "ratio": null
    },
    {
@@ -318,13 +318,15 @@
   "hook": [
    {
     "value": "pov-idle",
-    "posts": 14,
-    "perPost": 1.64,
-    "ratio": 1.1,
+    "posts": 18,
+    "perPost": 1.67,
+    "ratio": 1.11,
     "verdict": "average",
     "slugs": [
      "surplus-parts-cash-flow",
+     "drilling-rig-parked",
      "control-panel-pulled",
+     "micrometer-set-small-tools",
      "parts-donor-thumb",
      "plumbing-part-label",
      "forklift-finally-deal",
@@ -366,12 +368,23 @@
     ]
    },
    {
+    "value": "small-items",
+    "posts": 2,
+    "perPost": 1.5,
+    "ratio": 1.0,
+    "verdict": "testing",
+    "slugs": [
+     "micrometer-set-small-tools"
+    ]
+   },
+   {
     "value": "idle-gear",
-    "posts": 6,
-    "perPost": 1.17,
-    "ratio": 0.78,
+    "posts": 8,
+    "perPost": 1.38,
+    "ratio": 0.92,
     "verdict": "average",
     "slugs": [
+     "drilling-rig-parked",
      "control-panel-pulled",
      "forklift-finally-deal",
      "forklift-sitting-there"
@@ -415,6 +428,16 @@
     ]
    },
    {
+    "value": "drilling",
+    "posts": 2,
+    "perPost": 2.0,
+    "ratio": 1.33,
+    "verdict": "testing",
+    "slugs": [
+     "drilling-rig-parked"
+    ]
+   },
+   {
     "value": "electrical",
     "posts": 2,
     "perPost": 1.5,
@@ -422,6 +445,16 @@
     "verdict": "testing",
     "slugs": [
      "control-panel-pulled"
+    ]
+   },
+   {
+    "value": "machining",
+    "posts": 2,
+    "perPost": 1.5,
+    "ratio": 1.0,
+    "verdict": "testing",
+    "slugs": [
+     "micrometer-set-small-tools"
     ]
    },
    {
@@ -458,7 +491,8 @@
  "outreach": null,
  "actions": {
   "boost": {
-   "surplus-parts-cash-flow": 60
+   "surplus-parts-cash-flow": 60,
+   "drilling-rig-parked": 27
   },
   "retire": {},
   "buildNext": {
@@ -468,8 +502,51 @@
    "angles": [
     "parts-spec"
    ],
-   "categories": [],
-   "stopMaking": []
+   "categories": [
+    "generators",
+    "pumps",
+    "vacuum"
+   ],
+   "stopMaking": [
+    "forklifts",
+    "feature-statement"
+   ],
+   "opener": [
+    "Open on the real item with the blue question box on screen in second 1.",
+    "App screens only after the 3-second mark."
+   ],
+   "directives": [
+    "ARK-206"
+   ]
   }
- }
+ },
+ "directives": [
+  {
+   "id": "ARK-206",
+   "from": "2026-11-08",
+   "until": "2026-11-23",
+   "source": "Metricool Instagram Reels data, Oct 11 to Nov 7 (views and 3-second hold per Reel)",
+   "evidence": [
+    "Average views per Reel (ours + HeyCatch): 125 on Oct 11-24, 79 on Oct 25-Nov 7, mostly because HeyCatch posted half as many Reels (28 to 14).",
+    "Our Reels: 71 views on average with a 21% 3-second hold; HeyCatch holds 32-40%. Average watch on ours is about 3 seconds of a 12-15 second Reel.",
+    "Our Reels averaged 45 views on Nov 1-3 and 93 on Nov 4-7.",
+    "One leftover item wins: micrometer-set-small-tools 159 views, drilling-rig-parked 134, stripped-well-pump 98, plumbing-part-label 97.",
+    "Flops: forklift-finally-deal 21, forklift-sitting-there 29, find-it-nearby 22 (feature-statement), part-tag-scan 27.",
+    "Signups from a video link in 30 days: 0 of 21."
+   ],
+   "opener": [
+    "Open on the real item with the blue question box on screen in second 1.",
+    "App screens only after the 3-second mark."
+   ],
+   "categories": [
+    "generators",
+    "pumps",
+    "vacuum"
+   ],
+   "stopMaking": [
+    "forklifts",
+    "feature-statement"
+   ]
+  }
+ ]
 }

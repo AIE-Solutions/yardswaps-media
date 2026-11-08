@@ -1,7 +1,8 @@
 {
- "generatedAt": "2026-11-07T17:45:14Z",
+ "generatedAt": "2026-11-08T15:07:20Z",
  "boost": {
-  "surplus-parts-cash-flow": 60
+  "surplus-parts-cash-flow": 60,
+  "drilling-rig-parked": 27
  },
  "retire": {}
 }
