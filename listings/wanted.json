@@ -1,0 +1,158 @@
+{
+ "_note": "\"Buyers are looking for X\" seller-recruitment cards (source: seller-growth/WANTED-POSTS.md, numbers from the [GrowthDigest] of as_of). prep adds one every WANTED_GAP_DAYS between the listing cards, skips any post whose claim is no longer true (checked against the live listings), skips them all once as_of is older than WANTED_MAX_AGE_DAYS, and links /sell-equipment/<slug> only when that page answers 200. Refresh the numbers and as_of from the newest digest; never an exact count below 10, never views or sales. Spanish lines wait for Alan or Emmanuel to proofread.",
+ "as_of": "2026-11-08",
+ "posts": [
+  {
+   "key": "generators",
+   "category": "generators",
+   "slug": "generators",
+   "check": {
+    "category": "generators",
+    "max_live": 0
+   },
+   "card": [
+    "Buyers are looking",
+    "for generators."
+   ],
+   "card_sub": "None listed yet. List yours free.",
+   "body": "Buyers looked for generators on YardSwaps about 20 times in the last month. None are listed.\nIf a generator is sitting in your yard between jobs or since the last storm, list it free: photo of the unit, photo of the data plate, the app fills in kW, fuel and phase. Buyers pick up at your place.",
+   "question": "What size is the one you have sitting?"
+  },
+  {
+   "key": "trailers",
+   "category": "trailers",
+   "slug": "trailers",
+   "check": {
+    "category": "trailers",
+    "min_live": 1,
+    "max_live": 1
+   },
+   "card": [
+    "Buyers are looking",
+    "for trailers."
+   ],
+   "card_sub": "Gooseneck, dump or utility. List it free.",
+   "body": "More than 20 trailer searches on YardSwaps last month, and one trailer listed.\nGooseneck, dump, tilt or utility: if it hasn't moved since the last job, list it free. Photograph the VIN plate and the tires. Buyer hitches up at your yard.",
+   "question": "What's the trailer you keep meaning to sell?"
+  },
+  {
+   "key": "pipe-inspection",
+   "category": "inspection",
+   "slug": "pipe-inspection",
+   "check": {
+    "category": "inspection",
+    "max_live": 0
+   },
+   "card": [
+    "Buyers are looking",
+    "for pipe inspection",
+    "cameras."
+   ],
+   "card_sub": "None listed yet. List yours free.",
+   "body": "Buyers searched YardSwaps for sewer and pipe inspection cameras more than 10 times last month. Nothing listed.\nUpgraded to a new camera and the old reel is in the truck? List it free and let someone else put it to work.",
+   "question": "What camera are you running now?"
+  },
+  {
+   "key": "pumps",
+   "category": "pumps",
+   "slug": "pumps-and-motors",
+   "check": {
+    "category": "pumps",
+    "max_live": 0
+   },
+   "card": [
+    "Buyers are looking",
+    "for pumps."
+   ],
+   "card_sub": "Trash, transfer or a spare motor. List it free.",
+   "body": "More than 10 pump searches last month on YardSwaps, zero pumps listed.\nTrash pumps, transfer pumps, spare motors on a shelf: snap the tag, list it free, buyer picks up.",
+   "question": "Got a spare pump that hasn't run this year?"
+  },
+  {
+   "key": "hydro-jetters",
+   "category": "hydro",
+   "slug": "hydro-jetting",
+   "check": {
+    "category": "hydro",
+    "max_live": 0
+   },
+   "card": [
+    "Buyers are looking",
+    "for hydro jetters."
+   ],
+   "card_sub": "None listed yet. List yours free.",
+   "body": "About 10 searches for jetters on YardSwaps last month. None listed.\nIf a cart or trailer jetter got replaced and is parked out back, list it free. Put GPM, PSI and hours in the photos.",
+   "question": "What GPM is the one you'd sell?"
+  },
+  {
+   "key": "forklifts",
+   "category": "forklifts",
+   "slug": "forklifts",
+   "check": {
+    "category": "forklifts",
+    "min_live": 1,
+    "max_live": 1
+   },
+   "card": [
+    "Buyers are looking",
+    "for forklifts."
+   ],
+   "card_sub": "Data plate, hour meter, done. List it free.",
+   "body": "Forklift searches on YardSwaps last month mostly found nothing. One is listed.\nMoved to electric, or downsized the warehouse? Photograph the data plate and the hour meter, list it free, buyer comes to you.",
+   "question": "How many hours on yours?"
+  },
+  {
+   "key": "welders",
+   "category": "welding",
+   "slug": "welding-equipment",
+   "check": {
+    "category": "welding",
+    "max_live": 0
+   },
+   "card": [
+    "Buyers are looking",
+    "for welders."
+   ],
+   "card_sub": "None listed yet. List yours free.",
+   "body": "People searched YardSwaps for welders, Lincoln by name, and found none listed.\nA spare welder or a machine from a closed shop is cash sitting on the floor. List it free, photograph the nameplate, local pickup.",
+   "question": "What welder is collecting dust in your shop?"
+  },
+  {
+   "key": "parts",
+   "category": "parts",
+   "slug": "parts-and-accessories",
+   "card": [
+    "Buyers are looking",
+    "for parts you",
+    "already have."
+   ],
+   "card_sub": "Scan the tag. List it free.",
+   "body": "Two out of three searches on YardSwaps last month found nothing listed. Some of what people need is sitting on your shelf.\nExtra parts on a shelf, an attachment for a machine you sold, a unit you kept for parts: scan the tag and list it free.",
+   "question": "What's the one part you've got three of?"
+  },
+  {
+   "key": "fleet-trucks",
+   "category": "fleet",
+   "slug": "fleet-vehicles",
+   "card": [
+    "Buyers are looking",
+    "for fleet trucks."
+   ],
+   "card_sub": "Retiring a truck? List it free.",
+   "body": "Fleet trucks were the most searched category on YardSwaps last month: more than 35 searches, and about half found nothing that matched.\nRetiring a truck from the fleet? List it free with the odometer and the door sticker in the photos. Buyer comes to your lot.",
+   "question": "What's the oldest truck still in your fleet?"
+  },
+  {
+   "key": "craigslist",
+   "category": null,
+   "slug": null,
+   "card": [
+    "Already on",
+    "Craigslist?"
+   ],
+   "card_sub": "Paste the link. Free to list.",
+   "body": "Already have your equipment on Craigslist? Paste the link into YardSwaps and the photos, price and details come across. Check them, publish, done. Free.",
+   "question": "Where do you list equipment now?"
+  }
+ ]
+}

@@ -1,0 +1,475 @@
+{
+ "v": 1,
+ "week": "2026-11-03",
+ "generatedAt": "2026-11-07T17:45:14Z",
+ "sources": {
+  "meta snapshot": true,
+  "app growth digest": false,
+  "app ops digest": true,
+  "youtube": false,
+  "metricool": false
+ },
+ "goals": {
+  "followers": {
+   "instagram": {
+    "now": 365,
+    "change7d": 352,
+    "asOf": "2026-11-07"
+   },
+   "facebook": {
+    "now": 13,
+    "change7d": 2,
+    "asOf": "2026-11-07"
+   },
+   "youtube": null
+  },
+  "signups7d": 10,
+  "signupsPrev7d": 5,
+  "appSignups7d": 2,
+  "listingsPublished7d": 15,
+  "listingsPublishedPrev7d": 8,
+  "activeListings": 29,
+  "signupsBySource7d": null,
+  "heardFrom7d": null
+ },
+ "reels": {
+  "median": 1.5,
+  "slugs": [
+   {
+    "slug": "surplus-parts-cash-flow",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 9.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 2,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 4.5,
+    "hook": "pov-idle",
+    "angle": "parts-spec",
+    "category": "parts",
+    "ratio": 3.0
+   },
+   {
+    "slug": "control-panel-pulled",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 3.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.5,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "electrical",
+    "ratio": 1.0
+   },
+   {
+    "slug": "part-tag-scan",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 3.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.5,
+    "hook": "question-problem",
+    "angle": "parts-spec",
+    "category": "parts",
+    "ratio": 1.0
+   },
+   {
+    "slug": "parts-donor-thumb",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 3.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.5,
+    "hook": "pov-idle",
+    "angle": "shelf-parts",
+    "category": "excavators",
+    "ratio": 1.0
+   },
+   {
+    "slug": "plumbing-part-label",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 3.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.5,
+    "hook": "pov-idle",
+    "angle": "shelf-parts",
+    "category": "parts",
+    "ratio": 1.0
+   },
+   {
+    "slug": "forklift-finally-deal",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 2.0,
+    "views": 0,
+    "likes": 2,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "forklifts",
+    "ratio": 0.67
+   },
+   {
+    "slug": "forklift-sitting-there",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 2.0,
+    "views": 0,
+    "likes": 2,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "forklifts",
+    "ratio": 0.67
+   },
+   {
+    "slug": "find-it-nearby",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 1.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 0.5,
+    "hook": "feature-statement",
+    "angle": "buyer-feature",
+    "category": "forklifts",
+    "ratio": 0.33
+   },
+   {
+    "slug": "stripped-well-pump",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 1.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 0.5,
+    "hook": "pov-idle",
+    "angle": "shelf-parts",
+    "category": "parts",
+    "ratio": 0.33
+   },
+   {
+    "slug": "drilling-rig-parked",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 4,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "drilling",
+    "ratio": null
+   },
+   {
+    "slug": "leftover-fittings-lot",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 5,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "shelf-parts",
+    "category": "parts",
+    "ratio": null
+   },
+   {
+    "slug": "micrometer-set-small-tools",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "small-items",
+    "category": "machining",
+    "ratio": null
+   },
+   {
+    "slug": "mission-idle-to-work",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "forklifts",
+    "brand": true,
+    "ratio": null
+   }
+  ],
+  "insights": {
+   "refused": [
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AzP-abJIacIMk8MEo_LSJl4\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AG8ju8okWPvKEf2VnREAvMO\"}}",
+    "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AkO2sKkJXK-ah-M_6po7oyC\"}}",
+    "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ArQ9AAuubycQCKTGaJgf85q\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AOoAVBsmP3hfkF3kF4Vz9AK\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AlH8KAPh3PsbBELD8zl_4iA\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Azm9uIe0vxn1RbH7nc31FCz\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AgKvzy8Ae64ZUIUyxfJLggp\"}}",
+    "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A2H5SdcbLg68mS4m6RR-Z0u\"}}",
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AFluZ9Fn-ZmGuc0yMTijmje\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AYrcHZnmuUXivKrJrWzH5VC\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aht8LFHJyYiZ2PE0L0-Jwcl\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A-QRlcoTbGGQKR5oZ3mzI18\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Az52VnWEmrVcwZQpxhdo46L\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AEdRkZRYKWjDv1LmFr3iPHj\"}}",
+    "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AsiZ-su5Xk_9ExpyJuCaAMx\"}}",
+    "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AU5nuPYhx_iHsbFBKNA1yta\"}}",
+    "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AD8xQzE2iC2uGIJl86ixieW\"}}",
+    "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"ATzI0i_OUwMIeYZsMRmUI0V\"}}",
+    "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"ACpa0nCVoi3mDC29_aCtRVp\"}}"
+   ],
+   "usable": {
+    "fb_reels_total_plays,blue_reels_play_count,post_impressions_unique,post_video_avg_time_watched,post_video_followers,post_video_social_actions": [],
+    "views,reach,likes,comments,shares,saved,follows,total_interactions,ig_reels_avg_watch_time": [],
+    "views,reach,shares,saved,follows,total_interactions": []
+   }
+  }
+ },
+ "formats": {
+  "hook": [
+   {
+    "value": "pov-idle",
+    "posts": 14,
+    "perPost": 1.64,
+    "ratio": 1.1,
+    "verdict": "average",
+    "slugs": [
+     "surplus-parts-cash-flow",
+     "control-panel-pulled",
+     "parts-donor-thumb",
+     "plumbing-part-label",
+     "forklift-finally-deal",
+     "forklift-sitting-there",
+     "stripped-well-pump"
+    ]
+   },
+   {
+    "value": "question-problem",
+    "posts": 2,
+    "perPost": 1.5,
+    "ratio": 1.0,
+    "verdict": "testing",
+    "slugs": [
+     "part-tag-scan"
+    ]
+   },
+   {
+    "value": "feature-statement",
+    "posts": 2,
+    "perPost": 0.5,
+    "ratio": 0.33,
+    "verdict": "testing",
+    "slugs": [
+     "find-it-nearby"
+    ]
+   }
+  ],
+  "angle": [
+   {
+    "value": "parts-spec",
+    "posts": 4,
+    "perPost": 3.0,
+    "ratio": 2.0,
+    "verdict": "winner",
+    "slugs": [
+     "surplus-parts-cash-flow",
+     "part-tag-scan"
+    ]
+   },
+   {
+    "value": "idle-gear",
+    "posts": 6,
+    "perPost": 1.17,
+    "ratio": 0.78,
+    "verdict": "average",
+    "slugs": [
+     "control-panel-pulled",
+     "forklift-finally-deal",
+     "forklift-sitting-there"
+    ]
+   },
+   {
+    "value": "shelf-parts",
+    "posts": 6,
+    "perPost": 1.17,
+    "ratio": 0.78,
+    "verdict": "average",
+    "slugs": [
+     "parts-donor-thumb",
+     "plumbing-part-label",
+     "stripped-well-pump"
+    ]
+   },
+   {
+    "value": "buyer-feature",
+    "posts": 2,
+    "perPost": 0.5,
+    "ratio": 0.33,
+    "verdict": "testing",
+    "slugs": [
+     "find-it-nearby"
+    ]
+   }
+  ],
+  "category": [
+   {
+    "value": "parts",
+    "posts": 8,
+    "perPost": 2.0,
+    "ratio": 1.33,
+    "verdict": "winner",
+    "slugs": [
+     "surplus-parts-cash-flow",
+     "part-tag-scan",
+     "plumbing-part-label",
+     "stripped-well-pump"
+    ]
+   },
+   {
+    "value": "electrical",
+    "posts": 2,
+    "perPost": 1.5,
+    "ratio": 1.0,
+    "verdict": "testing",
+    "slugs": [
+     "control-panel-pulled"
+    ]
+   },
+   {
+    "value": "excavators",
+    "posts": 2,
+    "perPost": 1.5,
+    "ratio": 1.0,
+    "verdict": "testing",
+    "slugs": [
+     "parts-donor-thumb"
+    ]
+   },
+   {
+    "value": "forklifts",
+    "posts": 6,
+    "perPost": 0.83,
+    "ratio": 0.56,
+    "verdict": "loser",
+    "slugs": [
+     "forklift-finally-deal",
+     "forklift-sitting-there",
+     "find-it-nearby"
+    ]
+   }
+  ],
+  "structure": []
+ },
+ "youtube": null,
+ "demand": {
+  "gaps": [],
+  "zeroResultTerms": [],
+  "zeroResultRate30d": null
+ },
+ "outreach": null,
+ "actions": {
+  "boost": {
+   "surplus-parts-cash-flow": 60
+  },
+  "retire": {},
+  "buildNext": {
+   "hooks": [
+    "pov-idle"
+   ],
+   "angles": [
+    "parts-spec"
+   ],
+   "categories": [],
+   "stopMaking": []
+  }
+ }
+}

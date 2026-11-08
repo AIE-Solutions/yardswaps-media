@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Post one YardSwaps Reel to Instagram and Facebook per run.
 
-Runs from .github/workflows/reels.yml twice a day. Standard library only.
+Runs from .github/workflows/reels.yml; posts at most once per Central-time
+slot (SLOTS_CT, four a day since Nov 8). Standard library only.
 
 Picks the next video from reels/library.json (never-posted first, newest
 first; then, among videos posted at least MIN_GAP_DAYS ago, the one whose
@@ -18,6 +19,7 @@ Env:
   PLATFORMS        "instagram,facebook" (default) or one of them
   SLUG             force one video (manual runs)
   DRY_RUN          "1" = pick and print captions, post nothing
+  CHECK_ONLY       "1" = only say whether a slot is open (due=0/1 to GITHUB_OUTPUT)
 """
 import datetime as dt
 import json
@@ -27,6 +29,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from zoneinfo import ZoneInfo
 
 GRAPH = "https://graph.facebook.com/v23.0"
 RUPLOAD_IG = "https://rupload.facebook.com/ig-api-upload/v23.0"
@@ -39,13 +42,22 @@ RANK = os.path.join(ROOT, "metrics", "rank.json")
 
 MIN_GAP_DAYS = 10          # same video never twice on a platform inside this
 CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (HeyCatch)
-MAX_OURS_PER_20H = 2       # safety cap per platform, matches the two daily slots
-# Each day has two posting halves (UTC; Central is UTC-6 in winter). A scheduled
-# run posts only if its half has no scheduled post yet, so a late or backup run
-# never doubles up, and nothing posts overnight Central.
-MORNING_HALF_UTC = 10      # 10:00-20:00 UTC = 4 am-2 pm Central (slot 13:00 UTC)
-EVENING_HALF_UTC = 20      # 20:00-06:00 UTC = 2 pm-midnight Central (slot 22:30 UTC)
-QUIET_END_UTC = 6          # 06:00-10:00 UTC (midnight-4 am Central): no scheduled posts
+
+# Daily Reel slots in Central time (Nov 8: raised from 2 to 4 a day, Alan:
+# "amplify our video postings"). Each entry is (slot time, latest start). A
+# scheduled run posts once per slot, only between those two times, so every
+# post stays 90+ minutes from HeyCatch (about :33 past 4 am, 12 pm and 8 pm
+# Central, and the extra Instagram/Facebook posts it puts in those same
+# slots) and from the 2:15 pm Just listed post:
+#   7:00 am   until 9:30 am   (HeyCatch 4:33 am is 2.5 h before)
+#   10:00 am  until 11:00 am  (HeyCatch 12:33 pm is 93+ min after)
+#   4:30 pm   until 6:00 pm   (Just listed 2:15 pm is 2+ h before)
+#   6:30 pm   until 7:00 pm   (HeyCatch 8:33 pm is 93+ min after)
+# A run GitHub starts too late for its slot does nothing; the next slot's
+# runs pick up. library.json "slots" (["07:00-09:30", ...]) overrides this.
+CENTRAL = ZoneInfo("America/Chicago")
+SLOTS_CT = [((7, 0), (9, 30)), ((10, 0), (11, 0)), ((16, 30), (18, 0)), ((18, 30), (19, 0))]
+SLOT_EARLY_MINUTES = 5     # a run that starts up to 5 minutes early counts for the slot
 
 
 
@@ -75,8 +87,15 @@ FOLLOW_FB = "Follow the YardSwaps page for a new one every day."
 # Reel keeps its 2 machine tags, always gets #UsedEquipment, and rotates 2 of the
 # rest. Facebook has no cap and gets the whole set. library.json "broad_tags"
 # overrides the list.
-BROAD_TAGS = ["#UsedEquipment", "#Jobsite", "#Tradespeople", "#IndustrialEquipment",
+# Nov 5: TikTok Creator Search Insights showed #BlueCollar (2.02M searches),
+# Construction Life and small business trending, so they join the rotation,
+# ordered so each pair of 2 mixes a search term with a Meta jobsite tag.
+BROAD_TAGS = ["#UsedEquipment", "#BlueCollar", "#Jobsite", "#ConstructionLife",
+              "#Tradespeople", "#SmallBusiness", "#IndustrialEquipment",
               "#EquipmentMarketplace", "#VerifiedSeller"]
+# TikTok (5 tags): 2 machine tags + #BlueCollar + #UsedEquipment + 1 of these,
+# rotating. library.json "tt_tags" on a video replaces the lot.
+TT_ROTATE = ["#ConstructionLife", "#SmallBusiness", "#BuildingThings", "#Jobsite"]
 GENERIC = {"#usedequipment", "#yardswaps", "#equipmentforsale", "#sellequipment",
            "#sellyourequipment"}
 
@@ -96,6 +115,14 @@ def ig_tags(v, turn=0):
     k = (turn * 2) % len(rest)
     rot = (rest + rest)[k:k + 2]
     return " ".join(machine_tags(v) + [BROAD_TAGS[0]] + rot)
+
+
+def tt_tags(v, turn=0):
+    """TikTok hashtags: search terms first (CAPTIONS.md, Nov 5)."""
+    if v.get("tt_tags"):
+        return v["tt_tags"]
+    return " ".join(machine_tags(v) + ["#BlueCollar", "#UsedEquipment",
+                                       TT_ROTATE[turn % len(TT_ROTATE)]])
 
 
 def fb_tags(v):
@@ -241,31 +268,50 @@ def ours_recent(posted, platform):
                and not p.get("forced") and parse_time(p["time"]) >= since)
 
 
-def half_start(t):
-    """Start of the posting half that time t falls in, or None in the quiet hours."""
-    day = t.replace(minute=0, second=0, microsecond=0)
-    if MORNING_HALF_UTC <= t.hour < EVENING_HALF_UTC:
-        return day.replace(hour=MORNING_HALF_UTC)
-    if t.hour >= EVENING_HALF_UTC:
-        return day.replace(hour=EVENING_HALF_UTC)
-    if t.hour < QUIET_END_UTC:
-        return day.replace(hour=EVENING_HALF_UTC) - dt.timedelta(days=1)
+def slot_window(t):
+    """(start, end) of the slot window time t falls in, or None outside them."""
+    day = t.astimezone(CENTRAL)
+    mk = lambda hm: day.replace(hour=hm[0], minute=hm[1], second=0, microsecond=0)
+    early = dt.timedelta(minutes=SLOT_EARLY_MINUTES)
+    for start, end in SLOTS_CT:
+        if mk(start) - early <= t < mk(end):
+            return mk(start) - early, mk(end)
     return None
 
 
-def slot_done(posted, platform):
-    since = half_start(now())
-    if since is None:
+def slot_done(posted, platform, t=None):
+    win = slot_window(t or now())
+    if win is None:
         return True
     return any(p["platform"] == platform and p.get("status") == "posted"
-               and not p.get("forced") and parse_time(p["time"]) >= since for p in posted)
+               and not p.get("forced") and parse_time(p["time"]) >= win[0] for p in posted)
+
+
+def slots_text():
+    f = lambda t: f"{t[0]}:{t[1]:02d}"
+    return ", ".join(f"{f(a)}-{f(b)}" for a, b in SLOTS_CT)
+
+
+def max_ours_per_20h():
+    """Safety cap per platform, one per daily slot."""
+    return len(SLOTS_CT)
+
+
+def set_slots(lib):
+    hm = lambda x: tuple(int(n) for n in x.strip().split(":"))
+    if lib.get("slots"):
+        SLOTS_CT[:] = [(hm(w.split("-")[0]), hm(w.split("-")[1])) for w in lib["slots"]]
+
+
+LISTINGS_POSTED = os.path.join(ROOT, "listings", "posted.json")
 
 
 def is_ours(posted, platform, when, slack_minutes=10):
-    """True when a post time on the account is one of our own logged posts."""
+    """True when a post time on the account is one of our own logged posts
+    (Reels, or the daily "Just listed" photo post from listings/)."""
     return any(p["platform"] == platform and p.get("status") == "posted"
                and abs((parse_time(p["time"]) - when).total_seconds()) <= slack_minutes * 60
-               for p in posted)
+               for p in posted + load(LISTINGS_POSTED, []))
 
 
 # ---------- Instagram ----------
@@ -453,6 +499,32 @@ def story_pick(videos, posted, story_platform):
 
 # ---------- main ----------
 
+def check_only(platforms, force, dry):
+    """Cheap gate for the workflow: due=1 when this run has something to post.
+
+    Needs no token and no video files (the gate job checks out only the JSON
+    and this script), so the many backup crons cost seconds, not a full checkout.
+    """
+    set_slots(load(LIBRARY, {}))
+    posted = load(POSTED, [])
+    reels = [p for p in platforms if p in ("instagram", "facebook")]
+    if force or dry or not reels:
+        due, why = True, "manual run"
+    elif slot_window(now()) is None:
+        due, why = False, "outside the posting slots"
+    else:
+        open_ = [p for p in reels if not slot_done(posted, p)
+                 and ours_recent(posted, p) < max_ours_per_20h()]
+        due, why = bool(open_), ("slot open on " + ",".join(open_)) if open_ else "this slot already posted"
+    win = slot_window(now())
+    print(f"due={int(due)} ({why}); now {now().astimezone(CENTRAL):%a %H:%M} Central"
+          + (f", window {win[0]:%H:%M}-{win[1]:%H:%M}" if win else ""))
+    if os.environ.get("GITHUB_OUTPUT"):
+        with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
+            f.write(f"due={int(due)}\n")
+    return 0
+
+
 def main():
     token = os.environ.get("META_PAGE_TOKEN", "").strip()
     dry = os.environ.get("DRY_RUN") == "1"
@@ -460,6 +532,9 @@ def main():
     ig_id = os.environ.get("IG_USER_ID") or "17841429324062623"
     platforms = [p.strip() for p in (os.environ.get("PLATFORMS") or "instagram,facebook,instagram_story,facebook_story").split(",") if p.strip()]
     force = (os.environ.get("SLUG") or "").strip() or None
+
+    if os.environ.get("CHECK_ONLY") == "1":
+        return check_only(platforms, force, dry)
 
     if not token and not dry:
         print("::notice::META_PAGE_TOKEN is not set yet, so nothing was posted. See reels/README.md.")
@@ -480,6 +555,7 @@ def main():
             print(f"::warning::Could not check the token's expiry: {e}")
 
     lib = load(LIBRARY, {"videos": []})
+    set_slots(lib)
     videos = lib["videos"]
     LOCATIONS[:] = lib.get("locations", [])
     if lib.get("broad_tags"):
@@ -526,15 +602,15 @@ def main():
             summary.append(f"{platform}: would post {video['slug']} (repeat={repeat})\n{caption}\n")
             continue
         # GitHub can start a scheduled run hours late or drop it, so each slot
-        # has backup crons. The first run in a half-day posts; the rest stop.
-        if not force and half_start(now()) is None:
-            summary.append(f"{platform}: skipped, overnight Central (no scheduled posts 06:00-10:00 UTC)")
+        # has backup crons. The first run in a slot window posts; the rest stop.
+        if not force and slot_window(now()) is None:
+            summary.append(f"{platform}: skipped, outside the slot windows (" + slots_text() + " Central)")
             continue
         if not force and slot_done(posted, platform):
-            summary.append(f"{platform}: skipped, this half-day already posted (late or backup run)")
+            summary.append(f"{platform}: skipped, this slot already posted (late or backup run)")
             continue
-        if not force and ours_recent(posted, platform) >= MAX_OURS_PER_20H:
-            summary.append(f"{platform}: skipped, already posted {MAX_OURS_PER_20H} in the last 20 hours")
+        if not force and ours_recent(posted, platform) >= max_ours_per_20h():
+            summary.append(f"{platform}: skipped, already posted {max_ours_per_20h()} in the last 20 hours")
             continue
         entry = {"time": iso(now()), "platform": platform, "slug": video["slug"], "repeat": repeat}
         if force:

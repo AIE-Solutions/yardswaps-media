@@ -1,0 +1,3 @@
+# Trend-style Shorts music (Nov 4)
+
+Three instrumental beds from ElevenLabs Music v2.5 (commercial use allowed on the Creator plan), two takes each, 20 s asked for (the model returned 38 s), a clear drop at about 2 s so the match cut lands on it: a slow moody guitar-and-harpsichord waltz (84 BPM), a punchy drill/phonk beat (140 BPM) and a lo-fi chill loop (86 BPM). Flow nWT7xyZe6MzCT4DIJEPb. The cloud container cannot download from elevenlabsusercontent.com, so the PC runs `fetch.ps1` (links in `urls.tsv` expire about 10 h after generation) and pushes the MP3s here; the Motion thread then copies them to the campaign folder (assets/elevenlabs/music) and wires them into finish.py as styles `waltz`, `phonk` and `lofi` for next week's Shorts.

@@ -1,0 +1,14 @@
+[
+ {
+  "when": "2026-11-07T01:32Z",
+  "slug": "forklift-yard",
+  "model": "gen4_turbo",
+  "ratio": "720:1280",
+  "duration": 5,
+  "photo": "forklift-yard.jpg",
+  "prompt": "Slow push-in toward the parked green telehandler, boom raised, a little dust drifting across the gravel yard, clouds moving slowly, the machine does not move. Documentary realism, stable camera, natural daylight, nothing added to the scene, no people, no text, no logos, no vehicles driving, subtle motion only.",
+  "seed": "4242",
+  "file": "broll/forklift-yard-720x1280.mp4",
+  "credits": 25
+ }
+]

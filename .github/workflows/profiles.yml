@@ -1,0 +1,46 @@
+name: Profile check (Facebook and Instagram)
+
+# Keeps the Facebook Page and Instagram profile in line with profiles/profiles.json.
+# Mondays 14:05 UTC (8:05 am Central): re-applies the Facebook intro, description
+# and website if they drifted, and reports Instagram drift (Instagram's bio can't
+# be set by API). On a pull request it only reads and reports.
+on:
+  schedule:
+    - cron: "5 14 * * 1"
+  pull_request:
+    paths:
+      - "profiles/**"
+      - ".github/workflows/profiles.yml"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "check or apply"
+        default: "apply"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profiles
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check and apply
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          MODE: ${{ github.event_name == 'pull_request' && 'check' || inputs.mode || 'apply' }}
+        run: python3 profiles/sync_profiles.py
+      - name: Save the status
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "yardswaps-reels-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add profiles/status.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Profile check $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done

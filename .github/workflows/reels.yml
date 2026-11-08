@@ -1,26 +1,23 @@
 name: Reels to Instagram and Facebook
 
-# Two Reels a day on each platform, each re-shared to Stories right after.
-# GitHub cron is UTC:
-#   13:00 UTC = 7:00 am Central in winter (8:00 am in summer)
-#   22:30 UTC = 4:30 pm Central in winter (5:30 pm in summer)
-# HeyCatch posts at about :33 past 4 am, 12 pm and 8 pm Central, so both
-# slots stay 2+ hours clear of it all year. The script also skips a platform
-# if anything went up there in the last 90 minutes.
+# Four Reels a day on each platform (Nov 8, up from two), each re-shared to
+# Stories right after. Slots are set in Central time in reels/post_reels.py
+# (SLOTS_CT), so they don't move when daylight saving changes:
+#   7:00 am, 10:00 am, 4:30 pm and 6:30 pm Central
+# each with a short window (see post_reels.py) that keeps every post 90+
+# minutes from HeyCatch (about :33 past 4 am, 12 pm and 8 pm Central) and the
+# 2:15 pm Just listed post.
 on:
   schedule:
-    # GitHub can start a scheduled run hours late or skip it (Nov 1 22:30 never
-    # came; on Nov 2 the 13:00 runs started about 9 hours late). Each slot has
-    # backups off the busy :00/:30 marks. The script posts once per half-day
-    # (10:00-20:00 and 20:00-06:00 UTC), so later runs see it and stop.
-    - cron: "5 13 * * *"
-    - cron: "25 13 * * *"
-    - cron: "50 13 * * *"
-    - cron: "5 15 * * *"
-    - cron: "35 22 * * *"
-    - cron: "55 22 * * *"
-    - cron: "20 23 * * *"
-    - cron: "35 0 * * *"
+    # GitHub can start a scheduled run hours late or skip it, so these crons
+    # fire often across both the winter (UTC-6) and summer (UTC-5) slot times.
+    # Each run starts with a cheap gate job (no video checkout) that only goes
+    # on when a slot window is open and not yet posted, so the extra runs cost
+    # seconds. A Claude scheduled task also starts the workflow at :42 past
+    # each slot hour, Central.
+    - cron: "7,47 12-16 * * *"
+    - cron: "7,37 21-23 * * *"
+    - cron: "37,52 0 * * *"
   workflow_dispatch:
     inputs:
       platforms:
@@ -41,11 +38,40 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      due: ${{ steps.check.outputs.due }}
+    steps:
+      # ref = the branch, not the commit the run was queued at, so a run that
+      # waited behind another (concurrency below) sees its posting log.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          sparse-checkout: |
+            reels/post_reels.py
+            reels/library.json
+            reels/posted.json
+          sparse-checkout-cone-mode: false
+      - name: Is a slot open?
+        id: check
+        env:
+          CHECK_ONLY: "1"
+          PLATFORMS: ${{ inputs.platforms || 'instagram,facebook,instagram_story,facebook_story' }}
+          SLUG: ${{ inputs.slug }}
+          DRY_RUN: ${{ inputs.dry_run || '0' }}
+        run: python3 reels/post_reels.py
+
   post:
+    needs: gate
+    if: needs.gate.outputs.due == '1'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
       - name: Post the next Reel
         env:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
