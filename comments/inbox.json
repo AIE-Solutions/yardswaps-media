@@ -1,0 +1,20 @@
+{
+  "fetched_at": "2026-11-08T16:16:58Z",
+  "can_reply": {
+    "instagram": false,
+    "facebook": false
+  },
+  "scopes": [
+    "business_management",
+    "instagram_basic",
+    "instagram_content_publish",
+    "pages_manage_posts",
+    "pages_read_engagement",
+    "pages_show_list",
+    "public_profile"
+  ],
+  "errors": [
+    "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
+  ],
+  "items": []
+}
