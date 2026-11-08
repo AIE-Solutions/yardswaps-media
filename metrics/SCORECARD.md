@@ -1,6 +1,6 @@
 # YardSwaps weekly scorecard (2026-11-03)
 
-Generated 2026-11-08T17:55:15Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest MISSING, app ops digest yes, youtube MISSING, metricool MISSING.
+Generated 2026-11-08T18:36:30Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest MISSING, app ops digest yes, youtube MISSING, metricool MISSING.
 
 ## Goals
 - Instagram followers: 605 (+592 in 7 days)
