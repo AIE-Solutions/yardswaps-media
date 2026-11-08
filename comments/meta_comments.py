@@ -208,6 +208,7 @@ def fb_objects(token, page_id, since, errors):
 
 def fb_items(token, page_id, seen, since, errors):
     items = []
+    refused = []  # one line for "missing permission" instead of one per post
     for oid, meta in fb_objects(token, page_id, since, errors).items():
         try:
             head = graph("GET", oid, token, fields="comments.summary(true).limit(0)")
@@ -216,7 +217,10 @@ def fb_items(token, page_id, seen, since, errors):
             comments = pages(graph("GET", f"{oid}/comments", token, limit="50", filter="toplevel",
                                    fields="id,message,from,created_time,like_count,comments{id,message,from,created_time}"), token, 3)
         except GraphError as e:
-            errors.append(f"facebook comments {oid}: {str(e)[:300]}")
+            if "(#10)" in str(e):
+                refused.append(oid)
+            else:
+                errors.append(f"facebook comments {oid}: {str(e)[:300]}")
             continue
         for c in comments:
             frm = c.get("from") or {}
@@ -237,6 +241,9 @@ def fb_items(token, page_id, seen, since, errors):
                                   "time": r.get("created_time"), "media_id": oid, **meta,
                                   "thread": [{"author": (x.get("from") or {}).get("name"), "text": x.get("message")}
                                              for x in [c] + replies if x.get("created_time", "") <= r.get("created_time", "")]})
+    if refused:
+        errors.append(f"facebook: comments on {len(refused)} page posts not readable; the token needs "
+                      "pages_read_user_content (Reels comments still read)")
     return items
 
 
