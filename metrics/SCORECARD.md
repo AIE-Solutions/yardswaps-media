@@ -1,9 +1,9 @@
 # YardSwaps weekly scorecard (2026-11-03)
 
-Generated 2026-11-08T15:07:20Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest MISSING, app ops digest yes, youtube MISSING, metricool MISSING.
+Generated 2026-11-08T17:55:15Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest MISSING, app ops digest yes, youtube MISSING, metricool MISSING.
 
 ## Goals
-- Instagram followers: 365 (+352 in 7 days)
+- Instagram followers: 605 (+592 in 7 days)
 - Facebook followers: 13 (+2 in 7 days)
 - Signups 7d: 10 (prev 5); from the app (iOS/Android): 2
 - Listings published 7d: 15 (prev 8); live now: 29
@@ -24,8 +24,11 @@ Median points per post: 1.5. Points = follows x10, shares x4, saves x3, comments
 | forklift-sitting-there | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 0.67 |
 | find-it-nearby | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.33 |
 | stripped-well-pump | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.33 |
+| building-things-concrete-mixer | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| construction-life-compactor | 2 | 0 | 1 | 4 | 0 | 0 | 0 | 0 | too new | - |
 | leftover-fittings-lot | 2 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| mission-idle-to-work | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| mission-idle-to-work | 2 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| pressure-washer-1000-psi | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | too new | - |
 
 ### Opener shapes
 - pov-idle: 1.67 points/post over 18 posts (average)
