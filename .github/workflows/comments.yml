@@ -1,0 +1,60 @@
+name: Comment inbox (Instagram and Facebook)
+
+# The Meta side of the daily comment replies (comments/README.md):
+# - fetch (daily, before the 11:41 am Central reply task): new viewer comments
+#   on our Instagram posts and Facebook Page posts and Reels go to
+#   comments/inbox.json. Two crons because GitHub sometimes starts late.
+# - post (when the reply task pushes comments/outbox.json to main): posts the
+#   replies with the Reels token and records them in comments/seen.json.
+# - probe (pull requests): read-only check of what the token can do; commits
+#   nothing.
+on:
+  schedule:
+    - cron: "50 15 * * *"
+    - cron: "20 16 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "comments/outbox.json"
+  pull_request:
+    paths:
+      - "comments/**"
+      - ".github/workflows/comments.yml"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "fetch, post or probe"
+        default: "fetch"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: comments
+  cancel-in-progress: false
+
+jobs:
+  inbox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
+      - name: Run
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          BUFFER_API_KEY: ${{ github.event_name == 'pull_request' && secrets.BUFFER_API_KEY || '' }}
+          MODE: ${{ github.event_name == 'pull_request' && 'probe' || github.event_name == 'push' && 'post' || inputs.mode || 'fetch' }}
+        run: python3 comments/meta_comments.py | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Save
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "yardswaps-comments-bot"
+          git config user.email "yardswaps@gmail.com"
+          for f in comments/inbox.json comments/outbox.json comments/seen.json; do
+            if [ -e "$f" ]; then git add "$f"; fi
+          done
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Comment inbox $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3 4; do git pull --rebase -q && git push -q && break; sleep 7; done
