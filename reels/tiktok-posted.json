@@ -15,8 +15,19 @@
   "platform": "tiktok",
   "slug": "origin-searched-everywhere",
   "repeat": false,
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6af0df1c229bf05dafd4077b",
-  "due": "2026-11-08T20:49:09.000Z"
+  "due": "2026-11-08T20:49:09.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7705905512952368398",
+  "sent": "2026-11-08T20:49:57.259Z"
+ },
+ {
+  "time": "2026-11-08T22:46:37Z",
+  "platform": "tiktok",
+  "slug": "construction-life-compactor",
+  "repeat": false,
+  "status": "scheduled",
+  "buffer_id": "6af0fbd1562f2e6de9e7e07d",
+  "due": "2026-11-08T22:51:37.000Z"
  }
 ]
