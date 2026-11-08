@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Post one YardSwaps video to TikTok per run, through Buffer's free plan.
 
-Runs from .github/workflows/tiktok.yml twice a day. Standard library only.
+Runs from .github/workflows/tiktok.yml four times a day. Standard library only.
 
 Why Buffer and not TikTok's own API: TikTok's Content Posting API only
 lets an unaudited app post private ("only me") videos from a private
@@ -44,7 +44,8 @@ API = "https://api.buffer.com"
 ROOT = reels.ROOT
 LOG = os.path.join(ROOT, "reels", "tiktok-posted.json")
 PLATFORM = "tiktok"
-MAX_OURS_PER_20H = 2
+MAX_OURS_PER_20H = 4   # 43 videos / 10-day no-repeat = about 4 fresh a day
+MIN_GAP_MIN = 100       # a late GitHub cron run never lands right after our last post
 SCHEDULE_AHEAD_MIN = 5      # Buffer publishes this many minutes after the run
 JSDELIVR_MAX_BYTES = 19_000_000  # jsDelivr serves GitHub files up to 20 MB
 HEYCATCH = os.path.join(ROOT, "reels", "heycatch-tiktok.json")
@@ -141,6 +142,13 @@ def video_url(path):
     return f"https://raw.githubusercontent.com/{repo}/{ref}/{rel}"
 
 
+def last_ours(posted):
+    """Time of our most recent non-forced TikTok handed to Buffer, or None."""
+    times = [reels.parse_time(p["time"]) for p in posted
+             if p.get("status") in ("posted", "scheduled", "unconfirmed") and not p.get("forced")]
+    return max(times) if times else None
+
+
 # ---------- main ----------
 
 def main():
@@ -210,6 +218,9 @@ def main():
             summary.append(f"tiktok: would post {video['slug']} (repeat={repeat})\n{url}\n\n{caption}\n")
         elif not force and reels.ours_recent(used, PLATFORM) >= MAX_OURS_PER_20H:
             summary.append(f"tiktok: skipped, already posted {MAX_OURS_PER_20H} in the last 20 hours")
+        elif not force and last_ours(posted) and \
+                reels.now() - last_ours(posted) < dt.timedelta(minutes=MIN_GAP_MIN):
+            summary.append(f"tiktok: skipped, our last TikTok went out under {MIN_GAP_MIN} minutes ago")
         else:
             due = clear_of_heycatch(reels.now() + dt.timedelta(minutes=SCHEDULE_AHEAD_MIN))
             entry = {"time": reels.iso(reels.now()), "platform": PLATFORM,
