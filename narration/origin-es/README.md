@@ -1,0 +1,1 @@
+Spanish narration lines (Justin Case, eleven_v4, language es) for yardswaps-origin-story-16x9-voice-es.mp4. Links in urls.tsv expire 2026-11-08 ~21:00Z; run fetch.ps1 in this folder to download, then commit the mp3s.
