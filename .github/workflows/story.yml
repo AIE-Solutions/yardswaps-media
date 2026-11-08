@@ -1,0 +1,65 @@
+name: LIST IT FREE Story
+
+# Builds the daily "LIST IT FREE" Instagram Story image (1080x1920) for the
+# machine of the day and commits it to stories/out/. Preview only: this
+# workflow never publishes. The Graph API cannot add the tappable link sticker
+# the approved template needs, so publishing waits on Alan's choice of route
+# (see stories/README.md).
+on:
+  workflow_dispatch:
+    inputs:
+      machine:
+        description: "Leave empty for today's machine (Mon generator ... Sun scissor lift)"
+        default: ""
+      bg_url:
+        description: "Optional https background image; empty = generate with Runway"
+        default: ""
+  push:
+    branches: [claude/project-thread-gtg0tm]
+    paths: [stories/request.json]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: story
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read request file (branch test runs)
+        id: req
+        run: |
+          if [ "${{ github.event_name }}" = "push" ] && [ -f stories/request.json ]; then
+            echo "machine=$(jq -r '.machine // ""' stories/request.json)" >> "$GITHUB_OUTPUT"
+            echo "bg_url=$(jq -r '.bg_url // ""' stories/request.json)" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Background
+        id: bg
+        env:
+          RUNWAYML_API_SECRET: ${{ secrets.RUNWAYML_API_SECRET }}
+          MACHINE: ${{ inputs.machine || steps.req.outputs.machine }}
+          BG_URL: ${{ inputs.bg_url || steps.req.outputs.bg_url }}
+        run: python3 stories/make_bg.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Render
+        run: |
+          cd stories && npm init -y > /dev/null && npm i -s playwright@1.49.1 > /dev/null
+          npx playwright install --with-deps chromium > /dev/null
+          node render_story.js "../${{ steps.bg.outputs.bg }}" "${{ steps.bg.outputs.machine }}" "out/${{ steps.bg.outputs.date }}-${{ steps.bg.outputs.slug }}-story.png"
+          node render_story.js "../${{ steps.bg.outputs.bg }}" "${{ steps.bg.outputs.machine }}" "out/${{ steps.bg.outputs.date }}-${{ steps.bg.outputs.slug }}-preview.png" --preview
+          rm -rf node_modules package.json package-lock.json
+      - name: Commit
+        run: |
+          git config user.name "yardswaps-reels-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add stories/out/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Story ${{ steps.bg.outputs.date }} ${{ steps.bg.outputs.machine }}"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
