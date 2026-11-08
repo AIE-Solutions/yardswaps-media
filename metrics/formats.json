@@ -234,21 +234,58 @@
    "hook": "search-term",
    "angle": "idle-gear",
    "category": "paving",
-   "search": "construction life",
-   "demo": true
+   "demo": true,
+   "structure": "problem-action-result",
+   "search": "construction life"
   },
   "small-business-old-oven": {
    "hook": "search-term",
    "angle": "idle-gear",
    "category": "cooking",
-   "search": "small business",
-   "demo": true
+   "demo": true,
+   "structure": "problem-action-result",
+   "search": "small business"
   },
   "mission-idle-to-work": {
    "hook": "pov-idle",
    "angle": "idle-gear",
    "category": "forklifts",
    "brand": true
+  },
+  "mowing-contract-ended": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "landscaping",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "second-location-closed": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "restaurant",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "laundromat-upgrade-washers": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "laundry",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "office-went-remote": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "office",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "store-closed-kiosk": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "retail",
+   "demo": true,
+   "structure": "problem-action-result"
   }
  }
 }
