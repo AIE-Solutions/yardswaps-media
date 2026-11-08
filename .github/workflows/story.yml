@@ -1,22 +1,23 @@
 name: LIST IT FREE Story
 
-# Builds the daily "LIST IT FREE" Instagram Story image (1080x1920) for the
-# machine of the day and commits it to stories/out/. Preview only: this
-# workflow never publishes. The Graph API cannot add the tappable link sticker
-# the approved template needs, so publishing waits on Alan's choice of route
-# (see stories/README.md).
+# Daily "LIST IT FREE" Instagram Story (Alan, 2026-11-08). Instagram only:
+# never feed posts, Reels, Facebook or Threads; no captions, no comments.
+# Started at ~9:30 am Central by a Claude scheduled task (GitHub cron on this
+# repo has stalled for hours, so no schedule here). One publish attempt per
+# Central day; a failure is logged and reported, never retried.
+# The Graph API cannot add link stickers, so the link is printed on the image.
 on:
   workflow_dispatch:
     inputs:
+      publish:
+        description: "true = publish to Instagram Stories; false = render only"
+        default: "false"
       machine:
         description: "Leave empty for today's machine (Mon generator ... Sun scissor lift)"
         default: ""
       bg_url:
-        description: "Optional https background image; empty = generate with Runway"
+        description: "Optional https background image; empty = reuse today's or generate with Runway"
         default: ""
-  push:
-    branches: [claude/project-thread-gtg0tm]
-    paths: [stories/request.json]
 
 permissions:
   contents: write
@@ -26,40 +27,85 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  story:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-      - name: Read request file (branch test runs)
-        id: req
-        run: |
-          if [ "${{ github.event_name }}" = "push" ] && [ -f stories/request.json ]; then
-            echo "machine=$(jq -r '.machine // ""' stories/request.json)" >> "$GITHUB_OUTPUT"
-            echo "bg_url=$(jq -r '.bg_url // ""' stories/request.json)" >> "$GITHUB_OUTPUT"
-          fi
+        with:
+          sparse-checkout: |
+            stories
+            reels/post_reels.py
+            broll/runway_clip.py
+      - name: Already posted today?
+        id: check
+        if: inputs.publish == 'true'
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+        run: python3 stories/publish_story.py check
       - name: Background
         id: bg
+        if: steps.check.outputs.already != 'true'
         env:
           RUNWAYML_API_SECRET: ${{ secrets.RUNWAYML_API_SECRET }}
-          MACHINE: ${{ inputs.machine || steps.req.outputs.machine }}
-          BG_URL: ${{ inputs.bg_url || steps.req.outputs.bg_url }}
+          MACHINE: ${{ inputs.machine }}
+          BG_URL: ${{ inputs.bg_url }}
         run: python3 stories/make_bg.py
       - uses: actions/setup-node@v4
+        if: steps.check.outputs.already != 'true'
         with:
           node-version: 20
       - name: Render
+        id: render
+        if: steps.check.outputs.already != 'true'
         run: |
+          f="stories/out/${{ steps.bg.outputs.date }}-${{ steps.bg.outputs.slug }}-story.jpg"
           cd stories && npm init -y > /dev/null && npm i -s playwright@1.49.1 > /dev/null
           npx playwright install --with-deps chromium > /dev/null
-          node render_story.js "../${{ steps.bg.outputs.bg }}" "${{ steps.bg.outputs.machine }}" "out/${{ steps.bg.outputs.date }}-${{ steps.bg.outputs.slug }}-story.png"
-          node render_story.js "../${{ steps.bg.outputs.bg }}" "${{ steps.bg.outputs.machine }}" "out/${{ steps.bg.outputs.date }}-${{ steps.bg.outputs.slug }}-preview.png" --preview
+          node render_story.js "../${{ steps.bg.outputs.bg }}" "${{ steps.bg.outputs.machine }}" "../$f"
           rm -rf node_modules package.json package-lock.json
-      - name: Commit
+          echo "file=$f" >> "$GITHUB_OUTPUT"
+      - name: Commit image
+        id: commit
+        if: steps.check.outputs.already != 'true'
         run: |
           git config user.name "yardswaps-reels-bot"
           git config user.email "yardswaps@gmail.com"
           git add stories/out/
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m "Story ${{ steps.bg.outputs.date }} ${{ steps.bg.outputs.machine }}"
+          git diff --cached --quiet || git commit -q -m "Story ${{ steps.bg.outputs.date }} ${{ steps.bg.outputs.machine }}"
           for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Wait for the image URL
+        if: inputs.publish == 'true' && steps.check.outputs.already != 'true'
+        run: |
+          url="https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/${{ steps.commit.outputs.sha }}/${{ steps.render.outputs.file }}"
+          for i in $(seq 1 12); do
+            [ "$(curl -s -o /dev/null -w '%{http_code}' "$url")" = "200" ] && exit 0; sleep 5
+          done
+          echo "image not reachable at $url"; exit 1
+      - name: Publish Instagram Story
+        id: pub
+        if: inputs.publish == 'true' && steps.check.outputs.already != 'true'
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          MACHINE: ${{ steps.bg.outputs.machine }}
+          IMAGE_URL: https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/${{ steps.commit.outputs.sha }}/${{ steps.render.outputs.file }}
+        run: python3 stories/publish_story.py publish
+      - name: Commit log
+        if: always() && steps.pub.outcome != 'skipped' && steps.pub.outcome != ''
+        run: |
+          git add stories/posted.json
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Story log ${{ steps.bg.outputs.date }}: ${{ steps.pub.outputs.result || 'failed' }}"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "already=${{ steps.check.outputs.already }}"
+            echo "machine=${{ steps.bg.outputs.machine }}"
+            echo "result=${{ steps.pub.outputs.result }}"
+            echo "media_id=${{ steps.pub.outputs.media_id }}"
+            echo "expires=${{ steps.pub.outputs.expires }}"
+            echo "detail=${{ steps.pub.outputs.detail }}"
+          } | tee -a "$GITHUB_STEP_SUMMARY"

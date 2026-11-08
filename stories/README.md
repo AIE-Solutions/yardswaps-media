@@ -8,20 +8,23 @@ Fri ice machine, Sat zero-turn mower, Sun scissor lift.
 Template (character-for-character, see `render_story.js`):
 - Headline: `LIST IT FREE`
 - Body: `That {machine} in the yard is worth money. Snap a photo — AI drafts the listing.`
-- Link sticker (tappable, lower third): `List yours free on YardSwaps` -> https://www.yardswaps.com/sell-equipment
+- Link line (printed, not tappable; Alan's pick 2026-11-08 because the Graph API
+  cannot add link stickers): `List yours free on YardSwaps` with
+  `yardswaps.com/sell-equipment` under it, lower third
 - Footer: `No commission · Local pickup · yardswaps.com`
 
-## What's built
-- `make_bg.py`: today's machine (America/Chicago weekday) and a 9:16 AI
-  backdrop (Runway gen4_image text-to-image, or a given BG_URL). Illustrative
+## How it runs
+- A Claude scheduled task dispatches `.github/workflows/story.yml` with
+  `publish=true` at ~9:30 am Central (cron at 14:30 and 15:30 UTC; the task only
+  dispatches when Central time is 9:15-9:45, so DST needs no edits).
+- `publish_story.py check` stops quietly if `stories/posted.json` already has
+  an entry for today (Central). The API can't read Story text, so the log is the
+  record of what we posted.
+- `make_bg.py`: today's machine and a 9:16 AI backdrop (reuses today's file,
+  else BG_URL, else Runway gen4_image 1080:1920, about 8 credits). Illustrative
   only, never a real listing. No people, text or logos.
-- `render_story.js`: renders `*-story.png` (what gets published, no drawn
-  sticker) and `*-preview.png` (dashed mock showing where the sticker goes).
-- `.github/workflows/story.yml`: runs both and commits to `stories/out/`.
-  It never publishes.
-
-## Why it does not publish yet
-The Instagram Graph API publishes Stories (`media_type=STORIES`) but cannot
-add link stickers or any sticker; Buffer and Metricool say the same for
-auto-published Stories. The template requires a tappable sticker, so per
-Alan's rule 6 nothing is posted until he picks a route.
+- `render_story.js` -> `stories/out/<date>-<machine>-story.jpg`, committed, then
+  published from its raw.githubusercontent URL (pinned to the commit) as an
+  Instagram Story only. One attempt per day; failures are logged, not retried.
+- After publishing, the script confirms the media id is in the account's active
+  Stories and logs `expires` (24 h later).

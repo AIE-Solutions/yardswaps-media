@@ -4,8 +4,8 @@
 Runs in GitHub Actions (story.yml). Writes stories/out/<date>-<machine>-bg.<ext>
 and prints KEY=VALUE lines for $GITHUB_OUTPUT (date, machine, bg).
 
-Background: BG_URL (an https image made elsewhere, e.g. ElevenLabs) if given,
-otherwise one Runway gen4_image text-to-image at 1080:1920 (about 8 credits).
+Background: today's existing stories/out/<date>-<machine>-bg.png if present,
+else BG_URL (an https image made elsewhere, e.g. ElevenLabs) if given, else one Runway gen4_image text-to-image at 1080:1920 (about 8 credits).
 The image is an illustrative backdrop only, never a real listing.
 """
 import json
@@ -41,7 +41,11 @@ def main():
     slug = machine.replace(" ", "-")
     os.makedirs("stories/out", exist_ok=True)
     bg_url = (os.environ.get("BG_URL") or "").strip()
-    if bg_url:
+    existing = f"stories/out/{date}-{slug}-bg.png"
+    if os.path.isfile(existing) and not bg_url:
+        print(f"reusing today's background {existing}")
+        out = existing
+    elif bg_url:
         if not bg_url.startswith("https://"):
             rw.die("BG_URL must be https")
         out = f"stories/out/{date}-{slug}-bg.png"
