@@ -26,6 +26,33 @@
  "videos": [
   {
    "added": "2026-11-08",
+   "slug": "origin-sitting-cash",
+   "file": "reels/library/yardswaps-origin-sitting-cash-9x16.mp4",
+   "priority": 2,
+   "body": "We built YardSwaps so the trades can make extra cash from equipment and parts sitting around that someone else needs. One photo and the app fills in the listing. Free to list, no selling fee, and the buyer picks it up from you.",
+   "question": "What is the one thing in your yard you keep meaning to sell?",
+   "ig_tags": "#usedparts #sellequipment #bluecollar #smallbusiness #yardswaps"
+  },
+  {
+   "added": "2026-11-08",
+   "slug": "origin-part-in-a-yard",
+   "file": "reels/library/yardswaps-origin-part-in-a-yard-9x16.mp4",
+   "priority": 1,
+   "body": "Before you order a part new and wait for it, check who has one sitting in their yard nearby. That is why we built YardSwaps: used equipment and parts from people in the trades, close to you, picked up locally.",
+   "question": "What part did you last order new because you could not find it used?",
+   "ig_tags": "#pumps #usedparts #usedequipment #trades #yardswaps"
+  },
+  {
+   "added": "2026-11-08",
+   "slug": "origin-searched-everywhere",
+   "file": "reels/library/yardswaps-origin-searched-everywhere-9x16.mp4",
+   "priority": 0,
+   "body": "We kept searching other apps for used equipment and scrolling past listings that made no sense for our work. A lot of the time we found nothing. So we built YardSwaps: one place for the trades to find equipment and parts close by, and to list what is sitting in the yard for free.",
+   "question": "Have you ever given up on a used search and just bought new?",
+   "ig_tags": "#generators #usedequipment #trades #contractorlife #yardswaps"
+  },
+  {
+   "added": "2026-11-08",
    "slug": "store-closed-kiosk",
    "file": "reels/library/yardswaps-store-closed-kiosk-9x16.mp4",
    "priority": 6,

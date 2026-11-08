@@ -286,6 +286,27 @@
    "category": "retail",
    "demo": true,
    "structure": "problem-action-result"
+  },
+  "origin-searched-everywhere": {
+   "hook": "origin",
+   "angle": "origin-story",
+   "category": "generators",
+   "demo": true,
+   "structure": "problem-why-app"
+  },
+  "origin-part-in-a-yard": {
+   "hook": "origin",
+   "angle": "origin-story",
+   "category": "pumps",
+   "demo": true,
+   "structure": "problem-why-app"
+  },
+  "origin-sitting-cash": {
+   "hook": "origin",
+   "angle": "origin-story",
+   "category": "parts",
+   "demo": true,
+   "structure": "problem-why-app"
   }
  }
 }
