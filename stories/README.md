@@ -20,8 +20,13 @@ Template (character-for-character, see `render_story.js`):
 - `publish_story.py check` stops quietly if `stories/posted.json` already has
   an entry for today (Central). The API can't read Story text, so the log is the
   record of what we posted.
-- `make_bg.py`: today's machine and a 9:16 AI backdrop (reuses today's file,
-  else BG_URL, else Runway gen4_image 1080:1920, about 8 credits). Illustrative
+- `make_bg.py`: today's machine and a 9:16 AI backdrop: today's file if it
+  exists, else the oldest unused image in `stories/bank/<machine>/` (each used
+  once, then moved to `stories/out/`), else BG_URL, else Runway gen4_image
+  1080:1920 (8 credits; only 27 left on 11-08).
+- Bank refill: make 9:16 2K images with ElevenLabs (gpt-image-2.5-sunburst),
+  then run `story-bank.yml` with lines of `<machine-slug> <url>` within a few
+  hours (the signed URLs expire). Illustrative
   only, never a real listing. No people, text or logos.
 - `render_story.js` -> `stories/out/<date>-<machine>-story.jpg`, committed, then
   published from its raw.githubusercontent URL (pinned to the commit) as an
