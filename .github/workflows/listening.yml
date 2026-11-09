@@ -1,0 +1,49 @@
+name: Listening list
+
+# Reads public feeds (trade subreddits, trade forums) for people
+# asking to buy or sell used work equipment and writes listening/latest.json
+# plus listening/LIST.md with a draft reply per post. Posts nothing.
+# Daily 12:15 UTC = 6:15 am Central (CST): the forum feeds only hold a day or
+# two, so each run adds to a rolling 8-day pool.
+# Pull requests run in probe mode: prints what each source returned, commits
+# nothing. See listening/README.md.
+on:
+  schedule:
+    - cron: "15 12 * * *"
+  pull_request:
+    paths:
+      - "listening/**"
+      - ".github/workflows/listening.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: listening
+  cancel-in-progress: false
+
+jobs:
+  listen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
+          sparse-checkout: |
+            listening
+          sparse-checkout-cone-mode: false
+      - name: Run
+        env:
+          MODE: ${{ github.event_name == 'pull_request' && 'probe' || 'run' }}
+        run: python3 -I listening/listen.py | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Save
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "yardswaps-listening-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add listening/latest.json listening/LIST.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Listening list $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4; do git pull --rebase -q && git push -q && break; sleep 7; done
