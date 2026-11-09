@@ -365,8 +365,10 @@ def claim_holds(w, listings, complete):
 def wanted_captions(w, turn):
     cat = CATEGORY_TAGS.get(w.get("category"), ["#Equipment", "#SellUsedEquipment"])
     rot = (ROTATE_TAGS * 2)[(turn * 2) % len(ROTATE_TAGS):(turn * 2) % len(ROTATE_TAGS) + 2]
-    ig = (f"{w['body']}\n\nList it free in the YardSwaps app: yardswaps.com/i (link in bio). "
-          "No listing fee, no cut of the sale.\n\n"
+    # Comment "list" fires the Meta comment-to-DM automation (a tappable /c
+    # link to the sell page); see IG_COMMENT_CTA in reels/post_reels.py.
+    ig = (f"{w['body']}\n\nComment \"list\" and we'll message you the free listing link, "
+          "or tap yardswaps.com/i in our bio. No listing fee, no cut of the sale.\n\n"
           f"{' '.join(cat + ['#UsedEquipment'] + rot)}\n\n{w['question']}")
     fb = (f"{w['body']}\n\nList it free: {wanted_link(w, 'facebook')}\n"
           "No listing fee, no cut of the sale.\n\n"

@@ -137,10 +137,18 @@ def fb_tags(v):
     return " ".join(machine_tags(v) + ["#YardSwaps"] + BROAD_TAGS)
 
 
+# Instagram captions don't click and bio taps are rare (about 5 humans a
+# week across every platform, Nov 2-9 Railway logs), but a comment with the
+# keyword "list" fires the live Meta comment-to-DM automation, which sends a
+# tappable /c link to the sell page (DM-AUTOREPLIES.md). Lowercase on purpose:
+# the automation lists both cases, lowercase is the safe match.
+IG_COMMENT_CTA = ('Comment "list" and we\'ll message you the free listing link, '
+                  "or tap yardswaps.com/i in our bio.")
+
+
 def ig_caption(v, turn=0):
-    # Instagram captions don't click, so the short link is typed or found in bio.
-    return (f"{v['body']}\n\n{FOLLOW_IG} Get the free YardSwaps app: "
-            f"yardswaps.com/i (link in bio).\n\n{ig_tags(v, turn)}\n\n{v['question']}")
+    return (f"{v['body']}\n\n{FOLLOW_IG} {IG_COMMENT_CTA}"
+            f"\n\n{ig_tags(v, turn)}\n\n{v['question']}")
 
 
 def fb_caption(v):
