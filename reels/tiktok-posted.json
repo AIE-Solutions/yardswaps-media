@@ -37,8 +37,10 @@
   "platform": "tiktok",
   "slug": "origin-part-in-a-yard",
   "repeat": false,
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6af1177b229bf05dafe48711",
-  "due": "2026-11-09T00:49:39.000Z"
+  "due": "2026-11-09T00:49:39.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7705967499560389901",
+  "sent": "2026-11-09T00:50:27.558Z"
  }
 ]
