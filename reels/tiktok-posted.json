@@ -81,8 +81,19 @@
   "platform": "tiktok",
   "slug": "downsized-to-one-truck",
   "repeat": false,
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6af2316cf931818db2df69c9",
-  "due": "2026-11-09T20:52:21.000Z"
+  "due": "2026-11-09T20:52:21.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7706277422794067214",
+  "sent": "2026-11-09T20:53:12.072Z"
+ },
+ {
+  "time": "2026-11-09T22:48:20Z",
+  "platform": "tiktok",
+  "slug": "sold-the-septic-route",
+  "repeat": false,
+  "status": "scheduled",
+  "buffer_id": "6af24db6a33c4e0efe0799a1",
+  "due": "2026-11-09T22:53:20.000Z"
  }
 ]
