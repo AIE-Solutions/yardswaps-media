@@ -27,7 +27,13 @@ Template (character-for-character, see `render_story.js`):
 - Bank refill: make 9:16 2K images with ElevenLabs (gpt-image-2.5-sunburst),
   then run `story-bank.yml` with lines of `<machine-slug> <url>` within a few
   hours (the signed URLs expire). Illustrative
-  only, never a real listing. No people, text or logos.
+  only, never a real listing. No people, text or logos. The whole machine must
+  be in frame with gravel showing on both sides of it (no wheel, tongue or
+  corner touching the edge) and its top below the upper 20% of the frame.
+- Layout (Nov 9, Alan: items cut off / covered): the photo is a card between the
+  text and the link box, full width from 15% down to the bottom, over a blurred
+  copy of itself. Nothing is drawn over the machine and the photo is never
+  cropped at the sides.
 - `render_story.js` -> `stories/out/<date>-<machine>-story.jpg`, committed, then
   published from its raw.githubusercontent URL (pinned to the commit) as an
   Instagram Story only. One attempt per day; failures are logged, not retried.

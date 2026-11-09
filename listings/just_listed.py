@@ -56,6 +56,7 @@ PAGE_ID = os.environ.get("FB_PAGE_ID") or "1291163214083476"
 IG_ID = os.environ.get("IG_USER_ID") or "17841429324062623"
 UA = "yardswaps-just-listed/1.0 (https://github.com/AIE-Solutions/yardswaps-media)"
 
+CARD_VERSION = 2         # 2 = whole photo fitted (Nov 9); older waiting cards are re-rendered
 WAITING_MAX = 3          # pending + approved cards kept ready
 NEW_DAYS = 7             # "Just listed" label inside this many days, else "For sale"
 REFEATURE_DAYS = 45      # a listing can be featured again after this
@@ -293,11 +294,13 @@ def render_card(photo_bgr, l, out_path):
     img = Image.new("RGB", (W, H), BG)
     rgb = cv2.cvtColor(photo_bgr, cv2.COLOR_BGR2RGB)
     ph = Image.fromarray(rgb)
-    # Cover-crop the photo into the top 1080x1000.
-    s = max(W / ph.width, PH / ph.height)
-    ph = ph.resize((int(ph.width * s + 0.5), int(ph.height * s + 0.5)), Image.LANCZOS)
-    left, top = (ph.width - W) // 2, (ph.height - PH) // 2
-    img.paste(ph.crop((left, top, left + W, top + PH)), (0, 0))
+    # Fit the WHOLE photo into the top 1080x1000 on the light-gray card (Nov 9: Alan saw
+    # items cut off by the old cover-crop). Never crop the photo: a wide photo gets gray
+    # above and below, a tall one gray at the sides. The label pill sits on the gray band
+    # of a wide photo, so it only overlaps the corner of a tall or square one.
+    s = min(W / ph.width, PH / ph.height)
+    ph = ph.resize((max(1, int(ph.width * s + 0.5)), max(1, int(ph.height * s + 0.5))), Image.LANCZOS)
+    img.paste(ph, ((W - ph.width) // 2, (PH - ph.height) // 2))
     d = ImageDraw.Draw(img)
     pad = 56
     label = "JUST LISTED" if is_new(l) else "FOR SALE ON YARDSWAPS"
@@ -449,6 +452,7 @@ def prep_wanted(listings, complete, queue, posted, dry):
         entry = {"listing_id": wid, "kind": "wanted", "title": " ".join(w["card"]),
                  "category": w.get("category"), "card": f"listings/cards/{wid}.jpg",
                  "ig_caption": ig, "fb_caption": fb, "status": "pending",
+                 "card_version": CARD_VERSION,
                  "added": iso(now()), "updated": iso(now())}
         print(f"  queued {wid}")
         print("    FB caption:\n" + "\n".join("      " + s for s in fb.splitlines()))
@@ -458,6 +462,51 @@ def prep_wanted(listings, complete, queue, posted, dry):
 
 
 # ---------- prep ----------
+
+def photo_checked(url):
+    """Fetch one listing photo, skip it on a face, blur digit text. Returns (img, nblur, ocr) or None."""
+    import cv2
+    import numpy as np
+    full = url if url.startswith("http") else SITE + url
+    raw = fetch(full)
+    img = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR)
+    if img is None or min(img.shape[:2]) < 400 or faces_in(img):
+        return None
+    return blur_digit_text(img)
+
+
+def rerender_waiting(queue, listings, dry):
+    """Re-render waiting listing cards made with an older template (card_version) and send them
+    back to review, since the new card shows more of the photo than the one that was approved."""
+    by_id = {l["id"]: l for l in listings}
+    n = 0
+    for q in queue:
+        if q.get("kind") == "wanted" or q["status"] not in ("pending", "approved"):
+            continue
+        if q.get("card_version", 1) >= CARD_VERSION:
+            continue
+        l = by_id.get(q["listing_id"])
+        if not l:
+            continue
+        try:
+            got = photo_checked(q["photo"])
+        except Exception as e:
+            print(f"  re-render {q['listing_id']}: photo fetch failed: {e}")
+            continue
+        if not got:
+            print(f"  re-render {q['listing_id']}: photo no longer usable, left as it was")
+            continue
+        img2, nblur, ocr = got
+        render_card(img2, l, os.path.join(ROOT, q["card"]))
+        was = q["status"]
+        q.update({"card_version": CARD_VERSION, "blurred_words": nblur, "ocr": ocr,
+                  "status": "pending", "updated": iso(now())})
+        if was == "approved":
+            q["note"] = "re-rendered with the whole photo fitted; review again"
+        print(f"  re-rendered {q['listing_id']} (whole photo fitted), {was} -> pending")
+        n += 1
+    return n
+
 
 def prep(dry):
     import cv2
@@ -470,6 +519,9 @@ def prep(dry):
     listings = [l for l in got if l.get("status") == "active"]
     complete = data.get("total") is not None and len(got) >= data["total"]
     print(f"API: {len(listings)} active listings (total {data.get('total')}).")
+    rerendered = rerender_waiting(queue, listings, dry)
+    if rerendered and not dry:
+        save(QUEUE, queue)
     before = len(queue)
     queue = prep_wanted(listings, complete, queue, posted, dry)
     wanted_added = len(queue) - before
@@ -541,6 +593,7 @@ def prep(dry):
                  "category": l.get("category"), "photo": u, "card": f"listings/cards/{lid}.jpg",
                  "blurred_words": nblur, "ocr": ocr, "new": is_new(l),
                  "ig_caption": ig, "fb_caption": fb, "status": "pending",
+                 "card_version": CARD_VERSION,
                  "added": iso(now()), "updated": iso(now())}
         print(f"  queued {lid}: {entry['title']} (photo {u}, blurred {nblur}, ocr {ocr})")
         print("    IG caption:\n" + "\n".join("      " + s for s in ig.splitlines()))

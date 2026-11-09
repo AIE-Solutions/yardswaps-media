@@ -7,7 +7,8 @@ One live YardSwaps listing a day goes to Instagram (feed photo) and the Facebook
 1. **prep** (`.github/workflows/listings.yml`, 9:10 am Central). `just_listed.py` reads the public listings API, sorted newest first. Listings never featured go first, then the ones featured longest ago, with at most one card waiting per seller. It checks up to 4 photos per listing:
    - It skips any photo where OpenCV finds a face.
    - It blurs every word that tesseract reads with a digit in it, such as phone numbers, plates and street numbers.
-   - It renders a 1080x1350 card into `cards/<listing id>.jpg`.
+   - It renders a 1080x1350 card into `cards/<listing id>.jpg`. The whole photo is fitted into the top 1080x1000 on the light-gray card, never cropped (Alan, 2026-11-09: items were cut off by the old cover-crop). Wide photos get gray above and below, tall ones gray at the sides.
+   - Waiting cards from an older template (`card_version` below the current one) are re-rendered at the next prep and go back to `pending` for another review.
    - It queues the card in `queue.json` as `pending`.
    - It keeps up to 3 cards waiting.
 2. **review** (a Claude scheduled task, about 11:30 am Central). The task looks at every `pending` card and sets `approved`, or `rejected` with a `reason`. See "Review rules" below.
@@ -43,6 +44,7 @@ Reject the card if any of these is visible:
 - a readable personal or business name, logo, storefront sign or dealer watermark
 - a phone number, licence plate, street address or house number that the blur missed
 - a photo that does not match the title
+- the item cut off at the card's edge (the card fits the whole photo, so this only happens when the seller's own photo cuts it off)
 - an unsafe or offensive image
 
 Also reject a listing that is plainly not equipment, or a duplicate of a card that is already waiting.

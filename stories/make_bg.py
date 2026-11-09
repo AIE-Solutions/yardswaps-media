@@ -24,7 +24,8 @@ MACHINES = ["generator", "conveyor oven", "dump trailer", "walk-in cooler",
 
 PROMPT = (
     "Vertical photorealistic photo of a used commercial equipment yard at golden hour. "
-    "Prominently in the center foreground: a used {machine}, with normal wear, parked on gravel. "
+    "In the center foreground: one whole used {machine}, with normal wear, parked on gravel, "
+    "fully in frame with clear gravel on both sides and nothing touching the edges of the image. "
     "Behind it, softly out of focus, a few other used machines and pallets along a chain-link fence. "
     "Warm low sun, long shadows. The top third of the frame is clean open sky, darker deep blue, "
     "empty, left for text. No people, no text, no letters, no logos, no brand names, no signs, "
