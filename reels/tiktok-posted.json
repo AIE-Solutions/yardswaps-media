@@ -59,8 +59,10 @@
   "platform": "tiktok",
   "slug": "origin-sitting-cash",
   "repeat": false,
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6af1ce8b98f733215156cefe",
-  "due": "2026-11-09T13:50:44.000Z"
+  "due": "2026-11-09T13:50:44.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7706168644635512077",
+  "sent": "2026-11-09T13:51:26.482Z"
  }
 ]
