@@ -70,8 +70,19 @@
   "platform": "tiktok",
   "slug": "job-wrapped-generator",
   "repeat": false,
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6af1f93708578dcbeb6688e2",
-  "due": "2026-11-09T16:52:47.000Z"
+  "due": "2026-11-09T16:52:47.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7706215603085921549",
+  "sent": "2026-11-09T16:54:45.398Z"
+ },
+ {
+  "time": "2026-11-09T20:47:21Z",
+  "platform": "tiktok",
+  "slug": "downsized-to-one-truck",
+  "repeat": false,
+  "status": "scheduled",
+  "buffer_id": "6af2316cf931818db2df69c9",
+  "due": "2026-11-09T20:52:21.000Z"
  }
 ]
