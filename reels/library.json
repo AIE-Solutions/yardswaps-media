@@ -181,7 +181,9 @@
    "body": "POV: the surplus parts shelf nobody has touched since spring.\n\nSurplus repair parts don't belong on a shelf until they're obsolete. Snap one photo of the part. AI reads the nameplate and fills in the part number, category and specs. Buyers search by part number and find it in seconds. Set your price, post.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What's the oldest part still on your shelf?",
    "ig_tags": "#spareparts #repairparts #usedequipment #yardswaps",
-   "boost": 50
+   "boost": 50,
+   "hold": true,
+   "hold_reason": "Nov 9: opener crops the machine (Alan: too zoomed in); re-record and re-cut with the fitted opener, then lift"
   },
   {
    "slug": "plumbing-part-label",
@@ -236,7 +238,9 @@
    "added": "2026-11-01",
    "body": "Buyers on YardSwaps look for used equipment near them, so the gear sitting in your yard can be what they find.\n\nList it free: no listing fee, no cut of the sale. Post 4 listings within 14 days of your first and every listing is boosted free for 14 days.",
    "question": "What's sitting in your yard that someone nearby is probably looking for?",
-   "ig_tags": "#usedequipment #equipmentforsale #forklift #boomlift #localbusiness"
+   "ig_tags": "#usedequipment #equipmentforsale #forklift #boomlift #localbusiness",
+   "hold": true,
+   "hold_reason": "Nov 9: opener crops the machine (Alan: too zoomed in); re-record and re-cut with the fitted opener, then lift"
   },
   {
    "slug": "micrometer-set-small-tools",
@@ -255,7 +259,9 @@
    "added": "2026-11-01",
    "body": "That spare motor doesn't fit anything you own.\n\nSnap one photo of the part. AI fills in the title, category, condition and description, and suggests a price. Check it, set your price, publish.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What spare parts are sitting in your shop?",
-   "ig_tags": "#spareparts #usedequipment #equipmentforsale #sellequipment #yardswaps"
+   "ig_tags": "#spareparts #usedequipment #equipmentforsale #sellequipment #yardswaps",
+   "hold": true,
+   "hold_reason": "Nov 9: opener crops the machine (Alan: too zoomed in); re-record and re-cut with the fitted opener, then lift"
   },
   {
    "slug": "that-trailer-next-season",
@@ -384,7 +390,9 @@
    "added": "2026-11-01",
    "body": "Your buddy's tractor hasn't moved since spring.\n\nSend them your YardSwaps invite. They sign up with your code, and you both get a free 7-day boost after their first listing has been live for 3 days.\n\nFree to list. Free boosts.",
    "question": "Who do you know with gear sitting idle?",
-   "ig_tags": "#sellyourequipment #usedequipment #farmequipment #equipmentforsale #yardswaps"
+   "ig_tags": "#sellyourequipment #usedequipment #farmequipment #equipmentforsale #yardswaps",
+   "hold": true,
+   "hold_reason": "Nov 9: opener crops the machine (Alan: too zoomed in); re-record and re-cut with the fitted opener, then lift"
   },
   {
    "slug": "spare-truck-wheel",
