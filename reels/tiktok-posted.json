@@ -92,8 +92,10 @@
   "platform": "tiktok",
   "slug": "sold-the-septic-route",
   "repeat": false,
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6af24db6a33c4e0efe0799a1",
-  "due": "2026-11-09T22:53:20.000Z"
+  "due": "2026-11-09T22:53:20.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7706308600607624461",
+  "sent": "2026-11-09T22:54:11.595Z"
  }
 ]
