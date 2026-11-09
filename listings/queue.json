@@ -81,9 +81,9 @@
     "new": false,
     "ig_caption": "For sale on YardSwaps: 140 HP, 4WD, Cab with Heat and A/C, Only 1,688 Hours\n\n$28,500 · 2005 · 1,688 hours · Finger, TN\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#FarmEquipment #Tractor #UsedEquipment #Jobsite #Tradespeople\n\nWhat would you put this to work on first?",
     "fb_caption": "For sale on YardSwaps: 140 HP, 4WD, Cab with Heat and A/C, Only 1,688 Hours\n\n$28,500 · 2005 · 1,688 hours · Finger, TN\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmvsis36t0035mp3aiwi15mcz?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#FarmEquipment #Tractor #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat would you put this to work on first?",
-    "status": "approved",
+    "status": "posted",
     "added": "2026-11-06T20:55:04Z",
-    "updated": "2026-11-07T17:33:15Z",
+    "updated": "2026-11-08T23:43:18Z",
     "reviewed_by": "claude"
   },
   {
@@ -101,6 +101,36 @@
     "status": "approved",
     "added": "2026-11-07T19:23:39Z",
     "updated": "2026-11-08T17:32:50Z",
+    "reviewed_by": "claude"
+  },
+  {
+    "listing_id": "wanted-generators",
+    "kind": "wanted",
+    "title": "Buyers are looking for generators.",
+    "category": "generators",
+    "card": "listings/cards/wanted-generators.jpg",
+    "ig_caption": "Buyers looked for generators on YardSwaps about 20 times in the last month. None are listed.\nIf a generator is sitting in your yard between jobs or since the last storm, list it free: photo of the unit, photo of the data plate, the app fills in kW, fuel and phase. Buyers pick up at your place.\n\nList it free in the YardSwaps app: yardswaps.com/i (link in bio). No listing fee, no cut of the sale.\n\n#Generators #BackupPower #UsedEquipment #Jobsite #Tradespeople\n\nWhat size is the one you have sitting?",
+    "fb_caption": "Buyers looked for generators on YardSwaps about 20 times in the last month. None are listed.\nIf a generator is sitting in your yard between jobs or since the last storm, list it free: photo of the unit, photo of the data plate, the app fills in kW, fuel and phase. Buyers pick up at your place.\n\nList it free: https://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=post_wanted-generators\nNo listing fee, no cut of the sale.\n\n#Generators #BackupPower #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat size is the one you have sitting?",
+    "status": "approved",
+    "added": "2026-11-08T19:35:04Z",
+    "updated": "2026-11-09T17:34:44Z",
+    "reviewed_by": "claude"
+  },
+  {
+    "listing_id": "cmvr3ky2k000rt53a2tvps4ia",
+    "seller": "cmvr32pl1000at53akeejd0rg",
+    "title": "2005 Peterbilt 379 Sleeper Cab, CAT C15 Diesel",
+    "category": "fleet",
+    "photo": "/api/images/listings/1793130461910-58efbc243dd2.jpg",
+    "card": "listings/cards/cmvr3ky2k000rt53a2tvps4ia.jpg",
+    "blurred_words": 3,
+    "ocr": true,
+    "new": false,
+    "ig_caption": "For sale on YardSwaps: 2005 Peterbilt 379 Sleeper Cab, CAT C15 Diesel\n\n$45,000 · 2005 · 46,595 hours · 327,156 miles · Durham, NC\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#FleetTrucks #WorkTrucks #UsedEquipment #IndustrialEquipment #EquipmentMarketplace\n\nWhat do you check first when you look at a used one?",
+    "fb_caption": "For sale on YardSwaps: 2005 Peterbilt 379 Sleeper Cab, CAT C15 Diesel\n\n$45,000 · 2005 · 46,595 hours · 327,156 miles · Durham, NC\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmvr3ky2k000rt53a2tvps4ia?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#FleetTrucks #WorkTrucks #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat do you check first when you look at a used one?",
+    "status": "approved",
+    "added": "2026-11-08T19:35:05Z",
+    "updated": "2026-11-09T17:34:44Z",
     "reviewed_by": "claude"
   }
 ]

@@ -4,8 +4,74 @@
   "platform": "tiktok",
   "slug": "mission-idle-to-work",
   "repeat": false,
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6af08ae9229bf05dafb9add4",
-  "due": "2026-11-08T14:49:51.000Z"
+  "due": "2026-11-08T14:49:51.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7705812892062403854",
+  "sent": "2026-11-08T14:50:44.656Z"
+ },
+ {
+  "time": "2026-11-08T20:44:09Z",
+  "platform": "tiktok",
+  "slug": "origin-searched-everywhere",
+  "repeat": false,
+  "status": "posted",
+  "buffer_id": "6af0df1c229bf05dafd4077b",
+  "due": "2026-11-08T20:49:09.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7705905512952368398",
+  "sent": "2026-11-08T20:49:57.259Z"
+ },
+ {
+  "time": "2026-11-08T22:46:37Z",
+  "platform": "tiktok",
+  "slug": "construction-life-compactor",
+  "repeat": false,
+  "status": "posted",
+  "buffer_id": "6af0fbd1562f2e6de9e7e07d",
+  "due": "2026-11-08T22:51:37.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7705937129515273486",
+  "sent": "2026-11-08T22:53:27.740Z"
+ },
+ {
+  "time": "2026-11-09T00:44:39Z",
+  "platform": "tiktok",
+  "slug": "origin-part-in-a-yard",
+  "repeat": false,
+  "status": "posted",
+  "buffer_id": "6af1177b229bf05dafe48711",
+  "due": "2026-11-09T00:49:39.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7705967499560389901",
+  "sent": "2026-11-09T00:50:27.558Z"
+ },
+ {
+  "time": "2026-11-09T07:12:00Z",
+  "platform": "tiktok",
+  "slug": "small-business-old-oven",
+  "repeat": false,
+  "status": "posted",
+  "buffer_id": "6af17248e44ddbb57c3b5709",
+  "due": "2026-11-09T07:17:00.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7706067100342816014",
+  "sent": "2026-11-09T07:17:41.843Z"
+ },
+ {
+  "time": "2026-11-09T13:45:44Z",
+  "platform": "tiktok",
+  "slug": "origin-sitting-cash",
+  "repeat": false,
+  "status": "posted",
+  "buffer_id": "6af1ce8b98f733215156cefe",
+  "due": "2026-11-09T13:50:44.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7706168644635512077",
+  "sent": "2026-11-09T13:51:26.482Z"
+ },
+ {
+  "time": "2026-11-09T16:47:47Z",
+  "platform": "tiktok",
+  "slug": "job-wrapped-generator",
+  "repeat": false,
+  "status": "scheduled",
+  "buffer_id": "6af1f93708578dcbeb6688e2",
+  "due": "2026-11-09T16:52:47.000Z"
  }
 ]

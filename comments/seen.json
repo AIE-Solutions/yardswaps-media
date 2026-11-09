@@ -1,3 +1,23 @@
 {
-  "18208698211375466": {"status": "replied", "platform": "instagram", "at": "2026-11-02T00:00:00Z", "reply": "You got it — tap the share icon on this Reel to send it to yourself, or drop your email here and we'll send it over."}
+  "18208698211375466": {
+    "status": "replied",
+    "platform": "instagram",
+    "at": "2026-11-02T00:00:00Z",
+    "reply": "You got it — tap the share icon on this Reel to send it to yourself, or drop your email here and we'll send it over."
+  },
+  "17910342165581621": {
+    "status": "skipped",
+    "why": "already answered on IG by yardswaps (comment automation); see COMMENT-LOG 2026-11-09",
+    "at": "2026-11-09T17:46:20Z"
+  },
+  "18102287531398645": {
+    "status": "skipped",
+    "why": "already answered on IG by yardswaps (comment automation); see COMMENT-LOG 2026-11-09",
+    "at": "2026-11-09T17:46:20Z"
+  },
+  "18091486568694628": {
+    "status": "skipped",
+    "why": "replied via Zapier by the Monday report 2026-11-09 (reply id 18148569571572707)",
+    "at": "2026-11-09T17:46:20Z"
+  }
 }

@@ -1,8 +1,9 @@
 name: Reels to Instagram and Facebook
 
 # Four Reels a day on each platform (Nov 8, up from two), each re-shared to
-# Stories right after. Slots are set in Central time in reels/post_reels.py
-# (SLOTS_CT), so they don't move when daylight saving changes:
+# Stories right after and shared to Threads (once THREADS_TOKEN is set).
+# Slots are set in Central time in reels/post_reels.py (SLOTS_CT), so they
+# don't move when daylight saving changes:
 #   7:00 am, 10:00 am, 4:30 pm and 6:30 pm Central
 # each with a short window (see post_reels.py) that keeps every post 90+
 # minutes from HeyCatch (about :33 past 4 am, 12 pm and 8 pm Central) and the
@@ -21,8 +22,8 @@ on:
   workflow_dispatch:
     inputs:
       platforms:
-        description: "any of instagram,facebook,instagram_story,facebook_story"
-        default: "instagram,facebook,instagram_story,facebook_story"
+        description: "any of instagram,facebook,instagram_story,facebook_story,threads"
+        default: "instagram,facebook,instagram_story,facebook_story,threads"
       slug:
         description: "Force one video (optional), e.g. spare-part"
         default: ""
@@ -58,7 +59,7 @@ jobs:
         id: check
         env:
           CHECK_ONLY: "1"
-          PLATFORMS: ${{ inputs.platforms || 'instagram,facebook,instagram_story,facebook_story' }}
+          PLATFORMS: ${{ inputs.platforms || 'instagram,facebook,instagram_story,facebook_story,threads' }}
           SLUG: ${{ inputs.slug }}
           DRY_RUN: ${{ inputs.dry_run || '0' }}
         run: python3 reels/post_reels.py
@@ -75,7 +76,8 @@ jobs:
       - name: Post the next Reel
         env:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
-          PLATFORMS: ${{ inputs.platforms || 'instagram,facebook,instagram_story,facebook_story' }}
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+          PLATFORMS: ${{ inputs.platforms || 'instagram,facebook,instagram_story,facebook_story,threads' }}
           SLUG: ${{ inputs.slug }}
           DRY_RUN: ${{ inputs.dry_run || '0' }}
         run: python3 reels/post_reels.py

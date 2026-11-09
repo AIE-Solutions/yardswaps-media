@@ -307,6 +307,55 @@
    "category": "parts",
    "demo": true,
    "structure": "problem-why-app"
+  },
+  "job-wrapped-generator": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "generators",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "downsized-to-one-truck": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "vacuum",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "sold-the-septic-route": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "environmental",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "second-bay-closed-tools": {
+   "hook": "pov-idle",
+   "angle": "small-items",
+   "category": "tools",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "warehouse-lease-ended": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "warehouse",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "interior-job-done-lifts": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "aerial",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "shop-went-cnc-lathe": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "machining",
+   "demo": true,
+   "structure": "problem-action-result"
   }
  }
 }

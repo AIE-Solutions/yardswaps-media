@@ -1,0 +1,87 @@
+{
+ "generated_at": "2026-11-09T19:51:41.929842+00:00",
+ "lookback_days": 8,
+ "sources": [
+  {
+   "name": "Reddit",
+   "status": "ok",
+   "items": 100,
+   "in_window": 100
+  },
+  {
+   "name": "Practical Machinist",
+   "status": "ok",
+   "items": 40,
+   "in_window": 40
+  },
+  {
+   "name": "Hobby-Machinist",
+   "status": "ok",
+   "items": 25,
+   "in_window": 25
+  },
+  {
+   "name": "Garage Journal",
+   "status": "ok",
+   "items": 30,
+   "in_window": 30
+  },
+  {
+   "name": "Boom & Bucket forums",
+   "status": "ok",
+   "items": 20,
+   "in_window": 20
+  },
+  {
+   "name": "Heavy Equipment Forums",
+   "status": "ok",
+   "items": 20,
+   "in_window": 20
+  },
+  {
+   "name": "LawnSite",
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
+  },
+  {
+   "name": "ContractorTalk",
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
+  },
+  {
+   "name": "WeldingWeb",
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
+  },
+  {
+   "name": "Pressure Washing Resource",
+   "status": "ok",
+   "items": 30,
+   "in_window": 1
+  }
+ ],
+ "posts": [
+  {
+   "title": "Looking for a good VHF set",
+   "link": "https://www.reddit.com/r/Truckers/comments/1xs0mw5/looking_for_a_good_vhf_set/",
+   "text": "Just took delivery of a new tractor. We do a fair bit of OS work and frequently require pilot/escort with us. Are there any VHF sets out there that you prefer and any to stay away from. Thanks submitted by /u/jjsprat38 to r/Truckers [link] [comments]",
+   "author": "/u/jjsprat38",
+   "time": "2026-11-09T19:09:29+00:00",
+   "platform": "Reddit",
+   "source": "r/Truckers",
+   "links_ok": false,
+   "intent": "buy",
+   "category": "agriculture",
+   "category_name": "Farm & Ag",
+   "score": 2,
+   "drafts": {
+    "no_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?",
+    "with_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?\nhttps://www.yardswaps.com/?utm_source=reddit&utm_medium=social&utm_campaign=listening_agriculture"
+   },
+   "first_seen": "2026-11-09T19:51:41.929842+00:00"
+  }
+ ]
+}

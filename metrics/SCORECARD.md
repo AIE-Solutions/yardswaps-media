@@ -1,12 +1,15 @@
-# YardSwaps weekly scorecard (2026-11-03)
+# YardSwaps weekly scorecard (2026-11-09)
 
-Generated 2026-11-08T18:36:30Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest MISSING, app ops digest yes, youtube MISSING, metricool MISSING.
+Generated 2026-11-09T16:16:50Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
 
 ## Goals
 - Instagram followers: 605 (+592 in 7 days)
 - Facebook followers: 13 (+2 in 7 days)
-- Signups 7d: 10 (prev 5); from the app (iOS/Android): 2
-- Listings published 7d: 15 (prev 8); live now: 29
+- YouTube: {"subscribers": 8, "views": 21888, "videoCount": 80}
+- Signups 7d: 5 (prev 9); from the app (iOS/Android): 0
+- Listings published 7d: 10 (prev 15); live now: 43
+- Signups by source 7d: organic 5
+- Heard about us 7d: not_answered 4, other 1
 
 ## Reels (our IG + FB posts, settled 48h+)
 Median points per post: 1.5. Points = follows x10, shares x4, saves x3, comments x3, likes x1, views/100, Reel-link signups x25.
@@ -14,7 +17,9 @@ Median points per post: 1.5. Points = follows x10, shares x4, saves x3, comments
 | Video | Posts | Views | Likes | Comments | Shares | Saves | Follows | Signups | Points/post | vs median |
 |---|---|---|---|---|---|---|---|---|---|---|
 | surplus-parts-cash-flow | 2 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | 4.5 | 3.0 |
+| leftover-fittings-lot | 2 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 2.5 | 1.67 |
 | drilling-rig-parked | 2 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 2.0 | 1.33 |
+| mission-idle-to-work | 2 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 2.0 | 1.33 |
 | control-panel-pulled | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.0 |
 | micrometer-set-small-tools | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.0 |
 | part-tag-scan | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.0 |
@@ -26,39 +31,73 @@ Median points per post: 1.5. Points = follows x10, shares x4, saves x3, comments
 | stripped-well-pump | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.33 |
 | building-things-concrete-mixer | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | construction-life-compactor | 2 | 0 | 1 | 4 | 0 | 0 | 0 | 0 | too new | - |
-| leftover-fittings-lot | 2 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| mission-idle-to-work | 2 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | pressure-washer-1000-psi | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | too new | - |
 
 ### Opener shapes
-- pov-idle: 1.67 points/post over 18 posts (average)
+- pov-idle: 1.77 points/post over 22 posts (average)
 - question-problem: 1.5 points/post over 2 posts (testing)
 - feature-statement: 0.5 points/post over 2 posts (testing)
 
 ### Topics
 - parts-spec: 3.0 points/post over 4 posts (winner)
+- shelf-parts: 1.5 points/post over 8 posts (average)
+- idle-gear: 1.5 points/post over 10 posts (average)
 - small-items: 1.5 points/post over 2 posts (testing)
-- idle-gear: 1.38 points/post over 8 posts (average)
-- shelf-parts: 1.17 points/post over 6 posts (average)
 - buyer-feature: 0.5 points/post over 2 posts (testing)
 
 ### Categories
-- parts: 2.0 points/post over 8 posts (winner)
+- parts: 2.1 points/post over 10 posts (winner)
 - drilling: 2.0 points/post over 2 posts (testing)
 - electrical: 1.5 points/post over 2 posts (testing)
 - machining: 1.5 points/post over 2 posts (testing)
 - excavators: 1.5 points/post over 2 posts (testing)
-- forklifts: 0.83 points/post over 6 posts (loser)
+- forklifts: 1.12 points/post over 8 posts (average)
 
 ### Video structure tests
 
+## YouTube title shapes
+- pov (heycatch): 189.3 views/video over 3 videos, 0 subs
+- other (heycatch): 88.0 views/video over 1 videos, 0 subs
+- pov-reaction (ours): 63.3 views/video over 7 videos, 0 subs
+- pov (ours): 46.8 views/video over 6 videos, 0 subs
+- hashtag-shorts (heycatch): 24.0 views/video over 1 videos, 0 subs
+- other (ours): 2.1 views/video over 8 videos, 0 subs
+- how-to (ours): 1.8 views/video over 6 videos, 0 subs
+Best shape of ours: pov-reaction
+
 ## Buyer demand we can't serve yet (30 days)
-Zero-result search rate: None
+Zero-result search rate: 0.6585
+- generators: 22 empty searches, 0 saved searches, 0 live listings
+- fleet: 19 empty searches, 0 saved searches, 12 live listings
+- inspection: 13 empty searches, 0 saved searches, 0 live listings
+- pumps: 11 empty searches, 0 saved searches, 0 live listings
+- hydro: 10 empty searches, 0 saved searches, 0 live listings
+- automotive: 8 empty searches, 0 saved searches, 0 live listings
+- cranes: 8 empty searches, 0 saved searches, 0 live listings
+- paving: 8 empty searches, 0 saved searches, 0 live listings
+- Empty search terms: soldadora lincom (6), peterbilt (3), drywall texture (2), generator (2), himsry (2), tractor (2)
+
+## Outreach (all sends so far)
+- dealer: sent 500, replies 2, clicks 0, signups 0, unsub 0 (reply rate 0.004)
+- rental: sent 151, replies 0, clicks 0, signups 0, unsub 0 (reply rate 0)
+- material: sent 59, replies 0, clicks 0, signups 0, unsub 0 (reply rate 0)
+- repair: sent 40, replies 0, clicks 0, signups 0, unsub 0 (reply rate 0)
+- excavation: sent 27, replies 0, clicks 0, signups 0, unsub 0 (reply rate 0)
+- parts: sent 15, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
+- septic: sent 14, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
+- power: sent 9, replies 0, clicks 0, signups 0, unsub 1 (reply rate None)
+- plumbing: sent 6, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
+- safety: sent 6, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
+- trailer: sent 6, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
+- unknown: sent 4, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
+- inspection: sent 2, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
+- By step: #1 2/319, #2 0/275, #3 0/126, #4 0/119
+- Best segments: dealer, rental, material, repair, excavation
 
 ## What changed automatically
-- Reels boosted (posted first among repeats): surplus-parts-cash-flow +60, drilling-rig-parked +27
+- Reels boosted (posted first among repeats): surplus-parts-cash-flow +60, leftover-fittings-lot +33, drilling-rig-parked +27
 - Reels retired (no more repeats; Motion rebuilds the idea): none
-- Build next: opener pov-idle; topic parts-spec; categories buyers want generators, pumps, vacuum
+- Build next: opener pov-idle; topic parts-spec; categories buyers want generators, pumps, vacuum, inspection, hydro, automotive
 - Opener rule: Open on the real item with the blue question box on screen in second 1. App screens only after the 3-second mark.
 - Stop making: forklifts, feature-statement
 

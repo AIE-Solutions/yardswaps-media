@@ -1,13 +1,13 @@
 {
  "v": 1,
- "week": "2026-11-03",
- "generatedAt": "2026-11-08T18:36:30Z",
+ "week": "2026-11-09",
+ "generatedAt": "2026-11-09T16:16:50Z",
  "sources": {
   "meta snapshot": true,
-  "app growth digest": false,
+  "app growth digest": true,
   "app ops digest": true,
-  "youtube": false,
-  "metricool": false
+  "youtube": true,
+  "metricool": true
  },
  "goals": {
   "followers": {
@@ -21,16 +21,34 @@
     "change7d": 2,
     "asOf": "2026-11-08"
    },
-   "youtube": null
+   "youtube": {
+    "subscribers": 8,
+    "views": 21888,
+    "videoCount": 80
+   }
   },
-  "signups7d": 10,
-  "signupsPrev7d": 5,
-  "appSignups7d": 2,
-  "listingsPublished7d": 15,
-  "listingsPublishedPrev7d": 8,
-  "activeListings": 29,
-  "signupsBySource7d": null,
-  "heardFrom7d": null
+  "signups7d": 5,
+  "signupsPrev7d": 9,
+  "appSignups7d": 0,
+  "listingsPublished7d": 10,
+  "listingsPublishedPrev7d": 15,
+  "activeListings": 43,
+  "signupsBySource7d": [
+   {
+    "key": "organic",
+    "count": 5
+   }
+  ],
+  "heardFrom7d": [
+   {
+    "key": "not_answered",
+    "count": 4
+   },
+   {
+    "key": "other",
+    "count": 1
+   }
+  ]
  },
  "reels": {
   "median": 1.5,
@@ -55,6 +73,25 @@
     "ratio": 3.0
    },
    {
+    "slug": "leftover-fittings-lot",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 5.0,
+    "views": 0,
+    "likes": 5,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 2.5,
+    "hook": "pov-idle",
+    "angle": "shelf-parts",
+    "category": "parts",
+    "ratio": 1.67
+   },
+   {
     "slug": "drilling-rig-parked",
     "posts": 2,
     "settled": 2,
@@ -71,6 +108,26 @@
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "drilling",
+    "ratio": 1.33
+   },
+   {
+    "slug": "mission-idle-to-work",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 4.0,
+    "views": 0,
+    "likes": 4,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 2.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "forklifts",
+    "brand": true,
     "ratio": 1.33
    },
    {
@@ -290,45 +347,6 @@
     "ratio": null
    },
    {
-    "slug": "leftover-fittings-lot",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 5,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "shelf-parts",
-    "category": "parts",
-    "ratio": null
-   },
-   {
-    "slug": "mission-idle-to-work",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 4,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "forklifts",
-    "brand": true,
-    "ratio": null
-   },
-   {
     "slug": "pressure-washer-1000-psi",
     "posts": 2,
     "settled": 0,
@@ -386,13 +404,15 @@
   "hook": [
    {
     "value": "pov-idle",
-    "posts": 18,
-    "perPost": 1.67,
-    "ratio": 1.11,
+    "posts": 22,
+    "perPost": 1.77,
+    "ratio": 1.18,
     "verdict": "average",
     "slugs": [
      "surplus-parts-cash-flow",
+     "leftover-fittings-lot",
      "drilling-rig-parked",
+     "mission-idle-to-work",
      "control-panel-pulled",
      "micrometer-set-small-tools",
      "parts-donor-thumb",
@@ -436,6 +456,33 @@
     ]
    },
    {
+    "value": "shelf-parts",
+    "posts": 8,
+    "perPost": 1.5,
+    "ratio": 1.0,
+    "verdict": "average",
+    "slugs": [
+     "leftover-fittings-lot",
+     "parts-donor-thumb",
+     "plumbing-part-label",
+     "stripped-well-pump"
+    ]
+   },
+   {
+    "value": "idle-gear",
+    "posts": 10,
+    "perPost": 1.5,
+    "ratio": 1.0,
+    "verdict": "average",
+    "slugs": [
+     "drilling-rig-parked",
+     "mission-idle-to-work",
+     "control-panel-pulled",
+     "forklift-finally-deal",
+     "forklift-sitting-there"
+    ]
+   },
+   {
     "value": "small-items",
     "posts": 2,
     "perPost": 1.5,
@@ -443,31 +490,6 @@
     "verdict": "testing",
     "slugs": [
      "micrometer-set-small-tools"
-    ]
-   },
-   {
-    "value": "idle-gear",
-    "posts": 8,
-    "perPost": 1.38,
-    "ratio": 0.92,
-    "verdict": "average",
-    "slugs": [
-     "drilling-rig-parked",
-     "control-panel-pulled",
-     "forklift-finally-deal",
-     "forklift-sitting-there"
-    ]
-   },
-   {
-    "value": "shelf-parts",
-    "posts": 6,
-    "perPost": 1.17,
-    "ratio": 0.78,
-    "verdict": "average",
-    "slugs": [
-     "parts-donor-thumb",
-     "plumbing-part-label",
-     "stripped-well-pump"
     ]
    },
    {
@@ -484,12 +506,13 @@
   "category": [
    {
     "value": "parts",
-    "posts": 8,
-    "perPost": 2.0,
-    "ratio": 1.33,
+    "posts": 10,
+    "perPost": 2.1,
+    "ratio": 1.4,
     "verdict": "winner",
     "slugs": [
      "surplus-parts-cash-flow",
+     "leftover-fittings-lot",
      "part-tag-scan",
      "plumbing-part-label",
      "stripped-well-pump"
@@ -537,11 +560,12 @@
    },
    {
     "value": "forklifts",
-    "posts": 6,
-    "perPost": 0.83,
-    "ratio": 0.56,
-    "verdict": "loser",
+    "posts": 8,
+    "perPost": 1.12,
+    "ratio": 0.75,
+    "verdict": "average",
     "slugs": [
+     "mission-idle-to-work",
      "forklift-finally-deal",
      "forklift-sitting-there",
      "find-it-nearby"
@@ -550,16 +574,1016 @@
   ],
   "structure": []
  },
- "youtube": null,
- "demand": {
-  "gaps": [],
-  "zeroResultTerms": [],
-  "zeroResultRate30d": null
+ "youtube": {
+  "channel": {
+   "subscribers": 8,
+   "views": 21888,
+   "videoCount": 80
+  },
+  "titleShapes": [
+   {
+    "shape": "pov",
+    "who": "heycatch",
+    "videos": 3,
+    "views": 568,
+    "subs": 0,
+    "viewsPerVideo": 189.3
+   },
+   {
+    "shape": "other",
+    "who": "heycatch",
+    "videos": 1,
+    "views": 88,
+    "subs": 0,
+    "viewsPerVideo": 88.0
+   },
+   {
+    "shape": "pov-reaction",
+    "who": "ours",
+    "videos": 7,
+    "views": 443,
+    "subs": 0,
+    "viewsPerVideo": 63.3
+   },
+   {
+    "shape": "pov",
+    "who": "ours",
+    "videos": 6,
+    "views": 281,
+    "subs": 0,
+    "viewsPerVideo": 46.8
+   },
+   {
+    "shape": "hashtag-shorts",
+    "who": "heycatch",
+    "videos": 1,
+    "views": 24,
+    "subs": 0,
+    "viewsPerVideo": 24.0
+   },
+   {
+    "shape": "other",
+    "who": "ours",
+    "videos": 8,
+    "views": 17,
+    "subs": 0,
+    "viewsPerVideo": 2.1
+   },
+   {
+    "shape": "how-to",
+    "who": "ours",
+    "videos": 6,
+    "views": 11,
+    "subs": 0,
+    "viewsPerVideo": 1.8
+   }
+  ],
+  "bestTitleShape": "pov-reaction",
+  "top": [
+   {
+    "title": "POV: the parts bin stuck on a shelf for years becomes extra cash in one photo #parts #yardswaps",
+    "views": 278,
+    "subs": 0,
+    "ours": false
+   },
+   {
+    "title": "POV: YardSwaps finds a used commercial oven nearby and the new-debt math says no way",
+    "views": 235,
+    "subs": 0,
+    "ours": false
+   },
+   {
+    "title": "POV: the drilling rig hasn't turned since the last well. How long has yours been parked?",
+    "views": 124,
+    "subs": 0,
+    "ours": true
+   },
+   {
+    "title": "POV: the moment you find out a buyer on YardSwaps saved a search for exactly your gear",
+    "views": 121,
+    "subs": 0,
+    "ours": true
+   },
+   {
+    "title": "POV: my reaction when one photo of a surplus gear motor becomes a YardSwaps listing",
+    "views": 112,
+    "subs": 0,
+    "ours": true
+   }
+  ]
  },
- "outreach": null,
+ "demand": {
+  "gaps": [
+   {
+    "id": "generators",
+    "live": 0,
+    "published": 0,
+    "searches": 22,
+    "zero": 22,
+    "saved": 0,
+    "chats": 0,
+    "flags": [
+     "needs_supply"
+    ]
+   },
+   {
+    "id": "fleet",
+    "live": 12,
+    "published": 12,
+    "searches": 37,
+    "zero": 19,
+    "saved": 0,
+    "chats": 0,
+    "flags": []
+   },
+   {
+    "id": "inspection",
+    "live": 0,
+    "published": 0,
+    "searches": 13,
+    "zero": 13,
+    "saved": 0,
+    "chats": 0,
+    "flags": [
+     "needs_supply"
+    ]
+   },
+   {
+    "id": "pumps",
+    "live": 0,
+    "published": 0,
+    "searches": 11,
+    "zero": 11,
+    "saved": 0,
+    "chats": 0,
+    "flags": [
+     "needs_supply"
+    ]
+   },
+   {
+    "id": "hydro",
+    "live": 0,
+    "published": 0,
+    "searches": 10,
+    "zero": 10,
+    "saved": 0,
+    "chats": 0,
+    "flags": [
+     "needs_supply"
+    ]
+   },
+   {
+    "id": "automotive",
+    "live": 0,
+    "published": 0,
+    "searches": 8,
+    "zero": 8,
+    "saved": 0,
+    "chats": 0,
+    "flags": [
+     "needs_supply"
+    ]
+   },
+   {
+    "id": "cranes",
+    "live": 0,
+    "published": 0,
+    "searches": 8,
+    "zero": 8,
+    "saved": 0,
+    "chats": 0,
+    "flags": [
+     "needs_supply"
+    ]
+   },
+   {
+    "id": "paving",
+    "live": 0,
+    "published": 0,
+    "searches": 8,
+    "zero": 8,
+    "saved": 0,
+    "chats": 0,
+    "flags": [
+     "needs_supply"
+    ]
+   }
+  ],
+  "zeroResultTerms": [
+   {
+    "query": "soldadora lincom",
+    "count": 6
+   },
+   {
+    "query": "peterbilt",
+    "count": 3
+   },
+   {
+    "query": "drywall texture",
+    "count": 2
+   },
+   {
+    "query": "generator",
+    "count": 2
+   },
+   {
+    "query": "himsry",
+    "count": 2
+   },
+   {
+    "query": "tractor",
+    "count": 2
+   }
+  ],
+  "zeroResultRate30d": 0.6585
+ },
+ "outreach": {
+  "minSent": 20,
+  "rows": [
+   {
+    "segment": "dealer",
+    "step": 1,
+    "sent": 191,
+    "opened": 2,
+    "clicked": 0,
+    "replied": 2,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 4,
+    "replyRate": 0.0105,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "segment": "dealer",
+    "step": 2,
+    "sent": 162,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 3,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "segment": "dealer",
+    "step": 3,
+    "sent": 77,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 2,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "segment": "dealer",
+    "step": 4,
+    "sent": 70,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 3,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "segment": "excavation",
+    "step": 1,
+    "sent": 13,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "excavation",
+    "step": 2,
+    "sent": 12,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "excavation",
+    "step": 3,
+    "sent": 1,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "excavation",
+    "step": 4,
+    "sent": 1,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "inspection",
+    "step": 1,
+    "sent": 1,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "inspection",
+    "step": 2,
+    "sent": 1,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "material",
+    "step": 1,
+    "sent": 28,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 1,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "segment": "material",
+    "step": 2,
+    "sent": 25,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 1,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "segment": "material",
+    "step": 3,
+    "sent": 3,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 1,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "material",
+    "step": 4,
+    "sent": 3,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "parts",
+    "step": 1,
+    "sent": 8,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 2,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "parts",
+    "step": 2,
+    "sent": 7,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 1,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "plumbing",
+    "step": 1,
+    "sent": 2,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "plumbing",
+    "step": 2,
+    "sent": 2,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "plumbing",
+    "step": 3,
+    "sent": 1,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "plumbing",
+    "step": 4,
+    "sent": 1,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "power",
+    "step": 1,
+    "sent": 6,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 1,
+    "bounced": 1,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "power",
+    "step": 2,
+    "sent": 3,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "rental",
+    "step": 1,
+    "sent": 42,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 1,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "segment": "rental",
+    "step": 2,
+    "sent": 41,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "segment": "rental",
+    "step": 3,
+    "sent": 34,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "segment": "rental",
+    "step": 4,
+    "sent": 34,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 1,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "segment": "repair",
+    "step": 1,
+    "sent": 12,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "repair",
+    "step": 2,
+    "sent": 12,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "repair",
+    "step": 3,
+    "sent": 8,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "repair",
+    "step": 4,
+    "sent": 8,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "safety",
+    "step": 1,
+    "sent": 3,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "safety",
+    "step": 2,
+    "sent": 3,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "septic",
+    "step": 1,
+    "sent": 5,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "septic",
+    "step": 2,
+    "sent": 5,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "septic",
+    "step": 3,
+    "sent": 2,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "septic",
+    "step": 4,
+    "sent": 2,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "trailer",
+    "step": 1,
+    "sent": 4,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "trailer",
+    "step": 2,
+    "sent": 2,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "segment": "unknown",
+    "step": 1,
+    "sent": 4,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 1,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   }
+  ],
+  "bySegment": [
+   {
+    "key": "dealer",
+    "sent": 500,
+    "opened": 2,
+    "clicked": 0,
+    "replied": 2,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 12,
+    "replyRate": 0.004,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "key": "rental",
+    "sent": 151,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 2,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "key": "material",
+    "sent": 59,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 3,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "key": "repair",
+    "sent": 40,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "key": "excavation",
+    "sent": 27,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "key": "parts",
+    "sent": 15,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 3,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "key": "septic",
+    "sent": 14,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "key": "power",
+    "sent": 9,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 1,
+    "bounced": 1,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "key": "plumbing",
+    "sent": 6,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "key": "safety",
+    "sent": 6,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "key": "trailer",
+    "sent": 6,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "key": "unknown",
+    "sent": 4,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 1,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   },
+   {
+    "key": "inspection",
+    "sent": 2,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 0,
+    "replyRate": null,
+    "clickRate": null,
+    "signupRate": null
+   }
+  ],
+  "byStep": [
+   {
+    "key": "1",
+    "sent": 319,
+    "opened": 2,
+    "clicked": 0,
+    "replied": 2,
+    "converted": 0,
+    "unsubscribed": 1,
+    "bounced": 10,
+    "replyRate": 0.0063,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "key": "2",
+    "sent": 275,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 5,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "key": "3",
+    "sent": 126,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 3,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   },
+   {
+    "key": "4",
+    "sent": 119,
+    "opened": 0,
+    "clicked": 0,
+    "replied": 0,
+    "converted": 0,
+    "unsubscribed": 0,
+    "bounced": 4,
+    "replyRate": 0,
+    "clickRate": 0,
+    "signupRate": 0
+   }
+  ],
+  "segmentRanking": [
+   "dealer",
+   "rental",
+   "material",
+   "repair",
+   "excavation"
+  ]
+ },
  "actions": {
   "boost": {
    "surplus-parts-cash-flow": 60,
+   "leftover-fittings-lot": 33,
    "drilling-rig-parked": 27
   },
   "retire": {},
@@ -573,7 +1597,10 @@
    "categories": [
     "generators",
     "pumps",
-    "vacuum"
+    "vacuum",
+    "inspection",
+    "hydro",
+    "automotive"
    ],
    "stopMaking": [
     "forklifts",

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-08T16:16:58Z",
+  "fetched_at": "2026-11-09T17:45:47Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -16,5 +16,45 @@
   "errors": [
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
-  "items": []
+  "items": [
+    {
+      "platform": "instagram",
+      "comment_id": "17910342165581621",
+      "reply_to": "17910342165581621",
+      "author": null,
+      "text": "Send me this Post ❤️",
+      "time": "2026-11-08T16:47:32+0000",
+      "likes": 0,
+      "media_id": "18119469788519187",
+      "permalink": "https://www.instagram.com/reel/DffN7YxjfwB/",
+      "post": "Construction life: the job's done. The compactor hasn't moved since.",
+      "type": "REELS"
+    },
+    {
+      "platform": "instagram",
+      "comment_id": "18102287531398645",
+      "reply_to": "18102287531398645",
+      "author": null,
+      "text": "Let's run it up ❤️",
+      "time": "2026-11-08T16:47:33+0000",
+      "likes": 0,
+      "media_id": "18119469788519187",
+      "permalink": "https://www.instagram.com/reel/DffN7YxjfwB/",
+      "post": "Construction life: the job's done. The compactor hasn't moved since.",
+      "type": "REELS"
+    },
+    {
+      "platform": "instagram",
+      "comment_id": "18091486568694628",
+      "reply_to": "18091486568694628",
+      "author": null,
+      "text": "SeNd me This post",
+      "time": "2026-11-09T13:51:22+0000",
+      "likes": 0,
+      "media_id": "18126213985902528",
+      "permalink": "https://www.instagram.com/reel/DfheDyAjTw8/",
+      "post": "Small business owners: the old oven in the back still works.",
+      "type": "REELS"
+    }
+  ]
 }

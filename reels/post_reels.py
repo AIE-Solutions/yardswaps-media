@@ -16,7 +16,10 @@ Env:
                    notice and exit 0.
   FB_PAGE_ID       default 1291163214083476
   IG_USER_ID       default 17841429324062623 (@yardswaps)
-  PLATFORMS        "instagram,facebook" (default) or one of them
+  THREADS_TOKEN    long-lived Threads user token for @yardswaps (secret; 60
+                   days, refreshed by the runs). Missing = Threads is skipped
+                   with a notice; Instagram and Facebook still post.
+  PLATFORMS        default "instagram,facebook,instagram_story,facebook_story,threads"
   SLUG             force one video (manual runs)
   DRY_RUN          "1" = pick and print captions, post nothing
   CHECK_ONLY       "1" = only say whether a slot is open (due=0/1 to GITHUB_OUTPUT)
@@ -33,6 +36,8 @@ from zoneinfo import ZoneInfo
 
 GRAPH = "https://graph.facebook.com/v23.0"
 RUPLOAD_IG = "https://rupload.facebook.com/ig-api-upload/v23.0"
+THREADS = "https://graph.threads.net/v1.0"
+THREADS_MAX = 500          # characters in a Threads post
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIBRARY = os.path.join(ROOT, "reels", "library.json")
 POSTED = os.path.join(ROOT, "reels", "posted.json")
@@ -132,10 +137,18 @@ def fb_tags(v):
     return " ".join(machine_tags(v) + ["#YardSwaps"] + BROAD_TAGS)
 
 
+# Instagram captions don't click and bio taps are rare (about 5 humans a
+# week across every platform, Nov 2-9 Railway logs), but a comment with the
+# keyword "list" fires the live Meta comment-to-DM automation, which sends a
+# tappable /c link to the sell page (DM-AUTOREPLIES.md). Lowercase on purpose:
+# the automation lists both cases, lowercase is the safe match.
+IG_COMMENT_CTA = ('Comment "list" and we\'ll message you the free listing link, '
+                  "or tap yardswaps.com/i in our bio.")
+
+
 def ig_caption(v, turn=0):
-    # Instagram captions don't click, so the short link is typed or found in bio.
-    return (f"{v['body']}\n\n{FOLLOW_IG} Get the free YardSwaps app: "
-            f"yardswaps.com/i (link in bio).\n\n{ig_tags(v, turn)}\n\n{v['question']}")
+    return (f"{v['body']}\n\n{FOLLOW_IG} {IG_COMMENT_CTA}"
+            f"\n\n{ig_tags(v, turn)}\n\n{v['question']}")
 
 
 def fb_caption(v):
@@ -144,6 +157,22 @@ def fb_caption(v):
             f"&utm_medium=social&utm_campaign=reels_{v['slug']}")
     return (f"{v['body']}\n\n{FOLLOW_FB} Get the free app and list it free: {link}"
             f"\n\n{fb_tags(v)}\n\n{v['question']}")
+
+
+def threads_caption(v):
+    # Threads allows one topic tag (sent separately) and 500 characters, so
+    # no hashtags here. The typed short link /h is tagged (UTM-LINKS.md).
+    tail = f"\n\nGet the free YardSwaps app: yardswaps.com/h\n\n{v['question']}"
+    body = v["body"]
+    while len(body) + len(tail) > THREADS_MAX and ". " in body:
+        body = body[:body.rstrip(".").rfind(". ") + 1]   # drop the last sentence
+    return (body + tail)[:THREADS_MAX]
+
+
+def threads_topic(v):
+    """The video's first machine or trade tag, without the #, as the topic."""
+    tags = machine_tags(v, 1)
+    return tags[0].lstrip("#")[:50] if tags else "UsedEquipment"
 
 
 # ---------- HTTP ----------
@@ -498,6 +527,155 @@ def story_pick(videos, posted, story_platform):
     return None
 
 
+# ---------- Threads ----------
+# Threads takes no file upload: it fetches the video from a public URL. The
+# repo is public, so the file at this exact commit is served by jsDelivr
+# (video/mp4, 20 MB limit per file) with raw.githubusercontent.com as the
+# fallback. Each Threads post follows the newest Instagram Reel from the last
+# 24 hours that is not on Threads yet, so Threads gets what Instagram got.
+
+def threads_api(method, path, token, **fields):
+    if method == "GET":
+        return call("GET", f"{THREADS}/{path}", params={**fields, "access_token": token})
+    return call("POST", f"{THREADS}/{path}", data={**fields, "access_token": token})
+
+
+def threads_pick(videos, posted):
+    since = now() - dt.timedelta(hours=24)
+    gap = now() - dt.timedelta(days=MIN_GAP_DAYS)
+    done = {p["slug"] for p in posted if p["platform"] == "threads"
+            and p.get("status") == "posted" and parse_time(p["time"]) >= gap}
+    reels = sorted((p for p in posted if p["platform"] == "instagram" and p.get("status") == "posted"
+                    and parse_time(p["time"]) >= since and p["slug"] not in done),
+                   key=lambda p: p["time"], reverse=True)
+    for r in reels:
+        v = next((v for v in videos if v["slug"] == r["slug"]), None)
+        if v and not v.get("hold") and os.path.exists(os.path.join(ROOT, v["file"])):
+            return v
+    return None
+
+
+def commit_sha():
+    try:
+        import subprocess
+        out = subprocess.run(["git", "-C", ROOT, "rev-parse", "HEAD"],
+                             capture_output=True, text=True, timeout=10)
+        if out.returncode == 0 and out.stdout.strip():
+            return out.stdout.strip()
+    except Exception:
+        pass
+    return os.environ.get("GITHUB_SHA") or "main"
+
+
+def threads_video_urls(v):
+    repo = os.environ.get("GITHUB_REPOSITORY") or "AIE-Solutions/yardswaps-media"
+    sha = commit_sha()
+    return [f"https://cdn.jsdelivr.net/gh/{repo}@{sha}/{v['file']}",
+            f"https://raw.githubusercontent.com/{repo}/{sha}/{v['file']}"]
+
+
+def url_is_video(url):
+    """HEAD the URL (this also warms the CDN copy before Threads asks for it)."""
+    try:
+        req = urllib.request.Request(url, method="HEAD")
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return r.status == 200 and r.headers.get("Content-Type", "").startswith("video/")
+    except Exception:
+        return False
+
+
+def threads_publish(token, user_id, v, caption):
+    urls = threads_video_urls(v)
+    if not url_is_video(urls[0]):
+        print(f"  jsDelivr did not serve {v['file']} as video, using raw.githubusercontent.com")
+        urls = urls[1:]
+    last_error = None
+    for url in urls:
+        c = threads_api("POST", f"{user_id}/threads", token, media_type="VIDEO",
+                        video_url=url, text=caption, topic_tag=threads_topic(v))
+        cid = c["id"]
+        status = {}
+        for _ in range(60):                 # up to 10 minutes
+            time.sleep(10)
+            status = threads_api("GET", cid, token, fields="status,error_message")
+            if status.get("status") in ("FINISHED", "ERROR", "EXPIRED"):
+                break
+        if status.get("status") == "FINISHED":
+            mid = threads_api("POST", f"{user_id}/threads_publish", token, creation_id=cid)["id"]
+            try:
+                link = threads_api("GET", mid, token, fields="permalink").get("permalink", "")
+            except GraphError:
+                link = ""
+            return mid, link
+        last_error = f"container {status.get('status')}: {status.get('error_message', '')} ({url.split('/')[2]})"
+        print(f"  Threads could not use {url.split('/')[2]}: {last_error}")
+    raise GraphError(f"Threads video failed: {last_error}")
+
+
+def threads_days_left(token):
+    """Days left on the Threads token; refreshes it when under 30 days.
+
+    A long-lived Threads token lasts 60 days and can be refreshed once it is a
+    day old. Whether Meta extends the same token string is not documented, so
+    the expiry is read again after the refresh rather than assumed.
+    """
+    def left():
+        d = threads_api("GET", "debug_token", token, input_token=token).get("data", {})
+        ends = [t for t in (d.get("expires_at"), d.get("data_access_expires_at")) if t]
+        return min(ends) - time.time() if ends else None
+    s = left()
+    if s is not None and s < 30 * 86400:
+        try:
+            call("GET", f"{THREADS.rsplit('/', 1)[0]}/refresh_access_token",
+                 params={"grant_type": "th_refresh_token", "access_token": token})
+            s = left()
+        except GraphError as e:
+            print(f"::warning::Could not refresh THREADS_TOKEN: {str(e)[:200]}")
+    return None if s is None else s / 86400
+
+
+def run_threads(token, videos, posted, dry, summary, force=None):
+    """Post the newest unshared Instagram Reel to Threads. Never fails the run."""
+    video = threads_pick(videos, posted)
+    if dry:
+        v = video or pick(videos, posted, "instagram", force)[0]
+        if v:
+            cap = threads_caption(v)
+            summary.append(f"threads: would post {video['slug'] if video else 'the Instagram Reel above'}"
+                           f" (topic {threads_topic(v)}, {len(cap)} chars, "
+                           f"{'token set' if token else 'no THREADS_TOKEN yet'})\n"
+                           f"video: {threads_video_urls(v)[0]}\n{cap}\n")
+        return None
+    if not token:
+        print("::notice::THREADS_TOKEN is not set yet, so nothing went to Threads. See reels/README.md, Threads.")
+        summary.append("threads: skipped, THREADS_TOKEN is not set yet")
+        return None
+    warning = None
+    try:
+        days = threads_days_left(token)
+        if days is not None and days < 14:
+            warning = (f"THREADS_TOKEN stops working in {days:.0f} days. Make a new one "
+                       "(reels/README.md, Threads) and replace the secret.")
+            print(f"::warning::{warning}")
+    except GraphError as e:
+        print(f"::warning::Could not check THREADS_TOKEN's expiry: {str(e)[:200]}")
+    if not video:
+        summary.append("threads: skipped, no new Instagram Reel in the last 24 hours to share")
+        return warning
+    entry = {"time": iso(now()), "platform": "threads", "slug": video["slug"], "repeat": False}
+    try:
+        me = threads_api("GET", "me", token, fields="id,username")
+        mid, link = threads_publish(token, me["id"], video, threads_caption(video))
+        entry.update(status="posted", id=mid, url=link)
+        summary.append(f"threads: posted {video['slug']} {link}")
+    except (GraphError, KeyError) as e:
+        entry.update(status="failed", error=str(e)[:500])
+        summary.append(f"threads: FAILED {video['slug']}: {e}")
+        print(f"::warning::threads failed: {str(e)[:300]}")
+    posted.append(entry)
+    return warning
+
+
 # ---------- main ----------
 
 def check_only(platforms, force, dry):
@@ -531,7 +709,8 @@ def main():
     dry = os.environ.get("DRY_RUN") == "1"
     page_id = os.environ.get("FB_PAGE_ID") or "1291163214083476"
     ig_id = os.environ.get("IG_USER_ID") or "17841429324062623"
-    platforms = [p.strip() for p in (os.environ.get("PLATFORMS") or "instagram,facebook,instagram_story,facebook_story").split(",") if p.strip()]
+    platforms = [p.strip() for p in (os.environ.get("PLATFORMS") or "instagram,facebook,instagram_story,facebook_story,threads").split(",") if p.strip()]
+    threads_token = os.environ.get("THREADS_TOKEN", "").strip()
     force = (os.environ.get("SLUG") or "").strip() or None
 
     if os.environ.get("CHECK_ONLY") == "1":
@@ -663,6 +842,10 @@ def main():
             print(f"::warning::{platform} failed: {str(e)[:300]}")
         posted.append(entry)
 
+    threads_warning = None
+    if "threads" in platforms:
+        threads_warning = run_threads(threads_token, videos, posted, dry, summary, force)
+
     if not dry:
         with open(POSTED, "w", encoding="utf-8") as f:
             json.dump(posted, f, indent=1, ensure_ascii=False)
@@ -672,9 +855,10 @@ def main():
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
             f.write("### Reels run\n\n```\n" + text + "\n```\n")
-    if renew_warning:
-        with open(os.environ.get("GITHUB_STEP_SUMMARY", os.devnull), "a", encoding="utf-8") as f:
-            f.write(f"\n**{renew_warning}**\n")
+    for w in (renew_warning, threads_warning):
+        if w:
+            with open(os.environ.get("GITHUB_STEP_SUMMARY", os.devnull), "a", encoding="utf-8") as f:
+                f.write(f"\n**{w}**\n")
     # Fail the run (GitHub emails the repo admin) once fewer than 7 days are left.
     if renew_warning and left is not None and left < 7:
         return 1

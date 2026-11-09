@@ -1,0 +1,488 @@
+{
+ "brandId": "7684598",
+ "range": "2026-11-02..2026-11-09 (Central)",
+ "note": "rows as returned by Metricool getAnalyticsDataByMetrics; captions trimmed to first line",
+ "youtube_evolution": {
+  "fields": [
+   "YTEV01 subscribers",
+   "YTEV02 views",
+   "YTEV04 videos",
+   "YTEV05 gained",
+   "date"
+  ],
+  "rows": [
+   [
+    "7.0",
+    "462.0",
+    null,
+    "0.0",
+    "20261104"
+   ],
+   [
+    "7.0",
+    "174.0",
+    null,
+    "1.0",
+    "20261105"
+   ],
+   [
+    "6.0",
+    null,
+    null,
+    null,
+    "20261102"
+   ],
+   [
+    "7.0",
+    "132.0",
+    null,
+    "2.0",
+    "20261103"
+   ],
+   [
+    "8.0",
+    null,
+    null,
+    null,
+    "20261106"
+   ],
+   [
+    "8.0",
+    null,
+    null,
+    null,
+    "20261107"
+   ],
+   [
+    "8.0",
+    null,
+    null,
+    null,
+    "20261108"
+   ],
+   [
+    null,
+    null,
+    "0.0",
+    null,
+    "20261109"
+   ]
+  ]
+ },
+ "youtube_published_in_range": "empty (YTVP rows [])",
+ "tiktok_posts": "empty (TKPO rows [])",
+ "instagram_evolution": {
+  "fields": [
+   "IGEV01 followers",
+   "IGEV43 followers gained",
+   "IGEV22 reels",
+   "IGEV23 reel views",
+   "IGEV25 reel interactions",
+   "IGEV28 reel comments",
+   "date"
+  ],
+  "rows": [
+   [
+    "13.0",
+    "1.0",
+    "2.0",
+    "150.0",
+    "2.0",
+    null,
+    "20261102"
+   ],
+   [
+    "48.0",
+    "25.0",
+    "3.0",
+    "137.0",
+    "8.0",
+    null,
+    "20261103"
+   ],
+   [
+    "85.0",
+    "36.0",
+    "2.0",
+    "137.0",
+    "2.0",
+    null,
+    "20261104"
+   ],
+   [
+    "153.0",
+    "49.0",
+    "4.0",
+    "389.0",
+    "9.0",
+    null,
+    "20261105"
+   ],
+   [
+    "400.0",
+    "135.0",
+    "3.0",
+    "365.0",
+    "15.0",
+    null,
+    "20261106"
+   ],
+   [
+    "619.0",
+    "273.0",
+    "2.0",
+    "227.0",
+    "5.0",
+    null,
+    "20261107"
+   ],
+   [
+    null,
+    null,
+    "5.0",
+    "379.0",
+    "10.0",
+    "4.0",
+    "20261108"
+   ]
+  ]
+ },
+ "instagram_reels": {
+  "fields": [
+   "time",
+   "first line",
+   "views",
+   "comments",
+   "retention",
+   "3s rate"
+  ],
+  "rows": [
+   [
+    "20261108183052",
+    "that hydro jetter collecting dust in the corner?",
+    "141",
+    "0",
+    null,
+    "62.5"
+   ],
+   [
+    "20261108164627",
+    "Construction life: the job's done. The compactor hasn't moved since.",
+    "65",
+    "4",
+    null,
+    "48.3"
+   ],
+   [
+    "20261108134454",
+    "Done building things this season? The mixer stays in the yard.",
+    "80",
+    "0",
+    null,
+    "31.5"
+   ],
+   [
+    "20261108103345",
+    "When your skid steer stops competing with couches",
+    "10",
+    "0",
+    null,
+    "50.0"
+   ],
+   [
+    "20261108023400",
+    "already listed on Craigslist?",
+    "83",
+    "0",
+    null,
+    "16.699997"
+   ],
+   [
+    "20261107224429",
+    "POV: you upgraded. The old pressure washer stayed.",
+    "119",
+    "0",
+    null,
+    "37.3"
+   ],
+   [
+    "20261107134432",
+    "Every yard has one. The machine nobody runs anymore.",
+    "108",
+    "0",
+    null,
+    "17.400002"
+   ],
+   [
+    "20261106224412",
+    "POV: the fittings left over from the last three jobs.",
+    "83",
+    "0",
+    null,
+    "21.300003"
+   ],
+   [
+    "20261106183340",
+    "POV: YardSwaps gives your dealership a storefront, bulk tools, and numbers to grow by",
+    "121",
+    "0",
+    null,
+    "28.800003"
+   ],
+   [
+    "20261106134408",
+    "POV: the micrometer set from the shop that closed.",
+    "161",
+    "0",
+    null,
+    "22.599998"
+   ],
+   [
+    "20261105224344",
+    "POV: the rig hasn't turned since the last well.",
+    "136",
+    "0",
+    null,
+    "19.5"
+   ],
+   [
+    "20261105134538",
+    "POV: the control panel from the line you pulled.",
+    "69",
+    "0",
+    null,
+    "19.0"
+   ],
+   [
+    "20261105103358",
+    "quick thought:",
+    "150",
+    "0",
+    null,
+    "35.5"
+   ],
+   [
+    "20261105023400",
+    "me when the whole equipment lot goes online",
+    "34",
+    "0",
+    null,
+    "13.300003"
+   ],
+   [
+    "20261104224709",
+    "POV: the well pump died. The parts didn't.",
+    "100",
+    "0",
+    null,
+    "42.0"
+   ],
+   [
+    "20261104134556",
+    "POV: the excavator is gone. Its thumb is still here.",
+    "37",
+    "0",
+    null,
+    "27.599998"
+   ],
+   [
+    "20261103201511",
+    "Buyers on YardSwaps look for used equipment near them",
+    "24",
+    "0",
+    null,
+    "6.699997"
+   ],
+   [
+    "20261103183342",
+    "the part number is missing",
+    "15",
+    "0",
+    null,
+    "15.400002"
+   ],
+   [
+    "20261103145801",
+    "POV: one brass fitting left from the water job.",
+    "98",
+    "0",
+    null,
+    "18.699997"
+   ],
+   [
+    "20261102221433",
+    "No clue what those cylinders on the pallet are?",
+    "29",
+    "0",
+    null,
+    "20.0"
+   ],
+   [
+    "20261102023341",
+    "When YardSwaps turns your dealer inventory into a branded storefront",
+    "121",
+    "0",
+    null,
+    "40.7"
+   ]
+  ]
+ },
+ "facebook_reels": {
+  "fields": [
+   "time",
+   "first line",
+   "video views",
+   "likes",
+   "reach"
+  ],
+  "rows": [
+   [
+    "20261108183016",
+    "that hydro jetter collecting dust in the corner?",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "20261108164633",
+    "Construction life: the compactor",
+    "191",
+    "1",
+    "0"
+   ],
+   [
+    "20261108134500",
+    "Done building things this season? The mixer",
+    "222",
+    "0",
+    "0"
+   ],
+   [
+    "20261108103305",
+    "When your skid steer stops competing with couches",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "20261108023306",
+    "already listed on Craigslist?",
+    "9",
+    "0",
+    "0"
+   ],
+   [
+    "20261107224434",
+    "POV: you upgraded. The old pressure washer stayed.",
+    "277",
+    "1",
+    "0"
+   ],
+   [
+    "20261107134440",
+    "Every yard has one. (mission)",
+    "191",
+    "2",
+    "0"
+   ],
+   [
+    "20261106224418",
+    "POV: the fittings left over",
+    "190",
+    "0",
+    "0"
+   ],
+   [
+    "20261106183303",
+    "POV: YardSwaps gives your dealership a storefront",
+    "0",
+    "0",
+    "0"
+   ],
+   [
+    "20261106134415",
+    "POV: the micrometer set",
+    "19",
+    "0",
+    "0"
+   ],
+   [
+    "20261105224350",
+    "POV: the rig hasn't turned",
+    "215",
+    "1",
+    "0"
+   ],
+   [
+    "20261105134543",
+    "POV: the control panel",
+    "214",
+    "0",
+    "0"
+   ],
+   [
+    "20261105103304",
+    "quick thought:",
+    "231",
+    "0",
+    "0"
+   ],
+   [
+    "20261105023302",
+    "me when the whole equipment lot goes online",
+    "2",
+    "0",
+    "0"
+   ],
+   [
+    "20261104224716",
+    "POV: the well pump died",
+    "238",
+    "0",
+    "0"
+   ],
+   [
+    "20261104134604",
+    "POV: the excavator is gone. Its thumb",
+    "198",
+    "2",
+    "0"
+   ],
+   [
+    "20261103201518",
+    "Buyers on YardSwaps look for used equipment near them (find-it-nearby)",
+    "369",
+    "0",
+    "0"
+   ],
+   [
+    "20261103183308",
+    "the part number is missing",
+    "1",
+    "0",
+    "0"
+   ],
+   [
+    "20261103145808",
+    "POV: one brass fitting",
+    "12",
+    "0",
+    "0"
+   ],
+   [
+    "20261102221439",
+    "No clue what those cylinders (part-tag-scan)",
+    "226",
+    "1",
+    "0"
+   ],
+   [
+    "20261102023304",
+    "When YardSwaps turns your dealer inventory into a branded storefront",
+    "73",
+    "0",
+    "0"
+   ]
+  ]
+ }
+}
