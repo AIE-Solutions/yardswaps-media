@@ -1,44 +1,44 @@
 {
-  "checked": "2026-11-05T14:46:08Z",
+  "checked": "2026-11-09T23:22:21Z",
   "mode": "apply",
   "facebook": {
     "about": {
-      "ok": false,
-      "live": "Buy and sell used industrial and commercial equipment. Free to list. Local pickup. yardswaps.com\n"
+      "ok": true,
+      "live": "Sell used work equipment free. No listing fee, no cut of the sale. Local pickup. yardswaps.com/f"
     },
     "description": {
       "ok": false,
       "live": null
     },
     "website": {
-      "ok": false,
-      "live": "http://YardSwaps.com/, https://play.google.com/store/apps/details?id=com.yardswaps.app, https://apps.apple.com/app/id6765955041"
+      "ok": true,
+      "live": "https://www.yardswaps.com/f, https://play.google.com/store/apps/details?id=com.yardswaps.app, https://apps.apple.com/app/id6765955041"
     },
     "name": {
       "ok": true,
       "live": "YardSwaps"
     },
     "username": {
-      "ok": false,
-      "live": null
+      "ok": true,
+      "live": "yardswaps"
     },
-    "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-1/890674304_122126360955480098_3582144692226653969_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=103&ccb=1-7&_nc_sid=f907e8&_nc_ohc=gkScw4xtVPwQ7kNvwEBOkkh&_nc_oc=Adq3zBqeeL7Mca7tpw88HDlnHqWsdXgOvWAc5n2D4j2ZvssFH3zTYwXzDZcuTmEsJkY&_nc_zt=24&_nc_ht=scontent-atl3-1.xx&edm=AJdBtusEAAAA&_nc_gid=XQsbSNO1WFX2SAHB4Jr2sQ&_nc_tpa=Q5bMBQJRNJN6UIHNYvwDDYKjHahL6vaatrIi24UPcM5yBEBIHbxYkQA2l3ABOQSqDBvdxECdR2N0rOdoNg&oh=00_AQRVaJxjp3kmGbDvy_hhuLJ35xRkHGesKNBSPSyUD8FRIg&oe=6AF27642",
-    "apply_error": "POST https://graph.facebook.com/v23.0/1291163214083476 -> 400: {\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"A_cumHtGRevWdrkcIHn6e1q\"}}"
+    "picture": "https://scontent-sea5-1.xx.fbcdn.net/v/t39.30808-1/890674304_122126360955480098_3582144692226653969_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=103&ccb=1-7&_nc_sid=f907e8&_nc_ohc=bbvBzyumFgYQ7kNvwHMaQ7G&_nc_oc=AdpPSGcYdE_BYsWItSaHoAaE8C-Ru9zAD02PY3ka28uLEbp_QBkalGOij1FhG9QGOo8&_nc_zt=24&_nc_ht=scontent-sea5-1.xx&edm=AJdBtusEAAAA&_nc_gid=bL6AMYH4RT6F1ZIPLHtgcQ&_nc_tpa=Q5bMBQLtm9VfxSLy5ms80xfFbzVi6Ljwewx2FLIWU6LtB_MBA-rALEJiE052yMtyqzJjS54oldpjrP7QOg&oh=00_AQRT9TKPQWZCk1wDKtYq48ZnqrEkcFNpOQx1ZbWkPTZf2w&oe=6AF82CC2",
+    "apply_error": "POST https://graph.facebook.com/v23.0/1291163214083476 -> 400: {\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"ADwT5kiXBOi8lyhOIADb0zM\"}}"
   },
   "instagram": {
     "name": {
-      "ok": false,
-      "live": null
+      "ok": true,
+      "live": "YardSwaps: List Equipment Free"
     },
     "biography": {
-      "ok": false,
-      "live": "Used industrial + commercial equipment\nFree to list. Local pickup only.\nSnap a photo, AI drafts the listing.\niPhone, Android, web: yardswaps.com"
+      "ok": true,
+      "live": "Sell your used work equipment free\nNo listing fee. No cut of your sale.\nPost 4 in 14 days: all boosted free\nyardswaps.com/i"
     },
     "website": {
-      "ok": false,
-      "live": "https://www.yardswaps.com"
+      "ok": true,
+      "live": "https://www.yardswaps.com/i"
     },
     "username": "yardswaps",
-    "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t51.82787-15/884823117_18121154134977469_1089355192173878647_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7d201b&_nc_ohc=_njuwVA6YgcQ7kNvwHtgz8p&_nc_oc=AdrYC_VDir1AfPfsr6VZZZ7TmTjKTyF03nyVZmOT8Ea3gnM6-leMiXk9P_ha-_1KROw&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&edm=AJ-jyNUEAAAA&_nc_gid=u58h2oMCXtdRH13gS6cgkw&oh=00_AQSov2q5nQtv3mQmQIOelZhFnZUP5UHFyDRuhz-dhyoEDA&oe=6AF27276"
+    "picture": "https://scontent-sea5-1.xx.fbcdn.net/v/t51.82787-15/884823117_18121154134977469_1089355192173878647_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7d201b&_nc_ohc=I7GRYErMKQsQ7kNvwFi776G&_nc_oc=AdrQIvQLghjsRvMmZWab9k69RtqABTls5UkNfKYNei264mTGEr_MD3QGdxw0wvLiojQ&_nc_zt=23&_nc_ht=scontent-sea5-1.xx&edm=AJ-jyNUEAAAA&_nc_gid=io9xsmiUn4SwP6DrMTkzJw&oh=00_AQTDKAUL1QfrThSY0zZnCsuJHEM6opwlpqIVVXL18mltPg&oe=6AF828F6"
   }
 }
