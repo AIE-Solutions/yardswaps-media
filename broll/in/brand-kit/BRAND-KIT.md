@@ -56,3 +56,7 @@ Both are free Google Fonts.
 - No made-up text or logos on equipment.
 - End on a light-gray card: Free to list. No cut of the sale. yardswaps.com
 - Turn on the platform's AI-generated label when posting.
+
+## Collection (Nov 9)
+
+`collection/`: the 16 newest Reels covers (Nov 2026), real items across trades in the current house look (light gray, slate + blue question box): parts tag, air movers, pressure washer, condenser, micrometer set, surplus cylinders, boring bars, truck wheel, chop saw, anchor adhesive, donor pump, store kiosk, office desks, laundromat washers, restaurant oven, mower. In Runway's Collection these sit next to the current app screens (Oct 27 store set + bare phone mockups, added from Alan's PC). The October 10 `app-screens/` set is retired: old subtitle, old chips.
