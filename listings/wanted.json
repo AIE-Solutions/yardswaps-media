@@ -146,6 +146,7 @@
    "key": "craigslist",
    "category": null,
    "slug": null,
+   "link_path": "/sell?import=craigslist",
    "card": [
     "Already on",
     "Craigslist?"
