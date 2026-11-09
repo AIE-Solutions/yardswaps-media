@@ -38,7 +38,7 @@ SINCE = NOW - dt.timedelta(days=LOOKBACK_DAYS)
 # Intent. Titles count double: a "WTB" in a title is a stronger signal than
 # the same words deep in a body.
 BUY = re.compile(
-    r"\b(wtb|want(?:ed)? to buy|in the market for|looking (?:to buy|for (?:a |an )?(?:used|cheap|decent|good|second[- ]hand))|"
+    r"\b(wtb|want(?:ed)? to buy|in the market for|looking (?:to buy|for (?:a |an )?(?:used|cheap|second[- ]hand))|"
     r"anyone (?:selling|have (?:a|an) .{0,30}for sale)|where (?:can|do|should) (?:i|we|you) (?:buy|find|get) (?:a |an )?used|"
     r"need (?:a|an) used)", re.I)
 SELL = re.compile(
@@ -166,6 +166,10 @@ def classify(post):
     if title and max(buy, sell) < 2 and not any(rx.search(title) for _, _, rx in CAT_RES):
         return None
     intent = "sell" if sell >= buy else "buy"
+    # A buyer has to name the machine in the title: "Looking for a VHF set"
+    # with "tractor" further down is not a tractor buyer (seen 11-09).
+    if intent == "buy" and title and not any(rx.search(title) for _, _, rx in CAT_RES):
+        return None
     return {"intent": intent, "category": cats[0][0], "category_name": cats[0][1],
             "score": max(buy, sell) + (1 if rx_in_title(cats[0][0], title) else 0)}
 
