@@ -151,9 +151,29 @@ def ig_caption(v, turn=0):
             f"\n\n{ig_tags(v, turn)}\n\n{v['question']}")
 
 
+# Category ids with a seller page at yardswaps.com/sell-equipment/<id>
+# (CATEGORIES in the app's packages/shared/src/listings.ts, minus "all").
+SELLER_PAGES = {
+    "fleet", "trailers", "generators", "pressure", "vacuum", "pumps", "hydro",
+    "inspection", "compressors", "welding", "machining", "automotive", "tools",
+    "excavators", "paving", "forklifts", "aerial", "cranes", "concrete",
+    "drilling", "electrical", "environmental", "safety", "agriculture",
+    "landscaping", "restaurant", "refrigeration", "cooking", "warehouse",
+    "retail", "office", "laundry", "hvac", "parts",
+}
+
+
+def seller_path(v):
+    """/sell-equipment/<category> when the clip names one category, else /sell-equipment."""
+    cat = (v.get("category") or "").strip().lower()
+    return f"/sell-equipment/{cat}" if cat in SELLER_PAGES else "/sell-equipment"
+
+
 def fb_caption(v):
     # Facebook captions click, so the link carries a per-Reel tag (UTM-LINKS.md).
-    link = ("https://www.yardswaps.com/sell-equipment?utm_source=facebook"
+    # A clip about one category ("category" in library.json) links that
+    # category's seller page.
+    link = (f"https://www.yardswaps.com{seller_path(v)}?utm_source=facebook"
             f"&utm_medium=social&utm_campaign=reels_{v['slug']}")
     return (f"{v['body']}\n\n{FOLLOW_FB} Get the free app and list it free: {link}"
             f"\n\n{fb_tags(v)}\n\n{v['question']}")
