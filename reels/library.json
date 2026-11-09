@@ -159,7 +159,9 @@
    "body": "POV: you finally deal with the forklift that's been sitting there.\n\nSnap one photo. AI fills in the details and picks the power, mast and tires. Add the hours and capacity you know, set your price, post.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What's the longest a forklift has sat in your yard before you listed it?",
    "ig_tags": "#forklift #forkliftforsale #warehouse #usedequipment #yardswaps",
-   "boost": 50
+   "boost": 50,
+   "hold": true,
+   "hold_reason": "Nov 9 continuity rule: opener shows the yard forklift but the app lists an electric warehouse forklift; re-cut on the listing photo"
   },
   {
    "slug": "forklift-sitting-there",
