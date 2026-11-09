@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-09",
- "generatedAt": "2026-11-09T16:16:50Z",
+ "generatedAt": "2026-11-09T22:18:04Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": true,
@@ -12,14 +12,14 @@
  "goals": {
   "followers": {
    "instagram": {
-    "now": 605,
-    "change7d": 592,
-    "asOf": "2026-11-08"
+    "now": 748,
+    "change7d": 735,
+    "asOf": "2026-11-09"
    },
    "facebook": {
-    "now": 13,
-    "change7d": 2,
-    "asOf": "2026-11-08"
+    "now": 14,
+    "change7d": 3,
+    "asOf": "2026-11-09"
    },
    "youtube": {
     "subscribers": 8,
@@ -92,6 +92,26 @@
     "ratio": 1.67
    },
    {
+    "slug": "mission-idle-to-work",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 5.0,
+    "views": 0,
+    "likes": 5,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 2.5,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "forklifts",
+    "brand": true,
+    "ratio": 1.67
+   },
+   {
     "slug": "drilling-rig-parked",
     "posts": 2,
     "settled": 2,
@@ -108,26 +128,6 @@
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "drilling",
-    "ratio": 1.33
-   },
-   {
-    "slug": "mission-idle-to-work",
-    "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
-    "points": 4.0,
-    "views": 0,
-    "likes": 4,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 2.0,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "forklifts",
-    "brand": true,
     "ratio": 1.33
    },
    {
@@ -331,7 +331,7 @@
     "igSettled": 0,
     "points": 0.0,
     "views": 0,
-    "likes": 1,
+    "likes": 4,
     "comments": 4,
     "shares": 0,
     "saved": 0,
@@ -344,6 +344,90 @@
     "demo": true,
     "structure": "problem-action-result",
     "search": "construction life",
+    "ratio": null
+   },
+   {
+    "slug": "job-wrapped-generator",
+    "posts": 1,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "generators",
+    "demo": true,
+    "structure": "problem-action-result",
+    "ratio": null
+   },
+   {
+    "slug": "origin-part-in-a-yard",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 2,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "origin",
+    "angle": "origin-story",
+    "category": "pumps",
+    "demo": true,
+    "structure": "problem-why-app",
+    "ratio": null
+   },
+   {
+    "slug": "origin-searched-everywhere",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "origin",
+    "angle": "origin-story",
+    "category": "generators",
+    "demo": true,
+    "structure": "problem-why-app",
+    "ratio": null
+   },
+   {
+    "slug": "origin-sitting-cash",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "origin",
+    "angle": "origin-story",
+    "category": "parts",
+    "demo": true,
+    "structure": "problem-why-app",
     "ratio": null
    },
    {
@@ -368,30 +452,52 @@
     "structure": "problem-action-result",
     "voice": true,
     "ratio": null
+   },
+   {
+    "slug": "small-business-old-oven",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 2,
+    "comments": 2,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "search-term",
+    "angle": "idle-gear",
+    "category": "cooking",
+    "demo": true,
+    "structure": "problem-action-result",
+    "search": "small business",
+    "ratio": null
    }
   ],
   "insights": {
    "refused": [
-    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ARVihEk0IdSgHGkouspq4Jm\"}}",
-    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AaOdM8pfz9DsWa4q6mAx5Qz\"}}",
-    "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Awiw41ZuSbdGg3CJLizZIC4\"}}",
-    "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AMBrjcNbGOskSCRE9pKc9r7\"}}",
-    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A3lvdGQzqX_-tBut24ORbpx\"}}",
-    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AbpjFLGznFbki8b8M0lW28X\"}}",
-    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AfhoDEpqud-0SOUXHR6f_0f\"}}",
-    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ahkp5oDeJR0eY2UYV8yG9Vo\"}}",
-    "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AID60fYv4N84LSog9pQ0Wzn\"}}",
-    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ar-Gv8wVV2XNJbbmzHDk9C6\"}}",
-    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AfShmf-4uMtsxaQlc5r1jKN\"}}",
-    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A68GXQYe_EHy2F_n3fNW_Yp\"}}",
-    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AfS5pxeak5AoqEXor6uA676\"}}",
-    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AZmG0yQ3ujjeWrG15luzD6u\"}}",
-    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AR5O2afQ6tbzMaP8vqgE_5h\"}}",
-    "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AyWCbulOGaDRxvGA5Xo60wd\"}}",
-    "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"A_1I5PReqwD_6RUwf5IXAME\"}}",
-    "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"Aqu9_KgyTAMdKfIlv3oIqAn\"}}",
-    "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AcnOEnkufAGEMsfxqL2Tqt9\"}}",
-    "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"Aa1Zx_dQVoP7QPhVgUnt-Ly\"}}"
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Al3870T9mK1pEhAzgTSl5BF\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AEOaMVLLJpOqiFQDbmEvHaG\"}}",
+    "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Afyi15xS8ebxUQ6rrIpR8KZ\"}}",
+    "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AM6RZcY5HCrxJm68OG9iSzB\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Azo-wNPR7XcIGnu4SM_XXbb\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AJo--ULpEaX3vziXnpx7l4T\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AJtf7sAdUxYHaNHaNsLcxp3\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AZrIZFHJ0s0lsXfw-UQUVet\"}}",
+    "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AFqEEVBMb1HZ4jOkfx0K61p\"}}",
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AXImfZ5XjajRu3yTbQ_qt6t\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AgZiEEHJdfVZf23mIzB-jvf\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ANdPNDAEOjQ0W4JHoIJgewa\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A5jSvQAYP8UlC-dtOZjaIsd\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AUiMfVPt3BEpR7uKzZiu1wX\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AESfvWyjlzbCVqvHJMzq2gA\"}}",
+    "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AMbcoXjKuMoBzN_fLUD72QE\"}}",
+    "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"Ax5Hq6UVNHxPLF-rWcXS6-S\"}}",
+    "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"APchnqprRYZyO_duC_RfFGh\"}}",
+    "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AFZhPA2tF21ENds9NyYOARc\"}}",
+    "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AJbGR_okY5bMLNTZLAXo6m6\"}}"
    ],
    "usable": {
     "fb_reels_total_plays,blue_reels_play_count,post_impressions_unique,post_video_avg_time_watched,post_video_followers,post_video_social_actions": [],
@@ -405,14 +511,14 @@
    {
     "value": "pov-idle",
     "posts": 22,
-    "perPost": 1.77,
-    "ratio": 1.18,
+    "perPost": 1.82,
+    "ratio": 1.21,
     "verdict": "average",
     "slugs": [
      "surplus-parts-cash-flow",
      "leftover-fittings-lot",
-     "drilling-rig-parked",
      "mission-idle-to-work",
+     "drilling-rig-parked",
      "control-panel-pulled",
      "micrometer-set-small-tools",
      "parts-donor-thumb",
@@ -456,6 +562,20 @@
     ]
    },
    {
+    "value": "idle-gear",
+    "posts": 10,
+    "perPost": 1.6,
+    "ratio": 1.07,
+    "verdict": "average",
+    "slugs": [
+     "mission-idle-to-work",
+     "drilling-rig-parked",
+     "control-panel-pulled",
+     "forklift-finally-deal",
+     "forklift-sitting-there"
+    ]
+   },
+   {
     "value": "shelf-parts",
     "posts": 8,
     "perPost": 1.5,
@@ -466,20 +586,6 @@
      "parts-donor-thumb",
      "plumbing-part-label",
      "stripped-well-pump"
-    ]
-   },
-   {
-    "value": "idle-gear",
-    "posts": 10,
-    "perPost": 1.5,
-    "ratio": 1.0,
-    "verdict": "average",
-    "slugs": [
-     "drilling-rig-parked",
-     "mission-idle-to-work",
-     "control-panel-pulled",
-     "forklift-finally-deal",
-     "forklift-sitting-there"
     ]
    },
    {
@@ -561,8 +667,8 @@
    {
     "value": "forklifts",
     "posts": 8,
-    "perPost": 1.12,
-    "ratio": 0.75,
+    "perPost": 1.25,
+    "ratio": 0.83,
     "verdict": "average",
     "slugs": [
      "mission-idle-to-work",
@@ -1584,7 +1690,7 @@
   "boost": {
    "surplus-parts-cash-flow": 60,
    "leftover-fittings-lot": 33,
-   "drilling-rig-parked": 27
+   "mission-idle-to-work": 33
   },
   "retire": {},
   "buildNext": {

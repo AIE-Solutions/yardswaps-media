@@ -1,10 +1,10 @@
 # YardSwaps weekly scorecard (2026-11-09)
 
-Generated 2026-11-09T16:16:50Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
+Generated 2026-11-09T22:18:04Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
 
 ## Goals
-- Instagram followers: 605 (+592 in 7 days)
-- Facebook followers: 13 (+2 in 7 days)
+- Instagram followers: 748 (+735 in 7 days)
+- Facebook followers: 14 (+3 in 7 days)
 - YouTube: {"subscribers": 8, "views": 21888, "videoCount": 80}
 - Signups 7d: 5 (prev 9); from the app (iOS/Android): 0
 - Listings published 7d: 10 (prev 15); live now: 43
@@ -18,8 +18,8 @@ Median points per post: 1.5. Points = follows x10, shares x4, saves x3, comments
 |---|---|---|---|---|---|---|---|---|---|---|
 | surplus-parts-cash-flow | 2 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | 4.5 | 3.0 |
 | leftover-fittings-lot | 2 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 2.5 | 1.67 |
+| mission-idle-to-work | 2 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 2.5 | 1.67 |
 | drilling-rig-parked | 2 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 2.0 | 1.33 |
-| mission-idle-to-work | 2 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 2.0 | 1.33 |
 | control-panel-pulled | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.0 |
 | micrometer-set-small-tools | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.0 |
 | part-tag-scan | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.0 |
@@ -30,18 +30,23 @@ Median points per post: 1.5. Points = follows x10, shares x4, saves x3, comments
 | find-it-nearby | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.33 |
 | stripped-well-pump | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.33 |
 | building-things-concrete-mixer | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| construction-life-compactor | 2 | 0 | 1 | 4 | 0 | 0 | 0 | 0 | too new | - |
+| construction-life-compactor | 2 | 0 | 4 | 4 | 0 | 0 | 0 | 0 | too new | - |
+| job-wrapped-generator | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| origin-part-in-a-yard | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| origin-searched-everywhere | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| origin-sitting-cash | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | pressure-washer-1000-psi | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| small-business-old-oven | 2 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | too new | - |
 
 ### Opener shapes
-- pov-idle: 1.77 points/post over 22 posts (average)
+- pov-idle: 1.82 points/post over 22 posts (average)
 - question-problem: 1.5 points/post over 2 posts (testing)
 - feature-statement: 0.5 points/post over 2 posts (testing)
 
 ### Topics
 - parts-spec: 3.0 points/post over 4 posts (winner)
+- idle-gear: 1.6 points/post over 10 posts (average)
 - shelf-parts: 1.5 points/post over 8 posts (average)
-- idle-gear: 1.5 points/post over 10 posts (average)
 - small-items: 1.5 points/post over 2 posts (testing)
 - buyer-feature: 0.5 points/post over 2 posts (testing)
 
@@ -51,7 +56,7 @@ Median points per post: 1.5. Points = follows x10, shares x4, saves x3, comments
 - electrical: 1.5 points/post over 2 posts (testing)
 - machining: 1.5 points/post over 2 posts (testing)
 - excavators: 1.5 points/post over 2 posts (testing)
-- forklifts: 1.12 points/post over 8 posts (average)
+- forklifts: 1.25 points/post over 8 posts (average)
 
 ### Video structure tests
 
@@ -95,7 +100,7 @@ Zero-result search rate: 0.6585
 - Best segments: dealer, rental, material, repair, excavation
 
 ## What changed automatically
-- Reels boosted (posted first among repeats): surplus-parts-cash-flow +60, leftover-fittings-lot +33, drilling-rig-parked +27
+- Reels boosted (posted first among repeats): surplus-parts-cash-flow +60, leftover-fittings-lot +33, mission-idle-to-work +33
 - Reels retired (no more repeats; Motion rebuilds the idea): none
 - Build next: opener pov-idle; topic parts-spec; categories buyers want generators, pumps, vacuum, inspection, hydro, automotive
 - Opener rule: Open on the real item with the blue question box on screen in second 1. App screens only after the 3-second mark.
