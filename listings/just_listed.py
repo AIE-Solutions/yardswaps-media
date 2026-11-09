@@ -342,6 +342,10 @@ def page_live(url):
 def wanted_link(w, source):
     """The category's seller page once it exists (Marketplace PR #261), else /sell-equipment."""
     tag = f"utm_source={source}&utm_medium=social&utm_campaign=post_wanted-{w['slug'] or w['key']}"
+    if w.get("link_path"):
+        # A fixed app page, e.g. /sell?import=craigslist (Sell form with the Craigslist paste box open).
+        sep = "&" if "?" in w["link_path"] else "?"
+        return f"{SITE}{w['link_path']}{sep}{tag}"
     if w.get("slug") and page_live(f"{SITE}/sell-equipment/{w['slug']}"):
         return f"{SITE}/sell-equipment/{w['slug']}?{tag}"
     return f"{SITE}/sell-equipment?{tag}"
