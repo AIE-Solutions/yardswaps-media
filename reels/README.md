@@ -23,7 +23,7 @@ Goal: engagement, follows and app downloads. Every caption has the body, a follo
 ## Adding new videos (weekly batch)
 For each new 9:16 video with music:
 1. Copy it to `reels/library/yardswaps-<slug>-9x16.mp4` (keep files under ~15 MB; Reels must be 3 to 60 seconds for Facebook).
-2. Add an entry to `library.json`: `slug`, `file`, `priority` (0 = first), `added` (YYYY-MM-DD, today), `body` (seller text ending with a "Free to list ... Free boosts." line), `question` (from the comment prompt bank, not used before, ending in "?"), `ig_tags`, optional `boost` (adds to the repeat score), optional `hold: true` (+ `hold_reason`) to keep a video out of Reels, Stories and repeats until its cut is fixed. A fixed cut of an already-posted video goes in as a new slug with today's `added` date, so it posts at the next slot.
+2. Add an entry to `library.json`: `slug`, `file`, `priority` (0 = first), `added` (YYYY-MM-DD, today), `body` (seller text ending with a "Free to list ... Free boosts." line), `question` (from the comment prompt bank, not used before, ending in "?"), `ig_tags`, optional `boost` (adds to the repeat score), optional `"audience": "dealer"` for a storefront clip (its Facebook caption then links yardswaps.com/dealers with "open your storefront" instead of the seller page), optional `hold: true` (+ `hold_reason`) to keep a video out of Reels, Stories and repeats until its cut is fixed. A fixed cut of an already-posted video goes in as a new slug with today's `added` date, so it posts at the next slot.
 3. Commit to `main`. Newest `added` posts first.
 Never delete `reels/` when clearing a week folder.
 

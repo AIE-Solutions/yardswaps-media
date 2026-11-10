@@ -532,7 +532,8 @@
       "question": "Dealers: where do you list your inventory today?",
       "ig_tags": "#equipmentdealer #usedequipment #equipmentforsale #sellequipment #yardswaps",
       "hold": false,
-      "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted"
+      "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
+      "audience": "dealer"
     },
     {
       "slug": "see-what-buyers-want",
@@ -543,7 +544,8 @@
       "question": "Dealers: what's the one unit buyers keep calling you about?",
       "ig_tags": "#equipmentdealer #usedequipment #equipmentforsale #aeriallift #yardswaps",
       "hold": true,
-      "hold_reason": "Nov 10: the cut shows a 'Searches that found nothing' title card (about 3 s). Alan's Nov 10 rule: never say searches come up empty. Held until Motion re-cuts it without that card; caption already fixed."
+      "hold_reason": "Nov 10: the cut shows a 'Searches that found nothing' title card (about 3 s). Alan's Nov 10 rule: never say searches come up empty. Held until Motion re-cuts it without that card; caption already fixed.",
+      "audience": "dealer"
     },
     {
       "slug": "mission-idle-to-work",
