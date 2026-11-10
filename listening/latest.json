@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T19:51:41.929842+00:00",
+ "generated_at": "2026-11-10T19:40:42.033280+00:00",
  "lookback_days": 8,
  "sources": [
   {
@@ -65,23 +65,23 @@
  ],
  "posts": [
   {
-   "title": "Looking for a good VHF set",
-   "link": "https://www.reddit.com/r/Truckers/comments/1xs0mw5/looking_for_a_good_vhf_set/",
-   "text": "Just took delivery of a new tractor. We do a fair bit of OS work and frequently require pilot/escort with us. Are there any VHF sets out there that you prefer and any to stay away from. Thanks submitted by /u/jjsprat38 to r/Truckers [link] [comments]",
-   "author": "/u/jjsprat38",
-   "time": "2026-11-09T19:09:29+00:00",
-   "platform": "Reddit",
-   "source": "r/Truckers",
+   "title": "Tree-ZPS VMC1060 with Siemens PC2100 control for sale. $5750.",
+   "link": "https://www.practicalmachinist.com/forum/threads/tree-zps-vmc1060-with-siemens-pc2100-control-for-sale-5750.452305/",
+   "text": "Vertical Milling Machine Center with Siemens 2100 CNC control and 24 ATC umbrella-style tool changer. CAT40 spindle with max 8000 RPMs. Manufactured to hold tight tolerances. Machine runs smoothly and will last for decades more if properly maintained. Great machine at a great price to start or add to an existing machine shop. At this price, you could even buy it... Read more",
+   "author": "Mark_ZPS",
+   "time": "2026-11-10T18:51:37+00:00",
+   "platform": "Forum",
+   "source": "Practical Machinist",
    "links_ok": false,
-   "intent": "buy",
-   "category": "agriculture",
-   "category_name": "Farm & Ag",
+   "intent": "sell",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
    "score": 2,
    "drafts": {
-    "no_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?",
-    "with_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?\nhttps://www.yardswaps.com/?utm_source=reddit&utm_medium=social&utm_campaign=listening_agriculture"
+    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
+    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
    },
-   "first_seen": "2026-11-09T19:51:41.929842+00:00"
+   "first_seen": "2026-11-10T19:40:42.033280+00:00"
   }
  ]
 }
