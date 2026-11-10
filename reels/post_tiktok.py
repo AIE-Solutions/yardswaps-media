@@ -179,6 +179,56 @@ def last_ours(posted):
     return max(times) if times else None
 
 
+def diagnose(key, org_id, channel):
+    """Print the TikTok channel's recent Buffer posts with status and any error.
+
+    Field names are read from the API schema first, so this keeps working if
+    Buffer renames an error field. Read only: posts nothing, changes nothing.
+    """
+    def fields(name):
+        t = gql(key, '{ __type(name: "%s") { fields { name type { name kind ofType { name kind } } } '
+                     'enumValues { name } } }' % name).get("__type") or {}
+        return t
+    try:
+        post_t = fields("Post")
+        names = {f["name"]: f for f in post_t.get("fields") or []}
+        print("  Post fields:", ", ".join(sorted(names)))
+        statuses = [e["name"] for e in (fields("PostStatus").get("enumValues") or [])]
+        print("  Post statuses:", ", ".join(statuses))
+        pick = [n for n in ("id", "status", "dueAt", "sentAt", "externalLink", "text") if n in names]
+        extra = []
+        for n, f in names.items():
+            if "error" in n.lower() or "fail" in n.lower() or "reason" in n.lower():
+                t = f["type"]
+                base = t.get("ofType") or t
+                if base.get("kind") in ("SCALAR", "ENUM"):
+                    extra.append(n)
+                else:
+                    sub = fields(base.get("name") or "")
+                    leaf = [x["name"] for x in sub.get("fields") or []
+                            if (x["type"].get("ofType") or x["type"]).get("kind") in ("SCALAR", "ENUM")]
+                    if leaf:
+                        extra.append(n + " { " + " ".join(leaf) + " }")
+        sel = " ".join(pick + extra)
+        for st in [x for x in statuses if x.lower() in ("error", "failed", "sent", "scheduled", "sending")]:
+            q = ("query D($org: OrganizationId!, $ch: [ChannelId!]) { posts(first: 8, input: { "
+                 "organizationId: $org, sort: [{ field: dueAt, direction: desc }], "
+                 "filter: { status: %s, channelIds: $ch } }) { edges { node { %s } } } }" % (st, sel))
+            try:
+                edges = gql(key, q, {"org": org_id, "ch": [channel["id"]]}).get("posts", {}).get("edges", [])
+            except BufferError as e:
+                print(f"  {st}: could not list ({e})")
+                continue
+            print(f"  {st}: {len(edges)}")
+            for e in edges:
+                n = dict(e["node"])
+                if n.get("text"):
+                    n["text"] = n["text"][:60].replace("\n", " ")
+                print("    " + json.dumps(n, ensure_ascii=False)[:700])
+    except BufferError as e:
+        print(f"  diagnose failed: {e}")
+
+
 # ---------- main ----------
 
 def main():
@@ -207,7 +257,9 @@ def main():
             print("::error::No TikTok channel in Buffer yet. Connect TikTok in Buffer (README, TikTok step 2).")
             return 1
         if check:
-            print(f"TikTok channel found: {channel.get('name')}. Setup is complete.")
+            print(f"TikTok channel found: {channel.get('name')} "
+                  f"(paused={channel.get('isQueuePaused')}). Setup is complete.")
+            diagnose(key, org_id, channel)
             return 0
         # Fill in links for earlier posts that Buffer has published since.
         try:
