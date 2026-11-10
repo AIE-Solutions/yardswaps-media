@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-10T00:18:10Z",
+  "fetched_at": "2026-11-10T17:50:26Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -16,5 +16,19 @@
   "errors": [
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
-  "items": []
+  "items": [
+    {
+      "platform": "instagram",
+      "comment_id": "18099927725440612",
+      "reply_to": "18099927725440612",
+      "author": null,
+      "text": "SeNd me This post",
+      "time": "2026-11-10T13:50:01+0000",
+      "likes": 0,
+      "media_id": "18086345258707427",
+      "permalink": "https://www.instagram.com/reel/DfkDG-2EZVo/",
+      "post": "POV: the second bay closed. Every wrench is still on the wall.",
+      "type": "REELS"
+    }
+  ]
 }
