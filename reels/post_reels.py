@@ -169,13 +169,21 @@ def seller_path(v):
     return f"/sell-equipment/{cat}" if cat in SELLER_PAGES else "/sell-equipment"
 
 
+def is_dealer_clip(v):
+    """A storefront clip ("audience": "dealer" in library.json) speaks to dealers."""
+    return (v.get("audience") or "").strip().lower() == "dealer"
+
+
 def fb_caption(v):
     # Facebook captions click, so the link carries a per-Reel tag (UTM-LINKS.md).
     # A clip about one category ("category" in library.json) links that
-    # category's seller page.
-    link = (f"https://www.yardswaps.com{seller_path(v)}?utm_source=facebook"
+    # category's seller page; a storefront clip ("audience": "dealer") links
+    # the Dealer plan page, where the storefront trial starts.
+    path = "/dealers" if is_dealer_clip(v) else seller_path(v)
+    cta = "Get the free app and open your storefront:" if is_dealer_clip(v) else "Get the free app and list it free:"
+    link = (f"https://www.yardswaps.com{path}?utm_source=facebook"
             f"&utm_medium=social&utm_campaign=reels_{v['slug']}")
-    return (f"{v['body']}\n\n{FOLLOW_FB} Get the free app and list it free: {link}"
+    return (f"{v['body']}\n\n{FOLLOW_FB} {cta} {link}"
             f"\n\n{fb_tags(v)}\n\n{v['question']}")
 
 
