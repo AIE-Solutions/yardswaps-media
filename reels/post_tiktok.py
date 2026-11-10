@@ -48,9 +48,13 @@ PLATFORM = "tiktok"
 # HeyCatch's 3 a day (about 8 a day on a new account, every caption ending in
 # the same follow line and web address). Cut to 3 a day spread over the day;
 # with HeyCatch that is 6, about one every 2 to 4 hours.
-MAX_OURS_PER_20H = 3
+MAX_OURS_PER_20H = 2   # Nov 10 pm: 2 after a second spam block (was 3)
+# When TikTok blocks one of our posts as spam_risk, post nothing for this long
+# after the blocked post was due. Pushing more posts at a flagged account
+# digs it deeper; a quiet spell lets it recover.
+SPAM_COOLDOWN_H = 72
 # The dispatcher runs at :42 past 7, 8, 10, 14, 16 and 18 Central. A 220-minute
-# gap means only the 7:42 am, 2:42 pm and 6:42 pm runs post.
+# gap and the cap of 2 mean only the 7:42 am and 2:42 pm runs post.
 MIN_GAP_MIN = 220
 SCHEDULE_AHEAD_MIN = 5      # Buffer publishes this many minutes after the run
 JSDELIVR_MAX_BYTES = 19_000_000  # jsDelivr serves GitHub files up to 20 MB
@@ -135,6 +139,13 @@ def gql(key, query, variables=None):
 Q_ORGS = "query { account { organizations { id name } } }"
 Q_CHANNELS = """query Channels($org: OrganizationId!) {
   channels(input: { organizationId: $org }) { id name displayName service isQueuePaused }
+}"""
+Q_ERRORS = """query Errors($org: OrganizationId!, $ch: [ChannelId!]) {
+  posts(first: 20, input: { organizationId: $org,
+        sort: [{ field: dueAt, direction: desc }],
+        filter: { status: error, channelIds: $ch } }) {
+    edges { node { id status dueAt error { message rawError } } }
+  }
 }"""
 Q_SENT = """query Sent($org: OrganizationId!, $ch: [ChannelId!]) {
   posts(first: 20, input: { organizationId: $org,
@@ -271,6 +282,36 @@ def main():
                     p.update(status="posted", url=n.get("externalLink") or "", sent=n.get("sentAt"))
         except BufferError as e:
             print(f"  could not read published posts from Buffer: {e}")
+        # Posts Buffer couldn't publish: record why, and back off after a spam block.
+        spam_due = None
+        try:
+            errs = gql(key, Q_ERRORS, {"org": org_id, "ch": [channel["id"]]})
+            for e in errs.get("posts", {}).get("edges", []):
+                n = e["node"]
+                err = n.get("error") or {}
+                text = f"{err.get('message') or ''} {err.get('rawError') or ''}".strip()
+                for p in posted:
+                    if p.get("buffer_id") == n["id"] and p.get("status") != "failed":
+                        p.update(status="failed", error=text[:500])
+                        print(f"::warning::{p['slug']} failed on TikTok: {err.get('rawError') or text}")
+                if "spam" in text.lower() and n.get("dueAt"):
+                    d = reels.parse_time(n["dueAt"].replace(".000Z", "Z"))
+                    spam_due = max(spam_due, d) if spam_due else d
+        except BufferError as e:
+            print(f"  could not read failed posts from Buffer: {e}")
+        if spam_due and not force and not dry and \
+                reels.now() - spam_due < dt.timedelta(hours=SPAM_COOLDOWN_H):
+            until = spam_due + dt.timedelta(hours=SPAM_COOLDOWN_H)
+            msg = (f"tiktok: paused, TikTok blocked a post as spam at {reels.iso(spam_due)}; "
+                   f"posting resumes after {reels.iso(until)}")
+            print(msg)
+            with open(LOG, "w", encoding="utf-8") as f:
+                json.dump(posted, f, indent=1, ensure_ascii=False)
+                f.write("\n")
+            if os.environ.get("GITHUB_STEP_SUMMARY"):
+                with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+                    f.write("### TikTok run\n\n```\n" + msg + "\n```\n")
+            return 0
         stale = [p for p in posted if p.get("status") == "scheduled"
                  and reels.now() - reels.parse_time(p["time"]) > dt.timedelta(hours=3)]
         for p in stale:
