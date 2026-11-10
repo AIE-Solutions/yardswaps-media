@@ -351,8 +351,18 @@ def wanted_link(w, source):
     return f"{SITE}/sell-equipment?{tag}"
 
 
+# Alan 2026-11-10: wanted copy states buyer interest only. Saying searches came up
+# empty, or that none / zero / one are listed, reads as "the marketplace is empty".
+EMPTY_CLAIM = re.compile(r"(?i)\b(none|nothing|zero)\b|found no\b|came up empty|\bone (\w+ )?(is |are )?listed|no \w+ listed")
+
+
+def empty_claim(w):
+    text = " ".join([w.get("body", ""), w.get("card_sub", ""), " ".join(w.get("card", []))])
+    return EMPTY_CLAIM.search(text)
+
+
 def claim_holds(w, listings, complete):
-    """True while the post's "none listed" claim is still true on the live site."""
+    """Optional live-count check (no post uses one since 2026-11-10); True when a post has none."""
     c = w.get("check")
     if not c:
         return True
@@ -445,6 +455,9 @@ def prep_wanted(listings, complete, queue, posted, dry):
                                                          last.get(f"wanted-{iw[1]['key']}", ""), iw[0])):
         wid = f"wanted-{w['key']}"
         if last.get(wid, "") > repeat_cut or wid in rejected:
+            continue
+        if empty_claim(w):
+            print(f"::warning::skip {wid}: its copy says '{empty_claim(w).group(0)}'; wanted posts state buyer interest only")
             continue
         if not claim_holds(w, listings, complete):
             print(f"  skip {wid}: its claim no longer holds on the live site")
