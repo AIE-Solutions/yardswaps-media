@@ -114,17 +114,19 @@
   "platform": "tiktok",
   "slug": "warehouse-lease-ended",
   "repeat": false,
-  "status": "unconfirmed",
+  "status": "failed",
   "buffer_id": "6af3215a933007bada7cedc0",
-  "due": "2026-11-10T13:56:21.000Z"
+  "due": "2026-11-10T13:56:21.000Z",
+  "error": "TikTok flagged this post as potential spam and blocked it from publishing. Please review your content and try again. If this persists, try posting directly through TikTok to verify your account is in good standing. Failed to create media container for tiktok: Tiktok update failed to publish: 0: spam_risk (status: FAILED)"
  },
  {
   "time": "2026-11-10T20:37:05Z",
   "platform": "tiktok",
   "slug": "interior-job-done-lifts",
   "repeat": false,
-  "status": "scheduled",
+  "status": "failed",
   "buffer_id": "6af38074ead9c53d41bc4bc2",
-  "due": "2026-11-10T20:42:05.000Z"
+  "due": "2026-11-10T20:42:05.000Z",
+  "error": "TikTok flagged this post as potential spam and blocked it from publishing. Please review your content and try again. If this persists, try posting directly through TikTok to verify your account is in good standing. Failed to create media container for tiktok: Tiktok update failed to publish: 0: spam_risk (status: FAILED)"
  }
 ]
