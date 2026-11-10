@@ -53,7 +53,7 @@ Approve everything else. A rejection needs a one-line `reason`.
 
 Between listing cards, prep queues one seller-recruitment card from `wanted.json`: "Buyers are looking for generators", and so on, built from real 30-day search data (seller-growth/WANTED-POSTS.md).
 - At most one every 3 days, the same one at most once in 30 days, and they don't take a listing slot.
-- A post is skipped once its claim stops being true on the live site (for example a generator gets listed), and all of them stop once `as_of` is more than 30 days old. Refresh the numbers and `as_of` from the newest `[GrowthDigest]`.
+- Copy states buyer interest only (Alan, 2026-11-10): never that searches came up empty, buyers found nothing, or that none, zero or one are listed, because to a seller that reads as "the marketplace is empty". prep skips any post whose copy says so. All of them stop once `as_of` is more than 30 days old. Refresh the numbers and `as_of` from the newest `[GrowthDigest]`.
 - The Facebook caption links the category's seller page, `/sell-equipment/<slug>`, only once that page answers 200; until then it links `/sell-equipment` (those pages went live with Marketplace PR #261 on 2026-11-09). A post with `link_path` links that page instead: the Craigslist card opens `/sell?import=craigslist`, the Sell form with the paste box open. Tag: `utm_campaign=post_wanted-<slug>` (or `-<key>`).
 - Spanish versions wait for Alan or Emmanuel to proofread.
 
