@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Post one YardSwaps video to TikTok per run, through Buffer's free plan.
 
-Runs from .github/workflows/tiktok.yml five times a day. Standard library only.
+Runs from .github/workflows/tiktok.yml; posts at most three a day. Standard library only.
 
 Why Buffer and not TikTok's own API: TikTok's Content Posting API only
 lets an unaudited app post private ("only me") videos from a private
@@ -44,8 +44,14 @@ API = "https://api.buffer.com"
 ROOT = reels.ROOT
 LOG = os.path.join(ROOT, "reels", "tiktok-posted.json")
 PLATFORM = "tiktok"
-MAX_OURS_PER_20H = 5   # 50 videos / 10-day no-repeat = 5 fresh a day
-MIN_GAP_MIN = 75        # a late GitHub cron run never lands right after our last post
+# Nov 10: TikTok blocked a post as "potential spam" after 10 of ours plus
+# HeyCatch's 3 a day (about 8 a day on a new account, every caption ending in
+# the same follow line and web address). Cut to 3 a day spread over the day;
+# with HeyCatch that is 6, about one every 2 to 4 hours.
+MAX_OURS_PER_20H = 3
+# The dispatcher runs at :42 past 7, 8, 10, 14, 16 and 18 Central. A 220-minute
+# gap means only the 7:42 am, 2:42 pm and 6:42 pm runs post.
+MIN_GAP_MIN = 220
 SCHEDULE_AHEAD_MIN = 5      # Buffer publishes this many minutes after the run
 JSDELIVR_MAX_BYTES = 19_000_000  # jsDelivr serves GitHub files up to 20 MB
 HEYCATCH = os.path.join(ROOT, "reels", "heycatch-tiktok.json")
@@ -74,11 +80,35 @@ def clear_of_heycatch(due):
 
 # ---------- caption ----------
 
+# TikTok's spam filter looks at captions that repeat word for word across an
+# account's posts, "follow for ..." asks and web addresses in the caption.
+# So the TikTok caption has no web address (it can't be tapped anyway), no
+# follow ask, and its closing lines rotate instead of repeating.
+# The free-listing paragraph most library bodies end with is swapped for one
+# of these (seller-first, no promise of views or sales).
+FREE_LINES = [
+    "Free to list. No cut of the sale. Free boosts.",
+    "Listing it costs nothing, and YardSwaps takes no cut when it sells.",
+    "No listing fee and no commission. Boosts are free too.",
+    "It's free to post, and the whole sale price stays with you.",
+]
+CTA_LINES = [
+    "The YardSwaps app is in our bio.",
+    "Link in bio to list yours.",
+    "YardSwaps is on iPhone and Android, link in bio.",
+    "List yours from the link in bio.",
+    "Get the app from the link in bio.",
+]
+_BOILERPLATE = ("free to list", "list it free:", "no listing fee")
+
+
 def tiktok_caption(v, turn=0):
-    # TikTok captions don't click, so the short link is for typing or the bio.
-    # No handle in the text: the account is still being renamed.
-    return (f"{v['body']}\n\nFollow for a new one every day. Get the free YardSwaps app: "
-            f"yardswaps.com/t (link in bio).\n\n{reels.tt_tags(v, turn)}\n\n{v['question']}")
+    paras = [p for p in v["body"].split("\n\n")
+             if not p.strip().lower().startswith(_BOILERPLATE)]
+    # 4 and 5 lines rotate at different rates: 20 posts before a pair repeats.
+    close = f"{FREE_LINES[turn % len(FREE_LINES)]} {CTA_LINES[turn % len(CTA_LINES)]}"
+    body = "\n\n".join(paras + [close])
+    return f"{body}\n\n{reels.tt_tags(v, turn)}\n\n{v['question']}"
 
 
 # ---------- Buffer GraphQL ----------
