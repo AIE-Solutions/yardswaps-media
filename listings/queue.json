@@ -111,10 +111,11 @@
     "card": "listings/cards/wanted-generators.jpg",
     "ig_caption": "Buyers looked for generators on YardSwaps about 20 times in the last month.\nIf a generator is sitting in your yard between jobs or since the last storm, list it free: photo of the unit, photo of the data plate, the app fills in kW, fuel and phase. Buyers pick up at your place.\n\nComment \"list\" and we'll message you the free listing link, or tap yardswaps.com/i in our bio. No listing fee, no cut of the sale.\n\n#Generators #BackupPower #UsedEquipment #Jobsite #Tradespeople\n\nWhat size is the one you have sitting?",
     "fb_caption": "Buyers looked for generators on YardSwaps about 20 times in the last month.\nIf a generator is sitting in your yard between jobs or since the last storm, list it free: photo of the unit, photo of the data plate, the app fills in kW, fuel and phase. Buyers pick up at your place.\n\nList it free: https://www.yardswaps.com/sell-equipment/generators?utm_source=facebook&utm_medium=social&utm_campaign=post_wanted-generators\nNo listing fee, no cut of the sale.\n\n#Generators #BackupPower #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat size is the one you have sitting?",
-    "status": "pending",
+    "status": "approved",
     "added": "2026-11-08T19:35:04Z",
-    "updated": "2026-11-10T01:20:06Z",
-    "note": "Re-made 2026-11-10 to buyer-interest-only copy (Alan's rule); needs the daily review again."
+    "updated": "2026-11-10T17:35:05Z",
+    "note": "Re-made 2026-11-10 to buyer-interest-only copy (Alan's rule); needs the daily review again.",
+    "reviewed_by": "claude"
   },
   {
     "listing_id": "cmvr3ky2k000rt53a2tvps4ia",
@@ -145,8 +146,9 @@
     "new": false,
     "ig_caption": "For sale on YardSwaps: 2007 Freightliner Business Class M2 106 Grapple Truck\n\n$27,500 · 2007 · 13,315 hours · 291,420 miles · Finger, TN\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#FleetTrucks #WorkTrucks #UsedEquipment #Jobsite #Tradespeople\n\nWhat would you put this to work on first?",
     "fb_caption": "For sale on YardSwaps: 2007 Freightliner Business Class M2 106 Grapple Truck\n\n$27,500 · 2007 · 13,315 hours · 291,420 miles · Finger, TN\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmvsirbeh0030mp3actnh1icp?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#FleetTrucks #WorkTrucks #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat would you put this to work on first?",
-    "status": "pending",
+    "status": "approved",
     "added": "2026-11-09T23:47:15Z",
-    "updated": "2026-11-09T23:47:15Z"
+    "updated": "2026-11-10T17:35:05Z",
+    "reviewed_by": "claude"
   }
 ]
