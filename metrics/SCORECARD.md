@@ -1,9 +1,9 @@
 # YardSwaps weekly scorecard (2026-11-09)
 
-Generated 2026-11-09T22:18:04Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
+Generated 2026-11-10T19:42:35Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
 
 ## Goals
-- Instagram followers: 748 (+735 in 7 days)
+- Instagram followers: 839 (+826 in 7 days)
 - Facebook followers: 14 (+3 in 7 days)
 - YouTube: {"subscribers": 8, "views": 21888, "videoCount": 80}
 - Signups 7d: 5 (prev 9); from the app (iOS/Android): 0
@@ -16,6 +16,7 @@ Median points per post: 1.5. Points = follows x10, shares x4, saves x3, comments
 
 | Video | Posts | Views | Likes | Comments | Shares | Saves | Follows | Signups | Points/post | vs median |
 |---|---|---|---|---|---|---|---|---|---|---|
+| construction-life-compactor | 2 | 0 | 4 | 4 | 0 | 0 | 0 | 0 | 8.0 | 5.33 |
 | surplus-parts-cash-flow | 2 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | 4.5 | 3.0 |
 | leftover-fittings-lot | 2 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 2.5 | 1.67 |
 | mission-idle-to-work | 2 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 2.5 | 1.67 |
@@ -25,40 +26,49 @@ Median points per post: 1.5. Points = follows x10, shares x4, saves x3, comments
 | part-tag-scan | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.0 |
 | parts-donor-thumb | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.0 |
 | plumbing-part-label | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.0 |
+| pressure-washer-1000-psi | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.0 |
+| building-things-concrete-mixer | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 0.67 |
 | forklift-finally-deal | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 0.67 |
 | forklift-sitting-there | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 0.67 |
 | find-it-nearby | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.33 |
 | stripped-well-pump | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.33 |
-| building-things-concrete-mixer | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| construction-life-compactor | 2 | 0 | 4 | 4 | 0 | 0 | 0 | 0 | too new | - |
-| job-wrapped-generator | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| downsized-to-one-truck | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| interior-job-done-lifts | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| job-wrapped-generator | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | origin-part-in-a-yard | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | origin-searched-everywhere | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | origin-sitting-cash | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| pressure-washer-1000-psi | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| second-bay-closed-tools | 2 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | too new | - |
 | small-business-old-oven | 2 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | too new | - |
+| sold-the-septic-route | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| warehouse-lease-ended | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 
 ### Opener shapes
+- search-term: 3.5 points/post over 6 posts (winner)
 - pov-idle: 1.82 points/post over 22 posts (average)
 - question-problem: 1.5 points/post over 2 posts (testing)
 - feature-statement: 0.5 points/post over 2 posts (testing)
 
 ### Topics
 - parts-spec: 3.0 points/post over 4 posts (winner)
-- idle-gear: 1.6 points/post over 10 posts (average)
+- idle-gear: 2.31 points/post over 16 posts (winner)
 - shelf-parts: 1.5 points/post over 8 posts (average)
 - small-items: 1.5 points/post over 2 posts (testing)
 - buyer-feature: 0.5 points/post over 2 posts (testing)
 
 ### Categories
+- paving: 8.0 points/post over 2 posts (testing)
 - parts: 2.1 points/post over 10 posts (winner)
 - drilling: 2.0 points/post over 2 posts (testing)
 - electrical: 1.5 points/post over 2 posts (testing)
 - machining: 1.5 points/post over 2 posts (testing)
 - excavators: 1.5 points/post over 2 posts (testing)
+- pressure: 1.5 points/post over 2 posts (testing)
 - forklifts: 1.25 points/post over 8 posts (average)
+- concrete: 1.0 points/post over 2 posts (testing)
 
 ### Video structure tests
+- problem-action-result: 3.5 points/post over 6 posts (winner)
 
 ## YouTube title shapes
 - pov (heycatch): 189.3 views/video over 3 videos, 0 subs
@@ -100,9 +110,9 @@ Zero-result search rate: 0.6585
 - Best segments: dealer, rental, material, repair, excavation
 
 ## What changed automatically
-- Reels boosted (posted first among repeats): surplus-parts-cash-flow +60, leftover-fittings-lot +33, mission-idle-to-work +33
+- Reels boosted (posted first among repeats): construction-life-compactor +60, surplus-parts-cash-flow +60, leftover-fittings-lot +33
 - Reels retired (no more repeats; Motion rebuilds the idea): none
-- Build next: opener pov-idle; topic parts-spec; categories buyers want generators, pumps, vacuum, inspection, hydro, automotive
+- Build next: opener search-term; topic parts-spec, idle-gear; categories buyers want generators, pumps, vacuum, inspection, hydro, automotive
 - Opener rule: Open on the real item with the blue question box on screen in second 1. App screens only after the 3-second mark.
 - Stop making: forklifts, feature-statement
 

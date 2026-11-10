@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-09T22:18:04Z",
+ "generatedAt": "2026-11-10T19:42:35Z",
  "boost": {
+  "construction-life-compactor": 60,
   "surplus-parts-cash-flow": 60,
-  "leftover-fittings-lot": 33,
-  "mission-idle-to-work": 33
+  "leftover-fittings-lot": 33
  },
  "retire": {}
 }

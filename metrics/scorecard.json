@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-09",
- "generatedAt": "2026-11-09T22:18:04Z",
+ "generatedAt": "2026-11-10T19:42:35Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": true,
@@ -12,14 +12,14 @@
  "goals": {
   "followers": {
    "instagram": {
-    "now": 748,
-    "change7d": 735,
-    "asOf": "2026-11-09"
+    "now": 839,
+    "change7d": 826,
+    "asOf": "2026-11-10"
    },
    "facebook": {
     "now": 14,
     "change7d": 3,
-    "asOf": "2026-11-09"
+    "asOf": "2026-11-10"
    },
    "youtube": {
     "subscribers": 8,
@@ -53,6 +53,28 @@
  "reels": {
   "median": 1.5,
   "slugs": [
+   {
+    "slug": "construction-life-compactor",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 16.0,
+    "views": 0,
+    "likes": 4,
+    "comments": 4,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 8.0,
+    "hook": "search-term",
+    "angle": "idle-gear",
+    "category": "paving",
+    "demo": true,
+    "structure": "problem-action-result",
+    "search": "construction life",
+    "ratio": 5.33
+   },
    {
     "slug": "surplus-parts-cash-flow",
     "posts": 2,
@@ -226,6 +248,52 @@
     "ratio": 1.0
    },
    {
+    "slug": "pressure-washer-1000-psi",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 3.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.5,
+    "hook": "search-term",
+    "angle": "idle-gear",
+    "category": "pressure",
+    "search": "1000 psi pressure washer",
+    "demo": true,
+    "structure": "problem-action-result",
+    "voice": true,
+    "ratio": 1.0
+   },
+   {
+    "slug": "building-things-concrete-mixer",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 2.0,
+    "views": 0,
+    "likes": 2,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.0,
+    "hook": "search-term",
+    "angle": "idle-gear",
+    "category": "concrete",
+    "search": "building things",
+    "demo": true,
+    "structure": "problem-action-result",
+    "voice": true,
+    "ratio": 0.67
+   },
+   {
     "slug": "forklift-finally-deal",
     "posts": 2,
     "settled": 2,
@@ -302,58 +370,55 @@
     "ratio": 0.33
    },
    {
-    "slug": "building-things-concrete-mixer",
+    "slug": "downsized-to-one-truck",
     "posts": 2,
     "settled": 0,
     "igSettled": 0,
     "points": 0.0,
     "views": 0,
-    "likes": 2,
+    "likes": 1,
     "comments": 0,
     "shares": 0,
     "saved": 0,
     "follows": 0,
     "signups": 0,
     "perPost": null,
-    "hook": "search-term",
+    "hook": "pov-idle",
     "angle": "idle-gear",
-    "category": "concrete",
-    "search": "building things",
+    "category": "vacuum",
     "demo": true,
     "structure": "problem-action-result",
-    "voice": true,
     "ratio": null
    },
    {
-    "slug": "construction-life-compactor",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 4,
-    "comments": 4,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "search-term",
-    "angle": "idle-gear",
-    "category": "paving",
-    "demo": true,
-    "structure": "problem-action-result",
-    "search": "construction life",
-    "ratio": null
-   },
-   {
-    "slug": "job-wrapped-generator",
+    "slug": "interior-job-done-lifts",
     "posts": 1,
     "settled": 0,
     "igSettled": 0,
     "points": 0.0,
     "views": 0,
     "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "aerial",
+    "demo": true,
+    "structure": "problem-action-result",
+    "ratio": null
+   },
+   {
+    "slug": "job-wrapped-generator",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 2,
     "comments": 0,
     "shares": 0,
     "saved": 0,
@@ -431,26 +496,24 @@
     "ratio": null
    },
    {
-    "slug": "pressure-washer-1000-psi",
+    "slug": "second-bay-closed-tools",
     "posts": 2,
     "settled": 0,
     "igSettled": 0,
     "points": 0.0,
     "views": 0,
-    "likes": 3,
-    "comments": 0,
+    "likes": 1,
+    "comments": 1,
     "shares": 0,
     "saved": 0,
     "follows": 0,
     "signups": 0,
     "perPost": null,
-    "hook": "search-term",
-    "angle": "idle-gear",
-    "category": "pressure",
-    "search": "1000 psi pressure washer",
+    "hook": "pov-idle",
+    "angle": "small-items",
+    "category": "tools",
     "demo": true,
     "structure": "problem-action-result",
-    "voice": true,
     "ratio": null
    },
    {
@@ -474,30 +537,72 @@
     "structure": "problem-action-result",
     "search": "small business",
     "ratio": null
+   },
+   {
+    "slug": "sold-the-septic-route",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "environmental",
+    "demo": true,
+    "structure": "problem-action-result",
+    "ratio": null
+   },
+   {
+    "slug": "warehouse-lease-ended",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "warehouse",
+    "demo": true,
+    "structure": "problem-action-result",
+    "ratio": null
    }
   ],
   "insights": {
    "refused": [
-    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Al3870T9mK1pEhAzgTSl5BF\"}}",
-    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AEOaMVLLJpOqiFQDbmEvHaG\"}}",
-    "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Afyi15xS8ebxUQ6rrIpR8KZ\"}}",
-    "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AM6RZcY5HCrxJm68OG9iSzB\"}}",
-    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Azo-wNPR7XcIGnu4SM_XXbb\"}}",
-    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AJo--ULpEaX3vziXnpx7l4T\"}}",
-    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AJtf7sAdUxYHaNHaNsLcxp3\"}}",
-    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AZrIZFHJ0s0lsXfw-UQUVet\"}}",
-    "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AFqEEVBMb1HZ4jOkfx0K61p\"}}",
-    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AXImfZ5XjajRu3yTbQ_qt6t\"}}",
-    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AgZiEEHJdfVZf23mIzB-jvf\"}}",
-    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ANdPNDAEOjQ0W4JHoIJgewa\"}}",
-    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A5jSvQAYP8UlC-dtOZjaIsd\"}}",
-    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AUiMfVPt3BEpR7uKzZiu1wX\"}}",
-    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AESfvWyjlzbCVqvHJMzq2gA\"}}",
-    "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AMbcoXjKuMoBzN_fLUD72QE\"}}",
-    "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"Ax5Hq6UVNHxPLF-rWcXS6-S\"}}",
-    "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"APchnqprRYZyO_duC_RfFGh\"}}",
-    "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AFZhPA2tF21ENds9NyYOARc\"}}",
-    "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AJbGR_okY5bMLNTZLAXo6m6\"}}"
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ABEdrHdp1TM7tcncdgL6HwO\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AS4oGy8o9j46J9mXmpjnXUq\"}}",
+    "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AJXuw5ailJXPy0qWX9Lgchx\"}}",
+    "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Adq7R6A1UArWKuL9asU_HKZ\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ADY35xcUgdK2dHvcsChyX-o\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AbZffQ3DTlXDnmxacQ8AOCp\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A7xI3EykSIym-IK3R0HjsU7\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AN3DtByhW1Pv9gbSLhZtmzU\"}}",
+    "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ApUTABk_QGYbeEZtq6JD0Bx\"}}",
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AGtByZcFRjc5nM7ITRmPI6B\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ANyUfOo2iuH-O2CnLtJh6XI\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A_RmKEXE-456yDcBdjF6azs\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Azs65uGhBo6gGubPdzgydBx\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"And_eDZqRRVTdTi72FUtB00\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AYD3f3K_NEWbCTl2mgAvR33\"}}",
+    "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AZ4EZOI8Tgz_1a-2v_JorzQ\"}}",
+    "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"ArZC7QdtrpFeMt6NWmBpwOx\"}}",
+    "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"ApESTi4mQzIXaNDGDGo4LZU\"}}",
+    "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AM-pMi3ZIzNayn3Q87n7BpH\"}}",
+    "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AS6dvofbFNTk6U_YPDDlgKF\"}}"
    ],
    "usable": {
     "fb_reels_total_plays,blue_reels_play_count,post_impressions_unique,post_video_avg_time_watched,post_video_followers,post_video_social_actions": [],
@@ -508,6 +613,18 @@
  },
  "formats": {
   "hook": [
+   {
+    "value": "search-term",
+    "posts": 6,
+    "perPost": 3.5,
+    "ratio": 2.33,
+    "verdict": "winner",
+    "slugs": [
+     "construction-life-compactor",
+     "pressure-washer-1000-psi",
+     "building-things-concrete-mixer"
+    ]
+   },
    {
     "value": "pov-idle",
     "posts": 22,
@@ -563,14 +680,17 @@
    },
    {
     "value": "idle-gear",
-    "posts": 10,
-    "perPost": 1.6,
-    "ratio": 1.07,
-    "verdict": "average",
+    "posts": 16,
+    "perPost": 2.31,
+    "ratio": 1.54,
+    "verdict": "winner",
     "slugs": [
+     "construction-life-compactor",
      "mission-idle-to-work",
      "drilling-rig-parked",
      "control-panel-pulled",
+     "pressure-washer-1000-psi",
+     "building-things-concrete-mixer",
      "forklift-finally-deal",
      "forklift-sitting-there"
     ]
@@ -610,6 +730,16 @@
    }
   ],
   "category": [
+   {
+    "value": "paving",
+    "posts": 2,
+    "perPost": 8.0,
+    "ratio": 5.33,
+    "verdict": "testing",
+    "slugs": [
+     "construction-life-compactor"
+    ]
+   },
    {
     "value": "parts",
     "posts": 10,
@@ -665,6 +795,16 @@
     ]
    },
    {
+    "value": "pressure",
+    "posts": 2,
+    "perPost": 1.5,
+    "ratio": 1.0,
+    "verdict": "testing",
+    "slugs": [
+     "pressure-washer-1000-psi"
+    ]
+   },
+   {
     "value": "forklifts",
     "posts": 8,
     "perPost": 1.25,
@@ -676,9 +816,32 @@
      "forklift-sitting-there",
      "find-it-nearby"
     ]
+   },
+   {
+    "value": "concrete",
+    "posts": 2,
+    "perPost": 1.0,
+    "ratio": 0.67,
+    "verdict": "testing",
+    "slugs": [
+     "building-things-concrete-mixer"
+    ]
    }
   ],
-  "structure": []
+  "structure": [
+   {
+    "value": "problem-action-result",
+    "posts": 6,
+    "perPost": 3.5,
+    "ratio": 2.33,
+    "verdict": "winner",
+    "slugs": [
+     "construction-life-compactor",
+     "pressure-washer-1000-psi",
+     "building-things-concrete-mixer"
+    ]
+   }
+  ]
  },
  "youtube": {
   "channel": {
@@ -1688,17 +1851,18 @@
  },
  "actions": {
   "boost": {
+   "construction-life-compactor": 60,
    "surplus-parts-cash-flow": 60,
-   "leftover-fittings-lot": 33,
-   "mission-idle-to-work": 33
+   "leftover-fittings-lot": 33
   },
   "retire": {},
   "buildNext": {
    "hooks": [
-    "pov-idle"
+    "search-term"
    ],
    "angles": [
-    "parts-spec"
+    "parts-spec",
+    "idle-gear"
    ],
    "categories": [
     "generators",
