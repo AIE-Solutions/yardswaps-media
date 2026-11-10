@@ -1,22 +1,20 @@
 name: Videos to TikTok
 
-# Five TikToks a day through Buffer's free plan (see reels/post_tiktok.py for
-# why not TikTok's own API): 7:42 am, 10:42 am, 2:42 pm, 4:42 pm and 6:42 pm
-# Central, all 90+ minutes clear of HeyCatch's 4:33 am / 12:33 pm / 8:33 pm.
+# Three TikToks a day through Buffer's free plan (see reels/post_tiktok.py for
+# why not TikTok's own API): 7:42 am, 2:42 pm and 6:42 pm Central, all 90+
+# minutes clear of HeyCatch's 4:33 am / 12:33 pm / 8:33 pm. Cut from five on
+# Nov 10 after TikTok blocked a post as potential spam.
 # GitHub's own cron on this repo often starts hours late or not at all, so a
-# Claude scheduled task dispatches this workflow at :42 past those hours
-# (Central time, so daylight saving doesn't move them). The crons below are
-# the winter-time backup. Safe to run any time: at most 5 in 20 hours, never
-# within 75 minutes of our last TikTok, and the publish time moves if it lands
-# within 90 minutes of a HeyCatch slot. Five is the ceiling the library
-# supports (50 videos under the 10-day no-repeat rule).
+# Claude scheduled task dispatches this workflow at :42 past 7, 8, 10, 14, 16
+# and 18 Central; the script's 220-minute gap means only the 7:42, 2:42 and
+# 6:42 runs post. The crons below are the winter-time backup. Safe to run any
+# time: at most 3 in 20 hours, never within 220 minutes of our last TikTok,
+# and the publish time moves if it lands within 90 minutes of a HeyCatch slot.
 # The script hands each video to Buffer 5 minutes ahead; Buffer publishes it.
 on:
   schedule:
     - cron: "42 13 * * *"
-    - cron: "42 16 * * *"
     - cron: "42 20 * * *"
-    - cron: "42 22 * * *"
     - cron: "42 0 * * *"
   workflow_dispatch:
     inputs:
