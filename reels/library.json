@@ -528,7 +528,7 @@
       "file": "reels/library/yardswaps-dealer-storefront-9x16.mp4",
       "priority": 31,
       "added": "2026-11-01",
-      "body": "Selling a lot of equipment? Get a storefront.\n\nEvery unit you list in one place, with your hours, service area and a verified badge. Buyers can search your whole inventory.\n\nFree to list. Free boosts.",
+      "body": "Selling a lot of equipment? Put it all in one storefront.\n\nEvery unit in one link, with your hours, service area and contact details. Buyers search your whole inventory. Storefronts come with the Dealer plan: first 90 days free for new dealers, then $49 a month.\n\nFree to list. Free boosts.",
       "question": "Dealers: where do you list your inventory today?",
       "ig_tags": "#equipmentdealer #usedequipment #equipmentforsale #sellequipment #yardswaps",
       "hold": false,
@@ -539,11 +539,11 @@
       "file": "reels/library/yardswaps-see-what-buyers-want-9x16.mp4",
       "priority": 32,
       "added": "2026-11-01",
-      "body": "Dealers: see what buyers near you search for.\n\nThe Buyer demand report in the Dealer plan shows the top searches in your categories and the searches that found nothing. Got that unit? List it and put a Dealer boost on it. The Dealer plan includes 5 Dealer boosts a month, 7 days each.\n\nFree to list. Free boosts.",
+      "body": "Dealers: see what buyers near you search for.\n\nThe Buyer demand report in the Dealer plan shows the top searches in your categories. Got that unit? List it and put a Dealer boost on it. The Dealer plan includes 5 Dealer boosts a month, 7 days each, starting with your first payment.\n\nFree to list. Free boosts.",
       "question": "Dealers: what's the one unit buyers keep calling you about?",
       "ig_tags": "#equipmentdealer #usedequipment #equipmentforsale #aeriallift #yardswaps",
-      "hold": false,
-      "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted"
+      "hold": true,
+      "hold_reason": "Nov 10: the cut shows a 'Searches that found nothing' title card (about 3 s). Alan's Nov 10 rule: never say searches come up empty. Held until Motion re-cuts it without that card; caption already fixed."
     },
     {
       "slug": "mission-idle-to-work",
