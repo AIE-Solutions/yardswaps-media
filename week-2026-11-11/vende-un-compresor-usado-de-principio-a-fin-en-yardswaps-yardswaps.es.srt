@@ -1,0 +1,31 @@
+1
+00:00:00,600 --> 00:00:09,747
+Un compresor, de principio a fin, en la app real. Agrega una foto, la IA la lee y llena los detalles. Revisas, y publicas.
+
+2
+00:00:15,070 --> 00:00:21,814
+¿Vendes equipo? Agrega una foto. La IA la lee y llena los detalles. Revisas, y publicas.
+
+3
+00:00:27,550 --> 00:00:32,048
+Los compradores hacen ofertas en la app y te pagan directo a ti. Todo.
+
+4
+00:00:35,180 --> 00:00:42,629
+¿Tienes una pregunta? Escríbele al vendedor. Los tips de recogida vienen incluidos. Fija una hora y míralo funcionar.
+
+5
+00:00:44,660 --> 00:00:53,311
+Los compradores van a preguntar si arranca de todos modos. Agrega un video del arranque en frío, pon tu precio y publica. Publicar es gratis.
+
+6
+00:00:56,700 --> 00:01:03,601
+¿Ves algo que te gusta? Haz una oferta. Si el vendedor contraoferta, acepta con un toque y arregla la recogida.
+
+7
+00:01:06,910 --> 00:01:15,012
+¿Lo vendiste? Márcalo con un toque. ¿Tienes otro ahí parado? Una foto, y queda publicado gratis. Sin comisión por la venta.
+
+8
+00:01:17,630 --> 00:01:19,646
+Publica gratis en YardSwaps.

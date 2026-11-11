@@ -1,0 +1,27 @@
+1
+00:00:00,600 --> 00:00:09,982
+¿Necesitas equipo? Encuéntralo cerca. Treinta y tres categorías, todas locales. Toca un anuncio, pregúntale al vendedor y recógelo cerca de ti.
+
+2
+00:00:14,750 --> 00:00:19,979
+¿Buscas algo? Guarda la búsqueda. Te avisamos cuando lo publiquen, directo en tu teléfono.
+
+3
+00:00:24,290 --> 00:00:31,191
+¿Ves algo que te gusta? Haz una oferta. Si el vendedor contraoferta, acepta con un toque y arregla la recogida.
+
+4
+00:00:34,500 --> 00:00:41,949
+¿Tienes una pregunta? Escríbele al vendedor. Los tips de recogida vienen incluidos. Fija una hora y míralo funcionar.
+
+5
+00:00:43,980 --> 00:00:51,194
+¿Tienes un compresor para vender? Agrega una foto. La IA la lee y llena los detalles. Revisas, y publicas.
+
+6
+00:00:56,460 --> 00:01:00,958
+Los compradores hacen ofertas en la app y te pagan directo a ti. Todo.
+
+7
+00:01:04,090 --> 00:01:06,106
+Publica gratis en YardSwaps.
