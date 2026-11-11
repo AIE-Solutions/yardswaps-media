@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-10T19:40:42.033280+00:00",
+ "generated_at": "2026-11-11T19:35:29.045668+00:00",
  "lookback_days": 8,
  "sources": [
   {
    "name": "Reddit",
-   "status": "ok",
-   "items": 100,
-   "in_window": 100
+   "status": "error: HTTPError: HTTP Error 403: Forbidden",
+   "items": 0,
+   "in_window": 0
   },
   {
    "name": "Practical Machinist",
@@ -23,8 +23,8 @@
   {
    "name": "Garage Journal",
    "status": "ok",
-   "items": 30,
-   "in_window": 30
+   "items": 29,
+   "in_window": 29
   },
   {
    "name": "Boom & Bucket forums",
