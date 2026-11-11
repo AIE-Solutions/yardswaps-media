@@ -2,7 +2,7 @@
 """Post one YardSwaps Reel to Instagram and Facebook per run.
 
 Runs from .github/workflows/reels.yml; posts at most once per Central-time
-slot (SLOTS_CT, four a day since Nov 8). Standard library only.
+slot (SLOTS_CT, six a day since Nov 11). Standard library only.
 
 Picks the next video from reels/library.json (never-posted first, newest
 first; then, among videos posted at least MIN_GAP_DAYS ago, the one whose
@@ -59,10 +59,12 @@ CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (
 #   10:00 am  until 11:00 am  (HeyCatch 12:33 pm is 93+ min after)
 #   4:30 pm   until 6:00 pm   (Just listed 2:15 pm is 2+ h before)
 #   6:30 pm   until 7:00 pm   (HeyCatch 8:33 pm is 93+ min after)
+#   10:10 pm  until 11:00 pm  (sixth slot, added Nov 11 when the library reached
+#                              64 active; HeyCatch 8:33 pm is 92+ min before the early edge)
 # A run GitHub starts too late for its slot does nothing; the next slot's
 # runs pick up. library.json "slots" (["07:00-09:30", ...]) overrides this.
 CENTRAL = ZoneInfo("America/Chicago")
-SLOTS_CT = [((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((16, 30), (18, 0)), ((18, 30), (19, 0))]
+SLOTS_CT = [((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((16, 30), (18, 0)), ((18, 30), (19, 0)), ((22, 10), (23, 0))]
 SLOT_EARLY_MINUTES = 5     # a run that starts up to 5 minutes early counts for the slot
 
 
