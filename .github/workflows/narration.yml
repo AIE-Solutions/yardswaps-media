@@ -1,0 +1,126 @@
+name: ElevenLabs narration
+
+# Saves ElevenLabs audio straight into this repo, so nobody has to download it
+# on a PC and push it back. It reads the folders under narration/:
+#
+#   narration/<set>/lines.tsv  one line per file, tab-separated:
+#       <file.mp3> <voice_id> <model_id> <language_code> <text>
+#     Each missing file is made with the ElevenLabs text-to-speech API
+#     (uses the startup-grant credits, about 1 credit per character).
+#   narration/<set>/urls.tsv   <file.mp3> <https url>
+#     Each missing file is downloaded from a signed ElevenLabs link
+#     (free; links expire a few hours after they are signed).
+#
+# Files that already exist are never remade, so re-running costs nothing.
+# Runs when a lines.tsv or urls.tsv is pushed, or by hand with "Run workflow"
+# (set = one folder name, or "check" to only test the key and print the
+# credit balance). Needs the repo secret ELEVENLABS_API_KEY for lines.tsv and
+# for "check"; urls.tsv downloads work without it.
+on:
+  push:
+    paths:
+      - "narration/**/lines.tsv"
+      - "narration/**/urls.tsv"
+      - ".github/workflows/narration.yml"
+  workflow_dispatch:
+    inputs:
+      set:
+        description: 'Folder under narration/ (e.g. longform-es), or "check"'
+        default: "check"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: narration-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  narrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      XI_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check the key
+        run: |
+          if [ -z "$XI_KEY" ]; then
+            echo "ELEVENLABS_API_KEY is not set on this repo" | tee -a "$GITHUB_STEP_SUMMARY"
+            echo "has_key=0" >> "$GITHUB_ENV"; exit 0
+          fi
+          echo "has_key=1" >> "$GITHUB_ENV"
+          code=$(curl -sS -o sub.json -w '%{http_code}' -H "xi-api-key: $XI_KEY" https://api.elevenlabs.io/v1/user/subscription)
+          if [ "$code" != "200" ]; then
+            echo "Key test failed: HTTP $code $(jq -r '.detail.status // .detail // empty' sub.json 2>/dev/null)" | tee -a "$GITHUB_STEP_SUMMARY"
+            rm -f sub.json; exit 1
+          fi
+          jq -r '"Key works. Plan: \(.tier), credits used \(.character_count) of \(.character_limit), next reset \(.next_character_count_reset_unix // "n/a" | tostring)"' sub.json | tee -a "$GITHUB_STEP_SUMMARY"
+          rm -f sub.json
+
+      - name: Pick folders
+        env:
+          SET: ${{ inputs.set }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "$SET" = "check" ] || [ -z "$SET" ]; then : > sets.txt
+            else
+              case "$SET" in *..*|*/*) echo "bad set name"; exit 1;; esac
+              echo "narration/$SET" > sets.txt
+            fi
+          else
+            base="$BEFORE"; git cat-file -e "$base" 2>/dev/null || base=HEAD~1
+            git diff --name-only "$base" HEAD -- 'narration/**/lines.tsv' 'narration/**/urls.tsv' \
+              | xargs -r -n1 dirname | sort -u > sets.txt || true
+          fi
+          echo "Folders: $(tr '\n' ' ' < sets.txt)"
+
+      - name: Make and download
+        run: |
+          made=0; got=0; failed=0
+          while read -r dir; do
+            [ -d "$dir" ] || continue
+            if [ -f "$dir/urls.tsv" ]; then
+              while IFS=$'\t' read -r f url; do
+                [ -z "$f" ] && continue
+                case "$f" in *..*|*/*) echo "skip bad name $f"; continue;; esac
+                [ -s "$dir/$f" ] && continue
+                case "$url" in https://*) ;; *) echo "skip $f: not https"; continue;; esac
+                if curl -sSfL --max-time 120 -o "$dir/$f" "$url" && file "$dir/$f" | grep -qiE "audio|MPEG|ISO Media"; then
+                  got=$((got+1))
+                else
+                  echo "download failed (link expired?): $dir/$f"; rm -f "$dir/$f"; failed=$((failed+1))
+                fi
+              done < "$dir/urls.tsv"
+            fi
+            if [ -f "$dir/lines.tsv" ]; then
+              if [ "$has_key" != "1" ]; then echo "skip $dir/lines.tsv: no key"; failed=$((failed+1)); continue; fi
+              while IFS=$'\t' read -r f voice model lang text; do
+                [ -z "$f" ] && continue
+                case "$f" in \#*) continue;; *..*|*/*) echo "skip bad name $f"; continue;; esac
+                [ -s "$dir/$f" ] && continue
+                body=$(jq -n --arg t "$text" --arg m "$model" --arg l "$lang" \
+                  '{text:$t, model_id:$m} + (if $l == "" or $l == "-" then {} else {language_code:$l} end)')
+                code=$(curl -sS -o "$dir/$f" -w '%{http_code}' -X POST \
+                  "https://api.elevenlabs.io/v1/text-to-speech/$voice?output_format=mp3_44100_128" \
+                  -H "xi-api-key: $XI_KEY" -H "Content-Type: application/json" -d "$body")
+                if [ "$code" = "200" ]; then made=$((made+1))
+                else echo "TTS failed for $dir/$f: HTTP $code $(head -c 300 "$dir/$f")"; rm -f "$dir/$f"; failed=$((failed+1)); fi
+              done < "$dir/lines.tsv"
+            fi
+          done < sets.txt
+          echo "Made $made, downloaded $got, failed $failed" | tee -a "$GITHUB_STEP_SUMMARY"
+          rm -f sets.txt
+
+      - name: Commit
+        run: |
+          git config user.name "yardswaps-reels-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add narration/
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Narration: add generated audio"
+          for i in 1 2 3; do git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep 5; done
