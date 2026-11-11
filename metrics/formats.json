@@ -356,6 +356,55 @@
    "category": "machining",
    "demo": true,
    "structure": "problem-action-result"
+  },
+  "whole-lot-one-link": {
+   "hook": "pov-situation",
+   "angle": "dealer",
+   "category": "trailers",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "import-from-your-website": {
+   "hook": "pov-situation",
+   "angle": "dealer",
+   "category": "generators",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "trash-pump-after-the-job": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "pumps",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "inspection-camera-in-the-van": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "inspection",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "second-jetter-by-the-fence": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "hydro",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "cooler-still-humming": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "refrigeration",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "chain-hoist-on-the-beam": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "cranes",
+   "demo": true,
+   "structure": "problem-action-result"
   }
  }
 }
