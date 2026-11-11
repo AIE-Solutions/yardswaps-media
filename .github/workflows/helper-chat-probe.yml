@@ -1,0 +1,46 @@
+# Throwaway probe (never merged): checks the Ask YardSwaps text chat
+# protocol against the live public agent from a runner with open internet.
+name: helper-chat-probe
+on:
+  push:
+    branches: [claude/project-thread-eixlq9]
+    paths: [.github/workflows/helper-chat-probe.yml]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Talk to the helper (text only)
+        run: |
+          cat > probe.mjs <<'JS'
+          const url = "wss://api.elevenlabs.io/v1/convai/conversation?agent_id=agent_9601m756m2hhf1ythvxc3vav7ee1";
+          const ws = new WebSocket(url, { headers: { Origin: "https://yardswaps.com" } });
+          const t0 = Date.now();
+          const log = (...a) => console.log(((Date.now() - t0) / 1000).toFixed(1) + "s", ...a);
+          let asked = 0;
+          const questions = ["How do free boosts work?", "¿Cuánto cuesta una tienda de distribuidor?"];
+          ws.onopen = () => { log("open"); ws.send(JSON.stringify({ type: "conversation_initiation_client_data", conversation_config_override: { conversation: { text_only: true } } })); };
+          ws.onmessage = (ev) => {
+            const m = JSON.parse(ev.data);
+            if (m.type === "ping") { ws.send(JSON.stringify({ type: "pong", event_id: m.ping_event.event_id })); log("ping/pong", m.ping_event.event_id); return; }
+            if (m.type === "agent_chat_response_part") { const p = m.text_response_part; log("part", p.type, JSON.stringify(p.text).slice(0, 60)); return; }
+            if (m.type === "audio") { log("AUDIO (should not happen in text-only)"); return; }
+            log(m.type, JSON.stringify(m).slice(0, 400));
+            if (m.type === "agent_response" && asked < questions.length) {
+              const q = questions[asked++];
+              log("send user_message", q);
+              ws.send(JSON.stringify({ type: "user_message", text: q }));
+            } else if (m.type === "agent_response") {
+              log("done"); ws.close();
+            }
+          };
+          ws.onerror = (e) => log("error", e?.message || e?.type);
+          ws.onclose = (e) => { log("close", e.code, e.reason); process.exit(0); };
+          setTimeout(() => { log("timeout"); ws.close(); process.exit(0); }, 90000);
+          JS
+          node probe.mjs
