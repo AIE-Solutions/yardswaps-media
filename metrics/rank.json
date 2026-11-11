@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-11T15:37:30Z",
+ "generatedAt": "2026-11-11T19:34:02Z",
  "boost": {
   "construction-life-compactor": 60,
-  "surplus-parts-cash-flow": 60,
-  "small-business-old-oven": 53
+  "small-business-old-oven": 60,
+  "leftover-fittings-lot": 33
  },
  "retire": {}
 }
