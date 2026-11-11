@@ -1,0 +1,27 @@
+1
+00:00:00,600 --> 00:00:12,778
+Seis anuncios de esta semana en YardSwaps. Primero, la bomba de pozo que desarmaste para piezas: foto, elige Parts and Other, pon un precio, y ya está al aire. Publicar es gratis.
+
+2
+00:00:16,140 --> 00:00:23,851
+Un tablero de control retirado en un cambio de equipo. Una foto, y la IA escribe el título y lo archiva en Eléctrico.
+
+3
+00:00:29,680 --> 00:00:37,286
+Una perforadora parada desde el último pozo. Foto con el mástil arriba o abajo, y la IA la archiva en Perforación.
+
+4
+00:00:43,210 --> 00:00:49,719
+La hidrolavadora vieja que se quedó después del cambio. Una foto, sin escribir nada, publicada gratis.
+
+5
+00:00:54,420 --> 00:01:04,273
+¿Terminaste de construir por esta temporada? La revolvedora se queda en el patio. Foto, la IA llena título y categoría, toca el precio, listo.
+
+6
+00:01:05,620 --> 00:01:15,394
+Las piezas que ya tienes en el estante. Foto a una conexión, toca Parts and Other, y la IA lee la medida en la tuerca. Publicada gratis.
+
+7
+00:01:17,300 --> 00:01:19,316
+Publica gratis en YardSwaps.

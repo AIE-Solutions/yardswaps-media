@@ -1,0 +1,39 @@
+1
+00:00:00,600 --> 00:00:12,856
+¿Piezas atoradas en un estante? Escanéalas y saca dinero extra. Un cilindro con su etiqueta: foto, la IA lee marca, modelo y número de parte de la etiqueta, pon tu precio y publica.
+
+2
+00:00:16,140 --> 00:00:27,508
+Una conexión de latón. Foto con la etiqueta en cuadro. La IA lee la medida y el tipo de conexión de la etiqueta: una llave de inserción de tres cuartos. Pon precio y publica.
+
+3
+00:00:29,680 --> 00:00:41,701
+El pulgar de la excavadora que vendiste. Foto, y la IA escribe el título y la categoría. Las piezas desmontadas se venden sin número de parte. Publícalo. Dinero, no chatarra.
+
+4
+00:00:43,210 --> 00:00:54,108
+Cilindros de repuesto en una tarima. Foto a la etiqueta, la IA lee el número de parte y las especificaciones, y los compradores lo encuentran por ese número. Publicado gratis.
+
+5
+00:00:56,750 --> 00:01:06,838
+Conexiones que sobraron de tres trabajos, nuevas en su empaque. Foto al montón y véndelas como un solo lote. Pon tu precio y publica. Recuperas espacio en la camioneta.
+
+6
+00:01:10,290 --> 00:01:20,561
+La caja de piezas que siempre piensas ordenar. Tómale foto y véndela como un solo lote; el comprador la ordena. Pon tu precio y publica. Recuperas espacio en el estante.
+
+7
+00:01:23,830 --> 00:01:34,728
+El motor de repuesto que no le queda a nada de lo que tienes. Una foto, la IA llena los detalles, corriges lo que sea, pones tu precio y publicas. Al aire, gratis.
+
+8
+00:01:37,370 --> 00:01:48,424
+Adhesivo para anclajes que sobró. Foto a los cartuchos con la etiqueta a la vista. La IA lee la marca y el producto, y los compradores buscan por producto. Publicado gratis.
+
+9
+00:01:50,900 --> 00:01:59,002
+¿Lo vendiste? Márcalo con un toque. ¿Tienes otro ahí parado? Una foto, y queda publicado gratis. Sin comisión por la venta.
+
+10
+00:02:01,620 --> 00:02:03,636
+Publica gratis en YardSwaps.
