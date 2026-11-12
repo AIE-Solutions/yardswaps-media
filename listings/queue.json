@@ -186,5 +186,37 @@
     "updated": "2026-11-12T17:45:15Z",
     "reason": "Dealer banner across the photo with a readable street address (Bandera Rd, San Antonio) and partial dealer name",
     "reviewed_by": "claude"
+  },
+  {
+    "listing_id": "cmwco6vw2001xlf3a9ntc7473",
+    "seller": "cmw3t58i20072nw3a9rh1c3en",
+    "title": "2020 Ford F-350 SuperCab XL - 6.2L V8 Gas - Service Body - 142k mi",
+    "category": "fleet",
+    "photo": "/api/images/listings/1794434869558-aeb35464a511.jpg",
+    "card": "listings/cards/cmwco6vw2001xlf3a9ntc7473.jpg",
+    "blurred_words": 5,
+    "ocr": true,
+    "new": true,
+    "ig_caption": "Just listed on YardSwaps: 2020 Ford F-350 SuperCab XL - 6.2L V8 Gas - Service Body - 142k mi\n\n$25,995 · 2020 · 142,000 miles · San Antonio, TX\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#FleetTrucks #WorkTrucks #UsedEquipment #IndustrialEquipment #EquipmentMarketplace\n\nWhat do you check first when you look at a used one?",
+    "fb_caption": "Just listed on YardSwaps: 2020 Ford F-350 SuperCab XL - 6.2L V8 Gas - Service Body - 142k mi\n\n$25,995 · 2020 · 142,000 miles · San Antonio, TX\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmwco6vw2001xlf3a9ntc7473?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#FleetTrucks #WorkTrucks #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat do you check first when you look at a used one?",
+    "status": "pending",
+    "added": "2026-11-12T21:51:34Z",
+    "updated": "2026-11-12T21:51:34Z"
+  },
+  {
+    "listing_id": "cmvn03jea001emn3a3b8e30lf",
+    "seller": "cmvmzo1qc0018mn3akcojwpfw",
+    "title": "1995 International Tri-axle Cummins L10",
+    "category": "fleet",
+    "photo": "/api/images/listings/1792882743983-92156bf0e410.jpg",
+    "card": "listings/cards/cmvn03jea001emn3a3b8e30lf.jpg",
+    "blurred_words": 1,
+    "ocr": true,
+    "new": false,
+    "ig_caption": "For sale on YardSwaps: 1995 International Tri-axle Cummins L10\n\n$12,000 · 1995 · 300,000 miles · Newport News, VA\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#FleetTrucks #WorkTrucks #UsedEquipment #Jobsite #Tradespeople\n\nWhat would you put this to work on first?",
+    "fb_caption": "For sale on YardSwaps: 1995 International Tri-axle Cummins L10\n\n$12,000 · 1995 · 300,000 miles · Newport News, VA\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmvn03jea001emn3a3b8e30lf?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#FleetTrucks #WorkTrucks #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat would you put this to work on first?",
+    "status": "pending",
+    "added": "2026-11-12T21:51:36Z",
+    "updated": "2026-11-12T21:51:36Z"
   }
 ]
