@@ -181,8 +181,10 @@
     "new": true,
     "ig_caption": "Just listed on YardSwaps: 2019 Ford F-350 SuperCab XL - 6.2L V8 Gas - Service Body - 141k mi\n\n$23,995 · 2019 · 141,038 miles · San Antonio, TX\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#FleetTrucks #WorkTrucks #UsedEquipment #Jobsite #Tradespeople\n\nBuy it used or new: which way do you go on a machine like this?",
     "fb_caption": "Just listed on YardSwaps: 2019 Ford F-350 SuperCab XL - 6.2L V8 Gas - Service Body - 141k mi\n\n$23,995 · 2019 · 141,038 miles · San Antonio, TX\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmwcm06gr001glf3agv5fgns7?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#FleetTrucks #WorkTrucks #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nBuy it used or new: which way do you go on a machine like this?",
-    "status": "pending",
+    "status": "rejected",
     "added": "2026-11-11T21:53:28Z",
-    "updated": "2026-11-11T21:53:28Z"
+    "updated": "2026-11-12T17:45:15Z",
+    "reason": "Dealer banner across the photo with a readable street address (Bandera Rd, San Antonio) and partial dealer name",
+    "reviewed_by": "claude"
   }
 ]
