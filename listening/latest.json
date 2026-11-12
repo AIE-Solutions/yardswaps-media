@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T19:35:29.045668+00:00",
+ "generated_at": "2026-11-12T19:52:20.352953+00:00",
  "lookback_days": 8,
  "sources": [
   {
@@ -23,8 +23,8 @@
   {
    "name": "Garage Journal",
    "status": "ok",
-   "items": 29,
-   "in_window": 29
+   "items": 30,
+   "in_window": 30
   },
   {
    "name": "Boom & Bucket forums",
@@ -40,21 +40,21 @@
   },
   {
    "name": "LawnSite",
-   "status": "ok",
-   "items": 35,
-   "in_window": 35
+   "status": "error: TimeoutError: The read operation timed out",
+   "items": 0,
+   "in_window": 0
   },
   {
    "name": "ContractorTalk",
-   "status": "ok",
-   "items": 35,
-   "in_window": 35
+   "status": "error: HTTPError: HTTP Error 406: Not Acceptable",
+   "items": 0,
+   "in_window": 0
   },
   {
    "name": "WeldingWeb",
-   "status": "ok",
-   "items": 35,
-   "in_window": 35
+   "status": "error: TimeoutError: The read operation timed out",
+   "items": 0,
+   "in_window": 0
   },
   {
    "name": "Pressure Washing Resource",

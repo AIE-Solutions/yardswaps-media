@@ -1,4 +1,4 @@
-# Listening list, updated Wed Nov 11, 2026
+# Listening list, updated Thu Nov 12, 2026
 
 People asking to buy or sell used work equipment in public places, last 8 days. Nothing here was posted. Reply by hand, as the business, only where the place's rules allow it; use the link version only where links are allowed.
 
