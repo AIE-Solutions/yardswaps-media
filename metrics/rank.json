@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-11T19:34:02Z",
+ "generatedAt": "2026-11-12T19:54:07Z",
  "boost": {
   "construction-life-compactor": 60,
-  "small-business-old-oven": 60,
-  "leftover-fittings-lot": 33
+  "second-bay-closed-tools": 60,
+  "small-business-old-oven": 60
  },
  "retire": {}
 }
