@@ -28,5 +28,15 @@
   "media_id": "18169182913486804",
   "expires": "2026-11-11T15:31:41Z",
   "verified_live": true
+ },
+ {
+  "date": "2026-11-12",
+  "machine": "walk-in cooler",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/71071dcfa4ba819ffea60fac26d874f77fbbd16e/stories/out/2026-11-12-walk-in-cooler-story.jpg",
+  "time": "2026-11-12T15:31:18Z",
+  "status": "posted",
+  "media_id": "17937551613407686",
+  "expires": "2026-11-13T15:31:31Z",
+  "verified_live": true
  }
 ]
