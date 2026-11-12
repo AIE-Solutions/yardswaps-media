@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-11T22:44:53Z",
+  "fetched_at": "2026-11-12T17:47:05Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -16,5 +16,19 @@
   "errors": [
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
-  "items": []
+  "items": [
+    {
+      "platform": "instagram",
+      "comment_id": "18104770595039997",
+      "reply_to": "18104770595039997",
+      "author": null,
+      "text": "forward me this post",
+      "time": "2026-11-12T15:00:34+0000",
+      "likes": 0,
+      "media_id": "17874215613646883",
+      "permalink": "https://www.instagram.com/reel/DfpTltkiV1Y/",
+      "post": "POV: you run one jetter now. The second jetter sits by the fence.",
+      "type": "REELS"
+    }
+  ]
 }
