@@ -545,7 +545,8 @@
    "ig_tags": "#equipmentdealer #usedequipment #equipmentforsale #aeriallift #yardswaps",
    "hold": true,
    "hold_reason": "Nov 10: the cut shows a 'Searches that found nothing' title card (about 3 s). Alan's Nov 10 rule: never say searches come up empty. Held until Motion re-cuts it without that card; caption already fixed.",
-   "audience": "dealer"
+   "audience": "dealer",
+   "hold_note": "Replaced by see-what-buyers-want-v2 on 2026-11-13 (no \"found nothing\" frames); keep the hold."
   },
   {
    "slug": "mission-idle-to-work",
@@ -727,6 +728,79 @@
    "question": "What is still hanging from your shop beam?",
    "ig_tags": "#chainhoist #rigging #shopequipment #usedequipment #yardswaps",
    "category": "cranes"
+  },
+  {
+   "added": "2026-11-13",
+   "slug": "storefront-stats",
+   "file": "reels/library/yardswaps-storefront-stats-9x16.mp4",
+   "priority": 0,
+   "body": "Which units do buyers actually look at? Your storefront keeps score.\n\nStorefront stats on the Dealer plan: views, saves, chats and offers over 30, 90 or 180 days, your top units, and a CSV export you can take anywhere. On from day one of the trial. Dealer plan: first 90 days free, then $49 a month. No listing cap.\n\nFree to list. Free boosts.",
+   "question": "Which unit gets the most calls at your shop?",
+   "ig_tags": "#welder #equipmentdealer #usedequipment #dealerinventory #yardswaps",
+   "category": "welding",
+   "audience": "dealer"
+  },
+  {
+   "added": "2026-11-13",
+   "slug": "socials-on-storefront",
+   "file": "reels/library/yardswaps-socials-on-storefront-9x16.mp4",
+   "priority": 1,
+   "body": "Your shop page, your socials, one place. Buyers follow you here.\n\nYour storefront on the Dealer plan carries your hours, service area, Instagram, Facebook and YouTube links, and every unit you list. Buyers tap Follow and get an alert when you post. Dealer plan: first 90 days free, then $49 a month. No listing cap.\n\nFree to list. Free boosts.",
+   "question": "Where do your customers follow you now?",
+   "ig_tags": "#combioven #restaurantequipment #equipmentdealer #usedequipment #yardswaps",
+   "category": "cooking",
+   "audience": "dealer"
+  },
+  {
+   "added": "2026-11-13",
+   "slug": "see-what-buyers-want-v2",
+   "file": "reels/library/yardswaps-see-what-buyers-want-v2-9x16.mp4",
+   "priority": 2,
+   "body": "What are buyers near you searching for? Your storefront shows you.\n\nThe Buyer demand report on the Dealer plan: searches and saved searches in your categories within 50 miles, and the top terms. Then a Dealer boost on the boom lift, 7 days. Dealer boosts start with the first payment, 5 a month. Dealer plan: first 90 days free, then $49 a month.\n\nFree to list. Free boosts.",
+   "question": "Which of your units gets searched for the most?",
+   "ig_tags": "#boomlift #equipmentdealer #usedequipment #aeriallift #yardswaps",
+   "category": "aerial",
+   "audience": "dealer"
+  },
+  {
+   "added": "2026-11-13",
+   "slug": "lift-still-bolted-down",
+   "file": "reels/library/yardswaps-lift-still-bolted-down-9x16.mp4",
+   "priority": 3,
+   "body": "POV: the shop closed in September. The two-post lift is still bolted down.\n\nA 10,000 lb two-post lift in a bay nobody rents anymore. Snap one photo. AI writes the title, files it under Auto Shop Equipment and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What is still bolted down in the shop you closed?",
+   "ig_tags": "#twopostlift #autoshop #shopequipment #usedequipment #yardswaps",
+   "category": "automotive"
+  },
+  {
+   "added": "2026-11-13",
+   "slug": "box-truck-after-the-route",
+   "file": "reels/library/yardswaps-box-truck-after-the-route-9x16.mp4",
+   "priority": 4,
+   "body": "POV: the delivery route got cut. The box truck sits behind the shop.\n\nA 16 ft cabover box truck with a roll-up door, parked since the route ended. Snap one photo. AI writes the title, files it under Fleet Trucks and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What is parked behind your shop since the route was cut?",
+   "ig_tags": "#boxtruck #fleettrucks #usedtrucks #usedequipment #yardswaps",
+   "category": "fleet"
+  },
+  {
+   "added": "2026-11-13",
+   "slug": "roller-after-the-overlay",
+   "file": "reels/library/yardswaps-roller-after-the-overlay-9x16.mp4",
+   "priority": 5,
+   "body": "POV: the overlay job is done. The roller has not moved since.\n\nA tandem drum vibratory roller sitting where the last overlay ended. Snap one photo. AI writes the title, files it under Paving & Compaction and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What paving gear has not moved since your last job?",
+   "ig_tags": "#asphaltroller #paving #compaction #usedequipment #yardswaps",
+   "category": "paving"
+  },
+  {
+   "added": "2026-11-13",
+   "slug": "safety-gear-on-the-wall",
+   "file": "reels/library/yardswaps-safety-gear-on-the-wall-9x16.mp4",
+   "priority": 6,
+   "body": "POV: the crew got smaller. The hard hats and vests stayed on the wall.\n\nA rack of hard hats and hi-vis vests with no crew to wear them. Snap one photo. AI writes the title, files it under Safety & PPE as a lot and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "How much safety gear is hanging unused in your shop?",
+   "ig_tags": "#safetygear #ppe #hardhats #usedequipment #yardswaps",
+   "category": "safety"
   }
  ]
 }

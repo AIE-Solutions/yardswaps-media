@@ -405,6 +405,55 @@
    "category": "cranes",
    "demo": true,
    "structure": "problem-action-result"
+  },
+  "storefront-stats": {
+   "hook": "pov-situation",
+   "angle": "dealer",
+   "category": "welding",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "socials-on-storefront": {
+   "hook": "pov-situation",
+   "angle": "dealer",
+   "category": "cooking",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "see-what-buyers-want-v2": {
+   "hook": "pov-situation",
+   "angle": "dealer",
+   "category": "aerial",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "lift-still-bolted-down": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "automotive",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "box-truck-after-the-route": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "fleet",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "roller-after-the-overlay": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "paving",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "safety-gear-on-the-wall": {
+   "hook": "pov-idle",
+   "angle": "small-items",
+   "category": "safety",
+   "demo": true,
+   "structure": "problem-action-result"
   }
  }
 }
