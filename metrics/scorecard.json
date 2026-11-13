@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-09",
- "generatedAt": "2026-11-12T19:54:07Z",
+ "generatedAt": "2026-11-13T15:57:19Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": true,
@@ -13,7 +13,7 @@
   "followers": {
    "instagram": {
     "now": 831,
-    "change7d": 736,
+    "change7d": 683,
     "asOf": "2026-11-12"
    },
    "facebook": {
@@ -119,6 +119,27 @@
     "ratio": 4.5
    },
    {
+    "slug": "laundromat-upgrade-washers",
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 1,
+    "points": 3.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 3.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "laundry",
+    "demo": true,
+    "structure": "problem-action-result",
+    "ratio": 3.0
+   },
+   {
     "slug": "leftover-fittings-lot",
     "posts": 2,
     "settled": 2,
@@ -177,27 +198,6 @@
     "ratio": 2.0
    },
    {
-    "slug": "interior-job-done-lifts",
-    "posts": 2,
-    "settled": 1,
-    "igSettled": 1,
-    "points": 2.0,
-    "views": 0,
-    "likes": 3,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 2.0,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "aerial",
-    "demo": true,
-    "structure": "problem-action-result",
-    "ratio": 2.0
-   },
-   {
     "slug": "parts-donor-thumb",
     "posts": 1,
     "settled": 1,
@@ -233,6 +233,27 @@
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "electrical",
+    "ratio": 1.5
+   },
+   {
+    "slug": "interior-job-done-lifts",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 3.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.5,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "aerial",
+    "demo": true,
+    "structure": "problem-action-result",
     "ratio": 1.5
    },
    {
@@ -275,6 +296,27 @@
     "demo": true,
     "structure": "problem-action-result",
     "voice": true,
+    "ratio": 1.5
+   },
+   {
+    "slug": "second-location-closed",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 3.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.5,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "restaurant",
+    "demo": true,
+    "structure": "problem-action-result",
     "ratio": 1.5
    },
    {
@@ -341,6 +383,27 @@
     "ratio": 1.0
    },
    {
+    "slug": "mowing-contract-ended",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 2.0,
+    "views": 0,
+    "likes": 2,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "landscaping",
+    "demo": true,
+    "structure": "problem-action-result",
+    "ratio": 1.0
+   },
+   {
     "slug": "origin-part-in-a-yard",
     "posts": 2,
     "settled": 2,
@@ -378,6 +441,27 @@
     "hook": "question-problem",
     "angle": "parts-spec",
     "category": "parts",
+    "ratio": 1.0
+   },
+   {
+    "slug": "shop-went-cnc-lathe",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 2.0,
+    "views": 0,
+    "likes": 2,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "machining",
+    "demo": true,
+    "structure": "problem-action-result",
     "ratio": 1.0
    },
    {
@@ -524,48 +608,6 @@
     "ratio": null
    },
    {
-    "slug": "laundromat-upgrade-washers",
-    "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 3,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "laundry",
-    "demo": true,
-    "structure": "problem-action-result",
-    "ratio": null
-   },
-   {
-    "slug": "mowing-contract-ended",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 2,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "landscaping",
-    "demo": true,
-    "structure": "problem-action-result",
-    "ratio": null
-   },
-   {
     "slug": "origin-searched-everywhere",
     "posts": 2,
     "settled": 2,
@@ -643,48 +685,6 @@
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "hydro",
-    "demo": true,
-    "structure": "problem-action-result",
-    "ratio": null
-   },
-   {
-    "slug": "second-location-closed",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 3,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "restaurant",
-    "demo": true,
-    "structure": "problem-action-result",
-    "ratio": null
-   },
-   {
-    "slug": "shop-went-cnc-lathe",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 2,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "machining",
     "demo": true,
     "structure": "problem-action-result",
     "ratio": null
@@ -817,21 +817,25 @@
    },
    {
     "value": "pov-idle",
-    "posts": 27,
-    "perPost": 1.56,
-    "ratio": 1.56,
+    "posts": 35,
+    "perPost": 1.51,
+    "ratio": 1.51,
     "verdict": "winner",
     "slugs": [
      "second-bay-closed-tools",
+     "laundromat-upgrade-washers",
      "leftover-fittings-lot",
      "mission-idle-to-work",
      "drilling-rig-parked",
-     "interior-job-done-lifts",
      "parts-donor-thumb",
      "control-panel-pulled",
+     "interior-job-done-lifts",
      "micrometer-set-small-tools",
+     "second-location-closed",
      "forklift-sitting-there",
      "job-wrapped-generator",
+     "mowing-contract-ended",
+     "shop-went-cnc-lathe",
      "warehouse-lease-ended",
      "downsized-to-one-truck",
      "sold-the-septic-route",
@@ -888,21 +892,25 @@
    },
    {
     "value": "idle-gear",
-    "posts": 25,
-    "perPost": 2.04,
-    "ratio": 2.04,
+    "posts": 33,
+    "perPost": 1.88,
+    "ratio": 1.88,
     "verdict": "winner",
     "slugs": [
      "construction-life-compactor",
      "small-business-old-oven",
+     "laundromat-upgrade-washers",
      "mission-idle-to-work",
      "drilling-rig-parked",
-     "interior-job-done-lifts",
      "control-panel-pulled",
+     "interior-job-done-lifts",
      "pressure-washer-1000-psi",
+     "second-location-closed",
      "building-things-concrete-mixer",
      "forklift-sitting-there",
      "job-wrapped-generator",
+     "mowing-contract-ended",
+     "shop-went-cnc-lathe",
      "warehouse-lease-ended",
      "downsized-to-one-truck",
      "sold-the-septic-route",
@@ -988,6 +996,16 @@
     ]
    },
    {
+    "value": "laundry",
+    "posts": 1,
+    "perPost": 3.0,
+    "ratio": 3.0,
+    "verdict": "testing",
+    "slugs": [
+     "laundromat-upgrade-washers"
+    ]
+   },
+   {
     "value": "drilling",
     "posts": 2,
     "perPost": 2.0,
@@ -995,16 +1013,6 @@
     "verdict": "testing",
     "slugs": [
      "drilling-rig-parked"
-    ]
-   },
-   {
-    "value": "aerial",
-    "posts": 1,
-    "perPost": 2.0,
-    "ratio": 2.0,
-    "verdict": "testing",
-    "slugs": [
-     "interior-job-done-lifts"
     ]
    },
    {
@@ -1028,13 +1036,13 @@
     ]
    },
    {
-    "value": "machining",
+    "value": "aerial",
     "posts": 2,
     "perPost": 1.5,
     "ratio": 1.5,
     "verdict": "testing",
     "slugs": [
-     "micrometer-set-small-tools"
+     "interior-job-done-lifts"
     ]
    },
    {
@@ -1045,6 +1053,27 @@
     "verdict": "testing",
     "slugs": [
      "pressure-washer-1000-psi"
+    ]
+   },
+   {
+    "value": "restaurant",
+    "posts": 2,
+    "perPost": 1.5,
+    "ratio": 1.5,
+    "verdict": "testing",
+    "slugs": [
+     "second-location-closed"
+    ]
+   },
+   {
+    "value": "machining",
+    "posts": 4,
+    "perPost": 1.25,
+    "ratio": 1.25,
+    "verdict": "average",
+    "slugs": [
+     "micrometer-set-small-tools",
+     "shop-went-cnc-lathe"
     ]
    },
    {
@@ -1068,6 +1097,16 @@
     "verdict": "testing",
     "slugs": [
      "building-things-concrete-mixer"
+    ]
+   },
+   {
+    "value": "landscaping",
+    "posts": 2,
+    "perPost": 1.0,
+    "ratio": 1.0,
+    "verdict": "testing",
+    "slugs": [
+     "mowing-contract-ended"
     ]
    },
    {
@@ -1140,18 +1179,22 @@
   "structure": [
    {
     "value": "problem-action-result",
-    "posts": 19,
-    "perPost": 2.58,
-    "ratio": 2.58,
+    "posts": 27,
+    "perPost": 2.22,
+    "ratio": 2.22,
     "verdict": "winner",
     "slugs": [
      "construction-life-compactor",
      "second-bay-closed-tools",
      "small-business-old-oven",
+     "laundromat-upgrade-washers",
      "interior-job-done-lifts",
      "pressure-washer-1000-psi",
+     "second-location-closed",
      "building-things-concrete-mixer",
      "job-wrapped-generator",
+     "mowing-contract-ended",
+     "shop-went-cnc-lathe",
      "warehouse-lease-ended",
      "downsized-to-one-truck",
      "sold-the-septic-route"
@@ -2198,9 +2241,9 @@
     "generators",
     "pumps",
     "vacuum",
-    "automotive",
     "inspection",
-    "hydro"
+    "hydro",
+    "automotive"
    ],
    "stopMaking": [
     "origin",
