@@ -128,5 +128,13 @@
   "buffer_id": "6af38074ead9c53d41bc4bc2",
   "due": "2026-11-10T20:42:05.000Z",
   "error": "TikTok flagged this post as potential spam and blocked it from publishing. Please review your content and try again. If this persists, try posting directly through TikTok to verify your account is in good standing. Failed to create media container for tiktok: Tiktok update failed to publish: 0: spam_risk (status: FAILED)"
+ },
+ {
+  "time": "2026-11-13T20:44:57Z",
+  "platform": "tiktok",
+  "slug": "storefront-stats",
+  "repeat": false,
+  "status": "failed",
+  "error": "Invalid post: Video could not be read from its URL."
  }
 ]
