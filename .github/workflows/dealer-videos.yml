@@ -1,0 +1,90 @@
+name: Dealer inventory videos
+
+# Renders the Dealer plan's monthly inventory videos (dealer-videos/README.md).
+# The app queues the jobs; each run claims them one by one, renders the MP4
+# from the listing's real photos with an ElevenLabs voiceover and our music,
+# uploads it and reports back. Nothing is committed to this repo.
+#
+# Needs two repo secrets: DEALER_VIDEO_WORKER_SECRET (the same value as the
+# Railway variable of that name) and ELEVENLABS_API_KEY (already set). With
+# no worker secret every run stops at the first step, costing nothing.
+#
+# On a pull request it renders a sample from three photos in this repo with
+# a silent voice and keeps it as a run artifact (a test run; no service).
+on:
+  schedule:
+    - cron: "23 */3 * * *"
+  pull_request:
+    paths:
+      - "dealer-videos/**"
+      - ".github/workflows/dealer-videos.yml"
+  workflow_dispatch:
+    inputs:
+      max_jobs:
+        description: "Most videos to make this run"
+        default: "10"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dealer-videos
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      DEALER_VIDEO_WORKER_SECRET: ${{ github.event_name != 'pull_request' && secrets.DEALER_VIDEO_WORKER_SECRET || '' }}
+      ELEVENLABS_API_KEY: ${{ github.event_name != 'pull_request' && secrets.ELEVENLABS_API_KEY || '' }}
+    steps:
+      - name: Check the switch
+        id: gate
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then echo "go=1" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ -z "$DEALER_VIDEO_WORKER_SECRET" ]; then
+            echo "DEALER_VIDEO_WORKER_SECRET is not set on this repo: dealer videos are off" | tee -a "$GITHUB_STEP_SUMMARY"
+            echo "go=0" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "go=1" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.go == '1'
+        with:
+          sparse-checkout: |
+            dealer-videos
+            listings/fonts
+            music/trend
+            photos/plumbing
+      # The runner's default Python is newer than Playwright's greenlet
+      # wheels, which then fail to build; 3.12 has wheels for every package.
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.go == '1'
+        with:
+          python-version: "3.12"
+      - name: Install tools
+        if: steps.gate.outputs.go == '1'
+        run: |
+          sudo apt-get update -q >/dev/null
+          sudo apt-get install -y -q tesseract-ocr ffmpeg >/dev/null
+          pip install -q "opencv-python-headless==4.10.0.84" pytesseract pillow numpy requests "playwright==1.48.0"
+          python3 -m playwright install --with-deps chromium >/dev/null
+      - name: Render a sample (pull request)
+        if: github.event_name == 'pull_request'
+        run: |
+          mkdir -p /tmp/sample
+          cp photos/plumbing/well-pump-stripped-impeller.jpg photos/plumbing/pvc-and-copper-tees.jpg photos/plumbing/copper-tees-shop-bins.jpg /tmp/sample/
+          python3 dealer-videos/render.py --sample /tmp/sample
+      - name: Keep the sample
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dealer-video-sample
+          path: dealer-videos/out/sample.mp4
+          retention-days: 7
+      - name: Make the videos
+        if: github.event_name != 'pull_request' && steps.gate.outputs.go == '1'
+        env:
+          APP_URL: https://www.yardswaps.com
+          MAX_JOBS: ${{ inputs.max_jobs || '10' }}
+        run: python3 dealer-videos/render.py
