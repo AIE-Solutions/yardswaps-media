@@ -34,6 +34,9 @@ on:
       dry_run:
         description: "1 = only print the pick and captions"
         default: "0"
+      image_slug:
+        description: "One-off IMAGE post from reels/images.json (skips the Reels queue), e.g. snap-it"
+        default: ""
 
 permissions:
   contents: write
@@ -43,7 +46,35 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  image:
+    # One-off image post (feed + Stories on IG and FB) from reels/images.json.
+    if: inputs.image_slug != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - name: Post the image
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          IMAGE_SLUG: ${{ inputs.image_slug }}
+          PLATFORMS: ${{ inputs.platforms || 'instagram,facebook,instagram_story,facebook_story' }}
+          DRY_RUN: ${{ inputs.dry_run || '0' }}
+        run: python3 reels/post_image.py
+      - name: Save the image log
+        if: always()
+        run: |
+          git config user.name "yardswaps-reels-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add reels/images-posted.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Image post log"
+          git pull --rebase origin ${GITHUB_REF_NAME} || true
+          git push origin HEAD:${GITHUB_REF_NAME}
+
   gate:
+    if: inputs.image_slug == ''
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:

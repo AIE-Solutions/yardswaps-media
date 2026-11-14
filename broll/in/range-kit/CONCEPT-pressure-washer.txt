@@ -1,0 +1,5 @@
+RUNWAY ADS, PRODUCT AD. Product: product-pressure-washer.jpg. Ambience: leave empty. Pick 9:16. Paste the text below into "Describe your ad concept".
+
+An ad for YardSwaps, a free app where people sell used equipment of every kind. A red hot-water pressure washer sits pushed into the back corner of a contractor's shop, between a tool chest and a stack of buckets. Time passes in that corner: dust settles on the hose reel, someone throws a tarp over it, a spider strings a web from the handle to the wall, the shop light goes day to night and back many times. One morning a phone photographs it and the YardSwaps app lists it. Last shot: the clean rectangle of concrete where it stood, outlined in dust. Calm, quietly funny, documentary feel, natural light, no voice-over, no people's faces, no text on the machine. End on a clean light-gray card with the words: Free to list. No cut of the sale. yardswaps.com
+
+After Runway renders it, export the video. Runway misspells app screens, so the real app screen gets swapped in before it goes out.
