@@ -155,5 +155,14 @@
   "repeat": false,
   "status": "failed",
   "error": "Invalid post: Video could not be read from its URL."
+ },
+ {
+  "time": "2026-11-14T14:44:32Z",
+  "platform": "tiktok",
+  "slug": "socials-on-storefront",
+  "repeat": false,
+  "status": "scheduled",
+  "buffer_id": "6af873d2e5a113497a8bff8a",
+  "due": "2026-11-14T14:49:32.000Z"
  }
 ]
