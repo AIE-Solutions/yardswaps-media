@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T19:37:54.594629+00:00",
+ "generated_at": "2026-11-14T17:57:47.647113+00:00",
  "lookback_days": 8,
  "sources": [
   {
@@ -60,10 +60,29 @@
    "name": "Pressure Washing Resource",
    "status": "ok",
    "items": 30,
-   "in_window": 1
+   "in_window": 2
   }
  ],
  "posts": [
+  {
+   "title": "For sale: Clausing Kondia FV-1 CNC mill",
+   "link": "https://www.practicalmachinist.com/forum/threads/for-sale-clausing-kondia-fv-1-cnc-mill.450807/",
+   "text": "Selling my Clausing Kondia FV-1 CNC mill, because I stumbled into a newer Haas mill, and don't have space to keep both. It's in very good mechanical condition. - 220v single phase - 3hp spindle motor controlled by VFD - full simultaneous 3 axis CNC with 24\" x 14\" x 6\" travels - Dynapath Delta 20 control - the control accepts drip feed of longer programs via rs-232, and it works well. I used a USB to serial converter cable connected to an old laptop, and will include the cable with the... Read more",
+   "author": "leeko",
+   "time": "2026-11-14T16:16:04+00:00",
+   "platform": "Forum",
+   "source": "Practical Machinist",
+   "links_ok": false,
+   "intent": "sell",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
+   "score": 4,
+   "drafts": {
+    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
+    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
+   },
+   "first_seen": "2026-11-14T17:57:47.647113+00:00"
+  },
   {
    "title": "FS: Mitutoyo Micrometer Set, Telebrineller, Stearns Holiday Detector, New Age Tester - Broken Arrow, OK",
    "link": "https://www.practicalmachinist.com/forum/threads/fs-mitutoyo-micrometer-set-telebrineller-stearns-holiday-detector-new-age-tester-broken-arrow-ok.452369/",
@@ -120,6 +139,25 @@
     "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
    },
    "first_seen": "2026-11-10T19:40:42.033280+00:00"
+  },
+  {
+   "title": "Wanted: Hobby Machinist with Metal Lathe \u2014 Small, Simple Paid Project",
+   "link": "https://www.hobby-machinist.com/threads/wanted-hobby-machinist-with-metal-lathe-small-simple-paid-project.126264/",
+   "text": "Looking for someone with a metal lathe to make a small set of cylindrical metal parts for a mechanical puzzle. The work involves basic lathe operations: cutting 1 inch Al stock to length, turning outside diameters, and drilling axial holes. No CNC equipment required. A conventional manual metal lathe should be sufficient. This is a small, one-time project, may lead to more, particularly suitable for a retired machinist, home-shop hobbyist, or someone who enjoys straightforward... Read more",
+   "author": "MHLevine",
+   "time": "2026-11-14T17:24:21+00:00",
+   "platform": "Forum",
+   "source": "Hobby-Machinist",
+   "links_ok": false,
+   "intent": "buy",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
+   "score": 3,
+   "drafts": {
+    "no_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?",
+    "with_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?\nhttps://www.yardswaps.com/?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
+   },
+   "first_seen": "2026-11-14T17:57:47.647113+00:00"
   }
  ]
 }
