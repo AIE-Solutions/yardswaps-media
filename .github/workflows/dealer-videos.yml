@@ -56,6 +56,12 @@ jobs:
             listings/fonts
             music/trend
             photos/plumbing
+      # The runner's default Python is newer than Playwright's greenlet
+      # wheels, which then fail to build; 3.12 has wheels for every package.
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.go == '1'
+        with:
+          python-version: "3.12"
       - name: Install tools
         if: steps.gate.outputs.go == '1'
         run: |
