@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-13T19:37:07Z",
+ "generatedAt": "2026-11-14T17:58:07Z",
  "boost": {
-  "construction-life-compactor": 60,
   "second-bay-closed-tools": 60,
-  "small-business-old-oven": 60
+  "second-jetter-by-the-fence": 60,
+  "laundromat-upgrade-washers": 60
  },
  "retire": {}
 }

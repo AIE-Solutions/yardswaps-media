@@ -1,10 +1,10 @@
 # YardSwaps weekly scorecard (2026-11-09)
 
-Generated 2026-11-13T19:37:07Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
+Generated 2026-11-14T17:58:07Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
 
 ## Goals
-- Instagram followers: 829 (+681 in 7 days)
-- Facebook followers: 14 (+3 in 7 days)
+- Instagram followers: 819 (+454 in 7 days)
+- Facebook followers: 14 (+1 in 7 days)
 - YouTube: {"subscribers": 8, "views": 21888, "videoCount": 80}
 - Signups 7d: 5 (prev 9); from the app (iOS/Android): 0
 - Listings published 7d: 10 (prev 15); live now: 43
@@ -16,89 +16,98 @@ Median points per post: 1.0. Points = follows x10, shares x4, saves x3, comments
 
 | Video | Posts | Views | Likes | Comments | Shares | Saves | Follows | Signups | Points/post | vs median |
 |---|---|---|---|---|---|---|---|---|---|---|
-| construction-life-compactor | 2 | 0 | 4 | 4 | 0 | 0 | 0 | 0 | 8.0 | 8.0 |
 | second-bay-closed-tools | 2 | 0 | 3 | 3 | 0 | 0 | 0 | 0 | 6.0 | 6.0 |
-| small-business-old-oven | 2 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | 4.5 | 4.5 |
+| second-jetter-by-the-fence | 2 | 0 | 1 | 3 | 0 | 0 | 0 | 0 | 5.0 | 5.0 |
 | laundromat-upgrade-washers | 2 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 4.0 | 4.0 |
 | whole-lot-one-link | 2 | 0 | 6 | 0 | 0 | 0 | 0 | 0 | 3.0 | 3.0 |
-| mission-idle-to-work | 2 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 2.5 | 2.5 |
+| mission-idle-to-work | 1 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 2.0 | 2.0 |
 | parts-donor-thumb | 1 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 2.0 | 2.0 |
 | second-location-closed | 2 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 2.0 | 2.0 |
 | interior-job-done-lifts | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.5 |
-| pressure-washer-1000-psi | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.5 |
 | shop-went-cnc-lathe | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | 1.5 |
-| building-things-concrete-mixer | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
+| construction-life-compactor | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | drilling-rig-parked | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | forklift-sitting-there | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
+| import-from-your-website | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | job-wrapped-generator | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | mowing-contract-ended | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
-| origin-part-in-a-yard | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | part-tag-scan | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
+| pressure-washer-1000-psi | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
+| small-business-old-oven | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
+| trash-pump-after-the-job | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | warehouse-lease-ended | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | 1.0 |
 | downsized-to-one-truck | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.5 |
+| inspection-camera-in-the-van | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.5 |
 | sold-the-septic-route | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | 0.5 |
+| box-truck-after-the-route | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| building-things-concrete-mixer | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
 | chain-hoist-on-the-beam | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | control-panel-pulled | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
 | cooler-still-humming | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | find-it-nearby | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
 | forklift-finally-deal | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
-| import-from-your-website | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| inspection-camera-in-the-van | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | leftover-fittings-lot | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
+| lift-still-bolted-down | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | micrometer-set-small-tools | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
 | office-went-remote | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| origin-searched-everywhere | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
+| origin-part-in-a-yard | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
+| origin-searched-everywhere | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
 | origin-sitting-cash | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
 | plumbing-part-label | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
-| second-jetter-by-the-fence | 2 | 0 | 1 | 3 | 0 | 0 | 0 | 0 | too new | - |
+| roller-after-the-overlay | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| safety-gear-on-the-wall | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| see-what-buyers-want-v2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| socials-on-storefront | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | store-closed-kiosk | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| storefront-stats | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | stripped-well-pump | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
 | surplus-parts-cash-flow | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
-| trash-pump-after-the-job | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
 
 ### Opener shapes
-- search-term: 3.75 points/post over 8 posts (winner)
-- pov-situation: 3.0 points/post over 2 posts (testing)
-- pov-idle: 1.39 points/post over 31 posts (winner)
+- pov-situation: 2.0 points/post over 4 posts (winner)
+- pov-idle: 1.47 points/post over 36 posts (winner)
 - question-problem: 1.0 points/post over 1 posts (testing)
-- origin: 0.33 points/post over 6 posts (loser)
+- search-term: 0.75 points/post over 4 posts (average)
 - feature-statement: 0.0 points/post over 1 posts (testing)
+- origin: 0.0 points/post over 4 posts (loser)
 
 ### Topics
 - small-items: 4.0 points/post over 3 posts (winner)
-- dealer: 3.0 points/post over 2 posts (testing)
-- idle-gear: 1.9 points/post over 31 posts (winner)
+- dealer: 2.0 points/post over 4 posts (winner)
+- idle-gear: 1.31 points/post over 32 posts (winner)
 - shelf-parts: 0.5 points/post over 4 posts (loser)
 - parts-spec: 0.5 points/post over 2 posts (testing)
-- origin-story: 0.33 points/post over 6 posts (loser)
 - buyer-feature: 0.0 points/post over 1 posts (testing)
+- origin-story: 0.0 points/post over 4 posts (loser)
 
 ### Categories
-- paving: 8.0 points/post over 2 posts (testing)
 - tools: 6.0 points/post over 2 posts (testing)
-- cooking: 4.5 points/post over 2 posts (testing)
+- hydro: 5.0 points/post over 2 posts (testing)
 - laundry: 4.0 points/post over 1 posts (testing)
 - trailers: 3.0 points/post over 2 posts (testing)
 - excavators: 2.0 points/post over 1 posts (testing)
 - restaurant: 2.0 points/post over 2 posts (testing)
 - aerial: 1.5 points/post over 2 posts (testing)
-- pressure: 1.5 points/post over 2 posts (testing)
-- forklifts: 1.2 points/post over 5 posts (average)
 - machining: 1.0 points/post over 3 posts (average)
-- concrete: 1.0 points/post over 2 posts (testing)
+- paving: 1.0 points/post over 1 posts (testing)
 - drilling: 1.0 points/post over 1 posts (testing)
 - landscaping: 1.0 points/post over 2 posts (testing)
-- pumps: 1.0 points/post over 2 posts (testing)
+- pressure: 1.0 points/post over 1 posts (testing)
+- cooking: 1.0 points/post over 1 posts (testing)
 - warehouse: 1.0 points/post over 2 posts (testing)
-- generators: 0.5 points/post over 4 posts (loser)
+- generators: 0.8 points/post over 5 posts (average)
+- forklifts: 0.75 points/post over 4 posts (average)
+- pumps: 0.67 points/post over 3 posts (average)
 - vacuum: 0.5 points/post over 2 posts (testing)
+- inspection: 0.5 points/post over 2 posts (testing)
 - environmental: 0.5 points/post over 2 posts (testing)
 - parts: 0.14 points/post over 7 posts (loser)
+- concrete: 0.0 points/post over 1 posts (testing)
 - electrical: 0.0 points/post over 1 posts (testing)
 
 ### Video structure tests
-- problem-action-result: 2.41 points/post over 29 posts (winner)
-- problem-why-app: 0.33 points/post over 6 posts (loser)
+- problem-action-result: 1.76 points/post over 33 posts (winner)
+- problem-why-app: 0.0 points/post over 4 posts (loser)
 
 ## YouTube title shapes
 - pov (heycatch): 189.3 views/video over 3 videos, 0 subs
@@ -140,9 +149,9 @@ Zero-result search rate: 0.6585
 - Best segments: dealer, rental, material, repair, excavation
 
 ## What changed automatically
-- Reels boosted (posted first among repeats): construction-life-compactor +60, second-bay-closed-tools +60, small-business-old-oven +60
+- Reels boosted (posted first among repeats): second-bay-closed-tools +60, second-jetter-by-the-fence +60, laundromat-upgrade-washers +60
 - Reels retired (no more repeats; Motion rebuilds the idea): none
-- Build next: opener search-term, pov-idle; topic small-items, idle-gear; categories buyers want generators, pumps, vacuum, inspection, hydro, automotive
+- Build next: opener pov-situation, pov-idle; topic small-items, dealer, idle-gear; categories buyers want generators, pumps, vacuum, inspection, hydro, automotive
 - Opener rule: Open on the real item with the blue question box on screen in second 1. App screens only after the 3-second mark.
 - Stop making: origin, shelf-parts, origin-story, forklifts, feature-statement
 
