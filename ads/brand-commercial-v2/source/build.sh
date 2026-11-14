@@ -1,5 +1,5 @@
 #!/bin/bash
-# "Every shop has one" v2 (9:16). Usage: build.sh <clipdir with s1-s8.mp4> <music.mp3> <app recording.mp4>
+# "Every shop has one" v2 (9:16). Usage: build.sh <clipdir with s1-s8.mp4> <music.mp3> <walkthrough.mp4 from walk.sh>
 set -e
 B=$(cd "$(dirname "$0")" && pwd); C=$(cd "$1" && pwd); M=$(realpath "$2"); APP=$(realpath "$3")
 mkdir -p $B/out && cd $B/out
@@ -19,9 +19,9 @@ seg $C/s1.mp4 0.2 3.3 ../t1.png a1.mp4
 seg $C/s2.mp4 0.2 3.0 ../t2.png a2.mp4
 seg $C/s3.mp4 0.2 3.0 ../t3.png a3.mp4
 seg $C/s4.mp4 0.2 3.0 ../t4.png a4.mp4
-seg $C/s5.mp4 0.2 3.3 ../t5.png a5.mp4
-# real app recording listing the same washer: source 2.4-15.4 s at 2x = 6.5 s
-ffmpeg -hide_banner -loglevel error -y -i "$APP" -filter_complex "[0:v]trim=2.4:15.4,setpts=(PTS-STARTPTS)/2,scale=1080:1920,$N[v]" -map "[v]" -an -c:v libx264 -crf 16 -preset medium a6.mp4
+seg $C/s5.mp4 0.2 3.0 ../t5.png a5.mp4
+# clean iPhone walkthrough (walk.sh output): real app listing the same washer, big phone, one line per step
+ffmpeg -hide_banner -loglevel error -y -i "$APP" -vf "scale=1080:1920,$N" -an -c:v libx264 -crf 16 -preset medium a6.mp4
 # handshake: blur the trailer plate behind the buyer
 seg $C/s6.mp4 0.8 3.9 ../t6.png a7.mp4 "split[m][p];[p]crop=130:110:925:970,boxblur=14:3[pb];[m][pb]overlay=925:970"
 seg $C/s7.mp4 0.2 3.1 ../t7.png a8.mp4
