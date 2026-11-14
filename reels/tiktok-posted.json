@@ -161,8 +161,9 @@
   "platform": "tiktok",
   "slug": "socials-on-storefront",
   "repeat": false,
-  "status": "scheduled",
+  "status": "failed",
   "buffer_id": "6af873d2e5a113497a8bff8a",
-  "due": "2026-11-14T14:49:32.000Z"
+  "due": "2026-11-14T14:49:32.000Z",
+  "error": "TikTok flagged this post as potential spam and blocked it from publishing. Please review your content and try again. If this persists, try posting directly through TikTok to verify your account is in good standing. Failed to create media container for tiktok: Tiktok update failed to publish: 0: spam_risk (status: FAILED)"
  }
 ]
