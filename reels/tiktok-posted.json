@@ -142,8 +142,10 @@
   "platform": "tiktok",
   "slug": "storefront-stats",
   "repeat": false,
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6af792d081e1228421cb90a4",
-  "due": "2026-11-13T22:49:31.000Z"
+  "due": "2026-11-13T22:49:31.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7707791983414136077",
+  "sent": "2026-11-13T22:51:26.512Z"
  }
 ]
