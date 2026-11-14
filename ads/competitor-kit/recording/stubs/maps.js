@@ -1,0 +1,10 @@
+import React from 'react';
+import { View } from 'react-native';
+const MapView = React.forwardRef((p, ref) => React.createElement(View, { style: [{ backgroundColor: '#E9EEF3' }, p.style] }, p.children));
+export const Marker = () => null;
+export const Circle = () => null;
+export const Callout = () => null;
+export const Polygon = () => null;
+export const PROVIDER_DEFAULT = null;
+export const PROVIDER_GOOGLE = 'google';
+export default MapView;
