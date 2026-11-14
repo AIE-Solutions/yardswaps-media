@@ -147,5 +147,13 @@
   "due": "2026-11-13T22:49:31.000Z",
   "url": "https://tiktok.com/@yardwaps/video/7707791983414136077",
   "sent": "2026-11-13T22:51:26.512Z"
+ },
+ {
+  "time": "2026-11-14T13:44:44Z",
+  "platform": "tiktok",
+  "slug": "socials-on-storefront",
+  "repeat": false,
+  "status": "failed",
+  "error": "Invalid post: Video could not be read from its URL."
  }
 ]
