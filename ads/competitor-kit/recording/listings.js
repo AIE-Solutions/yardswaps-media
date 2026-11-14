@@ -1,0 +1,35 @@
+const L=[
+ ['r-hyundai','Excavator, 14 Ton, Enclosed Cab','excavators',68500,'Used — Good',2018,3900,null,'Houston, TX',8],
+ [48,'Backhoe Loader with Extendahoe','excavators',38500,'Used — Good',2014,4200,null,'Katy, TX',3],
+ ['r-tele','Telehandler, 10,000 lb, 55 ft Reach','forklifts',47500,'Used — Good',2016,4100,null,'Pasadena, TX',13],
+ [50,'Flatbed Work Truck, Dually','fleet',24500,'Used — Good',2016,null,118000,'Houston, TX',12],
+ [64,'Utility Tractor with Cab, 4WD','agriculture',41000,'Used — Good',2017,2300,null,'Waller, TX',19,'r-tractor'],
+ ['r-cranedump','Crane Dump Truck, 16 ft Bed','fleet',52000,'Used — Good',2015,null,141000,'Baytown, TX',22],
+ [18,'Enclosed Cargo Trailer, 8.5 x 20 ft Tandem Axle','trailers',6800,'Used — Excellent',2020,null,null,'Cypress, TX',9],
+ ['r-dozer','Crawler Dozer, 6-Way Blade','excavators',59000,'Used — Good',2016,5200,null,'Conroe, TX',27],
+ [80,'Propane Forklift, 5,000 lb','forklifts',14500,'Used — Good',2017,6800,null,'Houston, TX',15],
+ [17,'Hot Water Pressure Washer, Electric Start','pressure',2400,'Used — Good',2019,null,null,'Fulshear, TX',7,'r-hotsy'],
+ [77,'Articulating Boom Lift, Electric','aerial',21000,'Used — Good',2015,2100,null,'Brookshire, TX',11],
+ ['r-pete','Day Cab Tractor, Single Axle','fleet',36000,'Used — Good',2013,null,412000,'Houston, TX',17],
+ [52,'Commercial Combi Oven, Electric','cooking',6200,'Used — Excellent',2019,null,null,'Sugar Land, TX',18],
+ [88,'Mini Excavator, Rubber Tracks','excavators',27500,'Used — Excellent',2019,1650,null,'Katy, TX',5,'r-deere50'],
+ ['r-condenser','5 Ton AC Condenser, New in Box','hvac',1450,'New (Surplus)',2024,null,null,'Spring, TX',20],
+ ['r-takeuchi','Compact Excavator with Blade','excavators',33500,'Used — Good',2017,2900,null,'Tomball, TX',23],
+ [85,'Single Drum Soil Compactor','paving',32000,'Used — Fair',2012,5300,null,'Rosenberg, TX',21],
+ ['r-chest','Rolling Tool Chest with Top Box','machining',650,'Used — Good',null,null,null,'Richmond, TX',14],
+ [21,'Vacuum Truck, Tandem Axle','vacuum',89000,'Used — Good',2015,null,164000,'Houston, TX',24],
+ ['r-mic','Outside Micrometer Set, 0 to 12 in.','machining',480,'Used — Excellent',null,null,null,'Stafford, TX',16],
+ [39,'Commercial Front-Load Washers, Set of 4','laundry',2400,'Used — Good',null,null,null,'Richmond, TX',14],
+ [47,'Towable Generator on Trailer','generators',9500,'Used — Good',2016,3100,null,'Hockley, TX',16],
+];
+const DESC={
+ 50:'Dually flatbed work truck with steel deck and headache rack. Used daily on a crew until we upgraded. Clean title. Come drive it before you buy.',
+ 48:'Backhoe loader with extendahoe and 4-in-1 bucket. Starts easy, no leaks at the swing cylinders. Hauled in on the trailer shown, trailer not included.',
+};
+module.exports=L.map(([img,title,category,price,condition,year,hours,mileage,location,dist,photo],i)=>({
+ id:'demo-'+img,title,category,price,condition,year,hours,mileage,location,distance:dist,
+ description:DESC[img]||`${title}. Inspect and run it at pickup. Message with questions.`,
+ specs:{},manufacturer:null,featured:false,priority:0,photoUrls:[`https://www.yardswaps.com/demo-img/${photo||img}.jpg`],
+ status:'active',createdAt:new Date(Date.now()-(i*5+2)*3600e3).toISOString(),updatedAt:new Date().toISOString(),
+ sellerId:'u_sample',seller:{id:'u_sample',name:'YardSwaps Demo',avatar:'YD',verified:true,slug:'demo',accountType:'BUSINESS',rating:null,ratingCount:0},
+ viewsLabel:null,savesLabel:null,quantity:1}));

@@ -1,0 +1,15 @@
+{
+ "name": "first-set",
+ "segs": [[24, 60], [195, 80], [352, 60], [516, 45]],
+ "walk_caps": [["Snap the set.", "Case and all."], ["The app writes it.", "Make, model, category."], ["Set a price.", "Post it free."]],
+ "shots": [
+  {"src": "c1.mp4", "start": 0.2, "dur": 3.4, "cap": "Every shop|outgrows something."},
+  {"src": "c2.mp4", "start": 0.2, "dur": 3.2, "cap": "Replaced by|the digital ones."},
+  {"walk": true},
+  {"src": "c4.mp4", "start": 0.2, "dur": 3.4, "cap": "Across town,|someone's just|starting out."},
+  {"src": "c5.mp4", "start": 0.2, "dur": 3.6, "cap": "Your old set."},
+  {"src": "c6.png", "still": true, "dur": 3.2, "cap": "Their first one."},
+  {"src": "c7.mp4", "start": 0.2, "dur": 3.2, "cap": "And you get|the shelf back."}
+ ],
+ "end": {"line1": "Your old gear. Someone's first.", "line2": "List it free. Every 4 listings earns a free boost.", "q": "What did your shop outgrow?", "dur": 4.8}
+}
