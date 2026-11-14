@@ -17,7 +17,7 @@ Nothing is a shot-for-shot copy: the items, scripts, shots and music are all our
 ## How a cut is made
 
 1. `python3 assets.py <spec.json> <assetsdir>` renders captions (Space Grotesk Bold, blue bar), the phone bezel, walkthrough captions and end cards (wordmark and store badges cut from the v2 end card), vertical and wide.
-2. Walkthrough frames come from the real app (Expo web) recorded with `recording/rec_item.js`. API answers are mocked (`recording/mock.js`, demo user, scan result from `SCANF`), the screens are the real app. Start with `recording/app-up.sh` + `expo-up.sh`, undo with `app-down.sh`. Example: `OUT=raw/cyl PHOTO=img/cylinders.jpg SCANF=part2-scan.json UPIMG=img/cylinders.jpg PUBY=90 node rec_item.js`.
+2. Walkthrough frames come from the real app at the latest main (e901930, Nov 13: free-boost counter, location field, Ask YardSwaps and batch entries) (Expo web) recorded with `recording/rec_item.js`. API answers are mocked (`recording/mock.js`, demo user, scan result from `SCANF`), the screens are the real app. Start with `recording/app-up.sh` + `expo-up.sh`, undo with `app-down.sh`. Example: `OUT=raw/cyl PHOTO=img/cylinders.jpg SCANF=part2-scan.json UPIMG=img/cylinders.jpg PUBY=90 node rec_item.js`.
    The walkthrough ends on the "Your listing is live" frame, because the screen under it lists paid boost prices and ads never show paid boosts.
 3. `python3 build.py <spec.json> v|w <assetsdir> <clips> <frames> <music.mp3> <out.mp4> [vo.json]` cuts the shots (clips trimmed, stills get a slow 1.0 to 1.025 push), 0.3 s dissolves, the walkthrough, the end card, music from `music_start`, loudness to -14 LUFS.
    Wide (16:9) puts the vertical shot as a full panel on a blurred, dimmed copy of itself, so nothing is cropped.

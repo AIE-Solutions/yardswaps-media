@@ -1,65 +1,65 @@
 {
- "name": "didnt-leave",
- "segs": [
-  [
-   30,
-   40
+  "name": "didnt-leave",
+  "segs": [
+    [
+      6,
+      66
+    ],
+    [
+      236,
+      34
+    ],
+    [
+      376,
+      34
+    ],
+    [
+      540,
+      40
+    ]
   ],
-  [
-   236,
-   40
+  "walk_caps": [
+    [
+      "Snap the lot.",
+      "Bags and all."
+    ],
+    [
+      "The app writes it.",
+      "Title, category, details."
+    ],
+    [
+      "Set a price.",
+      "Post it free."
+    ]
   ],
-  [
-   376,
-   40
+  "shots": [
+    {
+      "src": "d1.mp4",
+      "start": 0.3,
+      "dur": 2.7,
+      "cap": "The job wrapped|in March."
+    },
+    {
+      "src": "d2.mp4",
+      "start": 0.3,
+      "dur": 2.7,
+      "cap": "The spare cylinders|didn't leave."
+    },
+    {
+      "walk": true
+    },
+    {
+      "src": "d3.png",
+      "still": true,
+      "dur": 2.4,
+      "cap": "No auction date.|No listing fee."
+    }
   ],
-  [
-   540,
-   44
-  ]
- ],
- "walk_caps": [
-  [
-   "Snap the lot.",
-   "Bags and all."
-  ],
-  [
-   "The app writes it.",
-   "Title, category, details."
-  ],
-  [
-   "Set a price.",
-   "Post it free."
-  ]
- ],
- "shots": [
-  {
-   "src": "d1.mp4",
-   "start": 0.3,
-   "dur": 2.7,
-   "cap": "The job wrapped|in March."
+  "end": {
+    "line1": "List it free.",
+    "line2": "Every 4 listings earns a free boost.",
+    "q": "What never left your last job?",
+    "dur": 3.4
   },
-  {
-   "src": "d2.mp4",
-   "start": 0.3,
-   "dur": 2.7,
-   "cap": "The spare cylinders|didn't leave."
-  },
-  {
-   "walk": true
-  },
-  {
-   "src": "d3.png",
-   "still": true,
-   "dur": 2.7,
-   "cap": "No auction date.|No listing fee."
-  }
- ],
- "end": {
-  "line1": "List it free.",
-  "line2": "Every 4 listings earns a free boost.",
-  "q": "What never left your last job?",
-  "dur": 3.4
- },
- "music_start": 2.6
+  "music_start": 2.6
 }
