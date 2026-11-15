@@ -27,6 +27,7 @@ Env:
   META_PAGE_TOKEN  optional, only to rank repeats by Instagram engagement
   SLUG             force one video (manual runs)
   DRY_RUN          "1" = pick and print the caption and link, post nothing
+  PROMO            a promos.json id = make this run's TikTok that promotion post
   CHECK            "1" = only list the Buffer channels (setup check)
   GITHUB_SHA, GITHUB_REPOSITORY  set by GitHub Actions
 """
@@ -123,6 +124,14 @@ LIST_FREE_OPENERS = [
 def list_free_caption(v, turn=0):
     close = f"{reels.list_free_line(turn)} {CTA_LINES[turn % len(CTA_LINES)]}"
     body = f"{LIST_FREE_OPENERS[turn % len(LIST_FREE_OPENERS)]}\n\n{reels.list_free_body(v)}\n\n{close}"
+    return f"{body}\n\n{reels.tt_tags(v, turn)}\n\n{v['question']}"
+
+
+def promo_caption(v, promo, turn=0):
+    # The daily promotion post (reels/promos.json, post_reels.py "daily
+    # promotion post"): no web address, like every TikTok caption.
+    close = f"{reels.promo_line(promo, turn)} {CTA_LINES[turn % len(CTA_LINES)]}"
+    body = f"{promo['head']}\n\n{reels.promo_body(v, promo)}\n\n{close}"
     return f"{body}\n\n{reels.tt_tags(v, turn)}\n\n{v['question']}"
 
 
@@ -349,6 +358,19 @@ def main():
     list_free = os.environ.get("LIST_FREE") == "1" or (
         not force and reels.list_free_due(used, PLATFORM, from_ct=LIST_FREE_FROM_CT))
     video = None
+    promo = None
+    if not list_free and not force:
+        want = (os.environ.get("PROMO") or "").strip()
+        cfg = reels.promos_config()
+        if want:
+            promo = next((pr for pr in cfg.get("promos", []) if pr["id"] == want), None)
+        elif reels.promo_due(used, PLATFORM, cfg=cfg):
+            promo = reels.promo_of_day(PLATFORM, cfg=cfg)
+    if promo:
+        video, repeat = reels.promo_pick(videos, used + hc, PLATFORM, promo)
+        if not video:
+            summary.append(f"tiktok: no clip fits the {promo['id']} promotion, posting a regular one")
+            promo = None
     if list_free and not force:
         video, repeat = reels.list_free_pick(videos, used + hc, PLATFORM)
         if repeat and meta:
@@ -369,12 +391,15 @@ def main():
         path = os.path.join(ROOT, video["file"])
         if list_free:
             caption = list_free_caption(video, turn=sum(1 for p in used if p.get("list_free")))
+        elif promo:
+            caption = promo_caption(video, promo, turn=sum(1 for p in used if p.get("promo") == promo["id"]))
         else:
             caption = tiktok_caption(video, turn=len(used))
         url = video_url(path)
         if dry:
             summary.append(f"tiktok: would post {video['slug']} (repeat={repeat}"
-                           f"{', list it free' if list_free else ''})\n{url}\n\n{caption}\n")
+                           f"{', list it free' if list_free else ''}"
+                           f"{', promotion ' + promo['id'] if promo else ''})\n{url}\n\n{caption}\n")
         elif not force and reels.ours_recent(used, PLATFORM) >= MAX_OURS_PER_20H:
             summary.append(f"tiktok: skipped, already posted {MAX_OURS_PER_20H} in the last 20 hours")
         elif not force and last_ours(posted) and \
@@ -386,6 +411,8 @@ def main():
                      "slug": video["slug"], "repeat": repeat}
             if list_free:
                 entry["list_free"] = True
+            if promo:
+                entry["promo"] = promo["id"]
             try:
                 res = gql(key, M_CREATE, {"input": {
                     "channelId": channel["id"], "text": caption,

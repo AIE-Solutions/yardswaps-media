@@ -34,6 +34,9 @@ on:
       dry_run:
         description: "1 = only print the pick and captions"
         default: "0"
+      promo:
+        description: "A reels/promos.json id (founding, share) = make this run the promotion post (optional)"
+        default: ""
 
 permissions:
   contents: write
@@ -84,6 +87,7 @@ jobs:
           PLATFORMS: ${{ inputs.platforms || 'instagram,facebook,instagram_story,facebook_story,threads' }}
           SLUG: ${{ inputs.slug }}
           DRY_RUN: ${{ inputs.dry_run || '0' }}
+          PROMO: ${{ inputs.promo }}
         run: python3 reels/post_reels.py
       - name: Save the posting log
         if: always()
