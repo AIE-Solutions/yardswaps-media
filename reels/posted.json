@@ -1656,5 +1656,31 @@
   "status": "posted",
   "id": "1034793322981898",
   "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-15T04:44:58Z",
+  "platform": "instagram",
+  "slug": "parts-bin-lot",
+  "repeat": false,
+  "status": "failed",
+  "error": "POST https://rupload.facebook.com/ig-api-upload/v23.0/18123364123977469 -> 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+ },
+ {
+  "time": "2026-11-15T04:45:32Z",
+  "platform": "facebook",
+  "slug": "office-went-remote",
+  "repeat": false,
+  "status": "posted",
+  "id": "28793614370334685",
+  "url": "https://www.facebook.com/reel/28793614370334685"
+ },
+ {
+  "time": "2026-11-15T04:45:41Z",
+  "platform": "facebook_story",
+  "slug": "office-went-remote",
+  "repeat": false,
+  "status": "posted",
+  "id": "2134021814147016",
+  "url": "https://www.facebook.com/stories/1291163214083476"
  }
 ]
