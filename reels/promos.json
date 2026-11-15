@@ -1,0 +1,43 @@
+{
+  "_about": "Promotions the posters work into existing slots (Alan 2026-11-15: 'Let's add the promotions to the posting on socials'). One promotion post a day per platform, in the first Reel slot at or after slot_from_ct (Central); the active promotions take turns by day. Volume does not go up. Copy rules: plain, concrete numbers, seller-first, never promise views or sales, never a category count; the clip's own question still ends the caption. A promotion posts only between start and end (Central dates, end exclusive) and only on its platforms. share: lines until the share reward (app PR #347) is merged and live, then set reward_live true so lines_reward are used. founding: end 2026-12-01 matches the founding message window; the offer itself ends when FOUNDINGDEALER is used up or switched off in Stripe, so take it out here then.",
+  "slot_from_ct": [10, 0],
+  "promos": [
+    {
+      "id": "founding",
+      "head": "FOUNDING DEALER PRICE",
+      "audience": "dealer",
+      "start": "2026-11-16",
+      "end": "2026-12-01",
+      "platforms": ["instagram", "facebook", "threads"],
+      "link_path": "/dealers",
+      "link_query": "offer=founding",
+      "typed_link": "yardswaps.com/o",
+      "ig_cta": "To open a storefront at the founding price, type yardswaps.com/o in your browser.",
+      "drop_sentences_with": ["$49 a month"],
+      "lines": [
+        "First-time dealers get a YardSwaps storefront free for 90 days. For our first 100 dealers, the first 3 paid months after that are $29 a month instead of $49. Listing stays free either way.",
+        "A storefront puts every unit you have on one page, and you can import them from your website. It is free for 90 days for first-time dealers. Our first 100 dealers then pay $29 a month for 3 months, then $49.",
+        "No cap on listings, bulk upload, and stats on every unit. First-time dealers pay nothing for 90 days, and our first 100 pay $29 a month for the first 3 paid months instead of $49."
+      ]
+    },
+    {
+      "id": "share",
+      "head": "SHARE YOUR SELLER PAGE",
+      "audience": "seller",
+      "start": "2026-11-16",
+      "end": null,
+      "platforms": ["instagram", "facebook", "threads", "tiktok"],
+      "link_path": "/sell-equipment",
+      "typed_link": "yardswaps.com/i",
+      "reward_live": false,
+      "lines": [
+        "Your seller page is one link to everything you have listed. In the YardSwaps app, open Profile and tap Share my page, then text it to anyone asking what you have. Invite a seller with your invite link and you both get a free 7-day boost once their first listing has been live 3 days.",
+        "Open Profile in the YardSwaps app and tap Share my page. One link shows all your listings, so post it in your groups or send it to past customers. Sellers you invite get a free 7-day boost and so do you, once their first listing has been live 3 days."
+      ],
+      "lines_reward": [
+        "Open Profile in the YardSwaps app and tap Share my page. The link carries your invite: when a seller signs up from it, you both get a free 7-day boost once their first listing has been live 3 days. If they pay for a storefront, you get a free month of yours, or 5 free boosts if you don't have one.",
+        "Your seller page is one link to all your listings. Tap Share my page on your profile and send it around. Anyone who signs up from it is your invite. If they pay for a storefront, you get a free month of yours, or 5 free boosts if you don't have one."
+      ]
+    }
+  ]
+}

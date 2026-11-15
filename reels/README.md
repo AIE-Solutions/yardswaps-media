@@ -58,6 +58,17 @@ Alan, Nov 15 ("All socials yes"): one "list your equipment free" post a day on e
 - **Test:** `DRY_RUN=1 LIST_FREE=1 python reels/post_reels.py` (or `post_tiktok.py`) prints the list-it-free captions.
 - The 9:27 am "LIST IT FREE" Instagram Story (`stories/`) is separate and unchanged.
 
+## Daily promotion post (added 2026-11-15)
+
+Alan, Nov 15: "Let's add the promotions to the posting on socials." The promotions live in `reels/promos.json`; nothing else needs editing to change them.
+
+- One post a day per platform carries a promotion: the first Reel run of the Central day at or after `slot_from_ct` (10:00 am). It takes an existing slot, so volume does not go up. On the day the 10 am run fails, a later slot takes it (after the 4:30 pm list-it-free post when both are due).
+- Active promotions take turns by day. Each has `start` / `end` (Central dates, end exclusive) and its own `platforms`. Today: `founding` (Dealer storefront at $29/mo for the first 3 paid months, to Dec 1; Instagram, Facebook, Threads; typed link yardswaps.com/o, which opens /dealers with `?offer=founding`) and `share` (Share my page plus the invite reward; Instagram, Facebook, Threads, TikTok).
+- `share` uses `lines` until the share reward (app PR #347) is merged and live; then set `"reward_live": true` and it uses `lines_reward` ("If they pay for a storefront, you get a free month of yours, or 5 free boosts if you don't have one.").
+- Caption: the promotion's `head`, the clip's text (minus its free-listing closer and any sentence in `drop_sentences_with`), one rotating promotion line, the follow line with `ig_cta` (Instagram) or a tagged link (Facebook, campaign `promo_<id>_<slug>`, plus `link_query`), hashtags, then the clip's question. Threads gets head, line, typed link and question; TikTok gets no web address.
+- Clips: storefront clips (`"audience": "dealer"`) for `founding`, falling back to a real-item seller clip; real-item seller clips for `share`. Log entries carry `"promo": "<id>"`.
+- Manual or dry run: dispatch reels.yml with `promo` = an id (and `dry_run` 1 to print only); `PROMO` env does the same for `post_tiktok.py`.
+
 ## Threads (added 2026-11-08, off until the THREADS_TOKEN secret exists)
 - Right after each Instagram Reel (same run), the same video goes to the @yardswaps Threads profile, so Threads gets up to 7 a day, the same cuts Instagram got. It shares the newest Instagram Reel from the last 24 hours that isn't on Threads yet, never the same video twice within 10 days. A failed Threads post shows as a warning and `failed` in `posted.json` but never fails the run.
 - Caption: body; "Get the free YardSwaps app: yardswaps.com/h" (the tagged Threads short link, UTM-LINKS.md); the question. No hashtags: Threads takes one topic tag, sent separately, which is the video's first machine tag (`soilcompactor`, `forklift`). Threads allows 500 characters, so a long body loses its last sentence until it fits.
