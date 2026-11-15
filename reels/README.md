@@ -47,6 +47,17 @@ Current token: Page token for page 1291163214083476 from Meta app "YardSwaps Ree
 ## Scorecard (added 2026-11-03)
 `metrics/` measures every Reel daily (`.github/workflows/metrics.yml`) and writes `metrics/rank.json`. Repeats now use it: the 3 best measured Reels get a boost, clear losers stop repeating ("retire"), and while the scorecard is fresh the hand-set `boost` numbers here are ignored unless the entry says `"boost_keep": true`. Each new slug also needs a row in `metrics/formats.json` (hook, angle, category). Details: `metrics/README.md`.
 
+## Daily "List it free" post (added 2026-11-15)
+
+Alan, Nov 15 ("All socials yes"): one "list your equipment free" post a day on every social. It rides the existing posters, so no platform posts more than before:
+
+- **Instagram + Facebook Reels:** the first Reel of each Central day at or after 4:30 pm (`LIST_FREE_FROM_CT`; 6:30 pm or 10:10 pm takes over if that run fails) is the list-it-free post. Its caption opens with `LIST IT FREE`, keeps the clip's own text minus its closing free line, adds one rotating line from `LIST_FREE_LINES` (free to list, no cut of the sale, every 4 listings earns a free 7-day boost up to 5), then the usual follow line, tags and question. Facebook links `/sell-equipment/<category>` tagged `utm_campaign=listfree_<slug>`. The Story re-share follows it as usual.
+- **Threads:** when the Threads poster runs (needs `THREADS_TOKEN`), a Threads post that follows a list-it-free Instagram Reel gets the list-it-free caption with yardswaps.com/h.
+- **TikTok:** the first TikTok of each Central day (still 2 a day in total) is the list-it-free one; its opener and closing lines rotate and it has no web address.
+- **Which clip:** a real-item clip (one `category`, no dealer clips, not `hold`, not `"list_free": false`) whose category this platform's list-it-free posts haven't shown in 7 days; 10-day no-repeat as usual. Log entries carry `"list_free": true`.
+- **Test:** `DRY_RUN=1 LIST_FREE=1 python reels/post_reels.py` (or `post_tiktok.py`) prints the list-it-free captions.
+- The 9:27 am "LIST IT FREE" Instagram Story (`stories/`) is separate and unchanged.
+
 ## Threads (added 2026-11-08, off until the THREADS_TOKEN secret exists)
 - Right after each Instagram Reel (same run), the same video goes to the @yardswaps Threads profile, so Threads gets up to 7 a day, the same cuts Instagram got. It shares the newest Instagram Reel from the last 24 hours that isn't on Threads yet, never the same video twice within 10 days. A failed Threads post shows as a warning and `failed` in `posted.json` but never fails the run.
 - Caption: body; "Get the free YardSwaps app: yardswaps.com/h" (the tagged Threads short link, UTM-LINKS.md); the question. No hashtags: Threads takes one topic tag, sent separately, which is the video's first machine tag (`soilcompactor`, `forklift`). Threads allows 500 characters, so a long body loses its last sentence until it fits.

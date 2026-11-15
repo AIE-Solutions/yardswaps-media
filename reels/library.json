@@ -424,7 +424,8 @@
    "ig_tags": "#sellyourequipment #usedequipment #farmequipment #equipmentforsale #yardswaps",
    "hold": false,
    "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
-   "category": "agriculture"
+   "category": "agriculture",
+   "list_free": false
   },
   {
    "slug": "spare-truck-wheel",

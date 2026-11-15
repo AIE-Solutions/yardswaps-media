@@ -106,6 +106,26 @@ CTA_LINES = [
 _BOILERPLATE = ("free to list", "list it free:", "no listing fee")
 
 
+# The daily list-it-free post (post_reels.py, "List it free" Reel; Alan Nov 15
+# "All socials yes"): the first TikTok of each Central day, inside the same
+# cap of 2, so TikTok volume does not go up. Its opening line rotates and it
+# carries no web address, like every TikTok caption.
+LIST_FREE_FROM_CT = (0, 0)
+LIST_FREE_OPENERS = [
+    "List it free.",
+    "This one could be listed free today.",
+    "Sitting idle? List it free.",
+    "Free to list, start to finish.",
+    "Your yard, your price, free to list.",
+]
+
+
+def list_free_caption(v, turn=0):
+    close = f"{reels.list_free_line(turn)} {CTA_LINES[turn % len(CTA_LINES)]}"
+    body = f"{LIST_FREE_OPENERS[turn % len(LIST_FREE_OPENERS)]}\n\n{reels.list_free_body(v)}\n\n{close}"
+    return f"{body}\n\n{reels.tt_tags(v, turn)}\n\n{v['question']}"
+
+
 def tiktok_caption(v, turn=0):
     paras = [p for p in v["body"].split("\n\n")
              if not p.strip().lower().startswith(_BOILERPLATE)]
@@ -326,19 +346,35 @@ def main():
     # rule (but not for the daily cap): [{"slug": ..., "time": ISO}, ...].
     hc = [dict(p, platform=PLATFORM, status="posted") for p in reels.load(HEYCATCH, [])
           if p.get("slug") and p.get("time")]
-    video, repeat = reels.pick(videos, used + hc, PLATFORM, force)
-    if repeat and not force and meta:
-        scores = reels.ig_scores(meta, reels.load(reels.POSTED, []))
-        video, repeat = reels.pick(videos, used + hc, PLATFORM, force, scores)
+    list_free = os.environ.get("LIST_FREE") == "1" or (
+        not force and reels.list_free_due(used, PLATFORM, from_ct=LIST_FREE_FROM_CT))
+    video = None
+    if list_free and not force:
+        video, repeat = reels.list_free_pick(videos, used + hc, PLATFORM)
+        if repeat and meta:
+            scores = reels.ig_scores(meta, reels.load(reels.POSTED, []))
+            video, repeat = reels.list_free_pick(videos, used + hc, PLATFORM, scores)
+        if not video:
+            list_free = False
+            summary.append("tiktok: no clip fits the list-it-free post, posting a regular one")
+    if video is None:
+        video, repeat = reels.pick(videos, used + hc, PLATFORM, force)
+        if repeat and not force and meta:
+            scores = reels.ig_scores(meta, reels.load(reels.POSTED, []))
+            video, repeat = reels.pick(videos, used + hc, PLATFORM, force, scores)
 
     if not video:
         summary.append(f"tiktok: skipped, every video was posted in the last {reels.MIN_GAP_DAYS} days")
     else:
         path = os.path.join(ROOT, video["file"])
-        caption = tiktok_caption(video, turn=len(used))
+        if list_free:
+            caption = list_free_caption(video, turn=sum(1 for p in used if p.get("list_free")))
+        else:
+            caption = tiktok_caption(video, turn=len(used))
         url = video_url(path)
         if dry:
-            summary.append(f"tiktok: would post {video['slug']} (repeat={repeat})\n{url}\n\n{caption}\n")
+            summary.append(f"tiktok: would post {video['slug']} (repeat={repeat}"
+                           f"{', list it free' if list_free else ''})\n{url}\n\n{caption}\n")
         elif not force and reels.ours_recent(used, PLATFORM) >= MAX_OURS_PER_20H:
             summary.append(f"tiktok: skipped, already posted {MAX_OURS_PER_20H} in the last 20 hours")
         elif not force and last_ours(posted) and \
@@ -348,6 +384,8 @@ def main():
             due = clear_of_heycatch(reels.now() + dt.timedelta(minutes=SCHEDULE_AHEAD_MIN))
             entry = {"time": reels.iso(reels.now()), "platform": PLATFORM,
                      "slug": video["slug"], "repeat": repeat}
+            if list_free:
+                entry["list_free"] = True
             try:
                 res = gql(key, M_CREATE, {"input": {
                     "channelId": channel["id"], "text": caption,
