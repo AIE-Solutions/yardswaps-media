@@ -723,8 +723,7 @@
       "question": "What size trash pump is sitting in your yard?",
       "ig_tags": "#trashpump #dewatering #usedequipment #pumps #yardswaps",
       "category": "pumps",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "added": "2026-11-11",
@@ -735,8 +734,7 @@
       "question": "How many feet of push rod are sitting in your van?",
       "ig_tags": "#pipeinspection #sewercamera #drainwork #usedequipment #yardswaps",
       "category": "inspection",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "added": "2026-11-11",
@@ -747,8 +745,7 @@
       "question": "How long has the spare jetter sat by the fence?",
       "ig_tags": "#hydrojetting #jetter #drainservice #usedequipment #yardswaps",
       "category": "hydro",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "added": "2026-11-11",
@@ -759,8 +756,7 @@
       "question": "What is still plugged in at the closed shop?",
       "ig_tags": "#commercialrefrigeration #restaurantequipment #closedshop #usedequipment #yardswaps",
       "category": "refrigeration",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "added": "2026-11-11",
@@ -771,8 +767,7 @@
       "question": "What is still hanging from your shop beam?",
       "ig_tags": "#chainhoist #rigging #shopequipment #usedequipment #yardswaps",
       "category": "cranes",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "added": "2026-11-13",
@@ -816,8 +811,7 @@
       "question": "What is still bolted down in the shop you closed?",
       "ig_tags": "#twopostlift #autoshop #shopequipment #usedequipment #yardswaps",
       "category": "automotive",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "added": "2026-11-13",
@@ -828,8 +822,7 @@
       "question": "What is parked behind your shop since the route was cut?",
       "ig_tags": "#boxtruck #fleettrucks #usedtrucks #usedequipment #yardswaps",
       "category": "fleet",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "added": "2026-11-13",
@@ -840,8 +833,7 @@
       "question": "What paving gear has not moved since your last job?",
       "ig_tags": "#asphaltroller #paving #compaction #usedequipment #yardswaps",
       "category": "paving",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "added": "2026-11-13",
@@ -852,8 +844,7 @@
       "question": "How much safety gear is hanging unused in your shop?",
       "ig_tags": "#safetygear #ppe #hardhats #usedequipment #yardswaps",
       "category": "safety",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     }
   ]
 }
