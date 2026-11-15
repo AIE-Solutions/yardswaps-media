@@ -260,9 +260,10 @@
    "body": "Buyers on YardSwaps look for used equipment near them, so the gear sitting in your yard can be what they find.\n\nList it free: no listing fee, no cut of the sale. Post 4 listings within 14 days of your first and every listing is boosted free for 14 days.",
    "question": "What's sitting in your yard that someone nearby is probably looking for?",
    "ig_tags": "#usedequipment #equipmentforsale #forklift #boomlift #localbusiness",
-   "hold": true,
+   "hold": false,
    "hold_reason": "Nov 15: on-screen caption says \"33 categories\"; Alan 11-15 rule: never state a category count. Re-render with the new n23.js / n456.js caption, then lift the hold",
-   "category": "excavators"
+   "category": "excavators",
+   "hold_note": "Re-cut 2026-11-15 with no category count on screen (Motion thread); hold lifted."
   },
   {
    "slug": "micrometer-set-small-tools",
@@ -510,8 +511,9 @@
    "body": "Fleet trucks. Forklifts. Aerial lifts. Restaurant gear. Farm equipment. Laundry machines.\n\nIf your business runs on it, you can list it on YardSwaps.\n\nFree to list. Free boosts.",
    "question": "What's the most unexpected piece of equipment your business owns?",
    "ig_tags": "#equipmentforsale #usedequipment #sellequipment #restaurantequipment #farmequipment",
-   "hold": true,
-   "hold_reason": "Nov 15: on-screen caption says \"33 categories\"; Alan 11-15 rule: never state a category count. Re-render with the new n23.js / n456.js caption, then lift the hold"
+   "hold": false,
+   "hold_reason": "Nov 15: on-screen caption says \"33 categories\"; Alan 11-15 rule: never state a category count. Re-render with the new n23.js / n456.js caption, then lift the hold",
+   "hold_note": "Re-cut 2026-11-15 with no category count on screen (Motion thread); hold lifted."
   },
   {
    "slug": "follow-a-seller",
