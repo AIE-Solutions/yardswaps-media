@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-14T20:47:18Z",
+  "fetched_at": "2026-11-15T17:46:45Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -16,5 +16,45 @@
   "errors": [
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
-  "items": []
+  "items": [
+    {
+      "platform": "instagram",
+      "comment_id": "18110292065609347",
+      "reply_to": "18110292065609347",
+      "author": null,
+      "text": "SeNd me This post",
+      "time": "2026-11-15T14:52:45+0000",
+      "likes": 0,
+      "media_id": "18057773594608676",
+      "permalink": "https://www.instagram.com/reel/DfxBkkdoWsc/",
+      "post": "Me pretending I'll use that trailer again next season.",
+      "type": "REELS"
+    },
+    {
+      "platform": "instagram",
+      "comment_id": "18148476586580898",
+      "reply_to": "18148476586580898",
+      "author": null,
+      "text": "T",
+      "time": "2026-11-15T16:58:13+0000",
+      "likes": 0,
+      "media_id": "18116806619009736",
+      "permalink": "https://www.instagram.com/reel/DfxPQEbADfy/",
+      "post": "POV: the condenser you pulled on the last changeout.",
+      "type": "REELS"
+    },
+    {
+      "platform": "instagram",
+      "comment_id": "18094483511230064",
+      "reply_to": "18094483511230064",
+      "author": null,
+      "text": "forward me this post",
+      "time": "2026-11-15T16:58:14+0000",
+      "likes": 0,
+      "media_id": "18116806619009736",
+      "permalink": "https://www.instagram.com/reel/DfxPQEbADfy/",
+      "post": "POV: the condenser you pulled on the last changeout.",
+      "type": "REELS"
+    }
+  ]
 }
