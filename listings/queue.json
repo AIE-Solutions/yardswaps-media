@@ -266,9 +266,10 @@
     "card": "listings/cards/wanted-trailers.jpg",
     "ig_caption": "More than 20 trailer searches on YardSwaps last month.\nGooseneck, dump, tilt or utility: if it hasn't moved since the last job, list it free. Photograph the VIN plate and the tires. Buyer hitches up at your yard.\n\nComment \"list\" and we'll message you the free listing link, or tap yardswaps.com/i in our bio. No listing fee, no cut of the sale.\n\n#Trailers #EquipmentTrailer #UsedEquipment #IndustrialEquipment #EquipmentMarketplace\n\nWhat's the trailer you keep meaning to sell?",
     "fb_caption": "More than 20 trailer searches on YardSwaps last month.\nGooseneck, dump, tilt or utility: if it hasn't moved since the last job, list it free. Photograph the VIN plate and the tires. Buyer hitches up at your yard.\n\nList it free: https://www.yardswaps.com/sell-equipment/trailers?utm_source=facebook&utm_medium=social&utm_campaign=post_wanted-trailers\nNo listing fee, no cut of the sale.\n\n#Trailers #EquipmentTrailer #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat's the trailer you keep meaning to sell?",
-    "status": "pending",
+    "status": "approved",
     "added": "2026-11-14T19:53:58Z",
-    "updated": "2026-11-14T19:53:58Z"
+    "updated": "2026-11-15T17:37:29Z",
+    "reviewed_by": "claude"
   },
   {
     "listing_id": "cmwfil9ug0021p13ax6xupm5h",
@@ -282,9 +283,10 @@
     "new": true,
     "ig_caption": "Just listed on YardSwaps: Air Movers / Fans, 16 Total (12 Lay-Flat + 4 Snail Fans)\n\n$960 · Boca Raton, FL\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#Environmental #Remediation #UsedEquipment #Jobsite #Tradespeople\n\nWhat would you put this to work on first?",
     "fb_caption": "Just listed on YardSwaps: Air Movers / Fans, 16 Total (12 Lay-Flat + 4 Snail Fans)\n\n$960 · Boca Raton, FL\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmwfil9ug0021p13ax6xupm5h?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#Environmental #Remediation #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat would you put this to work on first?",
-    "status": "pending",
+    "status": "approved",
     "added": "2026-11-14T19:54:00Z",
-    "updated": "2026-11-14T19:54:00Z"
+    "updated": "2026-11-15T17:37:29Z",
+    "reviewed_by": "claude"
   },
   {
     "listing_id": "cmw3trqwz007unw3al0jc02hr",
@@ -298,9 +300,11 @@
     "new": false,
     "ig_caption": "For sale on YardSwaps: 2019 Ford F-350 SuperCab, 131k Miles, Work Ready\n\n$23,495 · 2019 · 131,010 miles · San Antonio, TX\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#FleetTrucks #WorkTrucks #UsedEquipment #IndustrialEquipment #EquipmentMarketplace\n\nWhat's the one machine your yard can't run without?",
     "fb_caption": "For sale on YardSwaps: 2019 Ford F-350 SuperCab, 131k Miles, Work Ready\n\n$23,495 · 2019 · 131,010 miles · San Antonio, TX\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmw3trqwz007unw3al0jc02hr?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#FleetTrucks #WorkTrucks #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat's the one machine your yard can't run without?",
-    "status": "pending",
+    "status": "rejected",
     "added": "2026-11-14T19:54:01Z",
-    "updated": "2026-11-14T19:54:01Z"
+    "updated": "2026-11-15T17:37:29Z",
+    "reason": "Dealer banner across the bottom of the photo with a readable street address (Bandera Rd, San Antonio) and phone number.",
+    "reviewed_by": "claude"
   },
   {
     "listing_id": "cmvsipwx8002omp3a2yxi9tt3",
@@ -314,8 +318,9 @@
     "new": false,
     "ig_caption": "For sale on YardSwaps: 2014 Sky Trak 6042 Telehandler\n\n$32,500 · 2014 · 3,597 hours · Finger, TN\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#Forklift #MaterialHandling #UsedEquipment #Jobsite #Tradespeople\n\nBuy it used or new: which way do you go on a machine like this?",
     "fb_caption": "For sale on YardSwaps: 2014 Sky Trak 6042 Telehandler\n\n$32,500 · 2014 · 3,597 hours · Finger, TN\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmvsipwx8002omp3a2yxi9tt3?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#Forklift #MaterialHandling #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nBuy it used or new: which way do you go on a machine like this?",
-    "status": "pending",
+    "status": "approved",
     "added": "2026-11-14T19:54:03Z",
-    "updated": "2026-11-14T19:54:03Z"
+    "updated": "2026-11-15T17:37:29Z",
+    "reviewed_by": "claude"
   }
 ]
