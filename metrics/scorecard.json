@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-09",
- "generatedAt": "2026-11-14T17:58:07Z",
+ "generatedAt": "2026-11-15T18:47:58Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": true,
@@ -12,14 +12,14 @@
  "goals": {
   "followers": {
    "instagram": {
-    "now": 819,
-    "change7d": 454,
-    "asOf": "2026-11-14"
+    "now": 820,
+    "change7d": 215,
+    "asOf": "2026-11-15"
    },
    "facebook": {
     "now": 14,
     "change7d": 1,
-    "asOf": "2026-11-14"
+    "asOf": "2026-11-15"
    },
    "youtube": {
     "subscribers": 8,
@@ -96,27 +96,6 @@
     "ratio": 5.0
    },
    {
-    "slug": "laundromat-upgrade-washers",
-    "posts": 2,
-    "settled": 1,
-    "igSettled": 1,
-    "points": 4.0,
-    "views": 0,
-    "likes": 4,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 4.0,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "laundry",
-    "demo": true,
-    "structure": "problem-action-result",
-    "ratio": 4.0
-   },
-   {
     "slug": "whole-lot-one-link",
     "posts": 2,
     "settled": 2,
@@ -136,6 +115,27 @@
     "demo": true,
     "structure": "problem-action-result",
     "ratio": 3.0
+   },
+   {
+    "slug": "laundromat-upgrade-washers",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 4.0,
+    "views": 0,
+    "likes": 4,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 2.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "laundry",
+    "demo": true,
+    "structure": "problem-action-result",
+    "ratio": 2.0
    },
    {
     "slug": "mission-idle-to-work",
@@ -322,12 +322,12 @@
    },
    {
     "slug": "job-wrapped-generator",
-    "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
-    "points": 2.0,
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 0,
+    "points": 1.0,
     "views": 0,
-    "likes": 2,
+    "likes": 1,
     "comments": 0,
     "shares": 0,
     "saved": 0,
@@ -427,6 +427,27 @@
     "ratio": 1.0
    },
    {
+    "slug": "store-closed-kiosk",
+    "posts": 2,
+    "settled": 1,
+    "igSettled": 1,
+    "points": 1.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "retail",
+    "demo": true,
+    "structure": "problem-action-result",
+    "ratio": 1.0
+   },
+   {
     "slug": "trash-pump-after-the-job",
     "posts": 2,
     "settled": 2,
@@ -469,27 +490,6 @@
     "ratio": 1.0
    },
    {
-    "slug": "downsized-to-one-truck",
-    "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
-    "points": 1.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 0.5,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "vacuum",
-    "demo": true,
-    "structure": "problem-action-result",
-    "ratio": 0.5
-   },
-   {
     "slug": "inspection-camera-in-the-van",
     "posts": 2,
     "settled": 2,
@@ -511,25 +511,26 @@
     "ratio": 0.5
    },
    {
-    "slug": "sold-the-septic-route",
+    "slug": "bluecollar-shelf-parts",
     "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
-    "points": 1.0,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
     "views": 0,
-    "likes": 1,
+    "likes": 4,
     "comments": 0,
     "shares": 0,
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": 0.5,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "environmental",
+    "perPost": null,
+    "hook": "search-term",
+    "angle": "shelf-parts",
+    "category": "parts",
+    "search": "blue collar",
     "demo": true,
     "structure": "problem-action-result",
-    "ratio": 0.5
+    "ratio": null
    },
    {
     "slug": "box-truck-after-the-route",
@@ -578,8 +579,8 @@
    {
     "slug": "chain-hoist-on-the-beam",
     "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
+    "settled": 2,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -588,12 +589,31 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "cranes",
     "demo": true,
     "structure": "problem-action-result",
+    "ratio": 0.0
+   },
+   {
+    "slug": "condenser-changeout",
+    "posts": 1,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 3,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "hvac",
     "ratio": null
    },
    {
@@ -618,7 +638,28 @@
    {
     "slug": "cooler-still-humming",
     "posts": 2,
-    "settled": 0,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 0.0,
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 0.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "refrigeration",
+    "demo": true,
+    "structure": "problem-action-result",
+    "ratio": 0.0
+   },
+   {
+    "slug": "downsized-to-one-truck",
+    "posts": 1,
+    "settled": 1,
     "igSettled": 0,
     "points": 0.0,
     "views": 0,
@@ -628,13 +669,13 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "pov-idle",
     "angle": "idle-gear",
-    "category": "refrigeration",
+    "category": "vacuum",
     "demo": true,
     "structure": "problem-action-result",
-    "ratio": null
+    "ratio": 0.0
    },
    {
     "slug": "find-it-nearby",
@@ -700,7 +741,7 @@
     "igSettled": 0,
     "points": 0.0,
     "views": 0,
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
     "shares": 0,
     "saved": 0,
@@ -735,9 +776,9 @@
    },
    {
     "slug": "office-went-remote",
-    "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
+    "posts": 2,
+    "settled": 1,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -746,13 +787,13 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "office",
     "demo": true,
     "structure": "problem-action-result",
-    "ratio": null
+    "ratio": 0.0
    },
    {
     "slug": "origin-part-in-a-yard",
@@ -798,9 +839,9 @@
    },
    {
     "slug": "origin-sitting-cash",
-    "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 0,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -816,6 +857,25 @@
     "demo": true,
     "structure": "problem-why-app",
     "ratio": 0.0
+   },
+   {
+    "slug": "parts-bin-lot",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "shelf-parts",
+    "category": "machining",
+    "ratio": null
    },
    {
     "slug": "plumbing-part-label",
@@ -859,7 +919,7 @@
    },
    {
     "slug": "safety-gear-on-the-wall",
-    "posts": 1,
+    "posts": 2,
     "settled": 0,
     "igSettled": 0,
     "points": 0.0,
@@ -921,24 +981,43 @@
     "ratio": null
    },
    {
-    "slug": "store-closed-kiosk",
+    "slug": "sold-the-septic-route",
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 0.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "environmental",
+    "demo": true,
+    "structure": "problem-action-result",
+    "ratio": 0.0
+   },
+   {
+    "slug": "spare-part",
     "posts": 1,
     "settled": 0,
     "igSettled": 0,
     "points": 0.0,
     "views": 0,
-    "likes": 1,
+    "likes": 0,
     "comments": 0,
     "shares": 0,
     "saved": 0,
     "follows": 0,
     "signups": 0,
     "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "retail",
-    "demo": true,
-    "structure": "problem-action-result",
+    "hook": "question-problem",
+    "angle": "parts-spec",
+    "category": "pumps",
     "ratio": null
    },
    {
@@ -999,30 +1078,68 @@
     "angle": "parts-spec",
     "category": "parts",
     "ratio": 0.0
+   },
+   {
+    "slug": "surplus-parts-labels",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "pov-idle",
+    "angle": "parts-spec",
+    "category": "parts",
+    "ratio": null
+   },
+   {
+    "slug": "that-trailer-next-season",
+    "posts": 1,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 3,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "hook": "me-humor",
+    "angle": "idle-gear",
+    "category": "trailers",
+    "ratio": null
    }
   ],
   "insights": {
    "refused": [
-    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AjTalhW3_uG9kdUosXSGDh1\"}}",
-    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aq-7hpe8ry6VuFti0m5SMOp\"}}",
-    "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AussWfYd8LsF9kl1vT_Xjev\"}}",
-    "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A6T5CRaaYAZNODUDuXxrP2f\"}}",
-    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ACjufWHDvNd0IgS8IffudWx\"}}",
-    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AFXb9Whhb4Z7zJn3S3yEFJM\"}}",
-    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A_3xlwoVavg6oTAG1wvrBsA\"}}",
-    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A4G4lNd0DN_Gm7_iwbjM5aw\"}}",
-    "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AKDl8vFIfy1RvjHL48Z6IYM\"}}",
-    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AJkLgK5yWRmqFHSw2bKjq__\"}}",
-    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AKipPvbUN2ty_4KcLMOra35\"}}",
-    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AMrI2ImLRODxeenSjmsrQjI\"}}",
-    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Awwa4j4CTff57icY4QHafOm\"}}",
-    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ADcYLp9_lI1a5GX-0lGCIaH\"}}",
-    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AHGEGL6MKTo9X1Z8hps8c2A\"}}",
-    "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AI-UBRfWBvE-zM2h0q90Ual\"}}",
-    "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AHHHFad_2i6t6yCj1uVRJe6\"}}",
-    "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AoM_jwLnhlm1FYzyufOHOWI\"}}",
-    "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AulhwD6tZx-09lrM_8Hp5VK\"}}",
-    "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"A0QsgjQAQdzI1QV58qdm8o1\"}}"
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"APbYhFC4oiJpD-vFhH7ah8L\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A-RjanksU5CFcYrdxSBYKp6\"}}",
+    "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AY3nqiwZGvuHf4WBma2t5z1\"}}",
+    "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AsPILNh3cddiyBe81wBWf3s\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A7R1V8nkbqJ9gQoFz84lMLi\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AXWfJyoehUCIfH-nPnJN9to\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Afm9Ragjf_Qx_gJKTp-OzGb\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A5n5j2yXBCtV5ylsaReuw7E\"}}",
+    "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AG-Mu7EJAgr92CbnsIoFS_e\"}}",
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A_Ka7mN5qNhOXTMw16rFuLL\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AytKzmHWxzUnXEKhMqIk6EJ\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A9tVRSFuD-LLBEkoDixHvXa\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AfTWU6YTXvGwf6Zrw2YelV5\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A_tngw2YuyXzexxN5eWRWBX\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aktbduin6w9ek6OhgHVIX42\"}}",
+    "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AOsOo5SwLODkCZA_CfNgtyV\"}}",
+    "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AwCcAHzR17hqAOsocN16eKk\"}}",
+    "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"ANOEddFORwYQIlX8y1M9rio\"}}",
+    "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AqhB8-2BFYTfYsXICXT67du\"}}",
+    "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"A_4O6qtpVR2Gf5bXuCjNcA7\"}}"
    ],
    "usable": {
     "fb_reels_total_plays,blue_reels_play_count,post_impressions_unique,post_video_avg_time_watched,post_video_followers,post_video_social_actions": [],
@@ -1046,10 +1163,10 @@
    },
    {
     "value": "pov-idle",
-    "posts": 36,
-    "perPost": 1.47,
-    "ratio": 1.47,
-    "verdict": "winner",
+    "posts": 40,
+    "perPost": 1.27,
+    "ratio": 1.27,
+    "verdict": "average",
     "slugs": [
      "second-bay-closed-tools",
      "second-jetter-by-the-fence",
@@ -1063,16 +1180,20 @@
      "forklift-sitting-there",
      "job-wrapped-generator",
      "mowing-contract-ended",
+     "store-closed-kiosk",
      "trash-pump-after-the-job",
      "warehouse-lease-ended",
-     "downsized-to-one-truck",
      "inspection-camera-in-the-van",
-     "sold-the-septic-route",
+     "chain-hoist-on-the-beam",
      "control-panel-pulled",
+     "cooler-still-humming",
+     "downsized-to-one-truck",
      "forklift-finally-deal",
      "leftover-fittings-lot",
      "micrometer-set-small-tools",
+     "office-went-remote",
      "plumbing-part-label",
+     "sold-the-septic-route",
      "stripped-well-pump",
      "surplus-parts-cash-flow"
     ]
@@ -1112,7 +1233,7 @@
    },
    {
     "value": "origin",
-    "posts": 4,
+    "posts": 3,
     "perPost": 0.0,
     "ratio": 0.0,
     "verdict": "loser",
@@ -1148,10 +1269,10 @@
    },
    {
     "value": "idle-gear",
-    "posts": 32,
-    "perPost": 1.31,
-    "ratio": 1.31,
-    "verdict": "winner",
+    "posts": 36,
+    "perPost": 1.11,
+    "ratio": 1.11,
+    "verdict": "average",
     "slugs": [
      "second-jetter-by-the-fence",
      "laundromat-upgrade-washers",
@@ -1166,14 +1287,18 @@
      "mowing-contract-ended",
      "pressure-washer-1000-psi",
      "small-business-old-oven",
+     "store-closed-kiosk",
      "trash-pump-after-the-job",
      "warehouse-lease-ended",
-     "downsized-to-one-truck",
      "inspection-camera-in-the-van",
-     "sold-the-septic-route",
      "building-things-concrete-mixer",
+     "chain-hoist-on-the-beam",
      "control-panel-pulled",
-     "forklift-finally-deal"
+     "cooler-still-humming",
+     "downsized-to-one-truck",
+     "forklift-finally-deal",
+     "office-went-remote",
+     "sold-the-septic-route"
     ]
    },
    {
@@ -1212,7 +1337,7 @@
    },
    {
     "value": "origin-story",
-    "posts": 4,
+    "posts": 3,
     "perPost": 0.0,
     "ratio": 0.0,
     "verdict": "loser",
@@ -1245,16 +1370,6 @@
     ]
    },
    {
-    "value": "laundry",
-    "posts": 1,
-    "perPost": 4.0,
-    "ratio": 4.0,
-    "verdict": "testing",
-    "slugs": [
-     "laundromat-upgrade-washers"
-    ]
-   },
-   {
     "value": "trailers",
     "posts": 2,
     "perPost": 3.0,
@@ -1262,6 +1377,16 @@
     "verdict": "testing",
     "slugs": [
      "whole-lot-one-link"
+    ]
+   },
+   {
+    "value": "laundry",
+    "posts": 2,
+    "perPost": 2.0,
+    "ratio": 2.0,
+    "verdict": "testing",
+    "slugs": [
+     "laundromat-upgrade-washers"
     ]
    },
    {
@@ -1356,6 +1481,16 @@
     ]
    },
    {
+    "value": "retail",
+    "posts": 1,
+    "perPost": 1.0,
+    "ratio": 1.0,
+    "verdict": "testing",
+    "slugs": [
+     "store-closed-kiosk"
+    ]
+   },
+   {
     "value": "warehouse",
     "posts": 2,
     "perPost": 1.0,
@@ -1363,18 +1498,6 @@
     "verdict": "testing",
     "slugs": [
      "warehouse-lease-ended"
-    ]
-   },
-   {
-    "value": "generators",
-    "posts": 5,
-    "perPost": 0.8,
-    "ratio": 0.8,
-    "verdict": "average",
-    "slugs": [
-     "import-from-your-website",
-     "job-wrapped-generator",
-     "origin-searched-everywhere"
     ]
    },
    {
@@ -1391,6 +1514,18 @@
     ]
    },
    {
+    "value": "generators",
+    "posts": 4,
+    "perPost": 0.75,
+    "ratio": 0.75,
+    "verdict": "average",
+    "slugs": [
+     "import-from-your-website",
+     "job-wrapped-generator",
+     "origin-searched-everywhere"
+    ]
+   },
+   {
     "value": "pumps",
     "posts": 3,
     "perPost": 0.67,
@@ -1399,16 +1534,6 @@
     "slugs": [
      "trash-pump-after-the-job",
      "origin-part-in-a-yard"
-    ]
-   },
-   {
-    "value": "vacuum",
-    "posts": 2,
-    "perPost": 0.5,
-    "ratio": 0.5,
-    "verdict": "testing",
-    "slugs": [
-     "downsized-to-one-truck"
     ]
    },
    {
@@ -1422,20 +1547,10 @@
     ]
    },
    {
-    "value": "environmental",
-    "posts": 2,
-    "perPost": 0.5,
-    "ratio": 0.5,
-    "verdict": "testing",
-    "slugs": [
-     "sold-the-septic-route"
-    ]
-   },
-   {
     "value": "parts",
-    "posts": 7,
-    "perPost": 0.14,
-    "ratio": 0.14,
+    "posts": 6,
+    "perPost": 0.17,
+    "ratio": 0.17,
     "verdict": "loser",
     "slugs": [
      "part-tag-scan",
@@ -1457,6 +1572,16 @@
     ]
    },
    {
+    "value": "cranes",
+    "posts": 2,
+    "perPost": 0.0,
+    "ratio": 0.0,
+    "verdict": "testing",
+    "slugs": [
+     "chain-hoist-on-the-beam"
+    ]
+   },
+   {
     "value": "electrical",
     "posts": 1,
     "perPost": 0.0,
@@ -1465,20 +1590,60 @@
     "slugs": [
      "control-panel-pulled"
     ]
+   },
+   {
+    "value": "refrigeration",
+    "posts": 2,
+    "perPost": 0.0,
+    "ratio": 0.0,
+    "verdict": "testing",
+    "slugs": [
+     "cooler-still-humming"
+    ]
+   },
+   {
+    "value": "vacuum",
+    "posts": 1,
+    "perPost": 0.0,
+    "ratio": 0.0,
+    "verdict": "testing",
+    "slugs": [
+     "downsized-to-one-truck"
+    ]
+   },
+   {
+    "value": "office",
+    "posts": 1,
+    "perPost": 0.0,
+    "ratio": 0.0,
+    "verdict": "testing",
+    "slugs": [
+     "office-went-remote"
+    ]
+   },
+   {
+    "value": "environmental",
+    "posts": 1,
+    "perPost": 0.0,
+    "ratio": 0.0,
+    "verdict": "testing",
+    "slugs": [
+     "sold-the-septic-route"
+    ]
    }
   ],
   "structure": [
    {
     "value": "problem-action-result",
-    "posts": 33,
-    "perPost": 1.76,
-    "ratio": 1.76,
+    "posts": 37,
+    "perPost": 1.51,
+    "ratio": 1.51,
     "verdict": "winner",
     "slugs": [
      "second-bay-closed-tools",
      "second-jetter-by-the-fence",
-     "laundromat-upgrade-washers",
      "whole-lot-one-link",
+     "laundromat-upgrade-washers",
      "second-location-closed",
      "interior-job-done-lifts",
      "shop-went-cnc-lathe",
@@ -1488,17 +1653,21 @@
      "mowing-contract-ended",
      "pressure-washer-1000-psi",
      "small-business-old-oven",
+     "store-closed-kiosk",
      "trash-pump-after-the-job",
      "warehouse-lease-ended",
-     "downsized-to-one-truck",
      "inspection-camera-in-the-van",
-     "sold-the-septic-route",
-     "building-things-concrete-mixer"
+     "building-things-concrete-mixer",
+     "chain-hoist-on-the-beam",
+     "cooler-still-humming",
+     "downsized-to-one-truck",
+     "office-went-remote",
+     "sold-the-septic-route"
     ]
    },
    {
     "value": "problem-why-app",
-    "posts": 4,
+    "posts": 3,
     "perPost": 0.0,
     "ratio": 0.0,
     "verdict": "loser",
@@ -2520,18 +2689,16 @@
   "boost": {
    "second-bay-closed-tools": 60,
    "second-jetter-by-the-fence": 60,
-   "laundromat-upgrade-washers": 60
+   "whole-lot-one-link": 60
   },
   "retire": {},
   "buildNext": {
    "hooks": [
-    "pov-situation",
-    "pov-idle"
+    "pov-situation"
    ],
    "angles": [
     "small-items",
-    "dealer",
-    "idle-gear"
+    "dealer"
    ],
    "categories": [
     "generators",
