@@ -1844,5 +1844,13 @@
   "repeat": false,
   "status": "failed",
   "error": "POST https://rupload.facebook.com/ig-api-upload/v23.0/18123562849977469 -> 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+ },
+ {
+  "time": "2026-11-15T22:48:52Z",
+  "platform": "instagram_story",
+  "slug": "commercial-idle-forklift",
+  "repeat": false,
+  "status": "failed",
+  "error": "POST https://rupload.facebook.com/ig-api-upload/v23.0/18123563374977469 -> 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
  }
 ]
