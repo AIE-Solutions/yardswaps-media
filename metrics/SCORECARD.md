@@ -1,6 +1,6 @@
 # YardSwaps weekly scorecard (2026-11-16)
 
-Generated 2026-11-16T14:31:07Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
+Generated 2026-11-16T15:45:45Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
 
 ## Goals
 - Instagram followers: 820 (+72 in 7 days)
@@ -59,7 +59,7 @@ Median points per post: 0.5. Points = follows x10, shares x4, saves x3, comments
 | origin-sitting-cash | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
 | parts-bin-lot | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | plumbing-part-label | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
-| roller-after-the-overlay | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| roller-after-the-overlay | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
 | safety-gear-on-the-wall | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | see-what-buyers-want-v2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
 | sold-the-septic-route | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | 0.0 |
@@ -70,7 +70,7 @@ Median points per post: 0.5. Points = follows x10, shares x4, saves x3, comments
 | that-trailer-next-season | 1 | 0 | 1 | 3 | 0 | 0 | 0 | 0 | too new | - |
 
 ### Opener shapes
-- pov-idle: 1.21 points/post over 43 posts (winner)
+- pov-idle: 1.16 points/post over 45 posts (winner)
 - pov-situation: 1.0 points/post over 10 posts (winner)
 - question-problem: 1.0 points/post over 1 posts (testing)
 - search-term: 0.75 points/post over 4 posts (winner)
@@ -79,7 +79,7 @@ Median points per post: 0.5. Points = follows x10, shares x4, saves x3, comments
 
 ### Topics
 - small-items: 4.0 points/post over 3 posts (winner)
-- idle-gear: 1.05 points/post over 39 posts (winner)
+- idle-gear: 1.0 points/post over 41 posts (winner)
 - dealer: 1.0 points/post over 10 posts (winner)
 - shelf-parts: 0.5 points/post over 4 posts (average)
 - parts-spec: 0.5 points/post over 2 posts (testing)
@@ -94,7 +94,6 @@ Median points per post: 0.5. Points = follows x10, shares x4, saves x3, comments
 - excavators: 2.0 points/post over 1 posts (testing)
 - restaurant: 2.0 points/post over 2 posts (testing)
 - machining: 1.0 points/post over 3 posts (winner)
-- paving: 1.0 points/post over 1 posts (testing)
 - drilling: 1.0 points/post over 1 posts (testing)
 - landscaping: 1.0 points/post over 2 posts (testing)
 - pressure: 1.0 points/post over 1 posts (testing)
@@ -105,11 +104,12 @@ Median points per post: 0.5. Points = follows x10, shares x4, saves x3, comments
 - generators: 0.75 points/post over 4 posts (winner)
 - cooking: 0.67 points/post over 3 posts (winner)
 - pumps: 0.67 points/post over 3 posts (winner)
+- paving: 0.5 points/post over 2 posts (testing)
 - inspection: 0.5 points/post over 2 posts (testing)
 - automotive: 0.5 points/post over 2 posts (testing)
 - welding: 0.5 points/post over 2 posts (testing)
 - parts: 0.17 points/post over 6 posts (loser)
-- fleet: 0.0 points/post over 1 posts (testing)
+- fleet: 0.0 points/post over 2 posts (testing)
 - concrete: 0.0 points/post over 1 posts (testing)
 - cranes: 0.0 points/post over 2 posts (testing)
 - electrical: 0.0 points/post over 1 posts (testing)
@@ -119,7 +119,7 @@ Median points per post: 0.5. Points = follows x10, shares x4, saves x3, comments
 - environmental: 0.0 points/post over 1 posts (testing)
 
 ### Video structure tests
-- problem-action-result: 1.28 points/post over 46 posts (winner)
+- problem-action-result: 1.23 points/post over 48 posts (winner)
 - problem-why-app: 0.0 points/post over 3 posts (loser)
 
 ## YouTube title shapes

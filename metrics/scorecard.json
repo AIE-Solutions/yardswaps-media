@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-16",
- "generatedAt": "2026-11-16T14:31:07Z",
+ "generatedAt": "2026-11-16T15:45:45Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": true,
@@ -97,6 +97,7 @@
     "category": "hydro",
     "demo": true,
     "structure": "problem-action-result",
+    "cut": "10s",
     "ratio": 10.0
    },
    {
@@ -470,6 +471,7 @@
     "category": "pumps",
     "demo": true,
     "structure": "problem-action-result",
+    "cut": "10s",
     "ratio": 2.0
    },
    {
@@ -512,6 +514,7 @@
     "category": "inspection",
     "demo": true,
     "structure": "problem-action-result",
+    "cut": "10s",
     "ratio": 1.0
    },
    {
@@ -533,6 +536,7 @@
     "category": "automotive",
     "demo": true,
     "structure": "problem-action-result",
+    "cut": "10s",
     "ratio": 1.0
    },
    {
@@ -602,7 +606,7 @@
    {
     "slug": "box-truck-after-the-route",
     "posts": 2,
-    "settled": 1,
+    "settled": 2,
     "igSettled": 1,
     "points": 0.0,
     "views": 0,
@@ -662,6 +666,7 @@
     "category": "cranes",
     "demo": true,
     "structure": "problem-action-result",
+    "cut": "10s",
     "ratio": 0.0
    },
    {
@@ -742,6 +747,7 @@
     "category": "vacuum",
     "demo": true,
     "structure": "problem-action-result",
+    "cut": "10s",
     "ratio": 0.0
    },
    {
@@ -945,8 +951,8 @@
    {
     "slug": "roller-after-the-overlay",
     "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
+    "settled": 1,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -955,13 +961,14 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "paving",
     "demo": true,
     "structure": "problem-action-result",
-    "ratio": null
+    "cut": "10s",
+    "ratio": 0.0
    },
    {
     "slug": "safety-gear-on-the-wall",
@@ -1062,6 +1069,7 @@
     "hook": "pov-idle",
     "angle": "shelf-parts",
     "category": "parts",
+    "cut": "10s",
     "ratio": 0.0
    },
    {
@@ -1156,9 +1164,9 @@
   "hook": [
    {
     "value": "pov-idle",
-    "posts": 43,
-    "perPost": 1.21,
-    "ratio": 2.42,
+    "posts": 45,
+    "perPost": 1.16,
+    "ratio": 2.31,
     "verdict": "winner",
     "slugs": [
      "second-bay-closed-tools",
@@ -1188,6 +1196,7 @@
      "micrometer-set-small-tools",
      "office-went-remote",
      "plumbing-part-label",
+     "roller-after-the-overlay",
      "sold-the-septic-route",
      "stripped-well-pump",
      "surplus-parts-cash-flow"
@@ -1267,9 +1276,9 @@
    },
    {
     "value": "idle-gear",
-    "posts": 39,
-    "perPost": 1.05,
-    "ratio": 2.1,
+    "posts": 41,
+    "perPost": 1.0,
+    "ratio": 2.0,
     "verdict": "winner",
     "slugs": [
      "second-jetter-by-the-fence",
@@ -1298,6 +1307,7 @@
      "downsized-to-one-truck",
      "forklift-finally-deal",
      "office-went-remote",
+     "roller-after-the-overlay",
      "sold-the-septic-route"
     ]
    },
@@ -1435,16 +1445,6 @@
     ]
    },
    {
-    "value": "paving",
-    "posts": 1,
-    "perPost": 1.0,
-    "ratio": 2.0,
-    "verdict": "testing",
-    "slugs": [
-     "construction-life-compactor"
-    ]
-   },
-   {
     "value": "drilling",
     "posts": 1,
     "perPost": 1.0,
@@ -1553,6 +1553,17 @@
     ]
    },
    {
+    "value": "paving",
+    "posts": 2,
+    "perPost": 0.5,
+    "ratio": 1.0,
+    "verdict": "testing",
+    "slugs": [
+     "construction-life-compactor",
+     "roller-after-the-overlay"
+    ]
+   },
+   {
     "value": "inspection",
     "posts": 2,
     "perPost": 0.5,
@@ -1599,7 +1610,7 @@
    },
    {
     "value": "fleet",
-    "posts": 1,
+    "posts": 2,
     "perPost": 0.0,
     "ratio": 0.0,
     "verdict": "testing",
@@ -1681,9 +1692,9 @@
   "structure": [
    {
     "value": "problem-action-result",
-    "posts": 46,
-    "perPost": 1.28,
-    "ratio": 2.57,
+    "posts": 48,
+    "perPost": 1.23,
+    "ratio": 2.46,
     "verdict": "winner",
     "slugs": [
      "second-bay-closed-tools",
@@ -1712,6 +1723,7 @@
      "cooler-still-humming",
      "downsized-to-one-truck",
      "office-went-remote",
+     "roller-after-the-overlay",
      "see-what-buyers-want-v2",
      "sold-the-septic-route"
     ]
