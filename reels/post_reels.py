@@ -532,7 +532,13 @@ def pick(videos, posted, platform, force=None, scores=None):
     # "platforms": [...] limits a clip to those posters (a Spanish cut that
     # TikTok and the promotions skip); "not_before" (ISO time) keeps it out
     # of the queue until then, e.g. to space it from the same clip in English.
+    # Nov 16: a Short cut from a real new listing ("listing_id" on the entry) waits a day when the Just-listed
+    # card of the same listing went out today, so one new item is not posted twice the same day.
+    today = now().strftime("%Y-%m-%d")
+    listed_today = {p["listing_id"] for p in load(os.path.join(ROOT, "listings", "posted.json"), [])
+                    if p.get("status") == "posted" and str(p.get("time", "")).startswith(today)}
     usable = [v for v in videos if not v.get("hold") and os.path.exists(os.path.join(ROOT, v["file"]))
+              and v.get("listing_id") not in listed_today
               and platform in (v.get("platforms") or [platform])
               and (not v.get("not_before") or parse_time(v["not_before"]) <= now())]
     # A week's push ("boost" with an active "boost_until") goes ahead of even

@@ -64,3 +64,13 @@ Review a wanted card like a listing card, plus: reject it if the caption promise
 Use Actions, then "Just listed posts", then "Run workflow":
 - `mode=prep` queues cards now.
 - `mode=post` with a `listing_id` posts that approved card now (logged `forced`).
+
+## New listings into the Shorts mix (Nov 16)
+
+Alan, Nov 16: new users list new items most days, so they go into the promotion mix. The prep step now also saves the
+cleaned, uncropped photo of every queued listing to `listings/photos/<id>.jpg` (same face check and digit blur as the
+card) and records `photo_file`, `price`, `condition`, `year`, `place` and `created` on the queue entry. The Motion
+runs (Monday, Wednesday, Friday) pick up to two listings that passed the review gate (`approved` or `posted`), not yet
+in `listings/motion-used.json`, one per seller, and cut a 10 s Short on the real photo (pickreal.py in the campaign
+folder). Those library entries carry `listing_id` and `real: true`; `post_reels.py` holds such a Short on any day the
+same listing's Just-listed card went out, so one new item is never posted twice the same day.

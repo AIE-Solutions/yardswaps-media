@@ -43,6 +43,7 @@ from post_reels import (GraphError, graph, iso, load, now, parse_time,  # noqa: 
 
 HERE = os.path.join(ROOT, "listings")
 QUEUE = os.path.join(HERE, "queue.json")
+PHOTOS = os.path.join(HERE, "photos")   # cleaned, uncropped photo per queued listing (Motion uses it as a Short opener)
 POSTED = os.path.join(HERE, "posted.json")
 WANTED = os.path.join(HERE, "wanted.json")
 CARDS = os.path.join(HERE, "cards")
@@ -554,11 +555,21 @@ def prep(dry):
         u, img2, nblur, ocr = chosen
         card = os.path.join(CARDS, f"{lid}.jpg")
         render_card(img2, l, card)
+        # Nov 16 (Alan: new users list new items most days, add them to the promotion mix): keep the cleaned,
+        # uncropped photo too, so the Motion batch can open a 10 s Short on the real item (whole item fitted,
+        # same photo in the app walkthrough). Long side 1600 px, same face/digit checks as the card.
+        os.makedirs(PHOTOS, exist_ok=True)
+        h, w = img2.shape[:2]
+        sc = min(1.0, 1600 / max(h, w))
+        small = cv2.resize(img2, (int(w * sc), int(h * sc)), interpolation=cv2.INTER_AREA) if sc < 1 else img2
+        cv2.imwrite(os.path.join(PHOTOS, f"{lid}.jpg"), small, [cv2.IMWRITE_JPEG_QUALITY, 88])
         turn = len(queue)  # every card ever queued: rotates the question and hashtags
         ig, fb = captions(l, turn)
         entry = {"listing_id": lid, "seller": l.get("sellerId"), "title": nice_title(l["title"]),
                  "category": l.get("category"), "photo": u, "card": f"listings/cards/{lid}.jpg",
                  "blurred_words": nblur, "ocr": ocr, "new": is_new(l),
+                 "photo_file": f"listings/photos/{lid}.jpg", "price": l.get("price"), "condition": l.get("condition"),
+                 "year": l.get("year"), "place": place(l), "created": l.get("createdAt"),
                  "ig_caption": ig, "fb_caption": fb, "status": "pending",
                  "added": iso(now()), "updated": iso(now())}
         print(f"  queued {lid}: {entry['title']} (photo {u}, blurred {nblur}, ocr {ocr})")
