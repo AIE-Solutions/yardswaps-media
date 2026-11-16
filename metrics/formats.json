@@ -454,6 +454,55 @@
    "category": "safety",
    "demo": true,
    "structure": "problem-action-result"
+  },
+  "welder-from-one-job": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "welding",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "compressor-by-the-fence": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "compressors",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "rooftop-unit-on-the-pallet": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "hvac",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "sprayer-after-the-season": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "agriculture",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "light-tower-after-night-work": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "generators",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "fryers-from-the-closed-kitchen": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "cooking",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "zero-turn-after-the-account": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "landscaping",
+   "demo": true,
+   "structure": "problem-action-result"
   }
  }
 }
