@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-15T21:05:35Z",
+  "fetched_at": "2026-11-16T17:50:35Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -16,5 +16,19 @@
   "errors": [
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
-  "items": []
+  "items": [
+    {
+      "platform": "instagram",
+      "comment_id": "17996811594024746",
+      "reply_to": "17996811594024746",
+      "author": null,
+      "text": "SeNd me This post",
+      "time": "2026-11-16T15:21:38+0000",
+      "likes": 0,
+      "media_id": "18039067601894489",
+      "permalink": "https://www.instagram.com/reel/Dfzmx2vDx6f/",
+      "post": "POV: the well pump died. The parts didn't.",
+      "type": "REELS"
+    }
+  ]
 }
