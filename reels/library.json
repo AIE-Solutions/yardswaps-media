@@ -130,7 +130,10 @@
    "question": "What dead pump is still on your bench?",
    "ig_tags": "#wellpump #parts #usedequipment #yardswaps",
    "category": "pumps",
-   "hold": false
+   "hold": false,
+   "boost": 500,
+   "boost_until": "2026-11-23T06:00:00Z",
+   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week."
   },
   {
    "slug": "control-panel-pulled",
@@ -611,7 +614,10 @@
    "body": "POV: the job wrapped. The generator hasn't run since.\n\nA towable diesel generator still hooked up from the last job, sitting with the cords coiled. Snap one photo. AI writes the title, files it under Generators and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What's still hooked up from your last job?",
    "ig_tags": "#generator #dieselgenerator #usedequipment #jobsite #yardswaps",
-   "category": "generators"
+   "category": "generators",
+   "boost": 520,
+   "boost_until": "2026-11-23T06:00:00Z",
+   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week."
   },
   {
    "added": "2026-11-09",
@@ -705,7 +711,10 @@
    "question": "What size trash pump is sitting in your yard?",
    "ig_tags": "#trashpump #dewatering #usedequipment #pumps #yardswaps",
    "category": "pumps",
-   "hold": false
+   "hold": false,
+   "boost": 500,
+   "boost_until": "2026-11-23T06:00:00Z",
+   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week."
   },
   {
    "added": "2026-11-11",
@@ -716,7 +725,10 @@
    "question": "How many feet of push rod are sitting in your van?",
    "ig_tags": "#pipeinspection #sewercamera #drainwork #usedequipment #yardswaps",
    "category": "inspection",
-   "hold": false
+   "hold": false,
+   "boost": 500,
+   "boost_until": "2026-11-23T06:00:00Z",
+   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week."
   },
   {
    "added": "2026-11-11",
@@ -837,6 +849,26 @@
    "question": "What did you buy for one job and never use again?",
    "ig_tags": "#welder #weldingequipment #shoptools #usedequipment #yardswaps",
    "category": "welding"
+  },
+  {
+   "added": "2026-11-16",
+   "slug": "welder-from-one-job-es",
+   "file": "reels/library/yardswaps-welder-from-one-job-9x16.mp4",
+   "priority": 0,
+   "lang": "es",
+   "platforms": [
+    "instagram",
+    "facebook"
+   ],
+   "not_before": "2026-11-19T14:55:00Z",
+   "list_free": false,
+   "body": "POV: la soldadora que compraste para un solo trabajo. Sigue bajo el banco.\n\nUna soldadora de electrodo de 225 amperes con sus cables, comprada para un solo trabajo y nunca más conectada. Una foto. La IA escribe el título, la pone en Equipo de soldadura y redacta la descripción. Pon tu precio y publica. Publicar es gratis y no cobramos comisión por la venta.",
+   "question": "¿Qué compraste para un solo trabajo y nunca volviste a usar?",
+   "ig_tags": "#soldadora #soldadura #herramientas #equipousado #yardswaps",
+   "ig_tags_fixed": true,
+   "fb_tags": "#soldadora #soldadura #herramientas #equipousado #yardswaps",
+   "category": "welding",
+   "note": "Spanish caption for the same welder cut ('soldadora' was a top empty search, Nov 16 YouTube report). Copy from the Spanish YouTube description in WEEKLY-BATCH.md. Posts from Thu 11-19, the day the Spanish Short goes to YouTube."
   },
   {
    "added": "2026-11-16",
