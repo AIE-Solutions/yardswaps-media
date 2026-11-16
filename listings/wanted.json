@@ -1,7 +1,33 @@
 {
- "_note": "\"Buyers are looking for X\" seller-recruitment cards (source: seller-growth/WANTED-POSTS.md, numbers from the [GrowthDigest] of as_of). prep adds one every WANTED_GAP_DAYS between the listing cards, skips them all once as_of is older than WANTED_MAX_AGE_DAYS, and links /sell-equipment/<slug> only when that page answers 200 (link_path overrides). RULE (Alan 2026-11-10): buyer interest only. Never say searches came up empty, buyers found nothing, or none/zero/one listed. Refresh the numbers and as_of from the newest digest; never an exact count below 10, never views or sales. Spanish lines wait for Alan or Emmanuel to proofread.",
+ "_note": "\"Buyers are looking for X\" seller-recruitment cards (source: seller-growth/WANTED-POSTS.md; ai-3-steps and parts-loose come from sellers' own questions, helper report week of 2026-11-16, and sit first so they go out this week; numbers from the [GrowthDigest] of as_of). prep adds one every WANTED_GAP_DAYS between the listing cards, skips them all once as_of is older than WANTED_MAX_AGE_DAYS, and links /sell-equipment/<slug> only when that page answers 200 (link_path overrides). RULE (Alan 2026-11-10): buyer interest only. Never say searches came up empty, buyers found nothing, or none/zero/one listed. Refresh the numbers and as_of from the newest digest; never an exact count below 10, never views or sales. Spanish lines wait for Alan or Emmanuel to proofread.",
  "as_of": "2026-11-08",
  "posts": [
+  {
+   "key": "ai-3-steps",
+   "category": null,
+   "slug": null,
+   "link_path": "/sell",
+   "card": [
+    "Post with AI",
+    "in 3 steps."
+   ],
+   "card_sub": "Photo, check the draft, publish.",
+   "body": "Posting on YardSwaps takes three steps.\n1. Take a photo of the item and its tag or data plate.\n2. Check the draft: the AI fills in the title and specs from the photo, so fix anything it got wrong and add your price.\n3. Publish. Listing is free and the buyer picks up at your place.",
+   "question": "What's the first thing you'd photograph?"
+  },
+  {
+   "key": "parts-loose",
+   "category": "parts",
+   "slug": null,
+   "link_path": "/sell-equipment/parts-and-accessories",
+   "card": [
+    "Loose parts",
+    "and fittings?"
+   ],
+   "card_sub": "List them free in Parts & Other.",
+   "body": "Got a bin of loose parts? Fittings, valves, hose ends, the box of plumbing parts left over from the last job. List them free in Parts & Other. One photo of the lot is enough: price the whole box or price per piece, and the buyer picks up.",
+   "question": "What's in the parts bin you keep meaning to clear out?"
+  },
   {
    "key": "generators",
    "category": "generators",
