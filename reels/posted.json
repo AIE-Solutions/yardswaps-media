@@ -1826,5 +1826,68 @@
   "status": "posted",
   "id": "1459337752192352",
   "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-15T22:44:02Z",
+  "platform": "instagram",
+  "slug": "commercial-idle-forklift",
+  "repeat": false,
+  "list_free": true,
+  "status": "posted",
+  "id": "18122866403070021",
+  "url": "https://www.instagram.com/reel/Dfx4dlAgcUL/"
+ },
+ {
+  "time": "2026-11-15T22:44:51Z",
+  "platform": "instagram_story",
+  "slug": "commercial-idle-forklift",
+  "repeat": false,
+  "status": "failed",
+  "error": "POST https://rupload.facebook.com/ig-api-upload/v23.0/18123562849977469 -> 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+ },
+ {
+  "time": "2026-11-15T22:48:52Z",
+  "platform": "instagram_story",
+  "slug": "commercial-idle-forklift",
+  "repeat": false,
+  "status": "failed",
+  "error": "POST https://rupload.facebook.com/ig-api-upload/v23.0/18123563374977469 -> 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+ },
+ {
+  "time": "2026-11-16T00:45:17Z",
+  "platform": "instagram",
+  "slug": "save-a-search",
+  "repeat": false,
+  "status": "posted",
+  "id": "18648304090037359",
+  "url": "https://www.instagram.com/reel/DfyGVn6CELu/"
+ },
+ {
+  "time": "2026-11-16T00:45:49Z",
+  "platform": "facebook",
+  "slug": "spare-part",
+  "repeat": false,
+  "list_free": true,
+  "status": "posted",
+  "id": "1764405441919414",
+  "url": "https://www.facebook.com/reel/1764405441919414"
+ },
+ {
+  "time": "2026-11-16T00:45:58Z",
+  "platform": "instagram_story",
+  "slug": "save-a-search",
+  "repeat": false,
+  "status": "posted",
+  "id": "18154299955545272",
+  "url": "https://www.instagram.com/stories/yardswaps/4031312835627236912"
+ },
+ {
+  "time": "2026-11-16T00:46:30Z",
+  "platform": "facebook_story",
+  "slug": "spare-part",
+  "repeat": false,
+  "status": "posted",
+  "id": "1005088999310510",
+  "url": "https://www.facebook.com/stories/1291163214083476"
  }
 ]
