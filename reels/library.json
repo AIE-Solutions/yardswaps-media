@@ -133,7 +133,10 @@
    "hold": false,
    "boost": 500,
    "boost_until": "2026-11-23T06:00:00Z",
-   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week."
+   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week.",
+   "cut": "10s",
+   "seconds": 10.1,
+   "cut_added": "2026-11-16"
   },
   {
    "slug": "control-panel-pulled",
@@ -628,7 +631,10 @@
    "question": "What's sitting in your lot since you downsized?",
    "ig_tags": "#vacuumtruck #vactruck #usedequipment #septic #yardswaps",
    "category": "vacuum",
-   "hold": false
+   "hold": false,
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-09",
@@ -714,7 +720,10 @@
    "hold": false,
    "boost": 500,
    "boost_until": "2026-11-23T06:00:00Z",
-   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week."
+   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week.",
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-11",
@@ -728,7 +737,10 @@
    "hold": false,
    "boost": 500,
    "boost_until": "2026-11-23T06:00:00Z",
-   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week."
+   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week.",
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-11",
@@ -739,7 +751,10 @@
    "question": "How long has the spare jetter sat by the fence?",
    "ig_tags": "#hydrojetting #jetter #drainservice #usedequipment #yardswaps",
    "category": "hydro",
-   "hold": false
+   "hold": false,
+   "cut": "10s",
+   "seconds": 10.0,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-11",
@@ -761,7 +776,10 @@
    "question": "What is still hanging from your shop beam?",
    "ig_tags": "#chainhoist #rigging #shopequipment #usedequipment #yardswaps",
    "category": "cranes",
-   "hold": false
+   "hold": false,
+   "cut": "10s",
+   "seconds": 10.0,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-13",
@@ -805,7 +823,10 @@
    "question": "What is still bolted down in the shop you closed?",
    "ig_tags": "#twopostlift #autoshop #shopequipment #usedequipment #yardswaps",
    "category": "automotive",
-   "hold": false
+   "hold": false,
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-13",
@@ -827,7 +848,10 @@
    "question": "What paving gear has not moved since your last job?",
    "ig_tags": "#asphaltroller #paving #compaction #usedequipment #yardswaps",
    "category": "paving",
-   "hold": false
+   "hold": false,
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-13",
@@ -848,7 +872,10 @@
    "body": "POV: the welder you bought for one job, two years ago. Still under the bench.\n\nA 225 amp stick welder with its leads, bought for one job and never plugged in again. Snap one photo. AI writes the title, files it under Welding Equipment and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What did you buy for one job and never use again?",
    "ig_tags": "#welder #weldingequipment #shoptools #usedequipment #yardswaps",
-   "category": "welding"
+   "category": "welding",
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-16",
@@ -878,7 +905,10 @@
    "body": "POV: the crew rents compressors now. The towable one sits by the fence.\n\nA 185 CFM diesel tow-behind compressor parked by the fence since the crew switched to rentals. Snap one photo. AI writes the title, files it under Compressors and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What is parked by your fence since you switched to rentals?",
    "ig_tags": "#aircompressor #towablecompressor #jobsite #usedequipment #yardswaps",
-   "category": "compressors"
+   "category": "compressors",
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-16",
@@ -888,7 +918,10 @@
    "body": "POV: the changeout is done. The old rooftop unit is on a pallet.\n\nA 5-ton packaged rooftop unit pulled working on a changeout and set on a pallet behind the shop. Snap one photo. AI writes the title, files it under Commercial HVAC and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "How many pulled units are on pallets behind your shop?",
    "ig_tags": "#hvac #rooftopunit #hvactech #usedequipment #yardswaps",
-   "category": "hvac"
+   "category": "hvac",
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-16",
@@ -898,7 +931,10 @@
    "body": "POV: the season ended. The sprayer is still at the field edge.\n\nA tandem-axle pull-type sprayer parked at the field edge since the last pass of the season. Snap one photo. AI writes the title, files it under Farm & Ag and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What is still parked at your field edge from last season?",
    "ig_tags": "#farmequipment #sprayer #agequipment #usedequipment #yardswaps",
-   "category": "agriculture"
+   "category": "agriculture",
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-16",
@@ -908,7 +944,10 @@
    "body": "POV: the night work ended. The light tower has not lit since.\n\nA 4-lamp diesel light tower with its own generator, parked in the yard since the night shifts stopped. Snap one photo. AI writes the title, files it under Generators and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What has not lit up since your last night job?",
    "ig_tags": "#lighttower #generator #jobsite #usedequipment #yardswaps",
-   "category": "generators"
+   "category": "generators",
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-16",
@@ -918,7 +957,10 @@
    "body": "POV: the kitchen closed. The fryer line never got sold.\n\nA two-bay stainless fryer line with baskets, still in place in a kitchen that closed. Snap one photo. AI writes the title, files it under Cooking & Ovens and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What is still sitting in the kitchen you closed?",
    "ig_tags": "#restaurantequipment #commercialfryer #kitchenequipment #usedequipment #yardswaps",
-   "category": "cooking"
+   "category": "cooking",
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   },
   {
    "added": "2026-11-16",
@@ -928,7 +970,10 @@
    "body": "POV: you lost the big account. The zero-turn is still on the trailer.\n\nA 52 inch commercial zero-turn mower still strapped on the trailer from the last account. Snap one photo. AI writes the title, files it under Landscaping & Turf and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What is still strapped on your trailer from the last account?",
    "ig_tags": "#zeroturn #landscaping #lawncare #usedequipment #yardswaps",
-   "category": "landscaping"
+   "category": "landscaping",
+   "cut": "10s",
+   "seconds": 9.9,
+   "cut_added": "2026-11-16"
   }
  ]
 }
