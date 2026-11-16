@@ -1,0 +1,34 @@
+[
+ {
+  "slug": "snap-it",
+  "platform": "instagram",
+  "ok": true,
+  "id": "18189934132416223",
+  "link": "https://www.instagram.com/p/Dfhz0url9am/",
+  "time": "2026-11-09T16:55:41+00:00"
+ },
+ {
+  "slug": "snap-it",
+  "platform": "facebook",
+  "ok": true,
+  "id": "1291163214083476_122127588171480098",
+  "link": "https://www.facebook.com/1291163214083476_122127588171480098",
+  "time": "2026-11-09T16:55:41+00:00"
+ },
+ {
+  "slug": "snap-it",
+  "platform": "instagram_story",
+  "ok": true,
+  "id": "18101552420426861",
+  "link": "",
+  "time": "2026-11-09T16:55:41+00:00"
+ },
+ {
+  "slug": "snap-it",
+  "platform": "facebook_story",
+  "ok": true,
+  "id": "1897695858259143",
+  "link": "",
+  "time": "2026-11-09T16:55:41+00:00"
+ }
+]

@@ -526,6 +526,12 @@
    "demo": true,
    "structure": "problem-action-result",
    "lang": "es"
+  },
+  "snap-the-part": {
+   "hook": "pov-idle",
+   "angle": "shelf-parts",
+   "category": "parts",
+   "brand": true
   }
  }
 }
