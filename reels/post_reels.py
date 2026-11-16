@@ -537,8 +537,12 @@ def pick(videos, posted, platform, force=None, scores=None):
     today = now().strftime("%Y-%m-%d")
     listed_today = {p["listing_id"] for p in load(os.path.join(ROOT, "listings", "posted.json"), [])
                     if p.get("status") == "posted" and str(p.get("time", "")).startswith(today)}
+    # A seller who switched off "Feature my listings in YardSwaps social posts" (just_listed.py marks their
+    # queue entries opted_out) never gets a real-listing Short posted again.
+    opted_out = {q["listing_id"] for q in load(os.path.join(ROOT, "listings", "queue.json"), []) if q.get("opted_out")}
     usable = [v for v in videos if not v.get("hold") and os.path.exists(os.path.join(ROOT, v["file"]))
               and v.get("listing_id") not in listed_today
+              and v.get("listing_id") not in opted_out
               and platform in (v.get("platforms") or [platform])
               and (not v.get("not_before") or parse_time(v["not_before"]) <= now())]
     # A week's push ("boost" with an active "boost_until") goes ahead of even

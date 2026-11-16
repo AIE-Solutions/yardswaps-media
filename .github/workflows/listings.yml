@@ -79,7 +79,8 @@ jobs:
         run: |
           git config user.name "yardswaps-reels-bot"
           git config user.email "yardswaps@gmail.com"
-          git add listings/queue.json listings/posted.json listings/cards
+          git add listings/queue.json listings/posted.json listings/cards listings/paid-features.json
+          if [ -d listings/photos ]; then git add listings/photos; fi
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Listings ${{ steps.step.outputs.mode }} $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
