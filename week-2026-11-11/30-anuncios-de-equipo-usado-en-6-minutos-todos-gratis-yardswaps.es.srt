@@ -7,117 +7,117 @@ Treinta anuncios uno tras otro en la app real de YardSwaps. Primero, el montacar
 El tráiler que juraste usar la próxima temporada. Una foto, la IA llena los detalles, hasta las especificaciones. Pon tu precio, publica, y ya está al aire. Gratis.
 
 3
-00:00:34,600 --> 00:00:43,747
+00:00:30,030 --> 00:00:39,177
 La hidrolavadora que reemplazaste. Tómale foto con todo y manguera. La IA lee la placa, la marca y la presión. Pon tu precio y publica.
 
 4
-00:00:48,140 --> 00:00:59,116
+00:00:41,490 --> 00:00:52,466
 La condensadora de un cambio de equipo. Foto por el lado de la placa de datos. La IA lee la marca y las toneladas, y los compradores buscan por toneladas. Publicada gratis.
 
 5
-00:01:01,680 --> 00:01:11,768
+00:00:52,820 --> 00:01:02,908
 Ventiladores de secado de sobra. Tómale foto a uno a nivel del piso. La IA llena marca, modelo y estado, y los compradores cercanos lo encuentran. Publicado gratis.
 
 6
-00:01:15,220 --> 00:01:24,524
+00:01:04,170 --> 00:01:13,474
 Un rin de repuesto de un camión que vendiste. Foto al borde y a los birlos. La IA llena la medida y el número de birlos. Pon tu precio y publica.
 
 7
-00:01:28,750 --> 00:01:35,964
+00:01:15,570 --> 00:01:22,784
 ¿Tienes un compresor para vender? Agrega una foto. La IA la lee y llena los detalles. Revisas, y publicas.
 
 8
-00:01:41,230 --> 00:01:49,881
+00:01:28,040 --> 00:01:36,691
 Los compradores van a preguntar si arranca de todos modos. Agrega un video del arranque en frío, pon tu precio y publica. Publicar es gratis.
 
 9
-00:01:53,260 --> 00:02:03,609
+00:01:39,770 --> 00:01:50,119
 Una pieza sobrante en el estante. Tómale foto y la IA lee la placa y el número de parte. Los compradores buscan por número de parte. Pon precio y publica.
 
 10
-00:02:06,800 --> 00:02:17,698
+00:01:51,130 --> 00:02:02,028
 Cilindros de repuesto en una tarima. Foto a la etiqueta, la IA lee el número de parte y las especificaciones, y los compradores lo encuentran por ese número. Publicado gratis.
 
 11
-00:02:20,340 --> 00:02:31,238
+00:02:02,950 --> 00:02:13,848
 El motor de repuesto que no le queda a nada de lo que tienes. Una foto, la IA llena los detalles, corriges lo que sea, pones tu precio y publicas. Al aire, gratis.
 
 12
-00:02:33,880 --> 00:02:44,934
+00:02:14,310 --> 00:02:25,364
 Adhesivo para anclajes que sobró. Foto a los cartuchos con la etiqueta a la vista. La IA lee la marca y el producto, y los compradores buscan por producto. Publicado gratis.
 
 13
-00:02:47,410 --> 00:02:56,792
+00:02:25,680 --> 00:02:35,062
 Un juego de micrómetros que no usas. Tómale foto al estuche abierto. La IA lee la marca, las medidas y el estado. Pon tu precio y publica.
 
 14
-00:03:00,950 --> 00:03:10,097
+00:02:37,580 --> 00:02:46,727
 Una tronzadora de sobra. Tómale foto donde está. La IA llena marca, modelo y estado, y los compradores cercanos la encuentran. Publicada gratis.
 
 15
-00:03:14,490 --> 00:03:25,623
+00:02:48,990 --> 00:03:00,123
 Barras de mandrinar que el torno nuevo no acepta. Foto con los números a la vista. La IA lee el tamaño del mango y el estado, y los compradores buscan por herramental. Gratis.
 
 16
-00:03:28,030 --> 00:03:39,163
+00:03:00,400 --> 00:03:11,533
 Un cilindro con su etiqueta todavía puesta. Tómale foto con la etiqueta en cuadro. La IA lee marca, modelo y número de parte directo de la etiqueta. Pon tu precio y publica.
 
 17
-00:03:41,570 --> 00:03:48,314
+00:03:13,940 --> 00:03:20,684
 ¿Vendes equipo? Agrega una foto. La IA la lee y llena los detalles. Revisas, y publicas.
 
 18
-00:03:54,040 --> 00:04:03,422
-¿Necesitas equipo? Encuéntralo cerca. Treinta y tres categorías, todas locales. Toca un anuncio, pregúntale al vendedor y recógelo cerca de ti.
+00:03:26,410 --> 00:03:35,792
+¿Necesitas equipo? Encuéntralo cerca. Equipo comercial e industrial, todo local. Toca un anuncio, pregúntale al vendedor y recógelo cerca de ti.
 
 19
-00:04:06,190 --> 00:04:10,688
+00:03:38,560 --> 00:03:43,058
 Los compradores hacen ofertas en la app y te pagan directo a ti. Todo.
 
 20
-00:04:13,820 --> 00:04:21,269
+00:03:46,190 --> 00:03:53,639
 ¿Tienes una pregunta? Escríbele al vendedor. Los tips de recogida vienen incluidos. Fija una hora y míralo funcionar.
 
 21
-00:04:23,300 --> 00:04:28,529
+00:03:55,670 --> 00:04:00,899
 ¿Buscas algo? Guarda la búsqueda. Te avisamos cuando lo publiquen, directo en tu teléfono.
 
 22
-00:04:32,840 --> 00:04:43,006
-Camiones, tráilers, generadores, montacargas, herramientas de taller, equipo de restaurante. Treinta y tres categorías, y publicar en todas es gratis.
+00:04:05,220 --> 00:04:13,636
+Camiones, tráilers, generadores, montacargas, herramientas de taller, equipo de restaurante y más, y publicar es gratis.
 
 23
-00:04:45,370 --> 00:04:52,271
+00:04:17,740 --> 00:04:24,641
 ¿Ves algo que te gusta? Haz una oferta. Si el vendedor contraoferta, acepta con un toque y arregla la recogida.
 
 24
-00:04:55,580 --> 00:05:02,716
+00:04:27,950 --> 00:04:35,086
 ¿Vendes muchas unidades? Abre tu tienda. Todo tu inventario en un solo lugar, y los compradores pueden buscar en él.
 
 25
-00:05:07,470 --> 00:05:13,012
+00:04:39,840 --> 00:04:45,382
 ¿Te gusta lo que tiene un vendedor? Abre su perfil y toca Seguir. Te avisamos cuando publique.
 
 26
-00:05:17,030 --> 00:05:24,897
+00:04:49,400 --> 00:04:57,267
 ¿Ya tienes tres anuncios? Publica el cuarto. La IA lo llena, tú pones el precio, y los cuatro se impulsan gratis por catorce días.
 
 27
-00:05:29,350 --> 00:05:38,001
+00:05:01,720 --> 00:05:10,371
 ¿Ya estás en Craigslist? No lo escribas otra vez. Pega el link de tu anuncio y todo se llena solo. ¿Tienes un impulso gratis? Úsalo al publicar.
 
 28
-00:05:41,200 --> 00:05:50,191
+00:05:13,580 --> 00:05:22,571
 Mira qué buscan los compradores cerca de ti, incluso las búsquedas que no encontraron nada. ¿Tienes uno de esos publicado? Usa un impulso de distribuidor.
 
 29
-00:05:54,730 --> 00:06:03,146
+00:05:27,100 --> 00:05:35,516
 ¿Conoces a alguien con equipo parado? Mándale tu invitación. Se registra con tu código, y los dos reciben un impulso gratis de siete días.
 
 30
-00:06:07,920 --> 00:06:16,022
+00:05:40,290 --> 00:05:48,392
 ¿Lo vendiste? Márcalo con un toque. ¿Tienes otro ahí parado? Una foto, y queda publicado gratis. Sin comisión por la venta.
 
 31
-00:06:18,640 --> 00:06:20,656
+00:05:51,010 --> 00:05:53,026
 Publica gratis en YardSwaps.
