@@ -130,8 +130,7 @@
       "question": "What dead pump is still on your bench?",
       "ig_tags": "#wellpump #parts #usedequipment #yardswaps",
       "category": "pumps",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "control-panel-pulled",
@@ -142,8 +141,7 @@
       "question": "What's still bolted to a wall, unused?",
       "ig_tags": "#electrical #plc #usedequipment #yardswaps",
       "category": "electrical",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "drilling-rig-parked",
@@ -201,10 +199,9 @@
       "question": "What's the oldest part still on your shelf?",
       "ig_tags": "#spareparts #repairparts #usedequipment #yardswaps",
       "boost": 50,
-      "hold": true,
+      "hold": false,
       "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
-      "category": "parts",
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "category": "parts"
     },
     {
       "slug": "plumbing-part-label",
@@ -215,8 +212,7 @@
       "question": "What's the last fitting you bought twice?",
       "ig_tags": "#plumbing #fittings #usedequipment #yardswaps",
       "category": "parts",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "parts-donor-thumb",
@@ -237,8 +233,7 @@
       "question": "Which fitting do you always over-order?",
       "ig_tags": "#plumbing #pvc #usedequipment #yardswaps",
       "category": "parts",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "parts-bin-lot",
@@ -260,8 +255,7 @@
       "ig_tags": "#hydraulics #spareparts #usedequipment #yardswaps",
       "boost": 50,
       "category": "parts",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "find-it-nearby",
@@ -286,8 +280,7 @@
       "ig_tags": "#micrometer #machineshop #usedequipment #yardswaps",
       "boost": 50,
       "category": "tools",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "spare-part",
@@ -297,10 +290,9 @@
       "body": "That spare motor doesn't fit anything you own.\n\nSnap one photo of the part. AI fills in the title, category, condition and description, and suggests a price. Check it, set your price, publish.\n\nFree to list. No cut of the sale. Free boosts.",
       "question": "What spare parts are sitting in your shop?",
       "ig_tags": "#spareparts #usedequipment #equipmentforsale #sellequipment #yardswaps",
-      "hold": true,
+      "hold": false,
       "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
-      "category": "parts",
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "category": "parts"
     },
     {
       "slug": "that-trailer-next-season",
@@ -310,10 +302,9 @@
       "body": "Me pretending I'll use that trailer again next season.\n\nSnap one photo. AI fills in the title, category, condition and even the trailer type. Check it, set your price, post.\n\nFree to list. No cut of the sale. Free boosts.",
       "question": "How long has your trailer been parked?",
       "ig_tags": "#cargotrailer #enclosedtrailer #trailersforsale #usedequipment #yardswaps",
-      "hold": true,
+      "hold": false,
       "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
-      "category": "trailers",
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "category": "trailers"
     },
     {
       "slug": "condenser-changeout",
@@ -325,8 +316,7 @@
       "ig_tags": "#hvac #hvactech #usedequipment #yardswaps",
       "boost": 50,
       "category": "hvac",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "save-a-search",
@@ -357,8 +347,7 @@
       "ig_tags": "#pressurewasher #hotsy #usedequipment #yardswaps",
       "boost": 50,
       "category": "pressure",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "message-the-seller",
@@ -391,8 +380,7 @@
       "ig_tags": "#airmover #restoration #usedequipment #yardswaps",
       "boost": 50,
       "category": "environmental",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "make-an-offer",
@@ -424,8 +412,7 @@
       "ig_tags": "#cnc #machinetools #usedequipment #yardswaps",
       "boost": 50,
       "category": "machining",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "ai-lists-it",
@@ -461,8 +448,7 @@
       "ig_tags": "#truckwheels #autoparts #usedequipment #yardswaps",
       "boost": 50,
       "category": "parts",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "show-the-cold-start",
@@ -472,9 +458,8 @@
       "body": "Every buyer asks: does it start?\n\nShow them. Add a walkaround video to your YardSwaps listing, up to 3 minutes. Film the cold start and let it run.\n\nFree to list. No cut of the sale. Free boosts.",
       "question": "Which of your machines is hardest to start?",
       "ig_tags": "#usedequipment #aircompressor #equipmentforsale #contractor #yardswaps",
-      "hold": true,
-      "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false,
+      "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted"
     },
     {
       "slug": "sold-it-list-the-next",
@@ -497,8 +482,7 @@
       "ig_tags": "#chopsaw #powertools #usedequipment #yardswaps",
       "boost": 50,
       "category": "tools",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "already-on-craigslist",
@@ -530,8 +514,7 @@
       "ig_tags": "#hilti #concrete #usedequipment #yardswaps",
       "boost": 50,
       "category": "concrete",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "slug": "every-category",
@@ -639,8 +622,7 @@
       "question": "What's sitting in your lot since you downsized?",
       "ig_tags": "#vacuumtruck #vactruck #usedequipment #septic #yardswaps",
       "category": "vacuum",
-      "hold": true,
-      "hold_note": "Price callout shows the wrong rows on the phone; re-render pending (Nov 15 audit)"
+      "hold": false
     },
     {
       "added": "2026-11-09",
