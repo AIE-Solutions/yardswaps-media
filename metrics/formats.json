@@ -307,6 +307,12 @@
    "category": "parts",
    "demo": true,
    "structure": "problem-why-app"
+  },
+  "snap-the-part": {
+   "hook": "pov-idle",
+   "angle": "shelf-parts",
+   "category": "parts",
+   "brand": true
   }
  }
 }
