@@ -503,6 +503,14 @@
    "category": "landscaping",
    "demo": true,
    "structure": "problem-action-result"
+  },
+  "welder-from-one-job-es": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "welding",
+   "demo": true,
+   "structure": "problem-action-result",
+   "lang": "es"
   }
  }
 }
