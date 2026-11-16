@@ -2,7 +2,7 @@
 """Post one YardSwaps Reel to Instagram and Facebook per run.
 
 Runs from .github/workflows/reels.yml; posts at most once per Central-time
-slot (SLOTS_CT, four a day since Nov 8). Standard library only.
+slot (SLOTS_CT, seven a day since Nov 13). Standard library only.
 
 Picks the next video from reels/library.json (never-posted first, newest
 first; then, among videos posted at least MIN_GAP_DAYS ago, the one whose
@@ -23,6 +23,10 @@ Env:
   SLUG             force one video (manual runs)
   DRY_RUN          "1" = pick and print captions, post nothing
   CHECK_ONLY       "1" = only say whether a slot is open (due=0/1 to GITHUB_OUTPUT)
+  LIST_FREE        "1" = make this run's Reel the "list it free" post (manual
+                   or dry runs; scheduled runs decide by LIST_FREE_FROM_CT)
+  PROMO            a promos.json id = make this run's Reel that promotion post
+                   (manual or dry runs; scheduled runs decide by slot_from_ct)
 """
 import datetime as dt
 import json
@@ -54,15 +58,19 @@ CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (
 # post stays 90+ minutes from HeyCatch (about :33 past 4 am, 12 pm and 8 pm
 # Central, and the extra Instagram/Facebook posts it puts in those same
 # slots) and from the 2:15 pm Just listed post:
+#   6:10 am   until 6:55 am   (seventh slot, added Nov 13 when the library reached
+#                              71 active; HeyCatch 4:33 am is 92+ min before the early edge)
 #   7:00 am   until 8:00 am   (HeyCatch 4:33 am is 2.5 h before)
 #   8:30 am   until 9:30 am   (fifth slot, added Nov 8 when the library reached 50)
 #   10:00 am  until 11:00 am  (HeyCatch 12:33 pm is 93+ min after)
 #   4:30 pm   until 6:00 pm   (Just listed 2:15 pm is 2+ h before)
 #   6:30 pm   until 7:00 pm   (HeyCatch 8:33 pm is 93+ min after)
+#   10:10 pm  until 11:00 pm  (sixth slot, added Nov 11 when the library reached
+#                              64 active; HeyCatch 8:33 pm is 92+ min before the early edge)
 # A run GitHub starts too late for its slot does nothing; the next slot's
 # runs pick up. library.json "slots" (["07:00-09:30", ...]) overrides this.
 CENTRAL = ZoneInfo("America/Chicago")
-SLOTS_CT = [((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((16, 30), (18, 0)), ((18, 30), (19, 0))]
+SLOTS_CT = [((6, 10), (6, 55)), ((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((16, 30), (18, 0)), ((18, 30), (19, 0)), ((22, 10), (23, 0))]
 SLOT_EARLY_MINUTES = 5     # a run that starts up to 5 minutes early counts for the slot
 
 
@@ -137,24 +145,77 @@ def fb_tags(v):
     return " ".join(machine_tags(v) + ["#YardSwaps"] + BROAD_TAGS)
 
 
+# Instagram captions don't click and bio taps are rare (about 5 humans a
+# week across every platform, Nov 2-9 Railway logs), but a comment with the
+# keyword "list" fires the live Meta comment-to-DM automation, which sends a
+# tappable /c link to the sell page (DM-AUTOREPLIES.md). Lowercase on purpose:
+# the automation lists both cases, lowercase is the safe match.
+IG_COMMENT_CTA = ('Comment "list" and we\'ll message you the free listing link, '
+                  "or tap yardswaps.com/i in our bio.")
+
+
+# A Spanish clip ("lang": "es" in library.json) gets its follow line and
+# link line in Spanish, worded like the Spanish YouTube descriptions
+# (WEEKLY-BATCH.md), and keeps its own Spanish hashtags (set ig_tags_fixed).
+FOLLOW_ES = "Síguenos para ver uno nuevo cada día."
+
+
+def is_spanish(v):
+    return (v.get("lang") or "en").lower() == "es"
+
+
 def ig_caption(v, turn=0):
-    # Instagram captions don't click, so the short link is typed or found in bio.
-    return (f"{v['body']}\n\n{FOLLOW_IG} Get the free YardSwaps app: "
-            f"yardswaps.com/i (link in bio).\n\n{ig_tags(v, turn)}\n\n{v['question']}")
+    if is_spanish(v):
+        return (f"{v['body']}\n\n{FOLLOW_ES} Publica gratis: yardswaps.com/i (link en el perfil)."
+                f"\n\n{ig_tags(v, turn)}\n\n{v['question']}")
+    return (f"{v['body']}\n\n{FOLLOW_IG} {IG_COMMENT_CTA}"
+            f"\n\n{ig_tags(v, turn)}\n\n{v['question']}")
+
+
+# Category ids with a seller page at yardswaps.com/sell-equipment/<id>
+# (CATEGORIES in the app's packages/shared/src/listings.ts, minus "all").
+SELLER_PAGES = {
+    "fleet", "trailers", "generators", "pressure", "vacuum", "pumps", "hydro",
+    "inspection", "compressors", "welding", "machining", "automotive", "tools",
+    "excavators", "paving", "forklifts", "aerial", "cranes", "concrete",
+    "drilling", "electrical", "environmental", "safety", "agriculture",
+    "landscaping", "restaurant", "refrigeration", "cooking", "warehouse",
+    "retail", "office", "laundry", "hvac", "parts",
+}
+
+
+def seller_path(v):
+    """/sell-equipment/<category> when the clip names one category, else /sell-equipment."""
+    cat = (v.get("category") or "").strip().lower()
+    return f"/sell-equipment/{cat}" if cat in SELLER_PAGES else "/sell-equipment"
+
+
+def is_dealer_clip(v):
+    """A storefront clip ("audience": "dealer" in library.json) speaks to dealers."""
+    return (v.get("audience") or "").strip().lower() == "dealer"
 
 
 def fb_caption(v):
     # Facebook captions click, so the link carries a per-Reel tag (UTM-LINKS.md).
-    link = ("https://www.yardswaps.com/sell-equipment?utm_source=facebook"
+    # A clip about one category ("category" in library.json) links that
+    # category's seller page; a storefront clip ("audience": "dealer") links
+    # the Dealer plan page, where the storefront trial starts.
+    path = "/dealers" if is_dealer_clip(v) else seller_path(v)
+    cta = "Get the free app and open your storefront:" if is_dealer_clip(v) else "Get the free app and list it free:"
+    link = (f"https://www.yardswaps.com{path}?utm_source=facebook"
             f"&utm_medium=social&utm_campaign=reels_{v['slug']}")
-    return (f"{v['body']}\n\n{FOLLOW_FB} Get the free app and list it free: {link}"
+    if is_spanish(v):
+        return (f"{v['body']}\n\n{FOLLOW_ES} Publica gratis: {link}"
+                f"\n\n{fb_tags(v)}\n\n{v['question']}")
+    return (f"{v['body']}\n\n{FOLLOW_FB} {cta} {link}"
             f"\n\n{fb_tags(v)}\n\n{v['question']}")
 
 
 def threads_caption(v):
     # Threads allows one topic tag (sent separately) and 500 characters, so
     # no hashtags here. The typed short link /h is tagged (UTM-LINKS.md).
-    tail = f"\n\nGet the free YardSwaps app: yardswaps.com/h\n\n{v['question']}"
+    app = "Descarga la app gratis: yardswaps.com/h" if is_spanish(v) else "Get the free YardSwaps app: yardswaps.com/h"
+    tail = f"\n\n{app}\n\n{v['question']}"
     body = v["body"]
     while len(body) + len(tail) > THREADS_MAX and ". " in body:
         body = body[:body.rstrip(".").rfind(". ") + 1]   # drop the last sentence
@@ -165,6 +226,257 @@ def threads_topic(v):
     """The video's first machine or trade tag, without the #, as the topic."""
     tags = machine_tags(v, 1)
     return tags[0].lstrip("#")[:50] if tags else "UsedEquipment"
+
+
+# ---------- daily "List it free" Reel ----------
+# Alan, Nov 15: a daily "list your equipment free" post on every social
+# ("All socials yes"). One of the seven daily Reels carries it, so volume
+# does not go up: the first Reel of the Central day at or after
+# LIST_FREE_FROM_CT (the 4:30 pm slot; if that run fails, 6:30 pm or 10:10 pm
+# takes over) gets a "LIST IT FREE" caption and a clip picked for it:
+#   - a real item first (the clip names one category; no dealer clips),
+#   - a category the list-it-free posts have not shown in LIST_FREE_CATEGORY_DAYS
+#     days, so the equipment rotates across the categories,
+#   - the usual 10-day no-repeat rule per platform.
+# The morning 9:27 am "LIST IT FREE" Instagram Story (stories/) is separate
+# and stays as it is. Copy is seller-first: free to list, no cut of the sale,
+# every 4 listings earns a free 7-day boost credit (up to 5; the seller spends
+# it, so never say it boosts automatically). Never promise views or sales.
+LIST_FREE_FROM_CT = (16, 30)
+LIST_FREE_CATEGORY_DAYS = 7
+LIST_FREE_HEAD = "LIST IT FREE"
+# Rotate so no two days in a row read word for word the same.
+LIST_FREE_LINES = [
+    "Listing on YardSwaps is free and we take nothing from the sale. "
+    "Every 4 listings you post earns a free 7-day boost, up to 5.",
+    "It costs $0 to list and nothing comes out of the sale price. "
+    "Post 4 listings and you earn a free 7-day boost. Bank up to 5.",
+    "No listing fee. No cut when it sells. Buyers pick it up from you. "
+    "Every fourth listing earns a free 7-day boost, up to 5 saved.",
+    "Free to post, free to sell, and the whole price stays with you. "
+    "Every 4 listings earns a free 7-day boost credit, up to 5.",
+]
+_LIST_FREE_DROP = ("free to list", "list it free:", "no listing fee",
+                   "post 4 listings within")
+
+
+def list_free_ok(v):
+    """A clip that can carry the daily list-it-free post."""
+    if v.get("list_free") is False or is_spanish(v):  # opt-out, e.g. invite-a-seller; English copy only
+        return False
+    cat = (v.get("category") or "").strip().lower()
+    return cat in SELLER_PAGES and not is_dealer_clip(v)
+
+
+def list_free_due(posted, platform, t=None, from_ct=None):
+    """True when this run's post on `platform` should be today's list-it-free post."""
+    t = t or now()
+    local = t.astimezone(CENTRAL)
+    from_ct = from_ct or LIST_FREE_FROM_CT
+    start = local.replace(hour=from_ct[0], minute=from_ct[1],
+                          second=0, microsecond=0) - dt.timedelta(minutes=SLOT_EARLY_MINUTES)
+    if local < start:
+        return False
+    day = local.replace(hour=0, minute=0, second=0, microsecond=0)
+    return not any(p["platform"] == platform and p.get("status") == "posted" and p.get("list_free")
+                   and parse_time(p["time"]) >= day for p in posted)
+
+
+def list_free_pick(videos, posted, platform, scores=None):
+    """pick() over list-it-free clips, skipping categories this platform's
+    list-it-free posts showed in the last LIST_FREE_CATEGORY_DAYS days."""
+    by_slug = {v["slug"]: v for v in videos}
+    since = now() - dt.timedelta(days=LIST_FREE_CATEGORY_DAYS)
+    recent = {(by_slug.get(p["slug"]) or {}).get("category")
+              for p in posted
+              if p["platform"] == platform and p.get("list_free")
+              and p.get("status") == "posted" and parse_time(p["time"]) >= since}
+    ok = [v for v in videos if list_free_ok(v)]
+    fresh_cat = [v for v in ok if v.get("category") not in recent]
+    for pool in (fresh_cat, ok):
+        video, repeat = pick(pool, posted, platform, None, scores)
+        if video:
+            return video, repeat
+    return None, False
+
+
+def list_free_body(v):
+    """The clip's own text minus its closing free-listing line."""
+    paras = [p for p in v["body"].split("\n\n")
+             if not p.strip().lower().startswith(_LIST_FREE_DROP)]
+    return "\n\n".join(paras)
+
+
+def list_free_line(turn):
+    return LIST_FREE_LINES[turn % len(LIST_FREE_LINES)]
+
+
+def list_free_ig_caption(v, turn=0):
+    return (f"{LIST_FREE_HEAD}\n\n{list_free_body(v)}\n\n{list_free_line(turn)}"
+            f"\n\n{FOLLOW_IG} {IG_COMMENT_CTA}\n\n{ig_tags(v, turn)}\n\n{v['question']}")
+
+
+def list_free_fb_caption(v, turn=0):
+    # Tagged per post (UTM-LINKS.md): campaign listfree_<slug>, 40 characters max.
+    campaign = f"listfree_{v['slug']}"[:40]
+    link = (f"https://www.yardswaps.com{seller_path(v)}?utm_source=facebook"
+            f"&utm_medium=social&utm_campaign={campaign}")
+    return (f"{LIST_FREE_HEAD}\n\n{list_free_body(v)}\n\n{list_free_line(turn)}"
+            f"\n\n{FOLLOW_FB} Get the free app and list yours: {link}"
+            f"\n\n{fb_tags(v)}\n\n{v['question']}")
+
+
+def list_free_threads_caption(v, turn=0):
+    head = f"{LIST_FREE_HEAD}\n\n"
+    tail = f"\n\n{list_free_line(turn)}\n\nGet the free YardSwaps app: yardswaps.com/h\n\n{v['question']}"
+    body = list_free_body(v)
+    while len(head) + len(body) + len(tail) > THREADS_MAX and ". " in body:
+        body = body[:body.rstrip(".").rfind(". ") + 1]
+    return (head + body + tail)[:THREADS_MAX]
+
+
+# ---------- daily promotion post ----------
+# Alan, Nov 15: "Let's add the promotions to the posting on socials". The
+# promotions live in reels/promos.json (founding dealer price, Share my page
+# and the invite reward). One Reel a day per platform carries one: the first
+# run of the Central day at or after promos.json "slot_from_ct" (10:00 am; if
+# that run fails a later slot takes over, after the 4:30 pm list-it-free post
+# when both are due). The active promotions take turns by day, so volume does
+# not go up. A promotion only posts between its start and end dates and on its
+# own "platforms". The caption opens with the promotion's head, keeps the
+# clip's text, adds the promotion's line and ends on the clip's question.
+PROMOS = os.path.join(ROOT, "reels", "promos.json")
+
+
+def promos_config():
+    return load(PROMOS, {"promos": []})
+
+
+def active_promos(platform, t=None, cfg=None):
+    """The promotions running today on `platform`, in file order."""
+    cfg = cfg if cfg is not None else promos_config()
+    day = (t or now()).astimezone(CENTRAL).date().isoformat()
+    out = []
+    for pr in cfg.get("promos", []):
+        if platform not in (pr.get("platforms") or []):
+            continue
+        if pr.get("start") and day < pr["start"]:
+            continue
+        if pr.get("end") and day >= pr["end"]:
+            continue
+        out.append(pr)
+    return out
+
+
+def promo_of_day(platform, t=None, cfg=None):
+    """Today's promotion on `platform` (they take turns by day), or None."""
+    live = active_promos(platform, t, cfg)
+    if not live:
+        return None
+    return live[(t or now()).astimezone(CENTRAL).date().toordinal() % len(live)]
+
+
+def promo_due(posted, platform, t=None, cfg=None):
+    """True when this run's post on `platform` should be today's promotion post."""
+    cfg = cfg if cfg is not None else promos_config()
+    if not promo_of_day(platform, t, cfg):
+        return False
+    from_ct = tuple(cfg.get("slot_from_ct") or (10, 0))
+    t = t or now()
+    local = t.astimezone(CENTRAL)
+    start = local.replace(hour=from_ct[0], minute=from_ct[1],
+                          second=0, microsecond=0) - dt.timedelta(minutes=SLOT_EARLY_MINUTES)
+    if local < start:
+        return False
+    day = local.replace(hour=0, minute=0, second=0, microsecond=0)
+    return not any(p["platform"] == platform and p.get("status") == "posted" and p.get("promo")
+                   and parse_time(p["time"]) >= day for p in posted)
+
+
+def promo_pool(videos, promo):
+    """Clips that can carry `promo`: storefront clips for a dealer promotion,
+    real-item seller clips (invite-a-seller included) for a seller one."""
+    videos = [v for v in videos if not is_spanish(v)]   # promotion lines are English
+    if promo.get("audience") == "dealer":
+        return [v for v in videos if is_dealer_clip(v)]
+    return [v for v in videos if not is_dealer_clip(v)
+            and (v.get("category") or "").strip().lower() in SELLER_PAGES]
+
+
+def promo_pick(videos, posted, platform, promo, scores=None):
+    """pick() over the promotion's clips (a storefront clip may repeat after
+    the usual 10 days); a dealer promotion with no storefront clip due falls
+    back to a real-item seller clip."""
+    pools = [promo_pool(videos, promo)]
+    if promo.get("audience") == "dealer":
+        pools.append(promo_pool(videos, {"audience": "seller"}))
+    for pool in pools:
+        video, repeat = pick(pool, posted, platform, None, scores)
+        if video:
+            return video, repeat
+    return None, False
+
+
+def promo_lines(promo):
+    if promo.get("reward_live") and promo.get("lines_reward"):
+        return promo["lines_reward"]
+    return promo.get("lines") or [""]
+
+
+def promo_line(promo, turn=0):
+    lines = promo_lines(promo)
+    return lines[turn % len(lines)]
+
+
+def promo_turn(posted, platform, promo):
+    return sum(1 for p in posted if p["platform"] == platform and p.get("promo") == promo["id"]
+               and p.get("status") == "posted")
+
+
+def promo_body(v, promo):
+    """The clip's text minus its free-listing closer and any sentence the
+    promotion restates (the dealer clips' "$49 a month")."""
+    drop = [d.lower() for d in promo.get("drop_sentences_with") or []]
+    out = []
+    for para in list_free_body(v).split("\n\n"):
+        if drop:
+            sents = [x for x in para.replace(". ", ".\n").split("\n")
+                     if not any(d in x.lower() for d in drop)]
+            para = " ".join(sents).strip()
+        if para:
+            out.append(para)
+    return "\n\n".join(out)
+
+
+def promo_ig_caption(v, promo, turn=0):
+    cta = promo.get("ig_cta") or IG_COMMENT_CTA
+    return (f"{promo['head']}\n\n{promo_body(v, promo)}\n\n{promo_line(promo, turn)}"
+            f"\n\n{FOLLOW_IG} {cta}\n\n{ig_tags(v, turn)}\n\n{v['question']}")
+
+
+def promo_fb_caption(v, promo, turn=0):
+    # Tagged per post (UTM-LINKS.md): campaign promo_<id>_<slug>, 40 characters max.
+    campaign = f"promo_{promo['id']}_{v['slug']}"[:40]
+    path = promo.get("link_path") or seller_path(v)
+    extra = f"&{promo['link_query']}" if promo.get("link_query") else ""
+    link = (f"https://www.yardswaps.com{path}?utm_source=facebook"
+            f"&utm_medium=social&utm_campaign={campaign}{extra}")
+    cta = ("Open your storefront:" if promo.get("audience") == "dealer"
+           else "Get the free app and list it free:")
+    return (f"{promo['head']}\n\n{promo_body(v, promo)}\n\n{promo_line(promo, turn)}"
+            f"\n\n{FOLLOW_FB} {cta} {link}\n\n{fb_tags(v)}\n\n{v['question']}")
+
+
+def promo_threads_caption(v, promo, turn=0):
+    head = f"{promo['head']}\n\n"
+    link = promo.get("typed_link") or "yardswaps.com/h"
+    tail = f"\n\n{promo_line(promo, turn)}\n\n{link}\n\n{v['question']}"
+    body = promo_body(v, promo)
+    while len(head) + len(body) + len(tail) > THREADS_MAX and ". " in body:
+        body = body[:body.rstrip(".").rfind(". ") + 1]
+    if len(head) + len(body) + len(tail) > THREADS_MAX:
+        body = ""
+    return (head + body + tail).replace("\n\n\n\n", "\n\n")[:THREADS_MAX]
 
 
 # ---------- HTTP ----------
@@ -217,7 +529,20 @@ def pick(videos, posted, platform, force=None, scores=None):
     cutoff = now() - dt.timedelta(days=MIN_GAP_DAYS)
     # "hold": true keeps a video out of the queue (for example while its cut
     # is being fixed) without losing its place or history.
-    usable = [v for v in videos if not v.get("hold") and os.path.exists(os.path.join(ROOT, v["file"]))]
+    # "platforms": [...] limits a clip to those posters (a Spanish cut that
+    # TikTok and the promotions skip); "not_before" (ISO time) keeps it out
+    # of the queue until then, e.g. to space it from the same clip in English.
+    usable = [v for v in videos if not v.get("hold") and os.path.exists(os.path.join(ROOT, v["file"]))
+              and platform in (v.get("platforms") or [platform])
+              and (not v.get("not_before") or parse_time(v["not_before"]) <= now())]
+    # A week's push ("boost" with an active "boost_until") goes ahead of even
+    # the fresh cuts once its 10 days are up, so the week's demand clips run
+    # this week (Nov 16: generators, pumps, inspection cameras).
+    pushed = [v for v in usable if v["slug"] in last and last[v["slug"]] <= cutoff
+              and v.get("boost") and v.get("boost_until") and now() < parse_time(v["boost_until"])]
+    if pushed:
+        pushed.sort(key=lambda v: (-v["boost"], last[v["slug"]]))
+        return pushed[0], True
     fresh = [v for v in usable if v["slug"] not in last]
     if fresh:
         fresh.sort(key=lambda v: (-int(v.get("added", "0").replace("-", "")), v.get("priority", 999)))
@@ -237,7 +562,11 @@ def pick(videos, posted, platform, force=None, scores=None):
     # measured boosts replace the hand-set ones; an entry can keep its hand
     # boost with "boost_keep": true.
     fresh_rank = bool(rank.get("generatedAt")) and parse_time(rank["generatedAt"]) >= now() - dt.timedelta(days=8)
-    hand = lambda v: v.get("boost", 0) if (not fresh_rank or v.get("boost_keep")) else 0
+    # "boost_until" (ISO time) keeps a hand boost on top of the scorecard
+    # until then, for a week's push (Nov 16: buyers' top searches).
+    until = lambda v: bool(v.get("boost_until")) and now() < parse_time(v["boost_until"])
+    hand = lambda v: (v.get("boost", 0) if (not fresh_rank or v.get("boost_keep") or until(v)) and
+                      (not v.get("boost_until") or until(v)) else 0)
     old.sort(key=lambda v: (-(scores.get(v["slug"], 0) + hand(v) + auto.get(v["slug"], 0)), last[v["slug"]]))
     return old[0], True
 
@@ -656,8 +985,23 @@ def run_threads(token, videos, posted, dry, summary, force=None):
         return warning
     entry = {"time": iso(now()), "platform": "threads", "slug": video["slug"], "repeat": False}
     try:
+        since = now() - dt.timedelta(hours=24)
+        lf = any(p["platform"] == "instagram" and p["slug"] == video["slug"] and p.get("list_free")
+                 and p.get("status") == "posted" and parse_time(p["time"]) >= since for p in posted)
+        cap = threads_caption(video)
+        pr_id = next((p.get("promo") for p in posted if p["platform"] == "instagram"
+                      and p["slug"] == video["slug"] and p.get("promo") and p.get("status") == "posted"
+                      and parse_time(p["time"]) >= since), None)
+        promo = next((pr for pr in active_promos("threads") if pr["id"] == pr_id), None)
+        if promo and not lf:
+            entry["promo"] = promo["id"]
+            cap = promo_threads_caption(video, promo, promo_turn(posted, "threads", promo))
+        if lf:
+            entry["list_free"] = True
+            cap = list_free_threads_caption(video, sum(1 for p in posted if p["platform"] == "threads"
+                                                       and p.get("list_free") and p.get("status") == "posted"))
         me = threads_api("GET", "me", token, fields="id,username")
-        mid, link = threads_publish(token, me["id"], video, threads_caption(video))
+        mid, link = threads_publish(token, me["id"], video, cap)
         entry.update(status="posted", id=mid, url=link)
         summary.append(f"threads: posted {video['slug']} {link}")
     except (GraphError, KeyError) as e:
@@ -754,9 +1098,39 @@ def main():
     reel_platforms = [p for p in platforms if p in ("instagram", "facebook")]
     story_platforms = [p for p in platforms if p in STORY_BASE]
 
+    want_list_free = os.environ.get("LIST_FREE") == "1"
+    want_promo = (os.environ.get("PROMO") or "").strip()
+    promo_cfg = promos_config()
     for platform in reel_platforms:
-        video, repeat = pick(videos, posted, platform, force)
-        if repeat and not force and token:
+        list_free = want_list_free or (not force and list_free_due(posted, platform))
+        video = None
+        promo = None
+        if not list_free:
+            if want_promo:
+                promo = next((pr for pr in promo_cfg.get("promos", []) if pr["id"] == want_promo), None)
+            elif not force and promo_due(posted, platform, cfg=promo_cfg):
+                promo = promo_of_day(platform, cfg=promo_cfg)
+        if promo and not force:
+            video, repeat = promo_pick(videos, posted, platform, promo)
+            if repeat and token:
+                if scores is None:
+                    scores = ig_scores(token, posted)
+                video, repeat = promo_pick(videos, posted, platform, promo, scores)
+            if not video:
+                summary.append(f"{platform}: no clip fits the {promo['id']} promotion, posting a regular Reel")
+                promo = None
+        if list_free and not force:
+            video, repeat = list_free_pick(videos, posted, platform)
+            if repeat and token:
+                if scores is None:
+                    scores = ig_scores(token, posted)
+                video, repeat = list_free_pick(videos, posted, platform, scores)
+            if not video:
+                list_free = False
+                summary.append(f"{platform}: no clip fits the list-it-free post, posting a regular Reel")
+        if video is None:
+            video, repeat = pick(videos, posted, platform, force)
+        if not list_free and not promo and repeat and not force and token:
             # Only score when a repeat is due, so fresh weeks cost no extra calls.
             if scores is None:
                 scores = ig_scores(token, posted)
@@ -769,9 +1143,21 @@ def main():
             continue
         path = os.path.join(ROOT, video["file"])
         turn = sum(1 for p in posted if p["platform"] == platform and p.get("status") == "posted")
-        caption = ig_caption(video, turn) if platform == "instagram" else fb_caption(video)
+        if list_free:
+            lf_turn = sum(1 for p in posted if p["platform"] == platform and p.get("list_free")
+                          and p.get("status") == "posted")
+            caption = (list_free_ig_caption(video, lf_turn) if platform == "instagram"
+                       else list_free_fb_caption(video, lf_turn))
+        elif promo:
+            pt = promo_turn(posted, platform, promo)
+            caption = (promo_ig_caption(video, promo, pt) if platform == "instagram"
+                       else promo_fb_caption(video, promo, pt))
+        else:
+            caption = ig_caption(video, turn) if platform == "instagram" else fb_caption(video)
         if dry:
-            summary.append(f"{platform}: would post {video['slug']} (repeat={repeat})\n{caption}\n")
+            summary.append(f"{platform}: would post {video['slug']} (repeat={repeat}"
+                           f"{', list it free' if list_free else ''}"
+                           f"{', promotion ' + promo['id'] if promo else ''})\n{caption}\n")
             continue
         # GitHub can start a scheduled run hours late or drop it, so each slot
         # has backup crons. The first run in a slot window posts; the rest stop.
@@ -787,6 +1173,10 @@ def main():
         entry = {"time": iso(now()), "platform": platform, "slug": video["slug"], "repeat": repeat}
         if force:
             entry["forced"] = True
+        if list_free:
+            entry["list_free"] = True
+        if promo:
+            entry["promo"] = promo["id"]
         try:
             last = ig_last_post_time(token, ig_id) if platform == "instagram" else fb_last_post_time(token, page_id)
             # The 90-minute gap keeps clear of HeyCatch; our own one-off posts don't count.
@@ -802,7 +1192,8 @@ def main():
             else:
                 mid, link = fb_publish(token, page_id, path, caption)
             entry.update(status="posted", id=mid, url=link)
-            summary.append(f"{platform}: posted {video['slug']} {link}")
+            summary.append(f"{platform}: posted {video['slug']}{' (list it free)' if list_free else ''}"
+                           f"{' (promotion ' + promo['id'] + ')' if promo else ''} {link}")
         except GraphError as e:
             entry.update(status="failed", error=str(e)[:500])
             summary.append(f"{platform}: FAILED {video['slug']}: {e}")

@@ -8,5 +8,75 @@
   "media_id": "17979684714139425",
   "expires": "2026-11-09T18:55:01Z",
   "verified_live": true
+ },
+ {
+  "date": "2026-11-09",
+  "machine": "generator",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/3ee8b7c9920b6cb1c3cc8f62336a88ce769f51b2/stories/out/2026-11-09-generator-story.jpg",
+  "time": "2026-11-09T15:30:14Z",
+  "status": "posted",
+  "media_id": "18125180734724595",
+  "expires": "2026-11-10T15:30:27Z",
+  "verified_live": true
+ },
+ {
+  "date": "2026-11-10",
+  "machine": "conveyor oven",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/aef46f544dac813ed4d1e5bc8206d94d53b53492/stories/out/2026-11-10-conveyor-oven-story.jpg",
+  "time": "2026-11-10T15:31:26Z",
+  "status": "posted",
+  "media_id": "18169182913486804",
+  "expires": "2026-11-11T15:31:41Z",
+  "verified_live": true
+ },
+ {
+  "date": "2026-11-12",
+  "machine": "walk-in cooler",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/71071dcfa4ba819ffea60fac26d874f77fbbd16e/stories/out/2026-11-12-walk-in-cooler-story.jpg",
+  "time": "2026-11-12T15:31:18Z",
+  "status": "posted",
+  "media_id": "17937551613407686",
+  "expires": "2026-11-13T15:31:31Z",
+  "verified_live": true
+ },
+ {
+  "date": "2026-11-13",
+  "machine": "ice machine",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/8dee02df6c2fca98b795f820bc54736bcbb05ba9/stories/out/2026-11-13-ice-machine-story.jpg",
+  "time": "2026-11-13T15:32:24Z",
+  "status": "posted",
+  "media_id": "18122166380069087",
+  "expires": "2026-11-14T15:32:30Z",
+  "verified_live": true
+ },
+ {
+  "date": "2026-11-14",
+  "machine": "zero-turn mower",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/687868aee482c9077204b0db3943f0b3c0ed1d22/stories/out/2026-11-14-zero-turn-mower-story.jpg",
+  "time": "2026-11-14T15:29:16Z",
+  "status": "posted",
+  "media_id": "18093864911695612",
+  "expires": "2026-11-15T15:29:28Z",
+  "verified_live": true
+ },
+ {
+  "date": "2026-11-15",
+  "machine": "scissor lift",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/dc28d07d4fdc0903110d593309cb47fdae1da5c8/stories/out/2026-11-15-scissor-lift-story.jpg",
+  "time": "2026-11-15T15:28:37Z",
+  "status": "posted",
+  "media_id": "17926023813223238",
+  "expires": "2026-11-16T15:28:49Z",
+  "verified_live": true
+ },
+ {
+  "date": "2026-11-16",
+  "machine": "generator",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/24378f407ec6aa3403efa1cb608756b33fc17584/stories/out/2026-11-16-generator-story.jpg",
+  "time": "2026-11-16T15:30:26Z",
+  "status": "posted",
+  "media_id": "18111168983194109",
+  "expires": "2026-11-17T15:30:38Z",
+  "verified_live": true
  }
 ]

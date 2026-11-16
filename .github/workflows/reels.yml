@@ -1,10 +1,10 @@
 name: Reels to Instagram and Facebook
 
-# Four Reels a day on each platform (Nov 8, up from two), each re-shared to
+# Seven Reels a day on each platform (Nov 13; four from Nov 8, up from two), each re-shared to
 # Stories right after and shared to Threads (once THREADS_TOKEN is set).
 # Slots are set in Central time in reels/post_reels.py (SLOTS_CT), so they
 # don't move when daylight saving changes:
-#   7:00 am, 10:00 am, 4:30 pm and 6:30 pm Central
+#   6:10, 7:00, 8:30, 10:00 am, 4:30, 6:30 and 10:10 pm Central
 # each with a short window (see post_reels.py) that keeps every post 90+
 # minutes from HeyCatch (about :33 past 4 am, 12 pm and 8 pm Central) and the
 # 2:15 pm Just listed post.
@@ -16,9 +16,13 @@ on:
     # on when a slot window is open and not yet posted, so the extra runs cost
     # seconds. A Claude scheduled task also starts the workflow at :42 past
     # each slot hour, Central.
+    - cron: "27 12 * * *"        # 6:27 am Central in winter (6:10 am slot)
+    - cron: "27,47 11 * * *"     # 6:27 and 6:47 am Central in summer
     - cron: "7,47 12-16 * * *"
     - cron: "7,37 21-23 * * *"
     - cron: "37,52 0 * * *"
+    - cron: "42,52 4 * * *"      # 10:42 and 10:52 pm Central in winter (10:10 pm slot)
+    - cron: "42 3 * * *"         # 10:42 pm Central in summer
   workflow_dispatch:
     inputs:
       platforms:
@@ -32,6 +36,9 @@ on:
         default: "0"
       image_slug:
         description: "One-off IMAGE post from reels/images.json (skips the Reels queue), e.g. snap-it"
+        default: ""
+      promo:
+        description: "A reels/promos.json id (founding, share) = make this run the promotion post (optional)"
         default: ""
 
 permissions:
@@ -111,6 +118,7 @@ jobs:
           PLATFORMS: ${{ inputs.platforms || 'instagram,facebook,instagram_story,facebook_story,threads' }}
           SLUG: ${{ inputs.slug }}
           DRY_RUN: ${{ inputs.dry_run || '0' }}
+          PROMO: ${{ inputs.promo }}
         run: python3 reels/post_reels.py
       - name: Save the posting log
         if: always()

@@ -1,0 +1,78 @@
+{
+  "_note": "Public feeds only (RSS/Atom). The listener reads these once a day from GitHub Actions. links_ok=false means a reply must not carry a link: most subreddits and trade forums remove self-promotion. Check each place's rules before replying. Reddit allows about one anonymous search per run from GitHub's runners (a second one got 429 on 11-08), so buyers and sellers share one query.",
+  "reddit_subs": [
+    "Construction",
+    "HeavyEquipment",
+    "Machinists",
+    "Welding",
+    "pressurewashing",
+    "HVAC",
+    "Plumbing",
+    "electricians",
+    "landscaping",
+    "farming",
+    "KitchenConfidential",
+    "restaurantowners",
+    "sweatystartup",
+    "smallbusiness",
+    "Tools",
+    "Generators",
+    "Concrete",
+    "Truckers",
+    "AutoMechanics",
+    "Skookum"
+  ],
+  "reddit_searches": [
+    {
+      "name": "Reddit",
+      "q": "\"looking for\" OR WTB OR \"want to buy\" OR \"anyone selling\" OR \"in the market for\" OR \"where to sell\" OR \"selling my\" OR \"for sale\" OR \"getting rid of\" OR \"how to sell\" OR \"closing my\""
+    }
+  ],
+  "forums": [
+    {
+      "name": "Practical Machinist",
+      "url": "https://www.practicalmachinist.com/forum/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "Hobby-Machinist",
+      "url": "https://www.hobby-machinist.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "Garage Journal",
+      "url": "https://www.garagejournal.com/forum/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "Boom & Bucket forums",
+      "url": "https://forums.boomandbucket.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "Heavy Equipment Forums",
+      "url": "https://www.heavyequipmentforums.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "LawnSite",
+      "url": "https://www.lawnsite.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "ContractorTalk",
+      "url": "https://www.contractortalk.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "WeldingWeb",
+      "url": "https://weldingweb.com/forums/-/index.rss",
+      "links_ok": false
+    },
+    {
+      "name": "Pressure Washing Resource",
+      "url": "https://pressurewashingresource.com/community/latest.rss",
+      "links_ok": false
+    }
+  ]
+}

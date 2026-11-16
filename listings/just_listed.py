@@ -342,13 +342,27 @@ def page_live(url):
 def wanted_link(w, source):
     """The category's seller page once it exists (Marketplace PR #261), else /sell-equipment."""
     tag = f"utm_source={source}&utm_medium=social&utm_campaign=post_wanted-{w['slug'] or w['key']}"
+    if w.get("link_path"):
+        # A fixed app page, e.g. /sell?import=craigslist (Sell form with the Craigslist paste box open).
+        sep = "&" if "?" in w["link_path"] else "?"
+        return f"{SITE}{w['link_path']}{sep}{tag}"
     if w.get("slug") and page_live(f"{SITE}/sell-equipment/{w['slug']}"):
         return f"{SITE}/sell-equipment/{w['slug']}?{tag}"
     return f"{SITE}/sell-equipment?{tag}"
 
 
+# Alan 2026-11-10: wanted copy states buyer interest only. Saying searches came up
+# empty, or that none / zero / one are listed, reads as "the marketplace is empty".
+EMPTY_CLAIM = re.compile(r"(?i)\b(none|nothing|zero)\b|found no\b|came up empty|\bone (\w+ )?(is |are )?listed|no \w+ listed")
+
+
+def empty_claim(w):
+    text = " ".join([w.get("body", ""), w.get("card_sub", ""), " ".join(w.get("card", []))])
+    return EMPTY_CLAIM.search(text)
+
+
 def claim_holds(w, listings, complete):
-    """True while the post's "none listed" claim is still true on the live site."""
+    """Optional live-count check (no post uses one since 2026-11-10); True when a post has none."""
     c = w.get("check")
     if not c:
         return True
@@ -365,8 +379,10 @@ def claim_holds(w, listings, complete):
 def wanted_captions(w, turn):
     cat = CATEGORY_TAGS.get(w.get("category"), ["#Equipment", "#SellUsedEquipment"])
     rot = (ROTATE_TAGS * 2)[(turn * 2) % len(ROTATE_TAGS):(turn * 2) % len(ROTATE_TAGS) + 2]
-    ig = (f"{w['body']}\n\nList it free in the YardSwaps app: yardswaps.com/i (link in bio). "
-          "No listing fee, no cut of the sale.\n\n"
+    # Comment "list" fires the Meta comment-to-DM automation (a tappable /c
+    # link to the sell page); see IG_COMMENT_CTA in reels/post_reels.py.
+    ig = (f"{w['body']}\n\nComment \"list\" and we'll message you the free listing link, "
+          "or tap yardswaps.com/i in our bio. No listing fee, no cut of the sale.\n\n"
           f"{' '.join(cat + ['#UsedEquipment'] + rot)}\n\n{w['question']}")
     fb = (f"{w['body']}\n\nList it free: {wanted_link(w, 'facebook')}\n"
           "No listing fee, no cut of the sale.\n\n"
@@ -439,6 +455,9 @@ def prep_wanted(listings, complete, queue, posted, dry):
                                                          last.get(f"wanted-{iw[1]['key']}", ""), iw[0])):
         wid = f"wanted-{w['key']}"
         if last.get(wid, "") > repeat_cut or wid in rejected:
+            continue
+        if empty_claim(w):
+            print(f"::warning::skip {wid}: its copy says '{empty_claim(w).group(0)}'; wanted posts state buyer interest only")
             continue
         if not claim_holds(w, listings, complete):
             print(f"  skip {wid}: its claim no longer holds on the live site")

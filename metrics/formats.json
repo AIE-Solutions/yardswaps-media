@@ -184,7 +184,8 @@
   "stripped-well-pump": {
    "hook": "pov-idle",
    "angle": "shelf-parts",
-   "category": "parts"
+   "category": "parts",
+   "cut": "10s"
   },
   "control-panel-pulled": {
    "hook": "pov-idle",
@@ -307,6 +308,224 @@
    "category": "parts",
    "demo": true,
    "structure": "problem-why-app"
+  },
+  "job-wrapped-generator": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "generators",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "downsized-to-one-truck": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "vacuum",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "sold-the-septic-route": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "environmental",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "second-bay-closed-tools": {
+   "hook": "pov-idle",
+   "angle": "small-items",
+   "category": "tools",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "warehouse-lease-ended": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "warehouse",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "interior-job-done-lifts": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "aerial",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "shop-went-cnc-lathe": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "machining",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "whole-lot-one-link": {
+   "hook": "pov-situation",
+   "angle": "dealer",
+   "category": "trailers",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "import-from-your-website": {
+   "hook": "pov-situation",
+   "angle": "dealer",
+   "category": "generators",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "trash-pump-after-the-job": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "pumps",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "inspection-camera-in-the-van": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "inspection",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "second-jetter-by-the-fence": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "hydro",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "cooler-still-humming": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "refrigeration",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "chain-hoist-on-the-beam": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "cranes",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "storefront-stats": {
+   "hook": "pov-situation",
+   "angle": "dealer",
+   "category": "welding",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "socials-on-storefront": {
+   "hook": "pov-situation",
+   "angle": "dealer",
+   "category": "cooking",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "see-what-buyers-want-v2": {
+   "hook": "pov-situation",
+   "angle": "dealer",
+   "category": "aerial",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "lift-still-bolted-down": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "automotive",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "box-truck-after-the-route": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "fleet",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "roller-after-the-overlay": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "paving",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "safety-gear-on-the-wall": {
+   "hook": "pov-idle",
+   "angle": "small-items",
+   "category": "safety",
+   "demo": true,
+   "structure": "problem-action-result"
+  },
+  "welder-from-one-job": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "welding",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "compressor-by-the-fence": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "compressors",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "rooftop-unit-on-the-pallet": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "hvac",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "sprayer-after-the-season": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "agriculture",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "light-tower-after-night-work": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "generators",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "fryers-from-the-closed-kitchen": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "cooking",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "zero-turn-after-the-account": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "landscaping",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "welder-from-one-job-es": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "welding",
+   "demo": true,
+   "structure": "problem-action-result",
+   "lang": "es"
   },
   "snap-the-part": {
    "hook": "pov-idle",

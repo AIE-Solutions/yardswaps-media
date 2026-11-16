@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Post one YardSwaps video to TikTok per run, through Buffer's free plan.
 
-Runs from .github/workflows/tiktok.yml five times a day. Standard library only.
+Runs from .github/workflows/tiktok.yml; posts at most three a day. Standard library only.
 
 Why Buffer and not TikTok's own API: TikTok's Content Posting API only
 lets an unaudited app post private ("only me") videos from a private
@@ -27,6 +27,7 @@ Env:
   META_PAGE_TOKEN  optional, only to rank repeats by Instagram engagement
   SLUG             force one video (manual runs)
   DRY_RUN          "1" = pick and print the caption and link, post nothing
+  PROMO            a promos.json id = make this run's TikTok that promotion post
   CHECK            "1" = only list the Buffer channels (setup check)
   GITHUB_SHA, GITHUB_REPOSITORY  set by GitHub Actions
 """
@@ -44,8 +45,18 @@ API = "https://api.buffer.com"
 ROOT = reels.ROOT
 LOG = os.path.join(ROOT, "reels", "tiktok-posted.json")
 PLATFORM = "tiktok"
-MAX_OURS_PER_20H = 5   # 50 videos / 10-day no-repeat = 5 fresh a day
-MIN_GAP_MIN = 75        # a late GitHub cron run never lands right after our last post
+# Nov 10: TikTok blocked a post as "potential spam" after 10 of ours plus
+# HeyCatch's 3 a day (about 8 a day on a new account, every caption ending in
+# the same follow line and web address). Cut to 3 a day spread over the day;
+# with HeyCatch that is 6, about one every 2 to 4 hours.
+MAX_OURS_PER_20H = 2   # Nov 10 pm: 2 after a second spam block (was 3)
+# When TikTok blocks one of our posts as spam_risk, post nothing for this long
+# after the blocked post was due. Pushing more posts at a flagged account
+# digs it deeper; a quiet spell lets it recover.
+SPAM_COOLDOWN_H = 72
+# The dispatcher runs at :42 past 7, 8, 10, 14, 16 and 18 Central. A 220-minute
+# gap and the cap of 2 mean only the 7:42 am and 2:42 pm runs post.
+MIN_GAP_MIN = 220
 SCHEDULE_AHEAD_MIN = 5      # Buffer publishes this many minutes after the run
 JSDELIVR_MAX_BYTES = 19_000_000  # jsDelivr serves GitHub files up to 20 MB
 HEYCATCH = os.path.join(ROOT, "reels", "heycatch-tiktok.json")
@@ -74,11 +85,63 @@ def clear_of_heycatch(due):
 
 # ---------- caption ----------
 
+# TikTok's spam filter looks at captions that repeat word for word across an
+# account's posts, "follow for ..." asks and web addresses in the caption.
+# So the TikTok caption has no web address (it can't be tapped anyway), no
+# follow ask, and its closing lines rotate instead of repeating.
+# The free-listing paragraph most library bodies end with is swapped for one
+# of these (seller-first, no promise of views or sales).
+FREE_LINES = [
+    "Free to list. No cut of the sale. Free boosts.",
+    "Listing it costs nothing, and YardSwaps takes no cut when it sells.",
+    "No listing fee and no commission. Boosts are free too.",
+    "It's free to post, and the whole sale price stays with you.",
+]
+CTA_LINES = [
+    "The YardSwaps app is in our bio.",
+    "Link in bio to list yours.",
+    "YardSwaps is on iPhone and Android, link in bio.",
+    "List yours from the link in bio.",
+    "Get the app from the link in bio.",
+]
+_BOILERPLATE = ("free to list", "list it free:", "no listing fee")
+
+
+# The daily list-it-free post (post_reels.py, "List it free" Reel; Alan Nov 15
+# "All socials yes"): the first TikTok of each Central day, inside the same
+# cap of 2, so TikTok volume does not go up. Its opening line rotates and it
+# carries no web address, like every TikTok caption.
+LIST_FREE_FROM_CT = (0, 0)
+LIST_FREE_OPENERS = [
+    "List it free.",
+    "This one could be listed free today.",
+    "Sitting idle? List it free.",
+    "Free to list, start to finish.",
+    "Your yard, your price, free to list.",
+]
+
+
+def list_free_caption(v, turn=0):
+    close = f"{reels.list_free_line(turn)} {CTA_LINES[turn % len(CTA_LINES)]}"
+    body = f"{LIST_FREE_OPENERS[turn % len(LIST_FREE_OPENERS)]}\n\n{reels.list_free_body(v)}\n\n{close}"
+    return f"{body}\n\n{reels.tt_tags(v, turn)}\n\n{v['question']}"
+
+
+def promo_caption(v, promo, turn=0):
+    # The daily promotion post (reels/promos.json, post_reels.py "daily
+    # promotion post"): no web address, like every TikTok caption.
+    close = f"{reels.promo_line(promo, turn)} {CTA_LINES[turn % len(CTA_LINES)]}"
+    body = f"{promo['head']}\n\n{reels.promo_body(v, promo)}\n\n{close}"
+    return f"{body}\n\n{reels.tt_tags(v, turn)}\n\n{v['question']}"
+
+
 def tiktok_caption(v, turn=0):
-    # TikTok captions don't click, so the short link is for typing or the bio.
-    # No handle in the text: the account is still being renamed.
-    return (f"{v['body']}\n\nFollow for a new one every day. Get the free YardSwaps app: "
-            f"yardswaps.com/t (link in bio).\n\n{reels.tt_tags(v, turn)}\n\n{v['question']}")
+    paras = [p for p in v["body"].split("\n\n")
+             if not p.strip().lower().startswith(_BOILERPLATE)]
+    # 4 and 5 lines rotate at different rates: 20 posts before a pair repeats.
+    close = f"{FREE_LINES[turn % len(FREE_LINES)]} {CTA_LINES[turn % len(CTA_LINES)]}"
+    body = "\n\n".join(paras + [close])
+    return f"{body}\n\n{reels.tt_tags(v, turn)}\n\n{v['question']}"
 
 
 # ---------- Buffer GraphQL ----------
@@ -105,6 +168,13 @@ def gql(key, query, variables=None):
 Q_ORGS = "query { account { organizations { id name } } }"
 Q_CHANNELS = """query Channels($org: OrganizationId!) {
   channels(input: { organizationId: $org }) { id name displayName service isQueuePaused }
+}"""
+Q_ERRORS = """query Errors($org: OrganizationId!, $ch: [ChannelId!]) {
+  posts(first: 20, input: { organizationId: $org,
+        sort: [{ field: dueAt, direction: desc }],
+        filter: { status: error, channelIds: $ch } }) {
+    edges { node { id status dueAt error { message rawError } } }
+  }
 }"""
 Q_SENT = """query Sent($org: OrganizationId!, $ch: [ChannelId!]) {
   posts(first: 20, input: { organizationId: $org,
@@ -149,6 +219,56 @@ def last_ours(posted):
     return max(times) if times else None
 
 
+def diagnose(key, org_id, channel):
+    """Print the TikTok channel's recent Buffer posts with status and any error.
+
+    Field names are read from the API schema first, so this keeps working if
+    Buffer renames an error field. Read only: posts nothing, changes nothing.
+    """
+    def fields(name):
+        t = gql(key, '{ __type(name: "%s") { fields { name type { name kind ofType { name kind } } } '
+                     'enumValues { name } } }' % name).get("__type") or {}
+        return t
+    try:
+        post_t = fields("Post")
+        names = {f["name"]: f for f in post_t.get("fields") or []}
+        print("  Post fields:", ", ".join(sorted(names)))
+        statuses = [e["name"] for e in (fields("PostStatus").get("enumValues") or [])]
+        print("  Post statuses:", ", ".join(statuses))
+        pick = [n for n in ("id", "status", "dueAt", "sentAt", "externalLink", "text") if n in names]
+        extra = []
+        for n, f in names.items():
+            if "error" in n.lower() or "fail" in n.lower() or "reason" in n.lower():
+                t = f["type"]
+                base = t.get("ofType") or t
+                if base.get("kind") in ("SCALAR", "ENUM"):
+                    extra.append(n)
+                else:
+                    sub = fields(base.get("name") or "")
+                    leaf = [x["name"] for x in sub.get("fields") or []
+                            if (x["type"].get("ofType") or x["type"]).get("kind") in ("SCALAR", "ENUM")]
+                    if leaf:
+                        extra.append(n + " { " + " ".join(leaf) + " }")
+        sel = " ".join(pick + extra)
+        for st in [x for x in statuses if x.lower() in ("error", "failed", "sent", "scheduled", "sending")]:
+            q = ("query D($org: OrganizationId!, $ch: [ChannelId!]) { posts(first: 8, input: { "
+                 "organizationId: $org, sort: [{ field: dueAt, direction: desc }], "
+                 "filter: { status: %s, channelIds: $ch } }) { edges { node { %s } } } }" % (st, sel))
+            try:
+                edges = gql(key, q, {"org": org_id, "ch": [channel["id"]]}).get("posts", {}).get("edges", [])
+            except BufferError as e:
+                print(f"  {st}: could not list ({e})")
+                continue
+            print(f"  {st}: {len(edges)}")
+            for e in edges:
+                n = dict(e["node"])
+                if n.get("text"):
+                    n["text"] = n["text"][:60].replace("\n", " ")
+                print("    " + json.dumps(n, ensure_ascii=False)[:700])
+    except BufferError as e:
+        print(f"  diagnose failed: {e}")
+
+
 # ---------- main ----------
 
 def main():
@@ -177,7 +297,9 @@ def main():
             print("::error::No TikTok channel in Buffer yet. Connect TikTok in Buffer (README, TikTok step 2).")
             return 1
         if check:
-            print(f"TikTok channel found: {channel.get('name')}. Setup is complete.")
+            print(f"TikTok channel found: {channel.get('name')} "
+                  f"(paused={channel.get('isQueuePaused')}). Setup is complete.")
+            diagnose(key, org_id, channel)
             return 0
         # Fill in links for earlier posts that Buffer has published since.
         try:
@@ -189,6 +311,36 @@ def main():
                     p.update(status="posted", url=n.get("externalLink") or "", sent=n.get("sentAt"))
         except BufferError as e:
             print(f"  could not read published posts from Buffer: {e}")
+        # Posts Buffer couldn't publish: record why, and back off after a spam block.
+        spam_due = None
+        try:
+            errs = gql(key, Q_ERRORS, {"org": org_id, "ch": [channel["id"]]})
+            for e in errs.get("posts", {}).get("edges", []):
+                n = e["node"]
+                err = n.get("error") or {}
+                text = f"{err.get('message') or ''} {err.get('rawError') or ''}".strip()
+                for p in posted:
+                    if p.get("buffer_id") == n["id"] and p.get("status") != "failed":
+                        p.update(status="failed", error=text[:500])
+                        print(f"::warning::{p['slug']} failed on TikTok: {err.get('rawError') or text}")
+                if "spam" in text.lower() and n.get("dueAt"):
+                    d = reels.parse_time(n["dueAt"].replace(".000Z", "Z"))
+                    spam_due = max(spam_due, d) if spam_due else d
+        except BufferError as e:
+            print(f"  could not read failed posts from Buffer: {e}")
+        if spam_due and not force and not dry and \
+                reels.now() - spam_due < dt.timedelta(hours=SPAM_COOLDOWN_H):
+            until = spam_due + dt.timedelta(hours=SPAM_COOLDOWN_H)
+            msg = (f"tiktok: paused, TikTok blocked a post as spam at {reels.iso(spam_due)}; "
+                   f"posting resumes after {reels.iso(until)}")
+            print(msg)
+            with open(LOG, "w", encoding="utf-8") as f:
+                json.dump(posted, f, indent=1, ensure_ascii=False)
+                f.write("\n")
+            if os.environ.get("GITHUB_STEP_SUMMARY"):
+                with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+                    f.write("### TikTok run\n\n```\n" + msg + "\n```\n")
+            return 0
         stale = [p for p in posted if p.get("status") == "scheduled"
                  and reels.now() - reels.parse_time(p["time"]) > dt.timedelta(hours=3)]
         for p in stale:
@@ -203,19 +355,51 @@ def main():
     # rule (but not for the daily cap): [{"slug": ..., "time": ISO}, ...].
     hc = [dict(p, platform=PLATFORM, status="posted") for p in reels.load(HEYCATCH, [])
           if p.get("slug") and p.get("time")]
-    video, repeat = reels.pick(videos, used + hc, PLATFORM, force)
-    if repeat and not force and meta:
-        scores = reels.ig_scores(meta, reels.load(reels.POSTED, []))
-        video, repeat = reels.pick(videos, used + hc, PLATFORM, force, scores)
+    list_free = os.environ.get("LIST_FREE") == "1" or (
+        not force and reels.list_free_due(used, PLATFORM, from_ct=LIST_FREE_FROM_CT))
+    video = None
+    promo = None
+    if not list_free and not force:
+        want = (os.environ.get("PROMO") or "").strip()
+        cfg = reels.promos_config()
+        if want:
+            promo = next((pr for pr in cfg.get("promos", []) if pr["id"] == want), None)
+        elif reels.promo_due(used, PLATFORM, cfg=cfg):
+            promo = reels.promo_of_day(PLATFORM, cfg=cfg)
+    if promo:
+        video, repeat = reels.promo_pick(videos, used + hc, PLATFORM, promo)
+        if not video:
+            summary.append(f"tiktok: no clip fits the {promo['id']} promotion, posting a regular one")
+            promo = None
+    if list_free and not force:
+        video, repeat = reels.list_free_pick(videos, used + hc, PLATFORM)
+        if repeat and meta:
+            scores = reels.ig_scores(meta, reels.load(reels.POSTED, []))
+            video, repeat = reels.list_free_pick(videos, used + hc, PLATFORM, scores)
+        if not video:
+            list_free = False
+            summary.append("tiktok: no clip fits the list-it-free post, posting a regular one")
+    if video is None:
+        video, repeat = reels.pick(videos, used + hc, PLATFORM, force)
+        if repeat and not force and meta:
+            scores = reels.ig_scores(meta, reels.load(reels.POSTED, []))
+            video, repeat = reels.pick(videos, used + hc, PLATFORM, force, scores)
 
     if not video:
         summary.append(f"tiktok: skipped, every video was posted in the last {reels.MIN_GAP_DAYS} days")
     else:
         path = os.path.join(ROOT, video["file"])
-        caption = tiktok_caption(video, turn=len(used))
+        if list_free:
+            caption = list_free_caption(video, turn=sum(1 for p in used if p.get("list_free")))
+        elif promo:
+            caption = promo_caption(video, promo, turn=sum(1 for p in used if p.get("promo") == promo["id"]))
+        else:
+            caption = tiktok_caption(video, turn=len(used))
         url = video_url(path)
         if dry:
-            summary.append(f"tiktok: would post {video['slug']} (repeat={repeat})\n{url}\n\n{caption}\n")
+            summary.append(f"tiktok: would post {video['slug']} (repeat={repeat}"
+                           f"{', list it free' if list_free else ''}"
+                           f"{', promotion ' + promo['id'] if promo else ''})\n{url}\n\n{caption}\n")
         elif not force and reels.ours_recent(used, PLATFORM) >= MAX_OURS_PER_20H:
             summary.append(f"tiktok: skipped, already posted {MAX_OURS_PER_20H} in the last 20 hours")
         elif not force and last_ours(posted) and \
@@ -225,6 +409,10 @@ def main():
             due = clear_of_heycatch(reels.now() + dt.timedelta(minutes=SCHEDULE_AHEAD_MIN))
             entry = {"time": reels.iso(reels.now()), "platform": PLATFORM,
                      "slug": video["slug"], "repeat": repeat}
+            if list_free:
+                entry["list_free"] = True
+            if promo:
+                entry["promo"] = promo["id"]
             try:
                 res = gql(key, M_CREATE, {"input": {
                     "channelId": channel["id"], "text": caption,

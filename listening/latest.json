@@ -1,0 +1,201 @@
+{
+ "generated_at": "2026-11-15T18:47:14.675973+00:00",
+ "lookback_days": 8,
+ "sources": [
+  {
+   "name": "Reddit",
+   "status": "error: HTTPError: HTTP Error 403: Forbidden",
+   "items": 0,
+   "in_window": 0
+  },
+  {
+   "name": "Practical Machinist",
+   "status": "ok",
+   "items": 40,
+   "in_window": 40
+  },
+  {
+   "name": "Hobby-Machinist",
+   "status": "ok",
+   "items": 25,
+   "in_window": 25
+  },
+  {
+   "name": "Garage Journal",
+   "status": "ok",
+   "items": 30,
+   "in_window": 30
+  },
+  {
+   "name": "Boom & Bucket forums",
+   "status": "ok",
+   "items": 20,
+   "in_window": 20
+  },
+  {
+   "name": "Heavy Equipment Forums",
+   "status": "ok",
+   "items": 20,
+   "in_window": 20
+  },
+  {
+   "name": "LawnSite",
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
+  },
+  {
+   "name": "ContractorTalk",
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
+  },
+  {
+   "name": "WeldingWeb",
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
+  },
+  {
+   "name": "Pressure Washing Resource",
+   "status": "ok",
+   "items": 30,
+   "in_window": 2
+  }
+ ],
+ "posts": [
+  {
+   "title": "For sale: Clausing Kondia FV-1 CNC mill",
+   "link": "https://www.practicalmachinist.com/forum/threads/for-sale-clausing-kondia-fv-1-cnc-mill.450807/",
+   "text": "Selling my Clausing Kondia FV-1 CNC mill, because I stumbled into a newer Haas mill, and don't have space to keep both. It's in very good mechanical condition. - 220v single phase - 3hp spindle motor controlled by VFD - full simultaneous 3 axis CNC with 24\" x 14\" x 6\" travels - Dynapath Delta 20 control - the control accepts drip feed of longer programs via rs-232, and it works well. I used a USB to serial converter cable connected to an old laptop, and will include the cable with the... Read more",
+   "author": "leeko",
+   "time": "2026-11-14T16:16:04+00:00",
+   "platform": "Forum",
+   "source": "Practical Machinist",
+   "links_ok": false,
+   "intent": "sell",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
+   "score": 4,
+   "drafts": {
+    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
+    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
+   },
+   "first_seen": "2026-11-14T17:57:47.647113+00:00"
+  },
+  {
+   "title": "Kearney and Trecker (K&T) 2K Universal Milling Machine and Tooling for Sale - $3500",
+   "link": "https://www.practicalmachinist.com/forum/threads/kearney-and-trecker-k-t-2k-universal-milling-machine-and-tooling-for-sale-3500.452431/",
+   "text": "This milling machine was made in about 1945 and is in pretty good shape. All the feeds and speeds work as does the rapid advance. It comes with a vertical head, both arbor supports, quite a few cutters, arbors, an ER40 collet arbor, a Van Norman swivel vise, two clamp sets, and a custom rolling dolly. Oil has been changed and the column filter is now an off the shelf item. The motor has been serviced at a motor shop (windings dipped and baked, new bearings) and the starter replaced and... Read more",
+   "author": "nt1953",
+   "time": "2026-11-15T16:38:34+00:00",
+   "platform": "Forum",
+   "source": "Practical Machinist",
+   "links_ok": false,
+   "intent": "sell",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
+   "score": 3,
+   "drafts": {
+    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
+    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
+   },
+   "first_seen": "2026-11-15T18:47:14.675973+00:00"
+  },
+  {
+   "title": "FS: Mitutoyo Micrometer Set, Telebrineller, Stearns Holiday Detector, New Age Tester - Broken Arrow, OK",
+   "link": "https://www.practicalmachinist.com/forum/threads/fs-mitutoyo-micrometer-set-telebrineller-stearns-holiday-detector-new-age-tester-broken-arrow-ok.452369/",
+   "text": "Hello, I am new here and selling the following inspection and hardness-testing equipment. All items are located in Broken Arrow, OK. Shipping is available at buyer's cost. Payment by PayPal. Prices are or best offer. Please send me a PM here on the forum with any questions. 1. Mitutoyo 103-909 Outside Micrometer Set, 6-12 inch, .0001 inch, with Standards, in case - $950 or best offer Used Mitutoyo 103-909 outside micrometer set, 6-12 inch, .0001 inch, with standards, in its case / wooden... Read more",
+   "author": "JayJohnsonOK",
+   "time": "2026-11-13T17:02:01+00:00",
+   "platform": "Forum",
+   "source": "Practical Machinist",
+   "links_ok": false,
+   "intent": "sell",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
+   "score": 3,
+   "drafts": {
+    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
+    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
+   },
+   "first_seen": "2026-11-13T19:37:54.594629+00:00"
+  },
+  {
+   "title": "PENDING SALE: Shop lot \u2013 Bridgeport, Monarch 13\", Monarch 10EE, Sheldon shaper, B&S 618 grinder + tooling \u2013 $8,500 takes all \u2013 Matador, TX",
+   "link": "https://www.practicalmachinist.com/forum/threads/pending-sale-shop-lot-%E2%80%93-bridgeport-monarch-13-monarch-10ee-sheldon-shaper-b-s-618-grinder-tooling-%E2%80%93-8-500-takes-all-%E2%80%93-matador-tx.452358/",
+   "text": "Selling my machine shop as one lot. $8,500 for everything. I will not break it up. Bridgeport vertical mill Variable-speed head with high/low range 2 HP, 3-phase motor (230/460V) Acu-Rite III 2-axis DRO Power feed with rapid traverse One-shot lube R8 spindle Runs under power Vise shown in photos is NOT included Monarch 13\" engine lathe (Model 61) 15-1/2\" actual swing, 30\" between centers Built March 1953, S/N 36893 Easson ES-8... Read more",
+   "author": "AcesHigh70",
+   "time": "2026-11-13T14:49:47+00:00",
+   "platform": "Forum",
+   "source": "Practical Machinist",
+   "links_ok": false,
+   "intent": "sell",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
+   "score": 2,
+   "drafts": {
+    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
+    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
+   },
+   "first_seen": "2026-11-13T19:37:54.594629+00:00"
+  },
+  {
+   "title": "Tree-ZPS VMC1060 with Siemens PC2100 control for sale. $5750.",
+   "link": "https://www.practicalmachinist.com/forum/threads/tree-zps-vmc1060-with-siemens-pc2100-control-for-sale-5750.452305/",
+   "text": "Vertical Milling Machine Center with Siemens 2100 CNC control and 24 ATC umbrella-style tool changer. CAT40 spindle with max 8000 RPMs. Manufactured to hold tight tolerances. Machine runs smoothly and will last for decades more if properly maintained. Great machine at a great price to start or add to an existing machine shop. At this price, you could even buy it... Read more",
+   "author": "Mark_ZPS",
+   "time": "2026-11-10T18:51:37+00:00",
+   "platform": "Forum",
+   "source": "Practical Machinist",
+   "links_ok": false,
+   "intent": "sell",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
+   "score": 2,
+   "drafts": {
+    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
+    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
+   },
+   "first_seen": "2026-11-10T19:40:42.033280+00:00"
+  },
+  {
+   "title": "WTB taper micrometers and none appear to be currently made, why?",
+   "link": "https://www.practicalmachinist.com/forum/threads/wtb-taper-micrometers-and-none-appear-to-be-currently-made-why.397980/",
+   "text": "I very rarely find any even used and if you do, they are ridiculously expensive. Is anybody making these today?",
+   "author": "steve-l",
+   "time": "2026-11-15T18:45:02+00:00",
+   "platform": "Forum",
+   "source": "Practical Machinist",
+   "links_ok": false,
+   "intent": "buy",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
+   "score": 3,
+   "drafts": {
+    "no_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?",
+    "with_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?\nhttps://www.yardswaps.com/?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
+   },
+   "first_seen": "2026-11-15T18:47:14.675973+00:00"
+  },
+  {
+   "title": "Wanted: Hobby Machinist with Metal Lathe \u2014 Small, Simple Paid Project",
+   "link": "https://www.hobby-machinist.com/threads/wanted-hobby-machinist-with-metal-lathe-small-simple-paid-project.126264/",
+   "text": "Looking for someone with a metal lathe to make a small set of cylindrical metal parts for a mechanical puzzle. The work involves basic lathe operations: cutting 1 inch Al stock to length, turning outside diameters, and drilling axial holes. No CNC equipment required. A conventional manual metal lathe should be sufficient. This is a small, one-time project, may lead to more, particularly suitable for a retired machinist, home-shop hobbyist, or someone who enjoys straightforward... Read more",
+   "author": "MHLevine",
+   "time": "2026-11-14T17:24:21+00:00",
+   "platform": "Forum",
+   "source": "Hobby-Machinist",
+   "links_ok": false,
+   "intent": "buy",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
+   "score": 3,
+   "drafts": {
+    "no_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?",
+    "with_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?\nhttps://www.yardswaps.com/?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
+   },
+   "first_seen": "2026-11-14T17:57:47.647113+00:00"
+  }
+ ]
+}
