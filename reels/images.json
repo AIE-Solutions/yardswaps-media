@@ -1,0 +1,19 @@
+{
+  "_readme": "One-off image posts (not Reels). Dispatch reels.yml with image_slug=<slug>. feed = 4:5 for the IG + FB feed, story = 9:16 for IG + FB Stories. Captions end with an open question (Alan's rule).",
+  "images": [
+    {
+      "slug": "snap-it",
+      "feed": "broll/fetch/range-ad/runway-ad-1-snap-it-4x5.jpg",
+      "story": "broll/fetch/range-ad/runway-ad-1-snap-it-9x16.jpg",
+      "ig_caption": "Snap it. List it. Done.\n\nOne photo of the truck and the app writes the listing. Free to list, no cut of the sale. Link in bio: yardswaps.com/i\n\n#UsedEquipment #WorkTruck #FleetTrucks #Jobsite #EquipmentMarketplace\n\nWhat is sitting in your yard right now?",
+      "fb_caption": "Snap it. List it. Done.\n\nOne photo of the truck and the app writes the listing. Free to list, no cut of the sale.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_snap-it\n\n#UsedEquipment #WorkTruck #FleetTrucks #Jobsite #EquipmentMarketplace #Tradespeople #IndustrialEquipment\n\nWhat is sitting in your yard right now?"
+    },
+    {
+      "slug": "idle-gear",
+      "feed": "broll/fetch/range-ad/runway-ad-2-idle-gear-4x5.jpg",
+      "story": "broll/fetch/range-ad/runway-ad-2-idle-gear-9x16.jpg",
+      "ig_caption": "Idle gear is cash sitting still.\n\nThe pressure washer the bigger one replaced still runs. List it free, no cut of the sale, buyers message you in the app. Link in bio: yardswaps.com/i\n\n#PressureWasher #UsedEquipment #Tradespeople #IndustrialEquipment #Jobsite\n\nWhat got replaced in your shop this year and never sold?",
+      "fb_caption": "Idle gear is cash sitting still.\n\nThe pressure washer the bigger one replaced still runs. List it free, no cut of the sale, buyers message you in the app.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_idle-gear\n\n#PressureWasher #UsedEquipment #Tradespeople #IndustrialEquipment #Jobsite #EquipmentMarketplace\n\nWhat got replaced in your shop this year and never sold?"
+    }
+  ]
+}

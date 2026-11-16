@@ -154,7 +154,20 @@ IG_COMMENT_CTA = ('Comment "list" and we\'ll message you the free listing link, 
                   "or tap yardswaps.com/i in our bio.")
 
 
+# A Spanish clip ("lang": "es" in library.json) gets its follow line and
+# link line in Spanish, worded like the Spanish YouTube descriptions
+# (WEEKLY-BATCH.md), and keeps its own Spanish hashtags (set ig_tags_fixed).
+FOLLOW_ES = "Síguenos para ver uno nuevo cada día."
+
+
+def is_spanish(v):
+    return (v.get("lang") or "en").lower() == "es"
+
+
 def ig_caption(v, turn=0):
+    if is_spanish(v):
+        return (f"{v['body']}\n\n{FOLLOW_ES} Publica gratis: yardswaps.com/i (link en el perfil)."
+                f"\n\n{ig_tags(v, turn)}\n\n{v['question']}")
     return (f"{v['body']}\n\n{FOLLOW_IG} {IG_COMMENT_CTA}"
             f"\n\n{ig_tags(v, turn)}\n\n{v['question']}")
 
@@ -191,6 +204,9 @@ def fb_caption(v):
     cta = "Get the free app and open your storefront:" if is_dealer_clip(v) else "Get the free app and list it free:"
     link = (f"https://www.yardswaps.com{path}?utm_source=facebook"
             f"&utm_medium=social&utm_campaign=reels_{v['slug']}")
+    if is_spanish(v):
+        return (f"{v['body']}\n\n{FOLLOW_ES} Publica gratis: {link}"
+                f"\n\n{fb_tags(v)}\n\n{v['question']}")
     return (f"{v['body']}\n\n{FOLLOW_FB} {cta} {link}"
             f"\n\n{fb_tags(v)}\n\n{v['question']}")
 
@@ -198,7 +214,8 @@ def fb_caption(v):
 def threads_caption(v):
     # Threads allows one topic tag (sent separately) and 500 characters, so
     # no hashtags here. The typed short link /h is tagged (UTM-LINKS.md).
-    tail = f"\n\nGet the free YardSwaps app: yardswaps.com/h\n\n{v['question']}"
+    app = "Descarga la app gratis: yardswaps.com/h" if is_spanish(v) else "Get the free YardSwaps app: yardswaps.com/h"
+    tail = f"\n\n{app}\n\n{v['question']}"
     body = v["body"]
     while len(body) + len(tail) > THREADS_MAX and ". " in body:
         body = body[:body.rstrip(".").rfind(". ") + 1]   # drop the last sentence
@@ -245,7 +262,7 @@ _LIST_FREE_DROP = ("free to list", "list it free:", "no listing fee",
 
 def list_free_ok(v):
     """A clip that can carry the daily list-it-free post."""
-    if v.get("list_free") is False:      # library.json opt-out, e.g. invite-a-seller
+    if v.get("list_free") is False or is_spanish(v):  # opt-out, e.g. invite-a-seller; English copy only
         return False
     cat = (v.get("category") or "").strip().lower()
     return cat in SELLER_PAGES and not is_dealer_clip(v)
@@ -379,6 +396,7 @@ def promo_due(posted, platform, t=None, cfg=None):
 def promo_pool(videos, promo):
     """Clips that can carry `promo`: storefront clips for a dealer promotion,
     real-item seller clips (invite-a-seller included) for a seller one."""
+    videos = [v for v in videos if not is_spanish(v)]   # promotion lines are English
     if promo.get("audience") == "dealer":
         return [v for v in videos if is_dealer_clip(v)]
     return [v for v in videos if not is_dealer_clip(v)
@@ -511,7 +529,30 @@ def pick(videos, posted, platform, force=None, scores=None):
     cutoff = now() - dt.timedelta(days=MIN_GAP_DAYS)
     # "hold": true keeps a video out of the queue (for example while its cut
     # is being fixed) without losing its place or history.
-    usable = [v for v in videos if not v.get("hold") and os.path.exists(os.path.join(ROOT, v["file"]))]
+    # "platforms": [...] limits a clip to those posters (a Spanish cut that
+    # TikTok and the promotions skip); "not_before" (ISO time) keeps it out
+    # of the queue until then, e.g. to space it from the same clip in English.
+    # Nov 16: a Short cut from a real new listing ("listing_id" on the entry) waits a day when the Just-listed
+    # card of the same listing went out today, so one new item is not posted twice the same day.
+    today = now().strftime("%Y-%m-%d")
+    listed_today = {p["listing_id"] for p in load(os.path.join(ROOT, "listings", "posted.json"), [])
+                    if p.get("status") == "posted" and str(p.get("time", "")).startswith(today)}
+    # A seller who switched off "Feature my listings in YardSwaps social posts" (just_listed.py marks their
+    # queue entries opted_out) never gets a real-listing Short posted again.
+    opted_out = {q["listing_id"] for q in load(os.path.join(ROOT, "listings", "queue.json"), []) if q.get("opted_out")}
+    usable = [v for v in videos if not v.get("hold") and os.path.exists(os.path.join(ROOT, v["file"]))
+              and v.get("listing_id") not in listed_today
+              and v.get("listing_id") not in opted_out
+              and platform in (v.get("platforms") or [platform])
+              and (not v.get("not_before") or parse_time(v["not_before"]) <= now())]
+    # A week's push ("boost" with an active "boost_until") goes ahead of even
+    # the fresh cuts once its 10 days are up, so the week's demand clips run
+    # this week (Nov 16: generators, pumps, inspection cameras).
+    pushed = [v for v in usable if v["slug"] in last and last[v["slug"]] <= cutoff
+              and v.get("boost") and v.get("boost_until") and now() < parse_time(v["boost_until"])]
+    if pushed:
+        pushed.sort(key=lambda v: (-v["boost"], last[v["slug"]]))
+        return pushed[0], True
     fresh = [v for v in usable if v["slug"] not in last]
     if fresh:
         fresh.sort(key=lambda v: (-int(v.get("added", "0").replace("-", "")), v.get("priority", 999)))
@@ -531,7 +572,11 @@ def pick(videos, posted, platform, force=None, scores=None):
     # measured boosts replace the hand-set ones; an entry can keep its hand
     # boost with "boost_keep": true.
     fresh_rank = bool(rank.get("generatedAt")) and parse_time(rank["generatedAt"]) >= now() - dt.timedelta(days=8)
-    hand = lambda v: v.get("boost", 0) if (not fresh_rank or v.get("boost_keep")) else 0
+    # "boost_until" (ISO time) keeps a hand boost on top of the scorecard
+    # until then, for a week's push (Nov 16: buyers' top searches).
+    until = lambda v: bool(v.get("boost_until")) and now() < parse_time(v["boost_until"])
+    hand = lambda v: (v.get("boost", 0) if (not fresh_rank or v.get("boost_keep") or until(v)) and
+                      (not v.get("boost_until") or until(v)) else 0)
     old.sort(key=lambda v: (-(scores.get(v["slug"], 0) + hand(v) + auto.get(v["slug"], 0)), last[v["slug"]]))
     return old[0], True
 

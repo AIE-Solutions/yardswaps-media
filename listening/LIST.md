@@ -1,4 +1,4 @@
-# Listening list, updated Sun Nov 15, 2026
+# Listening list, updated Mon Nov 16, 2026
 
 People asking to buy or sell used work equipment in public places, last 8 days. Nothing here was posted. Reply by hand, as the business, only where the place's rules allow it; use the link version only where links are allowed.
 
@@ -14,7 +14,19 @@ Draft reply:
 For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
 ```
 
-## 2. Selling: Metalworking & CNC (Practical Machinist, Sun Nov 15)
+## 2. Selling: Metalworking & CNC (Practical Machinist, Mon Nov 16)
+
+> FS: Bridgeport by Hardinge Manual Mill – 2HP, DRO, X/Y Power Feeds, Kurt Vise – Tucson AZ – $6,000 OBO - Located in Tucson, Arizona – south side near Palo Verde & Valencia. We are expanding our machine shop and consolidating equipment, so we no longer have a need to retain two manual Bridgeport mills. This machine is currently powered, in service, and available to demonstrate under power for serious buyers. Machine/features: Bridgeport by Hardinge manual vertical mill 2 HP 230V Newall DP500 DRO – ful
+
+Open: https://www.practicalmachinist.com/forum/threads/fs-bridgeport-by-hardinge-manual-mill-%E2%80%93-2hp-dro-x-y-power-feeds-kurt-vise-%E2%80%93-tucson-az-%E2%80%93-6-000-obo.451532/
+
+Draft reply:
+
+```
+For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
+```
+
+## 3. Selling: Metalworking & CNC (Practical Machinist, Sun Nov 15)
 
 > Kearney and Trecker (K&T) 2K Universal Milling Machine and Tooling for Sale - $3500 - This milling machine was made in about 1945 and is in pretty good shape. All the feeds and speeds work as does the rapid advance. It comes with a vertical head, both arbor supports, quite a few cutters, arbors, an ER40 collet arbor, a Van Norman swivel vise, two clamp sets, and a custom rolling dolly. Oil has been changed and the column filter is now an off the shelf item. The motor has been servi
 
@@ -26,7 +38,7 @@ Draft reply:
 For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
 ```
 
-## 3. Selling: Metalworking & CNC (Practical Machinist, Fri Nov 13)
+## 4. Selling: Metalworking & CNC (Practical Machinist, Fri Nov 13)
 
 > FS: Mitutoyo Micrometer Set, Telebrineller, Stearns Holiday Detector, New Age Tester - Broken Arrow, OK - Hello, I am new here and selling the following inspection and hardness-testing equipment. All items are located in Broken Arrow, OK. Shipping is available at buyer's cost. Payment by PayPal. Prices are or best offer. Please send me a PM here on the forum with any questions. 1. Mitutoyo 103-909 Outside Micrometer Set, 6-12 inch, .0001 inch, with Standards, in case - $950 or best offer Used Mitutoyo
 
@@ -38,7 +50,7 @@ Draft reply:
 For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
 ```
 
-## 4. Selling: Metalworking & CNC (Practical Machinist, Fri Nov 13)
+## 5. Selling: Metalworking & CNC (Practical Machinist, Fri Nov 13)
 
 > PENDING SALE: Shop lot – Bridgeport, Monarch 13", Monarch 10EE, Sheldon shaper, B&S 618 grinder + tooling – $8,500 takes all – Matador, TX - Selling my machine shop as one lot. $8,500 for everything. I will not break it up. Bridgeport vertical mill Variable-speed head with high/low range 2 HP, 3-phase motor (230/460V) Acu-Rite III 2-axis DRO Power feed with rapid traverse One-shot lube R8 spindle Runs under power Vise shown in photos is NOT included Monarch 13" engine lathe (Model 61) 15-1/2" actual swing, 30" between centers Built Mar
 
@@ -50,7 +62,7 @@ Draft reply:
 For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
 ```
 
-## 5. Selling: Metalworking & CNC (Practical Machinist, Tue Nov 10)
+## 6. Selling: Metalworking & CNC (Practical Machinist, Tue Nov 10)
 
 > Tree-ZPS VMC1060 with Siemens PC2100 control for sale. $5750. - Vertical Milling Machine Center with Siemens 2100 CNC control and 24 ATC umbrella-style tool changer. CAT40 spindle with max 8000 RPMs. Manufactured to hold tight tolerances. Machine runs smoothly and will last for decades more if properly maintained. Great machine at a great price to start or add to an existing machine shop. At this price, you could even buy it... Read more
 
@@ -62,7 +74,7 @@ Draft reply:
 For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
 ```
 
-## 6. Buying: Metalworking & CNC (Practical Machinist, Sun Nov 15)
+## 7. Buying: Metalworking & CNC (Practical Machinist, Sun Nov 15)
 
 > WTB taper micrometers and none appear to be currently made, why? - I very rarely find any even used and if you do, they are ridiculously expensive. Is anybody making these today?
 
@@ -74,11 +86,23 @@ Draft reply:
 Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?
 ```
 
-## 7. Buying: Metalworking & CNC (Hobby-Machinist, Sat Nov 14)
+## 8. Buying: Metalworking & CNC (Hobby-Machinist, Sat Nov 14)
 
 > Wanted: Hobby Machinist with Metal Lathe — Small, Simple Paid Project - Looking for someone with a metal lathe to make a small set of cylindrical metal parts for a mechanical puzzle. The work involves basic lathe operations: cutting 1 inch Al stock to length, turning outside diameters, and drilling axial holes. No CNC equipment required. A conventional manual metal lathe should be sufficient. This is a small, one-time project, may lead to more, particularly suitable f
 
 Open: https://www.hobby-machinist.com/threads/wanted-hobby-machinist-with-metal-lathe-small-simple-paid-project.126264/
+
+Draft reply:
+
+```
+Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?
+```
+
+## 9. Buying: Metalworking & CNC (Hobby-Machinist, Mon Nov 16)
+
+> Who makes the second best Micrometer - starting with this comment.... https://www.hobby-machinist.com/threads/lathe-head-stock-is-tilted-shim-it.126016/post-1354350 I am looking for my first micrometer. I already have my second in the amazon shopping cart, Mitutoyo 103-129, confirmed to be the legit Mitutoyo store. but, I want one that I wont be afraid to break, drop, or have something go very wrong with. some mentioned that I look lik
+
+Open: https://www.hobby-machinist.com/threads/who-makes-the-second-best-micrometer.126293/
 
 Draft reply:
 

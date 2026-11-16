@@ -44,5 +44,10 @@
     "status": "skipped",
     "why": "single letter 'T', nothing to answer",
     "at": "2026-11-15T17:47:37Z"
+  },
+  "17996811594024746": {
+    "status": "skipped",
+    "why": "replied via Zapier",
+    "at": "2026-11-16T17:51:32Z"
   }
 }

@@ -64,3 +64,36 @@ Review a wanted card like a listing card, plus: reject it if the caption promise
 Use Actions, then "Just listed posts", then "Run workflow":
 - `mode=prep` queues cards now.
 - `mode=post` with a `listing_id` posts that approved card now (logged `forced`).
+
+## New listings into the Shorts mix (Nov 16)
+
+Alan, Nov 16: new users list new items most days, so they go into the promotion mix. The prep step now also saves the
+cleaned, uncropped photo of every queued listing to `listings/photos/<id>.jpg` (same face check and digit blur as the
+card) and records `photo_file`, `price`, `condition`, `year`, `place` and `created` on the queue entry. The Motion
+runs (Monday, Wednesday, Friday) pick up to two listings that passed the review gate (`approved` or `posted`), not yet
+in `listings/motion-used.json`, one per seller, and cut a 10 s Short on the real photo (pickreal.py in the campaign
+folder). Those library entries carry `listing_id` and `real: true`; `post_reels.py` holds such a Short on any day the
+same listing's Just-listed card went out, so one new item is never posted twice the same day.
+
+## Paying sellers go first (Nov 16)
+
+Alan, Nov 16: when someone pays for Pro or a Dealer storefront, their listings go to the top of the posting queue,
+with nobody doing it by hand. Storefronts in their free trial days are featured too, after every paying seller
+(his pick on the decision card).
+
+- The trigger is the subscription itself. The Stripe webhook already saves it in the app, and
+  `https://www.yardswaps.com/api/social-feature` lists every paying seller (rank 1) and trial storefront
+  (rank 2) with their newest live listings, plus the sellers who switched the feature off (Marketplace PR #363).
+- Every prep run reads that list first. Each seller on it who hasn't had a paid card in the last 3 days gets one
+  card marked `"feature": "paid"` at the front of `queue.json`. Payers go first, then whoever was featured longest
+  ago. This happens even when 3 regular cards are already waiting. A regular card of theirs that is already waiting
+  is moved up instead. The same listing comes back after 14 days at the earliest (45 for free listings).
+- The review gate is unchanged: a paid card is approved or rejected under the same rules as every card.
+- The post step posts an approved paid card before any other. It is still one post a day, at 2:15 pm Central.
+- `paid-features.json` logs every paid card twice: `queued`, then `posted` with the Instagram and Facebook links.
+  That file is how to see that it fired.
+- Opt-out: a seller who turns off "Feature my listings in YardSwaps social posts" (web Privacy & data, app
+  Settings) has every waiting card withdrawn and every queue entry marked `opted_out`. pickreal.py and the Reels
+  poster then skip them.
+- If the list can't be read, prep logs a warning and runs as before.
+- Copy rules are unchanged: item and category only, never the seller's name, business or phone.

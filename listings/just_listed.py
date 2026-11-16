@@ -14,6 +14,14 @@ Runs from .github/workflows/listings.yml in three steps:
   post    Posts the oldest approved card to Instagram (feed image) and to the
           Facebook Page (photo post), then logs it in listings/posted.json.
 
+Paying sellers first (Alan, 2026-11-16): prep reads /api/social-feature
+before anything else. Each paying Pro or Dealer seller (then each storefront
+in its trial days) not featured in the last PAID_GAP_DAYS gets one card marked
+feature "paid" at the front of the queue, past the usual waiting cap, and post
+posts an approved paid card before any other. Sellers who switched the
+feature off in the app are skipped and their waiting cards withdrawn. Each
+paid card is logged in listings/paid-features.json (queued, then posted).
+
 Seller names, phone numbers and descriptions never go into a caption or a
 card: only the title, price, year/hours/miles, city and category.
 
@@ -22,6 +30,7 @@ Env:
   META_PAGE_TOKEN  Page token (same secret as the Reels poster); post only
   DRY_RUN          "1" = render and print, write and post nothing
   LISTINGS_API     default https://www.yardswaps.com/api/listings
+  FEATURE_API      default https://www.yardswaps.com/api/social-feature
   RAW_BASE         public base URL for cards (Instagram fetches the image)
 """
 import datetime as dt
@@ -43,13 +52,16 @@ from post_reels import (GraphError, graph, iso, load, now, parse_time,  # noqa: 
 
 HERE = os.path.join(ROOT, "listings")
 QUEUE = os.path.join(HERE, "queue.json")
+PHOTOS = os.path.join(HERE, "photos")   # cleaned, uncropped photo per queued listing (Motion uses it as a Short opener)
 POSTED = os.path.join(HERE, "posted.json")
 WANTED = os.path.join(HERE, "wanted.json")
+PAID_LOG = os.path.join(HERE, "paid-features.json")  # every paid feature: queued, posted
 CARDS = os.path.join(HERE, "cards")
 FONTS = os.path.join(HERE, "fonts")
 
 SITE = "https://www.yardswaps.com"
 API = os.environ.get("LISTINGS_API") or f"{SITE}/api/listings"
+FEATURE_API = os.environ.get("FEATURE_API") or f"{SITE}/api/social-feature"
 RAW_BASE = os.environ.get("RAW_BASE") or \
     "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/main/listings/cards"
 PAGE_ID = os.environ.get("FB_PAGE_ID") or "1291163214083476"
@@ -59,6 +71,9 @@ UA = "yardswaps-just-listed/1.0 (https://github.com/AIE-Solutions/yardswaps-medi
 WAITING_MAX = 3          # pending + approved cards kept ready
 NEW_DAYS = 7             # "Just listed" label inside this many days, else "For sale"
 REFEATURE_DAYS = 45      # a listing can be featured again after this
+# Paying sellers (Pro, Dealer; then storefronts in their trial days) go first:
+PAID_GAP_DAYS = 3        # one paid card per seller per this many days (about twice a week)
+PAID_REFEATURE_DAYS = 14 # a paid seller's same listing can come back after this
 PHOTOS_TRIED = 4         # photos checked per listing before giving up on it
 # One post a day, 2:15 pm Central (20:15 UTC in winter): 100+ minutes after
 # HeyCatch's 12:33 pm post and 2+ hours before the 4:30 pm Reel.
@@ -478,6 +493,113 @@ def prep_wanted(listings, complete, queue, posted, dry):
 
 # ---------- prep ----------
 
+# ---------- paying sellers first ----------
+
+def feature_list():
+    """GET /api/social-feature; an empty list (and a warning) when the app can't answer, so prep still runs."""
+    try:
+        data = json.loads(fetch(FEATURE_API, timeout=30))
+        print(f"Feature list: {len(data.get('sellers') or [])} paying/trial seller(s), "
+              f"{len(data.get('optedOut') or [])} opted out (as of {data.get('asOf')}).")
+        return data
+    except Exception as e:
+        print(f"::warning::social-feature list unavailable ({e}); no paid cards today, nobody withdrawn.")
+        return {"sellers": [], "optedOut": []}
+
+
+def paid_log(event, dry=False, **fields):
+    if dry:
+        return
+    log = load(PAID_LOG, [])
+    log.append({"event": event, "time": iso(now()), **fields})
+    save(PAID_LOG, log)
+
+
+def last_paid_feature(queue):
+    """Seller id -> time of their newest paid card that was queued or posted (rejected ones don't count)."""
+    last = {}
+    for q in queue:
+        if q.get("feature") == "paid" and q["status"] in ("pending", "approved", "posted"):
+            t = q.get("paid_at") or q.get("added", "")
+            last[q.get("seller")] = max(last.get(q.get("seller"), ""), t)
+    return last
+
+
+def prep_paid(cv2, np, feature, listings, queue, posted, opted_out, dry=False):
+    """Withdraw opted-out sellers' cards, then queue one paid card per due seller at the front."""
+    changed = False
+    for q in queue:
+        if q.get("seller") in opted_out and q.get("kind") != "wanted":
+            if not q.get("opted_out"):
+                q["opted_out"] = True  # pickreal.py and the Reels poster skip these
+                changed = True
+            if q["status"] in ("pending", "approved"):
+                q["status"] = "withdrawn"
+                q["reason"] = "seller turned off Feature my listings in YardSwaps social posts"
+                q["updated"] = iso(now())
+                print(f"  withdrew {q['listing_id']}: seller opted out")
+    sellers = [s for s in (feature.get("sellers") or []) if s.get("sellerId") not in opted_out]
+    if not sellers:
+        return queue, changed
+    by_id = {l["id"]: l for l in listings}
+    last_seller = last_paid_feature(queue)
+    last_listing = {}
+    for p in posted:
+        if p.get("status") == "posted":
+            last_listing[p["listing_id"]] = max(last_listing.get(p["listing_id"], ""), p["time"])
+    rejected_at = {q["listing_id"]: q.get("updated", "") for q in queue if q["status"] == "rejected"}
+    gap = dt.timedelta(days=PAID_GAP_DAYS)
+    # Paying before trial (rank), then whoever was featured longest ago (never first).
+    sellers.sort(key=lambda s: (s.get("rank", 9), last_seller.get(s["sellerId"], ""), s.get("since", "")))
+    front = []
+    for s in sellers:
+        sid = s["sellerId"]
+        if any(q.get("seller") == sid and q.get("feature") == "paid" and q["status"] in ("pending", "approved")
+               for q in queue):
+            continue  # already waiting
+        if sid in last_seller and now() - parse_time(last_seller[sid]) < gap:
+            continue
+        # A regular card of theirs already waiting becomes the paid card.
+        mine = next((q for q in queue if q.get("seller") == sid and q.get("kind") != "wanted"
+                     and q["status"] in ("pending", "approved")), None)
+        if mine:
+            mine.update({"feature": "paid", "rank": s.get("rank"), "paid_at": iso(now())})
+            queue.remove(mine)
+            front.append(mine)
+            paid_log("queued", dry, seller=sid, listing_id=mine["listing_id"], rank=s.get("rank"), title=mine.get("title"))
+            print(f"  paid feature: {mine['listing_id']} ({mine.get('title')}) moved to the front")
+            changed = True
+            continue
+        ids = [i for i in (s.get("listingIds") or [])
+               if not (i in last_listing and now() - parse_time(last_listing[i]) < dt.timedelta(days=PAID_REFEATURE_DAYS))]
+        ids.sort(key=lambda i: (i in last_listing, last_listing.get(i, "")))  # never featured first, keeps newest-first ties
+        for lid in ids:
+            l = by_id.get(lid)
+            if l is None:
+                try:
+                    l = json.loads(fetch(f"{API}/{lid}", timeout=30)).get("listing")
+                except Exception as e:
+                    print(f"  paid feature: listing {lid} unavailable ({e})")
+                    continue
+            if not l or l.get("status") != "active":
+                continue
+            if lid in rejected_at and l.get("updatedAt", "") <= rejected_at[lid]:
+                continue
+            entry = build_card(cv2, np, l, len(queue) + len(front))
+            if not entry:
+                continue
+            entry.update({"feature": "paid", "rank": s.get("rank"), "paid_at": iso(now())})
+            queue = [q for q in queue if q["listing_id"] != lid]
+            front.append(entry)
+            paid_log("queued", dry, seller=sid, listing_id=lid, rank=s.get("rank"), title=entry.get("title"))
+            print(f"  paid feature: queued {lid} ({entry['title']}) at the front")
+            changed = True
+            break
+        else:
+            print(f"  paid feature: no usable listing for seller {sid} today")
+    return front + queue, changed
+
+
 def prep(dry):
     import cv2
     import numpy as np
@@ -492,11 +614,14 @@ def prep(dry):
     before = len(queue)
     queue = prep_wanted(listings, complete, queue, posted, dry)
     wanted_added = len(queue) - before
-    # Wanted cards don't take a listing slot.
+    feature = feature_list()
+    opted_out = set(feature.get("optedOut") or [])
+    queue, paid_changed = prep_paid(cv2, np, feature, listings, queue, posted, opted_out, dry)
+    # Wanted cards don't take a listing slot; paid cards come on top of it.
     waiting = [q for q in queue if q["status"] in ("pending", "approved") and q.get("kind") != "wanted"]
-    if len(waiting) >= WAITING_MAX:
+    if len([q for q in waiting if q.get("feature") != "paid"]) >= WAITING_MAX:
         print(f"{len(waiting)} listing cards already waiting.")
-        if wanted_added and not dry:
+        if (wanted_added or paid_changed) and not dry:
             save(QUEUE, queue)
         return 0
     recent = {p["listing_id"] for p in posted if p.get("status") == "posted"
@@ -513,8 +638,9 @@ def prep(dry):
             last_feature[p["listing_id"]] = max(last_feature.get(p["listing_id"], ""), p["time"])
     order = sorted(listings, key=lambda l: (l["id"] in last_feature, last_feature.get(l["id"], ""),
                                             -parse_time(l["createdAt"]).timestamp()))
+    free_waiting = len([q for q in waiting if q.get("feature") != "paid"])
     for l in order:
-        if len(waiting) + added >= WAITING_MAX:
+        if free_waiting + added >= WAITING_MAX:
             break
         lid = l["id"]
         if lid in recent:
@@ -523,53 +649,72 @@ def prep(dry):
             continue
         if lid in rejected_at and l.get("updatedAt", "") <= rejected_at[lid]:
             continue
-        if l.get("sellerId") in sellers_waiting:
+        if l.get("sellerId") in sellers_waiting or l.get("sellerId") in opted_out:
             continue
-        if not l.get("photoUrls"):
+        entry = build_card(cv2, np, l, len(queue))
+        if not entry:
             continue
-        if not safe_title(l):
-            print(f"  skip {lid}: title carries contact details")
-            continue
-        chosen = None
-        for u in l["photoUrls"][:PHOTOS_TRIED]:
-            url = u if u.startswith("http") else SITE + u
-            try:
-                raw = fetch(url)
-            except Exception as e:
-                print(f"  {lid}: photo fetch failed {url}: {e}")
-                continue
-            img = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR)
-            if img is None or min(img.shape[:2]) < 400:
-                continue
-            nf = faces_in(img)
-            if nf:
-                print(f"  {lid}: {u} has {nf} face(s), trying the next photo")
-                continue
-            img2, nblur, ocr = blur_digit_text(img)
-            chosen = (u, img2, nblur, ocr)
-            break
-        if not chosen:
-            print(f"  skip {lid}: no usable photo")
-            continue
-        u, img2, nblur, ocr = chosen
-        card = os.path.join(CARDS, f"{lid}.jpg")
-        render_card(img2, l, card)
-        turn = len(queue)  # every card ever queued: rotates the question and hashtags
-        ig, fb = captions(l, turn)
-        entry = {"listing_id": lid, "seller": l.get("sellerId"), "title": nice_title(l["title"]),
-                 "category": l.get("category"), "photo": u, "card": f"listings/cards/{lid}.jpg",
-                 "blurred_words": nblur, "ocr": ocr, "new": is_new(l),
-                 "ig_caption": ig, "fb_caption": fb, "status": "pending",
-                 "added": iso(now()), "updated": iso(now())}
-        print(f"  queued {lid}: {entry['title']} (photo {u}, blurred {nblur}, ocr {ocr})")
-        print("    IG caption:\n" + "\n".join("      " + s for s in ig.splitlines()))
         queue = [q for q in queue if q["listing_id"] != lid] + [entry]
         sellers_waiting.add(l.get("sellerId"))
         added += 1
-    if (added or wanted_added) and not dry:
+    if (added or wanted_added or paid_changed) and not dry:
         save(QUEUE, queue)
     print(f"Queued {added} listing card(s) and {wanted_added} wanted card(s) for review.")
     return 0
+
+
+def build_card(cv2, np, l, turn):
+    """Photo checks + card + cleaned photo for one listing; the queue entry, or None when no photo passes."""
+    lid = l["id"]
+    if not l.get("photoUrls"):
+        return None
+    if not safe_title(l):
+        print(f"  skip {lid}: title carries contact details")
+        return None
+    chosen = None
+    for u in l["photoUrls"][:PHOTOS_TRIED]:
+        url = u if u.startswith("http") else SITE + u
+        try:
+            raw = fetch(url)
+        except Exception as e:
+            print(f"  {lid}: photo fetch failed {url}: {e}")
+            continue
+        img = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR)
+        if img is None or min(img.shape[:2]) < 400:
+            continue
+        nf = faces_in(img)
+        if nf:
+            print(f"  {lid}: {u} has {nf} face(s), trying the next photo")
+            continue
+        img2, nblur, ocr = blur_digit_text(img)
+        chosen = (u, img2, nblur, ocr)
+        break
+    if not chosen:
+        print(f"  skip {lid}: no usable photo")
+        return None
+    u, img2, nblur, ocr = chosen
+    card = os.path.join(CARDS, f"{lid}.jpg")
+    render_card(img2, l, card)
+    # Nov 16 (Alan: new users list new items most days, add them to the promotion mix): keep the cleaned,
+    # uncropped photo too, so the Motion batch can open a 10 s Short on the real item (whole item fitted,
+    # same photo in the app walkthrough). Long side 1600 px, same face/digit checks as the card.
+    os.makedirs(PHOTOS, exist_ok=True)
+    h, w = img2.shape[:2]
+    sc = min(1.0, 1600 / max(h, w))
+    small = cv2.resize(img2, (int(w * sc), int(h * sc)), interpolation=cv2.INTER_AREA) if sc < 1 else img2
+    cv2.imwrite(os.path.join(PHOTOS, f"{lid}.jpg"), small, [cv2.IMWRITE_JPEG_QUALITY, 88])
+    # turn = every card ever queued: rotates the question and hashtags
+    ig, fb = captions(l, turn)
+    entry = {"listing_id": lid, "seller": l.get("sellerId"), "title": nice_title(l["title"]),
+             "category": l.get("category"), "photo": u, "card": f"listings/cards/{lid}.jpg",
+             "blurred_words": nblur, "ocr": ocr, "new": is_new(l),
+             "photo_file": f"listings/photos/{lid}.jpg", "price": l.get("price"), "condition": l.get("condition"),
+             "year": l.get("year"), "place": place(l), "created": l.get("createdAt"),
+             "ig_caption": ig, "fb_caption": fb, "status": "pending",
+             "added": iso(now()), "updated": iso(now())}
+    print(f"  queued {lid}: {entry['title']} (photo {u}, blurred {nblur}, ocr {ocr})")
+    print("    IG caption:\n" + "\n".join("      " + s for s in ig.splitlines()))
+    return entry
 
 
 # ---------- post ----------
@@ -612,7 +757,9 @@ def post(dry, force):
         if posted_today(posted):
             print("Today's listing post is done.")
             return 0
-    pick = next((q for q in queue if q["status"] == "approved" and (not force or q["listing_id"] == force)), None)
+    ready = [q for q in queue if q["status"] == "approved" and (not force or q["listing_id"] == force)]
+    # Paying sellers' approved cards go first (Alan, 2026-11-16), then the oldest approved.
+    pick = next((q for q in ready if q.get("feature") == "paid"), None) or (ready[0] if ready else None)
     if not pick:
         print("No approved card waiting.")
         return 0
@@ -661,6 +808,9 @@ def post(dry, force):
         pick["updated"] = t
     save(POSTED, posted)
     save(QUEUE, queue)
+    if pick.get("feature") == "paid" and any(r["status"] == "posted" for r in results):
+        paid_log("posted", seller=pick.get("seller"), listing_id=pick["listing_id"], rank=pick.get("rank"),
+                 title=pick.get("title"), links=[r.get("link") for r in results if r["status"] == "posted"])
     return 0 if any(r["status"] == "posted" for r in results) else 1
 
 

@@ -10,5 +10,17 @@
   "seed": "4242",
   "file": "broll/forklift-yard-720x1280.mp4",
   "credits": 25
+ },
+ {
+  "when": "2026-11-08T23:25Z",
+  "slug": "birds-nest",
+  "model": "gen4_turbo",
+  "ratio": "720:1280",
+  "duration": 5,
+  "photo": "https://elevenlabsusercontent.com/database/workspace/eae9132ef92f42a1bf532be435da8f75/content_generation/MpqKhXZzKsUlbh8ED6sN/X3XOQJVNrF6gcHnC32eJ/content.png?Expires=1794189600&KeyName=assets-cdn-key-1&Signature=snqftZEz2i19zrtc03Wi8QWM6y8=",
+  "prompt": "The chicks in the nest open their beaks and wriggle, the parent sparrow hops along the edge of the steel bucket, leans in to feed them, then looks up. The bucket does not move. Gentle handheld micro-movement, warm afternoon light, shallow depth of field, natural and quiet.",
+  "seed": null,
+  "file": "broll/birds-nest-720x1280.mp4",
+  "credits": 25
  }
 ]
