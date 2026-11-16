@@ -1,0 +1,410 @@
+{
+ "channel": {
+  "subscribers": 7,
+  "views": 28818,
+  "videoCount": 126
+ },
+ "source": "videos.list (50 newest uploads via playlistItems) + channels.list via Zapier, read 2026-11-16 ~14:00Z; Get Report video_top timed out, so subscribersGained is null",
+ "videos": [
+  {
+   "id": "tZ0LbT2lNgM",
+   "title": "free to list on YardSwaps, because your skid steer shouldn’t sit between couches and coffee…",
+   "views": 23,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "tfU9l9PLvr8",
+   "title": "That idle jetter gets a quiet goodbye on YardSwaps, snap, list free, list it free today",
+   "views": 320,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "Bq611eD6l4U",
+   "title": "POV: you paste your Craigslist link into YardSwaps and order a free listing, bring your listing…",
+   "views": 1033,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "eCLmQY_leQk",
+   "title": "List it free: the coin-op washers the upgrade left behind",
+   "views": 24,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "laundromat-upgrade-washers"
+  },
+  {
+   "id": "owPVG7A7XOs",
+   "title": "free to list, free boosts to start.",
+   "views": 72,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "kwfCk1nh8U4",
+   "title": "Vende un compresor usado de principio a fin en YardSwaps",
+   "views": 0,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "es-compressor-start-to-finish"
+  },
+  {
+   "id": "yfNF39tGjZ8",
+   "title": "when your lot has more equipment than your sales team can post:",
+   "views": 39,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "vwT4HOrgiDo",
+   "title": "POV: my reaction when the prep line from the closed location goes up free on YardSwaps",
+   "views": 18,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "second-location-closed"
+  },
+  {
+   "id": "xF4i9imu3Q8",
+   "title": "Fleet and Yard Leftovers: 6 Free Listings on YardSwaps",
+   "views": 1,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "fleet-and-yard"
+  },
+  {
+   "id": "MtmfiBIzhMU",
+   "title": "POV: YardSwaps names the mystery part before you can cry over the missing manual",
+   "views": 1146,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "3Ye8X0ZhUyM",
+   "title": "POV: YardSwaps helped you equip with used gear instead of financing brand-new equipment",
+   "views": 1042,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "YLica3TTDGw",
+   "title": "Impulsos gratis en YardSwaps: publica 4, invita, trae tu Craigslist",
+   "views": 1,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "es-free-boosts"
+  },
+  {
+   "id": "5sO6q3JmHCA",
+   "title": "POV: my reaction when the pallet racking from the old warehouse goes up free on YardSwaps",
+   "views": 90,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "warehouse-lease-ended"
+  },
+  {
+   "id": "0rCAasm17ZQ",
+   "title": "me when 4 YardSwaps listings earn a free 7-day boost, list your gear free on YardSwaps",
+   "views": 2,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "YR_hhT9Tdpg",
+   "title": "free to list, free boosts to start.",
+   "views": 36,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "UfA9hZ51Ui0",
+   "title": "POV: my reaction when the riding mower from the ended contract goes up free on YardSwaps",
+   "views": 124,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "mowing-contract-ended"
+  },
+  {
+   "id": "q9wKvta6VFc",
+   "title": "Six Machines Listed From One Photo Each This Week | YardSwaps",
+   "views": 0,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "weekly-4"
+  },
+  {
+   "id": "ve_csmtWV30",
+   "title": "Me after every 4 listings unlocks another free 7-day boost, list your gear free on YardSwaps",
+   "views": 1054,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "0lroaipfEv8",
+   "title": "POV: Craigslist said retype it, so YardSwaps gets the link, bring your listing over free",
+   "views": 1027,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "0KgdsCHNNEU",
+   "title": "Recorrido por la app YardSwaps: 12 funciones para vender equipo",
+   "views": 0,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "es-full-tour"
+  },
+  {
+   "id": "XARmVRuvU98",
+   "title": "POV: my reaction when the compactor parked since the last job goes up free on YardSwaps",
+   "views": 57,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "construction-life-compactor"
+  },
+  {
+   "id": "pB7k_hr_UCI",
+   "title": "List idle equipment free with a few photos | YardSwaps",
+   "views": 46,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "avatar-idle-equipment-en"
+  },
+  {
+   "id": "XL0vLeYNqEI",
+   "title": "POV: my reaction when three parked scissor lifts go up free on YardSwaps",
+   "views": 37,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "interior-job-done-lifts"
+  },
+  {
+   "id": "Et4IIorNqRs",
+   "title": "POV: YardSwaps gives your dealer storefront bulk tools and analytics, so the lot starts clapping",
+   "views": 1045,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "32GRrQqXNWE",
+   "title": "Sell Used Equipment on YardSwaps: Full Seller Course in 6 Minutes",
+   "views": 1,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "seller-course"
+  },
+  {
+   "id": "tufqAtXHJQE",
+   "title": "free to list, so that idle compressor doesn't need a perfect write-up",
+   "views": 277,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "TUMeGa34YAs",
+   "title": "Publica tu equipo parado gratis con unas fotos | YardSwaps",
+   "views": 1,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "avatar-idle-equipment-es"
+  },
+  {
+   "id": "I1SBKaJ_qRA",
+   "title": "Cómo te encuentran los compradores en YardSwaps (7 funciones)",
+   "views": 0,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "es-buyers-find-you"
+  },
+  {
+   "id": "R2MhYbOTKiA",
+   "title": "POV: my reaction when the manual lathe nobody runs since we went CNC goes up free on YardSwaps",
+   "views": 5,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "shop-went-cnc-lathe"
+  },
+  {
+   "id": "3jO4v_rPZ1w",
+   "title": "if you have a few tools,",
+   "views": 102,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "Bmov_MEKEVM",
+   "title": "POV: my reaction when the part I almost bought new is sitting in a yard nearby on YardSwaps",
+   "views": 13,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "origin-part-in-a-yard"
+  },
+  {
+   "id": "fBAdEORMsLs",
+   "title": "Sell a Used Air Compressor Start to Finish on YardSwaps",
+   "views": 1,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "compressor-start-to-finish"
+  },
+  {
+   "id": "X5LE_yRTr1o",
+   "title": "Por qué creamos YardSwaps: equipo y piezas usadas cerca de ti",
+   "views": 1,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "es-origin-story"
+  },
+  {
+   "id": "WoXnBiYwvDo",
+   "title": "POV: my reaction when the septic tank and hoses left from the route go up free on YardSwaps",
+   "views": 1,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "sold-the-septic-route"
+  },
+  {
+   "id": "6QTfbuSUBXk",
+   "title": "POV: my reaction when every wrench from the bay we closed goes up free on YardSwaps",
+   "views": 18,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "second-bay-closed-tools"
+  },
+  {
+   "id": "9Y5zFAUE1YY",
+   "title": "Parts Stuck on a Shelf? Scan Them, Make Extra Cash | YardSwaps",
+   "views": 1,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "parts-stuck-on-a-shelf"
+  },
+  {
+   "id": "ZXYH0mVTZCQ",
+   "title": "i stopped treating our lot",
+   "views": 32,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "mjh83woY3nc",
+   "title": "POV: YardSwaps writes your equipment listing while you mourn the hour you almost wasted",
+   "views": 361,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "-37PVyy4v-c",
+   "title": "POV: my reaction when the second vac truck sitting in the lot goes up free on YardSwaps",
+   "views": 12,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "downsized-to-one-truck"
+  },
+  {
+   "id": "OMStLrb7a9w",
+   "title": "POV: my reaction when the generator from the last job finally goes up free on YardSwaps",
+   "views": 0,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "job-wrapped-generator"
+  },
+  {
+   "id": "A_V08Ii3L8g",
+   "title": "Why we built YardSwaps: used equipment and parts close by",
+   "views": 0,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "origin-story"
+  },
+  {
+   "id": "5OrW6SmjLVs",
+   "title": "POV: my reaction when my spare Ryobi chop saw gets listed free on YardSwaps",
+   "views": 13,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "chop-saw-small-tools"
+  },
+  {
+   "id": "a9_rNmGBNn0",
+   "title": "Cómo publicar tu equipo usado en YardSwaps, paso a paso",
+   "views": 1,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "es-listing-walkthrough"
+  },
+  {
+   "id": "NtdhdEYy6aU",
+   "title": "i had a Craigslist listing",
+   "views": 309,
+   "subscribersGained": null,
+   "ours": false,
+   "slug": null
+  },
+  {
+   "id": "JYGgNgj8dTQ",
+   "title": "POV: my reaction when that spare truck wheel finally goes up free on YardSwaps",
+   "views": 10,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "spare-truck-wheel"
+  },
+  {
+   "id": "8Rofw6zbk8Q",
+   "title": "YardSwaps App Tour: Every Feature for Selling Used Equipment (12)",
+   "views": 1,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "full-tour"
+  },
+  {
+   "id": "W1YGVdFlLek",
+   "title": "POV: the control panel from the line you pulled | YardSwaps",
+   "views": 6,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "control-panel-pulled"
+  },
+  {
+   "id": "q08DxDl7Ndc",
+   "title": "Cómo pasar tus anuncios de Craigslist a YardSwaps (gratis)",
+   "views": 3,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "es-craigslist-how-to"
+  },
+  {
+   "id": "7lZ2NgZNMFI",
+   "title": "POV: my reaction when our extra air movers get listed free on YardSwaps",
+   "views": 26,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "air-mover-fleet"
+  },
+  {
+   "id": "E41GbCSiDbI",
+   "title": "How Buyers Find Your Used Equipment on YardSwaps (7 Features)",
+   "views": 2,
+   "subscribersGained": null,
+   "ours": true,
+   "slug": "buyers-find-you"
+  }
+ ]
+}
