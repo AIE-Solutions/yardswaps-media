@@ -1,12 +1,12 @@
 {
-  "_about": "Promotions the posters work into existing slots (Alan 2026-11-15: 'Let's add the promotions to the posting on socials'). One promotion post a day per platform, in the first Reel slot at or after slot_from_ct (Central); the active promotions take turns by day. Volume does not go up. Copy rules: plain, concrete numbers, seller-first, never promise views or sales, never a category count; the clip's own question still ends the caption. A promotion posts only between start and end (Central dates, end exclusive) and only on its platforms. share: lines only (no storefront reward) until the share-reward thread confirms the $49 Stripe credit passed its sandbox test (Guard rule 11-16: no promotion is announced until its payout is proven); then set reward_live true so lines_reward are used. lines_reward follow app PR #351: the reward comes one week after the invited person's first payment, and the 90 free days don't count as a payment. founding: end 2026-12-01 matches the founding message window; the offer itself ends when FOUNDINGDEALER is used up or switched off in Stripe, so take it out here then.",
+  "_about": "Promotions the posters work into existing slots (Alan 2026-11-15: 'Let's add the promotions to the posting on socials'). One promotion post a day per platform, in the first Reel slot at or after slot_from_ct (Central); the active promotions take turns by day. Volume does not go up. Copy rules: plain, concrete numbers, seller-first, never promise views or sales, never a category count; the clip's own question still ends the caption. A promotion posts only between start and end (Central dates, end exclusive) and only on its platforms. GUARD 2b (11-16): a promo line goes in this file only after its payout has one logged redemption. founding: HELD 11-16 (start moved to its end date, so it never runs). Coupon founding-dealer-29 and FOUNDINGDEALER are active and the code is on main, but no redemption or sandbox run is logged yet (the trial path applies the discount only at the trial_will_end webhook). When the Stripe features thread logs a sandbox run, set start to that day; end 2026-12-01 matches the founding message window, and take it out when FOUNDINGDEALER is used up or switched off. storefront: the plain plan (free 90 days for first-time dealers, then $49 a month) fills the dealer turn meanwhile; it links /dealers without the founding offer. share: invite-boost clause HELD 11-16 (no invite reward has paid in prod and no test run is logged); lines carry only Share my page. Put the invite clause back when the share thread logs its proof. reward_live stays false until the share thread confirms the $49 Stripe credit passed its sandbox test; lines_reward also carry the invite clause, so both proofs are needed before turning it on. lines_reward follow app PR #351: the reward comes one week after the invited person's first payment, and the 90 free days don't count as a payment.",
   "slot_from_ct": [10, 0],
   "promos": [
     {
       "id": "founding",
       "head": "FOUNDING DEALER PRICE",
       "audience": "dealer",
-      "start": "2026-11-16",
+      "start": "2026-12-01",
       "end": "2026-12-01",
       "platforms": ["instagram", "facebook", "threads"],
       "link_path": "/dealers",
@@ -18,6 +18,23 @@
         "First-time dealers get a YardSwaps storefront free for 90 days. For our first 100 dealers, the first 3 paid months after that are $29 a month instead of $49. Listing stays free either way.",
         "A storefront puts every unit you have on one page, and you can import them from your website. It is free for 90 days for first-time dealers. Our first 100 dealers then pay $29 a month for 3 months, then $49.",
         "No cap on listings, bulk upload, and stats on every unit. First-time dealers pay nothing for 90 days, and our first 100 pay $29 a month for the first 3 paid months instead of $49."
+      ],
+      "held": "11-16 Guard 2b: no logged redemption of FOUNDINGDEALER yet"
+    },
+    {
+      "id": "storefront",
+      "head": "DEALER STOREFRONTS",
+      "audience": "dealer",
+      "start": "2026-11-17",
+      "end": null,
+      "platforms": ["instagram", "facebook", "threads"],
+      "link_path": "/dealers",
+      "typed_link": "yardswaps.com/dealers",
+      "ig_cta": "To open a storefront, type yardswaps.com/dealers in your browser.",
+      "drop_sentences_with": ["$49 a month"],
+      "lines": [
+        "A storefront puts every unit you have on one page, and you can import them from your website. First-time dealers get it free for 90 days, then $49 a month. Listing stays free either way.",
+        "No cap on listings, bulk upload, and stats on every unit. First-time dealers get a storefront free for 90 days, then it is $49 a month. Listing stays free either way."
       ]
     },
     {
@@ -31,8 +48,8 @@
       "typed_link": "yardswaps.com/i",
       "reward_live": false,
       "lines": [
-        "Your seller page is one link to everything you have listed. In the YardSwaps app, open Profile and tap Share my page, then text it to anyone asking what you have. Invite a seller with your invite link and you both get a free 7-day boost once their first listing has been live 3 days.",
-        "Open Profile in the YardSwaps app and tap Share my page. One link shows all your listings, so post it in your groups or send it to past customers. Sellers you invite get a free 7-day boost and so do you, once their first listing has been live 3 days."
+        "Your seller page is one link to everything you have listed. In the YardSwaps app, open Profile and tap Share my page, then text it to anyone asking what you have.",
+        "Open Profile in the YardSwaps app and tap Share my page. One link shows all your listings, so post it in your groups or send it to past customers."
       ],
       "lines_reward": [
         "Open Profile in the YardSwaps app and tap Share my page. The link carries your invite: when a seller signs up from it, you both get a free 7-day boost once their first listing has been live 3 days. If they pay for a storefront, you get a free month of yours one week after their first payment, or 5 free boosts if you don't have one. Their first 90 days are free and don't count as a payment.",
