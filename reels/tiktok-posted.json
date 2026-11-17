@@ -181,8 +181,20 @@
   "slug": "snap-the-part",
   "repeat": false,
   "list_free": true,
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6afc86017a7b613f16902f00",
-  "due": "2026-11-17T16:56:10.000Z"
+  "due": "2026-11-17T16:56:10.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7709185161442626829",
+  "sent": "2026-11-17T16:56:56.300Z"
+ },
+ {
+  "time": "2026-11-17T20:46:46Z",
+  "platform": "tiktok",
+  "slug": "welder-from-one-job",
+  "repeat": false,
+  "promo": "share",
+  "status": "scheduled",
+  "buffer_id": "6afcbd387acfe506d9280f0c",
+  "due": "2026-11-17T20:51:46.000Z"
  }
 ]
