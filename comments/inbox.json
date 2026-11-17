@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-17T00:17:59Z",
+  "fetched_at": "2026-11-17T17:50:42Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -16,5 +16,19 @@
   "errors": [
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
-  "items": []
+  "items": [
+    {
+      "platform": "instagram",
+      "comment_id": "17866555947695682",
+      "reply_to": "17866555947695682",
+      "author": null,
+      "text": "forward me this post",
+      "time": "2026-11-17T17:02:06+0000",
+      "likes": 0,
+      "media_id": "17883356259549334",
+      "permalink": "https://www.instagram.com/reel/Df2Zw9UCSC8/",
+      "post": "BOOST A LISTING",
+      "type": "REELS"
+    }
+  ]
 }
