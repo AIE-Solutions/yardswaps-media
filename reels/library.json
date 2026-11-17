@@ -145,7 +145,7 @@
    "boost_until": "2026-11-23T06:00:00Z",
    "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week.",
    "cut": "10s",
-   "seconds": 10.1,
+   "seconds": 12.4,
    "cut_added": "2026-11-16"
   },
   {
@@ -643,7 +643,7 @@
    "category": "vacuum",
    "hold": false,
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.1,
    "cut_added": "2026-11-16"
   },
   {
@@ -732,7 +732,7 @@
    "boost_until": "2026-11-23T06:00:00Z",
    "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week.",
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.1,
    "cut_added": "2026-11-16"
   },
   {
@@ -749,7 +749,7 @@
    "boost_until": "2026-11-23T06:00:00Z",
    "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week.",
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.2,
    "cut_added": "2026-11-16"
   },
   {
@@ -763,7 +763,7 @@
    "category": "hydro",
    "hold": false,
    "cut": "10s",
-   "seconds": 10.0,
+   "seconds": 12.2,
    "cut_added": "2026-11-16"
   },
   {
@@ -788,7 +788,7 @@
    "category": "cranes",
    "hold": false,
    "cut": "10s",
-   "seconds": 10.0,
+   "seconds": 12.3,
    "cut_added": "2026-11-16"
   },
   {
@@ -835,7 +835,7 @@
    "category": "automotive",
    "hold": false,
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.0,
    "cut_added": "2026-11-16"
   },
   {
@@ -860,7 +860,7 @@
    "category": "paving",
    "hold": false,
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.1,
    "cut_added": "2026-11-16"
   },
   {
@@ -884,7 +884,7 @@
    "ig_tags": "#welder #weldingequipment #shoptools #usedequipment #yardswaps",
    "category": "welding",
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.1,
    "cut_added": "2026-11-16"
   },
   {
@@ -917,7 +917,7 @@
    "ig_tags": "#aircompressor #towablecompressor #jobsite #usedequipment #yardswaps",
    "category": "compressors",
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.1,
    "cut_added": "2026-11-16"
   },
   {
@@ -930,7 +930,7 @@
    "ig_tags": "#hvac #rooftopunit #hvactech #usedequipment #yardswaps",
    "category": "hvac",
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.1,
    "cut_added": "2026-11-16"
   },
   {
@@ -943,7 +943,7 @@
    "ig_tags": "#farmequipment #sprayer #agequipment #usedequipment #yardswaps",
    "category": "agriculture",
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.1,
    "cut_added": "2026-11-16"
   },
   {
@@ -956,7 +956,7 @@
    "ig_tags": "#lighttower #generator #jobsite #usedequipment #yardswaps",
    "category": "generators",
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.1,
    "cut_added": "2026-11-16"
   },
   {
@@ -969,7 +969,7 @@
    "ig_tags": "#restaurantequipment #commercialfryer #kitchenequipment #usedequipment #yardswaps",
    "category": "cooking",
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.1,
    "cut_added": "2026-11-16"
   },
   {
@@ -982,7 +982,7 @@
    "ig_tags": "#zeroturn #landscaping #lawncare #usedequipment #yardswaps",
    "category": "landscaping",
    "cut": "10s",
-   "seconds": 9.9,
+   "seconds": 12.1,
    "cut_added": "2026-11-16"
   }
  ]
