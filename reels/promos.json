@@ -68,9 +68,9 @@
       "lines": [
         "Listing on YardSwaps is free. If you want a listing higher in search, tap Boost on it: 1 day $2.99, 3 days $7.99 or 7 days $14.99, one-time, no subscription. A boost puts it ahead of unboosted listings in search and the home feed for those days.",
         "Every 4 listings you post earns a free 7-day boost, up to 5. Need one sooner? Tap Boost on your listing: 1 day $2.99, 3 days $7.99 or 7 days $14.99. It puts the listing ahead of unboosted ones in search and the home feed.",
-        "Boost often? A dealer storefront includes 5 seven-day boosts every paid month at $49 a month, and first-time dealers get the first 90 days free. Bought one at a time, five 7-day boosts are $74.95. Single boosts start at $2.99 for a day."
+        "Has your listing been up a while? Tap Boost on it: 1 day $2.99, 3 days $7.99 or 7 days $14.99, a one-time charge. It shows ahead of unboosted listings in search and the home feed for those days. A free boost credit works the same way."
       ],
-      "held": "11-17 Guard 2b: prices verified on the live Stripe catalog (yardswaps_boost_1d/3d/7d = 299/799/1499) and the first real sale is logged (Nov 17 04:27Z, $2.99 1-day, web boost-on-publish). Held until that boost is confirmed RUNNING on the listing (the listing showed priority 0 at 05:22Z). To release: set end to null. Source thread: Push paid boosts everywhere."
+      "held": "11-17 Guard 2b: prices verified on the live Stripe catalog (yardswaps_boost_1d/3d/7d = 299/799/1499) and the first real sale is logged (Nov 17 04:27Z, $2.99 1-day, web boost-on-publish). No storefront line: the monthly Dealer boosts have no logged grant to a paying storefront yet (promotions thread, 11-17). typed_link /i is shared with share; Facebook clicks are told apart by utm_campaign promo_boost_*. Held until that boost is confirmed RUNNING on the listing (the listing showed priority 0 at 05:22Z). To release: set end to null. Source thread: Push paid boosts everywhere."
     }
   ]
 }
