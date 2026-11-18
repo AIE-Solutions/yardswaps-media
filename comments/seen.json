@@ -54,5 +54,10 @@
     "status": "skipped",
     "why": "replied via Zapier 2026-11-17 (reply id 18148300183578436)",
     "at": "2026-11-17T17:51:42Z"
+  },
+  "17932864908428746": {
+    "status": "skipped",
+    "why": "Zapier out of tasks until the billing reset and the token can't reply yet; reply drafted in DIGEST-2026-11-18.md",
+    "at": "2026-11-18T17:47:50Z"
   }
 }
