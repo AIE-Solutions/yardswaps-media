@@ -1003,8 +1003,8 @@
    "question": "Where do your buyers find you now?",
    "ig_tags": "#equipmentdealer #usedequipment #equipmentforsale #sellequipment #yardswaps",
    "audience": "dealer",
-   "hold": true,
-   "hold_reason": "Nov 18: founding $29 held (Guard 2b) until the no-charge test logs a redemption. Lift with promos.json founding.",
+   "hold": false,
+   "hold_reason": "Released 11-18 15:00Z: Guard 2b proof logged (live test, first invoice $29, FOUNDINGDEALER redeemed once). Pull it on Dec 1 with promos.json founding.",
    "body": "Open your storefront on YardSwaps: 30 days free, then our founding price.\n\n$29 a month for your first 3 paid months, then $49. For our first 100 storefronts, until Dec 1. Cancel before day 30 and you pay nothing.\n\nFree to list. Free boosts."
   }
  ]
