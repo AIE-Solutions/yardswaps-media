@@ -532,6 +532,63 @@
    "angle": "shelf-parts",
    "category": "parts",
    "brand": true
+  },
+  "generator-for-the-storm-season": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "generators",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "soldadora-en-el-carrito": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "welding",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s",
+   "lang": "es"
+  },
+  "read-the-plate-welder": {
+   "hook": "pov-idle",
+   "angle": "parts-spec",
+   "category": "welding",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "skid-steer-after-the-grading": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "excavators",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "dump-trailer-after-the-cleanouts": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "trailers",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "cord-reels-after-the-events": {
+   "hook": "pov-idle",
+   "angle": "small-items",
+   "category": "electrical",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "wrench-wall-from-the-sold-shop": {
+   "hook": "pov-idle",
+   "angle": "small-items",
+   "category": "tools",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
   }
  }
 }
