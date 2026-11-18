@@ -88,5 +88,15 @@
   "media_id": "17994750429073301",
   "expires": "2026-11-18T15:37:06Z",
   "verified_live": true
+ },
+ {
+  "date": "2026-11-18",
+  "machine": "dump trailer",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/4b085340fd505890af9f8fe021fdc8d982aa1e73/stories/out/2026-11-18-dump-trailer-story.jpg",
+  "time": "2026-11-18T15:28:44Z",
+  "status": "posted",
+  "media_id": "18111311450193262",
+  "expires": "2026-11-19T15:28:58Z",
+  "verified_live": true
  }
 ]
