@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-16",
- "generatedAt": "2026-11-17T20:53:59Z",
+ "generatedAt": "2026-11-18T15:46:06Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": true,
@@ -13,7 +13,7 @@
   "followers": {
    "instagram": {
     "now": 823,
-    "change7d": -16,
+    "change7d": -20,
     "asOf": "2026-11-17"
    },
    "facebook": {
@@ -60,7 +60,7 @@
    {
     "slug": "that-trailer-next-season",
     "posts": 2,
-    "settled": 1,
+    "settled": 2,
     "igSettled": 1,
     "points": 11.0,
     "views": 0,
@@ -70,7 +70,7 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": 11.0,
+    "perPost": 5.5,
     "hook": "me-humor",
     "angle": "idle-gear",
     "category": "trailers",
@@ -79,7 +79,7 @@
    {
     "slug": "condenser-changeout",
     "posts": 2,
-    "settled": 1,
+    "settled": 2,
     "igSettled": 1,
     "points": 10.0,
     "views": 0,
@@ -89,10 +89,30 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": 10.0,
+    "perPost": 5.0,
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "hvac",
+    "ratio": null
+   },
+   {
+    "slug": "stripped-well-pump",
+    "posts": 3,
+    "settled": 3,
+    "igSettled": 1,
+    "points": 10.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 3,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 3.33,
+    "hook": "pov-idle",
+    "angle": "shelf-parts",
+    "category": "parts",
+    "cut": "10s",
     "ratio": null
    },
    {
@@ -175,6 +195,25 @@
     "category": "trailers",
     "demo": true,
     "structure": "problem-action-result",
+    "ratio": null
+   },
+   {
+    "slug": "commercial-idle-forklift",
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 1,
+    "points": 1.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "forklifts",
     "ratio": null
    },
    {
@@ -319,6 +358,25 @@
     "demo": true,
     "structure": "problem-action-result",
     "voice": true,
+    "ratio": null
+   },
+   {
+    "slug": "pressure-washer-replaced",
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 1,
+    "points": 1.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "pressure",
     "ratio": null
    },
    {
@@ -532,25 +590,6 @@
     "demo": true,
     "structure": "problem-action-result",
     "cut": "10s",
-    "ratio": null
-   },
-   {
-    "slug": "commercial-idle-forklift",
-    "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "forklifts",
     "ratio": null
    },
    {
@@ -824,8 +863,8 @@
    {
     "slug": "message-the-seller",
     "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
+    "settled": 1,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -834,7 +873,7 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "feature-statement",
     "angle": "buyer-feature",
     "category": "forklifts",
@@ -1003,25 +1042,6 @@
     "ratio": null
    },
    {
-    "slug": "pressure-washer-replaced",
-    "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "pressure",
-    "ratio": null
-   },
-   {
     "slug": "roller-after-the-overlay",
     "posts": 2,
     "settled": 2,
@@ -1089,8 +1109,8 @@
    {
     "slug": "save-a-search",
     "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
+    "settled": 2,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -1099,7 +1119,7 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "feature-statement",
     "angle": "buyer-feature",
     "category": "aerial",
@@ -1193,8 +1213,8 @@
    {
     "slug": "snap-it-list-it",
     "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
+    "settled": 1,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -1203,7 +1223,7 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "question-problem",
     "angle": "idle-gear",
     "category": "compressors",
@@ -1253,7 +1273,7 @@
    {
     "slug": "spare-part",
     "posts": 2,
-    "settled": 1,
+    "settled": 2,
     "igSettled": 1,
     "points": 0.0,
     "views": 0,
@@ -1288,26 +1308,6 @@
     "category": "agriculture",
     "demo": true,
     "structure": "problem-action-result",
-    "cut": "10s",
-    "ratio": null
-   },
-   {
-    "slug": "stripped-well-pump",
-    "posts": 3,
-    "settled": 1,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 3,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 0.0,
-    "hook": "pov-idle",
-    "angle": "shelf-parts",
-    "category": "parts",
     "cut": "10s",
     "ratio": null
    },
@@ -1430,8 +1430,8 @@
   "hook": [
    {
     "value": "me-humor",
-    "posts": 1,
-    "perPost": 11.0,
+    "posts": 2,
+    "perPost": 5.5,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -1454,18 +1454,21 @@
    },
    {
     "value": "pov-idle",
-    "posts": 45,
-    "perPost": 0.51,
+    "posts": 50,
+    "perPost": 0.7,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "condenser-changeout",
+     "stripped-well-pump",
      "mission-idle-to-work",
      "parts-donor-thumb",
+     "commercial-idle-forklift",
      "drilling-rig-parked",
      "forklift-sitting-there",
      "interior-job-done-lifts",
      "job-wrapped-generator",
+     "pressure-washer-replaced",
      "shop-went-cnc-lathe",
      "surplus-parts-labels",
      "lift-still-bolted-down",
@@ -1490,7 +1493,6 @@
      "second-jetter-by-the-fence",
      "second-location-closed",
      "sold-the-septic-route",
-     "stripped-well-pump",
      "surplus-parts-cash-flow",
      "trash-pump-after-the-job",
      "warehouse-lease-ended"
@@ -1512,23 +1514,26 @@
    },
    {
     "value": "question-problem",
-    "posts": 2,
-    "perPost": 0.5,
+    "posts": 4,
+    "perPost": 0.25,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "part-tag-scan",
+     "snap-it-list-it",
      "spare-part"
     ]
    },
    {
     "value": "feature-statement",
-    "posts": 1,
+    "posts": 4,
     "perPost": 0.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
-     "find-it-nearby"
+     "find-it-nearby",
+     "message-the-seller",
+     "save-a-search"
     ]
    },
    {
@@ -1546,21 +1551,38 @@
   ],
   "angle": [
    {
+    "value": "shelf-parts",
+    "posts": 10,
+    "perPost": 1.6,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "stripped-well-pump",
+     "bluecollar-shelf-parts",
+     "parts-donor-thumb",
+     "leftover-fittings-lot",
+     "parts-bin-lot",
+     "plumbing-part-label"
+    ]
+   },
+   {
     "value": "idle-gear",
-    "posts": 37,
-    "perPost": 0.89,
+    "posts": 42,
+    "perPost": 0.83,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "that-trailer-next-season",
      "condenser-changeout",
      "mission-idle-to-work",
+     "commercial-idle-forklift",
      "construction-life-compactor",
      "drilling-rig-parked",
      "forklift-sitting-there",
      "interior-job-done-lifts",
      "job-wrapped-generator",
      "pressure-washer-1000-psi",
+     "pressure-washer-replaced",
      "shop-went-cnc-lathe",
      "small-business-old-oven",
      "lift-still-bolted-down",
@@ -1579,37 +1601,10 @@
      "roller-after-the-overlay",
      "second-jetter-by-the-fence",
      "second-location-closed",
+     "snap-it-list-it",
      "sold-the-septic-route",
      "trash-pump-after-the-job",
      "warehouse-lease-ended"
-    ]
-   },
-   {
-    "value": "shelf-parts",
-    "posts": 8,
-    "perPost": 0.75,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "bluecollar-shelf-parts",
-     "parts-donor-thumb",
-     "leftover-fittings-lot",
-     "parts-bin-lot",
-     "plumbing-part-label",
-     "stripped-well-pump"
-    ]
-   },
-   {
-    "value": "parts-spec",
-    "posts": 5,
-    "perPost": 0.6,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "part-tag-scan",
-     "surplus-parts-labels",
-     "spare-part",
-     "surplus-parts-cash-flow"
     ]
    },
    {
@@ -1627,13 +1622,28 @@
     ]
    },
    {
+    "value": "parts-spec",
+    "posts": 6,
+    "perPost": 0.5,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "part-tag-scan",
+     "surplus-parts-labels",
+     "spare-part",
+     "surplus-parts-cash-flow"
+    ]
+   },
+   {
     "value": "buyer-feature",
-    "posts": 1,
+    "posts": 4,
     "perPost": 0.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
-     "find-it-nearby"
+     "find-it-nearby",
+     "message-the-seller",
+     "save-a-search"
     ]
    },
    {
@@ -1664,8 +1674,8 @@
   "category": [
    {
     "value": "hvac",
-    "posts": 1,
-    "perPost": 10.0,
+    "posts": 2,
+    "perPost": 5.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -1674,8 +1684,8 @@
    },
    {
     "value": "trailers",
-    "posts": 2,
-    "perPost": 6.5,
+    "posts": 3,
+    "perPost": 4.33,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -1694,6 +1704,23 @@
     ]
    },
    {
+    "value": "parts",
+    "posts": 12,
+    "perPost": 1.42,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "stripped-well-pump",
+     "bluecollar-shelf-parts",
+     "part-tag-scan",
+     "surplus-parts-labels",
+     "leftover-fittings-lot",
+     "origin-sitting-cash",
+     "plumbing-part-label",
+     "surplus-parts-cash-flow"
+    ]
+   },
+   {
     "value": "drilling",
     "posts": 1,
     "perPost": 1.0,
@@ -1705,42 +1732,28 @@
    },
    {
     "value": "pressure",
-    "posts": 1,
+    "posts": 2,
     "perPost": 1.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
-     "pressure-washer-1000-psi"
+     "pressure-washer-1000-psi",
+     "pressure-washer-replaced"
     ]
    },
    {
     "value": "forklifts",
-    "posts": 4,
-    "perPost": 0.75,
+    "posts": 6,
+    "perPost": 0.67,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "mission-idle-to-work",
+     "commercial-idle-forklift",
      "forklift-sitting-there",
      "find-it-nearby",
-     "forklift-finally-deal"
-    ]
-   },
-   {
-    "value": "parts",
-    "posts": 10,
-    "perPost": 0.7,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "bluecollar-shelf-parts",
-     "part-tag-scan",
-     "surplus-parts-labels",
-     "leftover-fittings-lot",
-     "origin-sitting-cash",
-     "plumbing-part-label",
-     "stripped-well-pump",
-     "surplus-parts-cash-flow"
+     "forklift-finally-deal",
+     "message-the-seller"
     ]
    },
    {
@@ -1796,17 +1809,6 @@
     ]
    },
    {
-    "value": "aerial",
-    "posts": 3,
-    "perPost": 0.33,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "interior-job-done-lifts",
-     "see-what-buyers-want-v2"
-    ]
-   },
-   {
     "value": "generators",
     "posts": 3,
     "perPost": 0.33,
@@ -1828,6 +1830,18 @@
      "shop-went-cnc-lathe",
      "micrometer-set-small-tools",
      "parts-bin-lot"
+    ]
+   },
+   {
+    "value": "aerial",
+    "posts": 5,
+    "perPost": 0.2,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "interior-job-done-lifts",
+     "save-a-search",
+     "see-what-buyers-want-v2"
     ]
    },
    {
@@ -1932,7 +1946,7 @@
    },
    {
     "value": "pumps",
-    "posts": 3,
+    "posts": 4,
     "perPost": 0.0,
     "ratio": null,
     "verdict": "testing",
@@ -1980,6 +1994,16 @@
     "verdict": "testing",
     "slugs": [
      "second-location-closed"
+    ]
+   },
+   {
+    "value": "compressors",
+    "posts": 1,
+    "perPost": 0.0,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "snap-it-list-it"
     ]
    },
    {
@@ -3153,7 +3177,7 @@
     "me-humor"
    ],
    "angles": [
-    "idle-gear"
+    "shelf-parts"
    ],
    "categories": [
     "generators",
