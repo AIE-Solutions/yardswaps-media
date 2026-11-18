@@ -1,6 +1,9 @@
 {
-  "_about": "Promotions the posters work into existing slots (Alan 2026-11-15: 'Let's add the promotions to the posting on socials'). One promotion post a day per platform, in the first Reel slot at or after slot_from_ct (Central); the active promotions take turns by day. Volume does not go up. Copy rules: plain, concrete numbers, seller-first, never promise views or sales, never a category count; the clip's own question still ends the caption. A promotion posts only between start and end (Central dates, end exclusive) and only on its platforms. GUARD 2b (11-16): a promo line goes in this file only after its payout has one logged redemption. founding: HELD 11-16 (start moved to its end date, so it never runs). Coupon founding-dealer-29 and FOUNDINGDEALER are active and the code is on main, but no redemption or sandbox run is logged yet (the trial path applies the discount only at the trial_will_end webhook). When the Stripe features thread logs a sandbox run, set start to that day; end 2026-12-01 matches the founding message window, and take it out when FOUNDINGDEALER is used up or switched off. storefront: the plain plan (free 90 days for first-time dealers, then $49 a month) fills the dealer turn meanwhile; it links /dealers without the founding offer. share: the invite clause ('you both get a free 7-day boost once their first listing has been live 3 days') was held by Guard 11-16 and restored the same day after the share thread logged a real-database run of the referral cron code (GROWTH-LOG 2026-11-16); keep the words tied to the invited seller's first listing being live. reward_live stays false until the share thread confirms the $49 Stripe credit passed its sandbox test. lines_reward follow app PR #351: the reward comes one week after the invited person's first payment, and the 90 free days don't count as a payment. boost (11-17, Push paid boosts everywhere thread): paid listing boosts beside the free ones; prices from the live Stripe catalog; released 11-17 once the first paid boost was confirmed running. Never say a boost brings views or sales: only that it ranks ahead of unboosted listings in search and the home feed for the days paid.",
-  "slot_from_ct": [10, 0],
+  "_about": "Promotions the posters work into existing slots (Alan 2026-11-15: 'Let's add the promotions to the posting on socials'). One promotion post a day per platform, in the first Reel slot at or after slot_from_ct (Central); the active promotions take turns by day. Volume does not go up. Copy rules: plain, concrete numbers, seller-first, never promise views or sales, never a category count; the clip's own question still ends the caption. A promotion posts only between start and end (Central dates, end exclusive) and only on its platforms. GUARD 2b (11-16): a promo line goes in this file only after its payout has one logged redemption. founding: HELD 11-16 (start moved to its end date, so it never runs). Coupon founding-dealer-29 and FOUNDINGDEALER are active and the code is on main, but no redemption or sandbox run is logged yet (the trial path applies the discount only at the trial_will_end webhook). When the Stripe features thread logs a sandbox run, set start to that day; end 2026-12-01 matches the founding message window, and take it out when FOUNDINGDEALER is used up or switched off. storefront: the plain plan (free 30 days for first-time dealers, 90 until app PR #382 on 11-18, then $49 a month) fills the dealer turn meanwhile; it links /dealers without the founding offer. share: the invite clause ('you both get a free 7-day boost once their first listing has been live 3 days') was held by Guard 11-16 and restored the same day after the share thread logged a real-database run of the referral cron code (GROWTH-LOG 2026-11-16); keep the words tied to the invited seller's first listing being live. reward_live stays false until the share thread confirms the $49 Stripe credit passed its sandbox test. lines_reward follow app PR #351: the reward comes one week after the invited person's first payment, and the 30 free days don't count as a payment. boost (11-17, Push paid boosts everywhere thread): paid listing boosts beside the free ones; prices from the live Stripe catalog; released 11-17 once the first paid boost was confirmed running. Never say a boost brings views or sales: only that it ranks ahead of unboosted listings in search and the home feed for the days paid.",
+  "slot_from_ct": [
+    10,
+    0
+  ],
   "promos": [
     {
       "id": "founding",
@@ -8,18 +11,24 @@
       "audience": "dealer",
       "start": "2026-12-01",
       "end": "2026-12-01",
-      "platforms": ["instagram", "facebook", "threads"],
+      "platforms": [
+        "instagram",
+        "facebook",
+        "threads"
+      ],
       "link_path": "/dealers",
       "link_query": "offer=founding",
       "typed_link": "yardswaps.com/o",
       "ig_cta": "To open a storefront at the founding price, type yardswaps.com/o in your browser.",
-      "drop_sentences_with": ["$49 a month"],
-      "lines": [
-        "First-time dealers get a YardSwaps storefront free for 90 days. For our first 100 dealers, the first 3 paid months after that are $29 a month instead of $49. Listing stays free either way.",
-        "A storefront puts every unit you have on one page, and you can import them from your website. It is free for 90 days for first-time dealers. Our first 100 dealers then pay $29 a month for 3 months, then $49.",
-        "No cap on listings, bulk upload, and stats on every unit. First-time dealers pay nothing for 90 days, and our first 100 pay $29 a month for the first 3 paid months instead of $49."
+      "drop_sentences_with": [
+        "$49 a month"
       ],
-      "held": "11-16 Guard 2b: invoice preview shows $29 (22:58Z) but no end-to-end redemption through the app is logged yet"
+      "lines": [
+        "A YardSwaps storefront is free for the first 30 days. Open one before Dec 1 and your first 3 paid months are $29 a month instead of $49, for our first 100 storefronts. Listing stays free either way.",
+        "A storefront puts every unit you have on one page, and you can import them from your website. The first 30 days are free. Storefronts opened before Dec 1 then pay $29 a month for 3 months, then $49.",
+        "No cap on listings, bulk upload, and stats on every unit. First-time dealers pay nothing for 30 days. Open before Dec 1 and the first 3 paid months are $29 a month instead of $49."
+      ],
+      "held": "11-18: still held by Guard 2b until the no-charge test checkout logs the $29 discount on a real subscription (Alan picked the test 11-18). App PR #382 opens the price to every first-time monthly checkout until 2026-12-01 06:00Z, so the copy no longer needs the founding link; /o still works. When the test is logged, set start to that day."
     },
     {
       "id": "storefront",
@@ -27,15 +36,27 @@
       "audience": "dealer",
       "start": "2026-11-17",
       "end": null,
-      "platforms": ["instagram", "facebook", "threads"],
+      "platforms": [
+        "instagram",
+        "facebook",
+        "threads"
+      ],
       "link_path": "/dealers",
       "typed_link": "yardswaps.com/dealers",
       "ig_cta": "To open a storefront, type yardswaps.com/dealers in your browser.",
-      "drop_sentences_with": ["$49 a month"],
+      "drop_sentences_with": [
+        "$49 a month"
+      ],
       "lines": [
-        "A storefront puts every unit you have on one page, and you can import them from your website. First-time dealers get it free for 90 days, then $49 a month. Listing stays free either way.",
-        "No cap on listings, bulk upload, and stats on every unit. First-time dealers get a storefront free for 90 days, then it is $49 a month. Listing stays free either way."
-      ]
+        "A storefront puts every unit you have on one page, and you can import them from your website. First-time dealers get it free for 30 days, then $49 a month. Listing stays free either way.",
+        "No cap on listings, bulk upload, and stats on every unit. First-time dealers get a storefront free for 30 days, then it is $49 a month. Listing stays free either way.",
+        "Your whole yard on one link: hours, service area, reviews and every unit, searchable. Open a storefront free for 30 days, then $49 a month. Cancel before day 30 and you pay nothing."
+      ],
+      "featured_live": false,
+      "lines_featured": [
+        "Storefronts go first in our own Instagram and Facebook listing posts, taking turns with other storefronts. First-time dealers get a storefront free for 30 days, then $49 a month."
+      ],
+      "featured_note": "Alan 11-18: storefronts are featured in our social posts. HELD (paid-social-feature rule): posters ignore lines_featured until listings/paid-features.json has a posted entry; then set featured_live true and wire it like reward_live. Never promise views, sales or a schedule."
     },
     {
       "id": "share",
@@ -43,7 +64,12 @@
       "audience": "seller",
       "start": "2026-11-16",
       "end": null,
-      "platforms": ["instagram", "facebook", "threads", "tiktok"],
+      "platforms": [
+        "instagram",
+        "facebook",
+        "threads",
+        "tiktok"
+      ],
       "link_path": "/sell-equipment",
       "typed_link": "yardswaps.com/i",
       "reward_live": false,
@@ -52,8 +78,8 @@
         "Open Profile in the YardSwaps app and tap Share my page. One link shows all your listings, so post it in your groups or send it to past customers. Sellers you invite get a free 7-day boost and so do you, once their first listing has been live 3 days."
       ],
       "lines_reward": [
-        "Open Profile in the YardSwaps app and tap Share my page. The link carries your invite: when a seller signs up from it, you both get a free 7-day boost once their first listing has been live 3 days. If they pay for a storefront, you get a free month of yours one week after their first payment, or 5 free boosts if you don't have one. Their first 90 days are free and don't count as a payment.",
-        "Your seller page is one link to all your listings. Tap Share my page on your profile and send it around. Anyone who signs up from it is your invite. If they pay for a storefront, you get a free month of yours, or 5 free boosts if you don't have one, one week after their first payment. Their 90 free days come first and don't count."
+        "Open Profile in the YardSwaps app and tap Share my page. The link carries your invite: when a seller signs up from it, you both get a free 7-day boost once their first listing has been live 3 days. If they pay for a storefront, you get a free month of yours one week after their first payment, or 5 free boosts if you don't have one. Their first 30 days are free and don't count as a payment.",
+        "Your seller page is one link to all your listings. Tap Share my page on your profile and send it around. Anyone who signs up from it is your invite. If they pay for a storefront, you get a free month of yours, or 5 free boosts if you don't have one, one week after their first payment. Their 30 free days come first and don't count."
       ]
     },
     {
@@ -62,7 +88,11 @@
       "audience": "seller",
       "start": "2026-11-17",
       "end": null,
-      "platforms": ["instagram", "facebook", "threads"],
+      "platforms": [
+        "instagram",
+        "facebook",
+        "threads"
+      ],
       "link_path": "/sell-equipment",
       "typed_link": "yardswaps.com/i",
       "lines": [
