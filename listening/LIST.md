@@ -1,4 +1,4 @@
-# Listening list, updated Tue Nov 17, 2026
+# Listening list, updated Wed Nov 18, 2026
 
 People asking to buy or sell used work equipment in public places, last 8 days. Nothing here was posted. Reply by hand, as the business, only where the place's rules allow it; use the link version only where links are allowed.
 
@@ -62,19 +62,7 @@ Draft reply:
 For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
 ```
 
-## 6. Selling: Metalworking & CNC (Practical Machinist, Tue Nov 10)
-
-> Tree-ZPS VMC1060 with Siemens PC2100 control for sale. $5750. - Vertical Milling Machine Center with Siemens 2100 CNC control and 24 ATC umbrella-style tool changer. CAT40 spindle with max 8000 RPMs. Manufactured to hold tight tolerances. Machine runs smoothly and will last for decades more if properly maintained. Great machine at a great price to start or add to an existing machine shop. At this price, you could even buy it... Read more
-
-Open: https://www.practicalmachinist.com/forum/threads/tree-zps-vmc1060-with-siemens-pc2100-control-for-sale-5750.452305/
-
-Draft reply:
-
-```
-For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
-```
-
-## 7. Buying: Metalworking & CNC (Practical Machinist, Sun Nov 15)
+## 6. Buying: Metalworking & CNC (Practical Machinist, Sun Nov 15)
 
 > WTB taper micrometers and none appear to be currently made, why? - I very rarely find any even used and if you do, they are ridiculously expensive. Is anybody making these today?
 
@@ -86,7 +74,7 @@ Draft reply:
 Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?
 ```
 
-## 8. Buying: Metalworking & CNC (Hobby-Machinist, Sat Nov 14)
+## 7. Buying: Metalworking & CNC (Hobby-Machinist, Sat Nov 14)
 
 > Wanted: Hobby Machinist with Metal Lathe — Small, Simple Paid Project - Looking for someone with a metal lathe to make a small set of cylindrical metal parts for a mechanical puzzle. The work involves basic lathe operations: cutting 1 inch Al stock to length, turning outside diameters, and drilling axial holes. No CNC equipment required. A conventional manual metal lathe should be sufficient. This is a small, one-time project, may lead to more, particularly suitable f
 
@@ -98,7 +86,7 @@ Draft reply:
 Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?
 ```
 
-## 9. Buying: Metalworking & CNC (Hobby-Machinist, Tue Nov 17)
+## 8. Buying: Metalworking & CNC (Hobby-Machinist, Wed Nov 18)
 
 > Who makes the second best Micrometer - starting with this comment.... https://www.hobby-machinist.com/threads/lathe-head-stock-is-tilted-shim-it.126016/post-1354350 I am looking for my first micrometer. I already have my second in the amazon shopping cart, Mitutoyo 103-129, confirmed to be the legit Mitutoyo store. but, I want one that I wont be afraid to break, drop, or have something go very wrong with. some mentioned that I look lik
 
