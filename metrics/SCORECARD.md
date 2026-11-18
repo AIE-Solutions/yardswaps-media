@@ -1,9 +1,9 @@
 # YardSwaps weekly scorecard (2026-11-16)
 
-Generated 2026-11-18T15:46:06Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
+Generated 2026-11-18T20:29:20Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
 
 ## Goals
-- Instagram followers: 823 (-20 in 7 days)
+- Instagram followers: 826 (-17 in 7 days)
 - Facebook followers: 14 (0 in 7 days)
 - YouTube: {"subscribers": 7, "views": 28818, "videoCount": 126}
 - Signups 7d: 9 (prev 5); from the app (iOS/Android): 0
@@ -34,38 +34,41 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | pressure-washer-replaced | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
 | shop-went-cnc-lathe | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
 | small-business-old-oven | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
+| storefront-stats | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
 | surplus-parts-labels | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
+| dealer-storefront | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
 | lift-still-bolted-down | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
 | socials-on-storefront | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
-| store-closed-kiosk | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
-| storefront-stats | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
+| air-mover-fleet | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | box-truck-after-the-route | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | building-things-concrete-mixer | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| chain-hoist-on-the-beam | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| chain-hoist-on-the-beam | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | compressor-by-the-fence | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | control-panel-pulled | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| cooler-still-humming | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| dealer-storefront | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| cooler-still-humming | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | downsized-to-one-truck | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | find-it-nearby | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | forklift-finally-deal | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| fryers-from-the-closed-kitchen | 1 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | too new | - |
+| fryers-from-the-closed-kitchen | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | too new | - |
+| generator-for-the-storm-season | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | import-from-your-website | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | inspection-camera-in-the-van | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | laundromat-upgrade-washers | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | leftover-fittings-lot | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| light-tower-after-night-work | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| light-tower-after-night-work | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| list-4-boosted-free | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| make-an-offer | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | message-the-seller | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | micrometer-set-small-tools | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | mowing-contract-ended | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| office-went-remote | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| office-went-remote | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | origin-part-in-a-yard | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | origin-searched-everywhere | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | origin-sitting-cash | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | parts-bin-lot | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | plumbing-part-label | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | roller-after-the-overlay | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| rooftop-unit-on-the-pallet | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| rooftop-unit-on-the-pallet | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | safety-gear-on-the-wall | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | save-a-search | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | second-bay-closed-tools | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
@@ -76,25 +79,28 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | snap-the-part | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | sold-the-septic-route | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | spare-part | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| sprayer-after-the-season | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| sprayer-after-the-season | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| store-closed-kiosk | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| storefront-30-days-free | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | too new | - |
 | surplus-parts-cash-flow | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | trash-pump-after-the-job | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | warehouse-lease-ended | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | welder-from-one-job | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| zero-turn-after-the-account | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 
 ### Opener shapes
 - me-humor: 5.5 points/post over 2 posts (testing)
 - search-term: 1.17 points/post over 6 posts (testing)
-- pov-idle: 0.7 points/post over 50 posts (testing)
-- pov-situation: 0.5 points/post over 8 posts (testing)
-- question-problem: 0.25 points/post over 4 posts (testing)
+- pov-idle: 0.74 points/post over 46 posts (testing)
+- pov-situation: 0.57 points/post over 7 posts (testing)
+- question-problem: 0.33 points/post over 6 posts (testing)
 - feature-statement: 0.0 points/post over 4 posts (testing)
 - origin: 0.0 points/post over 3 posts (testing)
 
 ### Topics
 - shelf-parts: 1.6 points/post over 10 posts (testing)
-- idle-gear: 0.83 points/post over 42 posts (testing)
-- dealer: 0.5 points/post over 8 posts (testing)
+- idle-gear: 0.89 points/post over 38 posts (testing)
+- dealer: 0.56 points/post over 9 posts (testing)
 - parts-spec: 0.5 points/post over 6 posts (testing)
 - buyer-feature: 0.0 points/post over 4 posts (testing)
 - small-items: 0.0 points/post over 4 posts (testing)
@@ -104,28 +110,27 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - hvac: 5.0 points/post over 2 posts (testing)
 - trailers: 4.33 points/post over 3 posts (testing)
 - excavators: 2.0 points/post over 1 posts (testing)
-- parts: 1.42 points/post over 12 posts (testing)
+- parts: 1.29 points/post over 14 posts (testing)
 - drilling: 1.0 points/post over 1 posts (testing)
 - pressure: 1.0 points/post over 2 posts (testing)
+- welding: 1.0 points/post over 1 posts (testing)
 - forklifts: 0.67 points/post over 6 posts (testing)
 - cooking: 0.67 points/post over 3 posts (testing)
 - automotive: 0.5 points/post over 2 posts (testing)
-- retail: 0.5 points/post over 2 posts (testing)
-- welding: 0.5 points/post over 2 posts (testing)
 - paving: 0.33 points/post over 3 posts (testing)
 - generators: 0.33 points/post over 3 posts (testing)
 - machining: 0.25 points/post over 4 posts (testing)
 - aerial: 0.2 points/post over 5 posts (testing)
 - fleet: 0.0 points/post over 2 posts (testing)
 - concrete: 0.0 points/post over 1 posts (testing)
-- cranes: 0.0 points/post over 2 posts (testing)
+- cranes: 0.0 points/post over 1 posts (testing)
 - electrical: 0.0 points/post over 1 posts (testing)
-- refrigeration: 0.0 points/post over 2 posts (testing)
+- refrigeration: 0.0 points/post over 1 posts (testing)
 - vacuum: 0.0 points/post over 1 posts (testing)
 - inspection: 0.0 points/post over 1 posts (testing)
 - laundry: 0.0 points/post over 1 posts (testing)
 - landscaping: 0.0 points/post over 1 posts (testing)
-- office: 0.0 points/post over 2 posts (testing)
+- office: 0.0 points/post over 1 posts (testing)
 - pumps: 0.0 points/post over 4 posts (testing)
 - safety: 0.0 points/post over 2 posts (testing)
 - tools: 0.0 points/post over 1 posts (testing)
@@ -133,10 +138,11 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - restaurant: 0.0 points/post over 1 posts (testing)
 - compressors: 0.0 points/post over 1 posts (testing)
 - environmental: 0.0 points/post over 1 posts (testing)
+- retail: 0.0 points/post over 1 posts (testing)
 - warehouse: 0.0 points/post over 1 posts (testing)
 
 ### Video structure tests
-- problem-action-result: 0.37 points/post over 43 posts (testing)
+- problem-action-result: 0.39 points/post over 38 posts (testing)
 - problem-why-app: 0.0 points/post over 3 posts (testing)
 
 ## YouTube title shapes
