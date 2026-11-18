@@ -2,7 +2,7 @@
 """Post one YardSwaps Reel to Instagram and Facebook per run.
 
 Runs from .github/workflows/reels.yml; posts at most once per Central-time
-slot (SLOTS_CT, seven a day since Nov 13). Standard library only.
+slot (SLOTS_CT, eight a day since Nov 18). Standard library only.
 
 Picks the next video from reels/library.json (never-posted first, newest
 first; then, among videos posted at least MIN_GAP_DAYS ago, the one whose
@@ -63,14 +63,17 @@ CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (
 #   7:00 am   until 8:00 am   (HeyCatch 4:33 am is 2.5 h before)
 #   8:30 am   until 9:30 am   (fifth slot, added Nov 8 when the library reached 50)
 #   10:00 am  until 11:00 am  (HeyCatch 12:33 pm is 93+ min after)
-#   4:30 pm   until 6:00 pm   (Just listed 2:15 pm is 2+ h before)
+#   3:55 pm   until 4:45 pm   (eighth slot, added Nov 18 when the library reached
+#                              89 active; Just listed 2:15 pm is 95+ min before the early edge)
+#   5:15 pm   until 6:00 pm   (was 4:30 pm until Nov 18; moved so it posts 55+ min
+#                              after the 3:55 pm slot)
 #   6:30 pm   until 7:00 pm   (HeyCatch 8:33 pm is 93+ min after)
 #   10:10 pm  until 11:00 pm  (sixth slot, added Nov 11 when the library reached
 #                              64 active; HeyCatch 8:33 pm is 92+ min before the early edge)
 # A run GitHub starts too late for its slot does nothing; the next slot's
 # runs pick up. library.json "slots" (["07:00-09:30", ...]) overrides this.
 CENTRAL = ZoneInfo("America/Chicago")
-SLOTS_CT = [((6, 10), (6, 55)), ((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((16, 30), (18, 0)), ((18, 30), (19, 0)), ((22, 10), (23, 0))]
+SLOTS_CT = [((6, 10), (6, 55)), ((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((15, 55), (16, 45)), ((17, 15), (18, 0)), ((18, 30), (19, 0)), ((22, 10), (23, 0))]
 SLOT_EARLY_MINUTES = 5     # a run that starts up to 5 minutes early counts for the slot
 
 
@@ -230,9 +233,9 @@ def threads_topic(v):
 
 # ---------- daily "List it free" Reel ----------
 # Alan, Nov 15: a daily "list your equipment free" post on every social
-# ("All socials yes"). One of the seven daily Reels carries it, so volume
+# ("All socials yes"). One of the eight daily Reels carries it, so volume
 # does not go up: the first Reel of the Central day at or after
-# LIST_FREE_FROM_CT (the 4:30 pm slot; if that run fails, 6:30 pm or 10:10 pm
+# LIST_FREE_FROM_CT (the 5:15 pm slot; if that run fails, 6:30 pm or 10:10 pm
 # takes over) gets a "LIST IT FREE" caption and a clip picked for it:
 #   - a real item first (the clip names one category; no dealer clips),
 #   - a category the list-it-free posts have not shown in LIST_FREE_CATEGORY_DAYS
@@ -242,7 +245,7 @@ def threads_topic(v):
 # and stays as it is. Copy is seller-first: free to list, no cut of the sale,
 # every 4 listings earns a free 7-day boost credit (up to 5; the seller spends
 # it, so never say it boosts automatically). Never promise views or sales.
-LIST_FREE_FROM_CT = (16, 30)
+LIST_FREE_FROM_CT = (17, 15)
 LIST_FREE_CATEGORY_DAYS = 7
 LIST_FREE_HEAD = "LIST IT FREE"
 # Rotate so no two days in a row read word for word the same.
@@ -340,7 +343,7 @@ def list_free_threads_caption(v, turn=0):
 # promotions live in reels/promos.json (founding dealer price, Share my page
 # and the invite reward). One Reel a day per platform carries one: the first
 # run of the Central day at or after promos.json "slot_from_ct" (10:00 am; if
-# that run fails a later slot takes over, after the 4:30 pm list-it-free post
+# that run fails a later slot takes over, after the 5:15 pm list-it-free post
 # when both are due). The active promotions take turns by day, so volume does
 # not go up. A promotion only posts between its start and end dates and on its
 # own "platforms". The caption opens with the promotion's head, keeps the

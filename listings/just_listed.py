@@ -76,7 +76,7 @@ PAID_GAP_DAYS = 3        # one paid card per seller per this many days (about tw
 PAID_REFEATURE_DAYS = 14 # a paid seller's same listing can come back after this
 PHOTOS_TRIED = 4         # photos checked per listing before giving up on it
 # One post a day, 2:15 pm Central (20:15 UTC in winter): 100+ minutes after
-# HeyCatch's 12:33 pm post and 2+ hours before the 4:30 pm Reel.
+# HeyCatch's 12:33 pm post and 95+ minutes before the 3:55 pm Reel.
 POST_OPEN_UTC = (20, 15)
 POST_CLOSE_UTC = 3       # a run GitHub starts after 03:00 UTC waits for tomorrow
 # "Buyers are looking for X" cards (wanted.json) slot in between listing cards.
