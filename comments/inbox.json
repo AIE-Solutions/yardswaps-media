@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-18T17:47:11Z",
+  "fetched_at": "2026-11-18T22:43:58Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -16,19 +16,5 @@
   "errors": [
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
-  "items": [
-    {
-      "platform": "instagram",
-      "comment_id": "17932864908428746",
-      "reply_to": "17932864908428746",
-      "author": null,
-      "text": "Send me this post",
-      "time": "2026-11-18T15:08:48+0000",
-      "likes": 0,
-      "media_id": "18123602768470023",
-      "permalink": "https://www.instagram.com/reel/Df4wNfVjCY7/",
-      "post": "Open your storefront on YardSwaps: 30 days free.",
-      "type": "REELS"
-    }
-  ]
+  "items": []
 }
