@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-18T22:58:53Z",
+  "fetched_at": "2026-11-19T17:44:07Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -16,5 +16,32 @@
   "errors": [
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
-  "items": []
+  "items": [
+    {
+      "platform": "instagram",
+      "comment_id": "18185629042442738",
+      "reply_to": "18185629042442738",
+      "author": null,
+      "text": "Send me this post",
+      "time": "2026-11-19T00:51:50+0000",
+      "likes": 0,
+      "media_id": "18116617565157017",
+      "permalink": "https://www.instagram.com/reel/Df5uJj3iWQ3/",
+      "post": "LIST IT FREE",
+      "type": "REELS"
+    },
+    {
+      "platform": "instagram",
+      "comment_id": "17920575897525893",
+      "reply_to": "17920575897525893",
+      "author": null,
+      "text": "can.You share it.me",
+      "time": "2026-11-19T17:37:17+0000",
+      "likes": 0,
+      "media_id": "18108493898528087",
+      "permalink": "https://www.instagram.com/reel/Df7i0cqEzl6/",
+      "post": "BOOST A LISTING",
+      "type": "REELS"
+    }
+  ]
 }
