@@ -59,5 +59,15 @@
     "status": "skipped",
     "why": "Zapier out of tasks until the billing reset and the token can't reply yet; reply drafted in DIGEST-2026-11-18.md",
     "at": "2026-11-18T17:47:50Z"
+  },
+  "18185629042442738": {
+    "status": "skipped",
+    "why": "Zapier out of tasks until the billing reset and the token can't reply yet; reply drafted in DIGEST-2026-11-19.md",
+    "at": "2026-11-19T17:44:41Z"
+  },
+  "17920575897525893": {
+    "status": "skipped",
+    "why": "Zapier out of tasks until the billing reset and the token can't reply yet; reply drafted in DIGEST-2026-11-19.md",
+    "at": "2026-11-19T17:44:41Z"
   }
 }
