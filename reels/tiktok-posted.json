@@ -234,5 +234,15 @@
   "due": "2026-11-19T13:52:07.000Z",
   "url": "https://tiktok.com/@yardwaps/video/7709880023972318478",
   "sent": "2026-11-19T13:52:56.406Z"
+ },
+ {
+  "time": "2026-11-19T20:47:13Z",
+  "platform": "tiktok",
+  "slug": "job-wrapped-generator",
+  "repeat": true,
+  "promo": "share",
+  "status": "scheduled",
+  "buffer_id": "6aff6053fceb0935ef160e12",
+  "due": "2026-11-19T20:52:13.000Z"
  }
 ]
