@@ -269,3 +269,6 @@ Alan: "I think runwayml can do better!". All five shots regenerated in Runway **
 - Clips in clips-v2/ (not committed): grapple and F-350 cropped to 1104x740 (crop=1104:740:0:44) to drop the photo padding bars (gold strip under the F-350); build-viral.sh band() now sizes the band to the clip and centres it in the 810 slot.
 - Build: `RATIO=<size> TAG=viral2 SPEED_FULL=1.3 SPEED_BAND=2 REC=$PWD/rec/storefront-8s-neutral.mp4 bash build-viral.sh $PWD/clips-v2 $PWD/out-viral2` (speed-ups put more camera travel into each sub-second beat cut). Same captions, logo pill, storefront recording and end card as viral.
 - out-viral2/current-vs-upgraded-9x16.jpg compares the two cuts frame by frame.
+
+### Final cut, viral3 (Nov 20, 05:05Z)
+Alan at his PC: "just finish the ad". viral3 = viral2 with the grapple truck retaken in Gen-4.5 from a still with room around the truck (original photo at 1440x960 plus 120 px of extended sky on top, so 4:3 with the whole truck inside). Prompt asked for "a slow, gentle arc of about twenty degrees ... while pulling back a little" and keeps the truck whole from 3/4 to front view. A first retake with a wide sweep from a tight crop lost the cab out of frame and was dropped. clips-v3/ = clips-v2 with the new a.mp4. Same build line with TAG=viral3 and out-viral3. Credits 146 -> 26, all free.
