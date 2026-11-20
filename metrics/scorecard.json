@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-16",
- "generatedAt": "2026-11-19T20:32:20Z",
+ "generatedAt": "2026-11-20T15:49:31Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": true,
@@ -13,7 +13,7 @@
   "followers": {
    "instagram": {
     "now": 828,
-    "change7d": -3,
+    "change7d": -1,
     "asOf": "2026-11-19"
    },
    "facebook": {
@@ -58,28 +58,6 @@
   "median": 0.0,
   "slugs": [
    {
-    "slug": "fryers-from-the-closed-kitchen",
-    "posts": 2,
-    "settled": 1,
-    "igSettled": 1,
-    "points": 7.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 2,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 7.0,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "cooking",
-    "demo": true,
-    "structure": "problem-action-result",
-    "cut": "10s",
-    "ratio": null
-   },
-   {
     "slug": "that-trailer-next-season",
     "posts": 2,
     "settled": 2,
@@ -115,6 +93,44 @@
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "hvac",
+    "ratio": null
+   },
+   {
+    "slug": "fryers-from-the-closed-kitchen",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 7.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 2,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 3.5,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "cooking",
+    "demo": true,
+    "structure": "problem-action-result",
+    "cut": "10s",
+    "ratio": null
+   },
+   {
+    "slug": "storefront-30-days-free",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 7.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 2,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 3.5,
     "ratio": null
    },
    {
@@ -363,6 +379,25 @@
     "ratio": null
    },
    {
+    "slug": "make-an-offer",
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 1,
+    "points": 1.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.0,
+    "hook": "feature-statement",
+    "angle": "buyer-feature",
+    "category": "forklifts",
+    "ratio": null
+   },
+   {
     "slug": "part-tag-scan",
     "posts": 1,
     "settled": 1,
@@ -548,10 +583,32 @@
     "ratio": null
    },
    {
+    "slug": "sprayer-after-the-season",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 1.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 0.5,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "agriculture",
+    "demo": true,
+    "structure": "problem-action-result",
+    "cut": "10s",
+    "ratio": null
+   },
+   {
     "slug": "air-mover-fleet",
     "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
+    "settled": 1,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -560,7 +617,7 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "pov-idle",
     "angle": "small-items",
     "category": "environmental",
@@ -906,7 +963,7 @@
    {
     "slug": "light-tower-after-night-work",
     "posts": 2,
-    "settled": 1,
+    "settled": 2,
     "igSettled": 1,
     "points": 0.0,
     "views": 0,
@@ -928,8 +985,8 @@
    {
     "slug": "list-4-boosted-free",
     "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
+    "settled": 1,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -938,29 +995,10 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "pov-idle",
     "angle": "seller-offer",
     "category": "trailers",
-    "ratio": null
-   },
-   {
-    "slug": "make-an-offer",
-    "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "feature-statement",
-    "angle": "buyer-feature",
-    "category": "forklifts",
     "ratio": null
    },
    {
@@ -1459,28 +1497,6 @@
     "ratio": null
    },
    {
-    "slug": "sprayer-after-the-season",
-    "posts": 2,
-    "settled": 1,
-    "igSettled": 1,
-    "points": 0.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 0.0,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "agriculture",
-    "demo": true,
-    "structure": "problem-action-result",
-    "cut": "10s",
-    "ratio": null
-   },
-   {
     "slug": "store-closed-kiosk",
     "posts": 1,
     "settled": 1,
@@ -1499,22 +1515,6 @@
     "category": "retail",
     "demo": true,
     "structure": "problem-action-result",
-    "ratio": null
-   },
-   {
-    "slug": "storefront-30-days-free",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 2,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
     "ratio": null
    },
    {
@@ -1642,8 +1642,8 @@
    {
     "slug": "zero-turn-after-the-account",
     "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
+    "settled": 2,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -1652,7 +1652,7 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "landscaping",
@@ -1720,13 +1720,13 @@
    },
    {
     "value": "pov-idle",
-    "posts": 53,
-    "perPost": 0.79,
+    "posts": 60,
+    "perPost": 0.72,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
-     "fryers-from-the-closed-kitchen",
      "condenser-changeout",
+     "fryers-from-the-closed-kitchen",
      "stripped-well-pump",
      "mission-idle-to-work",
      "parts-donor-thumb",
@@ -1740,6 +1740,8 @@
      "shop-went-cnc-lathe",
      "surplus-parts-labels",
      "rooftop-unit-on-the-pallet",
+     "sprayer-after-the-season",
+     "air-mover-fleet",
      "box-truck-after-the-route",
      "chain-hoist-on-the-beam",
      "compressor-by-the-fence",
@@ -1751,6 +1753,7 @@
      "laundromat-upgrade-washers",
      "leftover-fittings-lot",
      "light-tower-after-night-work",
+     "list-4-boosted-free",
      "micrometer-set-small-tools",
      "mowing-contract-ended",
      "office-went-remote",
@@ -1763,12 +1766,12 @@
      "second-location-closed",
      "snap-the-part",
      "sold-the-septic-route",
-     "sprayer-after-the-season",
      "store-closed-kiosk",
      "surplus-parts-cash-flow",
      "trash-pump-after-the-job",
      "warehouse-lease-ended",
-     "welder-from-one-job"
+     "welder-from-one-job",
+     "zero-turn-after-the-account"
     ]
    },
    {
@@ -1800,11 +1803,12 @@
    },
    {
     "value": "feature-statement",
-    "posts": 4,
-    "perPost": 0.0,
+    "posts": 5,
+    "perPost": 0.2,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
+     "make-an-offer",
      "find-it-nearby",
      "message-the-seller",
      "save-a-search"
@@ -1842,14 +1846,14 @@
    },
    {
     "value": "idle-gear",
-    "posts": 44,
-    "perPost": 0.95,
+    "posts": 49,
+    "perPost": 0.88,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
-     "fryers-from-the-closed-kitchen",
      "that-trailer-next-season",
      "condenser-changeout",
+     "fryers-from-the-closed-kitchen",
      "mission-idle-to-work",
      "commercial-idle-forklift",
      "construction-life-compactor",
@@ -1863,6 +1867,7 @@
      "shop-went-cnc-lathe",
      "small-business-old-oven",
      "rooftop-unit-on-the-pallet",
+     "sprayer-after-the-season",
      "box-truck-after-the-route",
      "building-things-concrete-mixer",
      "chain-hoist-on-the-beam",
@@ -1881,11 +1886,11 @@
      "second-location-closed",
      "snap-it-list-it",
      "sold-the-septic-route",
-     "sprayer-after-the-season",
      "store-closed-kiosk",
      "trash-pump-after-the-job",
      "warehouse-lease-ended",
-     "welder-from-one-job"
+     "welder-from-one-job",
+     "zero-turn-after-the-account"
     ]
    },
    {
@@ -1918,11 +1923,12 @@
    },
    {
     "value": "buyer-feature",
-    "posts": 4,
-    "perPost": 0.0,
+    "posts": 5,
+    "perPost": 0.2,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
+     "make-an-offer",
      "find-it-nearby",
      "message-the-seller",
      "save-a-search"
@@ -1930,14 +1936,25 @@
    },
    {
     "value": "small-items",
-    "posts": 3,
+    "posts": 4,
     "perPost": 0.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
+     "air-mover-fleet",
      "micrometer-set-small-tools",
      "safety-gear-on-the-wall",
      "second-bay-closed-tools"
+    ]
+   },
+   {
+    "value": "seller-offer",
+    "posts": 1,
+    "perPost": 0.0,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "list-4-boosted-free"
     ]
    },
    {
@@ -1956,13 +1973,14 @@
   "category": [
    {
     "value": "trailers",
-    "posts": 3,
-    "perPost": 4.33,
+    "posts": 4,
+    "perPost": 3.25,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "that-trailer-next-season",
-     "whole-lot-one-link"
+     "whole-lot-one-link",
+     "list-4-boosted-free"
     ]
    },
    {
@@ -1978,8 +1996,8 @@
    },
    {
     "value": "cooking",
-    "posts": 3,
-    "perPost": 2.67,
+    "posts": 4,
+    "perPost": 2.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -2050,14 +2068,15 @@
    },
    {
     "value": "forklifts",
-    "posts": 6,
-    "perPost": 0.67,
+    "posts": 7,
+    "perPost": 0.71,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "mission-idle-to-work",
      "commercial-idle-forklift",
      "forklift-sitting-there",
+     "make-an-offer",
      "find-it-nearby",
      "forklift-finally-deal",
      "message-the-seller"
@@ -2072,6 +2091,16 @@
     "slugs": [
      "construction-life-compactor",
      "roller-after-the-overlay"
+    ]
+   },
+   {
+    "value": "agriculture",
+    "posts": 2,
+    "perPost": 0.5,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "sprayer-after-the-season"
     ]
    },
    {
@@ -2098,9 +2127,21 @@
     ]
    },
    {
-    "value": "generators",
+    "value": "machining",
     "posts": 4,
     "perPost": 0.25,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "shop-went-cnc-lathe",
+     "micrometer-set-small-tools",
+     "parts-bin-lot"
+    ]
+   },
+   {
+    "value": "generators",
+    "posts": 5,
+    "perPost": 0.2,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -2111,15 +2152,14 @@
     ]
    },
    {
-    "value": "machining",
-    "posts": 4,
-    "perPost": 0.25,
+    "value": "environmental",
+    "posts": 2,
+    "perPost": 0.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
-     "shop-went-cnc-lathe",
-     "micrometer-set-small-tools",
-     "parts-bin-lot"
+     "air-mover-fleet",
+     "sold-the-septic-route"
     ]
    },
    {
@@ -2215,12 +2255,13 @@
    },
    {
     "value": "landscaping",
-    "posts": 1,
+    "posts": 3,
     "perPost": 0.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
-     "mowing-contract-ended"
+     "mowing-contract-ended",
+     "zero-turn-after-the-account"
     ]
    },
    {
@@ -2286,26 +2327,6 @@
     ]
    },
    {
-    "value": "environmental",
-    "posts": 1,
-    "perPost": 0.0,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "sold-the-septic-route"
-    ]
-   },
-   {
-    "value": "agriculture",
-    "posts": 1,
-    "perPost": 0.0,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "sprayer-after-the-season"
-    ]
-   },
-   {
     "value": "retail",
     "posts": 1,
     "perPost": 0.0,
@@ -2329,8 +2350,8 @@
   "structure": [
    {
     "value": "problem-action-result",
-    "posts": 41,
-    "perPost": 0.54,
+    "posts": 46,
+    "perPost": 0.5,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -2346,6 +2367,7 @@
      "small-business-old-oven",
      "storefront-stats",
      "rooftop-unit-on-the-pallet",
+     "sprayer-after-the-season",
      "box-truck-after-the-route",
      "building-things-concrete-mixer",
      "chain-hoist-on-the-beam",
@@ -2366,11 +2388,11 @@
      "see-what-buyers-want-v2",
      "socials-on-storefront",
      "sold-the-septic-route",
-     "sprayer-after-the-season",
      "store-closed-kiosk",
      "trash-pump-after-the-job",
      "warehouse-lease-ended",
-     "welder-from-one-job"
+     "welder-from-one-job",
+     "zero-turn-after-the-account"
     ]
    },
    {
