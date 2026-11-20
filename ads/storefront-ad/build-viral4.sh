@@ -17,7 +17,7 @@ D1=$(b 3); D2=$(b 2); D6=$(b ${B6:-6}); D6B=$(b ${B6B:-3}); D7=$(b ${B7:-6})
 POP="format=rgba,scale=w='trunc(iw*(1+0.18*max(0,1-t/0.12))/2)*2':h=-2:eval=frame"
 # full-frame shot from a vertical clip: cover, slow push, caption pops in centred, wordmark + AI label from frame 0
 full() { # <clip> <dur> <cap.png> <label.png> <out>
-  ffmpeg -hide_banner -loglevel error -y -i "$1" -loop 1 -i "$3" -loop 1 -i $A/brand.png -loop 1 -i "$4" -filter_complex \
+  ffmpeg -hide_banner -loglevel error -y -i "$1" -loop 1 -i "$3" -loop 1 -i $A/${BRAND:-brand.png} -loop 1 -i "$4" -filter_complex \
    "[0:v]setpts=PTS/${SPEED_FULL:-1},scale=1080:$H:force_original_aspect_ratio=increase,crop=1080:$H,scale=w='trunc(1080*(1+0.07*t/$2)/2)*2':h=-2:eval=frame,crop=1080:$H,$GRADE,$N[a];\
     [1:v]$POP[c];[2:v]format=rgba[b];[3:v]format=rgba[l];\
     [a][c]overlay=x='(W-w)/2':y='$CAPY-h/2':shortest=1[v1];[v1][b]overlay=0:0:shortest=1[v2];[v2][l]overlay=0:0:shortest=1,$N[v]" \
@@ -27,7 +27,7 @@ full() { # <clip> <dur> <cap.png> <label.png> <out>
 band() { # <clip> <dur> <cap.png> <out>
   # band height follows the clip (a clip cropped free of photo padding is wider than 4:3), capped at 810, centred in the 810 slot
   local BH; BH=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 "$1" | python3 -c "import sys;w,h=map(int,sys.stdin.read().split(','));print(min(810,2*round(1080*h/w/2)))")
-  ffmpeg -hide_banner -loglevel error -y -i "$1" -loop 1 -i "$3" -loop 1 -i $A/brand.png -filter_complex \
+  ffmpeg -hide_banner -loglevel error -y -i "$1" -loop 1 -i "$3" -loop 1 -i $A/${BRAND:-brand.png} -filter_complex \
    "[0:v]setpts=PTS/${SPEED_BAND:-1},split[s0][s1];[s0]scale=1080:$H:force_original_aspect_ratio=increase,crop=1080:$H,boxblur=40:8,eq=brightness=-0.08:saturation=0.9,$N[bg];\
     [s1]scale=w='trunc(1080*(1+0.06*t/$2)/2)*2':h=-2:eval=frame,crop=1080:$BH,$GRADE,$N[bd];\
     [1:v]$POP[c];[2:v]format=rgba[b];\
