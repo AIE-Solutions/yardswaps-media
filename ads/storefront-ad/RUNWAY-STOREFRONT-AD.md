@@ -111,3 +111,7 @@ web on the current main.
   right now?"
 - Facebook: the same with https://www.yardswaps.com/s (the storefront short link).
 - YouTube Shorts title: "Your yard, on one page". Drop the Dec 1 sentence from Dec 1 on.
+
+## Night version (Nov 20)
+
+`stills-night/` holds the same three photos graded dark and moody (the After hours look: darker midtones, sky falling to night, slate shadows, warm highlights, vignette, grain) by `night.py`, which also blurs the dealer watermark and the unit number on the telehandler photo (the daylight `stills/` copy got the same blur). `STILLS=stills-night` makes `build.sh` use them; the outputs are named `yardswaps-storefront-night-9x16.mp4` and `yardswaps-storefront-night-paid-9x16.mp4` (`out-night/`). The app part and the end card are unchanged. Runway clips made from `stills-night/*-4x3.jpg` drop in the same way as the daylight ones (the clip dir wins over the stills).
