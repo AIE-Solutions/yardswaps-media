@@ -284,3 +284,5 @@ Alan bought Runway credits and asked for the better models, fresh app screens an
 - Outputs: `out-viral4/` (9:16 at the top level, 4x5/ and 1x1/), each with and without voiceover, plus `before-vs-viral4-9x16.jpg`. Project files `assets/ads/storefront-ad/final-viral4/`.
 
 - 11-20 05:28Z Alan: the end of the voiceover felt rushed. The last three lines are now a slower separate read (`vo-justin-case-end-slow.mp3`) placed one per screen: phone 5.75 s, /dealers 8.6 s, end card 10.4 s. Alan also said not to add the "AI-generated scene" text, so the build now overlays `blank.png` (set `AILABEL=ai` to bring the label back); Meta's AI-info toggle still applies.
+
+**Narration fix (11-20, Alan: "the narrated end sounds weird").** The VO is now one continuous Justin Case take (music/v4/vo-justin-case-one-take.mp3), lightly re-spaced in one place only: each yard line sits on its shot, then a one-second breath before "Thirty days free, then forty-nine a month." (lands 8.6 to 10.8 s, into the end card). The old track spliced two different takes; it is kept as vo-justin-case-timed-splice-old.mp3, and its renders are in project files final-viral4/older-vo-splice/.
