@@ -221,8 +221,8 @@ frame, hard cuts on the beat of the track (124 bpm, one cut every two
 beats), big centred captions that pop in, a slow push on every shot, the
 payoff (the real storefront) by 5 s, one call to action. 12.1 s.
 
-`layout-viral.py` (captions, auto-shrunk to fit; the rest reused from
-`v3-<size>/`) and `build-viral.sh`, sizes 9x16-paid, 4x5, 1x1; sheet
+`layout-viral.py` (captions, auto-shrunk to fit, and the logo pill; the
+rest reused from `v3-<size>/`) and `build-viral.sh`, sizes 9x16-paid, 4x5, 1x1; sheet
 `wordsheet-viral.py`.
 
 | Beats | Shot | Source | Caption |
@@ -234,6 +234,22 @@ payoff (the real storefront) by 5 s, one call to action. 12.1 s.
 | 2 | F-350 service truck | `clips/c.mp4` (real unit) | Your links. |
 | 8 | real storefront on the phone | `rec/storefront-8s-neutral.mp4` | stage card |
 | 6 | end card | `endcard-v3.png` crop | 30 days free, then $49 a month |
+
+### Logo placement (Nov 20, Alan: "logo placement needs improvement")
+
+The first viral cut carried the v3 wordmark: text rendered in Space
+Grotesk, floating in the sky with a soft shadow, blue "Swaps" on blue
+sky, and on the three real-unit shots in 9:16 it sat right under the
+caption and the two overlapped. Now `layout-viral.py` builds the logo
+as a lockup: the brand-kit wordmark (`broll/in/brand-kit/wordmark/
+yardswaps-wordmark-on-light.png`, slate + blue, the same mark as the end
+card) on a white pill with a soft shadow, 370x96 px, pinned top-left
+(x 48) on every shot 1–5, same spot in all three sizes: 9:16 at y 290
+(15 % down, under Meta's top overlay zone in Reels and Stories), 4:5 at
+48, 1:1 at 40. The 9:16 real-unit band moved down 85 px (band top 640,
+caption centre 500) so the caption clears the pill; the 1:1 band moved
+15 px. The stage shot keeps its own title ("Your storefront on
+YardSwaps.") and the end card its big wordmark, so no pill there.
 
 ### City-neutral recording
 
