@@ -1,0 +1,23 @@
+1
+00:00:02,600 --> 00:00:15,091
+Selling restaurant or shop equipment on YardSwaps works the same way as selling a truck: one photo, the AI fills in the details, you set the price and publish. Here it is with a combi oven, start to finish.
+
+2
+00:00:16,500 --> 00:00:27,006
+Open Sell and choose a photo. One clear shot of the whole unit is enough to start; you can add the data plate and the inside later. The AI reads the photo and fills in the form.
+
+3
+00:00:38,500 --> 00:00:53,969
+Title, category and condition are filled in: a combi oven, filed under Cooking and Ovens, marked used, good. Change anything that is off. The description is drafted from the photo too, in plain words a buyer can check at pickup.
+
+4
+00:01:02,500 --> 00:01:13,633
+Kitchen gear gets its own spec fields: type, fuel, width and voltage. Fill in what you know. A buyer can check them without messaging you, and the ones you leave blank stay hidden.
+
+5
+00:01:20,500 --> 00:01:35,238
+The suggested price comes from similar listings and the AI estimate. Tap Use price to take it, or type your own. Call for Price is there if you would rather talk first, and Answer offers automatically can accept an offer at the number you set.
+
+6
+00:01:42,500 --> 00:01:52,039
+Publish. The listing is live, and the share button sends the link to a buyer, a group chat or your own page. Free to list, no cut of the sale, local pickup.

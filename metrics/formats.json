@@ -589,6 +589,63 @@
    "demo": true,
    "structure": "problem-action-result",
    "cut": "10s"
+  },
+  "listed-omni-metalcraft-powered-24-w": {
+   "hook": "just-listed",
+   "angle": "real-listing",
+   "category": "warehouse",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s",
+   "real": true
+  },
+  "pressure-washer-the-crew-skips": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "pressure",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "mixer-after-the-pour": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "concrete",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "scissor-lift-after-the-fitout": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "aerial",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "lathe-from-the-closed-shop": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "machining",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "flatbed-after-the-last-contract": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "fleet",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "chairs-from-the-closed-office": {
+   "hook": "pov-idle",
+   "angle": "small-items",
+   "category": "office",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
   }
  }
 }
