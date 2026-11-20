@@ -42,7 +42,7 @@ ffmpeg -hide_banner -loglevel error -y -loop 1 -framerate 30 -i $A/stage-store.p
    "[1:v]scale=$PW:$PH,format=rgba[p];[2:v]format=gray[m];[p][m]alphamerge[pm];[0:v][pm]overlay=$PX:$PY:shortest=1,$N[v]" -map "[v]" -t $D6 -an -c:v libx264 -crf 16 -preset medium s6.mp4
 # s6b: the live /dealers page (real screen, cut above the price row), slow push, pops in
 ffmpeg -hide_banner -loglevel error -y -loop 1 -framerate 30 -i $A/stage-dealers.png -vf "scale=w='trunc(1080*(1+0.04*t/$D6B)/2)*2':h=-2:eval=frame,crop=1080:$H,$N" -t $D6B -c:v libx264 -crf 16 -preset medium s6b.mp4
-ffmpeg -hide_banner -loglevel error -y -loop 1 -framerate 30 -i $A/endcard.png -vf "fade=in:d=0.15,$N" -t $D7 -c:v libx264 -crf 16 -preset medium s7.mp4
+ffmpeg -hide_banner -loglevel error -y -loop 1 -framerate 30 -i $A/${ENDCARD:-endcard.png} -vf "fade=in:d=0.15,$N" -t $D7 -c:v libx264 -crf 16 -preset medium s7.mp4
 ffmpeg -hide_banner -loglevel error -y $(for i in 1 2 3 4 5 6 6b 7; do echo -i s$i.mp4; done) -filter_complex "[0:v][1:v][2:v][3:v][4:v][5:v][6:v][7:v]concat=n=8:v=1:a=0,format=yuv420p[v]" -map "[v]" -c:v libx264 -crf 20 -preset slow video.mp4
 D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 video.mp4); FO=$(python3 -c "print(round($D-1.5,2))")
 case "$RATIO" in 4x5) DEF=yardswaps-storefront-$TAG-paid-4x5.mp4 ;; 1x1) DEF=yardswaps-storefront-$TAG-paid-1x1.mp4 ;; *) DEF=yardswaps-storefront-$TAG-paid-9x16.mp4 ;; esac
