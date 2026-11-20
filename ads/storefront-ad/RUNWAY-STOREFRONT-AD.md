@@ -71,15 +71,30 @@ Locked-off tripod shot of this parked white service truck on a concrete lot, sof
 
 A rejected clip is not regenerated on the free plan; the still stands in.
 
+## Sizes (Alan, Nov 20: "This add will be running on meta for couple weeks")
+
+| File | Size | For |
+|---|---|---|
+| `yardswaps-storefront-9x16.mp4` | 1080x1920 | organic Reels, Stories, Shorts, TikTok |
+| `yardswaps-storefront-paid-9x16.mp4` | 1080x1920 | Meta paid Reels and Stories: the line is on screen from frame 0 and every word sits between 15 and 62 percent of the height (Meta's account row covers the top 14 percent and the CTA block the bottom 35 percent); the end card content sits 180 px higher |
+| `yardswaps-storefront-paid-4x5.mp4` | 1080x1350 | Facebook and Instagram Feed |
+| `yardswaps-storefront-paid-1x1.mp4` | 1080x1080 | square placements |
+
+The video never says the $29 founding price, so the same files run past Dec 1; the Dec 1 line lives in the
+primary text only. The openers are generated from our own photos, so the AI-generated toggle is on when the
+ad is uploaded. `layout.py` makes each size's caption cards, phone stages, mask and end card (`r<size>/`).
+
 ## Build
 
 ```
 cd ads/storefront-ad
-bash build.sh clips out            # clips/a.mp4 b.mp4 c.mp4; leave the first argument empty for the stills
+python3 layout.py                                   # per-size assets (already committed)
+for r in 9x16 9x16-paid 4x5 1x1; do RATIO=$r bash build.sh clips out; done   # clips/a.mp4 b.mp4 c.mp4; "" for the stills
 python3 wordsheet.py out/yardswaps-storefront-9x16.mp4 out/words-vs-screen.jpg
+python3 wordsheet.py out/yardswaps-storefront-paid-9x16.mp4 out/words-vs-screen-paid-9x16.jpg
 ```
 
-`MUSIC=` picks the bed (default `music/v2/yardswaps-music-road-124bpm.mp3`, licensed). Rebuild the app
+`MUSIC=` picks the bed (default `music/v2/yardswaps-music-road-124bpm.mp3`, licensed). `clips/` is git-ignored; add the Runway clips with `git add -f`. Rebuild the app
 part when the app changes: `rec/storefront-8s.mp4` and `rec/plans-dealer.png` come from the motion
 recording kit (`assets/motion/source/recording/`, `MOCK=./mocksf REC=store node recsf.js`) against Expo
 web on the current main.
