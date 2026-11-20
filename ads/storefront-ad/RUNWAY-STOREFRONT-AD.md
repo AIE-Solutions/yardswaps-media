@@ -272,3 +272,13 @@ Alan: "I think runwayml can do better!". All five shots regenerated in Runway **
 
 ### Final cut, viral3 (Nov 20, 05:05Z)
 Alan at his PC: "just finish the ad". viral3 = viral2 with the grapple truck retaken in Gen-4.5 from a still with room around the truck (original photo at 1440x960 plus 120 px of extended sky on top, so 4:3 with the whole truck inside). Prompt asked for "a slow, gentle arc of about twenty degrees ... while pulling back a little" and keeps the truck whole from 3/4 to front view. A first retake with a wide sweep from a tight crop lost the cab out of frame and was dropped. clips-v3/ = clips-v2 with the new a.mp4. Same build line with TAG=viral3 and out-viral3. Credits 146 -> 26, all free.
+
+## Upgrade pass, viral4 (2026-11-20)
+
+Alan bought Runway credits and asked for the better models, fresh app screens and ElevenLabs sound.
+
+- **Shots** (`clips-v4/`, not committed): y1 is a Gen-4.5 first-person walk into the yard (from `yard-row.jpg`); y2 and a are unchanged from viral3 (loader, grapple r2); b is a new Gen-4.5 telehandler arc; c is a new Gen-4.5 F-350 arc from a clean still (gold bar cut off, edges padded to 4:3), cropped `1044:732:30:60` to drop the padded edge. A Kling 4.0 loader take came out almost static, so the viral3 loader stays.
+- **Live screen**: `rec/dealers-mobile-live-1120.png` is yardswaps.com/dealers captured signed out, light theme, 390x844 at 3x. `dealers-card.py` cuts it above the price row (the founding $29 stays in the caption only) and writes `vr-<size>/stage-dealers.png`; it plays as s6b after the storefront phone.
+- **Sound** (`music/v4/`): ElevenLabs Music v2.5 bed at 120 bpm (instrumental, checked with speech-to-text), SFX for gravel steps under the opener, a whoosh before each yard cut and a tap when each screen appears. `vo-justin-case-timed.mp3` is the Justin Case read split at its pauses so each line lands on its caption.
+- **Build**: `build-viral4.sh` (BT=0.5, s6 6 beats, s6b 3 beats, end card 6 beats = 13.0 s). Without VO: `RATIO=... SPEED_FULL=1.3 SPEED_BAND=2 REC=$PWD/rec/storefront-8s-neutral.mp4 bash build-viral4.sh $PWD/clips-v4 $PWD/out-viral4`. With VO add `OUT=...-vo-... VO=$PWD/../../music/v4/vo-justin-case-timed.mp3 VO_DELAY=0 VO_VOL=2.0 MUSIC_VOL=0.3`.
+- Outputs: `out-viral4/` (9:16 at the top level, 4x5/ and 1x1/), each with and without voiceover, plus `before-vs-viral4-9x16.jpg`. Project files `assets/ads/storefront-ad/final-viral4/`.
