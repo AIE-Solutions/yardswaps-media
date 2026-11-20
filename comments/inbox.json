@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-20T17:48:40Z",
+  "fetched_at": "2026-11-20T22:24:12Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -14,13 +14,6 @@
     "public_profile"
   ],
   "errors": [
-    "facebook comments 1311592217771988: GET /1311592217771988 -> 429: {\"error\":{\"message\":\"An error has occurred. No further information is available.\",\"type\":\"TooManyRequestsException\",\"fbtrace_id\":\"APp-bPGxSGJrRczXAOXG6mJ\"}}",
-    "facebook comments 1650244786890143: GET /1650244786890143 -> 429: {\"error\":{\"message\":\"An error has occurred. No further information is available.\",\"type\":\"TooManyRequestsException\",\"fbtrace_id\":\"AvNC8yCxJo0ytNvLtFyfOdD\"}}",
-    "facebook comments 28805101885852648: GET /28805101885852648 -> 429: {\"error\":{\"message\":\"An error has occurred. No further information is available.\",\"type\":\"TooManyRequestsException\",\"fbtrace_id\":\"ACFc3P0zpgTPXe-t10qBIMZ\"}}",
-    "facebook comments 2288967121959701: GET /2288967121959701 -> 429: {\"error\":{\"message\":\"An error has occurred. No further information is available.\",\"type\":\"TooManyRequestsException\",\"fbtrace_id\":\"A2cljIhFa0Sv_OgzVPBVjpl\"}}",
-    "facebook comments 1886957839326186: GET /1886957839326186 -> 429: {\"error\":{\"message\":\"An error has occurred. No further information is available.\",\"type\":\"TooManyRequestsException\",\"fbtrace_id\":\"AIDc2kPsYTGFdcQm5l5IYX_\"}}",
-    "facebook comments 3035845286754944: GET /3035845286754944 -> 429: {\"error\":{\"message\":\"An error has occurred. No further information is available.\",\"type\":\"TooManyRequestsException\",\"fbtrace_id\":\"ACTZ1tVXyQ9rjApg0dQFcs_\"}}",
-    "facebook comments 1478950110784401: GET /1478950110784401 -> 429: {\"error\":{\"message\":\"An error has occurred. No further information is available.\",\"type\":\"TooManyRequestsException\",\"fbtrace_id\":\"At59IAf04SWyxNokF_EOZXl\"}}",
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
   "items": [
