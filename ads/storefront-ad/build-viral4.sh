@@ -4,6 +4,7 @@
 # Optional: SPEED_FULL / SPEED_BAND play the clips faster (2 = twice the camera travel per shot), TAG names the outputs.
 # viral4: BT=0.5 (the 120 bpm ElevenLabs bed), the live /dealers screen after the storefront phone (s6b),
 # and a sound mix (gravel steps under the opener, a whoosh on each cut, a tap when a screen appears). VO=<mp3> adds a voiceover.
+# REC_SS / REC_SPEED: start the storefront recording later and play it faster, so the phone reaches the listing cards (Alan 11-20).
 # Usage: RATIO=9x16-paid|4x5|1x1 build-viral4.sh <clipdir with y1 y2 (9:16) and a b c (4:3)> <out dir (default out-viral)>
 set -e
 B=$(cd "$(dirname "$0")" && pwd); C=${1:?clipdir}; O=${2:-$B/out-viral}; mkdir -p "$O"; cd "$O"
@@ -38,8 +39,8 @@ full "$C/y2.mp4" $D2 $A/cap2.png $A/${AILABEL:-blank}.png s2.mp4
 band "$C/a.mp4" $D2 $A/cap3.png s3.mp4
 band "$C/b.mp4" $D2 $A/cap4.png s4.mp4
 band "$C/c.mp4" $D2 $A/cap5.png s5.mp4
-ffmpeg -hide_banner -loglevel error -y -loop 1 -framerate 30 -i $A/stage-store.png -i ${REC:-$B/rec/storefront-8s.mp4} -loop 1 -framerate 30 -i $A/phone-mask.png -filter_complex \
-   "[1:v]scale=$PW:$PH,format=rgba[p];[2:v]format=gray[m];[p][m]alphamerge[pm];[0:v][pm]overlay=$PX:$PY:shortest=1,$N[v]" -map "[v]" -t $D6 -an -c:v libx264 -crf 16 -preset medium s6.mp4
+ffmpeg -hide_banner -loglevel error -y -loop 1 -framerate 30 -i $A/stage-store.png -ss ${REC_SS:-0} -i ${REC:-$B/rec/storefront-8s.mp4} -loop 1 -framerate 30 -i $A/phone-mask.png -filter_complex \
+   "[1:v]setpts=(PTS-STARTPTS)/${REC_SPEED:-1},scale=$PW:$PH,format=rgba[p];[2:v]format=gray[m];[p][m]alphamerge[pm];[0:v][pm]overlay=$PX:$PY:shortest=1,$N[v]" -map "[v]" -t $D6 -an -c:v libx264 -crf 16 -preset medium s6.mp4
 # s6b: the live /dealers page (real screen, cut above the price row), slow push, pops in
 ffmpeg -hide_banner -loglevel error -y -loop 1 -framerate 30 -i $A/stage-dealers.png -vf "scale=w='trunc(1080*(1+0.04*t/$D6B)/2)*2':h=-2:eval=frame,crop=1080:$H,$N" -t $D6B -c:v libx264 -crf 16 -preset medium s6b.mp4
 ffmpeg -hide_banner -loglevel error -y -loop 1 -framerate 30 -i $A/${ENDCARD:-endcard.png} -vf "fade=in:d=0.15,$N" -t $D7 -c:v libx264 -crf 16 -preset medium s7.mp4
