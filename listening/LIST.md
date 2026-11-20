@@ -1,4 +1,4 @@
-# Listening list, updated Thu Nov 19, 2026
+# Listening list, updated Fri Nov 20, 2026
 
 People asking to buy or sell used work equipment in public places, last 8 days. Nothing here was posted. Reply by hand, as the business, only where the place's rules allow it; use the link version only where links are allowed.
 
@@ -86,7 +86,7 @@ Draft reply:
 Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?
 ```
 
-## 8. Buying: Metalworking & CNC (Hobby-Machinist, Thu Nov 19)
+## 8. Buying: Metalworking & CNC (Hobby-Machinist, Fri Nov 20)
 
 > Who makes the second best Micrometer - starting with this comment.... https://www.hobby-machinist.com/threads/lathe-head-stock-is-tilted-shim-it.126016/post-1354350 I am looking for my first micrometer. I already have my second in the amazon shopping cart, Mitutoyo 103-129, confirmed to be the legit Mitutoyo store. but, I want one that I wont be afraid to break, drop, or have something go very wrong with. some mentioned that I look lik
 
