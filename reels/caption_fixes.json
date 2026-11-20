@@ -1,0 +1,19 @@
+{
+  "_about": "One-off caption corrections for Reels already published on the YardSwaps Facebook Page. Run the 'Fix published captions' workflow (caption-fixes.yml). An entry is applied only while its 'find' text is still in the live description, so a re-run does nothing. Instagram does not allow editing a published caption through the API, so Instagram posts can't be listed here.",
+  "fixes": [
+    {
+      "platform": "facebook",
+      "id": "1128289913153332",
+      "why": "Alan 11-20 dropped the Dec 1 deadline on the founding $29 price (media #79)",
+      "find": "For our first 100 storefronts, until Dec 1.",
+      "replace": "For our first 100 storefronts."
+    },
+    {
+      "platform": "facebook",
+      "id": "1076960468711609",
+      "why": "Alan 11-20 dropped the Dec 1 deadline on the founding $29 price (media #79)",
+      "find": "Storefronts opened before Dec 1 then pay $29 a month for 3 months, then $49.",
+      "replace": "Our first 100 storefronts then pay $29 a month for 3 months, then $49."
+    }
+  ]
+}
