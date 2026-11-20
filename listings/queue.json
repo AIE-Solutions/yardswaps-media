@@ -371,9 +371,10 @@
     "card": "listings/cards/wanted-ai-3-steps.jpg",
     "ig_caption": "Posting on YardSwaps takes three steps.\n1. Take a photo of the item and its tag or data plate.\n2. Check the draft: the AI fills in the title and specs from the photo, so fix anything it got wrong and add your price.\n3. Publish. Listing is free and the buyer picks up at your place.\n\nComment \"list\" and we'll message you the free listing link, or tap yardswaps.com/i in our bio. No listing fee, no cut of the sale.\n\n#Equipment #SellUsedEquipment #UsedEquipment #IndustrialEquipment #EquipmentMarketplace\n\nWhat's the first thing you'd photograph?",
     "fb_caption": "Posting on YardSwaps takes three steps.\n1. Take a photo of the item and its tag or data plate.\n2. Check the draft: the AI fills in the title and specs from the photo, so fix anything it got wrong and add your price.\n3. Publish. Listing is free and the buyer picks up at your place.\n\nList it free: https://www.yardswaps.com/sell?utm_source=facebook&utm_medium=social&utm_campaign=post_wanted-ai-3-steps\nNo listing fee, no cut of the sale.\n\n#Equipment #SellUsedEquipment #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat's the first thing you'd photograph?",
-    "status": "pending",
+    "status": "approved",
     "added": "2026-11-19T22:42:42Z",
-    "updated": "2026-11-19T22:42:42Z"
+    "updated": "2026-11-20T17:38:57Z",
+    "reviewed_by": "claude"
   },
   {
     "listing_id": "cmwo06whh0006ms3a7s86flh3",
@@ -393,8 +394,10 @@
     "created": "2026-11-19T20:29:15.126Z",
     "ig_caption": "Just listed on YardSwaps: 2016 Ford E-450 16-Ft Box Truck - 39k Miles - Work Ready\n\n$26,995 · 2016 · 39,000 miles · San Antonio, TX\n\nSee it in the free YardSwaps app: yardswaps.com/i (link in bio). Got gear sitting idle? List it free in about a minute.\n\nFollow @yardswaps for a new listing every day.\n\n#FleetTrucks #WorkTrucks #UsedEquipment #Jobsite #Tradespeople\n\nBuy it used or new: which way do you go on a machine like this?",
     "fb_caption": "Just listed on YardSwaps: 2016 Ford E-450 16-Ft Box Truck - 39k Miles - Work Ready\n\n$26,995 · 2016 · 39,000 miles · San Antonio, TX\n\nSee the photos and message the seller: https://www.yardswaps.com/listing/cmwo06whh0006ms3a7s86flh3?utm_source=facebook&utm_medium=social&utm_campaign=just_listed\n\nGot gear sitting idle? List it free in about a minute.\n\n#FleetTrucks #WorkTrucks #YardSwaps #UsedEquipment #Jobsite #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nBuy it used or new: which way do you go on a machine like this?",
-    "status": "pending",
+    "status": "rejected",
     "added": "2026-11-19T22:42:45Z",
-    "updated": "2026-11-19T22:42:45Z"
+    "updated": "2026-11-20T17:38:57Z",
+    "reason": "Dealer watermark banner across the photo shows a street address (Bandera Rd, San Antonio, TX) and dealer name text.",
+    "reviewed_by": "claude"
   }
 ]
