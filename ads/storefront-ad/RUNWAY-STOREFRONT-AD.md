@@ -212,3 +212,36 @@ Not done, Alan's call: re-record the demo storefront without the
 Houston address (nationwide, no location rule; needs the recording kit
 and about half an hour), and a real 5-second phone clip of a dealer yard
 would replace the AI opener outright.
+
+## Viral format (Nov 20, Alan: "Go by the viral format")
+
+No format of that name existed in the project, so this follows the
+short-form structure that travels: text hook on screen from the first
+frame, hard cuts on the beat of the track (124 bpm, one cut every two
+beats), big centred captions that pop in, a slow push on every shot, the
+payoff (the real storefront) by 5 s, one call to action. 12.1 s.
+
+`layout-viral.py` (captions, auto-shrunk to fit; the rest reused from
+`v3-<size>/`) and `build-viral.sh`, sizes 9x16-paid, 4x5, 1x1; sheet
+`wordsheet-viral.py`.
+
+| Beats | Shot | Source | Caption |
+|---|---|---|---|
+| 3 | yard row | `clips/y1.mp4` (AI, labelled) | Your whole yard. |
+| 2 | loader, forklift, generator | `clips/y2.mp4` (AI, labelled) | One page. |
+| 2 | grapple truck, 4:3 band on a blurred fill | `clips/a.mp4` (real unit) | Every unit. |
+| 2 | telehandler | `clips/b.mp4` (real unit) | Your hours. |
+| 2 | F-350 service truck | `clips/c.mp4` (real unit) | Your links. |
+| 8 | real storefront on the phone | `rec/storefront-8s-neutral.mp4` | stage card |
+| 6 | end card | `endcard-v3.png` crop | 30 days free, then $49 a month |
+
+### City-neutral recording
+
+`rec/storefront-8s-neutral.mp4` is the same recording with the demo
+dealer at "Anytown, USA", "Delivers within 150 miles" and every listing
+card at Anytown (nationwide, no location on social). Mock
+`mocksf-neutral.js` in the project-files recording kit
+(`assets/motion/source/recording/`), recorded with `MOCK=./mocksf-neutral
+REC=store node recsf.js` against Expo web on :8081, frames 0–239 at 30
+fps scaled to 1178x2332. v3.1 was rebuilt with it too (`REC=` on
+`build-v3.sh`); v3 keeps the Houston recording for comparison.
