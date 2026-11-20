@@ -33,8 +33,8 @@ band() { # <clip> <dur> <cap.png> <out>
     [bg][bd]overlay=0:$BANDY+(810-$BH)/2:shortest=1[a];[a][c]overlay=x='(W-w)/2':y='$CAPBANDY-h/2':shortest=1[v1];[v1][b]overlay=0:0:shortest=1,$N[v]" \
    -map "[v]" -t $2 -an -c:v libx264 -crf 16 -preset medium "$4"
 }
-full "$C/y1.mp4" $D1 $A/cap1.png $A/ai.png s1.mp4
-full "$C/y2.mp4" $D2 $A/cap2.png $A/ai.png s2.mp4
+full "$C/y1.mp4" $D1 $A/cap1.png $A/${AILABEL:-blank}.png s1.mp4
+full "$C/y2.mp4" $D2 $A/cap2.png $A/${AILABEL:-blank}.png s2.mp4
 band "$C/a.mp4" $D2 $A/cap3.png s3.mp4
 band "$C/b.mp4" $D2 $A/cap4.png s4.mp4
 band "$C/c.mp4" $D2 $A/cap5.png s5.mp4
