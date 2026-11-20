@@ -198,3 +198,17 @@ control), results out through the "Clip relay" artifact
 (https://claude.ai/artifact/Tb6ZgtrdH3Yu5ncy5RJpYt), which stores
 whatever the Runway tab posts to it as assets we can read from the build
 container. No keys, no downloads on Alan's PC.
+
+### v3.1 (Nov 20, after Alan: "Man that new one is nice. Improvements?")
+
+Same scenes, tighter: openers 2.4 s + 2.2 s so the real storefront is on
+screen by about 4.3 s instead of 5.6 s, storefront scene 6.0 s (more of
+the inventory scroll, the real units and prices show), end card 3.0 s.
+12.7 s total. Adds the 1:1 size for the remaining feed placements.
+`RATIO=<size> D1=2.4 D2=2.2 D3=6.0 D4=3.0 TAG=v3.1 build-v3.sh clips out-v3.1`,
+sheet with `WS_TIMES=1,3.3,7,11.5`. v3 kept beside it for comparison.
+
+Not done, Alan's call: re-record the demo storefront without the
+Houston address (nationwide, no location rule; needs the recording kit
+and about half an hour), and a real 5-second phone clip of a dealer yard
+would replace the AI opener outright.

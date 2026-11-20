@@ -1,13 +1,14 @@
-# Words-vs-screen sheet for the v3 ad. Usage: wordsheet-v3.py <final.mp4> <out.jpg>
+# Words-vs-screen sheet for the v3 ad. Usage: [WS_TIMES=1,4,8,12] wordsheet-v3.py <final.mp4> <out.jpg>
 import sys, subprocess, os
 from PIL import Image, ImageDraw, ImageFont
 V, OUT = sys.argv[1], sys.argv[2]; D = os.path.dirname(os.path.abspath(__file__))
 F = ImageFont.truetype(os.path.join(D, "../parts-ad/source/fonts/SpaceGrotesk_500Medium.ttf"), 22)
+T = [float(x) for x in os.environ.get("WS_TIMES", "1,4,8,12").split(",")]
 rows = [
- (1.0, "Your yard. (+ YardSwaps wordmark, 'AI-generated scene')", "AI-generated scene (Runway Gen-4 from our own prompt): a dealer yard with a row of parked machines, nothing moving but the camera"),
- (4.0, "On one page. (+ wordmark, AI label)", "AI-generated scene: a wheel loader, generator and forklift parked in a yard, slow dolly"),
- (8.0, "Your storefront on YardSwaps.", "Real app (main, Nov 20): Your Equipment Co. storefront, the grapple truck, telehandler and F-350 at the top of the inventory"),
- (12.0, "Open your storefront. / 30 days free, then $49 a month. / What's sitting in your yard right now?", "End card: wordmark, store badges, yardswaps.com"),
+ (T[0], "Your yard. (+ YardSwaps wordmark, 'AI-generated scene')", "AI-generated scene (Runway Gen-4 from our own prompt): a dealer yard with a row of parked machines, nothing moving but the camera"),
+ (T[1], "On one page. (+ wordmark, AI label)", "AI-generated scene: a wheel loader, generator and forklift parked in a yard, slow dolly"),
+ (T[2], "Your storefront on YardSwaps.", "Real app (main, Nov 20): Your Equipment Co. storefront, the grapple truck, telehandler and F-350 at the top of the inventory"),
+ (T[3], "Open your storefront. / 30 days free, then $49 a month. / What's sitting in your yard right now?", "End card: wordmark, store badges, yardswaps.com"),
 ]
 W, TH = 300, 534; cols = len(rows)
 sheet = Image.new("RGB", (cols * (W + 20) + 20, TH + 240), "white"); d = ImageDraw.Draw(sheet)

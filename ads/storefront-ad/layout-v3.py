@@ -10,7 +10,8 @@ BLUE, WHITE = (37, 99, 235), (255, 255, 255)
 W = 1080
 # H, caption font / line height / baseline bottom, brand y, ai-label y
 SIZES = {"9x16-paid": dict(H=1920, cap=(104, 118, 1060), brand=330, ai=1130, src="r9x16-paid", cardTop=180),
-         "4x5": dict(H=1350, cap=(92, 104, 760), brand=90, ai=820, src="r4x5", cardTop=300)}
+         "4x5": dict(H=1350, cap=(92, 104, 760), brand=90, ai=820, src="r4x5", cardTop=300),
+         "1x1": dict(H=1080, cap=(80, 92, 640), brand=60, ai=690, src="r1x1", cardTop=440)}
 LINES = {"cap-a": "Your yard.", "cap-b": "On one page."}
 
 def shadowed(img, draw_fn, blur=10, alpha=170):
