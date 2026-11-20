@@ -261,3 +261,11 @@ card at Anytown (nationwide, no location on social). Mock
 REC=store node recsf.js` against Expo web on :8081, frames 0–239 at 30
 fps scaled to 1178x2332. v3.1 was rebuilt with it too (`REC=` on
 `build-v3.sh`); v3 keeps the Houston recording for comparison.
+
+### Runway quality pass, viral2 (Nov 20, 04:50Z)
+Alan: "I think runwayml can do better!". All five shots regenerated in Runway **Gen-4.5** (the best image-to-video model on the account), image-to-video from the same stills, prompts written to Runway's own prompting guide (describe the camera move, not the picture; "parked and completely motionless"; "Continuous, seamless shot"; "No people, no text, no logos").
+- y1 yard: slow sweeping low arc over the parked equipment, golden light. y2 loader: low dolly push past the loader bucket, forklift and generator in frame. a/b/c grapple truck, telehandler, F-350: slow sweeping arc around the parked unit, whole unit in frame.
+- Cost 60 credits per 5 s Gen-4.5 take (Gen-4 Turbo is 25). 341 -> 146 free credits left; nothing bought.
+- Clips in clips-v2/ (not committed): grapple and F-350 cropped to 1104x740 (crop=1104:740:0:44) to drop the photo padding bars (gold strip under the F-350); build-viral.sh band() now sizes the band to the clip and centres it in the 810 slot.
+- Build: `RATIO=<size> TAG=viral2 SPEED_FULL=1.3 SPEED_BAND=2 REC=$PWD/rec/storefront-8s-neutral.mp4 bash build-viral.sh $PWD/clips-v2 $PWD/out-viral2` (speed-ups put more camera travel into each sub-second beat cut). Same captions, logo pill, storefront recording and end card as viral.
+- out-viral2/current-vs-upgraded-9x16.jpg compares the two cuts frame by frame.
