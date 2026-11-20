@@ -1,5 +1,6 @@
-out/a*.mp4
-out/o*.mp4
-out/video.mp4
-out/xf.txt
+out*/a*.mp4
+out*/o*.mp4
+out*/video.mp4
+out*/xf.txt
+out-clips.log
 clips/

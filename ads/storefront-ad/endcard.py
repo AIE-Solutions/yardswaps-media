@@ -1,5 +1,7 @@
 # Light end card for the storefront ad: the brand-commercial-v2 card with the text swapped (wordmark, badges, url kept)
 import os
+SUB = os.environ.get("SUBLINE", "30 days free, then $49 a month. Listing is free.")  # v3 drops "Listing is free." (storefront pitch for dealers, Alan 11-18)
+OUT = os.environ.get("OUT", "endcard.png")
 from PIL import Image, ImageDraw, ImageFont
 D = os.path.dirname(os.path.abspath(__file__)); S = os.path.join(D, "../parts-ad/source")
 im = Image.open(os.path.join(S, "endcard-v2-base.png")).convert("RGB")
@@ -11,9 +13,9 @@ d.rectangle((0, 790, W, 965), fill=bg); d.rectangle((0, 1240, W, 1380), fill=bg)
 def center(text, font, y, fill):
     w = d.textlength(text, font=font); assert w <= 1000, (text, w); d.text(((W - w) / 2, y), text, font=font, fill=fill)
 center("Open your storefront.", B(62), 820, SLATE)
-center("30 days free, then $49 a month. Listing is free.", M(40), 898, GRAY)
+center(SUB, M(40), 898, GRAY)
 q = "What's sitting in your yard right now?"; f = B(50); w = d.textlength(q, font=f); assert w + 80 <= 1040, w
 x0 = (W - w) / 2 - 40
 d.rounded_rectangle((x0, 1258, x0 + w + 80, 1362), radius=26, fill=BLUE)
 d.text(((W - w) / 2, 1282), q, font=f, fill=(255, 255, 255))
-im.save(os.path.join(D, "endcard.png")); print("endcard", im.size)
+im.save(os.path.join(D, OUT)); print(OUT, im.size)

@@ -115,3 +115,86 @@ web on the current main.
 ## Night version (Nov 20)
 
 `stills-night/` holds the same three photos graded dark and moody (the After hours look: darker midtones, sky falling to night, slate shadows, warm highlights, vignette, grain) by `night.py`, which also blurs the dealer watermark and the unit number on the telehandler photo (the daylight `stills/` copy got the same blur). `STILLS=stills-night` makes `build.sh` use them; the outputs are named `yardswaps-storefront-night-9x16.mp4` and `yardswaps-storefront-night-paid-9x16.mp4` (`out-night/`). The app part and the end card are unchanged. Runway clips made from `stills-night/*-4x3.jpg` drop in the same way as the daylight ones (the clip dir wins over the stills).
+
+## v3, the bright 13-second cut (Nov 20)
+
+Alan rejected the night version ("It's all dark!") and asked for new
+imagery and prompts. v3 is a new edit, not a re-skin: bright daylight,
+motion from frame 0, one line, one CTA, built for sound-off Meta
+placements (caption inside the 9:16 safe zone, wordmark on screen from
+the first frame).
+
+Shape: `build-v3.sh` (assets from `layout-v3.py`, sheet from
+`wordsheet-v3.py`), sizes `9x16-paid` and `4x5`.
+
+| t | Scene | Source | On screen |
+|---|---|---|---|
+| 0.0–3.0 s | Yard row, slow push in | `clips/y1.mp4` (Gen-4 Turbo from `gen/yard-row.jpg`) | "Your yard." + wordmark + "AI-generated scene" |
+| 3.0–5.6 s | Loader, forklift, generator, slow dolly | `clips/y2.mp4` (Gen-4 Turbo from `gen/loader-forklift-2.jpg`) | "On one page." + wordmark + "AI-generated scene" |
+| 5.6–11 s | Real storefront page on a phone | `rec/storefront-8s.mp4` (real app recording) | stage card: "Your storefront on YardSwaps" |
+| 11–15 s | End card | `v3-*/endcard.png` | "30 days free, then $49/mo" + "yardswaps.com/dealers" |
+
+The AI label stays on both generated scenes for their whole length. The
+real-unit clips (`clips/a.mp4` grapple truck, `b.mp4` telehandler,
+`c.mp4` F-350) are 4:3, so they went into the old 26-second layout
+instead (`out-clips/`, "option B"), not into v3.
+
+### Prompts that produced the scenes
+
+Gen-4 image, 9:16, 1080p (8 credits each):
+
+- `gen/yard-row.jpg`: "Vertical photograph, bright clear morning, a used
+  commercial equipment dealer's gravel yard. A row of parked machines
+  faces the camera at a slight angle, nearest first: a yellow mini
+  excavator, a compact track loader, a green telehandler with its boom
+  down, a white service pickup with a utility bed, and a flatbed trailer.
+  Clean blue sky, crisp sunlight, long soft shadows on the gravel,
+  chain-link fence and a grey steel warehouse behind. Everything switched
+  off and still. Realistic photo, 35mm lens, sharp, natural colour, no
+  people, no text, no logos, no license plates."
+- `gen/loader-forklift-2.jpg` (second try; the first,
+  `gen/loader-forklift.jpg`, carried made-up lettering on the generator
+  and forklift): same scene with "Every machine has plain, unmarked
+  painted panels: no lettering, no words, no badges, no decals, no
+  stickers, no model numbers, no logos anywhere." Gen-4 still painted a
+  small logo on the generator, so the still was patched with ffmpeg
+  `delogo` boxes before animation (`gen/loader-forklift-2-raw.png` is the
+  untouched output).
+- `gen/trailer-load.jpg`: rejected, garbled fake text on the trailer
+  rail. Not used.
+
+Gen-4 Turbo image-to-video, 9:16, 5 s (25 credits each):
+
+- y1: "Slow, steady forward glide at walking pace, camera low and level,
+  moving toward the row of parked machines. Everything stays parked and
+  switched off: no wheels turning, no arms or booms moving, no lights, no
+  people. Only the light, a faint shimmer of heat over the gravel and a
+  few leaves moving in the breeze. Keep the whole yard in frame, bright
+  clean morning daylight, realistic photographic look, fine grain. No
+  text, no logos added."
+- y2: "Slow, steady sideways dolly to the right at walking pace, camera
+  low and level, passing the parked wheel loader, forklift and generator.
+  Everything stays parked and switched off: no wheels turning, no mast or
+  bucket moving, no lights, no people. Only the light, a few small clouds
+  drifting and a faint shimmer of heat over the gravel. Keep all three
+  machines in frame, bright clean daylight, realistic photographic look,
+  fine grain. No text, no logos added."
+
+Lesson: Gen-4 puts brand-like lettering on machine panels even when the
+prompt forbids it. Check every still at full size before animating, and
+patch the still (not the video) when a badge slips through.
+
+### Credits
+
+All free credits on Alan's Personal · Pro plan, nothing bought: 573
+before the session, 341 after (three 4:3 real-unit clips, four images,
+three 9:16 clips, one of them the redo).
+
+### How the files moved without Remote Control
+
+Alan's Chrome, driven from the thread: images into Runway through the
+hidden file input (bytes handed over by `postMessage` from a page we
+control), results out through the "Clip relay" artifact
+(https://claude.ai/artifact/Tb6ZgtrdH3Yu5ncy5RJpYt), which stores
+whatever the Runway tab posts to it as assets we can read from the build
+container. No keys, no downloads on Alan's PC.
