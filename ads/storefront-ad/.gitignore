@@ -1,0 +1,7 @@
+out*/a*.mp4
+out*/s[0-9].mp4
+out*/o*.mp4
+out*/video.mp4
+out*/xf.txt
+out-clips.log
+clips/
