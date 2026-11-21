@@ -87,6 +87,10 @@ Use only these, or a number pulled the same day from the admin digest.
   import, spreadsheet paste, stats for 30/90/180 days with CSV, buyer demand
   report, saved replies, and new listings in our social posts.
 - Business verified (free): our team checked the legal name and address.
+- Verified seller (free, any account): the green check next to a name means
+  the phone was confirmed with a one-time text code. Recommend it as trust
+  ("so buyers and other sellers know you're reachable"), never as an ID check
+  and never as more views or sales.
 - Nationwide. YardSwaps, Inc., a Delaware company.
 
 Not proof: view counts we can't show, "thousands of buyers", "sells fast",
