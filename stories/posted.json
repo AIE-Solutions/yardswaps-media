@@ -118,5 +118,15 @@
   "media_id": "17918102082549503",
   "expires": "2026-11-21T15:29:23Z",
   "verified_live": true
+ },
+ {
+  "date": "2026-11-21",
+  "machine": "zero-turn mower",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/36f488f8c7392119d3cb58c73a686d69883a2251/stories/out/2026-11-21-zero-turn-mower-story.jpg",
+  "time": "2026-11-21T15:28:46Z",
+  "status": "posted",
+  "media_id": "18147931579510323",
+  "expires": "2026-11-22T15:28:58Z",
+  "verified_live": true
  }
 ]
