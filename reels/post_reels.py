@@ -157,6 +157,10 @@ def fb_tags(v):
 # the automation lists both cases, lowercase is the safe match.
 IG_COMMENT_CTA = ('Comment "list" and we\'ll message you the free listing link, '
                   "or tap yardswaps.com/i in our bio.")
+# A storefront clip speaks to dealers, who never hear "free listing"
+# (MESSAGING.md at the repo root): its close sends them to the storefront page.
+STOREFRONT_IG_CTA = "To open your storefront, type yardswaps.com/s in your browser."
+STOREFRONT_TYPED_LINK = "Open your storefront: yardswaps.com/s"
 
 
 # A Spanish clip ("lang": "es" in library.json) gets its follow line and
@@ -173,7 +177,8 @@ def ig_caption(v, turn=0):
     if is_spanish(v):
         return (f"{v['body']}\n\n{FOLLOW_ES} Publica gratis: yardswaps.com/i (link en el perfil)."
                 f"\n\n{ig_tags(v, turn)}\n\n{v['question']}")
-    return (f"{v['body']}\n\n{FOLLOW_IG} {IG_COMMENT_CTA}"
+    cta = STOREFRONT_IG_CTA if is_dealer_clip(v) else IG_COMMENT_CTA
+    return (f"{v['body']}\n\n{FOLLOW_IG} {cta}"
             f"\n\n{ig_tags(v, turn)}\n\n{v['question']}")
 
 
@@ -204,9 +209,9 @@ def fb_caption(v):
     # Facebook captions click, so the link carries a per-Reel tag (UTM-LINKS.md).
     # A clip about one category ("category" in library.json) links that
     # category's seller page; a storefront clip ("audience": "dealer") links
-    # the Dealer plan page, where the storefront trial starts.
+    # the storefront page (/dealers), where the storefront trial starts.
     path = "/dealers" if is_dealer_clip(v) else seller_path(v)
-    cta = "Get the free app and open your storefront:" if is_dealer_clip(v) else "Get the free app and list it free:"
+    cta = "Open your storefront:" if is_dealer_clip(v) else "Get the free app and list it free:"
     link = (f"https://www.yardswaps.com{path}?utm_source=facebook"
             f"&utm_medium=social&utm_campaign=reels_{v['slug']}")
     if is_spanish(v):
@@ -219,7 +224,12 @@ def fb_caption(v):
 def threads_caption(v):
     # Threads allows one topic tag (sent separately) and 500 characters, so
     # no hashtags here. The typed short link /h is tagged (UTM-LINKS.md).
-    app = "Descarga la app gratis: yardswaps.com/h" if is_spanish(v) else "Get the free YardSwaps app: yardswaps.com/h"
+    if is_spanish(v):
+        app = "Descarga la app gratis: yardswaps.com/h"
+    elif is_dealer_clip(v):
+        app = STOREFRONT_TYPED_LINK
+    else:
+        app = "Get the free YardSwaps app: yardswaps.com/h"
     tail = f"\n\n{app}\n\n{v['question']}"
     body = v["body"]
     while len(body) + len(tail) > THREADS_MAX and ". " in body:

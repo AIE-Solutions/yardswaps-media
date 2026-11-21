@@ -21,6 +21,8 @@ Routing by type (Alan 11-20: "if something comes up and we need to build somethi
 
 Words (Alan 11-21, "consistency is key"): the paid plan is the "Storefront plan", never "Dealer plan"; its boosts are "Storefront boosts" and its trial is the "storefront trial". Say "storefront" for the product. Use "dealer" only for who it is for ("storefronts for dealers"), plus the buyer-facing "Dealer" chip and "Verified Dealer" badge, which keep their names. Links and ids stay as they are (/account/dealer?start=1, /dealers, dealer_monthly).
 
+Message (Alan 11-21, "a clear precise message"): every line a seller, dealer or buyer reads follows MESSAGING.md at the root of this repo (AIE-Solutions/yardswaps-media, main): the one-line pitch, what each audience hears, the offer word for word, the word list and the do/don't rules. Read it before writing any copy; it wins over older copy notes.
+
 Hard limits (need Alan, always): no spending, no investor contact, no deleting data, no removing or hiding listings, no bans, no Stripe, Railway variable or other console changes, never write API keys, never open /claim links. Copy rules for any line you write that a user could read: plain, never promise views or sales, never say searches come up empty or little is listed, never tell a dealer posting is free, never state a category count.
 
 End: if nothing needs Alan, resolve your thread (mcp__hearthbot__set_thread_resolved) and end with mcp__hearthbot__no_reply_needed; otherwise post at most 3 short lines for Alan.

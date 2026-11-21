@@ -105,6 +105,13 @@ CTA_LINES = [
     "Get the app from the link in bio.",
 ]
 _BOILERPLATE = ("free to list", "list it free:", "no listing fee")
+# A storefront clip ("audience": "dealer") closes on the storefront, never on
+# free listing: dealers don't hear "posting is free" (MESSAGING.md).
+STOREFRONT_CTA_LINES = [
+    "Get the YardSwaps app from the link in bio and open your storefront.",
+    "Open your storefront in the YardSwaps app, link in bio.",
+    "YardSwaps is on iPhone and Android, link in bio. Open your storefront there.",
+]
 
 
 # The daily list-it-free post (post_reels.py, "List it free" Reel; Alan Nov 15
@@ -138,8 +145,11 @@ def promo_caption(v, promo, turn=0):
 def tiktok_caption(v, turn=0):
     paras = [p for p in v["body"].split("\n\n")
              if not p.strip().lower().startswith(_BOILERPLATE)]
-    # 4 and 5 lines rotate at different rates: 20 posts before a pair repeats.
-    close = f"{FREE_LINES[turn % len(FREE_LINES)]} {CTA_LINES[turn % len(CTA_LINES)]}"
+    if reels.is_dealer_clip(v):
+        close = STOREFRONT_CTA_LINES[turn % len(STOREFRONT_CTA_LINES)]
+    else:
+        # 4 and 5 lines rotate at different rates: 20 posts before a pair repeats.
+        close = f"{FREE_LINES[turn % len(FREE_LINES)]} {CTA_LINES[turn % len(CTA_LINES)]}"
     body = "\n\n".join(paras + [close])
     return f"{body}\n\n{reels.tt_tags(v, turn)}\n\n{v['question']}"
 
