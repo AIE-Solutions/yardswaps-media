@@ -1,0 +1,57 @@
+[
+ {
+  "listing_id": "cmwjsd8v20067qc3a44ogfg33",
+  "slug": "listed-john-deere-travel-motor-excavator-gfg33",
+  "title": "John Deere Travel Motor Excavator 270C & D (Heavy Equipment)",
+  "category": "excavators",
+  "photos": [
+   "/api/images/listings/1794865148858-5f0ed58634fd.jpg",
+   "/api/images/listings/1794865148957-d7c6cd8552e2.jpg",
+   "/api/images/listings/1794865149080-6a45db9a5641.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwjsd8v20067qc3a44ogfg33.jpg",
+  "status": "pending",
+  "added": "2026-11-21T20:56:49Z"
+ },
+ {
+  "listing_id": "cmwlhw9yx000kql3asvk9kzvf",
+  "slug": "listed-katool-kt-t850-tilt-back-tire-chan-9kzvf",
+  "title": "Katool KT-T850 Tilt-Back Tire Changer 14\"-23.5\" Rims",
+  "category": "automotive",
+  "photos": [
+   "/api/images/listings/1794968492822-a7c4d2c35810.jpg",
+   "/api/images/listings/1794968492962-d7e41f3336ae.jpg",
+   "/api/images/listings/1794968493192-61cb6ebb7ce7.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwlhw9yx000kql3asvk9kzvf.jpg",
+  "status": "pending",
+  "added": "2026-11-21T20:57:07Z"
+ },
+ {
+  "listing_id": "cmwpdczz50009tc3ao0enr7e2",
+  "slug": "listed-instapak-speedypacker-floor-model-nr7e2",
+  "title": "Instapak SpeedyPacker Floor Model (SP5-11327)",
+  "category": "parts",
+  "photos": [
+   "/api/images/listings/1795202734804-ca258ae89fc2.jpg",
+   "/api/images/listings/1795202736435-2f80016c189d.jpg",
+   "/api/images/listings/1795202737619-22d9e885883f.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwpdczz50009tc3ao0enr7e2.jpg",
+  "status": "pending",
+  "added": "2026-11-21T20:57:27Z"
+ },
+ {
+  "listing_id": "cmwl13wfd000ypk3athpcurw5",
+  "slug": "listed-toyota-electric-3-wheel-forklift-3-curw5",
+  "title": "Toyota electric 3-wheel forklift, 3-stage mast",
+  "category": "forklifts",
+  "photos": [
+   "/api/images/listings/1794940295402-cb75db063a9e.jpg",
+   "/api/images/listings/1794940295949-6b436894af71.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwl13wfd000ypk3athpcurw5.jpg",
+  "status": "pending",
+  "added": "2026-11-21T20:57:42Z"
+ }
+]
