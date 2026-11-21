@@ -10,3 +10,5 @@ The shared project folder (/mnt/project-files/yardswaps-campaign/growth-loop/) i
 Owner: Growth Lead thread. Edit here by PR; never put secrets or keys in these files.
 
 Words (Alan 11-21, "consistency is key"): the paid plan is the "Storefront plan", never "Dealer plan"; its boosts are "Storefront boosts" and its trial is the "storefront trial". Say "storefront" for the product. Use "dealer" only for who it is for ("storefronts for dealers"), plus the buyer-facing "Dealer" chip and "Verified Dealer" badge, which keep their names. Links and ids stay as they are (/account/dealer?start=1, /dealers, dealer_monthly). Every new agent prompt carries this line.
+
+Message (Alan 11-21, "a clear precise message"): every line a seller, dealer or buyer reads follows MESSAGING.md at the root of this repo (AIE-Solutions/yardswaps-media, main): the one-line pitch, what each audience hears, the offer word for word, the word list and the do/don't rules. Read it before writing any copy; it wins over older copy notes. Every new agent prompt carries this line too.
