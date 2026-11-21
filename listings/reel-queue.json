@@ -53,5 +53,84 @@
   "preview": "listings/reel-previews/cmwl13wfd000ypk3athpcurw5.jpg",
   "status": "pending",
   "added": "2026-11-21T20:57:42Z"
+ },
+ {
+  "listing_id": "cmwjep9en0021nz3a66q5c2iy",
+  "slug": "listed-dustless-blasting-mobile-trailer-r-5c2iy",
+  "title": "Dustless Blasting Mobile Trailer Rig, APT185 Compressor, 2,410 Hrs",
+  "category": "trailers",
+  "photos": [
+   "/api/images/listings/1794842193362-711164b2b52e.jpg",
+   "/api/images/listings/1794842193659-d52e67d9fc7f.jpg",
+   "/api/images/listings/1794842193805-2554b9345716.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwjep9en0021nz3a66q5c2iy.jpg",
+  "status": "pending",
+  "added": "2026-11-21T22:23:13Z"
+ },
+ {
+  "listing_id": "cmwgv7ufk001tmj3avimgyurk",
+  "slug": "listed-westinghouse-wgen11500tfc-tri-fuel-gyurk",
+  "title": "Westinghouse WGen11500TFc tri-fuel portable generator",
+  "category": "generators",
+  "photos": [
+   "/api/images/listings/1794688589248-46d61cbde764.jpg",
+   "/api/images/listings/1794688589887-f674ac0ad6a7.jpg",
+   "/api/images/listings/1794688591141-6d11d7acc638.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwgv7ufk001tmj3avimgyurk.jpg",
+  "status": "pending",
+  "added": "2026-11-21T22:23:29Z"
+ },
+ {
+  "listing_id": "cmwficj89001mp13atgawr62p",
+  "slug": "listed-commercial-dehumidifiers-4x-phoeni-wr62p",
+  "title": "Commercial Dehumidifiers, 4x Phoenix DryMax BLE + 1 Large Unit (5 Total)",
+  "category": "environmental",
+  "photos": [
+   "/api/images/listings/1794606454938-501220d8c321.jpg",
+   "/api/images/listings/1794606455129-e358727c9835.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwficj89001mp13atgawr62p.jpg",
+  "status": "pending",
+  "added": "2026-11-21T22:23:39Z"
+ },
+ {
+  "listing_id": "cmw128mu5000imi3aeckcajih",
+  "slug": "listed-mccormick-farmall-h-tractor-narrow-cajih",
+  "title": "McCormick Farmall H tractor, narrow front",
+  "category": "agriculture",
+  "photos": [
+   "/api/images/listings/1793732872658-a86e4a2b1961.jpg"
+  ],
+  "preview": "listings/reel-previews/cmw128mu5000imi3aeckcajih.jpg",
+  "status": "pending",
+  "added": "2026-11-21T22:23:48Z"
+ },
+ {
+  "listing_id": "cmvvwvduw000aqx3ak505rf16",
+  "slug": "listed-spiremt-iot-enabled-btu-meters-pre-5rf16",
+  "title": "SpireMT IoT-enabled BTU Meters, Precision Monitoring",
+  "category": "hvac",
+  "photos": [
+   "/api/images/listings/1793421525420-6038abbf7211.jpg"
+  ],
+  "preview": "listings/reel-previews/cmvvwvduw000aqx3ak505rf16.jpg",
+  "status": "pending",
+  "added": "2026-11-21T22:23:52Z"
+ },
+ {
+  "listing_id": "cmwo06whh0006ms3a7s86flh3",
+  "slug": "listed-2016-ford-e-450-16-ft-box-truck-39-6flh3",
+  "title": "2016 Ford E-450 16-Ft Box Truck - 39k Miles - Work Ready",
+  "category": "fleet",
+  "photos": [
+   "/api/images/listings/1795120154003-b0aec4f3b806.jpg",
+   "/api/images/listings/1795120154318-1db08b2a8b53.jpg",
+   "/api/images/listings/1795120154491-190605b9e602.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwo06whh0006ms3a7s86flh3.jpg",
+  "status": "pending",
+  "added": "2026-11-21T22:24:09Z"
  }
 ]
