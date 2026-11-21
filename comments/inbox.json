@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-21T17:45:12Z",
+  "fetched_at": "2026-11-21T21:15:03Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -17,19 +17,6 @@
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
   "items": [
-    {
-      "platform": "instagram",
-      "comment_id": "18133702163492291",
-      "reply_to": "18133702163492291",
-      "author": null,
-      "text": "😍 AMAZING ❤️ SEND ME THIS POST ❤️",
-      "time": "2026-11-20T15:01:35+0000",
-      "likes": 0,
-      "media_id": "18226329841344877",
-      "permalink": "https://www.instagram.com/reel/Df95_KbG74L/",
-      "post": "POV: the spare wheel from the truck you already sold.",
-      "type": "REELS"
-    },
     {
       "platform": "instagram",
       "comment_id": "18081971384412243",
