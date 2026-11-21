@@ -1,9 +1,14 @@
 # LIST IT FREE daily Story
 
 Alan approved (2026-11-08) one Instagram Story a day, ~9:30 am Central, with a
-fixed template. Only the machine changes by weekday:
-Mon generator, Tue conveyor oven, Wed dump trailer, Thu walk-in cooler,
-Fri ice machine, Sat zero-turn mower, Sun scissor lift.
+fixed template. Only the machine changes. Until 2026-11-21 it changed by weekday
+(Mon generator, Tue conveyor oven, Wed dump trailer, Thu walk-in cooler,
+Fri ice machine, Sat zero-turn mower, Sun scissor lift). Since 2026-11-21
+`make_bg.py` picks it by the machine rotation (`rotation/README.md`): among the
+`stories/bank/<machine>/` folders that still hold images, the one shown longest ago,
+preferring a machine and category not posted anywhere in 14 days. The weekday
+machine is only the fallback. A new bank folder (any approved machine slug) adds a
+machine to the rotation, so refills should add new machines, not only top up these 7.
 
 Template (character-for-character, see `render_story.js`):
 - Headline: `LIST IT FREE`

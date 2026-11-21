@@ -58,7 +58,7 @@ jobs:
       - name: Install photo tools
         if: steps.step.outputs.mode == 'prep'
         run: |
-          sudo apt-get install -y -q tesseract-ocr >/dev/null
+          sudo apt-get install -y -q tesseract-ocr ffmpeg >/dev/null
           pip install -q "opencv-python-headless==4.10.0.84" pytesseract pillow numpy
       - name: Run
         env:
@@ -67,6 +67,12 @@ jobs:
           LISTING_ID: ${{ inputs.listing_id }}
           DRY_RUN: ${{ github.event_name == 'pull_request' && '1' || inputs.dry_run || '0' }}
         run: python3 listings/just_listed.py
+      - name: Turn live listings into Reels (machine rotation, rotation/README.md)
+        if: steps.step.outputs.mode == 'prep'
+        continue-on-error: true
+        env:
+          DRY_RUN: ${{ github.event_name == 'pull_request' && '1' || inputs.dry_run || '0' }}
+        run: python3 listings/listing_reels.py
       - name: Keep test cards
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
@@ -81,6 +87,8 @@ jobs:
           git config user.email "yardswaps@gmail.com"
           git add listings/queue.json listings/posted.json listings/cards listings/paid-features.json
           if [ -d listings/photos ]; then git add listings/photos; fi
+          git add reels/library.json reels/library listings/reel-queue.json 2>/dev/null || true
+          if [ -d listings/reel-previews ]; then git add listings/reel-previews; fi
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Listings ${{ steps.step.outputs.mode }} $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done

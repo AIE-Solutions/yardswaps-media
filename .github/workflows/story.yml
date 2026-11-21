@@ -36,6 +36,14 @@ jobs:
           sparse-checkout: |
             stories
             reels/post_reels.py
+            reels/library.json
+            reels/posted.json
+            reels/tiktok-posted.json
+            reels/heycatch-tiktok.json
+            reels/images-posted.json
+            rotation
+            listings/posted.json
+            listings/queue.json
             broll/runway_clip.py
       - name: Already posted today?
         id: check

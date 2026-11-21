@@ -32,11 +32,47 @@ PROMPT = (
 )
 
 
+def rotation_pick(now):
+    """Nov 21 (Alan: "We keep reusing the same machines"): instead of the fixed weekday machine, take the
+    bank machine that no channel has shown longest (rotation/rotation.py reads every posting log), skipping
+    machines and categories shown in the last 14 days when another choice exists. A new folder in
+    stories/bank/<machine-slug>/ adds that machine to the rotation. Falls back to the weekday machine."""
+    weekday = MACHINES[now.weekday()]
+    try:
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "rotation"))
+        import rotation as rot
+    except ImportError:
+        return weekday
+    bank = os.path.join(os.path.dirname(__file__), "bank")
+    have = sorted(d for d in os.listdir(bank) if os.path.isdir(os.path.join(bank, d))
+                  and any(f.endswith(".png") for f in os.listdir(os.path.join(bank, d)))) if os.path.isdir(bank) else []
+    if not have:
+        return weekday
+    hist = rot.uses()
+    cutoff = rot.now() - rot.dt.timedelta(days=rot.ROTATION_DAYS)
+    last_m, last_c = {}, {}
+    for u in hist:
+        last_m[u["machine"]] = u["time"]
+        if u["category"]:
+            last_c[u["category"]] = u["time"]
+    old = rot.now() - rot.dt.timedelta(days=3650)
+
+    def key(slug):
+        lm = last_m.get("story-" + slug, old)
+        lc = last_c.get(rot.STORY_CATEGORY.get(slug, ""), old)
+        return (lm >= cutoff, lc >= cutoff, lm, lc)
+    pick = sorted(have, key=key)[0]
+    print(f"rotation picked {pick} for the Story (bank: {', '.join(have)})")
+    return pick.replace("-", " ")
+
+
 def main():
     now = datetime.now(ZoneInfo("America/Chicago"))
-    machine = (os.environ.get("MACHINE") or "").strip().lower() or MACHINES[now.weekday()]
-    if machine not in MACHINES:
-        rw.die(f"machine {machine!r} is not on the approved list {MACHINES}")
+    machine = (os.environ.get("MACHINE") or "").strip().lower() or rotation_pick(now)
+    bank_slugs = os.listdir(os.path.join(os.path.dirname(__file__), "bank")) \
+        if os.path.isdir(os.path.join(os.path.dirname(__file__), "bank")) else []
+    if machine not in MACHINES and machine.replace(" ", "-") not in bank_slugs:
+        rw.die(f"machine {machine!r} is not on the approved list {MACHINES} and has no bank folder")
     date = now.strftime("%Y-%m-%d")
     slug = machine.replace(" ", "-")
     os.makedirs("stories/out", exist_ok=True)

@@ -49,6 +49,17 @@ Also reject a listing that is plainly not equipment, or a duplicate of a card th
 
 Approve everything else. A rejection needs a one-line `reason`.
 
+### Listing Reels (listings/reel-queue.json)
+Each pending row in `listings/reel-queue.json` is a 12-second Reel cut from a live
+listing's photos (`listings/listing_reels.py`). Open its `preview` contact sheet
+(`listings/reel-previews/<listing id>.jpg`, every photo used plus the end card) and
+apply the same rules as the cards above, plus: the whole item is in frame, no plate or
+number the blur missed, and the title and price boxes match the photos. Set `status` to
+`approved` or `rejected` (with a one-line `reason`), plus `updated` (ISO time) and
+`reviewed_by`. Commit `reel-queue.json`. The next prep run clears the hold on approved
+clips and removes rejected ones. Clips built from an already approved card photo skip
+this queue.
+
 ## "Buyers are looking" cards (wanted.json)
 
 Between listing cards, prep queues one seller-recruitment card from `wanted.json`: "Buyers are looking for generators", and so on, built from real 30-day search data (seller-growth/WANTED-POSTS.md).
@@ -97,3 +108,14 @@ with nobody doing it by hand. Storefronts in their free trial days are featured 
   poster then skip them.
 - If the list can't be read, prep logs a warning and runs as before.
 - Copy rules are unchanged: item and category only, never the seller's name, business or phone.
+
+## Listing Reels (Nov 21)
+After prep, `listing_reels.py` turns up to `REELS_PER_RUN` (6) live listings a day into
+Reels for the Reels, Stories and TikTok rotation: newest listings first, one per seller,
+categories mixed, skipping any listing already shown in the last 14 days
+(`rotation/README.md`). Each clip shows up to 3 cleaned photos fitted whole (faces
+skipped, numbers blurred), "JUST LISTED ON YARDSWAPS", the title and price, an open
+question and the brand end card; no seller name, description or town. The caption ends
+on the free listing line. A clip waits for the review above unless its card photo was
+already approved. When a listing sells or its seller turns off social features, the
+clip is put on hold.

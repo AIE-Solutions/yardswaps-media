@@ -93,6 +93,13 @@ jobs:
             reels/post_reels.py
             reels/library.json
             reels/posted.json
+            reels/tiktok-posted.json
+            reels/heycatch-tiktok.json
+            reels/images-posted.json
+            rotation
+            listings/posted.json
+            listings/queue.json
+            stories/posted.json
           sparse-checkout-cone-mode: false
       - name: Is a slot open?
         id: check
