@@ -270,5 +270,14 @@
   "due": "2026-11-20T20:51:33.000Z",
   "url": "https://tiktok.com/@yardwaps/video/7710359215939915022",
   "sent": "2026-11-20T20:53:26.736Z"
+ },
+ {
+  "time": "2026-11-21T13:46:39Z",
+  "platform": "tiktok",
+  "slug": "pressure-washer-the-crew-skips",
+  "repeat": false,
+  "list_free": true,
+  "status": "failed",
+  "error": "Invalid post: Video could not be read from its URL."
  }
 ]
