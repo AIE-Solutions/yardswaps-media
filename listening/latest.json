@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T20:06:39.712285+00:00",
+ "generated_at": "2026-11-21T19:09:35.141265+00:00",
  "lookback_days": 8,
  "sources": [
   {
@@ -17,8 +17,8 @@
   {
    "name": "Hobby-Machinist",
    "status": "ok",
-   "items": 24,
-   "in_window": 24
+   "items": 25,
+   "in_window": 25
   },
   {
    "name": "Garage Journal",
@@ -40,21 +40,21 @@
   },
   {
    "name": "LawnSite",
-   "status": "ok",
-   "items": 35,
-   "in_window": 35
+   "status": "error: HTTPError: HTTP Error 409: Conflict",
+   "items": 0,
+   "in_window": 0
   },
   {
    "name": "ContractorTalk",
-   "status": "ok",
-   "items": 35,
-   "in_window": 35
+   "status": "error: HTTPError: HTTP Error 409: Conflict",
+   "items": 0,
+   "in_window": 0
   },
   {
    "name": "WeldingWeb",
-   "status": "ok",
-   "items": 35,
-   "in_window": 35
+   "status": "error: HTTPError: HTTP Error 409: Conflict",
+   "items": 0,
+   "in_window": 0
   },
   {
    "name": "Pressure Washing Resource",
@@ -122,44 +122,6 @@
    "first_seen": "2026-11-15T18:47:14.675973+00:00"
   },
   {
-   "title": "FS: Mitutoyo Micrometer Set, Telebrineller, Stearns Holiday Detector, New Age Tester - Broken Arrow, OK",
-   "link": "https://www.practicalmachinist.com/forum/threads/fs-mitutoyo-micrometer-set-telebrineller-stearns-holiday-detector-new-age-tester-broken-arrow-ok.452369/",
-   "text": "Hello, I am new here and selling the following inspection and hardness-testing equipment. All items are located in Broken Arrow, OK. Shipping is available at buyer's cost. Payment by PayPal. Prices are or best offer. Please send me a PM here on the forum with any questions. 1. Mitutoyo 103-909 Outside Micrometer Set, 6-12 inch, .0001 inch, with Standards, in case - $950 or best offer Used Mitutoyo 103-909 outside micrometer set, 6-12 inch, .0001 inch, with standards, in its case / wooden... Read more",
-   "author": "JayJohnsonOK",
-   "time": "2026-11-13T17:02:01+00:00",
-   "platform": "Forum",
-   "source": "Practical Machinist",
-   "links_ok": false,
-   "intent": "sell",
-   "category": "machining",
-   "category_name": "Metalworking & CNC",
-   "score": 3,
-   "drafts": {
-    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
-    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
-   },
-   "first_seen": "2026-11-13T19:37:54.594629+00:00"
-  },
-  {
-   "title": "PENDING SALE: Shop lot \u2013 Bridgeport, Monarch 13\", Monarch 10EE, Sheldon shaper, B&S 618 grinder + tooling \u2013 $8,500 takes all \u2013 Matador, TX",
-   "link": "https://www.practicalmachinist.com/forum/threads/pending-sale-shop-lot-%E2%80%93-bridgeport-monarch-13-monarch-10ee-sheldon-shaper-b-s-618-grinder-tooling-%E2%80%93-8-500-takes-all-%E2%80%93-matador-tx.452358/",
-   "text": "Selling my machine shop as one lot. $8,500 for everything. I will not break it up. Bridgeport vertical mill Variable-speed head with high/low range 2 HP, 3-phase motor (230/460V) Acu-Rite III 2-axis DRO Power feed with rapid traverse One-shot lube R8 spindle Runs under power Vise shown in photos is NOT included Monarch 13\" engine lathe (Model 61) 15-1/2\" actual swing, 30\" between centers Built March 1953, S/N 36893 Easson ES-8... Read more",
-   "author": "AcesHigh70",
-   "time": "2026-11-13T14:49:47+00:00",
-   "platform": "Forum",
-   "source": "Practical Machinist",
-   "links_ok": false,
-   "intent": "sell",
-   "category": "machining",
-   "category_name": "Metalworking & CNC",
-   "score": 2,
-   "drafts": {
-    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
-    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
-   },
-   "first_seen": "2026-11-13T19:37:54.594629+00:00"
-  },
-  {
    "title": "WTB taper micrometers and none appear to be currently made, why?",
    "link": "https://www.practicalmachinist.com/forum/threads/wtb-taper-micrometers-and-none-appear-to-be-currently-made-why.397980/",
    "text": "I very rarely find any even used and if you do, they are ridiculously expensive. Is anybody making these today?",
@@ -202,7 +164,7 @@
    "link": "https://www.hobby-machinist.com/threads/who-makes-the-second-best-micrometer.126293/",
    "text": "starting with this comment.... https://www.hobby-machinist.com/threads/lathe-head-stock-is-tilted-shim-it.126016/post-1354350 I am looking for my first micrometer. I already have my second in the amazon shopping cart, Mitutoyo 103-129, confirmed to be the legit Mitutoyo store. but, I want one that I wont be afraid to break, drop, or have something go very wrong with. some mentioned that I look like I am on a budget. I am not, I do want to buy twice and cry twice. I want to learn... Read more",
    "author": "tater1337",
-   "time": "2026-11-20T17:21:57+00:00",
+   "time": "2026-11-21T15:44:15+00:00",
    "platform": "Forum",
    "source": "Hobby-Machinist",
    "links_ok": false,
@@ -214,7 +176,7 @@
     "no_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?",
     "with_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?\nhttps://www.yardswaps.com/?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
    },
-   "first_seen": "2026-11-20T20:06:39.712285+00:00"
+   "first_seen": "2026-11-21T19:09:35.141265+00:00"
   }
  ]
 }
