@@ -1,0 +1,125 @@
+{
+ "total": 125.12,
+ "segments": [
+  {
+   "id": "open",
+   "start": 0.0,
+   "dur": 6.636,
+   "vo": "hiw3-01-open",
+   "vo_start": 0.45,
+   "vo_len": 5.486,
+   "head": "How to use YardSwaps",
+   "tag": ""
+  },
+  {
+   "id": "tips",
+   "start": 6.636,
+   "dur": 12.069,
+   "vo": "hiw3-02-tips",
+   "vo_start": 7.086,
+   "vo_len": 10.919,
+   "head": "Open Photo tips before you shoot",
+   "tag": "SELL  \u00b7  STEP 1"
+  },
+  {
+   "id": "scan",
+   "start": 18.705,
+   "dur": 11.233,
+   "vo": "hiw3-03-scan",
+   "vo_start": 19.155,
+   "vo_len": 8.516,
+   "head": "Add photos. AI fills in the listing",
+   "tag": "SELL  \u00b7  STEP 2"
+  },
+  {
+   "id": "specs",
+   "start": 29.938,
+   "dur": 7.7,
+   "vo": "hiw3-04-specs",
+   "vo_start": 30.388,
+   "vo_len": 5.329,
+   "head": "Check what it read from the label",
+   "tag": "SELL  \u00b7  STEP 3"
+  },
+  {
+   "id": "price",
+   "start": 37.638,
+   "dur": 10.3,
+   "vo": "hiw3-05-price",
+   "vo_start": 38.088,
+   "vo_len": 8.751,
+   "head": "Use the suggested price, or your own",
+   "tag": "SELL  \u00b7  STEP 4"
+  },
+  {
+   "id": "publish",
+   "start": 47.938,
+   "dur": 12.6,
+   "vo": "hiw3-06-publish",
+   "vo_start": 48.388,
+   "vo_len": 5.486,
+   "head": "Publish. Listing is free",
+   "tag": "SELL  \u00b7  STEP 5"
+  },
+  {
+   "id": "search",
+   "start": 60.538,
+   "dur": 14.0,
+   "vo": "hiw3-07-search",
+   "vo_start": 60.988,
+   "vo_len": 10.188,
+   "head": "Search and open a listing",
+   "tag": "BUY  \u00b7  STEP 6"
+  },
+  {
+   "id": "offer",
+   "start": 74.538,
+   "dur": 7.916,
+   "vo": "hiw3-08-offer",
+   "vo_start": 74.988,
+   "vo_len": 6.766,
+   "head": "Make an offer",
+   "tag": "BUY  \u00b7  STEP 7"
+  },
+  {
+   "id": "chat",
+   "start": 82.454,
+   "dur": 10.6,
+   "vo": "hiw3-09-chat",
+   "vo_start": 82.904,
+   "vo_len": 8.829,
+   "head": "Message the seller and meet up",
+   "tag": "BUY  \u00b7  STEP 8"
+  },
+  {
+   "id": "store",
+   "start": 93.054,
+   "dur": 14.067,
+   "vo": "hiw3-10-store",
+   "vo_start": 93.504,
+   "vo_len": 9.796,
+   "head": "Sell as a business with a storefront",
+   "tag": "FOR BUSINESSES"
+  },
+  {
+   "id": "plans",
+   "start": 107.121,
+   "dur": 11.521,
+   "vo": "hiw3-11-plans",
+   "vo_start": 107.571,
+   "vo_len": 10.371,
+   "head": "30 days free, then $29/mo for 3 months",
+   "tag": "STOREFRONT PLAN"
+  },
+  {
+   "id": "end",
+   "start": 118.641,
+   "dur": 6.479,
+   "vo": "hiw3-12-end",
+   "vo_start": 119.091,
+   "vo_len": 5.329,
+   "head": "",
+   "tag": ""
+  }
+ ]
+}
