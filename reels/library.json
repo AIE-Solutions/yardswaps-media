@@ -32,7 +32,8 @@
    "priority": 0,
    "body": "Surplus cylinders still wrapped on a pallet, a micrometer set in its case, a sprayer parked all season. One photo and the YardSwaps app writes the listing: title, category, condition, count. Free to list, no selling fee. Free boosts: every 4 listings earn a 7-day boost.",
    "question": "What's sitting on a pallet in your shop that nobody has opened?",
-   "ig_tags": "#hydrauliccylinders #surplusparts #bluecollar #smallbusiness #yardswaps"
+   "ig_tags": "#hydrauliccylinders #surplusparts #bluecollar #smallbusiness #yardswaps",
+   "machine": "hydraulic-cylinders"
   },
   {
    "added": "2026-11-08",
@@ -41,7 +42,8 @@
    "priority": 2,
    "body": "We built YardSwaps so the trades can make extra cash from equipment and parts sitting around that someone else needs. One photo and the app fills in the listing. Free to list, no selling fee, and the buyer picks it up from you.",
    "question": "What is the one thing in your yard you keep meaning to sell?",
-   "ig_tags": "#usedparts #sellequipment #bluecollar #smallbusiness #yardswaps"
+   "ig_tags": "#usedparts #sellequipment #bluecollar #smallbusiness #yardswaps",
+   "machine": "parts-shelf"
   },
   {
    "added": "2026-11-08",
@@ -50,7 +52,8 @@
    "priority": 1,
    "body": "Before you order a part new and wait for it, check who has one sitting in their yard nearby. That is why we built YardSwaps: used equipment and parts from people in the trades, close to you, picked up locally.",
    "question": "What part did you last order new because you could not find it used?",
-   "ig_tags": "#pumps #usedparts #usedequipment #trades #yardswaps"
+   "ig_tags": "#pumps #usedparts #usedequipment #trades #yardswaps",
+   "machine": "well-pump-rusty"
   },
   {
    "added": "2026-11-08",
@@ -59,7 +62,8 @@
    "priority": 0,
    "body": "We kept searching other apps for used equipment and scrolling past listings that made no sense for our work. A lot of the time we found nothing. So we built YardSwaps: one place for the trades to find equipment and parts close by, and to list what is sitting in the yard for free.",
    "question": "Have you ever given up on a used search and just bought new?",
-   "ig_tags": "#generators #usedequipment #trades #contractorlife #yardswaps"
+   "ig_tags": "#generators #usedequipment #trades #contractorlife #yardswaps",
+   "machine": "welder-generator"
   },
   {
    "added": "2026-11-08",
@@ -69,7 +73,8 @@
    "body": "POV: the store closed. The order kiosk didn't leave with it.\n\nA self-order kiosk with a card reader from a quick-service counter that shut down. Snap one photo. AI writes the title, files it under Retail & POS and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What's left in the store you closed?",
    "ig_tags": "#possystem #retailequipment #usedequipment #storeclosing #yardswaps",
-   "category": "retail"
+   "category": "retail",
+   "machine": "order-kiosk"
   },
   {
    "added": "2026-11-08",
@@ -79,7 +84,8 @@
    "body": "POV: the office went remote. The desks stayed.\n\nSit-stand desks with monitor arms and task chairs in an office nobody comes to. Snap one photo. AI writes the title, files it under Office Furniture and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "How many empty desks are you still paying rent on?",
    "ig_tags": "#officefurniture #standingdesk #usedequipment #officeliquidation #yardswaps",
-   "category": "office"
+   "category": "office",
+   "machine": "office-desks"
   },
   {
    "added": "2026-11-08",
@@ -89,7 +95,8 @@
    "body": "POV: you upgraded the laundromat. The old washers still line the wall.\n\nA 40 lb coin-op washer-extractor that ran daily until the swap. Snap one photo. AI writes the title, files it under Commercial Laundry and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What did the upgrade leave behind in your shop?",
    "ig_tags": "#laundromat #commerciallaundry #washerextractor #usedequipment #yardswaps",
-   "category": "laundry"
+   "category": "laundry",
+   "machine": "laundromat-washers"
   },
   {
    "added": "2026-11-08",
@@ -99,7 +106,8 @@
    "body": "POV: the second location closed. The prep line is still plugged in.\n\nA stainless prep table with an overshelf from a kitchen that closed. Snap one photo. AI writes the title, files it under Restaurant Equipment and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What's still plugged in at the location you closed?",
    "ig_tags": "#restaurantequipment #preptable #usedequipment #commercialkitchen #yardswaps",
-   "category": "restaurant"
+   "category": "restaurant",
+   "machine": "prep-line"
   },
   {
    "added": "2026-11-08",
@@ -109,7 +117,8 @@
    "body": "POV: the mowing contract ended. The riding mower didn't.\n\nA 42 inch gas riding mower parked in the shed since the route stopped. Snap one photo. AI writes the title, files it under Landscaping & Turf and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What's parked in your shed since the last contract?",
    "ig_tags": "#ridingmower #landscaping #usedequipment #bluecollar #yardswaps",
-   "category": "landscaping"
+   "category": "landscaping",
+   "machine": "riding-mower"
   },
   {
    "added": "2026-11-08",
@@ -119,7 +128,8 @@
    "body": "Small business owners: the old oven in the back still works.\n\nA half-size electric combi oven pulled off the line when the kitchen upgraded. Snap one photo. AI writes the title, files it under Cooking & Ovens and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What's sitting in the back of your kitchen?",
    "ig_tags": "#combioven #commercialkitchen #usedequipment #bluecollar #yardswaps",
-   "category": "cooking"
+   "category": "cooking",
+   "machine": "combi-oven"
   },
   {
    "added": "2026-11-08",
@@ -129,7 +139,8 @@
    "body": "Construction life: the job's done. The compactor hasn't moved since.\n\nA smooth-drum soil compactor parked on the trailer since the last grading job. Snap one photo. AI writes the title, files it under Paving & Compaction and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What's parked that hasn't worked all year?",
    "ig_tags": "#soilcompactor #paving #usedequipment #constructionlife #yardswaps",
-   "category": "paving"
+   "category": "paving",
+   "machine": "soil-compactor"
   },
   {
    "slug": "stripped-well-pump",
@@ -146,7 +157,8 @@
    "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week.",
    "cut": "10s",
    "seconds": 12.4,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "well-pump-rusty"
   },
   {
    "slug": "control-panel-pulled",
@@ -157,7 +169,8 @@
    "question": "What's still bolted to a wall, unused?",
    "ig_tags": "#electrical #plc #usedequipment #yardswaps",
    "category": "electrical",
-   "hold": false
+   "hold": false,
+   "machine": "control-panel"
   },
   {
    "slug": "drilling-rig-parked",
@@ -167,7 +180,8 @@
    "body": "POV: the rig hasn't turned since the last well.\n\nA truck-mounted drilling rig parked in the yard since the last job. Idle iron is extra cash. Snap the rig, mast up or down. AI writes the title and files it under Drilling & Boring. Set your price, post. Buyers browse by trade.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "How long has your rig been parked?",
    "ig_tags": "#drillingrig #drilling #usedequipment #yardswaps",
-   "category": "drilling"
+   "category": "drilling",
+   "machine": "drilling-rig"
   },
   {
    "slug": "part-tag-scan",
@@ -178,7 +192,8 @@
    "question": "Which part number do you know by heart?",
    "ig_tags": "#hydraulics #spareparts #usedequipment #yardswaps",
    "boost": 50,
-   "category": "parts"
+   "category": "parts",
+   "machine": "hydraulic-cylinders"
   },
   {
    "slug": "forklift-finally-deal",
@@ -191,7 +206,8 @@
    "boost": 50,
    "hold": true,
    "hold_reason": "Nov 9 continuity rule: opener shows the yard forklift but the app lists an electric warehouse forklift; re-cut on the listing photo",
-   "category": "forklifts"
+   "category": "forklifts",
+   "machine": "forklift-yellow-warehouse"
   },
   {
    "slug": "forklift-sitting-there",
@@ -204,7 +220,8 @@
    "boost": 50,
    "hold": true,
    "hold_reason": "2026-11-01: opening shot shows warehouse racks, not a forklift. Fixed cut goes in as a new slug; keep this one held.",
-   "category": "forklifts"
+   "category": "forklifts",
+   "machine": "forklift-yellow-warehouse"
   },
   {
    "slug": "surplus-parts-cash-flow",
@@ -217,7 +234,8 @@
    "boost": 50,
    "hold": false,
    "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
-   "category": "parts"
+   "category": "parts",
+   "machine": "electric-motor"
   },
   {
    "slug": "plumbing-part-label",
@@ -228,7 +246,8 @@
    "question": "What's the last fitting you bought twice?",
    "ig_tags": "#plumbing #fittings #usedequipment #yardswaps",
    "category": "parts",
-   "hold": false
+   "hold": false,
+   "machine": "brass-fitting"
   },
   {
    "slug": "parts-donor-thumb",
@@ -238,7 +257,8 @@
    "body": "POV: the excavator is gone. Its thumb is still here.\n\nThe machine sold, the thumb and cylinder stayed on the rack. Parts stuck on a shelf are extra cash. Snap the part. AI writes the title and picks the category. Set your price, post. No part number needed.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "Which machine did you keep only for parts?",
    "ig_tags": "#excavator #parts #usedequipment #yardswaps",
-   "category": "parts"
+   "category": "parts",
+   "machine": "excavator-thumb"
   },
   {
    "slug": "leftover-fittings-lot",
@@ -249,7 +269,8 @@
    "question": "Which fitting do you always over-order?",
    "ig_tags": "#plumbing #pvc #usedequipment #yardswaps",
    "category": "parts",
-   "hold": false
+   "hold": false,
+   "machine": "pipe-fittings"
   },
   {
    "slug": "parts-bin-lot",
@@ -259,7 +280,8 @@
    "body": "POV: the parts bin you keep meaning to sort.\n\nGears, sprockets and bearings in one bin nobody opens. Parts stuck on a shelf are extra cash. Snap the bin and sell it as one lot. AI writes the title and picks the category. Set your price, post. Shelf space back.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What would you find at the bottom of your parts bin?",
    "ig_tags": "#machineshop #surplus #usedequipment #yardswaps",
-   "category": "parts"
+   "category": "parts",
+   "machine": "parts-bin"
   },
   {
    "slug": "surplus-parts-labels",
@@ -271,7 +293,8 @@
    "ig_tags": "#hydraulics #spareparts #usedequipment #yardswaps",
    "boost": 50,
    "category": "parts",
-   "hold": false
+   "hold": false,
+   "machine": "hydraulic-cylinders"
   },
   {
    "slug": "find-it-nearby",
@@ -284,7 +307,8 @@
    "hold": false,
    "hold_reason": "Nov 15: on-screen caption says \"33 categories\"; Alan 11-15 rule: never state a category count. Re-render with the new n23.js / n456.js caption, then lift the hold",
    "category": "excavators",
-   "hold_note": "Re-cut 2026-11-15 with no category count on screen (Motion thread); hold lifted."
+   "hold_note": "Re-cut 2026-11-15 with no category count on screen (Motion thread); hold lifted.",
+   "machine": "backhoe"
   },
   {
    "slug": "micrometer-set-small-tools",
@@ -296,7 +320,8 @@
    "ig_tags": "#micrometer #machineshop #usedequipment #yardswaps",
    "boost": 50,
    "category": "tools",
-   "hold": false
+   "hold": false,
+   "machine": "micrometer-set"
   },
   {
    "slug": "spare-part",
@@ -308,7 +333,8 @@
    "ig_tags": "#spareparts #usedequipment #equipmentforsale #sellequipment #yardswaps",
    "hold": false,
    "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
-   "category": "parts"
+   "category": "parts",
+   "machine": "electric-motor"
   },
   {
    "slug": "that-trailer-next-season",
@@ -320,7 +346,8 @@
    "ig_tags": "#cargotrailer #enclosedtrailer #trailersforsale #usedequipment #yardswaps",
    "hold": false,
    "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
-   "category": "trailers"
+   "category": "trailers",
+   "machine": "cargo-trailer-black"
   },
   {
    "slug": "condenser-changeout",
@@ -332,7 +359,8 @@
    "ig_tags": "#hvac #hvactech #usedequipment #yardswaps",
    "boost": 50,
    "category": "hvac",
-   "hold": false
+   "hold": false,
+   "machine": "ac-condenser"
   },
   {
    "slug": "save-a-search",
@@ -341,7 +369,8 @@
    "added": "2026-11-01",
    "body": "Buyers save searches on YardSwaps and get a push or email when matching gear is listed near them. Your listing could be the one they hear about.\n\nList it free: no listing fee, no cut of the sale. Post 4 listings within 14 days of your first and every listing is boosted free for 14 days.",
    "question": "What do people near you always ask if you'd sell?",
-   "ig_tags": "#usedequipment #equipmentforsale #boomlift #forklift #contractor"
+   "ig_tags": "#usedequipment #equipmentforsale #boomlift #forklift #contractor",
+   "machine": "forklift-yellow-warehouse"
   },
   {
    "slug": "commercial-idle-forklift",
@@ -351,7 +380,8 @@
    "body": "POV: the forklift hasn't moved in months.\n\nA seller lists it with one photo, AI fills in the specs, a buyer 6 miles away sends an offer, and the seller accepts in a tap.\n\nFree to list. Free boosts. No cut of the sale.\n\nDemo listings and accounts. Dramatization.",
    "question": "What's been sitting idle in your yard the longest?",
    "ig_tags": "#forklift #usedequipment #sellequipment #heavyequipment #yardswaps",
-   "category": "forklifts"
+   "category": "forklifts",
+   "machine": "forklift-yellow-warehouse"
   },
   {
    "slug": "pressure-washer-replaced",
@@ -363,7 +393,8 @@
    "ig_tags": "#pressurewasher #hotsy #usedequipment #yardswaps",
    "boost": 50,
    "category": "pressure",
-   "hold": false
+   "hold": false,
+   "machine": "pressure-washer-red-hot-water"
   },
   {
    "slug": "message-the-seller",
@@ -372,7 +403,8 @@
    "added": "2026-11-01",
    "body": "List it free and buyers chat with you right in the app to ask questions and set a time to see it run.\n\nNo listing fee, no cut of the sale. Post 4 listings within 14 days of your first and every listing is boosted free for 14 days.",
    "question": "Sellers: what's the first question buyers always ask you?",
-   "ig_tags": "#usedequipment #forklift #equipmentforsale #buylocal #sellequipment"
+   "ig_tags": "#usedequipment #forklift #equipmentforsale #buylocal #sellequipment",
+   "machine": "forklift-yellow-warehouse"
   },
   {
    "slug": "snap-it-list-it",
@@ -384,7 +416,8 @@
    "ig_tags": "#equipmentforsale #usedequipment #sellequipment #aircompressor #yardswaps",
    "hold": false,
    "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
-   "category": "compressors"
+   "category": "compressors",
+   "machine": "air-compressor-old-green"
   },
   {
    "slug": "air-mover-fleet",
@@ -396,7 +429,8 @@
    "ig_tags": "#airmover #restoration #usedequipment #yardswaps",
    "boost": 50,
    "category": "environmental",
-   "hold": false
+   "hold": false,
+   "machine": "air-movers"
   },
   {
    "slug": "make-an-offer",
@@ -405,7 +439,8 @@
    "added": "2026-11-01",
    "body": "List your equipment free and buyers can send you an offer with a note. You can counter.\n\nNo listing fee, no cut of the sale. Post 4 listings within 14 days of your first and every listing is boosted free for 14 days.",
    "question": "Sellers: do you price it firm or leave room for offers?",
-   "ig_tags": "#usedequipment #forklift #equipmentforsale #makeanoffer #sellequipment"
+   "ig_tags": "#usedequipment #forklift #equipmentforsale #makeanoffer #sellequipment",
+   "machine": "forklift-yellow-warehouse"
   },
   {
    "slug": "list-4-boosted-free",
@@ -416,7 +451,8 @@
    "question": "Which 4 things in your yard would you list today?",
    "ig_tags": "#sellyourequipment #usedequipment #equipmentforsale #contractor #yardswaps",
    "hold": false,
-   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted"
+   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
+   "machine": "air-compressor-old-green"
   },
   {
    "slug": "boring-bars-tooling",
@@ -428,7 +464,8 @@
    "ig_tags": "#cnc #machinetools #usedequipment #yardswaps",
    "boost": 50,
    "category": "machining",
-   "hold": false
+   "hold": false,
+   "machine": "boring-bars"
   },
   {
    "slug": "ai-lists-it",
@@ -439,7 +476,8 @@
    "question": "What would you list first if one photo did the typing?",
    "ig_tags": "#equipmentforsale #usedequipment #sellequipment #contractor #yardswaps",
    "hold": false,
-   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted"
+   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
+   "machine": "air-compressor-old-green"
   },
   {
    "slug": "invite-a-seller",
@@ -452,7 +490,8 @@
    "hold": false,
    "hold_reason": "Nov 16: Guard 2b hold lifted the same day; invite boost payout proven on a real database (GROWTH-LOG.md 2026-11-16: both sides credited once after the first listing was live 3 days, same-network blocked, credits redeemed as 7-day boosts)",
    "category": "agriculture",
-   "list_free": false
+   "list_free": false,
+   "machine": "tractor"
   },
   {
    "slug": "spare-truck-wheel",
@@ -464,7 +503,8 @@
    "ig_tags": "#truckwheels #autoparts #usedequipment #yardswaps",
    "boost": 50,
    "category": "parts",
-   "hold": false
+   "hold": false,
+   "machine": "truck-wheel"
   },
   {
    "slug": "show-the-cold-start",
@@ -475,7 +515,8 @@
    "question": "Which of your machines is hardest to start?",
    "ig_tags": "#usedequipment #aircompressor #equipmentforsale #contractor #yardswaps",
    "hold": false,
-   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted"
+   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
+   "machine": "air-compressor-old-green"
   },
   {
    "slug": "sold-it-list-the-next",
@@ -486,7 +527,8 @@
    "question": "What's sitting in your yard that you'd sell next?",
    "ig_tags": "#equipmentforsale #usedequipment #fleettrucks #sellequipment #yardswaps",
    "hold": false,
-   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted"
+   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
+   "machine": "box-truck-white"
   },
   {
    "slug": "chop-saw-small-tools",
@@ -498,7 +540,8 @@
    "ig_tags": "#chopsaw #powertools #usedequipment #yardswaps",
    "boost": 50,
    "category": "tools",
-   "hold": false
+   "hold": false,
+   "machine": "chop-saw"
   },
   {
    "slug": "already-on-craigslist",
@@ -509,7 +552,8 @@
    "question": "Where do you list used equipment today: Craigslist, Facebook, or somewhere else?",
    "ig_tags": "#sellyourequipment #usedequipment #equipmentforsale #worktruck #yardswaps",
    "hold": false,
-   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted"
+   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
+   "machine": "box-truck-white"
   },
   {
    "slug": "free-to-list",
@@ -518,7 +562,8 @@
    "added": "2026-11-01",
    "body": "$0 to list. $0 taken from the sale.\n\nBuyers send offers in the app and you keep the full price. Got equipment sitting idle? List it today.\n\nFree to list. Free boosts.",
    "question": "What's the one machine in your yard that hasn't moved all year?",
-   "ig_tags": "#sellyourequipment #usedequipment #sellequipment #contractor #equipmentforsale"
+   "ig_tags": "#sellyourequipment #usedequipment #sellequipment #contractor #equipmentforsale",
+   "machine": "forklift-yellow-warehouse"
   },
   {
    "slug": "leftover-anchor-adhesive",
@@ -530,7 +575,8 @@
    "ig_tags": "#hilti #concrete #usedequipment #yardswaps",
    "boost": 50,
    "category": "concrete",
-   "hold": false
+   "hold": false,
+   "machine": "anchor-adhesive"
   },
   {
    "slug": "every-category",
@@ -542,7 +588,8 @@
    "ig_tags": "#equipmentforsale #usedequipment #sellequipment #restaurantequipment #farmequipment",
    "hold": false,
    "hold_reason": "Nov 15: on-screen caption says \"33 categories\"; Alan 11-15 rule: never state a category count. Re-render with the new n23.js / n456.js caption, then lift the hold",
-   "hold_note": "Re-cut 2026-11-15 with no category count on screen (Motion thread); hold lifted."
+   "hold_note": "Re-cut 2026-11-15 with no category count on screen (Motion thread); hold lifted.",
+   "machine": "work-truck-white"
   },
   {
    "slug": "follow-a-seller",
@@ -553,7 +600,8 @@
    "question": "What's the first thing you'd post for your followers?",
    "ig_tags": "#usedequipment #equipmentforsale #buylocal #contractor #yardswaps",
    "hold": false,
-   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted"
+   "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
+   "machine": "mini-excavator"
   },
   {
    "slug": "dealer-storefront",
@@ -565,7 +613,8 @@
    "ig_tags": "#equipmentdealer #usedequipment #equipmentforsale #sellequipment #yardswaps",
    "hold": false,
    "hold_reason": "Nov 9: re-cut with the whole-item opener (same app footage), continuity checked, hold lifted",
-   "audience": "dealer"
+   "audience": "dealer",
+   "machine": "dozer"
   },
   {
    "slug": "see-what-buyers-want",
@@ -578,7 +627,8 @@
    "hold": true,
    "hold_reason": "Nov 10: the cut shows a 'Searches that found nothing' title card (about 3 s). Alan's Nov 10 rule: never say searches come up empty. Held until Motion re-cuts it without that card; caption already fixed.",
    "audience": "dealer",
-   "hold_note": "Replaced by see-what-buyers-want-v2 on 2026-11-13 (no \"found nothing\" frames); keep the hold."
+   "hold_note": "Replaced by see-what-buyers-want-v2 on 2026-11-13 (no \"found nothing\" frames); keep the hold.",
+   "machine": "boom-lift-yellow"
   },
   {
    "slug": "mission-idle-to-work",
@@ -587,7 +637,8 @@
    "added": "2026-11-07",
    "body": "Every yard has one. The machine nobody runs anymore.\n\nGood equipment sits idle and loses value every month, because selling it took more time than it was worth. So we built YardSwaps. Snap one photo, AI writes the listing, buyers nearby find it. Our mission: put idle equipment back to work. Built in Texas.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What machine in your yard is ready to go back to work?",
-   "ig_tags": "#heavyequipment #telehandler #usedequipment #yardswaps"
+   "ig_tags": "#heavyequipment #telehandler #usedequipment #yardswaps",
+   "machine": "telehandler"
   },
   {
    "added": "2026-11-07",
@@ -597,7 +648,8 @@
    "body": "POV: you upgraded. The old pressure washer stayed.\n\nA Hotsy hot-water pressure washer in the garage, replaced by a bigger unit. Snap one photo. AI writes the title, files it under Pressure Washers and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What size pressure washer is sitting in your garage?",
    "ig_tags": "#pressurewasher #pressurewashing #usedequipment #bluecollar #yardswaps",
-   "category": "pressure"
+   "category": "pressure",
+   "machine": "pressure-washer-red-hot-water"
   },
   {
    "added": "2026-11-07",
@@ -607,7 +659,8 @@
    "body": "Done building things this season? The mixer stays in the yard.\n\nA portable cement mixer bought for one build and parked since. Snap one photo. AI writes the title, files it under Concrete & Masonry and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What did you buy for one build and never use again?",
    "ig_tags": "#concretemixer #concrete #usedequipment #bluecollar #yardswaps",
-   "category": "concrete"
+   "category": "concrete",
+   "machine": "concrete-mixer-orange"
   },
   {
    "added": "2026-11-07",
@@ -617,7 +670,8 @@
    "body": "Blue collar extra cash: the parts already on your shelf.\n\nA brass 15 mm compression valve, new surplus from a plumbing job. Snap one photo, pick Parts & Other, and the AI reads the size and connection off the nut and writes the listing. Tap Use price, publish.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What parts are stuck on your shelf right now?",
    "ig_tags": "#plumbing #plumbingparts #usedequipment #bluecollar #yardswaps",
-   "category": "parts"
+   "category": "parts",
+   "machine": "parts-shelf"
   },
   {
    "added": "2026-11-09",
@@ -630,7 +684,8 @@
    "category": "generators",
    "boost": 520,
    "boost_until": "2026-11-23T06:00:00Z",
-   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week."
+   "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week.",
+   "machine": "towable-generator"
   },
   {
    "added": "2026-11-09",
@@ -644,7 +699,8 @@
    "hold": false,
    "cut": "10s",
    "seconds": 12.1,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "vacuum-truck"
   },
   {
    "added": "2026-11-09",
@@ -654,7 +710,8 @@
    "body": "POV: you sold the septic route. The tank and hoses stayed.\n\nA stainless vacuum tank with suction hoses and a rinse reel, still on the truck bed after the route changed hands. Snap one photo. AI writes the title, files it under Environmental and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What stayed behind when you sold the route?",
    "ig_tags": "#septic #vacuumtank #usedequipment #sanitation #yardswaps",
-   "category": "vacuum"
+   "category": "vacuum",
+   "machine": "septic-tank-truck"
   },
   {
    "added": "2026-11-09",
@@ -664,7 +721,8 @@
    "body": "POV: the second bay closed. Every wrench is still on the wall.\n\nA rolling tool chest and the hand tools from a bay that stopped taking work. Snap one photo. AI writes the title, files it under Power & Hand Tools and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What tools are still hanging in the bay you closed?",
    "ig_tags": "#toolchest #mechanictools #usedtools #autoshop #yardswaps",
-   "category": "tools"
+   "category": "tools",
+   "machine": "tool-wall"
   },
   {
    "added": "2026-11-09",
@@ -674,7 +732,8 @@
    "body": "POV: the warehouse lease ended. The racking is still bolted down.\n\nPallet racking from a space you're handing back at the end of the month. Snap one photo. AI writes the title, files it under Warehouse and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What's still bolted down in the space you're leaving?",
    "ig_tags": "#palletracking #warehouse #usedequipment #warehouseequipment #yardswaps",
-   "category": "warehouse"
+   "category": "warehouse",
+   "machine": "pallet-racking"
   },
   {
    "added": "2026-11-09",
@@ -684,7 +743,8 @@
    "body": "POV: the interior job is done. Three scissor lifts, one row, no work.\n\nElectric scissor lifts parked since the ceiling work finished. Snap one photo. AI writes the title, files it under Aerial Lifts and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "How many lifts are parked in your row right now?",
    "ig_tags": "#scissorlift #aeriallift #usedequipment #contractor #yardswaps",
-   "category": "aerial"
+   "category": "aerial",
+   "machine": "scissor-lifts-row"
   },
   {
    "added": "2026-11-09",
@@ -694,7 +754,8 @@
    "body": "POV: the shop went CNC. The manual lathe is still on the floor.\n\nAn engine lathe taking up a bay nobody runs anymore. Snap one photo. AI writes the title, files it under Metalworking & CNC and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
    "question": "What's still on your floor since you went CNC?",
    "ig_tags": "#lathe #machineshop #usedmachinery #metalworking #yardswaps",
-   "category": "machining"
+   "category": "machining",
+   "machine": "lathe-manual"
   },
   {
    "added": "2026-11-11",
@@ -705,7 +766,8 @@
    "question": "How many places do you list each unit?",
    "ig_tags": "#equipmentdealer #usedequipment #dealerinventory #heavyequipment #yardswaps",
    "category": "trailers",
-   "audience": "dealer"
+   "audience": "dealer",
+   "machine": "cargo-trailer-black"
   },
   {
    "added": "2026-11-11",
@@ -716,7 +778,8 @@
    "question": "Where does your inventory live today?",
    "ig_tags": "#equipmentdealer #generator #usedequipment #dealerinventory #yardswaps",
    "category": "generators",
-   "audience": "dealer"
+   "audience": "dealer",
+   "machine": "towable-generator"
   },
   {
    "added": "2026-11-11",
@@ -733,7 +796,8 @@
    "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week.",
    "cut": "10s",
    "seconds": 12.1,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "trash-pump"
   },
   {
    "added": "2026-11-11",
@@ -750,7 +814,8 @@
    "boost_note": "Nov 16 YouTube report: buyers' top empty searches (generators, pumps, inspection cameras); one week.",
    "cut": "10s",
    "seconds": 12.2,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "pipe-inspection-camera"
   },
   {
    "added": "2026-11-11",
@@ -764,7 +829,8 @@
    "hold": false,
    "cut": "10s",
    "seconds": 12.2,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "jetter-trailer"
   },
   {
    "added": "2026-11-11",
@@ -775,7 +841,8 @@
    "question": "What is still plugged in at the closed shop?",
    "ig_tags": "#commercialrefrigeration #restaurantequipment #closedshop #usedequipment #yardswaps",
    "category": "refrigeration",
-   "hold": false
+   "hold": false,
+   "machine": "reach-in-cooler"
   },
   {
    "added": "2026-11-11",
@@ -789,7 +856,8 @@
    "hold": false,
    "cut": "10s",
    "seconds": 12.3,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "chain-hoist"
   },
   {
    "added": "2026-11-13",
@@ -800,7 +868,8 @@
    "question": "Which unit gets the most calls at your shop?",
    "ig_tags": "#welder #equipmentdealer #usedequipment #dealerinventory #yardswaps",
    "category": "welding",
-   "audience": "dealer"
+   "audience": "dealer",
+   "machine": "welder-mig-cart"
   },
   {
    "added": "2026-11-13",
@@ -811,7 +880,8 @@
    "question": "Where do your customers follow you now?",
    "ig_tags": "#combioven #restaurantequipment #equipmentdealer #usedequipment #yardswaps",
    "category": "cooking",
-   "audience": "dealer"
+   "audience": "dealer",
+   "machine": "combi-oven"
   },
   {
    "added": "2026-11-13",
@@ -822,7 +892,8 @@
    "question": "Which of your units gets searched for the most?",
    "ig_tags": "#boomlift #equipmentdealer #usedequipment #aeriallift #yardswaps",
    "category": "aerial",
-   "audience": "dealer"
+   "audience": "dealer",
+   "machine": "boom-lift-yellow"
   },
   {
    "added": "2026-11-13",
@@ -836,7 +907,8 @@
    "hold": false,
    "cut": "10s",
    "seconds": 12.0,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "two-post-lift"
   },
   {
    "added": "2026-11-13",
@@ -847,7 +919,8 @@
    "question": "What is parked behind your shop since the route was cut?",
    "ig_tags": "#boxtruck #fleettrucks #usedtrucks #usedequipment #yardswaps",
    "category": "fleet",
-   "hold": false
+   "hold": false,
+   "machine": "box-truck-route"
   },
   {
    "added": "2026-11-13",
@@ -861,7 +934,8 @@
    "hold": false,
    "cut": "10s",
    "seconds": 12.1,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "asphalt-roller"
   },
   {
    "added": "2026-11-13",
@@ -872,7 +946,8 @@
    "question": "How much safety gear is hanging unused in your shop?",
    "ig_tags": "#safetygear #ppe #hardhats #usedequipment #yardswaps",
    "category": "safety",
-   "hold": false
+   "hold": false,
+   "machine": "safety-gear"
   },
   {
    "added": "2026-11-16",
@@ -885,7 +960,8 @@
    "category": "welding",
    "cut": "10s",
    "seconds": 12.1,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "welder-shop"
   },
   {
    "added": "2026-11-16",
@@ -905,7 +981,8 @@
    "ig_tags_fixed": true,
    "fb_tags": "#soldadora #soldadura #herramientas #equipousado #yardswaps",
    "category": "welding",
-   "note": "Spanish caption for the same welder cut ('soldadora' was a top empty search, Nov 16 YouTube report). Copy from the Spanish YouTube description in WEEKLY-BATCH.md. Posts from Thu 11-19, the day the Spanish Short goes to YouTube."
+   "note": "Spanish caption for the same welder cut ('soldadora' was a top empty search, Nov 16 YouTube report). Copy from the Spanish YouTube description in WEEKLY-BATCH.md. Posts from Thu 11-19, the day the Spanish Short goes to YouTube.",
+   "machine": "welder-shop"
   },
   {
    "added": "2026-11-16",
@@ -918,7 +995,8 @@
    "category": "compressors",
    "cut": "10s",
    "seconds": 12.1,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "towable-compressor"
   },
   {
    "added": "2026-11-16",
@@ -931,7 +1009,8 @@
    "category": "hvac",
    "cut": "10s",
    "seconds": 12.1,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "rooftop-unit"
   },
   {
    "added": "2026-11-16",
@@ -944,7 +1023,8 @@
    "category": "agriculture",
    "cut": "10s",
    "seconds": 12.1,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "sprayer"
   },
   {
    "added": "2026-11-16",
@@ -957,7 +1037,8 @@
    "category": "generators",
    "cut": "10s",
    "seconds": 12.1,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "light-tower"
   },
   {
    "added": "2026-11-16",
@@ -970,7 +1051,8 @@
    "category": "cooking",
    "cut": "10s",
    "seconds": 12.1,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "fryer-line"
   },
   {
    "added": "2026-11-16",
@@ -983,7 +1065,8 @@
    "category": "landscaping",
    "cut": "10s",
    "seconds": 12.1,
-   "cut_added": "2026-11-16"
+   "cut_added": "2026-11-16",
+   "machine": "zero-turn-mower"
   },
   {
    "added": "2026-11-18",
@@ -993,7 +1076,8 @@
    "question": "Where do your buyers find you now?",
    "ig_tags": "#equipmentdealer #usedequipment #equipmentforsale #sellequipment #yardswaps",
    "audience": "dealer",
-   "body": "Open your storefront on YardSwaps: 30 days free.\n\nEvery unit in one link, with your hours, service area and contact details. Buyers search your whole inventory. After that, our founding price is $29 a month for your first 3 paid months (for the first 100 storefronts), then $49 a month. Cancel before day 30 and you pay nothing."
+   "body": "Open your storefront on YardSwaps: 30 days free.\n\nEvery unit in one link, with your hours, service area and contact details. Buyers search your whole inventory. After that, our founding price is $29 a month for your first 3 paid months (for the first 100 storefronts), then $49 a month. Cancel before day 30 and you pay nothing.",
+   "machine": "dozer"
   },
   {
    "added": "2026-11-18",
@@ -1005,7 +1089,8 @@
    "audience": "dealer",
    "hold": false,
    "hold_reason": "Released 11-18 15:00Z: Guard 2b proof logged (live test, first invoice $29, FOUNDINGDEALER redeemed once). No end date since 11-20 (first 100 storefronts, no deadline); pull it with promos.json founding when FOUNDINGDEALER is used up.",
-   "body": "Open your storefront on YardSwaps: 30 days free, then our founding price.\n\n$29 a month for your first 3 paid months, then $49. For our first 100 storefronts. Cancel before day 30 and you pay nothing."
+   "body": "Open your storefront on YardSwaps: 30 days free, then our founding price.\n\n$29 a month for your first 3 paid months, then $49. For our first 100 storefronts. Cancel before day 30 and you pay nothing.",
+   "machine": "dozer"
   },
   {
    "added": "2026-11-18",
@@ -1017,7 +1102,8 @@
    "ig_tags": "#generator #dieselgenerator #jobsite #usedequipment #yardswaps",
    "category": "generators",
    "cut": "10s",
-   "seconds": 12.2
+   "seconds": 12.2,
+   "machine": "towable-generator-storm"
   },
   {
    "added": "2026-11-18",
@@ -1033,7 +1119,8 @@
    "list_free": false,
    "fb_tags": "#soldadora #soldadura #herramientas #equipousado #yardswaps",
    "ig_tags_fixed": true,
-   "seconds": 12.2
+   "seconds": 12.2,
+   "machine": "welder-mig-cart"
   },
   {
    "added": "2026-11-18",
@@ -1045,7 +1132,8 @@
    "ig_tags": "#welder #weldergenerator #equipmentspecs #usedequipment #yardswaps",
    "category": "welding",
    "cut": "10s",
-   "seconds": 12.2
+   "seconds": 12.2,
+   "machine": "welder-trailer"
   },
   {
    "added": "2026-11-18",
@@ -1057,7 +1145,8 @@
    "ig_tags": "#skidsteer #loader #excavation #usedequipment #yardswaps",
    "category": "excavators",
    "cut": "10s",
-   "seconds": 12.2
+   "seconds": 12.2,
+   "machine": "skid-steer"
   },
   {
    "added": "2026-11-18",
@@ -1069,7 +1158,8 @@
    "ig_tags": "#dumptrailer #trailer #hauling #usedequipment #yardswaps",
    "category": "trailers",
    "cut": "10s",
-   "seconds": 12.2
+   "seconds": 12.2,
+   "machine": "dump-trailer"
   },
   {
    "added": "2026-11-18",
@@ -1081,7 +1171,8 @@
    "ig_tags": "#cordreel #electrical #eventproduction #usedequipment #yardswaps",
    "category": "electrical",
    "cut": "10s",
-   "seconds": 12.2
+   "seconds": 12.2,
+   "machine": "cord-reels"
   },
   {
    "added": "2026-11-18",
@@ -1093,7 +1184,8 @@
    "ig_tags": "#handtools #wrenches #shoptools #usedequipment #yardswaps",
    "category": "tools",
    "cut": "10s",
-   "seconds": 12.2
+   "seconds": 12.2,
+   "machine": "tool-wall"
   },
   {
    "added": "2026-11-20",
@@ -1107,7 +1199,8 @@
    "cut": "10s",
    "listing_id": "cmwm5nuh9005fql3ag390kwc7",
    "real": true,
-   "seconds": 12.1
+   "seconds": 12.1,
+   "machine": "listing-cmwm5nuh9005fql3ag390kwc7"
   },
   {
    "added": "2026-11-20",
@@ -1119,7 +1212,8 @@
    "ig_tags": "#pressurewasher #hotwaterwasher #cleaningequipment #usedequipment #yardswaps",
    "category": "pressure",
    "cut": "10s",
-   "seconds": 12.4
+   "seconds": 12.4,
+   "machine": "pressure-washer-skid"
   },
   {
    "added": "2026-11-20",
@@ -1131,7 +1225,8 @@
    "ig_tags": "#concretemixer #concrete #constructionequipment #usedequipment #yardswaps",
    "category": "concrete",
    "cut": "10s",
-   "seconds": 12.1
+   "seconds": 12.1,
+   "machine": "concrete-mixer-small"
   },
   {
    "added": "2026-11-20",
@@ -1143,7 +1238,8 @@
    "ig_tags": "#scissorlift #aeriallift #liftequipment #usedequipment #yardswaps",
    "category": "aerial",
    "cut": "10s",
-   "seconds": 12.1
+   "seconds": 12.1,
+   "machine": "scissor-lift"
   },
   {
    "added": "2026-11-20",
@@ -1155,7 +1251,8 @@
    "ig_tags": "#lathe #machineshop #metalworking #usedequipment #yardswaps",
    "category": "machining",
    "cut": "10s",
-   "seconds": 12.1
+   "seconds": 12.1,
+   "machine": "lathe"
   },
   {
    "added": "2026-11-20",
@@ -1167,7 +1264,8 @@
    "ig_tags": "#flatbed #worktruck #fleettrucks #usedequipment #yardswaps",
    "category": "fleet",
    "cut": "10s",
-   "seconds": 12.1
+   "seconds": 12.1,
+   "machine": "flatbed-truck"
   },
   {
    "added": "2026-11-20",
@@ -1179,7 +1277,8 @@
    "ig_tags": "#officechairs #officefurniture #conferencetable #usedequipment #yardswaps",
    "category": "office",
    "cut": "10s",
-   "seconds": 12.0
+   "seconds": 12.0,
+   "machine": "office-chairs"
   }
  ]
 }

@@ -38,6 +38,14 @@ import urllib.parse
 import urllib.request
 from zoneinfo import ZoneInfo
 
+# Nov 21 (Alan: "We keep reusing the same machines for our social media posts"): every pick also
+# obeys the shared machine rotation in rotation/rotation.py, which reads every channel's log.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "rotation"))
+try:
+    import rotation as rot  # noqa: E402
+except ImportError:  # a sparse checkout (caption fixes, profiles) that never picks a clip
+    rot = None
+
 GRAPH = "https://graph.facebook.com/v23.0"
 RUPLOAD_IG = "https://rupload.facebook.com/ig-api-upload/v23.0"
 THREADS = "https://graph.threads.net/v1.0"
@@ -560,6 +568,36 @@ def pick(videos, posted, platform, force=None, scores=None):
               and v.get("listing_id") not in opted_out
               and platform in (v.get("platforms") or [platform])
               and (not v.get("not_before") or parse_time(v["not_before"]) <= now())]
+    # Machine rotation (rotation/README.md): first only clips whose machine no channel has shown in
+    # 14 days (the same clip may still cross-post inside its 36-hour run); if none, the machine shown
+    # longest ago but never one from the last 7 days; past that the slot is skipped, not repeated.
+    if rot is None:
+        raise SystemExit("rotation/rotation.py is missing from this checkout; add it before picking a clip")
+    hist = rot.uses()   # always the whole library, so a promo or list-it-free pool maps machines right
+    strict = [v for v in usable if rot.allowed(v, hist)]
+    # A clip another surface showed in the last 36 hours goes here next, so Instagram, Facebook and
+    # TikTok share one showing of a machine instead of each using up a different one.
+    cross = [v for v in strict if rot.in_run(v, hist) and (v["slug"] not in last or last[v["slug"]] <= cutoff)]
+    if cross:
+        cross.sort(key=lambda v: rot.last_shown(v, hist))
+        return cross[0], cross[0]["slug"] in last
+    video, repeat = _choose(strict, last, cutoff, platform, scores, hist)
+    if video:
+        return video, repeat
+    floor = [v for v in usable if rot.fallback_ok(v, hist)]
+    floor.sort(key=lambda v: rot.last_shown(v, hist) or now() - dt.timedelta(days=365))
+    floor = [v for v in floor if v["slug"] not in last or last[v["slug"]] <= cutoff]
+    if floor:
+        print(f"rotation: no machine free for 14 days on {platform}; using {floor[0]['slug']}, "
+              f"last shown {rot.last_shown(floor[0], hist)}")
+        return floor[0], floor[0]["slug"] in last
+    print(f"rotation: every machine was shown in the last {rot.FLOOR_DAYS} days; skipping this {platform} slot")
+    return None, False
+
+
+def _choose(usable, last, cutoff, platform, scores, hist):
+    """The old order (week's push, fresh cuts, best repeats) over clips the rotation allows,
+    with real listings first among the fresh cuts and categories spread."""
     # A week's push ("boost" with an active "boost_until") goes ahead of even
     # the fresh cuts once its 10 days are up, so the week's demand clips run
     # this week (Nov 16: generators, pumps, inspection cameras).
@@ -567,11 +605,12 @@ def pick(videos, posted, platform, force=None, scores=None):
               and v.get("boost") and v.get("boost_until") and now() < parse_time(v["boost_until"])]
     if pushed:
         pushed.sort(key=lambda v: (-v["boost"], last[v["slug"]]))
-        return pushed[0], True
+        return rot.spread(pushed, hist, platform)[0], True
     fresh = [v for v in usable if v["slug"] not in last]
     if fresh:
-        fresh.sort(key=lambda v: (-int(v.get("added", "0").replace("-", "")), v.get("priority", 999)))
-        return fresh[0], False
+        fresh.sort(key=lambda v: (not v.get("real"), -int(v.get("added", "0").replace("-", "")),
+                                  v.get("priority", 999)))
+        return rot.spread(fresh, hist, platform)[0], False
     rank = load(RANK, {})
     retired = rank.get("retire") or {}
     old = [v for v in usable if last[v["slug"]] <= cutoff and v["slug"] not in retired]
@@ -593,7 +632,7 @@ def pick(videos, posted, platform, force=None, scores=None):
     hand = lambda v: (v.get("boost", 0) if (not fresh_rank or v.get("boost_keep") or until(v)) and
                       (not v.get("boost_until") or until(v)) else 0)
     old.sort(key=lambda v: (-(scores.get(v["slug"], 0) + hand(v) + auto.get(v["slug"], 0)), last[v["slug"]]))
-    return old[0], True
+    return rot.spread(old, hist, platform)[0], True
 
 
 # ---------- engagement score (for repeats) ----------
