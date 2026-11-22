@@ -303,5 +303,15 @@
   "due": "2026-11-21T20:21:43.000Z",
   "url": "https://tiktok.com/@yardwaps/video/7710722514296556831",
   "sent": "2026-11-21T20:23:27.494Z"
+ },
+ {
+  "time": "2026-11-22T13:46:29Z",
+  "platform": "tiktok",
+  "slug": "scissor-lift-after-the-fitout",
+  "repeat": false,
+  "list_free": true,
+  "status": "scheduled",
+  "buffer_id": "6b02f238cc364169c15951aa",
+  "due": "2026-11-22T13:51:29.000Z"
  }
 ]
