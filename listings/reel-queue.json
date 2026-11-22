@@ -238,5 +238,47 @@
   "preview": "listings/reel-previews/cmwhyxsc90044pd3aoll8mnho.jpg",
   "status": "pending",
   "added": "2026-11-22T21:05:33Z"
+ },
+ {
+  "listing_id": "cmwsc8u1f001rqk3af9iq3khm",
+  "slug": "listed-floral-walk-in-display-cooler-8-gl-q3khm",
+  "title": "Floral Walk-In Display Cooler | 8 Glass Doors",
+  "category": "refrigeration",
+  "photos": [
+   "/api/images/listings/1795382179286-0e17e9f8585d.jpg",
+   "/api/images/listings/1795382182283-a0726fc0c231.jpg",
+   "/api/images/listings/1795382183902-d389aa42a559.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwsc8u1f001rqk3af9iq3khm.jpg",
+  "status": "pending",
+  "added": "2026-11-22T22:48:32Z"
+ },
+ {
+  "listing_id": "cmvsip9ad002jmp3arr5fbt0s",
+  "slug": "listed-zero-tail-swing-deere-50g-with-qui-fbt0s",
+  "title": "Zero-tail-swing Deere 50G with Quick Coupler",
+  "category": "excavators",
+  "photos": [
+   "/api/images/listings/1793216324111-ad5b4e5b293b.jpg",
+   "/api/images/listings/1793216324617-ff70baf9953b.jpg",
+   "/api/images/listings/1793216324843-12ebc619d5ea.jpg"
+  ],
+  "preview": "listings/reel-previews/cmvsip9ad002jmp3arr5fbt0s.jpg",
+  "status": "pending",
+  "added": "2026-11-22T22:48:52Z"
+ },
+ {
+  "listing_id": "cmw478lqy001dtd3axzqdsydq",
+  "slug": "listed-komatsu-hd785-7-engine-for-sale-wo-dsydq",
+  "title": "Komatsu HD785-7 Engine for Sale, Worldwide Shipping",
+  "category": "parts",
+  "photos": [
+   "/api/images/listings/1793922665216-025b3c438d3c.jpg",
+   "/api/images/listings/1793922665850-0931572bf466.jpg",
+   "/api/images/listings/1793922666418-a855c159b564.jpg"
+  ],
+  "preview": "listings/reel-previews/cmw478lqy001dtd3axzqdsydq.jpg",
+  "status": "pending",
+  "added": "2026-11-22T22:49:14Z"
  }
 ]

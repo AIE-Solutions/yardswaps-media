@@ -1486,6 +1486,57 @@
    "seconds": 5.4,
    "hold": true,
    "hold_reason": "awaiting the daily listing review (listings/reel-queue.json)"
+  },
+  {
+   "added": "2026-11-22",
+   "slug": "listed-floral-walk-in-display-cooler-8-gl-q3khm",
+   "file": "reels/library/yardswaps-listed-floral-walk-in-display-cooler-8-gl-q3khm-9x16.mp4",
+   "priority": 0,
+   "body": "Just listed on YardSwaps: Floral Walk-In Display Cooler | 8 Glass Doors. $19,900.\n\nSee the photos and message the seller in the free YardSwaps app.\n\nEquipment sitting idle? List it free. Snap a photo and the AI writes the listing. No selling fee.",
+   "question": "What's sitting in your yard that a buyer like this is looking for?",
+   "ig_tags": "#commercialrefrigeration #refrigeration #usedequipment #yardswaps",
+   "category": "refrigeration",
+   "machine": "listing-cmwsc8u1f001rqk3af9iq3khm",
+   "listing_id": "cmwsc8u1f001rqk3af9iq3khm",
+   "real": true,
+   "cut": "listing",
+   "seconds": 12.2,
+   "hold": true,
+   "hold_reason": "awaiting the daily listing review (listings/reel-queue.json)"
+  },
+  {
+   "added": "2026-11-22",
+   "slug": "listed-zero-tail-swing-deere-50g-with-qui-fbt0s",
+   "file": "reels/library/yardswaps-listed-zero-tail-swing-deere-50g-with-qui-fbt0s-9x16.mp4",
+   "priority": 0,
+   "body": "For sale on YardSwaps: Zero-tail-swing Deere 50G with Quick Coupler. $39,500.\n\nSee the photos and message the seller in the free YardSwaps app.\n\nEquipment sitting idle? List it free. Snap a photo and the AI writes the listing. No selling fee.",
+   "question": "Used or new: which way do you go on a machine like this?",
+   "ig_tags": "#excavator #heavyequipment #usedequipment #yardswaps",
+   "category": "excavators",
+   "machine": "listing-cmvsip9ad002jmp3arr5fbt0s",
+   "listing_id": "cmvsip9ad002jmp3arr5fbt0s",
+   "real": true,
+   "cut": "listing",
+   "seconds": 12.2,
+   "hold": true,
+   "hold_reason": "awaiting the daily listing review (listings/reel-queue.json)"
+  },
+  {
+   "added": "2026-11-22",
+   "slug": "listed-komatsu-hd785-7-engine-for-sale-wo-dsydq",
+   "file": "reels/library/yardswaps-listed-komatsu-hd785-7-engine-for-sale-wo-dsydq-9x16.mp4",
+   "priority": 0,
+   "body": "For sale on YardSwaps: Komatsu HD785-7 Engine for Sale, Worldwide Shipping. $155,000.\n\nSee the photos and message the seller in the free YardSwaps app.\n\nEquipment sitting idle? List it free. Snap a photo and the AI writes the listing. No selling fee.",
+   "question": "What's the one machine your crew can't do without?",
+   "ig_tags": "#parts #spareparts #usedequipment #yardswaps",
+   "category": "parts",
+   "machine": "listing-cmw478lqy001dtd3axzqdsydq",
+   "listing_id": "cmw478lqy001dtd3axzqdsydq",
+   "real": true,
+   "cut": "listing",
+   "seconds": 12.2,
+   "hold": true,
+   "hold_reason": "awaiting the daily listing review (listings/reel-queue.json)"
   }
  ]
 }
