@@ -128,5 +128,15 @@
   "media_id": "18147931579510323",
   "expires": "2026-11-22T15:28:58Z",
   "verified_live": true
+ },
+ {
+  "date": "2026-11-22",
+  "machine": "scissor lift",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/cecb5f0e21e7dfaf2f6c29ca34e37fc6d25ee8e3/stories/out/2026-11-22-scissor-lift-story.jpg",
+  "time": "2026-11-22T15:29:01Z",
+  "status": "posted",
+  "media_id": "18161931664512542",
+  "expires": "2026-11-23T15:29:17Z",
+  "verified_live": true
  }
 ]
