@@ -315,5 +315,15 @@
   "due": "2026-11-22T13:51:29.000Z",
   "url": "https://tiktok.com/@yardwaps/video/7710992948527107342",
   "sent": "2026-11-22T13:52:12.111Z"
+ },
+ {
+  "time": "2026-11-22T20:31:08Z",
+  "platform": "tiktok",
+  "slug": "flatbed-after-the-last-contract",
+  "repeat": false,
+  "promo": "share",
+  "status": "scheduled",
+  "buffer_id": "6b03510ec72676f5e95ad5b4",
+  "due": "2026-11-22T20:36:08.000Z"
  }
 ]
