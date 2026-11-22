@@ -5,7 +5,7 @@ The shared project folder (/mnt/project-files/yardswaps-campaign/growth-loop/) i
 | File | Agent | Schedule (Central) |
 |---|---|---|
 | PLATFORM-OPS-PROMPT.md | Platform Ops: daily health, safety and routing | 3:37 am daily |
-| REPLY-HANDLER-ADMIN-STEPS.md | Reply Handler steps 9 and 10 (steps 1 to 8 stay in the project file) | 12:17 + 5:17 pm daily |
+| REPLY-HANDLER-ADMIN-STEPS.md | Reply Handler steps 9 to 11: admin follow-ups and the daily posting-rules review (steps 1 to 8 stay in the project file) | 12:17 + 5:17 pm daily |
 
 Owner: Growth Lead thread. Edit here by PR; never put secrets or keys in these files.
 
