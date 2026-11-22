@@ -164,16 +164,25 @@ def allowed(v, history, t=None, ref=None):
         return True
     # The same clip shown in the last RUN_HOURS (and nothing else of this machine): this is that one
     # showing crossing to the next surface, not a repeat.
+    return burst_ok(m, ref, history, t)
+
+
+def burst_ok(m, ref, history, t):
+    """True when every showing of machine `m` in the last RUN_HOURS is clip `ref` AND that burst
+    began after a gap of at least FLOOR_DAYS (a fresh run or a floor fallback). Without the gap
+    check an old repeat kept re-opening a 36-hour window (forklift on TikTok, 11-21)."""
     recent = [u for u in history if u["machine"] == m and timedelta_ok(t - u["time"])]
-    return bool(recent) and all(u["ref"] == ref for u in recent)
+    if not recent or any(u["ref"] != ref for u in recent):
+        return False
+    first = min(u["time"] for u in recent)
+    before = [u for u in history if u["machine"] == m and first - dt.timedelta(days=FLOOR_DAYS) <= u["time"] < first]
+    return not before
 
 
 def in_run(v, history, t=None):
     """True when this exact clip went out on another surface in the last RUN_HOURS."""
     t = t or now()
-    m, ref = machine_of(v), v.get("slug")
-    recent = [u for u in history if u["machine"] == m and timedelta_ok(t - u["time"])]
-    return bool(recent) and all(u["ref"] == ref for u in recent)
+    return burst_ok(machine_of(v), v.get("slug"), history, t)
 
 
 def timedelta_ok(d):
