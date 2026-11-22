@@ -74,5 +74,15 @@
     "status": "skipped",
     "why": "Zapier out of tasks until the billing reset and the token can't reply yet; reply drafted for Alan in the 2026-11-21 daily comment thread (project storage full, digest not saved)",
     "at": "2026-11-21T17:45:22Z"
+  },
+  "18081971384412243": {
+    "status": "skipped",
+    "why": "bot spam: identical template '😍 AMAZING ❤️ SEND ME THIS POST ❤️' posted on two Reels 2.5 minutes apart (third copy in two days), nothing to answer",
+    "at": "2026-11-22T17:43:40Z"
+  },
+  "18650452123030134": {
+    "status": "skipped",
+    "why": "bot spam: identical template '😍 AMAZING ❤️ SEND ME THIS POST ❤️' posted on two Reels 2.5 minutes apart (third copy in two days), nothing to answer",
+    "at": "2026-11-22T17:43:40Z"
   }
 }
