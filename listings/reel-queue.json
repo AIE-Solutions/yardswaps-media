@@ -157,5 +157,86 @@
   "updated": "2026-11-22T18:21:49Z",
   "reviewed_by": "claude",
   "reason": "dealer watermark with business name and street address on every photo"
+ },
+ {
+  "listing_id": "cmwlsaj46003pql3auwxsf6pt",
+  "slug": "listed-2008-tennant-m20-ride-on-sweeper-s-sf6pt",
+  "title": "2008 Tennant M20 Ride-On Sweeper-Scrubber - LP - 513 Hours",
+  "category": "warehouse",
+  "photos": [
+   "/api/images/listings/1794985954499-231c35ea7eb1.jpg",
+   "/api/images/listings/1794985954666-fc34738890ea.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwlsaj46003pql3auwxsf6pt.jpg",
+  "status": "pending",
+  "added": "2026-11-22T21:04:15Z"
+ },
+ {
+  "listing_id": "cmwoncoba001iob3am60cgusj",
+  "slug": "listed-smg-tca1400-astro-synthetic-turf-g-cgusj",
+  "title": "SMG TCA1400 Astro synthetic turf groomer/brush, 3-point hitch",
+  "category": "landscaping",
+  "photos": [
+   "/api/images/listings/1795159054841-2dfb95d6e0f5.jpg",
+   "/api/images/listings/1795159055030-81194d3979e3.jpg",
+   "/api/images/listings/1795159055199-1c2e8ce9fe29.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwoncoba001iob3am60cgusj.jpg",
+  "status": "pending",
+  "added": "2026-11-22T21:04:30Z"
+ },
+ {
+  "listing_id": "cmwjmcfbm0002p33aldworil7",
+  "slug": "listed-hensley-32-v-bottom-rock-bucket-oril7",
+  "title": "Hensley 32\" V-Bottom rock bucket",
+  "category": "excavators",
+  "photos": [
+   "/api/images/listings/1794855032851-5413863a32a8.jpg",
+   "/api/images/listings/1794855031925-3ceeee62f3ae.jpg",
+   "/api/images/listings/1794855032204-00e9d15941cb.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwjmcfbm0002p33aldworil7.jpg",
+  "status": "pending",
+  "added": "2026-11-22T21:04:52Z"
+ },
+ {
+  "listing_id": "cmwjknly00003o33a91rtb4op",
+  "slug": "listed-chief-ez-liner-ii-collision-frame-tb4op",
+  "title": "Chief EZ Liner II collision frame straightening rack with pulling tower",
+  "category": "automotive",
+  "photos": [
+   "/api/images/listings/1794852194699-559dfe568fe6.jpg",
+   "/api/images/listings/1794852195148-a808d20fb2cf.jpg",
+   "/api/images/listings/1794852195535-d64689342e75.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwjknly00003o33a91rtb4op.jpg",
+  "status": "pending",
+  "added": "2026-11-22T21:05:14Z"
+ },
+ {
+  "listing_id": "cmwosmtfl003aob3a4fj5n6mr",
+  "slug": "listed-caterpillar-140h-rear-ripper-multi-5n6mr",
+  "title": "Caterpillar 140H Rear Ripper (Multi-Shank)",
+  "category": "parts",
+  "photos": [
+   "/api/images/listings/1795167992968-f6502751542f.jpg",
+   "/api/images/listings/1795167993264-08a49ea896fb.jpg",
+   "/api/images/listings/1795167993517-10e7f91bb029.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwosmtfl003aob3a4fj5n6mr.jpg",
+  "status": "pending",
+  "added": "2026-11-22T21:05:28Z"
+ },
+ {
+  "listing_id": "cmwhyxsc90044pd3aoll8mnho",
+  "slug": "listed-large-roll-of-black-rubber-conveyo-8mnho",
+  "title": "Large Roll of Black Rubber Conveyor Belting on Steel A-Frame Stand",
+  "category": "warehouse",
+  "photos": [
+   "/api/images/listings/1794755252815-64312cacba87.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwhyxsc90044pd3aoll8mnho.jpg",
+  "status": "pending",
+  "added": "2026-11-22T21:05:33Z"
  }
 ]
