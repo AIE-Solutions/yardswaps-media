@@ -10,8 +10,10 @@
    "/api/images/listings/1794865149080-6a45db9a5641.jpg"
   ],
   "preview": "listings/reel-previews/cmwjsd8v20067qc3a44ogfg33.jpg",
-  "status": "pending",
-  "added": "2026-11-21T20:56:49Z"
+  "status": "approved",
+  "added": "2026-11-21T20:56:49Z",
+  "updated": "2026-11-22T18:21:49Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwlhw9yx000kql3asvk9kzvf",
@@ -24,8 +26,11 @@
    "/api/images/listings/1794968493192-61cb6ebb7ce7.jpg"
   ],
   "preview": "listings/reel-previews/cmwlhw9yx000kql3asvk9kzvf.jpg",
-  "status": "pending",
-  "added": "2026-11-21T20:57:07Z"
+  "status": "rejected",
+  "added": "2026-11-21T20:57:07Z",
+  "updated": "2026-11-22T18:21:49Z",
+  "reviewed_by": "claude",
+  "reason": "photo 2 is a dealer ad graphic (stock and warehouse city banner)"
  },
  {
   "listing_id": "cmwpdczz50009tc3ao0enr7e2",
@@ -38,8 +43,10 @@
    "/api/images/listings/1795202737619-22d9e885883f.jpg"
   ],
   "preview": "listings/reel-previews/cmwpdczz50009tc3ao0enr7e2.jpg",
-  "status": "pending",
-  "added": "2026-11-21T20:57:27Z"
+  "status": "approved",
+  "added": "2026-11-21T20:57:27Z",
+  "updated": "2026-11-22T18:21:49Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwl13wfd000ypk3athpcurw5",
@@ -51,8 +58,10 @@
    "/api/images/listings/1794940295949-6b436894af71.jpg"
   ],
   "preview": "listings/reel-previews/cmwl13wfd000ypk3athpcurw5.jpg",
-  "status": "pending",
-  "added": "2026-11-21T20:57:42Z"
+  "status": "approved",
+  "added": "2026-11-21T20:57:42Z",
+  "updated": "2026-11-22T18:21:49Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwjep9en0021nz3a66q5c2iy",
@@ -65,8 +74,10 @@
    "/api/images/listings/1794842193805-2554b9345716.jpg"
   ],
   "preview": "listings/reel-previews/cmwjep9en0021nz3a66q5c2iy.jpg",
-  "status": "pending",
-  "added": "2026-11-21T22:23:13Z"
+  "status": "approved",
+  "added": "2026-11-21T22:23:13Z",
+  "updated": "2026-11-22T18:21:49Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwgv7ufk001tmj3avimgyurk",
@@ -79,8 +90,11 @@
    "/api/images/listings/1794688591141-6d11d7acc638.jpg"
   ],
   "preview": "listings/reel-previews/cmwgv7ufk001tmj3avimgyurk.jpg",
-  "status": "pending",
-  "added": "2026-11-21T22:23:29Z"
+  "status": "rejected",
+  "added": "2026-11-21T22:23:29Z",
+  "updated": "2026-11-22T18:21:49Z",
+  "reviewed_by": "claude",
+  "reason": "photo 3 is a screenshot of a store product page, not the item"
  },
  {
   "listing_id": "cmwficj89001mp13atgawr62p",
@@ -92,8 +106,10 @@
    "/api/images/listings/1794606455129-e358727c9835.jpg"
   ],
   "preview": "listings/reel-previews/cmwficj89001mp13atgawr62p.jpg",
-  "status": "pending",
-  "added": "2026-11-21T22:23:39Z"
+  "status": "approved",
+  "added": "2026-11-21T22:23:39Z",
+  "updated": "2026-11-22T18:21:49Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmw128mu5000imi3aeckcajih",
@@ -104,8 +120,11 @@
    "/api/images/listings/1793732872658-a86e4a2b1961.jpg"
   ],
   "preview": "listings/reel-previews/cmw128mu5000imi3aeckcajih.jpg",
-  "status": "pending",
-  "added": "2026-11-21T22:23:48Z"
+  "status": "rejected",
+  "added": "2026-11-21T22:23:48Z",
+  "updated": "2026-11-22T18:21:49Z",
+  "reviewed_by": "claude",
+  "reason": "possible person behind the tractor; photographer shadow in frame"
  },
  {
   "listing_id": "cmvvwvduw000aqx3ak505rf16",
@@ -116,8 +135,11 @@
    "/api/images/listings/1793421525420-6038abbf7211.jpg"
   ],
   "preview": "listings/reel-previews/cmvvwvduw000aqx3ak505rf16.jpg",
-  "status": "pending",
-  "added": "2026-11-21T22:23:52Z"
+  "status": "rejected",
+  "added": "2026-11-21T22:23:52Z",
+  "updated": "2026-11-22T18:21:49Z",
+  "reviewed_by": "claude",
+  "reason": "photo is a company ad graphic with logo and call-today text, not the item"
  },
  {
   "listing_id": "cmwo06whh0006ms3a7s86flh3",
@@ -130,7 +152,10 @@
    "/api/images/listings/1795120154491-190605b9e602.jpg"
   ],
   "preview": "listings/reel-previews/cmwo06whh0006ms3a7s86flh3.jpg",
-  "status": "pending",
-  "added": "2026-11-21T22:24:09Z"
+  "status": "rejected",
+  "added": "2026-11-21T22:24:09Z",
+  "updated": "2026-11-22T18:21:49Z",
+  "reviewed_by": "claude",
+  "reason": "dealer watermark with business name and street address on every photo"
  }
 ]
