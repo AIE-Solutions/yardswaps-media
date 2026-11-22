@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T19:09:35.141265+00:00",
+ "generated_at": "2026-11-22T19:31:37.683015+00:00",
  "lookback_days": 8,
  "sources": [
   {
@@ -40,21 +40,21 @@
   },
   {
    "name": "LawnSite",
-   "status": "error: HTTPError: HTTP Error 409: Conflict",
-   "items": 0,
-   "in_window": 0
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
   },
   {
    "name": "ContractorTalk",
-   "status": "error: HTTPError: HTTP Error 409: Conflict",
-   "items": 0,
-   "in_window": 0
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
   },
   {
    "name": "WeldingWeb",
-   "status": "error: HTTPError: HTTP Error 409: Conflict",
-   "items": 0,
-   "in_window": 0
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
   },
   {
    "name": "Pressure Washing Resource",
@@ -64,25 +64,6 @@
   }
  ],
  "posts": [
-  {
-   "title": "For sale: Clausing Kondia FV-1 CNC mill",
-   "link": "https://www.practicalmachinist.com/forum/threads/for-sale-clausing-kondia-fv-1-cnc-mill.450807/",
-   "text": "Selling my Clausing Kondia FV-1 CNC mill, because I stumbled into a newer Haas mill, and don't have space to keep both. It's in very good mechanical condition. - 220v single phase - 3hp spindle motor controlled by VFD - full simultaneous 3 axis CNC with 24\" x 14\" x 6\" travels - Dynapath Delta 20 control - the control accepts drip feed of longer programs via rs-232, and it works well. I used a USB to serial converter cable connected to an old laptop, and will include the cable with the... Read more",
-   "author": "leeko",
-   "time": "2026-11-14T16:16:04+00:00",
-   "platform": "Forum",
-   "source": "Practical Machinist",
-   "links_ok": false,
-   "intent": "sell",
-   "category": "machining",
-   "category_name": "Metalworking & CNC",
-   "score": 4,
-   "drafts": {
-    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
-    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
-   },
-   "first_seen": "2026-11-14T17:57:47.647113+00:00"
-  },
   {
    "title": "FS: Bridgeport by Hardinge Manual Mill \u2013 2HP, DRO, X/Y Power Feeds, Kurt Vise \u2013 Tucson AZ \u2013 $6,000 OBO",
    "link": "https://www.practicalmachinist.com/forum/threads/fs-bridgeport-by-hardinge-manual-mill-%E2%80%93-2hp-dro-x-y-power-feeds-kurt-vise-%E2%80%93-tucson-az-%E2%80%93-6-000-obo.451532/",
@@ -122,6 +103,25 @@
    "first_seen": "2026-11-15T18:47:14.675973+00:00"
   },
   {
+   "title": "Turnkey in Michigan \u2014 ICE-Built 12' Hot Water Trailer + Soft Wash + Customer List \u2014 $15,500",
+   "link": "https://pressurewashingresource.com/community/t/turnkey-in-michigan-ice-built-12-hot-water-trailer-soft-wash-customer-list-15-500/41286",
+   "text": "Selling my turnkey 12\u2019 tandem pressure washing and soft wash trailer. Milford, MI. Professionally built by Industrial Cleaning Equipment (ICE) and serviced by Hotsy Midwest in Livonia. Everything works \u2014 hook it up and go to work. Pressure-Pro hot water unit, Honda GX630, 5.5 GPM @ 3,500 PSI \u2014 only 227 hours 12V soft wash (Everflo 5.5 GPM) plus a spare pump head still in the box 550-gal buffer tank and two 35-gal chemical tanks 4 hose reels: 2 pressure washing, 1 soft wash, 1 fill hose Diamond plate toolbox on the tongue 2 surface cleaners 3 wands (3\u2019, 6\u2019, 9\u2019) Extra hoses, fittings, tips, tool",
+   "author": "cjfinch1991",
+   "time": "2026-11-22T15:45:54+00:00",
+   "platform": "Forum",
+   "source": "Pressure Washing Resource",
+   "links_ok": false,
+   "intent": "sell",
+   "category": "trailers",
+   "category_name": "Trailers",
+   "score": 2,
+   "drafts": {
+    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
+    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_trailers"
+   },
+   "first_seen": "2026-11-22T19:31:37.683015+00:00"
+  },
+  {
    "title": "WTB taper micrometers and none appear to be currently made, why?",
    "link": "https://www.practicalmachinist.com/forum/threads/wtb-taper-micrometers-and-none-appear-to-be-currently-made-why.397980/",
    "text": "I very rarely find any even used and if you do, they are ridiculously expensive. Is anybody making these today?",
@@ -141,30 +141,11 @@
    "first_seen": "2026-11-15T18:47:14.675973+00:00"
   },
   {
-   "title": "Wanted: Hobby Machinist with Metal Lathe \u2014 Small, Simple Paid Project",
-   "link": "https://www.hobby-machinist.com/threads/wanted-hobby-machinist-with-metal-lathe-small-simple-paid-project.126264/",
-   "text": "Looking for someone with a metal lathe to make a small set of cylindrical metal parts for a mechanical puzzle. The work involves basic lathe operations: cutting 1 inch Al stock to length, turning outside diameters, and drilling axial holes. No CNC equipment required. A conventional manual metal lathe should be sufficient. This is a small, one-time project, may lead to more, particularly suitable for a retired machinist, home-shop hobbyist, or someone who enjoys straightforward... Read more",
-   "author": "MHLevine",
-   "time": "2026-11-14T17:24:21+00:00",
-   "platform": "Forum",
-   "source": "Hobby-Machinist",
-   "links_ok": false,
-   "intent": "buy",
-   "category": "machining",
-   "category_name": "Metalworking & CNC",
-   "score": 3,
-   "drafts": {
-    "no_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?",
-    "with_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?\nhttps://www.yardswaps.com/?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
-   },
-   "first_seen": "2026-11-14T17:57:47.647113+00:00"
-  },
-  {
    "title": "Who makes the second best Micrometer",
    "link": "https://www.hobby-machinist.com/threads/who-makes-the-second-best-micrometer.126293/",
    "text": "starting with this comment.... https://www.hobby-machinist.com/threads/lathe-head-stock-is-tilted-shim-it.126016/post-1354350 I am looking for my first micrometer. I already have my second in the amazon shopping cart, Mitutoyo 103-129, confirmed to be the legit Mitutoyo store. but, I want one that I wont be afraid to break, drop, or have something go very wrong with. some mentioned that I look like I am on a budget. I am not, I do want to buy twice and cry twice. I want to learn... Read more",
    "author": "tater1337",
-   "time": "2026-11-21T15:44:15+00:00",
+   "time": "2026-11-22T15:58:25+00:00",
    "platform": "Forum",
    "source": "Hobby-Machinist",
    "links_ok": false,
@@ -176,7 +157,7 @@
     "no_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?",
     "with_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?\nhttps://www.yardswaps.com/?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
    },
-   "first_seen": "2026-11-21T19:09:35.141265+00:00"
+   "first_seen": "2026-11-22T19:31:37.683015+00:00"
   }
  ]
 }
