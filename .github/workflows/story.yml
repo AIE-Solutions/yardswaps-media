@@ -3,19 +3,18 @@ name: LIST IT FREE Story
 # Daily "LIST IT FREE" Instagram Story (Alan, 2026-11-08). Instagram only:
 # never feed posts, Reels, Facebook or Threads; no captions, no comments.
 # Started at ~9:27 am Central by a Claude scheduled task. Since 2026-11-22 that
-# task's dispatch can be refused, so GitHub's own schedule is the backup: tries
-# at 9:27 and 9:50 am Central (Central-time crons, so daylight saving needs no
-# edits). Schedule runs always publish, but publish_story.py check skips any
-# run outside 9:20 am-noon Central, because GitHub crons here can start hours
-# late. A cheap gate job (one billed minute, no image bank checkout) stops a
-# run when today's Story is already handled. One publish attempt per Central
-# day; a failure is logged and reported, never retried, so the first run that
-# reaches Instagram is the only one.
+# task's dispatch can be refused, so GitHub's own schedule is the backup: every
+# 10 minutes from 9:20 am to noon Central (both DST seasons; publish_story.py
+# check skips any run outside that window, because GitHub crons here can start
+# hours late). Schedule runs always publish. A cheap gate job (no image bank
+# checkout) stops a run when today's Story is already handled. One publish
+# attempt per Central day; a failure is logged and reported, never retried,
+# so the first run that reaches Instagram is the only one.
 # The Graph API cannot add link stickers, so the link is printed on the image.
 on:
   schedule:
-    - cron: "27,50 9 * * *"
-      timezone: "America/Chicago"
+    # 9:20 am to noon Central: 15:20-18:00 UTC in winter, 14:20-17:00 UTC in summer.
+    - cron: "7,17,27,37,47,57 14-17 * * *"
   workflow_dispatch:
     inputs:
       publish:
