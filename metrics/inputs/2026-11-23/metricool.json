@@ -1,0 +1,520 @@
+{
+ "period": "2026-11-16..2026-11-22 (America/Chicago), read 2026-11-23 from Metricool brand 7684598",
+ "youtubeEvolution": {
+  "2026-11-16": {
+   "subscribers": 7,
+   "views": 1529,
+   "gained": 1,
+   "lost": 0
+  },
+  "2026-11-17": {
+   "subscribers": 8,
+   "views": 745,
+   "gained": 0,
+   "lost": 0
+  },
+  "2026-11-18": {
+   "subscribers": 8,
+   "views": 1130,
+   "gained": 1,
+   "lost": 0
+  },
+  "2026-11-19": {
+   "views": 19,
+   "gained": 1,
+   "lost": 0
+  },
+  "2026-11-21": {
+   "subscribers": 10
+  }
+ },
+ "instagramAccount": {
+  "followers": {
+   "2026-11-16": 823,
+   "2026-11-17": 826,
+   "2026-11-18": 828,
+   "2026-11-20": 811,
+   "2026-11-21": 815
+  },
+  "followersGainedDaily": {
+   "2026-11-16": 14,
+   "2026-11-17": 14,
+   "2026-11-18": 13,
+   "2026-11-19": 4,
+   "2026-11-20": 2,
+   "2026-11-21": 7
+  },
+  "reelViewsDaily": {
+   "2026-11-16": 512,
+   "2026-11-17": 761,
+   "2026-11-18": 340,
+   "2026-11-19": 311,
+   "2026-11-20": 336,
+   "2026-11-21": 629,
+   "2026-11-22": 525
+  }
+ },
+ "instagramReels": {
+  "summary": {
+   "ours": {
+    "reels": 48,
+    "views": 2339,
+    "avgViews": 48.7,
+    "comments": 21,
+    "avg3sViewRate": 20.5
+   },
+   "heycatch": {
+    "reels": 13,
+    "views": 1075,
+    "avgViews": 82.7,
+    "comments": 0,
+    "avg3sViewRate": 25.9
+   }
+  },
+  "rows": [
+   {
+    "time": "2026-11-22T18:33",
+    "who": "heycatch",
+    "views": 11,
+    "comments": 0,
+    "threeSecViewRate": 25
+   },
+   {
+    "time": "2026-11-22T16:46",
+    "who": "ours",
+    "views": 31,
+    "comments": 4,
+    "threeSecViewRate": 29.6
+   },
+   {
+    "time": "2026-11-22T14:47",
+    "who": "ours",
+    "views": 15,
+    "comments": 0,
+    "threeSecViewRate": 20
+   },
+   {
+    "time": "2026-11-22T13:40",
+    "who": "ours",
+    "views": 12,
+    "comments": 0,
+    "threeSecViewRate": 14.3
+   },
+   {
+    "time": "2026-11-22T12:46",
+    "who": "ours",
+    "views": 111,
+    "comments": 0,
+    "threeSecViewRate": 19.4
+   },
+   {
+    "time": "2026-11-22T10:33",
+    "who": "heycatch",
+    "views": 17,
+    "comments": 0,
+    "threeSecViewRate": 0
+   },
+   {
+    "time": "2026-11-22T04:47",
+    "who": "ours",
+    "views": 24,
+    "comments": 0,
+    "threeSecViewRate": 26.1
+   },
+   {
+    "time": "2026-11-22T02:34",
+    "who": "heycatch",
+    "views": 122,
+    "comments": 0,
+    "threeSecViewRate": 38.5
+   },
+   {
+    "time": "2026-11-22T00:46",
+    "who": "ours",
+    "views": 182,
+    "comments": 0,
+    "threeSecViewRate": 17.3
+   },
+   {
+    "time": "2026-11-21T23:47",
+    "who": "ours",
+    "views": 191,
+    "comments": 0,
+    "threeSecViewRate": 37.3
+   },
+   {
+    "time": "2026-11-21T18:31",
+    "who": "heycatch",
+    "views": 15,
+    "comments": 0,
+    "threeSecViewRate": 0
+   },
+   {
+    "time": "2026-11-21T16:46",
+    "who": "ours",
+    "views": 83,
+    "comments": 0,
+    "threeSecViewRate": 23.4
+   },
+   {
+    "time": "2026-11-21T14:47",
+    "who": "ours",
+    "views": 39,
+    "comments": 0,
+    "threeSecViewRate": 24.3
+   },
+   {
+    "time": "2026-11-21T13:03",
+    "who": "ours",
+    "views": 42,
+    "comments": 2,
+    "threeSecViewRate": 16.2
+   },
+   {
+    "time": "2026-11-21T12:47",
+    "who": "ours",
+    "views": 26,
+    "comments": 2,
+    "threeSecViewRate": 23.8
+   },
+   {
+    "time": "2026-11-21T05:47",
+    "who": "ours",
+    "views": 66,
+    "comments": 0,
+    "threeSecViewRate": 31.7
+   },
+   {
+    "time": "2026-11-21T04:47",
+    "who": "ours",
+    "views": 47,
+    "comments": 0,
+    "threeSecViewRate": 23.1
+   },
+   {
+    "time": "2026-11-21T00:46",
+    "who": "ours",
+    "views": 120,
+    "comments": 0,
+    "threeSecViewRate": 5.2
+   },
+   {
+    "time": "2026-11-20T23:47",
+    "who": "ours",
+    "views": 19,
+    "comments": 0,
+    "threeSecViewRate": 21.4
+   },
+   {
+    "time": "2026-11-20T18:33",
+    "who": "heycatch",
+    "views": 27,
+    "comments": 0,
+    "threeSecViewRate": 28.6
+   },
+   {
+    "time": "2026-11-20T16:47",
+    "who": "ours",
+    "views": 18,
+    "comments": 0,
+    "threeSecViewRate": 11.8
+   },
+   {
+    "time": "2026-11-20T14:48",
+    "who": "ours",
+    "views": 74,
+    "comments": 2,
+    "threeSecViewRate": 26.8
+   },
+   {
+    "time": "2026-11-20T13:41",
+    "who": "ours",
+    "views": 15,
+    "comments": 0,
+    "threeSecViewRate": 26.7
+   },
+   {
+    "time": "2026-11-20T12:13",
+    "who": "ours",
+    "views": 21,
+    "comments": 0,
+    "threeSecViewRate": 12.5
+   },
+   {
+    "time": "2026-11-20T10:33",
+    "who": "heycatch",
+    "views": 12,
+    "comments": 0,
+    "threeSecViewRate": 0
+   },
+   {
+    "time": "2026-11-20T04:47",
+    "who": "ours",
+    "views": 120,
+    "comments": 0,
+    "threeSecViewRate": 33.6
+   },
+   {
+    "time": "2026-11-20T00:46",
+    "who": "ours",
+    "views": 30,
+    "comments": 0,
+    "threeSecViewRate": 26.7
+   },
+   {
+    "time": "2026-11-19T23:47",
+    "who": "ours",
+    "views": 7,
+    "comments": 0,
+    "threeSecViewRate": 14.3
+   },
+   {
+    "time": "2026-11-19T16:47",
+    "who": "ours",
+    "views": 10,
+    "comments": 2,
+    "threeSecViewRate": 10
+   },
+   {
+    "time": "2026-11-19T14:47",
+    "who": "ours",
+    "views": 60,
+    "comments": 0,
+    "threeSecViewRate": 23.6
+   },
+   {
+    "time": "2026-11-19T13:46",
+    "who": "ours",
+    "views": 23,
+    "comments": 0,
+    "threeSecViewRate": 21.7
+   },
+   {
+    "time": "2026-11-19T12:12",
+    "who": "ours",
+    "views": 28,
+    "comments": 0,
+    "threeSecViewRate": 21.4
+   },
+   {
+    "time": "2026-11-19T04:46",
+    "who": "ours",
+    "views": 25,
+    "comments": 0,
+    "threeSecViewRate": 26.1
+   },
+   {
+    "time": "2026-11-19T02:30",
+    "who": "heycatch",
+    "views": 122,
+    "comments": 0,
+    "threeSecViewRate": 35.5
+   },
+   {
+    "time": "2026-11-19T00:46",
+    "who": "ours",
+    "views": 36,
+    "comments": 0,
+    "threeSecViewRate": 15.2
+   },
+   {
+    "time": "2026-11-18T23:48",
+    "who": "ours",
+    "views": 31,
+    "comments": 2,
+    "threeSecViewRate": 10
+   },
+   {
+    "time": "2026-11-18T18:33",
+    "who": "heycatch",
+    "views": 136,
+    "comments": 0,
+    "threeSecViewRate": 53.7
+   },
+   {
+    "time": "2026-11-18T16:48",
+    "who": "ours",
+    "views": 16,
+    "comments": 0,
+    "threeSecViewRate": 0
+   },
+   {
+    "time": "2026-11-18T14:47",
+    "who": "ours",
+    "views": 73,
+    "comments": 2,
+    "threeSecViewRate": 27
+   },
+   {
+    "time": "2026-11-18T13:29",
+    "who": "ours",
+    "views": 23,
+    "comments": 0,
+    "threeSecViewRate": 31.6
+   },
+   {
+    "time": "2026-11-18T12:17",
+    "who": "ours",
+    "views": 29,
+    "comments": 0,
+    "threeSecViewRate": 10.7
+   },
+   {
+    "time": "2026-11-18T04:50",
+    "who": "ours",
+    "views": 32,
+    "comments": 0,
+    "threeSecViewRate": 24.1
+   },
+   {
+    "time": "2026-11-17T22:47",
+    "who": "ours",
+    "views": 21,
+    "comments": 0,
+    "threeSecViewRate": 18.7
+   },
+   {
+    "time": "2026-11-17T18:31",
+    "who": "heycatch",
+    "views": 133,
+    "comments": 0,
+    "threeSecViewRate": 44.2
+   },
+   {
+    "time": "2026-11-17T16:52",
+    "who": "ours",
+    "views": 24,
+    "comments": 2,
+    "threeSecViewRate": 30.4
+   },
+   {
+    "time": "2026-11-17T14:50",
+    "who": "ours",
+    "views": 17,
+    "comments": 0,
+    "threeSecViewRate": 7.1
+   },
+   {
+    "time": "2026-11-17T13:51",
+    "who": "ours",
+    "views": 99,
+    "comments": 0,
+    "threeSecViewRate": 26.1
+   },
+   {
+    "time": "2026-11-17T12:30",
+    "who": "ours",
+    "views": 19,
+    "comments": 0,
+    "threeSecViewRate": 7.7
+   },
+   {
+    "time": "2026-11-17T10:34",
+    "who": "heycatch",
+    "views": 180,
+    "comments": 0,
+    "threeSecViewRate": 29.3
+   },
+   {
+    "time": "2026-11-17T04:50",
+    "who": "ours",
+    "views": 16,
+    "comments": 0,
+    "threeSecViewRate": 11.1
+   },
+   {
+    "time": "2026-11-17T02:33",
+    "who": "heycatch",
+    "views": 138,
+    "comments": 0,
+    "threeSecViewRate": 37.9
+   },
+   {
+    "time": "2026-11-17T00:50",
+    "who": "ours",
+    "views": 114,
+    "comments": 0,
+    "threeSecViewRate": 34.6
+   },
+   {
+    "time": "2026-11-16T22:50",
+    "who": "ours",
+    "views": 53,
+    "comments": 0,
+    "threeSecViewRate": 14
+   },
+   {
+    "time": "2026-11-16T18:31",
+    "who": "heycatch",
+    "views": 21,
+    "comments": 0,
+    "threeSecViewRate": 5.6
+   },
+   {
+    "time": "2026-11-16T16:51",
+    "who": "ours",
+    "views": 16,
+    "comments": 0,
+    "threeSecViewRate": 25
+   },
+   {
+    "time": "2026-11-16T14:48",
+    "who": "ours",
+    "views": 124,
+    "comments": 3,
+    "threeSecViewRate": 40.2
+   },
+   {
+    "time": "2026-11-16T13:10",
+    "who": "ours",
+    "views": 30,
+    "comments": 0,
+    "threeSecViewRate": 21.7
+   },
+   {
+    "time": "2026-11-16T12:48",
+    "who": "ours",
+    "views": 22,
+    "comments": 0,
+    "threeSecViewRate": 6.2
+   },
+   {
+    "time": "2026-11-16T04:47",
+    "who": "ours",
+    "views": 64,
+    "comments": 0,
+    "threeSecViewRate": 25.4
+   },
+   {
+    "time": "2026-11-16T02:30",
+    "who": "heycatch",
+    "views": 141,
+    "comments": 0,
+    "threeSecViewRate": 37.9
+   },
+   {
+    "time": "2026-11-16T00:45",
+    "who": "ours",
+    "views": 41,
+    "comments": 0,
+    "threeSecViewRate": 10.8
+   }
+  ],
+  "note": "who: heycatch = caption is the generic HeyCatch hashtag block; ours = everything else (poster + just-listed)"
+ },
+ "facebookReels": {
+  "ours": {
+   "reels": 42,
+   "views": 5277,
+   "avgViews": 125.6,
+   "under5Views": 12
+  },
+  "heycatch": {
+   "reels": 17,
+   "views": 640,
+   "avgViews": 37.6,
+   "zeroViews": 11
+  }
+ },
+ "tiktok": "no rows (TikTok link in Metricool still empty)"
+}
