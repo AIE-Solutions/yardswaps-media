@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-23",
- "generatedAt": "2026-11-23T14:24:49Z",
+ "generatedAt": "2026-11-23T23:51:38Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": true,
@@ -12,14 +12,14 @@
  "goals": {
   "followers": {
    "instagram": {
-    "now": 814,
-    "change7d": -12,
-    "asOf": "2026-11-22"
+    "now": 810,
+    "change7d": -16,
+    "asOf": "2026-11-23"
    },
    "facebook": {
     "now": 15,
     "change7d": 1,
-    "asOf": "2026-11-22"
+    "asOf": "2026-11-23"
    },
    "youtube": {
     "subscribers": 10,
@@ -81,6 +81,28 @@
     "ratio": null
    },
    {
+    "slug": "flatbed-after-the-last-contract",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 9.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 2,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 4.5,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "fleet",
+    "demo": true,
+    "structure": "problem-action-result",
+    "cut": "10s",
+    "ratio": null
+   },
+   {
     "slug": "chairs-from-the-closed-office",
     "posts": 2,
     "settled": 2,
@@ -103,28 +125,6 @@
     "ratio": null
    },
    {
-    "slug": "flatbed-after-the-last-contract",
-    "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
-    "points": 7.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 2,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 3.5,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "fleet",
-    "demo": true,
-    "structure": "problem-action-result",
-    "cut": "10s",
-    "ratio": null
-   },
-   {
     "slug": "wrench-wall-from-the-sold-shop",
     "posts": 2,
     "settled": 2,
@@ -141,28 +141,6 @@
     "hook": "pov-idle",
     "angle": "small-items",
     "category": "tools",
-    "demo": true,
-    "structure": "problem-action-result",
-    "cut": "10s",
-    "ratio": null
-   },
-   {
-    "slug": "skid-steer-after-the-grading",
-    "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
-    "points": 6.0,
-    "views": 0,
-    "likes": 0,
-    "comments": 2,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 3.0,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "excavators",
     "demo": true,
     "structure": "problem-action-result",
     "cut": "10s",
@@ -436,6 +414,29 @@
     "ratio": null
    },
    {
+    "slug": "soldadora-en-el-carrito",
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 0,
+    "points": 1.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "welding",
+    "demo": true,
+    "structure": "problem-action-result",
+    "cut": "10s",
+    "lang": "es",
+    "ratio": null
+   },
+   {
     "slug": "sprayer-after-the-season",
     "posts": 1,
     "settled": 1,
@@ -561,45 +562,6 @@
     "demo": true,
     "structure": "problem-action-result",
     "cut": "10s",
-    "ratio": null
-   },
-   {
-    "slug": "soldadora-en-el-carrito",
-    "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
-    "points": 1.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 0.5,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "welding",
-    "demo": true,
-    "structure": "problem-action-result",
-    "cut": "10s",
-    "lang": "es",
-    "ratio": null
-   },
-   {
-    "slug": "storefront-founding-29",
-    "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
-    "points": 1.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 0.5,
     "ratio": null
    },
    {
@@ -732,7 +694,7 @@
    },
    {
     "slug": "chain-hoist-on-the-beam",
-    "posts": 1,
+    "posts": 3,
     "settled": 1,
     "igSettled": 0,
     "points": 0.0,
@@ -755,8 +717,8 @@
    {
     "slug": "chop-saw-small-tools",
     "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
+    "settled": 2,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -765,7 +727,7 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "pov-idle",
     "angle": "small-items",
     "category": "tools",
@@ -936,7 +898,7 @@
    },
    {
     "slug": "every-category",
-    "posts": 1,
+    "posts": 2,
     "settled": 0,
     "igSettled": 0,
     "points": 0.0,
@@ -1034,9 +996,9 @@
    },
    {
     "slug": "generator-for-the-storm-season",
-    "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 0,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -1214,6 +1176,70 @@
     "ratio": null
    },
    {
+    "slug": "listed-commercial-dehumidifiers-4x-phoeni-wr62p",
+    "posts": 1,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "ratio": null
+   },
+   {
+    "slug": "listed-dustless-blasting-mobile-trailer-r-5c2iy",
+    "posts": 1,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "ratio": null
+   },
+   {
+    "slug": "listed-instapak-speedypacker-floor-model-nr7e2",
+    "posts": 1,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "ratio": null
+   },
+   {
+    "slug": "listed-john-deere-travel-motor-excavator-gfg33",
+    "posts": 2,
+    "settled": 0,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "ratio": null
+   },
+   {
     "slug": "listed-omni-metalcraft-powered-24-w",
     "posts": 2,
     "settled": 2,
@@ -1237,10 +1263,26 @@
     "ratio": null
    },
    {
-    "slug": "listed-used-pallet-racking-complete-lot-1-no15x",
+    "slug": "listed-toyota-electric-3-wheel-forklift-3-curw5",
     "posts": 2,
     "settled": 0,
     "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": null,
+    "ratio": null
+   },
+   {
+    "slug": "listed-used-pallet-racking-complete-lot-1-no15x",
+    "posts": 2,
+    "settled": 1,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -1249,7 +1291,7 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "ratio": null
    },
    {
@@ -1439,7 +1481,7 @@
    {
     "slug": "pressure-washer-replaced",
     "posts": 1,
-    "settled": 0,
+    "settled": 1,
     "igSettled": 0,
     "points": 0.0,
     "views": 0,
@@ -1449,7 +1491,7 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "pressure",
@@ -1457,9 +1499,9 @@
    },
    {
     "slug": "read-the-plate-welder",
-    "posts": 2,
-    "settled": 2,
-    "igSettled": 1,
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 0,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -1671,8 +1713,8 @@
    {
     "slug": "show-the-cold-start",
     "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
+    "settled": 1,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -1681,16 +1723,16 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "hook": "question-problem",
     "angle": "seller-tip",
     "category": "compressors",
     "ratio": null
    },
    {
-    "slug": "snap-it-list-it",
+    "slug": "skid-steer-after-the-grading",
     "posts": 1,
-    "settled": 0,
+    "settled": 1,
     "igSettled": 0,
     "points": 0.0,
     "views": 0,
@@ -1700,7 +1742,29 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "excavators",
+    "demo": true,
+    "structure": "problem-action-result",
+    "cut": "10s",
+    "ratio": null
+   },
+   {
+    "slug": "snap-it-list-it",
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 0.0,
     "hook": "question-problem",
     "angle": "idle-gear",
     "category": "compressors",
@@ -1829,6 +1893,22 @@
    },
    {
     "slug": "storefront-30-days-free",
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 0,
+    "points": 0.0,
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 0.0,
+    "ratio": null
+   },
+   {
+    "slug": "storefront-founding-29",
     "posts": 1,
     "settled": 1,
     "igSettled": 0,
@@ -1991,26 +2071,26 @@
   ],
   "insights": {
    "refused": [
-    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aiv1vKbMr-HKJ-dy8obC1dn\"}}",
-    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AoLZQjKmVUqrRYTSaDRS0iW\"}}",
-    "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AjjwpoesJ-gFCMMBErQb6RD\"}}",
-    "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AmsobNdwQlyKoST2zq287M2\"}}",
-    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AIT9nmTMyVWI_LsbW4GlTGh\"}}",
-    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ae4cwBT5zAPocCaeohNmP8Y\"}}",
-    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AVieITtb03nzsGVjedc6UkD\"}}",
-    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AFNm1Q01h3G6I1mWt6MOHrR\"}}",
-    "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A5RRaFF7vJNB2dy-szpXuy_\"}}",
-    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"As4Dm8L9JXtodvN-_U1sFFj\"}}",
-    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AcqZM0rIKwOsbYXM3Xk3jH4\"}}",
-    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AsbgrwgFu2PZbMZhK4anVDc\"}}",
-    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A9rf2wdHesd0kY4zZuOyxfT\"}}",
-    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AdBdZIsWHyYRm3OWAAn31uV\"}}",
-    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A7xDYstoc-1KTd5w3gt5hDG\"}}",
-    "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AchPID5mb8pPIlifAS-jsxY\"}}",
-    "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"A8fwEsBs6agA7LrMIDFKFze\"}}",
-    "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"APvEAAkh5cbRbbxoLzZtUpv\"}}",
-    "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"Aw5v9FAv2YYYQu5uBeNJm6F\"}}",
-    "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"Al50dX-66kCgM3R-puCeFoB\"}}"
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AKkwT8KYUycxVa8zCFVYeb7\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AROoBd32iAjd4odhADTbxdP\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AG9iC1l9JGt6mBtdGNQYr0f\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"ACSDkhGHYY2auDj9JTT0zr3\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"APIAqQKnpct_L7hYgxFl130\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ak6--qxaycgfo8VvBV4PXAB\"}}",
+    "views: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"APUTMRdbIhlJmRT6O_NxL0k\"}}",
+    "reach: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aodg8eofVprgFHvRxvpjNjz\"}}",
+    "likes: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AcpduQBJFOeV1MKzSuFzwMj\"}}",
+    "comments: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Amuq6ETIl_JoxSM8tHYwj-1\"}}",
+    "shares: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AgTzqYHWuUnboDKjjroFuPo\"}}",
+    "saved: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A20NiZznxZc2DwISj3qU9IK\"}}",
+    "follows: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Azn9G6P81eI62nFfZco1Rzu\"}}",
+    "total_interactions: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"A3kWd_KHSa2J_wXBg4zYa7i\"}}",
+    "ig_reels_avg_watch_time: 400: {\"error\":{\"message\":\"(#10) Application does not have permission for this action\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aoa88JjbOjyHFa1S_RIX7E6\"}}",
+    "fb_reels_total_plays: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AAZgI4-ZtgK0OSd4Gl-x0SK\"}}",
+    "blue_reels_play_count: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AISQGYMS6Nb6JwDpJ7IwDKi\"}}",
+    "post_impressions_unique: ights -> 400: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"A-57y1XCgpk4wfypX5lm2iy\"}}",
+    "post_video_avg_time_watched: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"ALzHhXkw_-CCHq6nXiq70Sz\"}}",
+    "post_video_followers: ng (https:\\/\\/developers.facebook.com\\/docs\\/permissions\\/reference\\/read_insights)\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"ABMhJBgWCKUsAW8wsFpkVvs\"}}"
    ],
    "usable": {
     "fb_reels_total_plays,blue_reels_play_count,post_impressions_unique,post_video_avg_time_watched,post_video_followers,post_video_social_actions": [],
@@ -2023,16 +2103,15 @@
   "hook": [
    {
     "value": "pov-idle",
-    "posts": 77,
-    "perPost": 0.69,
+    "posts": 76,
+    "perPost": 0.64,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "spare-truck-wheel",
-     "chairs-from-the-closed-office",
      "flatbed-after-the-last-contract",
+     "chairs-from-the-closed-office",
      "wrench-wall-from-the-sold-shop",
-     "skid-steer-after-the-grading",
      "boring-bars-tooling",
      "mission-idle-to-work",
      "parts-donor-thumb",
@@ -2041,16 +2120,17 @@
      "interior-job-done-lifts",
      "lift-still-bolted-down",
      "shop-went-cnc-lathe",
+     "soldadora-en-el-carrito",
      "sprayer-after-the-season",
      "surplus-parts-labels",
      "cord-reels-after-the-events",
      "lathe-from-the-closed-shop",
      "pressure-washer-the-crew-skips",
-     "soldadora-en-el-carrito",
      "welder-from-one-job-es",
      "job-wrapped-generator",
      "box-truck-after-the-route",
      "chain-hoist-on-the-beam",
+     "chop-saw-small-tools",
      "commercial-idle-forklift",
      "compressor-by-the-fence",
      "condenser-changeout",
@@ -2071,6 +2151,7 @@
      "office-went-remote",
      "parts-bin-lot",
      "plumbing-part-label",
+     "pressure-washer-replaced",
      "read-the-plate-welder",
      "roller-after-the-overlay",
      "rooftop-unit-on-the-pallet",
@@ -2079,6 +2160,7 @@
      "second-bay-closed-tools",
      "second-jetter-by-the-fence",
      "second-location-closed",
+     "skid-steer-after-the-grading",
      "snap-the-part",
      "sold-the-septic-route",
      "store-closed-kiosk",
@@ -2120,14 +2202,16 @@
    },
    {
     "value": "question-problem",
-    "posts": 4,
-    "perPost": 0.25,
+    "posts": 6,
+    "perPost": 0.17,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "part-tag-scan",
      "dealer-storefront",
      "invite-a-seller",
+     "show-the-cold-start",
+     "snap-it-list-it",
      "spare-part"
     ]
    },
@@ -2178,25 +2262,9 @@
   ],
   "angle": [
    {
-    "value": "small-items",
-    "posts": 10,
-    "perPost": 1.7,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "chairs-from-the-closed-office",
-     "wrench-wall-from-the-sold-shop",
-     "boring-bars-tooling",
-     "cord-reels-after-the-events",
-     "micrometer-set-small-tools",
-     "safety-gear-on-the-wall",
-     "second-bay-closed-tools"
-    ]
-   },
-   {
     "value": "parts-spec",
-    "posts": 7,
-    "perPost": 1.29,
+    "posts": 6,
+    "perPost": 1.5,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -2206,6 +2274,23 @@
      "read-the-plate-welder",
      "spare-part",
      "surplus-parts-cash-flow"
+    ]
+   },
+   {
+    "value": "small-items",
+    "posts": 12,
+    "perPost": 1.42,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "chairs-from-the-closed-office",
+     "wrench-wall-from-the-sold-shop",
+     "boring-bars-tooling",
+     "cord-reels-after-the-events",
+     "chop-saw-small-tools",
+     "micrometer-set-small-tools",
+     "safety-gear-on-the-wall",
+     "second-bay-closed-tools"
     ]
    },
    {
@@ -2225,13 +2310,12 @@
    },
    {
     "value": "idle-gear",
-    "posts": 60,
-    "perPost": 0.48,
+    "posts": 59,
+    "perPost": 0.42,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "flatbed-after-the-last-contract",
-     "skid-steer-after-the-grading",
      "mission-idle-to-work",
      "construction-life-compactor",
      "drilling-rig-parked",
@@ -2241,10 +2325,10 @@
      "pressure-washer-1000-psi",
      "shop-went-cnc-lathe",
      "small-business-old-oven",
+     "soldadora-en-el-carrito",
      "sprayer-after-the-season",
      "lathe-from-the-closed-shop",
      "pressure-washer-the-crew-skips",
-     "soldadora-en-el-carrito",
      "welder-from-one-job-es",
      "job-wrapped-generator",
      "box-truck-after-the-route",
@@ -2266,11 +2350,14 @@
      "mixer-after-the-pour",
      "mowing-contract-ended",
      "office-went-remote",
+     "pressure-washer-replaced",
      "roller-after-the-overlay",
      "rooftop-unit-on-the-pallet",
      "scissor-lift-after-the-fitout",
      "second-jetter-by-the-fence",
      "second-location-closed",
+     "skid-steer-after-the-grading",
+     "snap-it-list-it",
      "sold-the-septic-route",
      "store-closed-kiosk",
      "that-trailer-next-season",
@@ -2339,30 +2426,29 @@
      "origin-searched-everywhere",
      "origin-sitting-cash"
     ]
+   },
+   {
+    "value": "seller-tip",
+    "posts": 1,
+    "perPost": 0.0,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "show-the-cold-start"
+    ]
    }
   ],
   "category": [
    {
     "value": "fleet",
     "posts": 4,
-    "perPost": 3.5,
+    "perPost": 4.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "spare-truck-wheel",
      "flatbed-after-the-last-contract",
      "box-truck-after-the-route"
-    ]
-   },
-   {
-    "value": "excavators",
-    "posts": 3,
-    "perPost": 2.67,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "skid-steer-after-the-grading",
-     "parts-donor-thumb"
     ]
    },
    {
@@ -2378,13 +2464,25 @@
    },
    {
     "value": "tools",
-    "posts": 3,
-    "perPost": 2.33,
+    "posts": 5,
+    "perPost": 1.4,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "wrench-wall-from-the-sold-shop",
+     "chop-saw-small-tools",
      "second-bay-closed-tools"
+    ]
+   },
+   {
+    "value": "excavators",
+    "posts": 2,
+    "perPost": 1.0,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "parts-donor-thumb",
+     "skid-steer-after-the-grading"
     ]
    },
    {
@@ -2419,17 +2517,6 @@
      "lathe-from-the-closed-shop",
      "micrometer-set-small-tools",
      "parts-bin-lot"
-    ]
-   },
-   {
-    "value": "pressure",
-    "posts": 3,
-    "perPost": 0.67,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "pressure-washer-1000-psi",
-     "pressure-washer-the-crew-skips"
     ]
    },
    {
@@ -2470,6 +2557,32 @@
     ]
    },
    {
+    "value": "pressure",
+    "posts": 4,
+    "perPost": 0.5,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "pressure-washer-1000-psi",
+     "pressure-washer-the-crew-skips",
+     "pressure-washer-replaced"
+    ]
+   },
+   {
+    "value": "welding",
+    "posts": 6,
+    "perPost": 0.5,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "soldadora-en-el-carrito",
+     "storefront-stats",
+     "welder-from-one-job-es",
+     "read-the-plate-welder",
+     "welder-from-one-job"
+    ]
+   },
+   {
     "value": "agriculture",
     "posts": 2,
     "perPost": 0.5,
@@ -2478,20 +2591,6 @@
     "slugs": [
      "sprayer-after-the-season",
      "invite-a-seller"
-    ]
-   },
-   {
-    "value": "welding",
-    "posts": 8,
-    "perPost": 0.38,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "storefront-stats",
-     "soldadora-en-el-carrito",
-     "welder-from-one-job-es",
-     "read-the-plate-welder",
-     "welder-from-one-job"
     ]
    },
    {
@@ -2551,8 +2650,8 @@
    },
    {
     "value": "generators",
-    "posts": 8,
-    "perPost": 0.12,
+    "posts": 7,
+    "perPost": 0.14,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -2565,13 +2664,15 @@
    },
    {
     "value": "compressors",
-    "posts": 2,
+    "posts": 4,
     "perPost": 0.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "ai-lists-it",
-     "compressor-by-the-fence"
+     "compressor-by-the-fence",
+     "show-the-cold-start",
+     "snap-it-list-it"
     ]
    },
    {
@@ -2734,15 +2835,14 @@
   "structure": [
    {
     "value": "problem-action-result",
-    "posts": 70,
-    "perPost": 0.61,
+    "posts": 66,
+    "perPost": 0.59,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
-     "chairs-from-the-closed-office",
      "flatbed-after-the-last-contract",
+     "chairs-from-the-closed-office",
      "wrench-wall-from-the-sold-shop",
-     "skid-steer-after-the-grading",
      "whole-lot-one-link",
      "construction-life-compactor",
      "interior-job-done-lifts",
@@ -2750,12 +2850,12 @@
      "pressure-washer-1000-psi",
      "shop-went-cnc-lathe",
      "small-business-old-oven",
+     "soldadora-en-el-carrito",
      "sprayer-after-the-season",
      "storefront-stats",
      "cord-reels-after-the-events",
      "lathe-from-the-closed-shop",
      "pressure-washer-the-crew-skips",
-     "soldadora-en-el-carrito",
      "welder-from-one-job-es",
      "job-wrapped-generator",
      "bluecollar-shelf-parts",
@@ -2785,6 +2885,7 @@
      "second-jetter-by-the-fence",
      "second-location-closed",
      "see-what-buyers-want-v2",
+     "skid-steer-after-the-grading",
      "socials-on-storefront",
      "sold-the-septic-route",
      "store-closed-kiosk",
@@ -3815,7 +3916,7 @@
     "pov-idle"
    ],
    "angles": [
-    "small-items"
+    "parts-spec"
    ],
    "categories": [
     "generators",
