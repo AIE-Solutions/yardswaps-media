@@ -84,5 +84,15 @@
     "status": "skipped",
     "why": "bot spam: identical template '😍 AMAZING ❤️ SEND ME THIS POST ❤️' posted on two Reels 2.5 minutes apart (third copy in two days), nothing to answer",
     "at": "2026-11-22T17:43:40Z"
+  },
+  "18116759486607760": {
+    "status": "skipped",
+    "why": "bot spam: 'Send me' and 'SeNd me This post' on the same Reel 10 minutes apart with no author, same 'send me this post' template as 11-18 to 11-22, nothing to answer",
+    "at": "2026-11-23T17:44:06Z"
+  },
+  "17899670175420774": {
+    "status": "skipped",
+    "why": "bot spam: 'Send me' and 'SeNd me This post' on the same Reel 10 minutes apart with no author, same 'send me this post' template as 11-18 to 11-22, nothing to answer",
+    "at": "2026-11-23T17:44:06Z"
   }
 }
