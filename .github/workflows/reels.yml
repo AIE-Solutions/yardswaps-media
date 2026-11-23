@@ -1,10 +1,10 @@
 name: Reels to Instagram and Facebook
 
-# Nine Reels a day on each platform (Nov 20; eight from Nov 18, seven from Nov 13, four from Nov 8, up from two), each re-shared to
+# Ten Reels a day on each platform (Nov 23; nine from Nov 20, eight from Nov 18, seven from Nov 13, four from Nov 8, up from two), each re-shared to
 # Stories right after and shared to Threads (once THREADS_TOKEN is set).
 # Slots are set in Central time in reels/post_reels.py (SLOTS_CT), so they
 # don't move when daylight saving changes:
-#   6:10, 7:00, 8:30, 10:00 am, 3:55, 5:15, 6:30, 10:10 and 11:40 pm Central
+#   12:40, 6:10, 7:00, 8:30, 10:00 am, 3:55, 5:15, 6:30, 10:10 and 11:40 pm Central
 # each with a short window (see post_reels.py) that keeps every post 90+
 # minutes from HeyCatch (about :33 past 4 am, 12 pm and 8 pm Central) and the
 # 2:15 pm Just listed post.
@@ -22,7 +22,8 @@ on:
     - cron: "7,37 21-23 * * *"
     - cron: "37,52 0 * * *"
     - cron: "42,52 4 * * *"      # 10:42 and 10:52 pm Central in winter (10:10 pm slot), 11:42 and 11:52 pm in summer (11:40 pm slot)
-    - cron: "42,52 5 * * *"      # 11:42 and 11:52 pm Central in winter (11:40 pm slot)
+    - cron: "42,52 5 * * *"      # 11:42 and 11:52 pm Central in winter (11:40 pm slot), 12:42 and 12:52 am in summer (12:40 am slot)
+    - cron: "42,52 6 * * *"      # 12:42 and 12:52 am Central in winter (12:40 am slot)
     - cron: "42 3 * * *"         # 10:42 pm Central in summer
   workflow_dispatch:
     inputs:
