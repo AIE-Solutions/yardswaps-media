@@ -1,15 +1,15 @@
-# YardSwaps weekly scorecard (2026-11-16)
+# YardSwaps weekly scorecard (2026-11-23)
 
-Generated 2026-11-22T19:33:38Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
+Generated 2026-11-23T14:24:49Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
 
 ## Goals
-- Instagram followers: 814 (-6 in 7 days)
+- Instagram followers: 814 (-12 in 7 days)
 - Facebook followers: 15 (+1 in 7 days)
-- YouTube: {"subscribers": 7, "views": 28818, "videoCount": 126}
-- Signups 7d: 9 (prev 5); from the app (iOS/Android): 0
-- Listings published 7d: 12 (prev 10); live now: 54
-- Signups by source 7d: organic 9
-- Heard about us 7d: not_answered 7, google 1, other 1
+- YouTube: {"subscribers": 10, "views": null, "videoCount": null}
+- Signups 7d: 19 (prev 9); from the app (iOS/Android): 3
+- Listings published 7d: 68 (prev 12); live now: 118
+- Signups by source 7d: organic 18, flyer 1
+- Heard about us 7d: not_answered 14, other 3, google 2
 
 ## Reels (our IG + FB posts, settled 48h+)
 Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments x3, likes x1, views/100, Reel-link signups x25.
@@ -17,6 +17,8 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | Video | Posts | Views | Likes | Comments | Shares | Saves | Follows | Signups | Points/post | vs median |
 |---|---|---|---|---|---|---|---|---|---|---|
 | spare-truck-wheel | 1 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 7.0 | - |
+| chairs-from-the-closed-office | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 3.5 | - |
+| flatbed-after-the-last-contract | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 3.5 | - |
 | wrench-wall-from-the-sold-shop | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 3.5 | - |
 | skid-steer-after-the-grading | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 3.0 | - |
 | boring-bars-tooling | 1 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 2.0 | - |
@@ -36,6 +38,8 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | storefront-stats | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
 | surplus-parts-labels | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
 | cord-reels-after-the-events | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
+| lathe-from-the-closed-shop | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
+| pressure-washer-the-crew-skips | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
 | soldadora-en-el-carrito | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
 | storefront-founding-29 | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
 | welder-from-one-job-es | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
@@ -45,7 +49,6 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | box-truck-after-the-route | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | building-things-concrete-mixer | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | chain-hoist-on-the-beam | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| chairs-from-the-closed-office | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | too new | - |
 | chop-saw-small-tools | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | commercial-idle-forklift | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | compressor-by-the-fence | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
@@ -57,7 +60,6 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | dump-trailer-after-the-cleanouts | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | every-category | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | find-it-nearby | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| flatbed-after-the-last-contract | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | too new | - |
 | follow-a-seller | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | forklift-finally-deal | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | fryers-from-the-closed-kitchen | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
@@ -65,7 +67,6 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | import-from-your-website | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | inspection-camera-in-the-van | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | invite-a-seller | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| lathe-from-the-closed-shop | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | laundromat-upgrade-washers | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | leftover-anchor-adhesive | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | leftover-fittings-lot | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
@@ -74,7 +75,7 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | listed-omni-metalcraft-powered-24-w | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | listed-used-pallet-racking-complete-lot-1-no15x | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | micrometer-set-small-tools | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| mixer-after-the-pour | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| mixer-after-the-pour | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | mowing-contract-ended | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | office-went-remote | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | origin-part-in-a-yard | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
@@ -83,13 +84,12 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | parts-bin-lot | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | plumbing-part-label | 3 | 0 | 2 | 4 | 0 | 0 | 0 | 0 | 0.0 | - |
 | pressure-washer-replaced | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| pressure-washer-the-crew-skips | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | read-the-plate-welder | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | roller-after-the-overlay | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | rooftop-unit-on-the-pallet | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | safety-gear-on-the-wall | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | save-a-search | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| scissor-lift-after-the-fitout | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| scissor-lift-after-the-fitout | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | second-bay-closed-tools | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | second-jetter-by-the-fence | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | second-location-closed | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
@@ -112,9 +112,9 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | zero-turn-after-the-account | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 
 ### Opener shapes
+- pov-idle: 0.69 points/post over 77 posts (testing)
 - pov-situation: 0.6 points/post over 5 posts (testing)
 - search-term: 0.6 points/post over 5 posts (testing)
-- pov-idle: 0.57 points/post over 65 posts (testing)
 - question-problem: 0.25 points/post over 4 posts (testing)
 - feature-statement: 0.0 points/post over 3 posts (testing)
 - just-listed: 0.0 points/post over 2 posts (testing)
@@ -122,10 +122,10 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - me-humor: 0.0 points/post over 1 posts (testing)
 
 ### Topics
+- small-items: 1.7 points/post over 10 posts (testing)
 - parts-spec: 1.29 points/post over 7 posts (testing)
-- small-items: 1.25 points/post over 8 posts (testing)
 - dealer: 0.5 points/post over 6 posts (testing)
-- idle-gear: 0.4 points/post over 50 posts (testing)
+- idle-gear: 0.48 points/post over 60 posts (testing)
 - shelf-parts: 0.25 points/post over 8 posts (testing)
 - seller-offer: 0.0 points/post over 2 posts (testing)
 - buyer-feature: 0.0 points/post over 2 posts (testing)
@@ -133,25 +133,26 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - origin-story: 0.0 points/post over 3 posts (testing)
 
 ### Categories
-- fleet: 3.5 points/post over 2 posts (testing)
+- fleet: 3.5 points/post over 4 posts (testing)
 - excavators: 2.67 points/post over 3 posts (testing)
+- office: 2.33 points/post over 3 posts (testing)
 - tools: 2.33 points/post over 3 posts (testing)
 - drilling: 1.0 points/post over 1 posts (testing)
 - automotive: 1.0 points/post over 1 posts (testing)
-- pressure: 1.0 points/post over 1 posts (testing)
-- machining: 0.75 points/post over 4 posts (testing)
+- machining: 0.67 points/post over 6 posts (testing)
+- pressure: 0.67 points/post over 3 posts (testing)
 - forklifts: 0.6 points/post over 5 posts (testing)
 - trailers: 0.5 points/post over 4 posts (testing)
 - paving: 0.5 points/post over 2 posts (testing)
 - agriculture: 0.5 points/post over 2 posts (testing)
 - welding: 0.38 points/post over 8 posts (testing)
-- aerial: 0.33 points/post over 3 posts (testing)
 - cooking: 0.33 points/post over 3 posts (testing)
 - electrical: 0.33 points/post over 3 posts (testing)
+- aerial: 0.2 points/post over 5 posts (testing)
 - parts: 0.18 points/post over 11 posts (testing)
 - generators: 0.12 points/post over 8 posts (testing)
 - compressors: 0.0 points/post over 2 posts (testing)
-- concrete: 0.0 points/post over 1 posts (testing)
+- concrete: 0.0 points/post over 3 posts (testing)
 - cranes: 0.0 points/post over 1 posts (testing)
 - hvac: 0.0 points/post over 2 posts (testing)
 - refrigeration: 0.0 points/post over 1 posts (testing)
@@ -160,7 +161,6 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - laundry: 0.0 points/post over 1 posts (testing)
 - warehouse: 0.0 points/post over 3 posts (testing)
 - landscaping: 0.0 points/post over 2 posts (testing)
-- office: 0.0 points/post over 1 posts (testing)
 - pumps: 0.0 points/post over 3 posts (testing)
 - safety: 0.0 points/post over 1 posts (testing)
 - hydro: 0.0 points/post over 1 posts (testing)
@@ -169,51 +169,45 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - retail: 0.0 points/post over 1 posts (testing)
 
 ### Video structure tests
-- problem-action-result: 0.47 points/post over 58 posts (testing)
+- problem-action-result: 0.61 points/post over 70 posts (testing)
 - problem-why-app: 0.0 points/post over 3 posts (testing)
 
 ## YouTube title shapes
-- pov (heycatch): 942.3 views/video over 6 videos, 0 subs
-- me-when (heycatch): 365.0 views/video over 3 videos, 0 subs
-- other (heycatch): 146.4 views/video over 8 videos, 0 subs
-- pov-reaction (ours): 30.3 views/video over 14 videos, 0 subs
-- pov (ours): 6.0 views/video over 1 videos, 0 subs
-- other (ours): 4.7 views/video over 18 videos, 0 subs
-Best shape of ours: pov-reaction
+Best shape of ours: None
 
 ## Buyer demand we can't serve yet (30 days)
-Zero-result search rate: 0.6243
-- generators: 21 empty searches, 0 saved searches, 1 live listings
-- fleet: 18 empty searches, 0 saved searches, 14 live listings
-- inspection: 13 empty searches, 0 saved searches, 0 live listings
-- pumps: 12 empty searches, 0 saved searches, 0 live listings
-- automotive: 9 empty searches, 0 saved searches, 0 live listings
-- paving: 9 empty searches, 0 saved searches, 0 live listings
-- forklifts: 9 empty searches, 0 saved searches, 1 live listings
-- cranes: 8 empty searches, 0 saved searches, 0 live listings
-- Empty search terms: soldadora lincom (6), peterbilt (3), drywall texture (2), generator (2), handtrucks (2), himsry (2), tractor (2)
+Zero-result search rate: 0.4961
+- generators: 16 empty searches, 0 saved searches, 2 live listings
+- fleet: 14 empty searches, 0 saved searches, 15 live listings
+- pumps: 10 empty searches, 0 saved searches, 2 live listings
+- cranes: 8 empty searches, 0 saved searches, 4 live listings
+- automotive: 8 empty searches, 0 saved searches, 7 live listings
+- vacuum: 7 empty searches, 0 saved searches, 0 live listings
+- forklifts: 7 empty searches, 0 saved searches, 2 live listings
+- electrical: 6 empty searches, 0 saved searches, 0 live listings
+- Empty search terms: soldadora lincom (6), alignment (3), alignment machine (2), generator (2), handtrucks (2), himsry (2)
 
 ## Outreach (all sends so far)
-- dealer: sent 649, replies 2, clicks 0, signups 0, unsub 0 (reply rate 0.0031)
-- rental: sent 168, replies 0, clicks 0, signups 0, unsub 0 (reply rate 0)
+- dealer: sent 677, replies 2, clicks 2, signups 0, unsub 0 (reply rate 0.003)
+- rental: sent 186, replies 0, clicks 0, signups 0, unsub 0 (reply rate 0)
 - material: sent 84, replies 0, clicks 0, signups 0, unsub 0 (reply rate 0)
-- excavation: sent 51, replies 0, clicks 0, signups 0, unsub 0 (reply rate 0)
+- excavation: sent 53, replies 0, clicks 0, signups 0, unsub 0 (reply rate 0)
 - repair: sent 48, replies 0, clicks 0, signups 0, unsub 0 (reply rate 0)
 - parts: sent 26, replies 0, clicks 0, signups 0, unsub 0 (reply rate 0)
 - septic: sent 17, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
 - power: sent 14, replies 0, clicks 0, signups 0, unsub 1 (reply rate None)
-- trailer: sent 11, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
+- trailer: sent 12, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
 - safety: sent 9, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
 - plumbing: sent 7, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
 - unknown: sent 7, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
 - inspection: sent 3, replies 0, clicks 0, signups 0, unsub 0 (reply rate None)
-- By step: #1 2/380, #2 0/369, #3 0/226, #4 0/119
+- By step: #2 0/401, #1 2/397, #3 0/226, #4 0/119
 - Best segments: dealer, rental, material, excavation, repair, parts
 
 ## What changed automatically
 - Reels boosted (posted first among repeats): none
 - Reels retired (no more repeats; Motion rebuilds the idea): none
-- Build next: opener pov-situation; topic parts-spec; categories buyers want generators, pumps, vacuum, inspection, automotive, cranes
+- Build next: opener pov-idle; topic small-items; categories buyers want generators, pumps, vacuum, cranes, automotive
 - Opener rule: Open on the real item with the blue question box on screen in second 1. App screens only after the 3-second mark.
 - Stop making: forklifts, feature-statement
 
