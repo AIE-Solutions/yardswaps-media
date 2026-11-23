@@ -31,6 +31,7 @@ logs each poster already writes:
 |---|---|
 | `reels/posted.json` | Reels, Stories, List it free post, promo post (`post_reels.py`) |
 | `reels/tiktok-posted.json`, `reels/heycatch-tiktok.json` | TikTok poster |
+| `youtube/posted.json` | YouTube Shorts poster (`youtube/post_shorts.py`, from 2026-11-23) |
 | `reels/images-posted.json` | image posts |
 | `listings/posted.json` + `listings/queue.json` | Just listed and Wanted cards |
 | `stories/posted.json` | LIST IT FREE daily Story |
@@ -39,7 +40,7 @@ logs each poster already writes:
 `rotation/used.json` is only a snapshot for people to read (`rotation.py log`).
 
 ## Posts made outside the posters: add a row to `manual.json`
-YouTube Shorts and long videos, Typefully / X, LinkedIn, Reddit, Motion test posts,
+YouTube long videos and Shorts posted outside `youtube/post_shorts.py`, Typefully / X, LinkedIn, Reddit, Motion test posts,
 anything posted by hand, and any HeyCatch post that uses one of our clips or photos.
 One row per post, committed to `main`:
 
@@ -66,6 +67,8 @@ python3 rotation/rotation.py log          # write rotation/used.json (30 days)
   `pick()` keeps only clips whose machine is allowed. The 10-day per-platform rule
   still applies on top.
 - `stories/make_bg.py`: picks the Story machine by rotation instead of by weekday.
+- `youtube/post_shorts.py`: posts the first `youtube/queue.json` row whose machine is
+  allowed, else the first not shown in the last 7 days, else skips the slot.
 - `listings/listing_reels.py`: turns live listings into Reels in rotation order.
 - Motion / weekly batch / YouTube tasks: check `rotation.py check` before cutting or
   posting, never reuse an opener photo under a new slug, and add a `machine` key to
