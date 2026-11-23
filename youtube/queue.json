@@ -1,0 +1,152 @@
+{
+ "_about": "YouTube Shorts queue for youtube/post_shorts.py (see youtube/README.md). Each run posts the first row that is not yet on YouTube, not skipped, past not_before, passes the copy checks and is allowed by the machine rotation. Add rows at the end; reorder to change priority. Times are Central.",
+ "slots_ct": [
+  "10:00-11:00",
+  "16:00-18:30"
+ ],
+ "hold_slots": [
+  "2026-12-01 16:00",
+  "2026-12-02 16:00",
+  "2026-12-03 16:00",
+  "2026-12-04 16:00",
+  "2026-12-05 16:00",
+  "2026-12-06 16:00",
+  "2026-12-07 16:00"
+ ],
+ "shorts": [
+  {
+   "slug": "griddle-from-the-closed-diner",
+   "file": "reels/library/yardswaps-griddle-from-the-closed-diner-9x16.mp4",
+   "title": "POV: the diner closed. The griddle is still on the line.",
+   "description": "A 36 inch natural gas flat top griddle, still on the line of a diner that closed. Snap one photo. AI writes the title, files it under Cooking Equipment and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.\nList it free: yardswaps.com/y (link in our channel profile). Get the app: search YardSwaps on the App Store or Google Play.\n\n#griddle #restaurantequipment #commercialkitchen #usedequipment #yardswaps\n\nWhat is still on the line in the kitchen you closed?",
+   "source": "reels/library.json body (Motion, Nov 23 batch)"
+  },
+  {
+   "slug": "backhoe-still-on-the-trailer",
+   "file": "reels/library/yardswaps-backhoe-still-on-the-trailer-9x16.mp4",
+   "title": "POV: the site work ended. The backhoe is still on the trailer.",
+   "description": "A diesel 4x4 backhoe loader, still chained to the lowboy since the last site wrapped. Snap one photo. AI writes the title, files it under Excavators & Loaders and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.\nList it free: yardswaps.com/y (link in our channel profile). Get the app: search YardSwaps on the App Store or Google Play.\n\n#backhoe #constructionequipment #heavyequipment #usedequipment #yardswaps\n\nWhat is still chained to the trailer from the last site?",
+   "source": "reels/library.json body (Motion, Nov 23 batch)"
+  },
+  {
+   "slug": "dryers-from-the-sold-laundromat",
+   "file": "reels/library/yardswaps-dryers-from-the-sold-laundromat-9x16.mp4",
+   "title": "POV: the laundromat sold. The dryers still line the wall.",
+   "description": "A wall of gas stack dryers, coin op, from a laundromat that sold. Snap one photo. AI writes the title, files it under Commercial Laundry and drafts the description as a lot. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.\nList it free: yardswaps.com/y (link in our channel profile). Get the app: search YardSwaps on the App Store or Google Play.\n\n#laundromat #commerciallaundry #dryers #usedequipment #yardswaps\n\nWhat is still bolted down in the store you sold?",
+   "source": "reels/library.json body (Motion, Nov 23 batch)"
+  },
+  {
+   "slug": "condensers-after-the-changeout",
+   "file": "reels/library/yardswaps-condensers-after-the-changeout-9x16.mp4",
+   "title": "POV: the changeout is done. The old condensers sit by the pipes.",
+   "description": "A lot of 5 ton condensing units pulled on a changeout, working when removed. Snap one photo. AI writes the title, files it under HVAC and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.\nList it free: yardswaps.com/y (link in our channel profile). Get the app: search YardSwaps on the App Store or Google Play.\n\n#hvac #condenser #hvactech #usedequipment #yardswaps\n\nWhat came off the roof on your last changeout?",
+   "source": "reels/library.json body (Motion, Nov 23 batch)"
+  },
+  {
+   "slug": "lawn-tractor-after-the-route",
+   "file": "reels/library/yardswaps-lawn-tractor-after-the-route-9x16.mp4",
+   "title": "POV: the mowing route ended. The lawn tractor sits by the barn.",
+   "description": "A gas lawn tractor with a 42 inch deck, parked by the barn since the mowing route ended. Snap one photo. AI writes the title, files it under Landscaping & Turf and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.\nList it free: yardswaps.com/y (link in our channel profile). Get the app: search YardSwaps on the App Store or Google Play.\n\n#lawntractor #mower #landscaping #usedequipment #yardswaps\n\nWhat is parked by your barn since the route ended?",
+   "source": "reels/library.json body (Motion, Nov 23 batch)"
+  },
+  {
+   "slug": "listed-instapak-speedypacker-floor-model",
+   "file": "reels/library/yardswaps-listed-instapak-speedypacker-floor-model-9x16.mp4",
+   "title": "Just listed on YardSwaps: an Instapak SpeedyPacker foam packaging machine",
+   "description": "A real listing, straight from the app: an Instapak SpeedyPacker floor model, the foam-in-bag packer from a packing line. One photo. AI wrote the title, filed it under Warehouse and drafted the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.\nList it free: yardswaps.com/y (link in our channel profile). Get the app: search YardSwaps on the App Store or Google Play.\n\n#packaging #warehouse #packingline #usedequipment #yardswaps\n\nWhat machine is idle on your packing floor right now?",
+   "source": "reels/library.json body (Motion, Nov 23 batch)"
+  },
+  {
+   "slug": "listed-used-pallet-racking-complete",
+   "file": "reels/library/yardswaps-listed-used-pallet-racking-complete-9x16.mp4",
+   "title": "Just listed on YardSwaps: a complete lot of used pallet racking",
+   "description": "A real listing, straight from the app: used pallet racking, a complete lot of beams, uprights and wire decks taken down from one warehouse. One photo. AI wrote the title, filed it under Warehouse and drafted the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.\nList it free: yardswaps.com/y (link in our channel profile). Get the app: search YardSwaps on the App Store or Google Play.\n\n#palletracking #warehouse #racking #usedequipment #yardswaps\n\nWhat racking is on the floor since your last move?",
+   "source": "reels/library.json body (Motion, Nov 23 batch)"
+  },
+  {
+   "slug": "stripped-well-pump",
+   "file": "week-2026-11-16/sell-used-well-pump-parts-free-yardswaps.mp4",
+   "title": "POV: the well pump died. The parts didn't.",
+   "description": "The impeller and housing off a dead well pump, listed as parts. Snap one photo. AI writes the title, files it under Pumps & Motors and drafts the description. Set your price and publish. Free to list, no cut of the sale.\nList it free: yardswaps.com/y (link in our channel profile). Get the app: search YardSwaps on the App Store or Google Play.\n\n#wellpump #pumpparts #plumbing #usedparts #yardswaps\n\nWhat's the oldest pump part on your shelf?",
+   "source": "WEEKLY-BATCH.md week of 11/17 (held when Zapier ran out)"
+  },
+  {
+   "slug": "sprayer-after-the-season",
+   "file": "week-2026-11-16/sell-used-pull-type-sprayer-free-yardswaps.mp4",
+   "title": "POV: the season ended. The sprayer is still at the field edge.",
+   "description": "A tandem-axle pull-type sprayer parked at the field edge since the last pass of the season. Snap one photo. AI writes the title, files it under Farm & Ag and drafts the description. Tap Use price, publish. No typing. Free to list, no cut of the sale.\nList it free: yardswaps.com/y (link in our channel profile). Get the app: search YardSwaps on the App Store or Google Play.\n\n#farmequipment #sprayer #agequipment #usedequipment #yardswaps\n\nWhat is still parked at your field edge from last season?",
+   "source": "WEEKLY-BATCH.md week of 11/17 (held when Zapier ran out)"
+  },
+  {
+   "slug": "fryers-from-the-closed-kitchen",
+   "file": "week-2026-11-16/sell-used-commercial-fryers-free-yardswaps.mp4",
+   "title": "POV: the kitchen closed. The fryer line never got sold.",
+   "description": "A two-bay stainless fryer line with baskets, still in place in a kitchen that closed. Snap one photo. AI writes the title, files it under Cooking & Ovens and drafts the description. Tap Use price, publish. No typing. Free to list, no cut of the sale.\nList it free: yardswaps.com/y (link in our channel profile). Get the app: search YardSwaps on the App Store or Google Play.\n\n#restaurantequipment #commercialfryer #kitchenequipment #usedequipment #yardswaps\n\nWhat is still sitting in the kitchen you closed?",
+   "source": "WEEKLY-BATCH.md week of 11/17 (held when Zapier ran out)"
+  },
+  {
+   "slug": "welder-from-one-job-es",
+   "file": "week-2026-11-16/vende-soldadora-usada-gratis-yardswaps.mp4",
+   "title": "POV: la soldadora que compraste para un solo trabajo. Sigue bajo el banco.",
+   "description": "Una soldadora de electrodo de 225 amperes con sus cables, comprada para un solo trabajo y nunca más conectada. Una foto. La IA escribe el título, la pone en Equipo de soldadura y redacta la descripción. Pon tu precio y publica. Publicar es gratis y no cobramos comisión por la venta.\nPublica gratis: yardswaps.com/y (link en el perfil del canal). Descarga la app: busca YardSwaps en App Store o Google Play.\n\n#soldadora #soldadura #herramientas #equipousado #yardswaps\n\n¿Qué compraste para un solo trabajo y nunca volviste a usar?",
+   "source": "WEEKLY-BATCH.md week of 11/17 (held when Zapier ran out)",
+   "lang": "es"
+  },
+  {
+   "slug": "zero-turn-after-the-account",
+   "skip": true,
+   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "file": "",
+   "title": "",
+   "description": ""
+  },
+  {
+   "slug": "light-tower-after-night-work",
+   "skip": true,
+   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "file": "",
+   "title": "",
+   "description": ""
+  },
+  {
+   "slug": "compressor-by-the-fence",
+   "skip": true,
+   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "file": "",
+   "title": "",
+   "description": ""
+  },
+  {
+   "slug": "rooftop-unit-on-the-pallet",
+   "skip": true,
+   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "file": "",
+   "title": "",
+   "description": ""
+  },
+  {
+   "slug": "roller-after-the-overlay",
+   "skip": true,
+   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "file": "",
+   "title": "",
+   "description": ""
+  },
+  {
+   "slug": "chain-hoist-on-the-beam",
+   "skip": true,
+   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "file": "",
+   "title": "",
+   "description": ""
+  },
+  {
+   "slug": "lift-still-bolted-down",
+   "skip": true,
+   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "file": "",
+   "title": "",
+   "description": ""
+  }
+ ]
+}

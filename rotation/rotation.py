@@ -6,6 +6,7 @@ Alan, 2026-11-21: "We keep reusing the same machines for our social media posts.
 Every poster reads the same history before it picks:
   reels/posted.json        Instagram + Facebook Reels and Stories, Threads (post_reels.py)
   reels/tiktok-posted.json TikTok (post_tiktok.py)
+  youtube/posted.json      YouTube Shorts (youtube/post_shorts.py)
   listings/posted.json     Just listed + wanted cards (just_listed.py)
   stories/posted.json      the 9:30 am LIST IT FREE Story (publish_story.py)
   reels/images-posted.json one-off image posts (post_image.py)
@@ -109,6 +110,11 @@ def uses(videos=None):
         if p.get("status") in ("posted", "scheduled", "unconfirmed"):
             v = by_slug.get(p.get("slug"), {"slug": p.get("slug")})
             add(machine_of(v), v.get("category"), "tiktok", p.get("slug"), p.get("time"))
+    for p in load(os.path.join(ROOT, "youtube", "posted.json"), []):
+        # YouTube Shorts poster (youtube/post_shorts.py, from 2026-11-23)
+        if p.get("status") in ("posted", "scheduled", "unconfirmed"):
+            v = by_slug.get(p.get("library_slug") or p.get("slug"), {"slug": p.get("slug")})
+            add(p.get("machine") or machine_of(v), v.get("category"), "youtube_short", p.get("slug"), p.get("time"))
     for p in load(os.path.join(ROOT, "reels", "heycatch-tiktok.json"), []):
         v = by_slug.get(p.get("slug"), {"slug": p.get("slug")})
         add(machine_of(v), v.get("category"), "heycatch", p.get("slug"), p.get("time"))
