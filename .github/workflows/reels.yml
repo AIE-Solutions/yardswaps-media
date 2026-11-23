@@ -10,21 +10,17 @@ name: Reels to Instagram and Facebook
 # 2:15 pm Just listed post.
 on:
   schedule:
-    # GitHub can start a scheduled run hours late or skip it, so these crons
-    # fire often across both the winter (UTC-6) and summer (UTC-5) slot times.
-    # Each run starts with a cheap gate job (no video checkout) that only goes
-    # on when a slot window is open and not yet posted, so the extra runs cost
-    # seconds. A Claude scheduled task also starts the workflow at :42 past
-    # each slot hour, Central.
-    - cron: "27 12 * * *"        # 6:27 am Central in winter (6:10 am slot)
-    - cron: "27,47 11 * * *"     # 6:27 and 6:47 am Central in summer
-    - cron: "7,47 12-16 * * *"
-    - cron: "7,37 21-23 * * *"
-    - cron: "37,52 0 * * *"
-    - cron: "42,52 4 * * *"      # 10:42 and 10:52 pm Central in winter (10:10 pm slot), 11:42 and 11:52 pm in summer (11:40 pm slot)
-    - cron: "42,52 5 * * *"      # 11:42 and 11:52 pm Central in winter (11:40 pm slot), 12:42 and 12:52 am in summer (12:40 am slot)
-    - cron: "42,52 6 * * *"      # 12:42 and 12:52 am Central in winter (12:40 am slot)
-    - cron: "42 3 * * *"         # 10:42 pm Central in summer
+    # GitHub starts scheduled runs here late or drops them (Nov 22-23: 7 of 26
+    # crons ran, most 30 minutes to 4 hours late), and the Claude scheduled
+    # tasks that used to dispatch each slot are refused by the agent safety
+    # check since Nov 22. So these crons fire every 10 minutes through every
+    # slot window, in both winter (UTC-6) and summer (UTC-5) time; the first
+    # run that lands inside a window posts, and the cheap gate job stops the
+    # rest in seconds (no video checkout).
+    - cron: "3,13,23,33,43,53 11-16 * * *"   # 6:10 am to 11:00 am slots
+    - cron: "3,13,23,33,43,53 20-23 * * *"   # 3:55 pm to 6:00 pm slots (and 6:30 pm in summer)
+    - cron: "3,13,23,33,43,53 0 * * *"       # 6:30 pm slot in winter
+    - cron: "3,13,23,33,43,53 3-7 * * *"     # 10:10 pm, 11:40 pm and 12:40 am slots
   workflow_dispatch:
     inputs:
       platforms:
@@ -84,6 +80,7 @@ jobs:
     timeout-minutes: 5
     outputs:
       due: ${{ steps.check.outputs.due }}
+      at: ${{ steps.check.outputs.at }}
     steps:
       # ref = the branch, not the commit the run was queued at, so a run that
       # waited behind another (concurrency below) sees its posting log.
@@ -128,6 +125,9 @@ jobs:
           SLUG: ${{ inputs.slug }}
           DRY_RUN: ${{ inputs.dry_run || '0' }}
           PROMO: ${{ inputs.promo }}
+          # The gate's time: the full checkout takes 4-5 minutes, so the slot
+          # is judged by when the gate found it open (post_reels.py SLOT_AT).
+          SLOT_AT: ${{ needs.gate.outputs.at }}
         run: python3 reels/post_reels.py
       - name: Save the posting log
         if: always()

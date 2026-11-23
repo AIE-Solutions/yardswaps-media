@@ -2,11 +2,19 @@ name: LIST IT FREE Story
 
 # Daily "LIST IT FREE" Instagram Story (Alan, 2026-11-08). Instagram only:
 # never feed posts, Reels, Facebook or Threads; no captions, no comments.
-# Started at ~9:30 am Central by a Claude scheduled task (GitHub cron on this
-# repo has stalled for hours, so no schedule here). One publish attempt per
-# Central day; a failure is logged and reported, never retried.
+# Started at ~9:27 am Central by a Claude scheduled task. Since 2026-11-22 that
+# task's dispatch can be refused, so GitHub's own schedule is the backup: every
+# 10 minutes from 9:20 am to noon Central (both DST seasons; publish_story.py
+# check skips any run outside that window, because GitHub crons here can start
+# hours late). Schedule runs always publish. A cheap gate job (no image bank
+# checkout) stops a run when today's Story is already handled. One publish
+# attempt per Central day; a failure is logged and reported, never retried,
+# so the first run that reaches Instagram is the only one.
 # The Graph API cannot add link stickers, so the link is printed on the image.
 on:
+  schedule:
+    # 9:20 am to noon Central: 15:20-18:00 UTC in winter, 14:20-17:00 UTC in summer.
+    - cron: "7,17,27,37,47,57 14-17 * * *"
   workflow_dispatch:
     inputs:
       publish:
@@ -27,12 +35,42 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      already: ${{ steps.check.outputs.already }}
+    steps:
+      - uses: actions/checkout@v4
+        if: github.event_name == 'schedule' || inputs.publish == 'true'
+        with:
+          ref: ${{ github.ref }}
+          sparse-checkout: |
+            stories/publish_story.py
+            stories/posted.json
+            reels/post_reels.py
+          sparse-checkout-cone-mode: false
+      - name: Already posted today, or outside the window?
+        id: check
+        if: github.event_name == 'schedule' || inputs.publish == 'true'
+        env:
+          WINDOW_CT: ${{ github.event_name == 'schedule' && '09:20-12:00' || '' }}
+        run: python3 stories/publish_story.py check
+
   story:
+    needs: gate
+    if: needs.gate.outputs.already != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 25
+    env:
+      # A schedule run is the backup for the 9:27 am dispatch, so it publishes.
+      PUBLISH: ${{ github.event_name == 'schedule' || inputs.publish == 'true' }}
     steps:
       - uses: actions/checkout@v4
         with:
+          # The branch tip, not the commit at trigger time: a run queued behind
+          # another must see the Story that run just logged.
+          ref: ${{ github.ref }}
           sparse-checkout: |
             stories
             reels/post_reels.py
@@ -47,9 +85,10 @@ jobs:
             broll/runway_clip.py
       - name: Already posted today?
         id: check
-        if: inputs.publish == 'true'
+        if: env.PUBLISH == 'true'
         env:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          WINDOW_CT: ${{ github.event_name == 'schedule' && '09:20-12:00' || '' }}
         run: python3 stories/publish_story.py check
       - name: Background
         id: bg
@@ -84,7 +123,7 @@ jobs:
           for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - name: Wait for the image URL
-        if: inputs.publish == 'true' && steps.check.outputs.already != 'true'
+        if: env.PUBLISH == 'true' && steps.check.outputs.already != 'true'
         run: |
           url="https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/${{ steps.commit.outputs.sha }}/${{ steps.render.outputs.file }}"
           for i in $(seq 1 12); do
@@ -93,7 +132,7 @@ jobs:
           echo "image not reachable at $url"; exit 1
       - name: Publish Instagram Story
         id: pub
-        if: inputs.publish == 'true' && steps.check.outputs.already != 'true'
+        if: env.PUBLISH == 'true' && steps.check.outputs.already != 'true'
         env:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
           MACHINE: ${{ steps.bg.outputs.machine }}
