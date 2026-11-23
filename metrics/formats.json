@@ -646,6 +646,64 @@
    "demo": true,
    "structure": "problem-action-result",
    "cut": "10s"
+  },
+  "listed-instapak-speedypacker-floor-model": {
+   "hook": "just-listed",
+   "angle": "real-listing",
+   "category": "warehouse",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s",
+   "real": true
+  },
+  "listed-used-pallet-racking-complete": {
+   "hook": "just-listed",
+   "angle": "real-listing",
+   "category": "warehouse",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s",
+   "real": true
+  },
+  "griddle-from-the-closed-diner": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "cooking",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "dryers-from-the-sold-laundromat": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "laundry",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "condensers-after-the-changeout": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "hvac",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "lawn-tractor-after-the-route": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "landscaping",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "backhoe-still-on-the-trailer": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "excavators",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
   }
  }
 }

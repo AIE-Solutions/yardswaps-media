@@ -1,0 +1,386 @@
+{
+ "renr7e2": {
+  "key": "renr7e2",
+  "id": "listed-instapak-speedypacker-floor-model",
+  "T": 2.4,
+  "img": "real-enr7e2",
+  "move": "push",
+  "label": null,
+  "l1": "Just listed on YardSwaps.",
+  "l2": "Instapak SpeedyPacker Floor Model.",
+  "caps": [
+   [
+    "Just listed?",
+    "Snap it."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, specs."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Specs"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Just listed"
+  },
+  "end": {
+   "tag1": "Real listing. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What machine is idle on your packing floor right now?"
+  },
+  "listing_id": "cmwpdczz50009tc3ao0enr7e2",
+  "category": "warehouse",
+  "real": true
+ },
+ "r3no15x": {
+  "key": "r3no15x",
+  "id": "listed-used-pallet-racking-complete",
+  "T": 2.4,
+  "img": "real-3no15x",
+  "move": "pan",
+  "label": null,
+  "l1": "Just listed on YardSwaps.",
+  "l2": "Used pallet racking, complete lot.",
+  "caps": [
+   [
+    "Just listed?",
+    "Snap it."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, specs."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Specs"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Just listed"
+  },
+  "end": {
+   "tag1": "Real listing. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What racking is on the floor since your last move?"
+  },
+  "listing_id": "cmwp8zzf0000jqt3a2d3no15x",
+  "category": "warehouse",
+  "real": true
+ },
+ "n95": {
+  "key": "griddle",
+  "id": "griddle-from-the-closed-diner",
+  "T": 4.3,
+  "img": "flat-top-griddle",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the diner closed.",
+  "l2": "The griddle is still on the line.",
+  "caps": [
+   [
+    "Diner closed?",
+    "Snap the griddle."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, fuel."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Fuel"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Diner closed"
+  },
+  "end": {
+   "tag1": "One photo of the griddle. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still on the line in the kitchen you closed?"
+  }
+ },
+ "n96": {
+  "key": "dryers",
+  "id": "dryers-from-the-sold-laundromat",
+  "T": 4.3,
+  "img": "commercial-dryers",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the laundromat sold.",
+  "l2": "The dryers still line the wall.",
+  "caps": [
+   [
+    "Store sold?",
+    "Snap the dryers."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, heat."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Heat"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Store sold"
+  },
+  "end": {
+   "tag1": "One photo of the dryers. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still bolted down in the store you sold?"
+  }
+ },
+ "n97": {
+  "key": "condensers",
+  "id": "condensers-after-the-changeout",
+  "T": 4.3,
+  "img": "hvac-condensers",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the changeout is done.",
+  "l2": "The old condensers sit by the pipes.",
+  "caps": [
+   [
+    "Changeout done?",
+    "Snap the units."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, tons."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Tons"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Changeout done"
+  },
+  "end": {
+   "tag1": "One photo of the units. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What came off the roof on your last changeout?"
+  }
+ },
+ "n98": {
+  "key": "lawntractor",
+  "id": "lawn-tractor-after-the-route",
+  "T": 4.3,
+  "img": "lawn-tractor",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the mowing route ended.",
+  "l2": "The lawn tractor sits by the barn.",
+  "caps": [
+   [
+    "Route ended?",
+    "Snap the mower."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, deck."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Deck"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Route ended"
+  },
+  "end": {
+   "tag1": "One photo of the mower. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is parked by your barn since the route ended?"
+  }
+ },
+ "n99": {
+  "key": "backhoe",
+  "id": "backhoe-still-on-the-trailer",
+  "T": 4.3,
+  "img": "backhoe-lowboy",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the site work ended.",
+  "l2": "The backhoe is still on the trailer.",
+  "caps": [
+   [
+    "Site done?",
+    "Snap the backhoe."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, HP."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "HP"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Site done"
+  },
+  "end": {
+   "tag1": "One photo of the backhoe. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still chained to the trailer from the last site?"
+  }
+ }
+}
