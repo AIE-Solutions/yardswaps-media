@@ -58,7 +58,26 @@ def active_story_ids(token, ig_id):
     return {m["id"] for m in r.get("data", [])}
 
 
+def outside_window():
+    """WINDOW_CT="09:20-12:00" (set only on GitHub schedule runs): a backup cron
+    that starts late must not post the Story in the afternoon."""
+    raw = (os.environ.get("WINDOW_CT") or "").strip()
+    if not raw:
+        return None
+    start, end = raw.split("-")
+    now = datetime.now(CT)
+    hm = now.strftime("%H:%M")
+    if start <= hm <= end:
+        return None
+    return f"{hm} Central is outside the backup window {raw}"
+
+
 def check(token, ig_id):
+    why = outside_window()
+    if why:
+        print(f"Not posting the LIST IT FREE Story from this run: {why}.")
+        out(already="true")
+        return
     date = today()
     mine = [e for e in load_log() if e.get("date") == date]
     if mine:
