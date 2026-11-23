@@ -168,8 +168,10 @@
    "/api/images/listings/1794985954666-fc34738890ea.jpg"
   ],
   "preview": "listings/reel-previews/cmwlsaj46003pql3auwxsf6pt.jpg",
-  "status": "pending",
-  "added": "2026-11-22T21:04:15Z"
+  "status": "approved",
+  "added": "2026-11-22T21:04:15Z",
+  "updated": "2026-11-23T17:54:39Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwoncoba001iob3am60cgusj",
@@ -182,8 +184,11 @@
    "/api/images/listings/1795159055199-1c2e8ce9fe29.jpg"
   ],
   "preview": "listings/reel-previews/cmwoncoba001iob3am60cgusj.jpg",
-  "status": "pending",
-  "added": "2026-11-22T21:04:30Z"
+  "status": "rejected",
+  "added": "2026-11-22T21:04:30Z",
+  "reason": "photo 2 is a phone screenshot of a chat app showing a personal name, not the item",
+  "updated": "2026-11-23T17:54:39Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwjmcfbm0002p33aldworil7",
@@ -196,8 +201,11 @@
    "/api/images/listings/1794855032204-00e9d15941cb.jpg"
   ],
   "preview": "listings/reel-previews/cmwjmcfbm0002p33aldworil7.jpg",
-  "status": "pending",
-  "added": "2026-11-22T21:04:52Z"
+  "status": "rejected",
+  "added": "2026-11-22T21:04:52Z",
+  "reason": "photo 2 is a close-up of the maker plate, so the whole bucket is not in frame (photo 1 also cuts off its top)",
+  "updated": "2026-11-23T17:54:39Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwjknly00003o33a91rtb4op",
@@ -210,8 +218,10 @@
    "/api/images/listings/1794852195535-d64689342e75.jpg"
   ],
   "preview": "listings/reel-previews/cmwjknly00003o33a91rtb4op.jpg",
-  "status": "pending",
-  "added": "2026-11-22T21:05:14Z"
+  "status": "approved",
+  "added": "2026-11-22T21:05:14Z",
+  "updated": "2026-11-23T17:54:39Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwosmtfl003aob3a4fj5n6mr",
@@ -224,8 +234,11 @@
    "/api/images/listings/1795167993517-10e7f91bb029.jpg"
   ],
   "preview": "listings/reel-previews/cmwosmtfl003aob3a4fj5n6mr.jpg",
-  "status": "pending",
-  "added": "2026-11-22T21:05:28Z"
+  "status": "rejected",
+  "added": "2026-11-22T21:05:28Z",
+  "reason": "photo 2 shows a dealer business-name sticker with phone number and the photographer's shadow",
+  "updated": "2026-11-23T17:54:39Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwhyxsc90044pd3aoll8mnho",
@@ -236,8 +249,10 @@
    "/api/images/listings/1794755252815-64312cacba87.jpg"
   ],
   "preview": "listings/reel-previews/cmwhyxsc90044pd3aoll8mnho.jpg",
-  "status": "pending",
-  "added": "2026-11-22T21:05:33Z"
+  "status": "approved",
+  "added": "2026-11-22T21:05:33Z",
+  "updated": "2026-11-23T17:54:39Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwsc8u1f001rqk3af9iq3khm",
@@ -250,8 +265,10 @@
    "/api/images/listings/1795382183902-d389aa42a559.jpg"
   ],
   "preview": "listings/reel-previews/cmwsc8u1f001rqk3af9iq3khm.jpg",
-  "status": "pending",
-  "added": "2026-11-22T22:48:32Z"
+  "status": "approved",
+  "added": "2026-11-22T22:48:32Z",
+  "updated": "2026-11-23T17:54:39Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmvsip9ad002jmp3arr5fbt0s",
@@ -264,8 +281,10 @@
    "/api/images/listings/1793216324843-12ebc619d5ea.jpg"
   ],
   "preview": "listings/reel-previews/cmvsip9ad002jmp3arr5fbt0s.jpg",
-  "status": "pending",
-  "added": "2026-11-22T22:48:52Z"
+  "status": "approved",
+  "added": "2026-11-22T22:48:52Z",
+  "updated": "2026-11-23T17:54:39Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmw478lqy001dtd3axzqdsydq",
@@ -278,7 +297,9 @@
    "/api/images/listings/1793922666418-a855c159b564.jpg"
   ],
   "preview": "listings/reel-previews/cmw478lqy001dtd3axzqdsydq.jpg",
-  "status": "pending",
-  "added": "2026-11-22T22:49:14Z"
+  "status": "approved",
+  "added": "2026-11-22T22:49:14Z",
+  "updated": "2026-11-23T17:54:39Z",
+  "reviewed_by": "claude"
  }
 ]
