@@ -494,5 +494,21 @@
     "added": "2026-11-21T20:56:29Z",
     "updated": "2026-11-22T17:39:46Z",
     "reviewed_by": "claude"
+  },
+  {
+    "listing_id": "welcome-auto-sa-texas",
+    "kind": "welcome",
+    "seller": "cmw3t58i20072nw3a9rh1c3en",
+    "title": "Welcome to our new founding storefront: Auto SA Texas",
+    "category": "fleet",
+    "card": "listings/cards/welcome-auto-sa-texas.jpg",
+    "place": "San Antonio, TX",
+    "ig_caption": "Welcome to our new founding storefront on YardSwaps: Auto SA Texas!\n\nWork trucks out of San Antonio, TX. Come see their inventory and others just like them on YardSwaps: yardswaps.com/i (link in bio).\n\nFollow @yardswaps to see every new storefront.\n\n#WorkTrucks #FleetTrucks #ServiceTruck #BoxTruck #UsedTrucks #CommercialTrucks #EquipmentMarketplace #YardSwaps\n\nWhat's the first thing you check on a used work truck?",
+    "fb_caption": "Welcome to our new founding storefront on YardSwaps: Auto SA Texas!\n\nWork trucks out of San Antonio, TX. Come see their inventory and others just like them on YardSwaps: https://www.yardswaps.com/dealer/auto-sa-texas-llc?utm_source=facebook&utm_medium=social&utm_campaign=storefront_welcome\n\n#WorkTrucks #FleetTrucks #ServiceTruck #BoxTruck #UsedTrucks #CommercialTrucks #YardSwaps #EquipmentMarketplace\n\nWhat's the first thing you check on a used work truck?",
+    "status": "approved",
+    "added": "2026-11-23T19:20:53Z",
+    "updated": "2026-11-23T19:20:53Z",
+    "reviewed_by": "claude",
+    "note": "Storefront gift welcome (Alan 2026-11-23). One welcome post per day: MY-Equipment's goes on a later day. Post with listings.yml mode=post listing_id=welcome-auto-sa-texas."
   }
 ]
