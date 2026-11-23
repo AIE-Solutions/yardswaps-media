@@ -10,8 +10,8 @@ owner can't make it public afterwards (YouTube Data API docs, videos.insert:
 projects created after 28 July 2020 will be restricted to private viewing
 mode"). The audit takes days to months. Buffer is an approved YouTube app,
 the YardSwaps channel is already connected there, and the BUFFER_API_KEY
-secret the TikTok poster uses works for it too. Buffer's free plan allows 2
-YouTube posts per channel per 24 hours, which is our cadence.
+secret the TikTok poster uses works for it too. We hand Buffer at most 2
+Shorts in 24 hours (our cadence); HeyCatch's own Buffer posts don't count.
 
 What a run does:
   1. Finds the YouTube channel in Buffer and updates youtube/posted.json with
@@ -72,7 +72,7 @@ FEED = f"https://www.youtube.com/feeds/videos.xml?channel_id={CHANNEL_ID}"
 # and 6:30 pm is two hours before 8:33 pm.
 SLOTS_CT = [((10, 0), (11, 0)), ((16, 0), (18, 30))]
 SLOT_EARLY_MINUTES = 5
-MAX_PER_24H = 2            # Buffer free plan: 2 YouTube posts per channel per 24 hours
+MAX_PER_24H = 2            # our cadence: 2 Shorts a day (HeyCatch posts to the channel separately)
 SCHEDULE_AHEAD_MIN = 5     # Buffer publishes this many minutes after the run
 JSDELIVR_MAX_BYTES = 19_000_000
 BANNED_TAGS = ("#fyp", "#reels", "#explore", "#smallbusiness")
@@ -476,9 +476,10 @@ def main():
         lines.append("youtube: no slot open now (10:00-11:00 am and 4:00-6:30 pm Central)")
     elif not force and slot_used(posted, slot):
         lines.append(f"youtube: slot {slot} already posted")
-    elif handed_last_24h(posted) >= MAX_PER_24H or buffer_last_24h(sent) >= MAX_PER_24H:
-        lines.append(f"youtube: skipped, {MAX_PER_24H} YouTube posts already went out in the last 24 hours "
-                     "(Buffer free plan limit)")
+    elif handed_last_24h(posted) >= MAX_PER_24H:
+        # Only our own posts count: HeyCatch also publishes to this channel through
+        # Buffer (3 on Nov 22), so counting every Buffer post would block us for good.
+        lines.append(f"youtube: skipped, we already handed {MAX_PER_24H} Shorts to Buffer in the last 24 hours")
     else:
         due = now() + dt.timedelta(minutes=SCHEDULE_AHEAD_MIN)
         entry = {"time": iso(now()), "slot": slot if not force else None, "slug": row["slug"],

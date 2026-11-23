@@ -20,8 +20,9 @@ API audit, which users report at days to months. Buffer is an approved YouTube
 app, the YardSwaps channel is already connected in our Buffer account (checked
 2026-11-23 with the TikTok workflow's `check` run), and the `BUFFER_API_KEY`
 secret the TikTok poster uses covers it. So no Google Cloud project, no OAuth
-consent and no new secret. Buffer's free plan allows 2 YouTube posts per channel
-per 24 hours, which is exactly our cadence; the script never asks for a third.
+consent and no new secret. The script hands Buffer at most 2 Shorts in 24 hours
+(our cadence). HeyCatch also publishes to the channel through the same Buffer
+account (3 on Nov 22), so only our own `posted.json` entries count toward that cap.
 
 ## What a run does
 1. Finds the YouTube channel in Buffer and updates `posted.json`: scheduled
