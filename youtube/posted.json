@@ -1,1 +1,12 @@
-[]
+[
+ {
+  "time": "2026-11-23T22:37:05Z",
+  "slot": "2026-11-23 16:00",
+  "slug": "griddle-from-the-closed-diner",
+  "title": "POV: the diner closed. The griddle is still on the line.",
+  "pick": "ok",
+  "status": "scheduled",
+  "buffer_id": "6b04c01358d65b8ef8d3c1ad",
+  "due": "2026-11-23T22:42:05.000Z"
+ }
+]
