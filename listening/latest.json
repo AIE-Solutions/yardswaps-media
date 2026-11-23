@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T19:31:37.683015+00:00",
+ "generated_at": "2026-11-23T23:49:15.969825+00:00",
  "lookback_days": 8,
  "sources": [
   {
@@ -60,7 +60,7 @@
    "name": "Pressure Washing Resource",
    "status": "ok",
    "items": 30,
-   "in_window": 4
+   "in_window": 5
   }
  ],
  "posts": [
@@ -84,25 +84,6 @@
    "first_seen": "2026-11-16T21:57:46.975206+00:00"
   },
   {
-   "title": "Kearney and Trecker (K&T) 2K Universal Milling Machine and Tooling for Sale - $3500",
-   "link": "https://www.practicalmachinist.com/forum/threads/kearney-and-trecker-k-t-2k-universal-milling-machine-and-tooling-for-sale-3500.452431/",
-   "text": "This milling machine was made in about 1945 and is in pretty good shape. All the feeds and speeds work as does the rapid advance. It comes with a vertical head, both arbor supports, quite a few cutters, arbors, an ER40 collet arbor, a Van Norman swivel vise, two clamp sets, and a custom rolling dolly. Oil has been changed and the column filter is now an off the shelf item. The motor has been serviced at a motor shop (windings dipped and baked, new bearings) and the starter replaced and... Read more",
-   "author": "nt1953",
-   "time": "2026-11-15T16:38:34+00:00",
-   "platform": "Forum",
-   "source": "Practical Machinist",
-   "links_ok": false,
-   "intent": "sell",
-   "category": "machining",
-   "category_name": "Metalworking & CNC",
-   "score": 3,
-   "drafts": {
-    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
-    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
-   },
-   "first_seen": "2026-11-15T18:47:14.675973+00:00"
-  },
-  {
    "title": "Turnkey in Michigan \u2014 ICE-Built 12' Hot Water Trailer + Soft Wash + Customer List \u2014 $15,500",
    "link": "https://pressurewashingresource.com/community/t/turnkey-in-michigan-ice-built-12-hot-water-trailer-soft-wash-customer-list-15-500/41286",
    "text": "Selling my turnkey 12\u2019 tandem pressure washing and soft wash trailer. Milford, MI. Professionally built by Industrial Cleaning Equipment (ICE) and serviced by Hotsy Midwest in Livonia. Everything works \u2014 hook it up and go to work. Pressure-Pro hot water unit, Honda GX630, 5.5 GPM @ 3,500 PSI \u2014 only 227 hours 12V soft wash (Everflo 5.5 GPM) plus a spare pump head still in the box 550-gal buffer tank and two 35-gal chemical tanks 4 hose reels: 2 pressure washing, 1 soft wash, 1 fill hose Diamond plate toolbox on the tongue 2 surface cleaners 3 wands (3\u2019, 6\u2019, 9\u2019) Extra hoses, fittings, tips, tool",
@@ -119,33 +100,14 @@
     "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
     "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_trailers"
    },
-   "first_seen": "2026-11-22T19:31:37.683015+00:00"
-  },
-  {
-   "title": "WTB taper micrometers and none appear to be currently made, why?",
-   "link": "https://www.practicalmachinist.com/forum/threads/wtb-taper-micrometers-and-none-appear-to-be-currently-made-why.397980/",
-   "text": "I very rarely find any even used and if you do, they are ridiculously expensive. Is anybody making these today?",
-   "author": "steve-l",
-   "time": "2026-11-15T18:45:02+00:00",
-   "platform": "Forum",
-   "source": "Practical Machinist",
-   "links_ok": false,
-   "intent": "buy",
-   "category": "machining",
-   "category_name": "Metalworking & CNC",
-   "score": 3,
-   "drafts": {
-    "no_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?",
-    "with_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?\nhttps://www.yardswaps.com/?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
-   },
-   "first_seen": "2026-11-15T18:47:14.675973+00:00"
+   "first_seen": "2026-11-23T23:49:15.969825+00:00"
   },
   {
    "title": "Who makes the second best Micrometer",
    "link": "https://www.hobby-machinist.com/threads/who-makes-the-second-best-micrometer.126293/",
    "text": "starting with this comment.... https://www.hobby-machinist.com/threads/lathe-head-stock-is-tilted-shim-it.126016/post-1354350 I am looking for my first micrometer. I already have my second in the amazon shopping cart, Mitutoyo 103-129, confirmed to be the legit Mitutoyo store. but, I want one that I wont be afraid to break, drop, or have something go very wrong with. some mentioned that I look like I am on a budget. I am not, I do want to buy twice and cry twice. I want to learn... Read more",
    "author": "tater1337",
-   "time": "2026-11-22T15:58:25+00:00",
+   "time": "2026-11-23T23:45:22+00:00",
    "platform": "Forum",
    "source": "Hobby-Machinist",
    "links_ok": false,
@@ -157,7 +119,7 @@
     "no_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?",
     "with_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?\nhttps://www.yardswaps.com/?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
    },
-   "first_seen": "2026-11-22T19:31:37.683015+00:00"
+   "first_seen": "2026-11-23T23:49:15.969825+00:00"
   }
  ]
 }
