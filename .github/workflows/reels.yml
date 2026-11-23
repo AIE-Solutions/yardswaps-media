@@ -10,17 +10,37 @@ name: Reels to Instagram and Facebook
 # 2:15 pm Just listed post.
 on:
   schedule:
-    # GitHub starts scheduled runs here late or drops them (Nov 22-23: 7 of 26
-    # crons ran, most 30 minutes to 4 hours late), and the Claude scheduled
-    # tasks that used to dispatch each slot are refused by the agent safety
-    # check since Nov 22. So these crons fire every 10 minutes through every
-    # slot window, in both winter (UTC-6) and summer (UTC-5) time; the first
-    # run that lands inside a window posts, and the cheap gate job stops the
-    # rest in seconds (no video checkout).
-    - cron: "3,13,23,33,43,53 11-16 * * *"   # 6:10 am to 11:00 am slots
-    - cron: "3,13,23,33,43,53 20-23 * * *"   # 3:55 pm to 6:00 pm slots (and 6:30 pm in summer)
-    - cron: "3,13,23,33,43,53 0 * * *"       # 6:30 pm slot in winter
-    - cron: "3,13,23,33,43,53 3-7 * * *"     # 10:10 pm, 11:40 pm and 12:40 am slots
+    # GitHub starts scheduled runs here late or drops some, and the Claude
+    # scheduled tasks that used to dispatch each slot are refused by the agent
+    # safety check since Nov 22. So GitHub's own schedule tries each slot
+    # twice, at its start and about 20 minutes in. Crons are in Central time
+    # (GitHub's cron timezone support), so daylight saving needs no edits.
+    # Each try costs one billed Actions minute for the gate job (sparse
+    # checkout, seconds); only a due slot runs the posting job. 20 tries a day.
+    - cron: "40 0 * * *"        # 12:40 am slot
+      timezone: "America/Chicago"
+    - cron: "0 1 * * *"
+      timezone: "America/Chicago"
+    - cron: "10,30 6 * * *"     # 6:10 am slot
+      timezone: "America/Chicago"
+    - cron: "0,20 7 * * *"      # 7:00 am slot
+      timezone: "America/Chicago"
+    - cron: "30,50 8 * * *"     # 8:30 am slot
+      timezone: "America/Chicago"
+    - cron: "0,20 10 * * *"     # 10:00 am slot
+      timezone: "America/Chicago"
+    - cron: "55 15 * * *"       # 3:55 pm slot
+      timezone: "America/Chicago"
+    - cron: "15 16 * * *"
+      timezone: "America/Chicago"
+    - cron: "15,35 17 * * *"    # 5:15 pm slot
+      timezone: "America/Chicago"
+    - cron: "30,45 18 * * *"    # 6:30 pm slot
+      timezone: "America/Chicago"
+    - cron: "10,30 22 * * *"    # 10:10 pm slot
+      timezone: "America/Chicago"
+    - cron: "40,55 23 * * *"    # 11:40 pm slot
+      timezone: "America/Chicago"
   workflow_dispatch:
     inputs:
       platforms:

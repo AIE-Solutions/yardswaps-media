@@ -5,17 +5,28 @@ name: Videos to TikTok
 # 2:42-4:40 pm, both 90+ minutes clear of HeyCatch's 4:33 am / 12:33 pm /
 # 8:33 pm. Cut from five on Nov 10 after TikTok blocked posts as potential
 # spam; after any spam block the script posts nothing for 72 hours.
-# GitHub's cron here starts runs late or drops them, and the Claude scheduled
+# GitHub's cron here starts runs late or drops some, and the Claude scheduled
 # tasks that used to dispatch this workflow are refused by the agent safety
-# check since Nov 22, so the crons below fire every 10 minutes through both
-# windows in winter (UTC-6) and summer (UTC-5) time. A cheap gate job (no
-# video checkout) lets only the first run in a window post. Still capped at 2
+# check since Nov 22, so GitHub's own schedule tries each window three times
+# (Central-time crons, so daylight saving needs no edits). A cheap gate job
+# (no video checkout, one billed minute) lets only the first run in a window
+# post. Still capped at 2
 # in 20 hours and never within 220 minutes of our last TikTok. The script
 # hands each video to Buffer 5 minutes ahead; Buffer publishes it.
 on:
   schedule:
-    - cron: "2,12,22,32,42,52 12-15 * * *"   # 7:42-9:40 am window
-    - cron: "2,12,22,32,42,52 19-22 * * *"   # 2:42-4:40 pm window
+    - cron: "45 7 * * *"        # 7:42-9:40 am window
+      timezone: "America/Chicago"
+    - cron: "20 8 * * *"
+      timezone: "America/Chicago"
+    - cron: "0 9 * * *"
+      timezone: "America/Chicago"
+    - cron: "45 14 * * *"       # 2:42-4:40 pm window
+      timezone: "America/Chicago"
+    - cron: "20 15 * * *"
+      timezone: "America/Chicago"
+    - cron: "0 16 * * *"
+      timezone: "America/Chicago"
   workflow_dispatch:
     inputs:
       slug:

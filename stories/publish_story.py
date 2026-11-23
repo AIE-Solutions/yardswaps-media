@@ -140,7 +140,7 @@ def publish(token, ig_id):
 
 def main():
     token = os.environ.get("META_PAGE_TOKEN", "").strip()
-    if not token:
+    if not token and sys.argv[1] != "check":  # check only reads the log
         sys.exit("META_PAGE_TOKEN not set; nothing posted")
     ig_id = os.environ.get("IG_USER_ID") or "17841429324062623"
     {"check": check, "publish": publish}[sys.argv[1]](token, ig_id)
