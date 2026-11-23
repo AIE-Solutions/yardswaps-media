@@ -95,8 +95,13 @@ competitor claims we haven't checked.
 ## Do
 
 - Write plain and concrete: what it is, what it costs, what to tap.
-- Post as the business. Emails and DMs come from one real person: "I'm Alan
-  Jacquez, Cofounder and CEO of YardSwaps." Articles: "By the YardSwaps team".
+- Post as the business. Emails, DMs, notices and articles come from the
+  company: open "This is the YardSwaps team" when an intro is needed, sign
+  "The YardSwaps team", and write "we", not "I". Legal and policy text names
+  "YardSwaps, Inc." or a role ("Copyright Agent, YardSwaps, Inc."). Never a
+  person's name, title or photo in anything a user, dealer or buyer gets
+  (Alan, 2026-11-22: "Literally out me at risk! Signing my full name").
+  Articles: "By the YardSwaps team".
 - End social captions with an open question.
 - Show the real item, whole, and say only what the video shows.
 - Cite credible sources only (manufacturer, government, trade body).
