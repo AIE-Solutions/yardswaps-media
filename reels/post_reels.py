@@ -22,7 +22,11 @@ Env:
   PLATFORMS        default "instagram,facebook,instagram_story,facebook_story,threads"
   SLUG             force one video (manual runs)
   DRY_RUN          "1" = pick and print captions, post nothing
-  CHECK_ONLY       "1" = only say whether a slot is open (due=0/1 to GITHUB_OUTPUT)
+  CHECK_ONLY       "1" = only say whether a slot is open (due=0/1 and at=<time>
+                   to GITHUB_OUTPUT)
+  SLOT_AT          the gate job's time (reels.yml passes it): the posting job
+                   judges the slot by it, so a slow video checkout can't push
+                   a run that was due out of its window
   LIST_FREE        "1" = make this run's Reel the "list it free" post (manual
                    or dry runs; scheduled runs decide by LIST_FREE_FROM_CT)
   PROMO            a promos.json id = make this run's Reel that promotion post
@@ -694,6 +698,27 @@ def slot_window(t):
     return None
 
 
+# The posting job's full checkout takes 4-5 minutes (all the videos), so a run
+# the gate found due near a window's end used to land outside it and post
+# nothing: the 3:55-4:45 pm slot never posted from Nov 18 to Nov 22 because its
+# only reliable start was at 4:42 pm. The posting job now judges the slot by
+# the gate's time (SLOT_AT) if that is at most SLOT_AT_MAX_MIN old.
+SLOT_AT_MAX_MIN = 20
+
+
+def slot_now():
+    """Time to judge the slot by: the gate's time when recent, else now."""
+    raw = (os.environ.get("SLOT_AT") or "").strip()
+    if raw:
+        try:
+            t = parse_time(raw)
+            if dt.timedelta(0) <= now() - t <= dt.timedelta(minutes=SLOT_AT_MAX_MIN):
+                return t
+        except ValueError:
+            pass
+    return now()
+
+
 def slot_done(posted, platform, t=None):
     win = slot_window(t or now())
     if win is None:
@@ -1100,7 +1125,7 @@ def check_only(platforms, force, dry):
           + (f", window {win[0]:%H:%M}-{win[1]:%H:%M}" if win else ""))
     if os.environ.get("GITHUB_OUTPUT"):
         with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
-            f.write(f"due={int(due)}\n")
+            f.write(f"due={int(due)}\nat={iso(now())}\n")
     return 0
 
 
@@ -1225,10 +1250,10 @@ def main():
             continue
         # GitHub can start a scheduled run hours late or drop it, so each slot
         # has backup crons. The first run in a slot window posts; the rest stop.
-        if not force and slot_window(now()) is None:
+        if not force and slot_window(slot_now()) is None:
             summary.append(f"{platform}: skipped, outside the slot windows (" + slots_text() + " Central)")
             continue
-        if not force and slot_done(posted, platform):
+        if not force and slot_done(posted, platform, slot_now()):
             summary.append(f"{platform}: skipped, this slot already posted (late or backup run)")
             continue
         if not force and ours_recent(posted, platform) >= max_ours_per_20h():

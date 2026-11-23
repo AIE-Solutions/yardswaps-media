@@ -29,6 +29,8 @@ Env:
   DRY_RUN          "1" = pick and print the caption and link, post nothing
   PROMO            a promos.json id = make this run's TikTok that promotion post
   CHECK            "1" = only list the Buffer channels (setup check)
+  CHECK_ONLY       "1" = only say whether a TikTok window is open and not yet
+                   used (due=0/1 to GITHUB_OUTPUT; tiktok.yml's cheap gate)
   GITHUB_SHA, GITHUB_REPOSITORY  set by GitHub Actions
 """
 import datetime as dt
@@ -54,8 +56,14 @@ MAX_OURS_PER_20H = 2   # Nov 10 pm: 2 after a second spam block (was 3)
 # after the blocked post was due. Pushing more posts at a flagged account
 # digs it deeper; a quiet spell lets it recover.
 SPAM_COOLDOWN_H = 72
-# The dispatcher runs at :42 past 7, 8, 10, 14, 16 and 18 Central. A 220-minute
-# gap and the cap of 2 mean only the 7:42 am and 2:42 pm runs post.
+# Two TikToks a day, each inside its own Central-time window (Nov 23). GitHub's
+# cron here starts runs late or drops them and the Claude scheduled tasks that
+# used to start each run are refused since Nov 22, so tiktok.yml now has
+# crons every 10 minutes through both windows: the first run inside a window
+# posts, the rest stop at the gate. Both windows are 90+ minutes from HeyCatch
+# (4:33 am, 12:33 pm, 8:33 pm). A run outside them posts nothing unless it
+# forces a slug.
+TIKTOK_WINDOWS_CT = [((7, 42), (9, 40)), ((14, 42), (16, 40))]
 MIN_GAP_MIN = 220
 SCHEDULE_AHEAD_MIN = 5      # Buffer publishes this many minutes after the run
 JSDELIVR_MAX_BYTES = 19_000_000  # jsDelivr serves GitHub files up to 20 MB
@@ -222,6 +230,33 @@ def video_url(path):
     return f"https://raw.githubusercontent.com/{repo}/{ref}/{rel}"
 
 
+def tiktok_window(t):
+    """(start, end) of the TikTok window time t falls in, or None outside them."""
+    day = t.astimezone(reels.CENTRAL)
+    mk = lambda hm: day.replace(hour=hm[0], minute=hm[1], second=0, microsecond=0)
+    for a, b in TIKTOK_WINDOWS_CT:
+        if mk(a) - dt.timedelta(minutes=reels.SLOT_EARLY_MINUTES) <= t < mk(b):
+            return mk(a) - dt.timedelta(minutes=reels.SLOT_EARLY_MINUTES), mk(b)
+    return None
+
+
+def window_used(posted, t):
+    """True when one of ours already went to Buffer in t's window."""
+    win = tiktok_window(t)
+    return win is not None and any(
+        p.get("status") in ("posted", "scheduled", "unconfirmed") and not p.get("forced")
+        and reels.parse_time(p["time"]) >= win[0] for p in posted)
+
+
+def window_check(posted, t):
+    """None when a scheduled run may post now, else the reason it may not."""
+    if tiktok_window(t) is None:
+        return "outside the TikTok windows (7:42-9:40 am, 2:42-4:40 pm Central)"
+    if window_used(posted, t):
+        return "this window already posted"
+    return None
+
+
 def last_ours(posted):
     """Time of our most recent non-forced TikTok handed to Buffer, or None."""
     times = [reels.parse_time(p["time"]) for p in posted
@@ -287,6 +322,15 @@ def main():
     check = os.environ.get("CHECK") == "1"
     force = (os.environ.get("SLUG") or "").strip() or None
     meta = os.environ.get("META_PAGE_TOKEN", "").strip()
+
+    if os.environ.get("CHECK_ONLY") == "1":
+        why = None if (force or dry or check) else window_check(reels.load(LOG, []), reels.now())
+        print(f"due={int(why is None)} ({why or 'window open'}); now "
+              f"{reels.now().astimezone(reels.CENTRAL):%a %H:%M} Central")
+        if os.environ.get("GITHUB_OUTPUT"):
+            with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
+                f.write(f"due={int(why is None)}\nat={reels.iso(reels.now())}\n")
+        return 0
 
     if not key and not dry:
         print("::notice::BUFFER_API_KEY is not set yet, so nothing went to TikTok. See reels/README.md, TikTok.")
@@ -410,6 +454,8 @@ def main():
             summary.append(f"tiktok: would post {video['slug']} (repeat={repeat}"
                            f"{', list it free' if list_free else ''}"
                            f"{', promotion ' + promo['id'] if promo else ''})\n{url}\n\n{caption}\n")
+        elif not force and window_check(posted, reels.slot_now()):
+            summary.append(f"tiktok: skipped, {window_check(posted, reels.slot_now())}")
         elif not force and reels.ours_recent(used, PLATFORM) >= MAX_OURS_PER_20H:
             summary.append(f"tiktok: skipped, already posted {MAX_OURS_PER_20H} in the last 20 hours")
         elif not force and last_ours(posted) and \
