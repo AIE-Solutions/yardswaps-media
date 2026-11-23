@@ -2,7 +2,7 @@
 """Post one YardSwaps Reel to Instagram and Facebook per run.
 
 Runs from .github/workflows/reels.yml; posts at most once per Central-time
-slot (SLOTS_CT, nine a day since Nov 20). Standard library only.
+slot (SLOTS_CT, ten a day since Nov 23). Standard library only.
 
 Picks the next video from reels/library.json (never-posted first, newest
 first; then, among videos posted at least MIN_GAP_DAYS ago, the one whose
@@ -80,10 +80,12 @@ CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (
 #                              64 active; HeyCatch 8:33 pm is 92+ min before the early edge)
 #   11:40 pm  until 11:59 pm  (ninth slot, added Nov 20 when the library reached
 #                              96 active; 9:40 pm Pacific, 4.5 h before HeyCatch 4:33 am)
+#   12:40 am  until 1:15 am   (tenth slot, added Nov 23 at 110 active; 10:40 pm Pacific,
+#                              an hour after the 11:40 pm slot, 3+ h before HeyCatch 4:33 am)
 # A run GitHub starts too late for its slot does nothing; the next slot's
 # runs pick up. library.json "slots" (["07:00-09:30", ...]) overrides this.
 CENTRAL = ZoneInfo("America/Chicago")
-SLOTS_CT = [((6, 10), (6, 55)), ((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((15, 55), (16, 45)), ((17, 15), (18, 0)), ((18, 30), (19, 0)), ((22, 10), (23, 0)), ((23, 40), (23, 59))]
+SLOTS_CT = [((0, 40), (1, 15)), ((6, 10), (6, 55)), ((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((15, 55), (16, 45)), ((17, 15), (18, 0)), ((18, 30), (19, 0)), ((22, 10), (23, 0)), ((23, 40), (23, 59))]
 SLOT_EARLY_MINUTES = 5     # a run that starts up to 5 minutes early counts for the slot
 
 
@@ -253,7 +255,7 @@ def threads_topic(v):
 
 # ---------- daily "List it free" Reel ----------
 # Alan, Nov 15: a daily "list your equipment free" post on every social
-# ("All socials yes"). One of the nine daily Reels carries it, so volume
+# ("All socials yes"). One of the ten daily Reels carries it, so volume
 # does not go up: the first Reel of the Central day at or after
 # LIST_FREE_FROM_CT (the 5:15 pm slot; if that run fails, 6:30 pm or 10:10 pm
 # takes over) gets a "LIST IT FREE" caption and a clip picked for it:
