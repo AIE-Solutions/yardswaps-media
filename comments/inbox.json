@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-24T02:56:11Z",
+  "fetched_at": "2026-11-24T17:46:50Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -16,5 +16,32 @@
   "errors": [
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
-  "items": []
+  "items": [
+    {
+      "platform": "instagram",
+      "comment_id": "18121653286785820",
+      "reply_to": "18121653286785820",
+      "author": null,
+      "text": "😍 AMAZING ❤️ SEND ME THIS POST ❤️",
+      "time": "2026-11-24T13:30:09+0000",
+      "likes": 0,
+      "media_id": "17905734966376145",
+      "permalink": "https://www.instagram.com/reel/DgH_Y77jrCo/",
+      "post": "Just listed on YardSwaps: Chief EZ Liner II collision frame straightening rack with pullin",
+      "type": "REELS"
+    },
+    {
+      "platform": "instagram",
+      "comment_id": "18032629796858996",
+      "reply_to": "18032629796858996",
+      "author": null,
+      "text": "forward me this post",
+      "time": "2026-11-24T16:56:27+0000",
+      "likes": 0,
+      "media_id": "18161508898450552",
+      "permalink": "https://www.instagram.com/reel/DgIavj2j9MW/",
+      "post": "FOUNDING STOREFRONT PRICE",
+      "type": "REELS"
+    }
+  ]
 }
