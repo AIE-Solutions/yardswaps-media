@@ -38,9 +38,11 @@
   "slug": "dryers-from-the-sold-laundromat",
   "title": "POV: the laundromat sold. The dryers still line the wall.",
   "pick": "ok",
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6b06144c4f7539498fd16f3d",
   "due": "2026-11-24T22:53:40.000Z",
-  "video_host": "cdn.jsdelivr.net"
+  "video_host": "cdn.jsdelivr.net",
+  "url": "https://www.youtube.com/shorts/lP00CX_CGZs",
+  "sent": "2026-11-24T22:53:46.558Z"
  }
 ]
