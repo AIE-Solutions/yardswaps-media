@@ -20,7 +20,7 @@ Outputs in broll/cutouts/<slug>/:
 
 Run by runway.yml after a seedream5.5_layers run, or by hand:
   python3 broll/cutout_card.py --photo broll/in/x.jpg --layers broll/layers/x --slug x \
-      --title "2014 Sky Trak 6042 Telehandler" --price "$38,500"
+      --title "<listing title>" --price "<listing price>"
 --mask <png> uses any alpha PNG instead of Runway layers (tests only).
 """
 import argparse
@@ -65,7 +65,7 @@ def bold(size):
     return f
 
 
-def place_layer(layer, row, size):
+def place_layer(layer, row, size, photo=None):
     """Return the layer as RGBA on the photo's canvas (layers may be cropped to a box)."""
     W, H = size
     if layer.size == (W, H):
@@ -89,7 +89,82 @@ def place_layer(layer, row, size):
         return canvas
     if abs(layer.size[0] / layer.size[1] - W / H) < 0.01:
         return layer.resize((W, H), Image.LANCZOS)
+    if photo is not None:
+        # Results fetched through the Runway MCP come without boundingBox, on a
+        # padded canvas of their own size. Find where the layer sits by matching
+        # it against the photo; judge() still refuses a poor fit.
+        fit = align_layer(photo, layer)
+        if fit:
+            w, h = round(layer.width * fit["scale"]), round(layer.height * fit["scale"])
+            canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            canvas.paste(layer.resize((w, h), Image.LANCZOS), (round(fit["x"]), round(fit["y"])))
+            return canvas
     return None
+
+
+def _corr(img, k):
+    """Valid cross-correlation of a 2-D image with kernel k (FFT, numpy only)."""
+    H, W = img.shape
+    h, w = k.shape
+    sh = (H + h - 1, W + w - 1)
+    r = np.fft.irfft2(np.fft.rfft2(img, sh) * np.fft.rfft2(k[::-1, ::-1], sh), sh)
+    return r[h - 1:H, w - 1:W]
+
+
+def _ssd_map(p, t, m):
+    """Mean masked squared difference for every placement of t inside p."""
+    out = 0.0
+    for c in range(3):
+        I, T = p[..., c], t[..., c]
+        out = out + (m * T * T).sum() - 2 * _corr(I, m * T) + _corr(I * I, m)
+    return out / (3 * m.sum())
+
+
+def align_layer(photo, layer, coarse=4):
+    """Scale and offset that put the layer's canvas on the photo (full-res pixels)."""
+    bb = layer.getchannel("A").point(lambda v: 255 if v > 24 else 0).getbbox()
+    if not bb:
+        return None
+    T = layer.crop(bb)
+    k = 1000 / max(photo.size)
+    P = photo.convert("RGB").resize((round(photo.width * k), round(photo.height * k)), Image.LANCZOS)
+
+    def search(img, scales, near=None):
+        p = np.asarray(img, np.float32) / 255
+        best = None
+        for sc in scales:
+            s = sc * max(img.size) / max(layer.size)
+            tw, th = round(T.width * s), round(T.height * s)
+            if tw < 8 or th < 8 or tw >= img.width or th >= img.height:
+                continue
+            t = np.asarray(T.resize((tw, th), Image.LANCZOS), np.float32) / 255
+            m = (t[..., 3] > 0.9).astype(np.float32)
+            if m.sum() < 50:
+                continue
+            d = _ssd_map(p, t[..., :3], m)
+            if near:
+                x0, y0, r = near
+                keep = np.full_like(d, np.inf)
+                ys = slice(max(0, y0 - r), y0 + r + 1)
+                xs = slice(max(0, x0 - r), x0 + r + 1)
+                keep[ys, xs] = d[ys, xs]
+                d = keep
+            y, x = np.unravel_index(np.argmin(d), d.shape)
+            if best is None or d[y, x] < best[0]:
+                best = (float(d[y, x]), sc, int(x), int(y), s)
+        return best
+
+    small = P.resize((P.width // coarse, P.height // coarse), Image.LANCZOS)
+    b = search(small, np.arange(0.80, 1.25, 0.01))
+    if not b:
+        return None
+    b = search(P, np.arange(b[1] - 0.012, b[1] + 0.0121, 0.002),
+               near=(b[2] * coarse, b[3] * coarse, coarse * 3))
+    if not b:
+        return None
+    _, _, x, y, s = b
+    f = photo.width / P.width
+    return {"scale": s * f, "x": (x - bb[0] * s) * f, "y": (y - bb[1] * s) * f}
 
 
 def judge(photo, layer):
@@ -115,7 +190,7 @@ def pick_item(photo, layers_dir, forced=None):
     for i, f in enumerate(files):
         path = f if os.path.isabs(f) or os.path.isfile(f) else os.path.join(ROOT, f)
         img = Image.open(path).convert("RGBA")
-        placed = place_layer(img, meta[i] if i < len(meta) else None, photo.size)
+        placed = place_layer(img, meta[i] if i < len(meta) else None, photo.size, photo)
         if placed is None:
             rows.append({"i": i, "file": f, "skip": "size does not match the photo"})
             continue
