@@ -10,5 +10,14 @@
   "due": "2026-11-23T22:42:05.000Z",
   "url": "https://www.youtube.com/shorts/X_tGQqJunGQ",
   "sent": "2026-11-23T22:42:16.230Z"
+ },
+ {
+  "time": "2026-11-24T16:52:09Z",
+  "slot": "2026-11-24 10:00",
+  "slug": "backhoe-still-on-the-trailer",
+  "title": "POV: the site work ended. The backhoe is still on the trailer.",
+  "pick": "ok",
+  "status": "failed",
+  "error": "Invalid post: Video could not be read from its URL."
  }
 ]
