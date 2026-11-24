@@ -1,0 +1,10 @@
+# Large renders and Runway clips live in project files:
+# yardswaps-campaign/assets/ads/big-items/ (clips/ and the three cuts)
+clips/
+out/
+src/*.jpg
+!src/racking-0.jpg
+!src/cooler-0.jpg
+!src/condenser-0.jpg
+!src/engine-0.jpg
+!src/conveyor-0.jpg
