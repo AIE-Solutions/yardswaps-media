@@ -313,8 +313,11 @@
    "/api/images/listings/1795450165411-4a813d625ada.jpg"
   ],
   "preview": "listings/reel-previews/cmwtgo7p9000klh3al5ceakzm.jpg",
-  "status": "pending",
-  "added": "2026-11-24T02:14:53Z"
+  "status": "rejected",
+  "added": "2026-11-24T02:14:53Z",
+  "reason": "photo 1 shows a readable licence plate the blur missed",
+  "updated": "2026-11-24T17:55:00Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwtox8d4000jn43az0sttcf9",
@@ -327,8 +330,11 @@
    "/api/images/listings/1795464024886-857e0c2796e5.jpg"
   ],
   "preview": "listings/reel-previews/cmwtox8d4000jn43az0sttcf9.jpg",
-  "status": "pending",
-  "added": "2026-11-24T02:15:11Z"
+  "status": "rejected",
+  "added": "2026-11-24T02:15:11Z",
+  "reason": "photo 1 shows a person's legs and feet",
+  "updated": "2026-11-24T17:55:00Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwjs889y005nqc3ajhsqm19o",
@@ -340,8 +346,11 @@
    "/api/images/listings/1794864915219-e6f258556d3c.jpg"
   ],
   "preview": "listings/reel-previews/cmwjs889y005nqc3ajhsqm19o.jpg",
-  "status": "pending",
-  "added": "2026-11-24T02:15:22Z"
+  "status": "rejected",
+  "added": "2026-11-24T02:15:22Z",
+  "reason": "photo 1 shows a person's boots at the bottom of frame",
+  "updated": "2026-11-24T17:55:00Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmwskj3kw000eo83a35wuyisj",
@@ -354,8 +363,11 @@
    "/api/images/listings/1795396180884-c21fb4ee6858.jpg"
   ],
   "preview": "listings/reel-previews/cmwskj3kw000eo83a35wuyisj.jpg",
-  "status": "pending",
-  "added": "2026-11-24T02:15:40Z"
+  "status": "rejected",
+  "added": "2026-11-24T02:15:40Z",
+  "reason": "photo 3 is a close-up with the top of the air mover cut off, so the whole item is not in frame",
+  "updated": "2026-11-24T17:55:00Z",
+  "reviewed_by": "claude"
  },
  {
   "listing_id": "cmvsis36t0035mp3aiwi15mcz",
@@ -368,7 +380,10 @@
    "/api/images/listings/1793216448202-2310d0253473.jpg"
   ],
   "preview": "listings/reel-previews/cmvsis36t0035mp3aiwi15mcz.jpg",
-  "status": "pending",
-  "added": "2026-11-24T02:15:57Z"
+  "status": "rejected",
+  "added": "2026-11-24T02:15:57Z",
+  "reason": "dealer site watermark (tractor logo) on the photos",
+  "updated": "2026-11-24T17:55:00Z",
+  "reviewed_by": "claude"
  }
 ]
