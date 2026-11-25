@@ -89,3 +89,64 @@ Actions > "YouTube Shorts" > Run workflow.
   Connect > YouTube, pick the YardSwaps channel. Free plan, never enter a card.
 - A `failed` row in `posted.json` shows Buffer's reason. The row stays in the
   queue, so the next open slot retries it unless it is fixed or skipped.
+
+# Long YouTube videos (added 2026-11-25)
+
+Alan, 2026-11-25: "Why don't we post long videos to YouTube any longer". The
+last long video went out Nov 16 through Zapier, which ran out of tasks on
+Nov 17. Buffer posts Shorts only (9:16 or 1:1, up to 3 minutes), and
+Metricool's free December posts are taken. So long (16:9) videos get their own
+uploader on the YouTube Data API: `.github/workflows/youtube-long.yml` runs
+`post_long.py`, one video a day between 8:30 and 11:00 am Central, from
+`long-queue.json`, logged in `long-posted.json`.
+
+It is the YardSwaps, Inc. internal publishing client. It uploads only our own
+finished videos to our own channel (YardSwaps, UCC_TtVN5pOfs4z9OruWUlhw) on the
+channel owner's OAuth grant (`youtube.upload` + `youtube.readonly`), and reads
+no one else's data. Per video: `channels.list` + `playlistItems.list` (so a
+title already on the channel is never uploaded twice), `videos.insert`,
+`thumbnails.set` (the brand card) and `captions.insert` (the narration's .srt),
+about 550 quota units, well inside the default 10,000 a day.
+
+## Why it waits for LIVE
+Google keeps every upload from an unaudited API project private ("All videos
+uploaded via the videos.insert endpoint from unverified API projects created
+after 28 July 2020 will be restricted to private viewing mode",
+developers.google.com/youtube/v3/docs/videos/insert). Alan approved the free
+API audit on 2026-11-25. Until it passes:
+- scheduled runs only print the next pick;
+- a manual run with `mode` = `test` uploads the next pick as private and logs
+  it as a test, so the flow can be shown working.
+After the audit, set the repo variable `YT_LONG_LIVE` to `1` (Settings >
+Secrets and variables > Actions > Variables) and scheduled runs post publicly.
+
+Secrets (added by the channel owner, never pasted anywhere else):
+`YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`. Without them a run only
+checks the queue offline.
+
+## Adding long videos
+Append rows to `long-queue.json` (order = priority):
+
+```json
+{"slug": "weekly-7",
+ "file": "week-2026-11-27/yardswaps-weekly-7-16x9-voice.mp4",
+ "title": "...", "description": "...ends on the open question?\n\n#sellequipment #yardswaps",
+ "tags": ["used equipment", "YardSwaps"], "category_id": "28", "language": "en",
+ "thumbnail": "thumbnails/yardswaps-brand-card-youtube-16x9.jpg",
+ "captions": "week-2026-11-27/yardswaps-weekly-7-16x9-voice.en.srt",
+ "endcard": "seller-v1"}
+```
+
+- Spanish rows: `"language": "es"` and the Spanish brand card
+  `thumbnails/yardswaps-brand-card-es-youtube-16x9.jpg`.
+- A row posts only with `"endcard"` set, once the video ends on the blue
+  YardSwaps card (`python3 brand/endcard/endcard.py check FILE` / `add`).
+- Copy checks: title of 100 characters or less, no `<` or `>`, description
+  under 5,000 characters ending on the open question, no category count.
+- Optional: `skip`, `not_before` (ISO time). A row that failed twice stops
+  until fixed. `kit_slot` is a note only (the Nov 25 phone kit's time).
+- The 4 English rows were also in Alan's phone kit on Nov 25; if they're
+  already on the channel, the same-title check skips them.
+
+Manual runs: Actions > "YouTube long videos" > Run workflow, `mode` dry, test
+or post, optional `slug`.
