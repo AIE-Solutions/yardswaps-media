@@ -193,7 +193,8 @@ def build(roster, state, now):
                        f'<rect x="{x - 3:.1f}" y="{y + 8}" width="6" height="{lane_h - 16}" rx="2"/></g>')
     nx = left + (W - left) * now_min / 1440
     svg.append(f'<line x1="{nx:.1f}" y1="{top - 4}" x2="{nx:.1f}" y2="{H - 14}" class="now"/>')
-    svg.append(f'<text x="{nx:.1f}" y="{H - 2}" text-anchor="middle" class="nowlabel">now</text>')
+    now_anchor = "end" if nx > W - 20 else ("start" if nx < left + 20 else "middle")
+    svg.append(f'<text x="{nx:.1f}" y="{H - 2}" text-anchor="{now_anchor}" class="nowlabel">now</text>')
     svg.append("</svg>")
 
     # ---- week strip ----
