@@ -18,8 +18,10 @@ Runs in the listings workflow right after prep (9:10 am Central). Each run:
 Each Reel shows only the listing's own photos (up to 3, each the whole item fitted on a blurred fill of
 itself, slow push-in), with the same checks as the Just listed card: no photo with a face, every word
 with a digit blurred (plates, phones, street numbers), no title with contact details. On screen: a
-"Just listed on YardSwaps" box with the title, the price, an open question, and a 2-second end card
-("Equipment sitting idle? List it free." + yardswaps.com). No seller name, no description, no location.
+"Just listed on YardSwaps" box with the title, the price, an open question, and the 2-second YardSwaps
+end card every video ends on (brand/endcard: wordmark, "Add a photo. AI fills in the rest.", store badges,
+yardswaps.com). After the build, brand/endcard/endcard.py fix checks every clip in the library and the
+Shorts queue and adds the card where one is missing (posters only post clips it has marked). No seller name, no description, no location.
 Music: one of the licensed beds in music/v2, low.
 
 Review gate (listings/README.md "Review rules"): a clip whose only photo is the one the daily review
@@ -42,6 +44,8 @@ import tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "listings"))
 sys.path.insert(0, os.path.join(ROOT, "rotation"))
+sys.path.insert(0, os.path.join(ROOT, "brand", "endcard"))
+import endcard  # noqa: E402
 import just_listed as jl  # noqa: E402
 import rotation as rot  # noqa: E402
 
@@ -132,22 +136,9 @@ def boxes(img, l, question):
 
 
 def end_card():
-    from PIL import Image, ImageDraw
-    img = Image.new("RGB", (W, H), SLATE)
-    d = ImageDraw.Draw(img)
-    a = jl.font("SpaceGrotesk.ttf", 76, b"Bold")
-    b = jl.font("Inter.ttf", 44, b"Medium")
-    c = jl.font("SpaceGrotesk.ttf", 64, b"Bold")
-    y = 700
-    for line, f, col in (("Equipment sitting idle?", a, WHITE), ("List it free.", a, WHITE),
-                         ("Snap a photo. The AI writes the listing.", b, (210, 220, 235)),
-                         ("yardswaps.com", c, (147, 180, 255))):
-        for ln in jl.wrap(d, line, f, W - 140, 2):
-            tw = d.textlength(ln, font=f)
-            d.text(((W - tw) / 2, y), ln, font=f, fill=col)
-            y += int(f.size * 1.3)
-        y += 24
-    return img
+    """The YardSwaps end card (brand/endcard), the same one every video ends on."""
+    from PIL import Image
+    return Image.open(endcard.card_png("seller", W, H)).convert("RGB").resize((W, H))
 
 
 def render(l, photos_rgb, question, out_mp4, sheet_jpg):
@@ -163,7 +154,10 @@ def render(l, photos_rgb, question, out_mp4, sheet_jpg):
     n = int(PHOTO_SECONDS * FPS)
     args, filters = ["ffmpeg", "-v", "error", "-y"], []
     for i, p in enumerate(frames):
-        args += ["-loop", "1", "-t", f"{PHOTO_SECONDS}", "-i", p]
+        # one still frame in: zoompan turns it into n frames. (Looping the still for PHOTO_SECONDS
+        # made zoompan emit n frames per looped frame, so the clip ran past its cut and the end
+        # card never showed, 2026-11-21 to 11-25.)
+        args += ["-i", p]
         # slow push-in, about 4% over the shot (slow walkthrough pace rule)
         filters.append(f"[{i}:v]scale={W * 2}:{H * 2},zoompan=z='1+0.04*on/{n}':d={n}:"
                        f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps={FPS},setsar=1[v{i}]")
@@ -311,7 +305,7 @@ def main():
             entry = {"added": today, "slug": slug, "file": rel, "priority": 0, "body": body_for(l),
                      "question": q, "ig_tags": tags_for(l), "category": l.get("category"),
                      "machine": "listing-" + l["id"], "listing_id": l["id"], "real": True,
-                     "cut": "listing", "seconds": secs}
+                     "cut": "listing", "seconds": secs, "endcard": f"seller-{endcard.VERSION}"}
             if not card:
                 entry["hold"] = True
                 entry["hold_reason"] = "awaiting the daily listing review (listings/reel-queue.json)"
@@ -328,6 +322,8 @@ def main():
     if changed and not dry:
         save_json(LIBRARY, lib)
         save_json(REEL_QUEUE, rq)
+    # every clip ends on the YardSwaps end card (Alan, 2026-11-25), whichever pipeline added it
+    endcard.fix(dry=dry)
     return 0
 
 

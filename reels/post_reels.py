@@ -547,6 +547,17 @@ def load(path, default):
         return default
 
 
+def with_endcard(videos):
+    """Only clips that end on the YardSwaps end card post anywhere (Alan, 2026-11-25). The mark comes
+    from brand/endcard/endcard.py fix (run after every listings build), which adds the card where it's
+    missing; a clip without the mark waits for that run."""
+    ok = [v for v in videos if v.get("endcard")]
+    left = [v["slug"] for v in videos if not v.get("endcard") and not v.get("hold")]
+    if left:
+        print(f"::notice::{len(left)} clip(s) wait for the end card check: {', '.join(left[:8])}")
+    return ok
+
+
 def pick(videos, posted, platform, force=None, scores=None):
     ok = [p for p in posted if p["platform"] == platform and p.get("status") == "posted"]
     last = {}
@@ -1163,7 +1174,7 @@ def main():
 
     lib = load(LIBRARY, {"videos": []})
     set_slots(lib)
-    videos = lib["videos"]
+    videos = with_endcard(lib["videos"])
     LOCATIONS[:] = lib.get("locations", [])
     if lib.get("broad_tags"):
         BROAD_TAGS[:] = lib["broad_tags"]

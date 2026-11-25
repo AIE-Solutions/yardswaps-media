@@ -336,7 +336,7 @@ def main():
         print("::notice::BUFFER_API_KEY is not set yet, so nothing went to TikTok. See reels/README.md, TikTok.")
         return 0
 
-    videos = reels.load(reels.LIBRARY, {"videos": []})["videos"]
+    videos = reels.with_endcard(reels.load(reels.LIBRARY, {"videos": []})["videos"])
     posted = reels.load(LOG, [])
     summary, failed = [], False
 

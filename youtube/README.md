@@ -52,6 +52,10 @@ YouTube thread scheduled on Metricool, so the poster leaves those empty and
 those 7 rows are marked `skip`.
 
 ## Adding Shorts (weekly batch, YouTube thread)
+
+Every Short ends on the YardSwaps end card, about 2 s (Alan, 2026-11-25; `brand/endcard/`). A row
+posts only once it carries `"endcard"` (set by `python3 brand/endcard/endcard.py fix`, which adds the
+card where it's missing; rows pointing at library clips share the clip's mark).
 Append rows to `queue.json` `shorts` (order = priority):
 
 ```json
