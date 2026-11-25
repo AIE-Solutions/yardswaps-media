@@ -716,5 +716,21 @@
     "added": "2026-11-25T01:35:23Z",
     "updated": "2026-11-25T17:39:09Z",
     "reviewed_by": "claude"
+  },
+  {
+    "listing_id": "welcome-steve-lewis",
+    "kind": "welcome",
+    "seller": "cmvsicnju000ump3anu07dog3",
+    "title": "Welcome to our new founding storefront: Steve Lewis",
+    "category": "excavators",
+    "card": "listings/cards/welcome-steve-lewis.jpg",
+    "place": "Finger, TN",
+    "ig_caption": "Welcome to our new founding storefront on YardSwaps: Steve Lewis!\n\nExcavators, a compact track loader, a dozer, a telehandler and more out of Finger, TN. Come see their inventory and others just like them on YardSwaps: yardswaps.com/i (link in bio).\n\nFollow @yardswaps to see every new storefront.\n\n#Excavator #HeavyEquipment #Dozer #Telehandler #CompactTrackLoader #ConstructionEquipment #UsedEquipment #Tennessee #EquipmentMarketplace #YardSwaps\n\nWhat's the first thing you check on a used excavator?",
+    "fb_caption": "Welcome to our new founding storefront on YardSwaps: Steve Lewis!\n\nExcavators, a compact track loader, a dozer, a telehandler and more out of Finger, TN. Come see their inventory and others just like them on YardSwaps: https://www.yardswaps.com/dealer/steve-lewis?utm_source=facebook&utm_medium=social&utm_campaign=storefront_welcome\n\n#Excavator #HeavyEquipment #Dozer #Telehandler #CompactTrackLoader #ConstructionEquipment #UsedEquipment #Tennessee #EquipmentMarketplace #YardSwaps\n\nWhat's the first thing you check on a used excavator?",
+    "status": "approved",
+    "added": "2026-11-25T19:05:00Z",
+    "updated": "2026-11-25T19:05:00Z",
+    "reviewed_by": "claude",
+    "note": "Storefront gift welcome (Alan 2026-11-23), day 3 of 3. One welcome post per day (MY-Equipment 11-24, Quiet Village Fri 11-27). Post with listings.yml mode=post listing_id=welcome-steve-lewis."
   }
 ]
