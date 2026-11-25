@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-25T17:45:35Z",
+  "fetched_at": "2026-11-25T23:50:35Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -17,45 +17,6 @@
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
   "items": [
-    {
-      "platform": "instagram",
-      "comment_id": "18121653286785820",
-      "reply_to": "18121653286785820",
-      "author": null,
-      "text": "😍 AMAZING ❤️ SEND ME THIS POST ❤️",
-      "time": "2026-11-24T13:30:09+0000",
-      "likes": 0,
-      "media_id": "17905734966376145",
-      "permalink": "https://www.instagram.com/reel/DgH_Y77jrCo/",
-      "post": "Just listed on YardSwaps: Chief EZ Liner II collision frame straightening rack with pullin",
-      "type": "REELS"
-    },
-    {
-      "platform": "instagram",
-      "comment_id": "18032629796858996",
-      "reply_to": "18032629796858996",
-      "author": null,
-      "text": "forward me this post",
-      "time": "2026-11-24T16:56:27+0000",
-      "likes": 0,
-      "media_id": "18161508898450552",
-      "permalink": "https://www.instagram.com/reel/DgIavj2j9MW/",
-      "post": "FOUNDING STOREFRONT PRICE",
-      "type": "REELS"
-    },
-    {
-      "platform": "instagram",
-      "comment_id": "18150630334567791",
-      "reply_to": "18150630334567791",
-      "author": null,
-      "text": "@my_equipment_texas",
-      "time": "2026-11-24T19:33:02+0000",
-      "likes": 0,
-      "media_id": "18123368407950822",
-      "permalink": "https://www.instagram.com/p/DgIrE0_F0Lt/",
-      "post": "Welcome to our new founding storefront on YardSwaps: MY-Equipment!",
-      "type": "FEED"
-    },
     {
       "platform": "instagram",
       "comment_id": "18082237487409322",
@@ -184,6 +145,19 @@
       "media_id": "18506173162097362",
       "permalink": "https://www.instagram.com/reel/DgK_0rbok5n/",
       "post": "OPEN YOUR STOREFRONT",
+      "type": "REELS"
+    },
+    {
+      "platform": "instagram",
+      "comment_id": "18117872798106654",
+      "reply_to": "18117872798106654",
+      "author": null,
+      "text": "Send me this post please 😂",
+      "time": "2026-11-25T22:51:45+0000",
+      "likes": 0,
+      "media_id": "18162185458470360",
+      "permalink": "https://www.instagram.com/reel/DgLoqdKhVbf/",
+      "post": "POV: the hotel kitchen was remodeled. The combi oven came out whole.",
       "type": "REELS"
     }
   ]
