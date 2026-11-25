@@ -738,6 +738,23 @@
       "heartbeat": "studio-deck"
     },
     {
+      "id": "studio-audit",
+      "team": "studio",
+      "name": "Studio audit",
+      "status": "live",
+      "does": "Scores the site out of 100 every week (SEO and GEO in 4 pillars, landing pages against MESSAGING.md and 2 competitors, the App Store and Google Play listings), saves it to studio/audits with the change since last week, and sends the top fixes with copy-paste prompts to the coordinator to route.",
+      "schedule": "Weekly, Monday 6:40 am Mountain",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_019hyz82tKH3DmddnycD69DJ"
+      },
+      "prompt": "agents/STUDIO-AUDIT-PROMPT.md",
+      "owner": "Studio thread",
+      "health": "Heartbeat studio-audit",
+      "heartbeat": "studio-audit"
+    },
+    {
       "id": "studio-analytics",
       "team": "studio",
       "name": "Studio analytics",
