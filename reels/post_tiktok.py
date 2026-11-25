@@ -467,6 +467,8 @@ def main():
                            f"{', promotion ' + promo['id'] if promo else ''})\n{url}\n\n{caption}\n")
         elif not force and window_check(posted, reels.slot_now()):
             summary.append(f"tiktok: skipped, {window_check(posted, reels.slot_now())}")
+        elif not force and reels.health_blocked(PLATFORM, posted):
+            summary.append(f"tiktok: skipped, {reels.health_blocked(PLATFORM, posted)}")
         elif not force and reels.ours_recent(used, PLATFORM) >= MAX_OURS_PER_20H:
             summary.append(f"tiktok: skipped, already posted {MAX_OURS_PER_20H} in the last 20 hours")
         elif not force and last_ours(posted) and \

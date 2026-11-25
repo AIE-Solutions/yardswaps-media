@@ -725,7 +725,7 @@
       "team": "studio",
       "name": "Studio deck sync",
       "status": "building",
-      "does": "Copies the approve / skip / edit decisions from yardswaps.com/admin/studio into reels/library.json, so skipped Studio clips never post, approved ones join the rotation, and clips nobody reviews post after a day.",
+      "does": "Copies the approve / skip / edit decisions from yardswaps.com/admin/studio into reels/library.json, so skipped Studio clips never post, approved ones join the rotation, and clips nobody reviews post after a day. The morning run also scores account health per platform (studio/HEALTH.md), which the posters check before each post.",
       "schedule": "Three times a day, 7:35 am, 11:35 am and 3:35 pm Mountain",
       "cadenceHours": 8,
       "runner": {
