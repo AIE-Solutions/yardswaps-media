@@ -4103,5 +4103,40 @@
   "status": "posted",
   "id": "17931557733184440",
   "url": "https://www.instagram.com/stories/yardswaps/4038228349183867382"
+ },
+ {
+  "time": "2026-11-25T14:45:47Z",
+  "platform": "instagram",
+  "slug": "parts-donor-thumb",
+  "repeat": true,
+  "status": "posted",
+  "id": "18110203651980559",
+  "url": "https://www.instagram.com/reel/DgKxrq0qEFl/"
+ },
+ {
+  "time": "2026-11-25T14:46:22Z",
+  "platform": "facebook",
+  "slug": "dryers-from-the-sold-laundromat",
+  "repeat": false,
+  "status": "posted",
+  "id": "1700379998112018",
+  "url": "https://www.facebook.com/reel/1700379998112018"
+ },
+ {
+  "time": "2026-11-25T14:46:32Z",
+  "platform": "instagram_story",
+  "slug": "parts-donor-thumb",
+  "repeat": false,
+  "status": "failed",
+  "error": "POST https://rupload.facebook.com/ig-api-upload/v23.0/18125488249977469 -> 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+ },
+ {
+  "time": "2026-11-25T14:47:05Z",
+  "platform": "facebook_story",
+  "slug": "dryers-from-the-sold-laundromat",
+  "repeat": false,
+  "status": "posted",
+  "id": "4646015315684135",
+  "url": "https://www.facebook.com/stories/1291163214083476"
  }
 ]
