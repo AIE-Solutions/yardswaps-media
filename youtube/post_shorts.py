@@ -192,6 +192,27 @@ def entry_for(row, lib):
     return v
 
 
+# ---------- studio clips ----------
+
+def studio_rows(queue):
+    """YardSwaps Studio POV clips (studio/make_pov.py) as queue rows, after the hand-made ones.
+    Each clip's hook is its title; the description is its caption, the app links and its question."""
+    have = {r.get("slug") for r in queue.get("shorts", [])} | {r.get("library_slug") for r in queue.get("shorts", [])}
+    vids = rot.library() if rot else []
+    rows = []
+    for v in vids:
+        if not v.get("studio") or v.get("hold") or v["slug"] in have or not v.get("title"):
+            continue
+        tags = " ".join(t for t in (v.get("ig_tags") or "").split() if t.lower() not in BANNED_TAGS)
+        desc = (f"{v.get('body', '').strip()}\n\nStart a listing: yardswaps.com/y (link in our channel profile). "
+                "Get the app: search YardSwaps on the App Store or Google Play.\n\n"
+                f"{tags}\n\n{v.get('question', 'What is sitting in your yard right now?')}")
+        rows.append({"slug": v["slug"], "file": v["file"], "title": v["title"][:100], "description": desc,
+                     "library_slug": v["slug"], "machine": rot.machine_of(v), "endcard": v.get("endcard"),
+                     "studio": True, "source": "reels/library.json studio clip"})
+    return rows
+
+
 # ---------- picking ----------
 
 def norm(s):
@@ -449,6 +470,7 @@ def main():
     gate = os.environ.get("CHECK_ONLY") == "1"
     force = (os.environ.get("SLUG") or "").strip() or None
     queue = load(QUEUE, {"shorts": []})
+    queue["shorts"] = queue.get("shorts", []) + studio_rows(queue)   # never saved back
     posted = load(LOG, [])
 
     slot = open_slot(queue)

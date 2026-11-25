@@ -274,7 +274,7 @@ def main():
             changed = True
 
     # 2. build
-    have = {v.get("listing_id") for v in vids if v.get("listing_id")}
+    have = {v.get("listing_id") for v in vids if v.get("listing_id") and not v.get("studio")}
     rejected = {r["listing_id"] for r in rq if r.get("status") == "rejected"}
     card_ok = {q["listing_id"]: q for q in queue if q.get("status") in ("approved", "posted") and q.get("photo_file")}
     hist = rot.uses(vids)
@@ -322,6 +322,13 @@ def main():
     if changed and not dry:
         save_json(LIBRARY, lib)
         save_json(REEL_QUEUE, rq)
+    # 3. YardSwaps Studio POV clips (studio/make_pov.py, our replacement for the HeyCatch shorts)
+    try:
+        sys.path.insert(0, os.path.join(ROOT, "studio"))
+        import make_pov
+        make_pov.main()
+    except Exception as e:  # never let the studio stop the listing Reels
+        print(f"studio: skipped ({e})")
     # every clip ends on the YardSwaps end card (Alan, 2026-11-25), whichever pipeline added it
     endcard.fix(dry=dry)
     return 0
