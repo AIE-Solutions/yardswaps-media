@@ -21,6 +21,13 @@ Goal: engagement, follows and app downloads. Every caption has the body, a follo
 - Rules (CAPTIONS.md, ENGAGEMENT-PLAYBOOK.md, UTM-LINKS.md in the campaign folder): seller-first, the body says "Free to list" and "Free boosts", plain words, no emoji or icons, one open question about the viewer's own gear ending in "?", never promise views or sales, posted as the business. No #smallbusiness, #fyp, #reels, #explore.
 
 ## Adding new videos (weekly batch)
+
+Every clip ends on the YardSwaps end card (Alan, 2026-11-25; `brand/endcard/`). The posters
+(`post_reels.py`, `post_tiktok.py`) only take entries marked `"endcard"`, which
+`brand/endcard/endcard.py fix` sets after checking the last frames: a clip that already ends on the
+blue card for 1 to 3 s is only marked; any other gets the card (2 s) in place of its old ending, the
+storefront version for `"audience": "dealer"`. `listings/listing_reels.py` runs the fix every morning,
+so a new clip waits at most a day; run it yourself after adding clips to post them sooner.
 For each new 9:16 video with music:
 1. Copy it to `reels/library/yardswaps-<slug>-9x16.mp4` (keep files under ~15 MB; Reels must be 3 to 60 seconds for Facebook).
 2. Add an entry to `library.json`: `slug`, `file`, `priority` (0 = first), `added` (YYYY-MM-DD, today), `body` (seller text ending with a "Free to list ... Free boosts." line; a storefront clip ends on the storefront offer instead, worded as in `MESSAGING.md`, and never says listing is free), `question` (from the comment prompt bank, not used before, ending in "?"), `ig_tags`, optional `boost` (adds to the repeat score), optional `"audience": "dealer"` for a storefront clip (its Facebook caption then links yardswaps.com/dealers with "Open your storefront:" instead of the seller page, its Instagram and Threads captions point to yardswaps.com/s, and its TikTok caption closes on the storefront), `machine` (the equipment it shows; reuse the key of any clip cut from the same opener photo, a new photo gets a new key, see `rotation/README.md`), optional `hold: true` (+ `hold_reason`) to keep a video out of Reels, Stories and repeats until its cut is fixed. A fixed cut of an already-posted video goes in as a new slug with today's `added` date, so it posts at the next slot.

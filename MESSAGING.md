@@ -104,6 +104,14 @@ competitor claims we haven't checked.
   Articles: "By the YardSwaps team".
 - End social captions with an open question.
 - Show the real item, whole, and say only what the video shows.
+- **Every video ends on the YardSwaps end card** (Alan, 2026-11-25): ads, Reels,
+  TikTok, Shorts, long YouTube videos and listing Reels. It is the blue card in
+  `brand/endcard/` (wordmark, two lines, App Store and Google Play badges, link),
+  about 2 seconds, never more than 3. Seller clips: "Add a photo. AI fills in the
+  rest." / "Free to list. No cut of the sale." Storefront clips use the storefront
+  card ("Open your storefront." / "30 days free, then the founding price.") because
+  dealers never hear "free to list". `brand/endcard/endcard.py add` puts it on any
+  video; the posters skip a clip without it.
 - Cite credible sources only (manufacturer, government, trade body).
 
 ## Don't

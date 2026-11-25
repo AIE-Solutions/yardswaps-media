@@ -238,6 +238,11 @@ def candidates(queue, posted, on_channel, t=None):
         if not os.path.exists(os.path.join(ROOT, row["file"])) and not git_size(row["file"]):
             out.append((row, f"file missing: {row['file']}"))
             continue
+        if not row.get("endcard"):
+            # every video ends on the YardSwaps end card (Alan, 2026-11-25); brand/endcard/endcard.py
+            # fix adds it and marks the row
+            out.append((row, "waits for the end card check (brand/endcard/endcard.py fix)"))
+            continue
         probs = copy_problems(row)
         if probs:
             out.append((row, "copy: " + "; ".join(probs)))
