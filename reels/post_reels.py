@@ -50,6 +50,30 @@ try:
 except ImportError:  # a sparse checkout (caption fixes, profiles) that never picks a clip
     rot = None
 
+# Account health (studio/health.py, 2026-11-25, our version of HeyCatch's): a 0-10 score per platform
+# that can pause a platform for 48 h when it slips, and (policy "caps") hold it to its level's daily cap.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "studio"))
+try:
+    import health as account_health  # noqa: E402
+except ImportError:
+    account_health = None
+
+
+def health_blocked(platform, posted):
+    """Why account health stops another post to this platform today, or None. Never raises."""
+    if account_health is None:
+        return None
+    try:
+        c = account_health.cap(platform)
+        if c is None:
+            return None
+        n = account_health.posted_today(posted, platform)
+        if n >= c:
+            return f"account health: paused (studio/HEALTH.md)" if c == 0 else f"account health cap {c} a day reached ({n} today)"
+    except Exception as e:  # never stop posting over a broken check
+        print(f"  account health check failed: {e}")
+    return None
+
 GRAPH = "https://graph.facebook.com/v23.0"
 RUPLOAD_IG = "https://rupload.facebook.com/ig-api-upload/v23.0"
 THREADS = "https://graph.threads.net/v1.0"
@@ -1069,6 +1093,10 @@ def run_threads(token, videos, posted, dry, summary, force=None):
                            f"{'token set' if token else 'no THREADS_TOKEN yet'})\n"
                            f"video: {threads_video_urls(v)[0]}\n{cap}\n")
         return None
+    why = None if force else health_blocked("threads", posted)
+    if why:
+        summary.append(f"threads: skipped, {why}")
+        return None
     if not token:
         print("::notice::THREADS_TOKEN is not set yet, so nothing went to Threads. See reels/README.md, Threads.")
         summary.append("threads: skipped, THREADS_TOKEN is not set yet")
@@ -1204,6 +1232,10 @@ def main():
     want_promo = (os.environ.get("PROMO") or "").strip()
     promo_cfg = promos_config()
     for platform in reel_platforms:
+        why = None if force else health_blocked(platform, posted)
+        if why:
+            summary.append(f"{platform}: skipped, {why}")
+            continue
         list_free = want_list_free or (not force and list_free_due(posted, platform))
         video = None
         promo = None

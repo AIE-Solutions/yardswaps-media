@@ -4049,5 +4049,132 @@
   "status": "posted",
   "id": "2843007456093651",
   "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-25T12:36:19Z",
+  "platform": "instagram",
+  "slug": "lawn-tractor-after-the-route",
+  "repeat": false,
+  "status": "posted",
+  "id": "18081032081724820",
+  "url": "https://www.instagram.com/reel/DgKi3ekBiUU/"
+ },
+ {
+  "time": "2026-11-25T12:36:53Z",
+  "platform": "facebook",
+  "slug": "backhoe-still-on-the-trailer",
+  "repeat": false,
+  "status": "posted",
+  "id": "1605791661350603",
+  "url": "https://www.facebook.com/reel/1605791661350603"
+ },
+ {
+  "time": "2026-11-25T12:37:00Z",
+  "platform": "instagram_story",
+  "slug": "lawn-tractor-after-the-route",
+  "repeat": false,
+  "status": "posted",
+  "id": "18452617726127188",
+  "url": "https://www.instagram.com/stories/yardswaps/4038193691537258613"
+ },
+ {
+  "time": "2026-11-25T12:37:31Z",
+  "platform": "facebook_story",
+  "slug": "backhoe-still-on-the-trailer",
+  "repeat": false,
+  "status": "posted",
+  "id": "2271092283826450",
+  "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-25T13:45:18Z",
+  "platform": "instagram",
+  "slug": "find-it-nearby",
+  "repeat": true,
+  "status": "posted",
+  "id": "18103007915643816",
+  "url": "https://www.instagram.com/reel/DgKqwlJBZSr/"
+ },
+ {
+  "time": "2026-11-25T13:45:51Z",
+  "platform": "instagram_story",
+  "slug": "find-it-nearby",
+  "repeat": false,
+  "status": "posted",
+  "id": "17931557733184440",
+  "url": "https://www.instagram.com/stories/yardswaps/4038228349183867382"
+ },
+ {
+  "time": "2026-11-25T14:45:47Z",
+  "platform": "instagram",
+  "slug": "parts-donor-thumb",
+  "repeat": true,
+  "status": "posted",
+  "id": "18110203651980559",
+  "url": "https://www.instagram.com/reel/DgKxrq0qEFl/"
+ },
+ {
+  "time": "2026-11-25T14:46:22Z",
+  "platform": "facebook",
+  "slug": "dryers-from-the-sold-laundromat",
+  "repeat": false,
+  "status": "posted",
+  "id": "1700379998112018",
+  "url": "https://www.facebook.com/reel/1700379998112018"
+ },
+ {
+  "time": "2026-11-25T14:46:32Z",
+  "platform": "instagram_story",
+  "slug": "parts-donor-thumb",
+  "repeat": false,
+  "status": "failed",
+  "error": "POST https://rupload.facebook.com/ig-api-upload/v23.0/18125488249977469 -> 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+ },
+ {
+  "time": "2026-11-25T14:47:05Z",
+  "platform": "facebook_story",
+  "slug": "dryers-from-the-sold-laundromat",
+  "repeat": false,
+  "status": "posted",
+  "id": "4646015315684135",
+  "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-25T16:49:19Z",
+  "platform": "instagram",
+  "slug": "whole-lot-one-link",
+  "repeat": true,
+  "promo": "storefront",
+  "status": "posted",
+  "id": "18506173162097362",
+  "url": "https://www.instagram.com/reel/DgK_0rbok5n/"
+ },
+ {
+  "time": "2026-11-25T16:49:54Z",
+  "platform": "facebook",
+  "slug": "whole-lot-one-link",
+  "repeat": true,
+  "promo": "storefront",
+  "status": "posted",
+  "id": "29332070006459055",
+  "url": "https://www.facebook.com/reel/29332070006459055"
+ },
+ {
+  "time": "2026-11-25T16:50:05Z",
+  "platform": "instagram_story",
+  "slug": "whole-lot-one-link",
+  "repeat": false,
+  "status": "posted",
+  "id": "18083447129733772",
+  "url": "https://www.instagram.com/stories/yardswaps/4038321085138123170"
+ },
+ {
+  "time": "2026-11-25T16:50:37Z",
+  "platform": "facebook_story",
+  "slug": "whole-lot-one-link",
+  "repeat": false,
+  "status": "posted",
+  "id": "29572376205733263",
+  "url": "https://www.facebook.com/stories/1291163214083476"
  }
 ]

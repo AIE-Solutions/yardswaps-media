@@ -1,0 +1,33 @@
+{
+ "_about": "On-screen hooks in the short-video formats that are working now (POV, \"Me when\", \"Nobody: / Me:\", \"Things that just make sense\") for YardSwaps Studio short clips (studio/README.md). {thing} becomes the listing's short name (\"forklift\", \"pressure washer\") or, for a library clip, its category noun. Seller voice only (MESSAGING.md): free to list, the AI writes the listing, no selling fee. Never a promise of views, buyers or a sale, never a category count, never \"free storefront\". Each hook is also the YouTube title, so keep it under 90 characters. The weekly scorecard can retire a hook by adding it to \"retired\".",
+ "hooks": [
+  "POV: you finally list the {thing} that sat all season",
+  "POV: one photo and YardSwaps wrote the whole listing",
+  "POV: you list the {thing} from the truck before lunch",
+  "POV: your crew asks why the {thing} is still here",
+  "POV: the AI read the label so you didn't have to type it",
+  "POV: you stop texting {thing} photos to everyone you know",
+  "POV: the {thing} you replaced is still in the back lot",
+  "POV: listing the {thing} took less time than finding the keys",
+  "POV: the shop finally gets its floor space back",
+  "POV: you list the {thing} and keep the whole price",
+  "POV: you sell the {thing} to someone local, no shipping",
+  "POV: the {thing} is worth more listed than parked",
+  "POV: you list it in the time it takes to drink your coffee",
+  "POV: you clean out the yard one listing at a time",
+  "POV: the {thing} nobody has moved since 2022",
+  "Me when the {thing} gets listed instead of moved again",
+  "Me explaining why the {thing} is still in the driveway",
+  "Nobody:\nMe: one photo and the {thing} is listed",
+  "Nobody:\nMy yard: one more {thing}",
+  "Things that just make sense: listing the {thing} from your phone"
+ ],
+ "questions": [
+  "What's been parked in your yard the longest?",
+  "What would you list first if it took one photo?",
+  "What's taking up space in your shop right now?",
+  "What did you replace that's still sitting around?",
+  "What's the one machine you'd never sell?"
+ ],
+ "retired": []
+}
