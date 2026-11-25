@@ -20,7 +20,7 @@ The posters ask `cap(platform)` before each post. Policy (studio/health-policy.j
   "enforce": "off"    report only.
 Pure computation at post time, nothing to commit: the posters always see today's numbers.
 
-    python3 studio/health.py            # prints the table and writes studio/HEALTH.md
+    python3 studio/health.py            # prints the table and writes studio/HEALTH.md and studio/health.json
 """
 import datetime as dt
 import glob
@@ -33,6 +33,7 @@ ROOT = os.path.dirname(HERE)
 POLICY = os.path.join(HERE, "health-policy.json")
 INPUTS = os.path.join(HERE, "health-inputs.json")
 REPORT = os.path.join(HERE, "HEALTH.md")
+REPORT_JSON = os.path.join(HERE, "health.json")  # read by /admin/studio (Social tab)
 INPUTS_MAX_DAYS = 4
 META_DIR = os.path.join(ROOT, "metrics", "meta")
 LOGS = {
@@ -219,6 +220,42 @@ def report(at=None):
     return {"checkedAt": at.strftime("%Y-%m-%dT%H:%M:%SZ"), "policy": policy(), "platforms": out}
 
 
+def social(at=None):
+    """Followers now and 7 / 30 days ago, YouTube subscribers, and our best posts of the last 30 days,
+    for the Social tab of /admin/studio. Only numbers we already collect; null when unknown."""
+    at = at or now()
+    snaps = snapshots(40)
+    out = {}
+    for platform in ("instagram", "facebook"):
+        fol = followers(snaps, platform)
+        def ago(days):
+            return next((v for d, v in reversed(fol) if (at.date() - dt.date.fromisoformat(d)).days >= days), None)
+        out[platform] = {"followers": fol[-1][1] if fol else None, "followers7dAgo": ago(7), "followers30dAgo": ago(30),
+                         "firstDate": fol[0][0] if fol else None, "firstFollowers": fol[0][1] if fol else None,
+                         "series": [{"date": d, "followers": v} for d, v in fol[-30:]]}
+    yt = None
+    for f in sorted(glob.glob(os.path.join(ROOT, "metrics", "inputs", "*", "youtube.json")), reverse=True):
+        y = load(f, {})
+        if (y.get("channel") or {}).get("subscribers") is not None:
+            yt = {"subscribers": y["channel"]["subscribers"], "readOn": os.path.basename(os.path.dirname(f))}
+            break
+    out["youtube"] = yt
+    merged = {}
+    for _, snap in snaps:
+        for platform in ("instagram", "facebook"):
+            for p in snap.get(platform) or []:
+                if platform == "instagram" and not p.get("ours"):
+                    continue
+                merged[(platform, p.get("id") or (p.get("slug"), p.get("time")))] = {**p, "platform": platform}
+    recent = [p for p in merged.values() if (t := parse(p.get("time"))) and (at - t).days < 30]
+    recent.sort(key=lambda p: (p.get("likes") or 0) + 3 * (p.get("comments") or 0), reverse=True)
+    out["topPosts"] = [{"platform": p["platform"], "time": p.get("time"), "likes": p.get("likes") or 0,
+                        "comments": p.get("comments") or 0, "slug": p.get("slug") or p.get("listing"),
+                        "caption": (p.get("caption") or "")[:140], "permalink": p.get("permalink")} for p in recent[:10]]
+    out["postsLast30Days"] = {pl: sum(1 for p in recent if p["platform"] == pl) for pl in ("instagram", "facebook")}
+    return out
+
+
 def policy():
     p = load(POLICY, {})
     mode = p.get("enforce", "pause")
@@ -264,6 +301,14 @@ def main():
     text = "\n".join(lines) + "\n"
     with open(REPORT, "w", encoding="utf-8") as f:
         f.write(text)
+    try:
+        r["social"] = social()
+    except Exception as e:  # pragma: no cover - the table above still counts
+        r["social"] = None
+        print(f"social summary failed: {e}")
+    with open(REPORT_JSON, "w", encoding="utf-8") as f:
+        json.dump(r, f, indent=1)
+        f.write("\n")
     print(text)
 
 

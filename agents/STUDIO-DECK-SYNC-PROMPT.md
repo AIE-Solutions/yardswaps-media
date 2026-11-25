@@ -21,7 +21,7 @@ them. It costs nothing and sends nothing to anyone.
    full days and the 21 days before. Write them to `studio/health-inputs.json` in the same shape it has now
    (`views7d`, `viewsBeforePerWeek`, `viewsPerPost7d`, `viewsPerPostBefore`) with `readAt` set to now in UTC. If
    Metricool is not reachable, leave the file alone (health.py ignores numbers older than 4 days). Then run
-   `python3 studio/health.py` and commit `studio/HEALTH.md` and `studio/health-inputs.json` with the message
+   `python3 studio/health.py` and commit `studio/HEALTH.md`, `studio/health.json` (the Social tab of /admin/studio reads it) and `studio/health-inputs.json` with the message
    `Account health <UTC date>: <one line per platform score>`. Never edit `studio/health-policy.json`: how
    strictly health limits posting is the owner's choice.
 6. **Heartbeat, always the last call**, also on a run that stopped early:
