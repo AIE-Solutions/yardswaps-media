@@ -16,8 +16,11 @@ over older copy notes, including the old HeyCatch blog brief.
 
 1. **See what exists.** `GET https://www.yardswaps.com/api/agent/blog` (the proxy adds the agent token; never
    handle or print a token). It returns every article we hold (ours, HeyCatch copies, Soro copies), the ones
-   still queued, `savedLast24h` and the house `rules`. If `savedLast24h` is 1 or more, stop: one a day.
-2. **Pick one topic.** One make, model, check or cost per article (for example "Used Genie GS-1930 scissor
+   still queued, `savedLast24h` and the house `rules`. Two lanes each write one article a day (see Lanes):
+   every article's `topic` starts with `specific:` or `broad:`. Write in the lane that has no article of ours
+   published in the last 24 hours; if both have one (or `savedLast24h` is 2 or more), stop. Also read
+   `soroNotCopiedYet` and `heycatchNotCopiedYet`: those are live articles too, never repeat one.
+2. **Pick one topic** (specific lane; the broad lane picks as in Lanes below). One make, model, check or cost per article (for example "Used Genie GS-1930 scissor
    lift: what to check before you buy", "What a used commercial walk-in cooler costs to move"). Rules:
    - Not a topic or main keyword any existing article already targets. If close, take a narrower angle and
      link to the existing one.
@@ -56,5 +59,32 @@ over older copy notes, including the old HeyCatch blog brief.
    published unless the page loads.
 
 ## Lanes
-Soro's broad topics (selling, pricing, comparisons, paperwork, general buyer guides) are its own lane; the
-"cut paid tools" thread adds that lane to this prompt. Until then, write only the specific lane above.
+
+**specific** (HeyCatch's old lane): one make, model, check or cost per article, picked as in step 2.
+`topic` = `specific: <the make, model, check or cost>`.
+
+**broad** (Soro's old lane; Alan 2026-11-25 asked for Soro to be replaced end to end): wider guides an owner
+or buyer searches for before they pick a machine. Selling ("how to sell a used <category>"), pricing and
+depreciation, buy vs rent vs lease, used vs new, paperwork (title, bill of sale, lien checks, sales tax,
+Section 179), moving and loading, storage and idle cost, getting it ready to sell, and comparisons of ways
+to sell (auction, dealer trade-in, classifieds, a marketplace). `topic` = `broad: <main keyword phrase>`.
+
+Keyword picking for the broad lane, every run, in this order. Nothing here costs money:
+1. **Demand we see.** `GET https://www.yardswaps.com/api/agent/searches?days=30&limit=50` lists what buyers
+   searched on YardSwaps that found nothing. A category or phrase that shows up there is a good pick. Use it
+   as a hint only: never quote a search count, and never say a search came up empty.
+2. **Demand on Google.** Use web search on 3 to 5 candidate phrases built from the topics above, like "how to
+   sell a used forklift", "used walk-in cooler value" or "bill of sale for a trailer". Note the related
+   questions and searches Google shows, and look at what ranks in the top 5. Pick the phrase where the top
+   results are thin, old, forum threads or a single dealer's sales page, and a real owner question sits
+   behind it.
+3. **Not taken.** Compare the phrase with every title and topic in `GET /api/agent/blog`, including
+   `soroNotCopiedYet`. Skip it if any article already targets that phrase or a close variant. If one is
+   close, take a narrower angle and link to it.
+4. **Spread.** Rotate categories the same way as the specific lane, and never run the same broad theme
+   (selling, pricing, paperwork and so on) two days in a row.
+
+Put the main keyword phrase in the title, the first paragraph, one h2 and the meta description, worded
+naturally. Never stuff it. Link to one or two related articles from either lane, plus the
+`/equipment/<page>` or `/sell-equipment/<page>` link the API requires. Everything else (sources, shape,
+never-list, check and verify) is the same as steps 3 to 7.
