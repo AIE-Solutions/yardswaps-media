@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- The YardSwaps end card. Same look as the motion clips' endCard() (motion.html):
+     blue gradient, wordmark, two lines, store badges, link. Rendered to PNG by render.js. -->
+<style>
+@font-face{font-family:SG;src:url(../../listings/fonts/SpaceGrotesk.ttf);font-weight:300 700}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:var(--W);height:var(--H);overflow:hidden}
+body{font-family:SG,sans-serif;color:#fff;-webkit-font-smoothing:antialiased;
+     background:radial-gradient(circle at 26% 17%,rgba(255,255,255,.13),rgba(255,255,255,0) 32%),linear-gradient(160deg,#2C71F6,#1D4FC4)}
+.abs{position:absolute;left:0;right:0;text-align:center}
+.word{font-weight:700;letter-spacing:-0.03em;line-height:1.06}
+.t1{font-size:50px;font-weight:600}
+.t2{font-size:36px;font-weight:500;opacity:.85}
+.url{font-size:42px;font-weight:700}
+.badges{position:absolute;left:0;right:0;display:flex;gap:22px;justify-content:center}
+.badges img{height:108px;display:block}
+</style></head>
+<body>
+<div class="abs word" id="word">YardSwaps</div>
+<div class="abs t1" id="t1"></div>
+<div class="abs t2" id="t2"></div>
+<div class="badges" id="b"><img src="app-store-badge.svg"><img src="google-play-badge.png"></div>
+<div class="abs url" id="u"></div>
+<script>
+const Q=new URLSearchParams(location.search);
+const W=+Q.get('w'),H=+Q.get('h');
+document.documentElement.style.setProperty('--W',W+'px');
+document.documentElement.style.setProperty('--H',H+'px');
+const tall=H/W>1.6, sq=H/W<=1.1;
+const cy=tall?735:H/2-90;
+const set=(id,top,text)=>{const e=document.getElementById(id);e.style.top=top+'px';if(text!=null)e.textContent=text;};
+document.getElementById('word').style.fontSize=(sq?170:180)+'px';
+set('word',cy-150);set('t1',cy+70,Q.get('t1'));set('t2',cy+140,Q.get('t2'));
+set('b',cy+235);set('u',cy+370,Q.get('url'));
+</script></body></html>

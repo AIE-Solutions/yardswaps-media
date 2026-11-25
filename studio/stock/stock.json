@@ -1,0 +1,149 @@
+{
+ "_about": "Text-free Canva stock equipment photos (the HeyCatch background pack, assets/heycatch-backgrounds in the campaign folder, 2026-10-12; no AI images, no people) for YardSwaps Studio POV clips when no approved listing photo is free. thing = the noun the hook uses; it must name what the photo shows.",
+ "photos": [
+  {
+   "file": "studio/stock/air-compressor.jpg",
+   "thing": "air compressor",
+   "category": "compressors",
+   "machine": "stock-air-compressor"
+  },
+  {
+   "file": "studio/stock/backhoe-on-trailer.jpg",
+   "thing": "backhoe",
+   "category": "excavators",
+   "machine": "stock-backhoe-on-trailer"
+  },
+  {
+   "file": "studio/stock/boom-lift.jpg",
+   "thing": "boom lift",
+   "category": "aerial",
+   "machine": "stock-boom-lift"
+  },
+  {
+   "file": "studio/stock/combi-ovens.jpg",
+   "thing": "combi oven",
+   "category": "cooking",
+   "machine": "stock-combi-ovens"
+  },
+  {
+   "file": "studio/stock/commercial-kitchen.jpg",
+   "thing": "kitchen line",
+   "category": "restaurant",
+   "machine": "stock-commercial-kitchen"
+  },
+  {
+   "file": "studio/stock/concrete-mixer.jpg",
+   "thing": "concrete mixer",
+   "category": "concrete",
+   "machine": "stock-concrete-mixer"
+  },
+  {
+   "file": "studio/stock/drilling-rig.jpg",
+   "thing": "drill rig",
+   "category": "drilling",
+   "machine": "stock-drilling-rig"
+  },
+  {
+   "file": "studio/stock/electrical-panel.jpg",
+   "thing": "control panel",
+   "category": "electrical",
+   "machine": "stock-electrical-panel"
+  },
+  {
+   "file": "studio/stock/enclosed-trailer.jpg",
+   "thing": "enclosed trailer",
+   "category": "trailers",
+   "machine": "stock-enclosed-trailer"
+  },
+  {
+   "file": "studio/stock/excavator-dirt.jpg",
+   "thing": "excavator",
+   "category": "excavators",
+   "machine": "stock-excavator-dirt"
+  },
+  {
+   "file": "studio/stock/farm-tractor.jpg",
+   "thing": "tractor",
+   "category": "agriculture",
+   "machine": "stock-farm-tractor"
+  },
+  {
+   "file": "studio/stock/laundromat.jpg",
+   "thing": "washers",
+   "category": "laundry",
+   "machine": "stock-laundromat"
+  },
+  {
+   "file": "studio/stock/machine-shop.jpg",
+   "thing": "lathe",
+   "category": "machining",
+   "machine": "stock-machine-shop"
+  },
+  {
+   "file": "studio/stock/mini-excavator.jpg",
+   "thing": "mini excavator",
+   "category": "excavators",
+   "machine": "stock-mini-excavator"
+  },
+  {
+   "file": "studio/stock/mobile-crane.jpg",
+   "thing": "crane",
+   "category": "cranes",
+   "machine": "stock-mobile-crane"
+  },
+  {
+   "file": "studio/stock/office-furniture.jpg",
+   "thing": "office desks",
+   "category": "office",
+   "machine": "stock-office-furniture"
+  },
+  {
+   "file": "studio/stock/paving-roller.jpg",
+   "thing": "roller",
+   "category": "paving",
+   "machine": "stock-paving-roller"
+  },
+  {
+   "file": "studio/stock/pos-kiosk.jpg",
+   "thing": "order kiosk",
+   "category": "retail",
+   "machine": "stock-pos-kiosk"
+  },
+  {
+   "file": "studio/stock/riding-mower.jpg",
+   "thing": "riding mower",
+   "category": "landscaping",
+   "machine": "stock-riding-mower"
+  },
+  {
+   "file": "studio/stock/scissor-lifts.jpg",
+   "thing": "scissor lift",
+   "category": "aerial",
+   "machine": "stock-scissor-lifts"
+  },
+  {
+   "file": "studio/stock/soil-compactor.jpg",
+   "thing": "compactor",
+   "category": "paving",
+   "machine": "stock-soil-compactor"
+  },
+  {
+   "file": "studio/stock/tool-chest.jpg",
+   "thing": "tool wall",
+   "category": "tools",
+   "machine": "stock-tool-chest"
+  },
+  {
+   "file": "studio/stock/vacuum-truck.jpg",
+   "thing": "vac truck",
+   "category": "vacuum",
+   "machine": "stock-vacuum-truck"
+  },
+  {
+   "file": "studio/stock/warehouse-racks.jpg",
+   "thing": "pallet racking",
+   "category": "warehouse",
+   "machine": "stock-warehouse-racks"
+  }
+ ]
+}

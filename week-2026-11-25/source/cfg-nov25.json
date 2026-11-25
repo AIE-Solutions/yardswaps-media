@@ -1,0 +1,391 @@
+{
+ "riq3khm": {
+  "key": "riq3khm",
+  "id": "listed-floral-walk-in-display-cooler",
+  "T": 2.4,
+  "img": "real-iq3khm",
+  "move": "push",
+  "label": null,
+  "l1": "Just listed on YardSwaps.",
+  "l2": "Floral Walk-In Display Cooler.",
+  "caps": [
+   [
+    "Just listed?",
+    "Snap it."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, specs."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Specs"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Just listed"
+  },
+  "end": {
+   "tag1": "Real listing. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What cooler is standing empty in your store right now?"
+  },
+  "listing_id": "cmwsc8u1f001rqk3af9iq3khm",
+  "category": "refrigeration",
+  "real": true
+ },
+ "rsfmh3l": {
+  "key": "rsfmh3l",
+  "id": "listed-caterpillar-140h-v-plow",
+  "T": 2.4,
+  "img": "real-sfmh3l",
+  "move": "pan",
+  "label": null,
+  "l1": "Just listed on YardSwaps.",
+  "l2": "Caterpillar 140H V-Plow.",
+  "caps": [
+   [
+    "Just listed?",
+    "Snap it."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, specs."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Specs"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Just listed"
+  },
+  "end": {
+   "tag1": "Real listing. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What plow is parked in your yard until the snow?"
+  },
+  "listing_id": "cmwosmtfl003bob3aetsfmh3l",
+  "category": "landscaping",
+  "real": true
+ },
+ "n100": {
+  "key": "combioven",
+  "id": "combi-oven-after-the-remodel",
+  "T": 4.3,
+  "img": "combi-oven",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the hotel kitchen was remodeled.",
+  "l2": "The combi oven came out whole.",
+  "caps": [
+   [
+    "Remodel done?",
+    "Snap the oven."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, fuel."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Fuel"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Remodel done"
+  },
+  "end": {
+   "tag1": "One photo of the oven. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What came out of the kitchen on your last remodel?"
+  },
+  "category": "cooking"
+ },
+ "n101": {
+  "key": "boomlift",
+  "id": "boom-lift-after-the-fitout",
+  "T": 4.3,
+  "img": "boom-lift-yellow",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the fitout wrapped.",
+  "l2": "The boom lift is parked by the wall.",
+  "caps": [
+   [
+    "Fitout done?",
+    "Snap the lift."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, reach."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Reach"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Fitout done"
+  },
+  "end": {
+   "tag1": "One photo of the lift. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What lift is parked by your wall since the fitout?"
+  },
+  "category": "aerial"
+ },
+ "n102": {
+  "key": "ecabinet",
+  "id": "control-cabinet-off-the-line",
+  "T": 4.3,
+  "img": "electrical-cabinet",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the line shut down.",
+  "l2": "The control cabinet is still on the wall.",
+  "caps": [
+   [
+    "Line down?",
+    "Snap the panel."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, volts."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Volts"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Line down"
+  },
+  "end": {
+   "tag1": "One photo of the panel. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still wired on the wall of the line you shut down?"
+  },
+  "category": "electrical"
+ },
+ "n103": {
+  "key": "drillrig",
+  "id": "drill-rig-between-contracts",
+  "T": 4.3,
+  "img": "drill-rig",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the drilling contract ended.",
+  "l2": "The rig sits on the lot.",
+  "caps": [
+   [
+    "Contract over?",
+    "Snap the rig."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, depth."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Depth"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Contract over"
+  },
+  "end": {
+   "tag1": "One photo of the rig. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What rig is parked on your lot between contracts?"
+  },
+  "category": "drilling"
+ },
+ "n104": {
+  "key": "vactank",
+  "id": "vac-truck-after-the-season",
+  "T": 4.3,
+  "img": "vac-tank-truck",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the pumping season ended.",
+  "l2": "The vac truck sits in the lot.",
+  "caps": [
+   [
+    "Season over?",
+    "Snap the truck."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, tank."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Tank"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Season over"
+  },
+  "end": {
+   "tag1": "One photo of the truck. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What truck is parked in your lot since the season ended?"
+  },
+  "category": "vacuum"
+ }
+}

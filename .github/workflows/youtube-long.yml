@@ -1,0 +1,61 @@
+name: YouTube long videos
+
+# One long (16:9) YouTube video a day, 8:30-11:00 am Central, from
+# youtube/long-queue.json, uploaded straight to the YardSwaps channel with the
+# YouTube Data API (youtube/post_long.py). Until Google's API audit passes,
+# uploads from our project are locked private, so scheduled runs only print the
+# next pick. After the audit, set the repo variable YT_LONG_LIVE to 1.
+on:
+  schedule:
+    - cron: "37 14,15,16 * * *"   # 8:30-11:00 am Central (winter 14:30-17:00 UTC)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry = print the queue and the next pick; test = upload the next pick as PRIVATE; post = upload it public"
+        default: "dry"
+      slug:
+        description: "Upload this queue row (optional), e.g. weekly-6"
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: youtube-long
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      # The repo is several GB, so check out only the queue, then add just the
+      # videos, captions and thumbnails the queue names.
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            youtube
+          sparse-checkout-cone-mode: false
+      - name: Fetch the queued files
+        run: |
+          python3 -c "import json;[print(r[k]) for r in json.load(open('youtube/long-queue.json')) if not r.get('skip') for k in ('file','thumbnail','captions') if r.get(k)]" > /tmp/files.txt
+          git sparse-checkout add --stdin < /tmp/files.txt
+      - name: Upload the next long video
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          LIVE: ${{ vars.YT_LONG_LIVE }}
+          EVENT: ${{ github.event_name }}
+          MODE: ${{ inputs.mode || 'dry' }}
+          SLUG: ${{ inputs.slug }}
+        run: python3 youtube/post_long.py
+      - name: Save the upload log
+        if: always()
+        run: |
+          git config user.name "yardswaps-reels-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add youtube/long-posted.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "YouTube long log $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done

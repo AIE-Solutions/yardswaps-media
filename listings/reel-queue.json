@@ -385,5 +385,71 @@
   "reason": "dealer site watermark (tractor logo) on the photos",
   "updated": "2026-11-24T17:55:00Z",
   "reviewed_by": "claude"
+ },
+ {
+  "listing_id": "cmwv95og80026t83akg3tp04q",
+  "slug": "listed-2024-billy-goat-dl3700ve-leaf-vacu-tp04q",
+  "title": "2024 Billy Goat DL3700VE Leaf Vacuum, 400 hrs, Like New",
+  "category": "landscaping",
+  "photos": [
+   "/api/images/listings/1795558476415-a84773c42b29.jpg",
+   "/api/images/listings/1795558476962-447c5beba3fa.jpg",
+   "/api/images/listings/1795558477572-0aabbabc2fb0.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwv95og80026t83akg3tp04q.jpg",
+  "status": "rejected",
+  "added": "2026-11-24T23:52:50Z",
+  "reason": "photo 2 shows a landscaping company pickup with its website and phone number readable on the truck",
+  "updated": "2026-11-25T17:52:13Z",
+  "reviewed_by": "claude"
+ },
+ {
+  "listing_id": "cmwv4ibiz000soa3a8alxqapl",
+  "slug": "listed-toyota-electric-forklift-with-deka-xqapl",
+  "title": "Toyota electric forklift with Deka battery and Exide charger",
+  "category": "forklifts",
+  "photos": [
+   "/api/images/listings/1795550668196-df213989d4d2.jpg",
+   "/api/images/listings/1795550668485-5503a79259a8.jpg",
+   "/api/images/listings/1795550668914-4206fd96be74.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwv4ibiz000soa3a8alxqapl.jpg",
+  "status": "rejected",
+  "added": "2026-11-24T23:53:02Z",
+  "reason": "photo 3 is a close-up of the battery, so the whole forklift is not in frame (photo 2 charger is half hidden by a board)",
+  "updated": "2026-11-25T17:52:13Z",
+  "reviewed_by": "claude"
+ },
+ {
+  "listing_id": "cmwv5c9p40006of3age490evj",
+  "slug": "listed-freskool-commercial-condensing-uni-90evj",
+  "title": "Freskool Commercial Condensing Unit, 30,900 BTU/hr, 208-230V 3-Phase",
+  "category": "refrigeration",
+  "photos": [
+   "/api/images/listings/1795552085745-06c863f1b074.jpg",
+   "/api/images/listings/1795552086890-4fbf6c12d5ae.jpg",
+   "/api/images/listings/1795552088899-bfcc41397808.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwv5c9p40006of3age490evj.jpg",
+  "status": "rejected",
+  "added": "2026-11-24T23:53:15Z",
+  "reason": "photo 2 is a close-up of the nameplate, so the whole condensing unit is not in frame",
+  "updated": "2026-11-25T17:52:13Z",
+  "reviewed_by": "claude"
+ },
+ {
+  "listing_id": "cmwhyiesp0031pd3a340c4qtl",
+  "slug": "listed-bulk-new-snow-plow-hardware-lot-cr-c4qtl",
+  "title": "Bulk New Snow Plow Hardware Lot, Crate plus 2 Skids of Bolts, Washers, Nuts",
+  "category": "landscaping",
+  "photos": [
+   "/api/images/listings/1794754535443-ff9004ae566d.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwhyiesp0031pd3a340c4qtl.jpg",
+  "status": "rejected",
+  "added": "2026-11-24T23:53:19Z",
+  "reason": "the only photo is cropped inside the crate, so the whole crate is not in frame and the 2 skids in the title are not shown",
+  "updated": "2026-11-25T17:52:13Z",
+  "reviewed_by": "claude"
  }
 ]

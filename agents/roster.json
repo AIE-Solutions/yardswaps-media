@@ -1,0 +1,804 @@
+{
+  "$comment": "The agent workforce roster (Alan 2026-11-25: \"Build our agent workforce to take on all these new corporate tasks to keep everything flowing\"). One row per agent: what it does, when it runs (Mountain time, Alan's), what runs it, its prompt, and how we know it worked. The Roster Keeper (ROSTER-KEEPER-PROMPT.md) reads this file twice a day, matches each row to its scheduled task, workflow run or heartbeat, and republishes the status page. Change a row by PR. runner.kind: task = a project scheduled task (trig_ id), workflow = a GitHub Actions workflow in this repo (file name), app = a Railway cron or app code in AIE-Solutions/Marketplace, external = a paid tool outside our code. cadenceHours = longest normal gap between runs; a row quiet for 1.5x that is flagged. heartbeat = the X-Agent-Name it sends to POST /api/agent/heartbeat at the end of a run (null = no heartbeat; health comes from the runner).",
+  "updated": "2026-11-25",
+  "statusPage": "https://claude.ai/artifact/LqHZjy1HennvyA5GaA2L3r",
+  "hardLimits": "No spend, no investor contact, no deleting data or removing listings, no Stripe or console changes, no subscription cancellations, no bans (Alan's call). Copy follows MESSAGING.md. Never Alan's personal name in anything users read. Every video ends on the end card.",
+  "teams": [
+    {
+      "id": "ops",
+      "name": "Run the company"
+    },
+    {
+      "id": "growth",
+      "name": "Growth and sales"
+    },
+    {
+      "id": "customers",
+      "name": "Customers and storefronts"
+    },
+    {
+      "id": "billing",
+      "name": "Billing"
+    },
+    {
+      "id": "posting",
+      "name": "Posting"
+    },
+    {
+      "id": "content",
+      "name": "Making content"
+    },
+    {
+      "id": "reports",
+      "name": "Reports"
+    },
+    {
+      "id": "studio",
+      "name": "YardSwaps Studio (being built)"
+    }
+  ],
+  "agents": [
+    {
+      "id": "roster-keeper",
+      "team": "ops",
+      "name": "Roster Keeper",
+      "status": "live",
+      "does": "Checks every agent on this roster ran when it should, rebuilds this status page, and routes any quiet or failing agent to its owner.",
+      "schedule": "Daily 5:53 am and 4:53 pm",
+      "cadenceHours": 12,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01AHbdZLjh43ivYsTVPT47gY"
+      },
+      "prompt": "agents/ROSTER-KEEPER-PROMPT.md",
+      "owner": "Agent workforce thread",
+      "health": "Heartbeat roster-keeper; the page's Updated time",
+      "heartbeat": "roster-keeper"
+    },
+    {
+      "id": "platform-ops",
+      "team": "ops",
+      "name": "Platform Ops",
+      "status": "live",
+      "does": "Reads the daily Ops and Growth digests, safety and moderation signals, AI budget and checkout alerts, and routes each problem to its owner.",
+      "schedule": "Daily 2:37 am",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_015FThsQeMCzTnmL8rSmKVz7"
+      },
+      "prompt": "agents/PLATFORM-OPS-PROMPT.md",
+      "owner": "Growth Lead thread",
+      "health": "Row in PLATFORM-OPS-LOG.md; heartbeat platform-ops",
+      "heartbeat": "platform-ops"
+    },
+    {
+      "id": "ops-sweep",
+      "team": "ops",
+      "name": "Ops Sweep",
+      "status": "live",
+      "does": "Checks production health, red CI and yesterday's merges, and fixes up to 3 bugs a run with tests.",
+      "schedule": "Daily 4:47 am",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_014toTP2JeivwveJw1d9tmZZ"
+      },
+      "prompt": "Marketplace .claude/skills/ops-sweep/SKILL.md",
+      "owner": "Growth Lead thread",
+      "health": "Ops log issue comment; heartbeat ops-sweep",
+      "heartbeat": "ops-sweep"
+    },
+    {
+      "id": "guard",
+      "team": "ops",
+      "name": "Guard",
+      "status": "live",
+      "does": "Checks every send and the next 48 hours of queued posts against the caps and copy rules, and pauses or fixes anything off-rule through its owner.",
+      "schedule": "Daily 3:41 pm",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01QHU4MMrxVmdR2RE3u8D2Vc"
+      },
+      "prompt": "growth-loop/GUARD-PROMPT.md (project files)",
+      "owner": "Growth Lead thread",
+      "health": "Row in GUARD-LOG.md; heartbeat guard",
+      "heartbeat": "guard"
+    },
+    {
+      "id": "optimizer",
+      "team": "ops",
+      "name": "Optimizer",
+      "status": "live",
+      "does": "Scores every agent each week, rewrites up to 3 agent prompts inside the guardrails, and reverts changes that made things worse.",
+      "schedule": "Sundays 2:43 pm",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01BosDEBoKhQdZ9ybf7NW9Xx"
+      },
+      "prompt": "growth-loop/OPTIMIZER-PROMPT.md (project files)",
+      "owner": "Growth Lead thread",
+      "health": "Entry in growth-loop/CHANGELOG.md; heartbeat optimizer",
+      "heartbeat": "optimizer"
+    },
+    {
+      "id": "app-crons",
+      "team": "ops",
+      "name": "App crons",
+      "status": "live",
+      "does": "Boost expiry, saved-search alerts, activation and seller nudges, lifecycle emails, scheduled admin messages and the daily digests, inside the app.",
+      "schedule": "Every 5 min to daily",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "app",
+        "ref": "Railway cron services (architecture.json infrastructure.hosting.services)"
+      },
+      "prompt": null,
+      "owner": "Ops Sweep",
+      "health": "OpsDigest attention list and Railway logs, read by Platform Ops",
+      "heartbeat": null
+    },
+    {
+      "id": "owner-alerts",
+      "team": "ops",
+      "name": "Owner alerts",
+      "status": "live",
+      "does": "Emails Alan and rings the admin bell on new subscriptions, cancels, ended plans and failed payments; feeds the admin Overview.",
+      "schedule": "On every Stripe event",
+      "cadenceHours": null,
+      "runner": {
+        "kind": "app",
+        "ref": "Marketplace PR #530 (Stripe webhook + /admin Overview)"
+      },
+      "prompt": null,
+      "owner": "Billing Watch",
+      "health": "GET /api/agent/activity, read daily by Billing Watch",
+      "heartbeat": null
+    },
+    {
+      "id": "growth-lead",
+      "team": "growth",
+      "name": "Growth Lead",
+      "status": "live",
+      "does": "Reads users, storefronts and app numbers, picks the biggest lever toward 10,000 users and 500 storefronts, and hands it to its owner.",
+      "schedule": "Daily 6:23 am",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01Gux1HZipzX39ZLhGkd9W7k"
+      },
+      "prompt": "growth-loop/GROWTH-LEAD-PROMPT.md (project files)",
+      "owner": "Growth Lead thread",
+      "health": "Row in GROWTH-LOG.md; heartbeat growth-lead",
+      "heartbeat": "growth-lead"
+    },
+    {
+      "id": "dealer-loader",
+      "team": "growth",
+      "name": "Dealer Loader",
+      "status": "live",
+      "does": "Finds dealers and fleets, sends storefront claim notes and day-4 follow-ups at a safe pace.",
+      "schedule": "Mondays 5:23 pm",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01QKPx9RUyFEkCckBGhSz945"
+      },
+      "prompt": "growth-loop/DEALER-LOADER-PROMPT.md (project files)",
+      "owner": "Dealer Loader thread",
+      "health": "Row in dealer-loads/LOG.md; heartbeat dealer-loader",
+      "heartbeat": "dealer-loader"
+    },
+    {
+      "id": "funnel-engineer",
+      "team": "growth",
+      "name": "Funnel Engineer",
+      "status": "live",
+      "does": "Ships one sign-up or storefront funnel fix per run from FUNNEL-BACKLOG.md and merges it when green.",
+      "schedule": "Tue and Thu 12:37 pm",
+      "cadenceHours": 120,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_017FzBLYX3m58xJ6UdU3b2p3"
+      },
+      "prompt": "growth-loop/FUNNEL-ENGINEER-PROMPT.md (project files)",
+      "owner": "Growth Lead thread",
+      "health": "Item marked done in FUNNEL-BACKLOG.md; heartbeat funnel-engineer",
+      "heartbeat": "funnel-engineer"
+    },
+    {
+      "id": "cold-email",
+      "team": "growth",
+      "name": "Outreach email sender",
+      "status": "live",
+      "does": "Sends the queued dealer outreach emails in small batches with bounce and send caps.",
+      "schedule": "Weekdays every 30 min, 8 am to 3 pm",
+      "cadenceHours": 72,
+      "runner": {
+        "kind": "app",
+        "ref": "cron-outreach-pipeline (Railway)"
+      },
+      "prompt": null,
+      "owner": "Dealer Loader thread",
+      "health": "OpsDigest outreach counts",
+      "heartbeat": null
+    },
+    {
+      "id": "investor-docs",
+      "team": "growth",
+      "name": "Investor docs refresh",
+      "status": "live",
+      "does": "Updates the numbers in our own investor one-pager, drafts and deck. Never contacts an investor.",
+      "schedule": "Mondays 11:41 am",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01MiSUqhzK2bVoD2Tuthijj8"
+      },
+      "prompt": "In the scheduled task",
+      "owner": "Fundraise thread",
+      "health": "Dated line in investor-strike-zone memory",
+      "heartbeat": "investor-docs"
+    },
+    {
+      "id": "reply-handler",
+      "team": "customers",
+      "name": "Reply Handler",
+      "status": "live",
+      "does": "Answers dealer and seller replies, sends checkout follow-ups and storefront welcomes, and runs the daily posting-rules review.",
+      "schedule": "Daily 11:17 am and 4:17 pm",
+      "cadenceHours": 12,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_018dD2BLiwrSFg3enX8Rk5RC"
+      },
+      "prompt": "growth-loop/REPLY-HANDLER-PROMPT.md + agents/REPLY-HANDLER-ADMIN-STEPS.md",
+      "owner": "Growth Lead thread",
+      "health": "Agent log (/admin/agent-log); heartbeat reply-handler",
+      "heartbeat": "reply-handler"
+    },
+    {
+      "id": "storefront-care",
+      "team": "customers",
+      "name": "Storefront Care",
+      "status": "live",
+      "does": "For every live or gifted storefront: checks its page and map pin, sends the exact-address and setup nudge, and queues its social welcome post so the promise in the welcome is kept.",
+      "schedule": "Daily 12:13 pm",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01G1L1qFFFvL1WUzM5mdAGRp"
+      },
+      "prompt": "agents/STOREFRONT-CARE-PROMPT.md",
+      "owner": "Agent workforce thread",
+      "health": "Row in agents/logs/STOREFRONT-CARE-LOG.md; heartbeat storefront-care",
+      "heartbeat": "storefront-care"
+    },
+    {
+      "id": "comment-replies",
+      "team": "customers",
+      "name": "Comment replies",
+      "status": "live",
+      "does": "Replies once to each new real comment on YouTube, Instagram and Facebook as the business, and logs leads.",
+      "schedule": "Daily 10:41 am",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01YZZfB31EvRfo65CwStoXQV"
+      },
+      "prompt": "yardswaps-campaign/comments/DAILY-TASK-PROMPT.md (project files)",
+      "owner": "Comments thread",
+      "health": "COMMENT-LOG.md and the day's DIGEST file",
+      "heartbeat": "comment-replies"
+    },
+    {
+      "id": "comment-inbox",
+      "team": "customers",
+      "name": "Comment inbox",
+      "status": "live",
+      "does": "Pulls new Instagram and Facebook comments into comments/inbox.json and posts queued replies.",
+      "schedule": "Daily 8:50 am and 9:20 am",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "workflow",
+        "ref": "comments.yml"
+      },
+      "prompt": null,
+      "owner": "Comments thread",
+      "health": "Last workflow run",
+      "heartbeat": null
+    },
+    {
+      "id": "helper-watch",
+      "team": "customers",
+      "name": "Site chat helper watch",
+      "status": "live",
+      "does": "Reads the week's chats with the site helper, lists what sellers asked and what it got wrong, and runs its tests.",
+      "schedule": "Mondays 11:23 am",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_011XG1zoBM2sTdDociVUNE3c"
+      },
+      "prompt": "In the scheduled task",
+      "owner": "ElevenLabs thread",
+      "health": "Scheduled task run; the weekly report section in growth-loop/HELPER-QUESTIONS.md",
+      "heartbeat": null
+    },
+    {
+      "id": "helper-health",
+      "team": "customers",
+      "name": "Site chat helper health check",
+      "status": "live",
+      "does": "Runs the site chat helper's tests and checks the help pages load, so a broken helper is caught within a week.",
+      "schedule": "Mondays 10:47 am",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_018czWbWWoftkofXUBkzXtJW"
+      },
+      "prompt": "Stored in the scheduled task",
+      "owner": "Growth Lead thread",
+      "health": "Heartbeat helper-health; growth-loop/HELPER-HEALTH.md",
+      "heartbeat": "helper-health"
+    },
+    {
+      "id": "billing-watch",
+      "team": "billing",
+      "name": "Billing Watch",
+      "status": "live",
+      "does": "Reads new subscriptions, trials, cancels and failed payments; checks every founding storefront trial has its $29 discount before the first charge; never changes Stripe.",
+      "schedule": "Daily 8:07 am",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01GSwgyu8V3fCCzwzDR5psBZ"
+      },
+      "prompt": "agents/BILLING-WATCH-PROMPT.md",
+      "owner": "Agent workforce thread",
+      "health": "Row in agents/logs/BILLING-WATCH-LOG.md; heartbeat billing-watch",
+      "heartbeat": "billing-watch"
+    },
+    {
+      "id": "founding-check-quiet-village",
+      "team": "billing",
+      "name": "Founding discount check (Quiet Village)",
+      "status": "scheduled",
+      "does": "One-off: confirms the first paying storefront's founding discount is on before its Dec 24 charge.",
+      "schedule": "Once, Dec 22 9:00 am",
+      "cadenceHours": null,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01GGiREmYjnDbzHYY1anZucs"
+      },
+      "prompt": "In the scheduled task",
+      "owner": "Storefront rollout thread",
+      "health": "Reply in its thread",
+      "heartbeat": null
+    },
+    {
+      "id": "reels-poster",
+      "team": "posting",
+      "name": "Reels and Stories poster",
+      "status": "live",
+      "does": "Posts our Reels and Stories to Instagram and Facebook in 10 daily slots, skipping clips without the end card.",
+      "schedule": "10 slots, 5:10 am to 11:40 pm",
+      "cadenceHours": 8,
+      "runner": {
+        "kind": "workflow",
+        "ref": "reels.yml",
+        "timers": [
+          "trig_01MjPgcVzidp52vfaX5GuMCc",
+          "trig_01TaahYyHj1BcaYyFzJMBo5S",
+          "trig_0196r8a6LZGsfgpis4Ufev3D",
+          "trig_01PFHJ5qybrmCDodLZRwpNQn",
+          "trig_01RaYM7q7BKEACvbpHjS1J13",
+          "trig_016RMeKM6iwGGYgxMFQ36KHb",
+          "trig_01HokHN9ZxxqVZv2U4p14Rta"
+        ]
+      },
+      "prompt": null,
+      "owner": "Reels thread",
+      "health": "Last workflow run and reels/posted.json",
+      "heartbeat": null
+    },
+    {
+      "id": "tiktok-poster",
+      "team": "posting",
+      "name": "TikTok poster",
+      "status": "live",
+      "does": "Posts 2 of our videos a day to TikTok, never within 75 minutes of the last one.",
+      "schedule": "2 a day, mornings and afternoons",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "workflow",
+        "ref": "tiktok.yml",
+        "timers": [
+          "trig_01HokHN9ZxxqVZv2U4p14Rta"
+        ]
+      },
+      "prompt": null,
+      "owner": "TikTok thread",
+      "health": "Last workflow run and reels/tiktok-posted.json",
+      "heartbeat": null
+    },
+    {
+      "id": "shorts-poster",
+      "team": "posting",
+      "name": "YouTube Shorts poster",
+      "status": "live",
+      "does": "Posts a Short at 9:00 am and 3:00 pm through Buffer, from the queue.",
+      "schedule": "Daily 9:00 am and 3:00 pm",
+      "cadenceHours": 12,
+      "runner": {
+        "kind": "workflow",
+        "ref": "youtube-shorts.yml",
+        "timers": [
+          "trig_018g62fWpyYWyNF5RVcssTG5"
+        ]
+      },
+      "prompt": null,
+      "owner": "YouTube thread",
+      "health": "Last workflow run and youtube/posted.json",
+      "heartbeat": null
+    },
+    {
+      "id": "youtube-slots",
+      "team": "posting",
+      "name": "YouTube and LinkedIn upload slots",
+      "status": "live",
+      "does": "Uploads the week's long videos and LinkedIn posts from WEEKLY-BATCH.md through Zapier when each slot comes due.",
+      "schedule": "6 checks a day",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01H5jEViEZbJrqHJeXQkNnAs"
+      },
+      "prompt": "In the scheduled task",
+      "owner": "YouTube thread",
+      "health": "Done column in WEEKLY-BATCH.md",
+      "heartbeat": null
+    },
+    {
+      "id": "just-listed",
+      "team": "posting",
+      "name": "Just listed posts",
+      "status": "live",
+      "does": "Turns new live listings into Instagram and Facebook posts, plus storefront welcome posts, after the daily review.",
+      "schedule": "5 a day",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "workflow",
+        "ref": "listings.yml"
+      },
+      "prompt": null,
+      "owner": "Listings thread",
+      "health": "Last workflow run and listings/posted.json",
+      "heartbeat": null
+    },
+    {
+      "id": "just-listed-review",
+      "team": "posting",
+      "name": "Just listed card review",
+      "status": "live",
+      "does": "Safety gate: approves or rejects each pending Just listed card (no faces, names, plates or phone numbers).",
+      "schedule": "Daily 10:31 am",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_012FVbDzqKf4UtETzFUpXtHj"
+      },
+      "prompt": "In the scheduled task",
+      "owner": "Listings thread",
+      "health": "Review commit on listings/queue.json",
+      "heartbeat": null
+    },
+    {
+      "id": "listing-reels-review",
+      "team": "posting",
+      "name": "Listing Reels review",
+      "status": "live",
+      "does": "Safety gate for listing Reels: checks every photo before a listing Reel can post.",
+      "schedule": "Daily 10:47 am",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01Bs4N94BEGdvLu9Q2ojrSwn"
+      },
+      "prompt": "In the scheduled task",
+      "owner": "Machine rotation thread",
+      "health": "Review commit on listings/reel-queue.json",
+      "heartbeat": null
+    },
+    {
+      "id": "list-it-free-story",
+      "team": "posting",
+      "name": "LIST IT FREE Story",
+      "status": "live",
+      "does": "Posts the daily LIST IT FREE Instagram Story and confirms it is live.",
+      "schedule": "Daily 8:27 am",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01NkNBhyQoWJuy4yys6HxiZ2"
+      },
+      "prompt": "In the scheduled task",
+      "owner": "List it free thread",
+      "health": "stories/posted.json",
+      "heartbeat": null
+    },
+    {
+      "id": "heycatch",
+      "team": "posting",
+      "name": "HeyCatch (paid tool)",
+      "status": "live",
+      "does": "Posts POV shorts 3 times a day and one blog article a day. Runs until Studio is proven and Alan decides.",
+      "schedule": "3 a day",
+      "cadenceHours": null,
+      "runner": {
+        "kind": "external",
+        "ref": "HeyCatch"
+      },
+      "prompt": null,
+      "owner": "Studio thread",
+      "health": "HeyCatch dashboard",
+      "heartbeat": null
+    },
+    {
+      "id": "motion-shorts",
+      "team": "content",
+      "name": "Motion Shorts maker",
+      "status": "live",
+      "does": "Makes 7 new seller and storefront Shorts each run from real listings and the backlog, every one through the audits and ending on the end card.",
+      "schedule": "Mon 6:41 am, Wed 7:52 am, Fri 7:37 am",
+      "cadenceHours": 72,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01BVu5zLGenLpDg4hdQ1CULB",
+        "also": [
+          "trig_01PTbu68prUrCvMfV4TqK7y1",
+          "trig_01Kr8xzfscvQRpMhR7e7W1Ha"
+        ]
+      },
+      "prompt": "In the scheduled tasks",
+      "owner": "Motion thread",
+      "health": "New entries in reels/library.json; MOTION.md",
+      "heartbeat": null
+    },
+    {
+      "id": "endcard-check",
+      "team": "content",
+      "name": "End card check",
+      "status": "live",
+      "does": "Counts library clips still missing the end card (the posters skip them) and asks Motion to fix them when the postable pool runs low.",
+      "schedule": "With the Roster Keeper, twice daily",
+      "cadenceHours": 12,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01AHbdZLjh43ivYsTVPT47gY"
+      },
+      "prompt": "agents/ROSTER-KEEPER-PROMPT.md (step 5)",
+      "owner": "Agent workforce thread",
+      "health": "End card line on this page",
+      "heartbeat": "roster-keeper"
+    },
+    {
+      "id": "monday-batch",
+      "team": "content",
+      "name": "Monday posting batch",
+      "status": "live",
+      "does": "Plans the week: orders clips by results, writes the YouTube and LinkedIn rows, sends Motion the trend brief.",
+      "schedule": "Mondays 12:47 pm",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01KL6XJt8eYM8yiJcGQtkUtv"
+      },
+      "prompt": "In the scheduled task",
+      "owner": "YouTube thread",
+      "health": "New week in WEEKLY-BATCH.md",
+      "heartbeat": null
+    },
+    {
+      "id": "trending-sound",
+      "team": "content",
+      "name": "Weekly trending-sound Short",
+      "status": "live",
+      "does": "Picks one Short a week for Alan to post from his phone with a trending sound.",
+      "schedule": "Mondays 1:23 pm",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01LZXnLrTMM3hL7CUFDFX54r"
+      },
+      "prompt": "In the scheduled task",
+      "owner": "YouTube thread",
+      "health": "Reply in its thread",
+      "heartbeat": null
+    },
+    {
+      "id": "listening",
+      "team": "content",
+      "name": "Listening list",
+      "status": "live",
+      "does": "Finds Reddit and forum threads where people ask about selling or buying used equipment.",
+      "schedule": "Daily 5:15 am",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "workflow",
+        "ref": "listening.yml"
+      },
+      "prompt": null,
+      "owner": "Growth Lead thread",
+      "health": "Last workflow run",
+      "heartbeat": null
+    },
+    {
+      "id": "youtube-report",
+      "team": "reports",
+      "name": "Monday YouTube report",
+      "status": "live",
+      "does": "Emails the weekly channel report, replies to comments and feeds the scorecard.",
+      "schedule": "Mondays 6:52 am",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01KWVyR1JgidfqFYMGW47TaW"
+      },
+      "prompt": "In the scheduled task",
+      "owner": "YouTube thread",
+      "health": "Email to yardswaps@gmail.com; metrics/inputs",
+      "heartbeat": null
+    },
+    {
+      "id": "scorecard",
+      "team": "reports",
+      "name": "Metrics scorecard",
+      "status": "live",
+      "does": "Rebuilds metrics/SCORECARD.md and the Reels boost ranking from the latest numbers.",
+      "schedule": "Daily 5:10 am",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "workflow",
+        "ref": "metrics.yml"
+      },
+      "prompt": null,
+      "owner": "Growth Lead thread",
+      "health": "Last workflow run",
+      "heartbeat": null
+    },
+    {
+      "id": "profiles-check",
+      "team": "reports",
+      "name": "Profile check",
+      "status": "live",
+      "does": "Checks the Facebook and Instagram profiles still show the right bio, links and name.",
+      "schedule": "Mondays 7:05 am",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "workflow",
+        "ref": "profiles.yml"
+      },
+      "prompt": null,
+      "owner": "Profiles thread",
+      "health": "Last workflow run",
+      "heartbeat": null
+    },
+    {
+      "id": "studio-blog",
+      "team": "studio",
+      "name": "Studio blog writer",
+      "status": "live",
+      "does": "Writes and publishes up to two articles a day (one specific, one broad) on our own blog through the agent blog API, and copies HeyCatch's articles into our store, in place of HeyCatch's and Soro's articles.",
+      "schedule": "Twice a day, 7:21 am and 2:21 pm Central (one article per lane per day)",
+      "cadenceHours": 12,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_017Wm3xsQSfmNafRLgYwYfoi"
+      },
+      "prompt": "agents/BLOG-WRITER-PROMPT.md",
+      "owner": "Studio thread",
+      "health": "Heartbeat studio-blog once live",
+      "heartbeat": "studio-blog"
+    },
+    {
+      "id": "studio-shorts",
+      "team": "studio",
+      "name": "Studio POV shorts",
+      "status": "live",
+      "does": "Builds our own 7.5 second POV shorts from approved listing photos, with the end card, up to 5 a day; each waits in the Studio deck (yardswaps.com/admin/studio) for approve / skip, then goes to the Reels, TikTok and Shorts posters.",
+      "schedule": "With the listing Reels build",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "workflow",
+        "ref": "listings.yml"
+      },
+      "prompt": "studio/README.md",
+      "owner": "Studio thread",
+      "health": "New studio clips in reels/library.json",
+      "heartbeat": null
+    },
+    {
+      "id": "studio-deck",
+      "team": "studio",
+      "name": "Studio deck sync",
+      "status": "live",
+      "does": "Copies the approve / skip / edit decisions from yardswaps.com/admin/studio into reels/library.json, so skipped Studio clips never post, approved ones join the rotation, and clips nobody reviews post after a day. The morning run also scores account health per platform (studio/HEALTH.md), which the posters check before each post.",
+      "schedule": "Three times a day, 7:35 am, 11:35 am and 3:35 pm Mountain",
+      "cadenceHours": 8,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01S1Vm7f9D5yn3x1HjoSbTk3"
+      },
+      "prompt": "agents/STUDIO-DECK-SYNC-PROMPT.md",
+      "owner": "Studio thread",
+      "health": "Heartbeat studio-deck",
+      "heartbeat": "studio-deck"
+    },
+    {
+      "id": "studio-audit",
+      "team": "studio",
+      "name": "Studio audit",
+      "status": "live",
+      "does": "Scores the site out of 100 every week (SEO and GEO in 4 pillars, landing pages against MESSAGING.md and 2 competitors, the App Store and Google Play listings), saves it to studio/audits with the change since last week, and sends the top fixes with copy-paste prompts to the coordinator to route.",
+      "schedule": "Weekly, Monday 6:40 am Mountain",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_019hyz82tKH3DmddnycD69DJ"
+      },
+      "prompt": "agents/STUDIO-AUDIT-PROMPT.md",
+      "owner": "Studio thread",
+      "health": "Heartbeat studio-audit",
+      "heartbeat": "studio-audit"
+    },
+    {
+      "id": "studio-analytics",
+      "team": "studio",
+      "name": "Studio analytics",
+      "status": "building",
+      "does": "Our own replacement for HeyCatch's site analytics and account audits.",
+      "schedule": "Once it ships",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "PENDING"
+      },
+      "prompt": "Set by the Studio thread",
+      "owner": "Studio thread",
+      "health": "Heartbeat studio-analytics once live",
+      "heartbeat": "studio-analytics"
+    },
+    {
+      "id": "studio-connector",
+      "team": "studio",
+      "name": "Studio connector (Claude)",
+      "status": "live",
+      "does": "Lets Claude use the blog writer and the Studio deck for one brand at a time (YardSwaps, Arkeous, Dacnus), as a custom connector. The YardSwaps side only calls the blog and deck APIs with its own narrow token; it never posts or renders.",
+      "schedule": "Always on; daily heartbeat",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "app",
+        "ref": "studio-connector (Railway project Studio), Marketplace services/studio-connector, PR #547"
+      },
+      "prompt": "Marketplace services/studio-connector/README.md",
+      "owner": "Studio connector thread",
+      "health": "Heartbeat connector-studio; GET /health",
+      "heartbeat": "connector-studio"
+    }
+  ],
+  "retired": [
+    {
+      "ref": "trig_014sK3a9v6A7Xj6gd3f8JjAo",
+      "name": "Comment sweep (Wed, Fri, Sun)",
+      "why": "Replaced by the daily Comment replies at the same time; running both risks double replies. Paused 2026-11-25."
+    },
+    {
+      "ref": "trig_01Nd2kC6ZNH53AwNsVYB7ffv",
+      "name": "Weekly video pickup (Oct)",
+      "why": "October-era job that wiped the media repo after each push; the Monday posting batch replaced it. Paused 2026-11-25."
+    }
+  ]
+}

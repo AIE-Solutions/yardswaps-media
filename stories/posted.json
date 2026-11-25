@@ -148,5 +148,15 @@
   "media_id": "18122862454958132",
   "expires": "2026-11-25T15:29:14Z",
   "verified_live": true
+ },
+ {
+  "date": "2026-11-25",
+  "machine": "conveyor oven",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/7d0fe331063b2e43812bb95d7da435985b47fc33/stories/out/2026-11-25-conveyor-oven-story.jpg",
+  "time": "2026-11-25T15:29:07Z",
+  "status": "posted",
+  "media_id": "18126511144936277",
+  "expires": "2026-11-26T15:29:15Z",
+  "verified_live": true
  }
 ]

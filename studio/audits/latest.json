@@ -1,0 +1,869 @@
+{
+ "date": "2026-11-25",
+ "base": "https://www.yardswaps.com",
+ "overall": 91,
+ "seo": {
+  "score": 90.8,
+  "pillars": {
+   "crawl": {
+    "points": 25,
+    "earned": 21.97
+   },
+   "onpage": {
+    "points": 25,
+    "earned": 24.61
+   },
+   "geo": {
+    "points": 25,
+    "earned": 22.76
+   },
+   "tech": {
+    "points": 25,
+    "earned": 21.48
+   }
+  },
+  "checks": [
+   {
+    "pillar": "crawl",
+    "id": "pages-ok",
+    "name": "Sitemap pages answer 200 with no indexing error",
+    "points": 10,
+    "earned": 10,
+    "score": 1,
+    "detail": "449 of 449 pages clean",
+    "examples": [],
+    "fix": "Fix the sitemap URLs that error (status, noindex, canonical elsewhere, redirect or robots block) in scripts/seo-check.mjs output, or drop them from app/sitemap.ts."
+   },
+   {
+    "pillar": "crawl",
+    "id": "robots",
+    "name": "robots.txt answers and names the sitemap",
+    "points": 3,
+    "earned": 3,
+    "score": 1,
+    "detail": "ok",
+    "examples": [],
+    "fix": "Serve robots.txt with a Sitemap: line (apps/web/app/robots.ts)."
+   },
+   {
+    "pillar": "crawl",
+    "id": "lastmod",
+    "name": "Every sitemap URL has a lastmod date",
+    "points": 3,
+    "earned": 2.95,
+    "score": 0.982,
+    "detail": "441 of 449",
+    "examples": [],
+    "fix": "Give every entry in apps/web/app/sitemap.ts a lastModified from the record's updatedAt."
+   },
+   {
+    "pillar": "crawl",
+    "id": "coverage",
+    "name": "Indexable pages linked on the site are in the sitemap",
+    "points": 4,
+    "earned": 1.52,
+    "score": 0.38,
+    "detail": "31 indexable pages linked but not submitted",
+    "examples": [
+     "/videos/yardswaps-how-it-works-v3.mp4",
+     "/seller/cmwf21c2q001hqk3aryuivxu7",
+     "/seller/cmwtgi9q70005lh3ajbs9vq68",
+     "/seller/cmwls9l5d003jql3ay3lboj0s",
+     "/seller/cmwkyvxry000gpk3a0t8acol8"
+    ],
+    "fix": "Add the linked, indexable pages that are missing to apps/web/app/sitemap.ts, or noindex them if they should not rank."
+   },
+   {
+    "pillar": "crawl",
+    "id": "links",
+    "name": "No internal link is broken or redirects",
+    "points": 5,
+    "earned": 4.5,
+    "score": 0.9,
+    "detail": "1 broken or redirecting internal links",
+    "examples": [
+     "/listing/cmqrbcz12000nmy3a6tavw2s0"
+    ],
+    "fix": "Point the broken or redirecting internal links straight at the final 200 URL."
+   },
+   {
+    "pillar": "onpage",
+    "id": "title",
+    "name": "Titles 30-61 characters",
+    "points": 5,
+    "earned": 4.83,
+    "score": 0.967,
+    "detail": "15 out of range",
+    "examples": [
+     "/specs/american-spray-technologies/spray-tek-150-1g",
+     "/specs/eaton/field-mate-5008-fm-short",
+     "/specs/ford/f-350-super-duty-supercab-xl",
+     "/specs/freightliner/business-class-m2-106",
+     "/specs/gorilla/gorilla-glue-original"
+    ],
+    "fix": "Rewrite the titles that are too short or too long (30-61 characters, the item or topic first, '| YardSwaps' last)."
+   },
+   {
+    "pillar": "onpage",
+    "id": "description",
+    "name": "Meta descriptions 70-160 characters",
+    "points": 5,
+    "earned": 4.96,
+    "score": 0.991,
+    "detail": "4 out of range",
+    "examples": [
+     "/help",
+     "/dealer/my-equipment",
+     "/dealer/steve-lewis",
+     "/blog?post=equipment-marketplace-vs-classifieds"
+    ],
+    "fix": "Write a 70-160 character description for each page listed; for listings, build it from title, price, condition and city."
+   },
+   {
+    "pillar": "onpage",
+    "id": "unique",
+    "name": "Titles and descriptions are unique",
+    "points": 4,
+    "earned": 3.82,
+    "score": 0.955,
+    "detail": "4 pages share a title or description",
+    "examples": [
+     "/listing/cmwco6vw2001xlf3a9ntc7473",
+     "/listing/cmwcm06gr001glf3agv5fgns7",
+     "/listing/cmwv5c9p40007of3azn2u9qoy",
+     "/listing/cmwv5c9p40008of3alwgqlb5m"
+    ],
+    "fix": "Make duplicate listing titles and descriptions unique (add year, make, model or city)."
+   },
+   {
+    "pillar": "onpage",
+    "id": "h1",
+    "name": "Exactly one H1 per page",
+    "points": 4,
+    "earned": 4,
+    "score": 1,
+    "detail": "449 of 449",
+    "examples": [],
+    "fix": "Give each page listed exactly one <h1> naming the page's subject."
+   },
+   {
+    "pillar": "onpage",
+    "id": "text",
+    "name": "At least 600 characters of server-rendered text",
+    "points": 4,
+    "earned": 4,
+    "score": 1,
+    "detail": "0 thin pages",
+    "examples": [],
+    "fix": "Add useful server-rendered text to the thin pages (specs, what it is used for, pickup area)."
+   },
+   {
+    "pillar": "onpage",
+    "id": "alt",
+    "name": "Images have alt text",
+    "points": 3,
+    "earned": 3,
+    "score": 1,
+    "detail": "0 of 161 sampled images without alt",
+    "examples": [],
+    "fix": "Add alt text to every <img> on the pages listed (item name for listing photos, empty alt for decoration)."
+   },
+   {
+    "pillar": "geo",
+    "id": "jsonld",
+    "name": "JSON-LD parses on every page",
+    "points": 4,
+    "earned": 4,
+    "score": 1,
+    "detail": "0 pages with JSON-LD that does not parse",
+    "examples": [],
+    "fix": "Fix the JSON-LD blocks that fail to parse on the pages listed."
+   },
+   {
+    "pillar": "geo",
+    "id": "product",
+    "name": "Listing Product markup has what Google needs (image, offer)",
+    "points": 5,
+    "earned": 4.93,
+    "score": 0.985,
+    "detail": "2 of 137 listings missing a Product field",
+    "examples": [
+     "/listing/cmwv5c9p40007of3azn2u9qoy",
+     "/listing/cmwv5c9p40008of3alwgqlb5m"
+    ],
+    "fix": "In the listing page's Product JSON-LD, always include image (fall back to the category photo when a listing has none) and an Offer with price and priceCurrency."
+   },
+   {
+    "pillar": "geo",
+    "id": "org",
+    "name": "Home page has Organization and WebSite markup",
+    "points": 3,
+    "earned": 3,
+    "score": 1,
+    "detail": "Organization, WebSite, FAQPage",
+    "examples": [],
+    "fix": "Add Organization (name, logo, sameAs social links) and WebSite (with SearchAction) JSON-LD to the home page."
+   },
+   {
+    "pillar": "geo",
+    "id": "llms",
+    "name": "llms.txt describes the site with links",
+    "points": 3,
+    "earned": 3,
+    "score": 1,
+    "detail": "52 links",
+    "examples": [],
+    "fix": "Serve /llms.txt with the one-line description and links to categories, guides and key pages."
+   },
+   {
+    "pillar": "geo",
+    "id": "ai-bots",
+    "name": "Answer engines may read the site (robots.txt)",
+    "points": 3,
+    "earned": 3,
+    "score": 1,
+    "detail": "none blocked",
+    "examples": [],
+    "fix": "Remove the Disallow: / groups for answer-engine crawlers in apps/web/app/robots.ts (training can stay off through Content-Signal)."
+   },
+   {
+    "pillar": "geo",
+    "id": "questions",
+    "name": "Articles use question headings",
+    "points": 3,
+    "earned": 2.5,
+    "score": 0.833,
+    "detail": "5 of 6 sampled articles",
+    "examples": [
+     "/blog/used-box-truck-gvwr-cdl-usdot-rules"
+    ],
+    "fix": "Rewrite at least two H2s per article as the question a buyer would ask (agents/BLOG-WRITER-PROMPT.md in yardswaps-media)."
+   },
+   {
+    "pillar": "geo",
+    "id": "article",
+    "name": "Article markup has a date and an author",
+    "points": 2,
+    "earned": 0.33,
+    "score": 0.167,
+    "detail": "1 of 6",
+    "examples": [
+     "/blog/buying-used-machinery-playbook",
+     "/blog/used-enclosed-cargo-trailer-for-sale-buying-guide",
+     "/blog/used-pressure-washer-trailer-for-sale",
+     "/blog/used-dumping-trailer-for-sale-inspection-pricing-guide",
+     "/blog/best-used-skid-steer-verification-guide"
+    ],
+    "fix": "Give the BlogPosting JSON-LD on /blog/[slug] an author (the 'YardSwaps team' Organization) next to datePublished and dateModified."
+   },
+   {
+    "pillar": "geo",
+    "id": "answers",
+    "name": "Articles open with takeaways or carry an FAQ",
+    "points": 2,
+    "earned": 2,
+    "score": 1,
+    "detail": "6 of 6",
+    "examples": [],
+    "fix": "Start each article with a short 'Key takeaways' list and end with an FAQ section marked up as FAQPage."
+   },
+   {
+    "pillar": "tech",
+    "id": "html-size",
+    "name": "HTML under 500 KB (uncompressed)",
+    "points": 5,
+    "earned": 2.4,
+    "score": 0.481,
+    "detail": "26 of 26 sampled pages heavier; largest 1100 KB",
+    "examples": [
+     "/ (1100 KB)",
+     "/equipment/fleet-vehicles (1007 KB)",
+     "/listing/cmwv854ej002equ3ayr92unc7 (1006 KB)",
+     "/listing/cmwv7vedx001yqu3ahhjbq30f (1001 KB)",
+     "/listing/cmwf235fa001qqk3al5civojb (1000 KB)"
+    ],
+    "fix": "Trim the server HTML of the heavy pages: fewer listings inlined in the RSC payload, no duplicated JSON (docs/web-performance.md)."
+   },
+   {
+    "pillar": "tech",
+    "id": "img-size",
+    "name": "Images have width and height",
+    "points": 4,
+    "earned": 4,
+    "score": 1,
+    "detail": "0 of 161 sampled images unsized",
+    "examples": [],
+    "fix": "Render the unsized images through next/image or ListingImg with width and height so the layout doesn't shift."
+   },
+   {
+    "pillar": "tech",
+    "id": "lang-viewport",
+    "name": "lang attribute and viewport meta",
+    "points": 3,
+    "earned": 3,
+    "score": 1,
+    "detail": "26 of 26",
+    "examples": [],
+    "fix": "Set <html lang=\"en\"> and the viewport meta in app/layout.tsx."
+   },
+   {
+    "pillar": "tech",
+    "id": "https",
+    "name": "HTTPS with HSTS",
+    "points": 3,
+    "earned": 3,
+    "score": 1,
+    "detail": "ok",
+    "examples": [],
+    "fix": "Send Strict-Transport-Security with max-age of at least a year."
+   },
+   {
+    "pillar": "tech",
+    "id": "compression",
+    "name": "HTML is compressed",
+    "points": 3,
+    "earned": 3,
+    "score": 1,
+    "detail": "26 of 26",
+    "examples": [],
+    "fix": "Serve HTML with br or gzip."
+   },
+   {
+    "pillar": "tech",
+    "id": "og",
+    "name": "Share cards (og:title and og:image)",
+    "points": 4,
+    "earned": 3.08,
+    "score": 0.769,
+    "detail": "20 of 26",
+    "examples": [
+     "/blog/used-box-truck-gvwr-cdl-usdot-rules",
+     "/blog/buying-used-machinery-playbook",
+     "/blog/used-enclosed-cargo-trailer-for-sale-buying-guide",
+     "/blog/used-pressure-washer-trailer-for-sale",
+     "/blog/used-dumping-trailer-for-sale-inspection-pricing-guide"
+    ],
+    "fix": "Add openGraph title and image to generateMetadata on the pages listed."
+   },
+   {
+    "pillar": "tech",
+    "id": "ttfb",
+    "name": "Pages answer in under 800 ms on average",
+    "points": 3,
+    "earned": 3,
+    "score": 1,
+    "detail": "141 ms average over 26 pages",
+    "examples": [],
+    "fix": "Cache the slow server queries on the pages listed (unstable_cache or revalidate) and check the Railway region."
+   }
+  ],
+  "pagesCrawled": 449,
+  "pagesSampled": 26
+ },
+ "landing": {
+  "score": 93,
+  "pages": [
+   {
+    "path": "/",
+    "status": 200,
+    "criteria": [
+     {
+      "id": "what",
+      "name": "Says what it is up top (used commercial or industrial equipment)",
+      "result": "pass",
+      "detail": "H1: \"The marketplace where tradespeople buy and sell used industrial and commercial e\"",
+      "fix": "Make the H1 on / say what it is: \"Used commercial and industrial equipment\", then who it is for."
+     },
+     {
+      "id": "cta",
+      "name": "A clear call to action in the first screen",
+      "result": "pass",
+      "detail": "Browse",
+      "fix": "Put the main button (List equipment) in the first screen of /."
+     },
+     {
+      "id": "ai",
+      "name": "Says the AI writes the listing from photos",
+      "result": "pass",
+      "detail": "",
+      "fix": "Add the one line from MESSAGING.md to /: \"Snap a photo and the AI writes the listing.\""
+     },
+     {
+      "id": "proof",
+      "name": "Shows real inventory or numbers",
+      "result": "pass",
+      "detail": "25 listing links",
+      "fix": "Show live listing cards or a same-day number from the admin digest on /."
+     },
+     {
+      "id": "trust",
+      "name": "Contact, privacy and terms are linked",
+      "result": "pass",
+      "detail": "contact, privacy, terms",
+      "fix": "Link Contact, Privacy and Terms in the footer of /."
+     },
+     {
+      "id": "faq",
+      "name": "Answers buyer questions (FAQ)",
+      "result": "pass",
+      "detail": "",
+      "fix": "Add a short FAQ to /, marked up as FAQPage."
+     },
+     {
+      "id": "copy-rules",
+      "name": "No banned phrase or category count (copy-rules.json)",
+      "result": "pass",
+      "detail": "",
+      "fix": "Remove these phrases from /: ."
+     }
+    ],
+    "score": 100
+   },
+   {
+    "path": "/dealers",
+    "status": 200,
+    "criteria": [
+     {
+      "id": "what",
+      "name": "Says who it is for up top (equipment businesses, the storefront)",
+      "result": "pass",
+      "detail": "H1: \"Your own storefront on YardSwaps\"",
+      "fix": "Make the H1 or the line under it on /dealers say it is for equipment businesses (\"Open your storefront\", \"used commercial and industrial equipment\")."
+     },
+     {
+      "id": "cta",
+      "name": "A clear call to action in the first screen",
+      "result": "pass",
+      "detail": "Browse",
+      "fix": "Put the main button (Open your storefront) in the first screen of /dealers."
+     },
+     {
+      "id": "ai",
+      "name": "Says the AI writes the listing from photos",
+      "result": "pass",
+      "detail": "",
+      "fix": "Add the one line from MESSAGING.md to /dealers: \"Snap a photo and the AI writes the listing.\""
+     },
+     {
+      "id": "proof",
+      "name": "Shows real inventory or numbers",
+      "result": "fail",
+      "detail": "0 listing links",
+      "fix": "Show live listing cards or a same-day number from the admin digest on /dealers."
+     },
+     {
+      "id": "trust",
+      "name": "Contact, privacy and terms are linked",
+      "result": "pass",
+      "detail": "contact, privacy, terms",
+      "fix": "Link Contact, Privacy and Terms in the footer of /dealers."
+     },
+     {
+      "id": "faq",
+      "name": "Answers buyer questions (FAQ)",
+      "result": "pass",
+      "detail": "",
+      "fix": "Add a short FAQ to /dealers, marked up as FAQPage."
+     },
+     {
+      "id": "copy-rules",
+      "name": "No banned phrase or category count (copy-rules.json)",
+      "result": "pass",
+      "detail": "",
+      "fix": "Remove these phrases from /dealers: ."
+     },
+     {
+      "id": "storefront",
+      "name": "Leads with the storefront",
+      "result": "pass",
+      "detail": "",
+      "fix": "Lead /dealers with \"Open your storefront.\" (MESSAGING.md, dealers)."
+     },
+     {
+      "id": "offer",
+      "name": "The founding offer, word for word, no deadline",
+      "result": "pass",
+      "detail": "",
+      "fix": "Use the offer line from MESSAGING.md on /dealers through FOUNDING_PRICE_LABEL, with no closing date."
+     },
+     {
+      "id": "no-free-posting",
+      "name": "Never tells dealers posting is free",
+      "result": "pass",
+      "detail": "",
+      "fix": "Remove \"\" from /dealers: dealers hear the storefront, never free posting."
+     }
+    ],
+    "score": 90
+   },
+   {
+    "path": "/pricing",
+    "status": 200,
+    "criteria": [
+     {
+      "id": "what",
+      "name": "Says who it is for up top (equipment businesses, the storefront)",
+      "result": "pass",
+      "detail": "H1: \"Free to list. Pay only for extra reach.\"",
+      "fix": "Make the H1 or the line under it on /pricing say it is for equipment businesses (\"Open your storefront\", \"used commercial and industrial equipment\")."
+     },
+     {
+      "id": "cta",
+      "name": "A clear call to action in the first screen",
+      "result": "pass",
+      "detail": "Browse",
+      "fix": "Put the main button (Open your storefront) in the first screen of /pricing."
+     },
+     {
+      "id": "ai",
+      "name": "Says the AI writes the listing from photos",
+      "result": "pass",
+      "detail": "",
+      "fix": "Add the one line from MESSAGING.md to /pricing: \"Snap a photo and the AI writes the listing.\""
+     },
+     {
+      "id": "trust",
+      "name": "Contact, privacy and terms are linked",
+      "result": "pass",
+      "detail": "contact, privacy, terms",
+      "fix": "Link Contact, Privacy and Terms in the footer of /pricing."
+     },
+     {
+      "id": "faq",
+      "name": "Answers buyer questions (FAQ)",
+      "result": "pass",
+      "detail": "",
+      "fix": "Add a short FAQ to /pricing, marked up as FAQPage."
+     },
+     {
+      "id": "copy-rules",
+      "name": "No banned phrase or category count (copy-rules.json)",
+      "result": "pass",
+      "detail": "",
+      "fix": "Remove these phrases from /pricing: ."
+     },
+     {
+      "id": "storefront",
+      "name": "Leads with the storefront",
+      "result": "partial",
+      "detail": "",
+      "fix": "Lead /pricing with \"Open your storefront.\" (MESSAGING.md, dealers)."
+     },
+     {
+      "id": "offer",
+      "name": "The founding offer, word for word, no deadline",
+      "result": "pass",
+      "detail": "",
+      "fix": "Use the offer line from MESSAGING.md on /pricing through FOUNDING_PRICE_LABEL, with no closing date."
+     }
+    ],
+    "score": 94
+   },
+   {
+    "path": "/sell-equipment",
+    "status": 200,
+    "criteria": [
+     {
+      "id": "what",
+      "name": "Says what it is up top (used commercial or industrial equipment)",
+      "result": "pass",
+      "detail": "H1: \"Sell Your Equipment in Minutes, Pickup Local\"",
+      "fix": "Make the H1 on /sell-equipment say what it is: \"Used commercial and industrial equipment\", then who it is for."
+     },
+     {
+      "id": "cta",
+      "name": "A clear call to action in the first screen",
+      "result": "pass",
+      "detail": "Browse",
+      "fix": "Put the main button (List equipment) in the first screen of /sell-equipment."
+     },
+     {
+      "id": "ai",
+      "name": "Says the AI writes the listing from photos",
+      "result": "pass",
+      "detail": "",
+      "fix": "Add the one line from MESSAGING.md to /sell-equipment: \"Snap a photo and the AI writes the listing.\""
+     },
+     {
+      "id": "proof",
+      "name": "Shows real inventory or numbers",
+      "result": "fail",
+      "detail": "0 listing links",
+      "fix": "Show live listing cards or a same-day number from the admin digest on /sell-equipment."
+     },
+     {
+      "id": "trust",
+      "name": "Contact, privacy and terms are linked",
+      "result": "pass",
+      "detail": "contact, privacy, terms",
+      "fix": "Link Contact, Privacy and Terms in the footer of /sell-equipment."
+     },
+     {
+      "id": "faq",
+      "name": "Answers buyer questions (FAQ)",
+      "result": "pass",
+      "detail": "",
+      "fix": "Add a short FAQ to /sell-equipment, marked up as FAQPage."
+     },
+     {
+      "id": "copy-rules",
+      "name": "No banned phrase or category count (copy-rules.json)",
+      "result": "pass",
+      "detail": "",
+      "fix": "Remove these phrases from /sell-equipment: ."
+     },
+     {
+      "id": "free-first",
+      "name": "Sellers hear free listing first",
+      "result": "pass",
+      "detail": "",
+      "fix": "Open /sell-equipment with \"Equipment sitting idle? List it free.\" (MESSAGING.md, sellers)."
+     }
+    ],
+    "score": 88
+   }
+  ],
+  "competitors": [
+   {
+    "name": "Machinery Trader",
+    "url": "https://www.machinerytrader.com/",
+    "reachable": false,
+    "status": 0,
+    "criteria": [],
+    "score": null
+   },
+   {
+    "name": "Equipment Trader",
+    "url": "https://www.equipmenttrader.com/",
+    "reachable": false,
+    "status": 0,
+    "criteria": [],
+    "score": null
+   }
+  ],
+  "homeOnSharedCriteria": null
+ },
+ "listing": {
+  "score": 90,
+  "fields": [
+   {
+    "store": "App Store",
+    "field": "Name",
+    "file": "asc-runbook/paste/01-app-name.txt",
+    "length": 25,
+    "limit": 30,
+    "result": "pass",
+    "notes": []
+   },
+   {
+    "store": "App Store",
+    "field": "Subtitle",
+    "file": "asc-runbook/paste/02-subtitle.txt",
+    "length": 27,
+    "limit": 30,
+    "result": "pass",
+    "notes": []
+   },
+   {
+    "store": "App Store",
+    "field": "Keywords",
+    "file": "asc-runbook/paste/07-keywords.txt",
+    "length": 95,
+    "limit": 100,
+    "result": "pass",
+    "notes": []
+   },
+   {
+    "store": "App Store",
+    "field": "Promotional text",
+    "file": "asc-runbook/paste/05-promotional-text.txt",
+    "length": 167,
+    "limit": 170,
+    "result": "pass",
+    "notes": []
+   },
+   {
+    "store": "App Store",
+    "field": "Description",
+    "file": "asc-runbook/paste/06-description.txt",
+    "length": 3798,
+    "limit": 4000,
+    "result": "fail",
+    "notes": [
+     "banned by copy-rules.json: \"found nothing\" (…urs, and a lot of the time we found nothing. So we built a pla…)",
+     "the first lines (shown before 'more') leave out the AI listing"
+    ]
+   },
+   {
+    "store": "App Store",
+    "field": "Screenshots",
+    "file": "store/screenshots/ios",
+    "length": 5,
+    "limit": 10,
+    "result": "pass",
+    "notes": [
+     "5 images"
+    ]
+   },
+   {
+    "store": "Google Play",
+    "field": "Title",
+    "file": "play-console-runbook/paste/01-app-name.txt",
+    "length": 25,
+    "limit": 30,
+    "result": "pass",
+    "notes": []
+   },
+   {
+    "store": "Google Play",
+    "field": "Short description",
+    "file": "play-console-runbook/paste/02-short-description.txt",
+    "length": 77,
+    "limit": 80,
+    "result": "pass",
+    "notes": []
+   },
+   {
+    "store": "Google Play",
+    "field": "Full description",
+    "file": "play-console-runbook/paste/03-full-description.txt",
+    "length": 3926,
+    "limit": 4000,
+    "result": "pass",
+    "notes": []
+   },
+   {
+    "store": "Google Play",
+    "field": "Screenshots",
+    "file": "store/screenshots/android",
+    "length": 5,
+    "limit": 8,
+    "result": "pass",
+    "notes": [
+     "5 images"
+    ]
+   }
+  ],
+  "reviews": "not read: the stores' review APIs need the owner's App Store Connect / Play Console keys"
+ },
+ "fixes": [
+  {
+   "area": "SEO and GEO",
+   "gain": 2.6,
+   "what": "HTML under 500 KB (uncompressed)",
+   "detail": "26 of 26 sampled pages heavier; largest 1100 KB",
+   "examples": [
+    "/ (1100 KB)",
+    "/equipment/fleet-vehicles (1007 KB)",
+    "/listing/cmwv854ej002equ3ayr92unc7 (1006 KB)",
+    "/listing/cmwv7vedx001yqu3ahhjbq30f (1001 KB)",
+    "/listing/cmwf235fa001qqk3al5civojb (1000 KB)"
+   ],
+   "prompt": "In AIE-Solutions/Marketplace (apps/web): Trim the server HTML of the heavy pages: fewer listings inlined in the RSC payload, no duplicated JSON (docs/web-performance.md). Start with: / (1100 KB), /equipment/fleet-vehicles (1007 KB), /listing/cmwv854ej002equ3ayr92unc7 (1006 KB), /listing/cmwv7vedx001yqu3ahhjbq30f (1001 KB), /listing/cmwf235fa001qqk3al5civojb (1000 KB)."
+  },
+  {
+   "area": "App Store listing",
+   "gain": 2.5,
+   "what": "Description: banned by copy-rules.json: \"found nothing\" (…urs, and a lot of the time we found nothing. So we built a pla…); the first lines (shown before 'more') leave out the AI listing",
+   "detail": "",
+   "examples": [
+    "asc-runbook/paste/06-description.txt"
+   ],
+   "prompt": "In AIE-Solutions/Marketplace, edit apps/mobile/asc-runbook/paste/06-description.txt (Description, at most 4000 characters): banned by copy-rules.json: \"found nothing\" (…urs, and a lot of the time we found nothing. So we built a pla…); the first lines (shown before 'more') leave out the AI listing. Follow MESSAGING.md and copy-rules.json."
+  },
+  {
+   "area": "SEO and GEO",
+   "gain": 2.48,
+   "what": "Indexable pages linked on the site are in the sitemap",
+   "detail": "31 indexable pages linked but not submitted",
+   "examples": [
+    "/videos/yardswaps-how-it-works-v3.mp4",
+    "/seller/cmwf21c2q001hqk3aryuivxu7",
+    "/seller/cmwtgi9q70005lh3ajbs9vq68",
+    "/seller/cmwls9l5d003jql3ay3lboj0s",
+    "/seller/cmwkyvxry000gpk3a0t8acol8"
+   ],
+   "prompt": "In AIE-Solutions/Marketplace (apps/web): Add the linked, indexable pages that are missing to apps/web/app/sitemap.ts, or noindex them if they should not rank. Start with: /videos/yardswaps-how-it-works-v3.mp4, /seller/cmwf21c2q001hqk3aryuivxu7, /seller/cmwtgi9q70005lh3ajbs9vq68, /seller/cmwls9l5d003jql3ay3lboj0s, /seller/cmwkyvxry000gpk3a0t8acol8."
+  },
+  {
+   "area": "SEO and GEO",
+   "gain": 1.67,
+   "what": "Article markup has a date and an author",
+   "detail": "1 of 6",
+   "examples": [
+    "/blog/buying-used-machinery-playbook",
+    "/blog/used-enclosed-cargo-trailer-for-sale-buying-guide",
+    "/blog/used-pressure-washer-trailer-for-sale",
+    "/blog/used-dumping-trailer-for-sale-inspection-pricing-guide",
+    "/blog/best-used-skid-steer-verification-guide"
+   ],
+   "prompt": "In AIE-Solutions/Marketplace (apps/web): Give the BlogPosting JSON-LD on /blog/[slug] an author (the 'YardSwaps team' Organization) next to datePublished and dateModified. Start with: /blog/buying-used-machinery-playbook, /blog/used-enclosed-cargo-trailer-for-sale-buying-guide, /blog/used-pressure-washer-trailer-for-sale, /blog/used-dumping-trailer-for-sale-inspection-pricing-guide, /blog/best-used-skid-steer-verification-guide."
+  },
+  {
+   "area": "SEO and GEO",
+   "gain": 0.92,
+   "what": "Share cards (og:title and og:image)",
+   "detail": "20 of 26",
+   "examples": [
+    "/blog/used-box-truck-gvwr-cdl-usdot-rules",
+    "/blog/buying-used-machinery-playbook",
+    "/blog/used-enclosed-cargo-trailer-for-sale-buying-guide",
+    "/blog/used-pressure-washer-trailer-for-sale",
+    "/blog/used-dumping-trailer-for-sale-inspection-pricing-guide"
+   ],
+   "prompt": "In AIE-Solutions/Marketplace (apps/web): Add openGraph title and image to generateMetadata on the pages listed. Start with: /blog/used-box-truck-gvwr-cdl-usdot-rules, /blog/buying-used-machinery-playbook, /blog/used-enclosed-cargo-trailer-for-sale-buying-guide, /blog/used-pressure-washer-trailer-for-sale, /blog/used-dumping-trailer-for-sale-inspection-pricing-guide."
+  },
+  {
+   "area": "Landing /sell-equipment",
+   "gain": 0.78,
+   "what": "Shows real inventory or numbers",
+   "detail": "0 listing links",
+   "examples": [
+    "/sell-equipment"
+   ],
+   "prompt": "In AIE-Solutions/Marketplace (apps/web), follow MESSAGING.md: Show live listing cards or a same-day number from the admin digest on /sell-equipment."
+  },
+  {
+   "area": "Landing /dealers",
+   "gain": 0.63,
+   "what": "Shows real inventory or numbers",
+   "detail": "0 listing links",
+   "examples": [
+    "/dealers"
+   ],
+   "prompt": "In AIE-Solutions/Marketplace (apps/web), follow MESSAGING.md: Show live listing cards or a same-day number from the admin digest on /dealers."
+  },
+  {
+   "area": "SEO and GEO",
+   "gain": 0.5,
+   "what": "No internal link is broken or redirects",
+   "detail": "1 broken or redirecting internal links",
+   "examples": [
+    "/listing/cmqrbcz12000nmy3a6tavw2s0"
+   ],
+   "prompt": "In AIE-Solutions/Marketplace (apps/web): Point the broken or redirecting internal links straight at the final 200 URL. Start with: /listing/cmqrbcz12000nmy3a6tavw2s0."
+  },
+  {
+   "area": "SEO and GEO",
+   "gain": 0.5,
+   "what": "Articles use question headings",
+   "detail": "5 of 6 sampled articles",
+   "examples": [
+    "/blog/used-box-truck-gvwr-cdl-usdot-rules"
+   ],
+   "prompt": "In AIE-Solutions/Marketplace (apps/web): Rewrite at least two H2s per article as the question a buyer would ask (agents/BLOG-WRITER-PROMPT.md in yardswaps-media). Start with: /blog/used-box-truck-gvwr-cdl-usdot-rules."
+  },
+  {
+   "area": "Landing /pricing",
+   "gain": 0.39,
+   "what": "Leads with the storefront",
+   "detail": "",
+   "examples": [
+    "/pricing"
+   ],
+   "prompt": "In AIE-Solutions/Marketplace (apps/web), follow MESSAGING.md: Lead /pricing with \"Open your storefront.\" (MESSAGING.md, dealers)."
+  }
+ ],
+ "previousDate": null,
+ "previous": null
+}
