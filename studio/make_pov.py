@@ -48,8 +48,8 @@ HOOKS = os.path.join(HERE, "hooks.json")
 CLIPS = os.path.join(ROOT, "reels", "library")
 MUSIC = os.path.join(ROOT, "music", "v2")
 
-PER_RUN = int(os.environ.get("STUDIO_PER_RUN") or 3)
-BACKLOG = int(os.environ.get("STUDIO_BACKLOG") or 9)
+PER_RUN = int(os.environ.get("STUDIO_PER_RUN") or 5)
+BACKLOG = int(os.environ.get("STUDIO_BACKLOG") or 12)
 W, H, FPS = 1080, 1920, 30
 SHOT_SECONDS = 5.5
 END_SECONDS = 2.0
@@ -139,15 +139,32 @@ def copy_problems(text):
     return out
 
 
-def pick_hook(hooks, used, seed):
-    """The hook used least often so far (ties: a stable shuffle), so all of them get a fair run."""
+def deck_weight(videos):
+    """What the Studio deck (yardswaps.com/admin/studio) taught us per hook: each skip counts as two
+    extra uses, each approval takes one away, so hooks the owner keeps skipping come up less and the
+    ones he approves come back sooner. Auto-approved clips (nobody looked) teach nothing."""
+    w = {}
+    for v in videos:
+        if not v.get("studio") or not v.get("hook"):
+            continue
+        if v.get("review") == "skipped":
+            w[v["hook"]] = w.get(v["hook"], 0) + 2
+        elif v.get("review") == "approved":
+            w[v["hook"]] = w.get(v["hook"], 0) - 1
+    return w
+
+
+def pick_hook(hooks, used, seed, weight=None):
+    """The hook used least often so far, adjusted by the deck's skips and approvals
+    (ties: a stable shuffle), so all of them get a fair run."""
     live = [h for h in hooks["hooks"] if h not in set(hooks.get("retired") or [])]
     counts = {h: 0 for h in live}
     for u in used:
         if u in counts:
             counts[u] += 1
+    weight = weight or {}
     rng = random.Random(seed)
-    order = sorted(live, key=lambda h: (counts[h], rng.random()))
+    order = sorted(live, key=lambda h: (counts[h] + weight.get(h, 0), rng.random()))
     return order[0]
 
 
@@ -347,8 +364,47 @@ def render(src, hook_line, out_mp4, seed):
 # ---------- main ----------
 
 def unposted_studio(videos, posted):
+    """Studio clips still to post: approved and waiting, or waiting in the deck for a decision."""
     done = {p.get("slug") for p in posted if p.get("status") == "posted"}
-    return [v for v in videos if v.get("studio") and not v.get("hold") and v["slug"] not in done]
+    return [v for v in videos if v.get("studio") and v["slug"] not in done
+            and v.get("review") != "skipped" and (not v.get("hold") or v.get("review") == "pending")]
+
+
+def rerender(videos, active, opted_out, dry=False):
+    """Clips whose on-screen line was changed in the deck ("rerender_hook", set by sync_deck.py):
+    make the video again with the new line, then let it post. Returns how many were made."""
+    lsrc = {s["listing_id"]: s for s in listing_sources(active, opted_out)}
+    ssrc = {s["slug"]: s for s in stock_sources()}
+    csrc = {s["slug"]: s for s in clip_sources(videos)}
+    done = 0
+    for v in videos:
+        line = (v.get("rerender_hook") or "").strip()
+        if not v.get("studio") or not line:
+            continue
+        ref = v.get("source_ref")
+        src = lsrc.get(ref) or ssrc.get(ref) or csrc.get(ref)
+        problems = copy_problems(line)
+        if not src or problems:
+            print(f"  re-render {v['slug']}: {'copy rules ' + str(problems) if problems else 'source gone'}; keeping the old line")
+            v.pop("rerender_hook", None)
+            v["hold"] = v.get("review") == "skipped"
+            continue
+        out = os.path.join(tempfile.gettempdir(), os.path.basename(v["file"])) if dry else os.path.join(ROOT, v["file"])
+        try:
+            secs = render(src, line, out, ref)
+        except Exception as e:
+            print(f"  re-render {v['slug']} failed: {e}; trying again next run")
+            continue
+        if not secs:
+            continue
+        v["title"] = line.replace("\n", " ")
+        v["seconds"] = secs
+        v["hook_edited"] = True
+        v.pop("rerender_hook", None)
+        v["hold"] = v.get("review") == "skipped"
+        done += 1
+        print(f"  re-rendered {v['slug']}: {line}")
+    return done
 
 
 def plan(videos, posted, active, opted_out, hist, per_run=PER_RUN, backlog=BACKLOG):
@@ -392,9 +448,11 @@ def main():
     active = {l["id"]: l for l in got if l.get("status", "active") == "active"}
     opted_out = set((jl.feature_list().get("optedOut") or []))
     hist = rot.uses(videos)
+    remade = rerender(videos, active, opted_out, dry)
     todo, waiting = plan(videos, posted, active, opted_out, hist)
     print(f"studio: {waiting} POV clip(s) waiting to post; {len(todo)} source(s) lined up")
     used = [v.get("hook") for v in videos if v.get("studio")]
+    weight = deck_weight(videos)
     today = now().strftime("%Y-%m-%d")
     built = 0
     os.makedirs(CLIPS, exist_ok=True)
@@ -403,7 +461,7 @@ def main():
             break
         ref = src.get("listing_id") or src["slug"]
         thing = thing_for(src["listing"]["title"], src.get("category")) if src.get("listing") else src["thing"]
-        hook = pick_hook(hooks, used, ref)
+        hook = pick_hook(hooks, used, ref, weight)
         line = hook_text(hook, thing)
         q = hooks["questions"][(len(used)) % len(hooks["questions"])]
         body, ig, tt = captions(line, src, q)
@@ -426,15 +484,18 @@ def main():
         entry = {"added": today, "slug": slug, "file": rel, "priority": 0, "body": body, "question": q,
                  "ig_tags": ig, "tt_tags": tt, "category": src.get("category"), "machine": src["machine"],
                  "real": True, "cut": "pov", "studio": True, "hook": hook, "title": line.replace("\n", " "),
-                 "source_ref": ref, "seconds": secs, "endcard": f"seller-{endcard.VERSION}"}
+                 "source_ref": ref, "seconds": secs, "endcard": f"seller-{endcard.VERSION}",
+                 # waits in the Studio deck (yardswaps.com/admin/studio) until approved, skipped or
+                 # auto-approved after a day; studio/sync_deck.py applies the decision
+                 "review": "pending", "hold": True, "made": now().strftime("%Y-%m-%dT%H:%M:%SZ")}
         if src.get("listing_id"):
             entry["listing_id"] = src["listing_id"]
         videos.append(entry)
         used.append(hook)
         built += 1
         print(f"  built {slug} ({secs}s, {src['kind']}): {line} -> {out}")
-    print(f"studio: built {built} POV clip(s)")
-    if built and not dry:
+    print(f"studio: built {built} POV clip(s), re-rendered {remade}")
+    if (built or remade) and not dry:
         save(LIBRARY, lib)
     return built
 

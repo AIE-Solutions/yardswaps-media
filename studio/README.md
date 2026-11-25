@@ -22,12 +22,24 @@ Footage, in this order:
 We make our own memes and never use movie or TV stills or other people's photos (copyright strikes).
 
 ## Where it goes
-`make_pov.py` runs at the end of `listings/listing_reels.py` (listings workflow, 9:10 am Central), up to 3
-clips a run and never more than 9 waiting to post. Each clip goes into `reels/library.json` with
+`make_pov.py` runs at the end of `listings/listing_reels.py` (listings workflow, 9:10 am Central), up to 5
+clips a run and never more than 12 waiting to post or waiting in the deck. Each clip goes into `reels/library.json` with
 `"cut": "pov"`, `"studio": true` and its hook as `title`. The posters we already run take it from there:
 Instagram, Facebook, Threads and Stories (`reels/post_reels.py`), TikTok (`reels/post_tiktok.py`) and
 YouTube Shorts (`youtube/post_shorts.py`, which turns studio clips into queue rows after the hand-made ones;
 title = the hook). Machine rotation, caps, hold and the end card check all apply as usual.
+
+## The deck (approve, skip, edit)
+Like HeyCatch's daily swipe deck: every new clip goes into the library with `"review": "pending"` and
+`"hold": true`, so no poster takes it yet. On yardswaps.com/admin/studio an admin watches it and approves it,
+skips it, or edits the on-screen line, caption or closing question first. `sync_deck.py`, run three times a
+day by the "Studio deck sync" task (`agents/STUDIO-DECK-SYNC-PROMPT.md`), reads the decisions from
+`GET /api/agent/studio` and applies them: approved clips lose the hold, skipped clips keep it for good, a new
+on-screen line sets `"rerender_hook"` and the next `make_pov.py` run makes the video again before it posts.
+A clip nobody decides on is approved after 24 hours (`"review": "auto"`), so posting never stalls.
+
+The deck also teaches the maker: each skip counts a hook as used twice more and each approval as used once
+less (`deck_weight`), so hooks the owner skips come up less often. Auto-approved clips teach nothing.
 
 ## Copy
 Seller voice from `MESSAGING.md`: free to list, the AI writes the listing, no selling fee. Never a promise of
