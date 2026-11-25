@@ -1,21 +1,24 @@
 {
-  "checkedAt": "2026-11-25T06:52:00Z",
-  "checkedBy": "Agent workforce thread (first build, by hand)",
+  "checkedAt": "2026-11-25T12:57:43Z",
+  "checkedBy": "roster-keeper",
   "agents": {
     "roster-keeper": {
-      "result": null,
-      "note": "New. First run today 5:53 am.",
+      "lastRun": "2026-11-25T12:57:43Z",
+      "result": "ok",
+      "note": "Morning check.",
       "source": "task"
     },
     "platform-ops": {
-      "lastRun": "2026-11-24T09:37:26Z",
+      "lastRun": "2026-11-25T09:40:17.327Z",
       "result": "ok",
-      "source": "task"
+      "source": "heartbeat",
+      "note": "11-25 kpis 09:38Z: reports 0, no signup clusters, attention none (Concrete flag cleared), AI 43% ok, split tips steady, Katool follow-up opens 11-26, flagForAlan 0, 3 rejects all different, no new demand terms, 7 shorts await first end-card run; nothing routed"
     },
     "ops-sweep": {
-      "lastRun": "2026-11-24T11:47:47Z",
+      "lastRun": "2026-11-25T11:51:14.872Z",
       "result": "ok",
-      "source": "task"
+      "source": "heartbeat",
+      "note": "OK: nothing needed. Production healthy (0 5xx in 24h), CI green, no new advisories; PR #533 has a merge conflict, sent to its thread."
     },
     "guard": {
       "lastRun": "2026-11-24T22:41:40Z",
@@ -28,9 +31,9 @@
       "source": "task"
     },
     "app-crons": {
-      "lastRun": "2026-11-24T09:04:30Z",
+      "lastRun": "2026-11-25T09:01:56Z",
       "result": "ok",
-      "note": "Daily OpsDigest posted. 1 flagged listing waits in /admin.",
+      "note": "Daily OpsDigest posted; no attention items (flagged listing cleared).",
       "source": "railway"
     },
     "owner-alerts": {
@@ -54,9 +57,10 @@
       "source": "task"
     },
     "cold-email": {
-      "result": null,
-      "note": "Last known 11-23: first-touch emails near zero since 11-18; Apollo key and the Maps catch-up fix wait on Alan.",
-      "source": "memory"
+      "lastRun": "2026-11-24T19:49:52Z",
+      "result": "ok",
+      "note": "Outreach pipeline ran 11-24: 4 local-lead emails queued, 5 leads had no email.",
+      "source": "railway"
     },
     "investor-docs": {
       "lastRun": "2026-11-23T18:41:57Z",
@@ -70,7 +74,7 @@
     },
     "storefront-care": {
       "result": null,
-      "note": "New. First run today 12:13 pm.",
+      "note": "New. First run Nov 25 12:13 PM MT.",
       "source": "task"
     },
     "comment-replies": {
@@ -88,9 +92,14 @@
       "result": "ok",
       "source": "task"
     },
+    "helper-health": {
+      "result": null,
+      "note": "New. First run Nov 30 10:47 AM MT.",
+      "source": "task"
+    },
     "billing-watch": {
       "result": null,
-      "note": "New. First run today 8:07 am.",
+      "note": "New. First run Nov 25 8:07 AM MT.",
       "source": "task"
     },
     "founding-check-quiet-village": {
@@ -98,7 +107,7 @@
       "source": "task"
     },
     "reels-poster": {
-      "lastRun": "2026-11-25T05:42:59Z",
+      "lastRun": "2026-11-25T12:43:20Z",
       "result": "ok",
       "source": "workflow"
     },
@@ -108,9 +117,8 @@
       "source": "workflow"
     },
     "shorts-poster": {
-      "lastRun": "2026-11-25T04:00:34Z",
+      "lastRun": "2026-11-25T08:15:05Z",
       "result": "ok",
-      "note": "Backup timer added today.",
       "source": "workflow"
     },
     "youtube-slots": {
@@ -119,9 +127,9 @@
       "source": "task"
     },
     "just-listed": {
-      "lastRun": "2026-11-25T01:35:00Z",
+      "lastRun": "2026-11-25T08:31:01Z",
       "result": "ok",
-      "source": "git"
+      "source": "workflow"
     },
     "just-listed-review": {
       "lastRun": "2026-11-24T17:32:02Z",
@@ -149,7 +157,7 @@
       "source": "task"
     },
     "endcard-check": {
-      "lastRun": "2026-11-25T06:50:00Z",
+      "lastRun": "2026-11-25T12:57:43Z",
       "result": "ok",
       "note": "124 of 124 library clips carry the end card.",
       "source": "git"
@@ -185,22 +193,17 @@
       "source": "workflow"
     },
     "studio-blog": {
-      "note": "Prompt is on main; the Studio thread sets its schedule.",
+      "result": null,
+      "note": "New. First run Nov 25 6:21 AM MT.",
       "source": "task"
     },
     "studio-shorts": {
-      "lastRun": "2026-11-25T01:35:00Z",
+      "lastRun": "2026-11-25T08:31:01Z",
       "result": "ok",
-      "note": "Merged today; first POV clips come with the next listing Reels build.",
-      "source": "git"
+      "source": "workflow"
     },
     "studio-analytics": {
       "note": "Being built in the Studio thread.",
-      "source": "task"
-    },
-    "helper-health": {
-      "result": null,
-      "note": "New. First run Mon Nov 30.",
       "source": "task"
     }
   },
