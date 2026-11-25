@@ -420,6 +420,17 @@ def main():
             promo = next((pr for pr in cfg.get("promos", []) if pr["id"] == want), None)
         elif reels.promo_due(used, PLATFORM, cfg=cfg):
             promo = reels.promo_of_day(PLATFORM, cfg=cfg)
+    # "next_on": ["tiktok"] in library.json puts a clip first in line for TikTok (Alan 11-25: "We should post our
+    # awesome storefront ads there"). It takes the next scheduled slot instead of the list-it-free or promotion
+    # post, so the daily count, the windows, the spacing and the spam back-off all stay as they are. Once it has
+    # gone out on TikTok it drops back into the normal rotation.
+    shown = {p["slug"] for p in used + hc}
+    nxt = None if force else next((v for v in videos if PLATFORM in (v.get("next_on") or [])
+                                   and not v.get("hold") and v["slug"] not in shown
+                                   and PLATFORM in (v.get("platforms") or [PLATFORM])
+                                   and os.path.exists(os.path.join(ROOT, v["file"]))), None)
+    if nxt:
+        video, repeat, promo, list_free = nxt, False, None, False
     if promo:
         video, repeat = reels.promo_pick(videos, used + hc, PLATFORM, promo)
         if not video:
