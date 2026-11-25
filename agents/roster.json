@@ -775,7 +775,7 @@
       "id": "studio-connector",
       "team": "studio",
       "name": "Studio connector (Claude)",
-      "status": "building",
+      "status": "live",
       "does": "Lets Claude use the blog writer and the Studio deck for one brand at a time (YardSwaps, Arkeous, Dacnus), as a custom connector. The YardSwaps side only calls the blog and deck APIs with its own narrow token; it never posts or renders.",
       "schedule": "Always on; daily heartbeat",
       "cadenceHours": 24,
