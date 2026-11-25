@@ -1757,7 +1757,7 @@
   {
    "added": "2026-11-25",
    "slug": "storefront-whole-yard-tiktok",
-   "file": "reels/library/yardswaps-storefront-whole-yard-tiktok-9x16.mp4",
+   "file": "reels/library/yardswaps-storefront-whole-yard-tiktok-9x16-v2.mp4",
    "priority": 0,
    "audience": "dealer",
    "platforms": [
@@ -1768,10 +1768,8 @@
    "tt_tags": "#EquipmentDealer #UsedEquipment #HeavyEquipment #BlueCollar #EquipmentForSale",
    "ig_tags": "#equipmentdealer #usedequipment #heavyequipment #equipmentforsale #yardswaps",
    "machine": "equipment-yard",
-   "note": "TikTok-safe cut of the storefront ad live on Meta (big logo, listing cards, founding end card): text kept out of the right 140 px and bottom 400 px. Source ads/storefront-tiktok/. TikTok only (Alan 11-25).",
-   "endcard": "dealer-v1",
-   "hold": true,
-   "hold_reason": "Guard 11-25 (eval #37): the /dealers screen at ~9 s still says \"DEALER PLAN\"; the site says \"Storefront plan\" since 11-22. Re-record that frame from the live page and log a words-vs-screen sheet in motion/audit/ before it posts again."
+   "note": "TikTok-safe cut of the storefront ad live on Meta (big logo, listing cards, founding end card): text kept out of the right 140 px and bottom 400 px. Source ads/storefront-tiktok/. TikTok only (Alan 11-25). v2 (11-25): the /dealers shot is re-recorded from the live page (Storefront plan card, breadcrumb Storefronts); words-vs-screen sheet motion/audit/WORDS-VS-SCREEN-2026-11-25-storefront.md. v1 file kept: yardswaps-storefront-whole-yard-tiktok-9x16.mp4.",
+   "endcard": "dealer-v1"
   },
   {
    "added": "2026-11-25",
