@@ -1763,16 +1763,15 @@
    "platforms": [
     "tiktok"
    ],
-   "next_on": [
-    "tiktok"
-   ],
    "body": "Your whole yard. One page.\n\nA YardSwaps storefront puts every unit you have in one place, with your hours, service area and links. Buyers search your whole inventory and can follow you.\n\n30 days free, then $29 a month for your first 3 paid months (our founding price for the first 100 storefronts), then $49 a month.",
    "question": "What's sitting in your yard right now?",
    "tt_tags": "#EquipmentDealer #UsedEquipment #HeavyEquipment #BlueCollar #EquipmentForSale",
    "ig_tags": "#equipmentdealer #usedequipment #heavyequipment #equipmentforsale #yardswaps",
    "machine": "equipment-yard",
    "note": "TikTok-safe cut of the storefront ad live on Meta (big logo, listing cards, founding end card): text kept out of the right 140 px and bottom 400 px. Source ads/storefront-tiktok/. TikTok only (Alan 11-25).",
-   "endcard": "dealer-v1"
+   "endcard": "dealer-v1",
+   "hold": true,
+   "hold_reason": "Guard 11-25 (eval #37): the /dealers screen at ~9 s still says \"DEALER PLAN\"; the site says \"Storefront plan\" since 11-22. Re-record that frame from the live page and log a words-vs-screen sheet in motion/audit/ before it posts again."
   },
   {
    "added": "2026-11-25",

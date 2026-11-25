@@ -19,6 +19,8 @@ Message (Alan 11-21, "a clear precise message"): every line a seller, dealer or 
 
 End card (Alan 11-25): every video we make or post ends on the YardSwaps end card in brand/endcard/ of this repo (blue card, wordmark, App Store and Google Play badges, link; about 2 seconds). Storefront clips use the storefront version, never the "Free to list" one. Run `python3 brand/endcard/endcard.py add IN.mp4 OUT.mp4 [seller|dealer]` on anything you cut; the Reels, TikTok and Shorts posters skip a clip without it. Every new agent prompt that makes or posts video carries this line.
 
+Re-cuts (guard eval #37, 11-25): a re-cut of an existing ad gets its own words-vs-screen sheet and a fresh screen recording before it enters rotation. Log the sheet in motion/audit/ and record any app or site screen from the live page that day, so old labels (for example "Dealer plan", now "Storefront plan") never go back out.
+
 ## The workforce (Alan 11-25: "Build our agent workforce to take on all these new corporate tasks to keep everything flowing")
 
 `roster.json` lists every agent that runs the company: what it does, when (Mountain time, Alan's), what runs it (a scheduled task, a GitHub workflow, app code or a paid tool), its prompt, its owner and how we know it worked. The Roster Keeper reads it twice a day and publishes the status page https://claude.ai/artifact/LqHZjy1HennvyA5GaA2L3r, built by `roster_status.py` from `roster.json` and `logs/roster-state.json`.
