@@ -2,46 +2,211 @@
   "checkedAt": "2026-11-25T06:52:00Z",
   "checkedBy": "Agent workforce thread (first build, by hand)",
   "agents": {
-    "roster-keeper": {"result": null, "note": "New. First run today 5:53 am.", "source": "task"},
-    "platform-ops": {"lastRun": "2026-11-24T09:37:26Z", "result": "ok", "source": "task"},
-    "ops-sweep": {"lastRun": "2026-11-24T11:47:47Z", "result": "ok", "source": "task"},
-    "guard": {"lastRun": "2026-11-24T22:41:40Z", "result": "ok", "source": "task"},
-    "optimizer": {"lastRun": "2026-11-22T21:44:02Z", "result": "ok", "source": "task"},
-    "app-crons": {"lastRun": "2026-11-24T09:04:30Z", "result": "ok", "note": "Daily OpsDigest posted. 1 flagged listing waits in /admin.", "source": "railway"},
-    "owner-alerts": {"result": "ok", "note": "Event-driven, live since 11-24 (app PR #530).", "source": "app"},
-    "growth-lead": {"lastRun": "2026-11-24T13:23:54Z", "result": "ok", "source": "task"},
-    "dealer-loader": {"lastRun": "2026-11-25T00:23:31Z", "result": "ok", "source": "task"},
-    "funnel-engineer": {"lastRun": "2026-11-24T19:37:55Z", "result": "ok", "source": "task"},
-    "cold-email": {"result": null, "note": "Last known 11-23: first-touch emails near zero since 11-18; Apollo key and the Maps catch-up fix wait on Alan.", "source": "memory"},
-    "investor-docs": {"lastRun": "2026-11-23T18:41:57Z", "result": "ok", "source": "task"},
-    "reply-handler": {"lastRun": "2026-11-24T23:18:19Z", "result": "ok", "source": "task"},
-    "storefront-care": {"result": null, "note": "New. First run today 12:13 pm.", "source": "task"},
-    "comment-replies": {"lastRun": "2026-11-24T17:42:12Z", "result": "ok", "source": "task"},
-    "comment-inbox": {"lastRun": "2026-11-25T00:49:26Z", "result": "ok", "source": "workflow"},
-    "helper-watch": {"lastRun": "2026-11-23T18:23:26Z", "result": "ok", "source": "task"},
-    "billing-watch": {"result": null, "note": "New. First run today 8:07 am.", "source": "task"},
-    "founding-check-quiet-village": {"note": "Fires Dec 22, 9 am. Billing Watch also checks it daily from Dec 20.", "source": "task"},
-    "reels-poster": {"lastRun": "2026-11-25T05:42:59Z", "result": "ok", "source": "workflow"},
-    "tiktok-poster": {"lastRun": "2026-11-25T02:58:31Z", "result": "ok", "source": "workflow"},
-    "shorts-poster": {"lastRun": "2026-11-25T04:00:34Z", "result": "ok", "note": "Backup timer added today.", "source": "workflow"},
-    "youtube-slots": {"lastRun": "2026-11-25T00:36:21Z", "result": "ok", "source": "task"},
-    "just-listed": {"lastRun": "2026-11-25T01:35:00Z", "result": "ok", "source": "git"},
-    "just-listed-review": {"lastRun": "2026-11-24T17:32:02Z", "result": "ok", "source": "task"},
-    "listing-reels-review": {"lastRun": "2026-11-24T17:47:20Z", "result": "ok", "source": "task"},
-    "list-it-free-story": {"lastRun": "2026-11-24T15:27:34Z", "result": "ok", "source": "task"},
-    "heycatch": {"result": "ok", "note": "Runs on HeyCatch's own schedule. Keep or cancel is Alan's call once Studio matches it.", "source": "external"},
-    "motion-shorts": {"lastRun": "2026-11-23T13:41:49Z", "result": "ok", "source": "task"},
-    "endcard-check": {"lastRun": "2026-11-25T06:50:00Z", "result": "ok", "note": "124 of 124 library clips carry the end card.", "source": "git"},
-    "monday-batch": {"lastRun": "2026-11-23T19:47:23Z", "result": "ok", "source": "task"},
-    "trending-sound": {"lastRun": "2026-11-23T20:23:45Z", "result": "ok", "source": "task"},
-    "listening": {"lastRun": "2026-11-24T22:21:16Z", "result": "ok", "source": "workflow"},
-    "youtube-report": {"lastRun": "2026-11-23T13:53:21Z", "result": "ok", "source": "task"},
-    "scorecard": {"lastRun": "2026-11-24T22:20:44Z", "result": "ok", "source": "workflow"},
-    "profiles-check": {"lastRun": "2026-11-24T01:33:14Z", "result": "ok", "source": "workflow"},
-    "studio-blog": {"note": "Prompt is on main; the Studio thread sets its schedule.", "source": "task"},
-    "studio-shorts": {"lastRun": "2026-11-25T01:35:00Z", "result": "ok", "note": "Merged today; first POV clips come with the next listing Reels build.", "source": "git"},
-    "studio-analytics": {"note": "Being built in the Studio thread.", "source": "task"}
+    "roster-keeper": {
+      "result": null,
+      "note": "New. First run today 5:53 am.",
+      "source": "task"
+    },
+    "platform-ops": {
+      "lastRun": "2026-11-24T09:37:26Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "ops-sweep": {
+      "lastRun": "2026-11-24T11:47:47Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "guard": {
+      "lastRun": "2026-11-24T22:41:40Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "optimizer": {
+      "lastRun": "2026-11-22T21:44:02Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "app-crons": {
+      "lastRun": "2026-11-24T09:04:30Z",
+      "result": "ok",
+      "note": "Daily OpsDigest posted. 1 flagged listing waits in /admin.",
+      "source": "railway"
+    },
+    "owner-alerts": {
+      "result": "ok",
+      "note": "Event-driven, live since 11-24 (app PR #530).",
+      "source": "app"
+    },
+    "growth-lead": {
+      "lastRun": "2026-11-24T13:23:54Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "dealer-loader": {
+      "lastRun": "2026-11-25T00:23:31Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "funnel-engineer": {
+      "lastRun": "2026-11-24T19:37:55Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "cold-email": {
+      "result": null,
+      "note": "Last known 11-23: first-touch emails near zero since 11-18; Apollo key and the Maps catch-up fix wait on Alan.",
+      "source": "memory"
+    },
+    "investor-docs": {
+      "lastRun": "2026-11-23T18:41:57Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "reply-handler": {
+      "lastRun": "2026-11-24T23:18:19Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "storefront-care": {
+      "result": null,
+      "note": "New. First run today 12:13 pm.",
+      "source": "task"
+    },
+    "comment-replies": {
+      "lastRun": "2026-11-24T17:42:12Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "comment-inbox": {
+      "lastRun": "2026-11-25T00:49:26Z",
+      "result": "ok",
+      "source": "workflow"
+    },
+    "helper-watch": {
+      "lastRun": "2026-11-23T18:23:26Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "billing-watch": {
+      "result": null,
+      "note": "New. First run today 8:07 am.",
+      "source": "task"
+    },
+    "founding-check-quiet-village": {
+      "note": "Fires Dec 22, 9 am. Billing Watch also checks it daily from Dec 20.",
+      "source": "task"
+    },
+    "reels-poster": {
+      "lastRun": "2026-11-25T05:42:59Z",
+      "result": "ok",
+      "source": "workflow"
+    },
+    "tiktok-poster": {
+      "lastRun": "2026-11-25T02:58:31Z",
+      "result": "ok",
+      "source": "workflow"
+    },
+    "shorts-poster": {
+      "lastRun": "2026-11-25T04:00:34Z",
+      "result": "ok",
+      "note": "Backup timer added today.",
+      "source": "workflow"
+    },
+    "youtube-slots": {
+      "lastRun": "2026-11-25T00:36:21Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "just-listed": {
+      "lastRun": "2026-11-25T01:35:00Z",
+      "result": "ok",
+      "source": "git"
+    },
+    "just-listed-review": {
+      "lastRun": "2026-11-24T17:32:02Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "listing-reels-review": {
+      "lastRun": "2026-11-24T17:47:20Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "list-it-free-story": {
+      "lastRun": "2026-11-24T15:27:34Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "heycatch": {
+      "result": "ok",
+      "note": "Runs on HeyCatch's own schedule. Keep or cancel is Alan's call once Studio matches it.",
+      "source": "external"
+    },
+    "motion-shorts": {
+      "lastRun": "2026-11-23T13:41:49Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "endcard-check": {
+      "lastRun": "2026-11-25T06:50:00Z",
+      "result": "ok",
+      "note": "124 of 124 library clips carry the end card.",
+      "source": "git"
+    },
+    "monday-batch": {
+      "lastRun": "2026-11-23T19:47:23Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "trending-sound": {
+      "lastRun": "2026-11-23T20:23:45Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "listening": {
+      "lastRun": "2026-11-24T22:21:16Z",
+      "result": "ok",
+      "source": "workflow"
+    },
+    "youtube-report": {
+      "lastRun": "2026-11-23T13:53:21Z",
+      "result": "ok",
+      "source": "task"
+    },
+    "scorecard": {
+      "lastRun": "2026-11-24T22:20:44Z",
+      "result": "ok",
+      "source": "workflow"
+    },
+    "profiles-check": {
+      "lastRun": "2026-11-24T01:33:14Z",
+      "result": "ok",
+      "source": "workflow"
+    },
+    "studio-blog": {
+      "note": "Prompt is on main; the Studio thread sets its schedule.",
+      "source": "task"
+    },
+    "studio-shorts": {
+      "lastRun": "2026-11-25T01:35:00Z",
+      "result": "ok",
+      "note": "Merged today; first POV clips come with the next listing Reels build.",
+      "source": "git"
+    },
+    "studio-analytics": {
+      "note": "Being built in the Studio thread.",
+      "source": "task"
+    },
+    "helper-health": {
+      "result": null,
+      "note": "New. First run Mon Nov 30.",
+      "source": "task"
+    }
   },
-  "endcard": {"checked": 124, "missing": 0},
+  "endcard": {
+    "checked": 124,
+    "missing": 0
+  },
   "needsAlan": []
 }
