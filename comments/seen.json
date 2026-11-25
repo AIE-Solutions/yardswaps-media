@@ -94,5 +94,20 @@
     "status": "skipped",
     "why": "bot spam: 'Send me' and 'SeNd me This post' on the same Reel 10 minutes apart with no author, same 'send me this post' template as 11-18 to 11-22, nothing to answer",
     "at": "2026-11-23T17:44:06Z"
+  },
+  "18121653286785820": {
+    "status": "skipped",
+    "why": "bot spam: same 'AMAZING SEND ME THIS POST' template as 11-22, no author",
+    "at": "2026-11-25T17:45:44Z"
+  },
+  "18032629796858996": {
+    "status": "skipped",
+    "why": "bot spam: 'forward me this post' template, no author (same pattern as 11-18 to 11-23)",
+    "at": "2026-11-25T17:45:44Z"
+  },
+  "18150630334567791": {
+    "status": "skipped",
+    "why": "tag only (@my_equipment_texas on their own welcome post), nothing to answer",
+    "at": "2026-11-25T17:45:44Z"
   }
 }
