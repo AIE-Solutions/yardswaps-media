@@ -1,12 +1,12 @@
 {
-  "checkedAt": "2026-11-25T12:57:43Z",
+  "checkedAt": "2026-11-25T23:58:20Z",
   "checkedBy": "roster-keeper",
   "agents": {
     "roster-keeper": {
-      "lastRun": "2026-11-25T12:57:43Z",
+      "lastRun": "2026-11-25T23:58:20Z",
       "result": "ok",
-      "note": "Morning check.",
-      "source": "task"
+      "source": "task",
+      "note": "Evening check."
     },
     "platform-ops": {
       "lastRun": "2026-11-25T09:40:17.327Z",
@@ -21,7 +21,7 @@
       "note": "OK: nothing needed. Production healthy (0 5xx in 24h), CI green, no new advisories; PR #533 has a merge conflict, sent to its thread."
     },
     "guard": {
-      "lastRun": "2026-11-24T22:41:40Z",
+      "lastRun": "2026-11-25T22:41:35Z",
       "result": "ok",
       "source": "task"
     },
@@ -33,8 +33,8 @@
     "app-crons": {
       "lastRun": "2026-11-25T09:01:56Z",
       "result": "ok",
-      "note": "Daily OpsDigest posted; no attention items (flagged listing cleared).",
-      "source": "railway"
+      "source": "railway",
+      "note": "Daily OpsDigest posted; no attention items."
     },
     "owner-alerts": {
       "result": "ok",
@@ -42,7 +42,7 @@
       "source": "app"
     },
     "growth-lead": {
-      "lastRun": "2026-11-24T13:23:54Z",
+      "lastRun": "2026-11-25T13:23:47Z",
       "result": "ok",
       "source": "task"
     },
@@ -57,10 +57,10 @@
       "source": "task"
     },
     "cold-email": {
-      "lastRun": "2026-11-24T19:49:52Z",
+      "lastRun": "2026-11-25T21:32:00Z",
       "result": "ok",
-      "note": "Outreach pipeline ran 11-24: 4 local-lead emails queued, 5 leads had no email.",
-      "source": "railway"
+      "source": "guard-log",
+      "note": "Outreach pipeline ran 11-25 15:01-21:32Z: 11 Maps intros, 0 claim notes, 0 failed (Guard log)."
     },
     "investor-docs": {
       "lastRun": "2026-11-23T18:41:57Z",
@@ -68,22 +68,23 @@
       "source": "task"
     },
     "reply-handler": {
-      "lastRun": "2026-11-24T23:18:19Z",
+      "lastRun": "2026-11-25T23:17:46Z",
       "result": "ok",
       "source": "task"
     },
     "storefront-care": {
-      "result": null,
-      "note": "New. First run Nov 25 12:13 PM MT.",
-      "source": "task"
+      "lastRun": "2026-11-25T19:15:55Z",
+      "result": "ok",
+      "source": "heartbeat",
+      "note": "4 storefronts, all pages 200; 0 setup notes (3 already sent within 30 days); Steve Lewis welcome posted 19:10Z, Quiet Village held for 11-27."
     },
     "comment-replies": {
-      "lastRun": "2026-11-24T17:42:12Z",
+      "lastRun": "2026-11-25T17:41:25Z",
       "result": "ok",
       "source": "task"
     },
     "comment-inbox": {
-      "lastRun": "2026-11-25T00:49:26Z",
+      "lastRun": "2026-11-25T23:48:50Z",
       "result": "ok",
       "source": "workflow"
     },
@@ -94,55 +95,57 @@
     },
     "helper-health": {
       "result": null,
-      "note": "New. First run Nov 30 10:47 AM MT.",
-      "source": "task"
+      "source": "task",
+      "note": "New. First run Nov 30 10:47 AM MT."
     },
     "billing-watch": {
-      "result": null,
-      "note": "New. First run Nov 25 8:07 AM MT.",
-      "source": "task"
+      "lastRun": "2026-11-25T15:10:55Z",
+      "result": "ok",
+      "source": "heartbeat",
+      "note": "1 new trial (Quiet Village, founding), 0 failed payments, no founding checks due within 4 days."
     },
     "founding-check-quiet-village": {
       "note": "Fires Dec 22, 9 am. Billing Watch also checks it daily from Dec 20.",
       "source": "task"
     },
     "reels-poster": {
-      "lastRun": "2026-11-25T12:43:20Z",
+      "lastRun": "2026-11-25T23:42:50Z",
       "result": "ok",
       "source": "workflow"
     },
     "tiktok-poster": {
-      "lastRun": "2026-11-25T02:58:31Z",
+      "lastRun": "2026-11-25T22:43:21Z",
       "result": "ok",
       "source": "workflow"
     },
     "shorts-poster": {
-      "lastRun": "2026-11-25T08:15:05Z",
+      "lastRun": "2026-11-25T23:34:08Z",
       "result": "ok",
       "source": "workflow"
     },
     "youtube-slots": {
-      "lastRun": "2026-11-25T00:36:21Z",
+      "lastRun": "2026-11-25T22:36:42Z",
       "result": "ok",
       "source": "task"
     },
     "just-listed": {
-      "lastRun": "2026-11-25T08:31:01Z",
-      "result": "ok",
-      "source": "workflow"
+      "lastRun": "2026-11-25T23:35:01Z",
+      "result": "failed",
+      "source": "workflow",
+      "note": "Morning prep run (started about 8 h late by GitHub) failed at 'Install photo tools': apt-get install got 404s from security.ubuntu.com (stale package list, no apt-get update first). Last good run 19:02Z."
     },
     "just-listed-review": {
-      "lastRun": "2026-11-24T17:32:02Z",
+      "lastRun": "2026-11-25T17:31:29Z",
       "result": "ok",
       "source": "task"
     },
     "listing-reels-review": {
-      "lastRun": "2026-11-24T17:47:20Z",
+      "lastRun": "2026-11-25T17:47:14Z",
       "result": "ok",
       "source": "task"
     },
     "list-it-free-story": {
-      "lastRun": "2026-11-24T15:27:34Z",
+      "lastRun": "2026-11-25T15:27:20Z",
       "result": "ok",
       "source": "task"
     },
@@ -152,15 +155,15 @@
       "source": "external"
     },
     "motion-shorts": {
-      "lastRun": "2026-11-23T13:41:49Z",
+      "lastRun": "2026-11-25T14:52:58Z",
       "result": "ok",
       "source": "task"
     },
     "endcard-check": {
-      "lastRun": "2026-11-25T12:57:43Z",
+      "lastRun": "2026-11-25T23:58:20Z",
       "result": "ok",
-      "note": "124 of 124 library clips carry the end card.",
-      "source": "git"
+      "source": "git",
+      "note": "131 of 131 library clips carry the end card."
     },
     "monday-batch": {
       "lastRun": "2026-11-23T19:47:23Z",
@@ -173,7 +176,7 @@
       "source": "task"
     },
     "listening": {
-      "lastRun": "2026-11-24T22:21:16Z",
+      "lastRun": "2026-11-25T21:37:16Z",
       "result": "ok",
       "source": "workflow"
     },
@@ -183,7 +186,7 @@
       "source": "task"
     },
     "scorecard": {
-      "lastRun": "2026-11-24T22:20:44Z",
+      "lastRun": "2026-11-25T21:37:09Z",
       "result": "ok",
       "source": "workflow"
     },
@@ -193,22 +196,41 @@
       "source": "workflow"
     },
     "studio-blog": {
-      "result": null,
-      "note": "New. First run Nov 25 6:21 AM MT.",
-      "source": "task"
+      "lastRun": "2026-11-25T20:22:23Z",
+      "result": "ok",
+      "source": "heartbeat",
+      "note": "Nothing written: the specific lane already had an article in the last 24 h."
     },
     "studio-shorts": {
-      "lastRun": "2026-11-25T08:31:01Z",
-      "result": "ok",
-      "source": "workflow"
+      "lastRun": "2026-11-25T23:35:01Z",
+      "result": "failed",
+      "source": "workflow",
+      "note": "Runs inside listings.yml: Morning prep run (started about 8 h late by GitHub) failed at 'Install photo tools': apt-get install got 404s from security.ubuntu.com (stale package list, no apt-get update first). Last good run 19:02Z."
     },
     "studio-analytics": {
       "note": "Being built in the Studio thread.",
       "source": "task"
+    },
+    "studio-deck": {
+      "lastRun": "2026-11-25T22:37:09Z",
+      "result": "ok",
+      "source": "heartbeat",
+      "note": "0 approved, 0 skipped; no Studio clips in the library yet."
+    },
+    "studio-audit": {
+      "result": null,
+      "source": "task",
+      "note": "New. First run Nov 30 6:40 AM MT."
+    },
+    "studio-connector": {
+      "lastRun": "2026-11-25T19:24:22Z",
+      "result": "ok",
+      "source": "heartbeat",
+      "note": "Connector up: 11 tool calls across 2 brands in 24 h, 2 refused or failed."
     }
   },
   "endcard": {
-    "checked": 124,
+    "checked": 131,
     "missing": 0
   },
   "needsAlan": []
