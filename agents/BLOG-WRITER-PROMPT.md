@@ -57,6 +57,12 @@ over older copy notes, including the old HeyCatch blog brief.
 7. **Verify** the article loads at `https://www.yardswaps.com/blog/<slug>` (200, title shows) and report one
    line: title, link, category, sources used. If anything failed, report what and why; never say it is
    published unless the page loads.
+8. **Heartbeat, always the last call**, also on a run that stopped early: `POST
+   https://www.yardswaps.com/api/agent/heartbeat` with header `X-Agent-Name: studio-blog` and JSON
+   `{"status": "did_work" | "ok" | "needs_alan" | "failed", "summary": "<lane>: <title or why nothing was
+   written>, <heycatchCopiedNow> HeyCatch copied", "runUrl": "<this session's link if you have it>"}`.
+   `did_work` when an article was saved, `ok` when both lanes already had one today. The proxy adds the
+   token; never print one.
 
 ## Lanes
 
