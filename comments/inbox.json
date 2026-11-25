@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-24T17:46:50Z",
+  "fetched_at": "2026-11-25T00:10:17Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -42,6 +42,19 @@
       "permalink": "https://www.instagram.com/reel/DgIavj2j9MW/",
       "post": "FOUNDING STOREFRONT PRICE",
       "type": "REELS"
+    },
+    {
+      "platform": "instagram",
+      "comment_id": "18150630334567791",
+      "reply_to": "18150630334567791",
+      "author": null,
+      "text": "@my_equipment_texas",
+      "time": "2026-11-24T19:33:02+0000",
+      "likes": 0,
+      "media_id": "18123368407950822",
+      "permalink": "https://www.instagram.com/p/DgIrE0_F0Lt/",
+      "post": "Welcome to our new founding storefront on YardSwaps: MY-Equipment!",
+      "type": "FEED"
     }
   ]
 }
