@@ -1,0 +1,374 @@
+{
+ "checkedAt": "2026-11-25T14:40:48Z",
+ "policy": "pause",
+ "platforms": {
+  "instagram": {
+   "platform": "instagram",
+   "score": 3.0,
+   "level": "low",
+   "cap": 2,
+   "pausedUntil": null,
+   "postsPerDay7d": 7.1,
+   "reasons": [
+    "followers 826 -> 809 in a week (-2.1%)",
+    "likes+comments per post 2.0 -> 0.9 (0.46x)",
+    "views a week, all posts 2295 -> 3273 (1.43x)",
+    "views per post 71 -> 57 (0.80x)",
+    "50 of our posts in 7 days (7.1 a day), 0 failed"
+   ],
+   "fixes": [
+    "Followers are falling: post fewer, better clips here and answer every comment for a few days.",
+    "Each post gets less engagement than it did: repeat the best openers (metrics/rank.json boost) and retire the weakest."
+   ]
+  },
+  "facebook": {
+   "platform": "facebook",
+   "score": 6.5,
+   "level": "regular",
+   "cap": 7,
+   "pausedUntil": null,
+   "postsPerDay7d": 6.0,
+   "reasons": [
+    "followers 14 -> 15 in a week (+7.1%)",
+    "42 of our posts in 7 days (6.0 a day), 0 failed"
+   ],
+   "fixes": [
+    "Profile fields that don't match profiles.json: description."
+   ]
+  },
+  "threads": {
+   "platform": "threads",
+   "score": 6.0,
+   "level": "regular",
+   "cap": 7,
+   "pausedUntil": null,
+   "postsPerDay7d": 0.0,
+   "reasons": [
+    "0 of our posts in 7 days (0.0 a day), 0 failed"
+   ],
+   "fixes": [
+    "None of our posts went out here in 7 days: check the poster's token and that its slot fires."
+   ]
+  },
+  "tiktok": {
+   "platform": "tiktok",
+   "score": 6.0,
+   "level": "regular",
+   "cap": 2,
+   "pausedUntil": null,
+   "postsPerDay7d": 1.7,
+   "reasons": [
+    "12 of our posts in 7 days (1.7 a day), 1 failed"
+   ],
+   "fixes": []
+  },
+  "youtube": {
+   "platform": "youtube",
+   "score": 6.0,
+   "level": "regular",
+   "cap": 2,
+   "pausedUntil": null,
+   "postsPerDay7d": 0.4,
+   "reasons": [
+    "3 of our posts in 7 days (0.4 a day), 1 failed"
+   ],
+   "fixes": []
+  }
+ },
+ "social": {
+  "instagram": {
+   "followers": 809,
+   "followers7dAgo": 826,
+   "followers30dAgo": null,
+   "firstDate": "2026-11-03",
+   "firstFollowers": 13,
+   "series": [
+    {
+     "date": "2026-11-03",
+     "followers": 13
+    },
+    {
+     "date": "2026-11-04",
+     "followers": 53
+    },
+    {
+     "date": "2026-11-05",
+     "followers": 95
+    },
+    {
+     "date": "2026-11-06",
+     "followers": 148
+    },
+    {
+     "date": "2026-11-07",
+     "followers": 365
+    },
+    {
+     "date": "2026-11-08",
+     "followers": 605
+    },
+    {
+     "date": "2026-11-09",
+     "followers": 748
+    },
+    {
+     "date": "2026-11-10",
+     "followers": 839
+    },
+    {
+     "date": "2026-11-11",
+     "followers": 843
+    },
+    {
+     "date": "2026-11-12",
+     "followers": 831
+    },
+    {
+     "date": "2026-11-13",
+     "followers": 829
+    },
+    {
+     "date": "2026-11-14",
+     "followers": 819
+    },
+    {
+     "date": "2026-11-15",
+     "followers": 820
+    },
+    {
+     "date": "2026-11-16",
+     "followers": 826
+    },
+    {
+     "date": "2026-11-17",
+     "followers": 823
+    },
+    {
+     "date": "2026-11-18",
+     "followers": 826
+    },
+    {
+     "date": "2026-11-19",
+     "followers": 828
+    },
+    {
+     "date": "2026-11-20",
+     "followers": 815
+    },
+    {
+     "date": "2026-11-21",
+     "followers": 809
+    },
+    {
+     "date": "2026-11-22",
+     "followers": 814
+    },
+    {
+     "date": "2026-11-23",
+     "followers": 810
+    },
+    {
+     "date": "2026-11-24",
+     "followers": 809
+    }
+   ]
+  },
+  "facebook": {
+   "followers": 15,
+   "followers7dAgo": 14,
+   "followers30dAgo": null,
+   "firstDate": "2026-11-03",
+   "firstFollowers": 11,
+   "series": [
+    {
+     "date": "2026-11-03",
+     "followers": 11
+    },
+    {
+     "date": "2026-11-04",
+     "followers": 11
+    },
+    {
+     "date": "2026-11-05",
+     "followers": 11
+    },
+    {
+     "date": "2026-11-06",
+     "followers": 11
+    },
+    {
+     "date": "2026-11-07",
+     "followers": 13
+    },
+    {
+     "date": "2026-11-08",
+     "followers": 13
+    },
+    {
+     "date": "2026-11-09",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-10",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-11",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-12",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-13",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-14",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-15",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-16",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-17",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-18",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-19",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-20",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-21",
+     "followers": 14
+    },
+    {
+     "date": "2026-11-22",
+     "followers": 15
+    },
+    {
+     "date": "2026-11-23",
+     "followers": 15
+    },
+    {
+     "date": "2026-11-24",
+     "followers": 15
+    }
+   ]
+  },
+  "youtube": {
+   "subscribers": 10,
+   "readOn": "2026-11-23"
+  },
+  "topPosts": [
+   {
+    "platform": "instagram",
+    "time": "2026-11-08T16:46:27Z",
+    "likes": 3,
+    "comments": 4,
+    "slug": "construction-life-compactor",
+    "caption": "Construction life: the job's done. The compactor hasn't moved since.",
+    "permalink": "https://www.instagram.com/reel/DffN7YxjfwB/"
+   },
+   {
+    "platform": "instagram",
+    "time": "2026-11-22T16:46:45Z",
+    "likes": 2,
+    "comments": 4,
+    "slug": "plumbing-part-label",
+    "caption": "SHARE YOUR SELLER PAGE",
+    "permalink": "https://www.instagram.com/reel/DgDRFubD9uu/"
+   },
+   {
+    "platform": "instagram",
+    "time": "2026-11-10T13:48:09Z",
+    "likes": 3,
+    "comments": 3,
+    "slug": "second-bay-closed-tools",
+    "caption": "POV: the second bay closed. Every wrench is still on the wall.",
+    "permalink": "https://www.instagram.com/reel/DfkDG-2EZVo/"
+   },
+   {
+    "platform": "instagram",
+    "time": "2026-11-15T14:44:49Z",
+    "likes": 2,
+    "comments": 3,
+    "slug": "that-trailer-next-season",
+    "caption": "Me pretending I'll use that trailer again next season.",
+    "permalink": "https://www.instagram.com/reel/DfxBkkdoWsc/"
+   },
+   {
+    "platform": "instagram",
+    "time": "2026-11-12T14:48:21Z",
+    "likes": 1,
+    "comments": 3,
+    "slug": "second-jetter-by-the-fence",
+    "caption": "POV: you run one jetter now. The second jetter sits by the fence.",
+    "permalink": "https://www.instagram.com/reel/DfpTltkiV1Y/"
+   },
+   {
+    "platform": "instagram",
+    "time": "2026-11-15T16:44:21Z",
+    "likes": 1,
+    "comments": 3,
+    "slug": "condenser-changeout",
+    "caption": "POV: the condenser you pulled on the last changeout.",
+    "permalink": "https://www.instagram.com/reel/DfxPQEbADfy/"
+   },
+   {
+    "platform": "instagram",
+    "time": "2026-11-16T14:48:25Z",
+    "likes": 1,
+    "comments": 3,
+    "slug": "stripped-well-pump",
+    "caption": "POV: the well pump died. The parts didn't.",
+    "permalink": "https://www.instagram.com/reel/Dfzmx2vDx6f/"
+   },
+   {
+    "platform": "instagram",
+    "time": "2026-11-01T21:20:37Z",
+    "likes": 3,
+    "comments": 2,
+    "slug": "surplus-parts-cash-flow",
+    "caption": "POV: the surplus parts shelf nobody has touched since spring.",
+    "permalink": "https://www.instagram.com/reel/DfNrvLmDVLH/"
+   },
+   {
+    "platform": "instagram",
+    "time": "2026-11-21T12:47:09Z",
+    "likes": 3,
+    "comments": 2,
+    "slug": "flatbed-after-the-last-contract",
+    "caption": "POV: the last contract ended. The flatbed sits by the shop.",
+    "permalink": "https://www.instagram.com/reel/DgAQ33nCaBw/"
+   },
+   {
+    "platform": "instagram",
+    "time": "2026-11-09T13:45:54Z",
+    "likes": 2,
+    "comments": 2,
+    "slug": "small-business-old-oven",
+    "caption": "Small business owners: the old oven in the back still works.",
+    "permalink": "https://www.instagram.com/reel/DfheDyAjTw8/"
+   }
+  ],
+  "postsLast30Days": {
+   "instagram": 130,
+   "facebook": 99
+  }
+ }
+}

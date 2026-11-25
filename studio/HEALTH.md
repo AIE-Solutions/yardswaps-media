@@ -1,4 +1,4 @@
-# Account health, 2026-11-25T14:37:43Z
+# Account health, 2026-11-25T14:40:48Z
 
 Policy: `pause` (studio/health-policy.json). Scores 0-10 from measurable facts; level sets the daily cap.
 
