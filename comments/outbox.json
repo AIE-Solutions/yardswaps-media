@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "platform": "instagram",
+    "comment_id": "18121653286785820",
+    "skip": true,
+    "why": "bot spam: same 'AMAZING SEND ME THIS POST' template as 11-22, no author"
+  },
+  {
+    "platform": "instagram",
+    "comment_id": "18032629796858996",
+    "skip": true,
+    "why": "bot spam: 'forward me this post' template, no author (same pattern as 11-18 to 11-23)"
+  },
+  {
+    "platform": "instagram",
+    "comment_id": "18150630334567791",
+    "skip": true,
+    "why": "tag only (@my_equipment_texas on their own welcome post), nothing to answer"
+  }
+]
