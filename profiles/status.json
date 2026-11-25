@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-16T23:19:23Z",
+  "checked": "2026-11-24T01:37:58Z",
   "mode": "apply",
   "facebook": {
     "about": {
@@ -22,8 +22,8 @@
       "ok": true,
       "live": "yardswaps"
     },
-    "picture": "https://scontent-sea5-1.xx.fbcdn.net/v/t39.30808-1/890674304_122126360955480098_3582144692226653969_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=f907e8&_nc_ohc=5r3f1gxhgrsQ7kNvwGfthM_&_nc_oc=Adqq-MA_68LpabLU4VVF9cmrCG7i_hdfoG83nLvzmYQzQW2NlISGCC2owh3ZrdDtkkA&_nc_zt=24&_nc_ht=scontent-sea5-1.xx&edm=AJdBtusEAAAA&_nc_gid=l9pQU_Hh3_4AdSCcEMfUSQ&_nc_tpa=Q5bMBQIVKsf0HvjOKA-URQf1LBjeeotenAB9llw1tYc14txYRhnkhWVZCoYO470pkFl0uMSKb3mNuWPoJw&oh=00_AQQmE_KAPZesdAaTZk9Q5x8OzSrzjOrznR1wXcxaLGYWqg&oe=6B016742",
-    "apply_error": "POST https://graph.facebook.com/v23.0/1291163214083476 -> 400: {\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"AzsbY8dnuXIUdb6n70IBYfu\"}}"
+    "picture": "https://scontent-sea5-1.xx.fbcdn.net/v/t39.30808-1/890674304_122126360955480098_3582144692226653969_n.jpg?stp=cp0_dst-jpg_s50x50_tt6&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=f907e8&_nc_ohc=gUX3SgAUMacQ7kNvwHKYP3z&_nc_oc=Adp5VeSsmxuf5i7-jvJyvxiUTBF5HmhTmOWJ7Al51ABlsKo5XwxmoiiN5BSzH_F49_0&_nc_zt=24&_nc_ht=scontent-sea5-1.xx&edm=AJdBtusEAAAA&_nc_gid=BV_k4ruf5DI9lSZ4zGTV1g&_nc_tpa=Q5bMBQKuAiTzPZ095DCKFVD870wMKSHx2_SertMIzHMWPsiCAOZioXT6itUFu93rTzys7KrWtkqZWeX9Sg&oh=00_AQRZXa9bV8LBbGz066eA9yItMmZfLib03fMZVr_ydm8qgA&oe=6B0AA1C2",
+    "apply_error": "POST https://graph.facebook.com/v23.0/1291163214083476 -> 400: {\"error\":{\"message\":\"(#283) Requires pages_manage_metadata permission to manage the object\",\"type\":\"OAuthException\",\"code\":283,\"fbtrace_id\":\"A4NXXCqmusiDwhMHi2nxLPO\"}}"
   },
   "instagram": {
     "name": {
@@ -39,6 +39,6 @@
       "live": "https://www.yardswaps.com/i"
     },
     "username": "yardswaps",
-    "picture": "https://scontent-sea5-2.xx.fbcdn.net/v/t51.82787-15/884823117_18121154134977469_1089355192173878647_n.jpg?_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=7d201b&_nc_ohc=pTb2YRbQSH4Q7kNvwHPdaZH&_nc_oc=AdqTofPsQAVTFQuPTLUCvmaUf8P976IIVWY_cIgUYnBdrGJGfshYL6Ih1fRhfQKSCFs&_nc_zt=23&_nc_ht=scontent-sea5-2.xx&edm=AJ-jyNUEAAAA&_nc_gid=fg0LkHOgS_F5aHRagNJKBg&oh=00_AQTL4ZeDT2Q45W_Ib5d0D2xCEpowc8rJa6FZi_om5JjQJg&oe=6B016376"
+    "picture": "https://scontent-sea5-2.xx.fbcdn.net/v/t51.82787-15/884823117_18121154134977469_1089355192173878647_n.jpg?_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=7d201b&_nc_ohc=GnMWao4RaGIQ7kNvwH06D3P&_nc_oc=AdpPV-AnsUfTWVTgZe3vJc3-Nl8abtF-4GQkHeFsUcIgp5ScYfFEdgrXUSwvAyNwb6c&_nc_zt=23&_nc_ht=scontent-sea5-2.xx&edm=AJ-jyNUEAAAA&_nc_gid=cohz2_eNVm5ZZUSEvhRtMA&oh=00_AQR8-u4FK81MhFpMDLTgtS3JRstYz-cgthl_LWogObf4Bw&oe=6B0AD636"
   }
 }

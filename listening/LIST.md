@@ -1,12 +1,12 @@
-# Listening list, updated Mon Nov 23, 2026
+# Listening list, updated Tue Nov 24, 2026
 
 People asking to buy or sell used work equipment in public places, last 8 days. Nothing here was posted. Reply by hand, as the business, only where the place's rules allow it; use the link version only where links are allowed.
 
-## 1. Selling: Metalworking & CNC (Practical Machinist, Mon Nov 16)
+## 1. Selling: Metalworking & CNC (Hobby-Machinist, Tue Nov 24)
 
-> FS: Bridgeport by Hardinge Manual Mill – 2HP, DRO, X/Y Power Feeds, Kurt Vise – Tucson AZ – $6,000 OBO - Located in Tucson, Arizona – south side near Palo Verde & Valencia. We are expanding our machine shop and consolidating equipment, so we no longer have a need to retain two manual Bridgeport mills. This machine is currently powered, in service, and available to demonstrate under power for serious buyers. Machine/features: Bridgeport by Hardinge manual vertical mill 2 HP 230V Newall DP500 DRO – ful
+> Posted my PM lathe in the machine for sale section here cheap - no views. - hello all, I posted an un-used PM 1236T in the machine for sale section here and its gotten no attention, I'm looking to down size so I also offered to trade for a smaller PM machine with a little cash. I'm thinking very few people are looking at the members for sale section, I know the unregistered public cant see it, which was the point - Id rather take a lose and have a needy member here get a 
 
-Open: https://www.practicalmachinist.com/forum/threads/fs-bridgeport-by-hardinge-manual-mill-%E2%80%93-2hp-dro-x-y-power-feeds-kurt-vise-%E2%80%93-tucson-az-%E2%80%93-6-000-obo.451532/
+Open: https://www.hobby-machinist.com/threads/posted-my-pm-lathe-in-the-machine-for-sale-section-here-cheap-no-views.126386/
 
 Draft reply:
 
@@ -26,7 +26,7 @@ Draft reply:
 For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
 ```
 
-## 3. Buying: Metalworking & CNC (Hobby-Machinist, Mon Nov 23)
+## 3. Buying: Metalworking & CNC (Hobby-Machinist, Tue Nov 24)
 
 > Who makes the second best Micrometer - starting with this comment.... https://www.hobby-machinist.com/threads/lathe-head-stock-is-tilted-shim-it.126016/post-1354350 I am looking for my first micrometer. I already have my second in the amazon shopping cart, Mitutoyo 103-129, confirmed to be the legit Mitutoyo store. but, I want one that I wont be afraid to break, drop, or have something go very wrong with. some mentioned that I look lik
 

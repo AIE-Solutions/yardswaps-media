@@ -327,5 +327,27 @@
   "due": "2026-11-22T20:36:08.000Z",
   "url": "https://tiktok.com/@yardwaps/video/7711097345546505486",
   "sent": "2026-11-22T20:36:56.658Z"
+ },
+ {
+  "time": "2026-11-24T13:48:10Z",
+  "platform": "tiktok",
+  "slug": "griddle-from-the-closed-diner",
+  "repeat": false,
+  "list_free": true,
+  "status": "posted",
+  "buffer_id": "6b05959c3bb9f7d3de1a3e3b",
+  "due": "2026-11-24T13:53:10.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7711735497894251790",
+  "sent": "2026-11-24T13:58:35.862Z"
+ },
+ {
+  "time": "2026-11-24T20:46:46Z",
+  "platform": "tiktok",
+  "slug": "listed-instapak-speedypacker-floor-model-nr7e2",
+  "repeat": false,
+  "promo": "share",
+  "status": "scheduled",
+  "buffer_id": "6b05f7b8da2eab4595a46541",
+  "due": "2026-11-24T20:51:46.000Z"
  }
 ]

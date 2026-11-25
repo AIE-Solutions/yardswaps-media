@@ -336,14 +336,58 @@ def git_size(rel):
         return None
 
 
-def video_url(rel):
+def video_urls(rel):
+    """Where Buffer can fetch the video: jsDelivr first (when under its size cap), then raw GitHub."""
     repo = os.environ.get("GITHUB_REPOSITORY") or "AIE-Solutions/yardswaps-media"
     ref = os.environ.get("GITHUB_SHA") or "main"
     path = os.path.join(ROOT, rel)
     size = os.path.getsize(path) if os.path.exists(path) else git_size(rel)
+    raw = f"https://raw.githubusercontent.com/{repo}/{ref}/{rel}"
     if size and size <= JSDELIVR_MAX_BYTES:
-        return f"https://cdn.jsdelivr.net/gh/{repo}@{ref}/{rel}"
-    return f"https://raw.githubusercontent.com/{repo}/{ref}/{rel}"
+        return [f"https://cdn.jsdelivr.net/gh/{repo}@{ref}/{rel}", raw]
+    return [raw]
+
+
+def video_url(rel):
+    return video_urls(rel)[0]
+
+
+def url_is_video(url):
+    """HEAD the URL. This also warms jsDelivr's copy of a new commit before Buffer
+    asks for it: on 11-24 Buffer's first fetch of a fresh commit came back
+    "Video could not be read from its URL"."""
+    try:
+        req = urllib.request.Request(url, method="HEAD")
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return r.status == 200 and r.headers.get("Content-Type", "").startswith("video/")
+    except Exception:
+        return False
+
+
+def create_post(key, channel, row, meta, due):
+    """createPost with the first URL that serves the video; on Buffer's
+    "could not be read" error, try the next URL."""
+    urls = video_urls(row["file"])
+    good = [u for u in urls if url_is_video(u)] or urls
+    last = None
+    for url in good:
+        try:
+            res = gql(key, M_CREATE, {"input": {
+                "channelId": channel["id"], "text": row["description"],
+                "schedulingType": "automatic", "mode": "customScheduled",
+                "dueAt": due.strftime("%Y-%m-%dT%H:%M:%S.000Z"),
+                "metadata": {"youtube": meta},
+                "assets": [{"video": {"url": url}}],
+            }}).get("createPost") or {}
+            if res.get("message") or not res.get("post"):
+                raise BufferError(res.get("message") or f"unexpected reply {res}")
+            return res, url
+        except BufferError as e:
+            last = e
+            if "could not be read" not in str(e).lower():
+                raise
+            print(f"  Buffer could not read {url.split('/')[2]}, trying the next URL")
+    raise last
 
 
 def sync_log(key, org_id, channel, posted):
@@ -493,16 +537,9 @@ def main():
                 "privacy": "public", "madeForKids": False, "notifySubscribers": True,
                 "license": "youtube", "embeddable": True}
         try:
-            res = gql(key, M_CREATE, {"input": {
-                "channelId": channel["id"], "text": row["description"],
-                "schedulingType": "automatic", "mode": "customScheduled",
-                "dueAt": due.strftime("%Y-%m-%dT%H:%M:%S.000Z"),
-                "metadata": {"youtube": meta},
-                "assets": [{"video": {"url": video_url(row["file"])}}],
-            }}).get("createPost") or {}
-            if res.get("message") or not res.get("post"):
-                raise BufferError(res.get("message") or f"unexpected reply {res}")
-            entry.update(status="scheduled", buffer_id=res["post"]["id"], due=res["post"].get("dueAt"))
+            res, url = create_post(key, channel, row, meta, due)
+            entry.update(status="scheduled", buffer_id=res["post"]["id"], due=res["post"].get("dueAt"),
+                         video_host=url.split("/")[2])
             lines.append(f"youtube: handed {row['slug']} to Buffer ({why}), public about "
                          f"{due.astimezone(CENTRAL).strftime('%-I:%M %p')} Central\ntitle: {row['title']}")
         except BufferError as e:

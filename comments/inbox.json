@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-23T17:43:55Z",
+  "fetched_at": "2026-11-25T00:50:26Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -19,29 +19,42 @@
   "items": [
     {
       "platform": "instagram",
-      "comment_id": "18116759486607760",
-      "reply_to": "18116759486607760",
+      "comment_id": "18121653286785820",
+      "reply_to": "18121653286785820",
       "author": null,
-      "text": "Send me",
-      "time": "2026-11-22T16:58:54+0000",
+      "text": "😍 AMAZING ❤️ SEND ME THIS POST ❤️",
+      "time": "2026-11-24T13:30:09+0000",
       "likes": 0,
-      "media_id": "17951518893357477",
-      "permalink": "https://www.instagram.com/reel/DgDRFubD9uu/",
-      "post": "SHARE YOUR SELLER PAGE",
+      "media_id": "17905734966376145",
+      "permalink": "https://www.instagram.com/reel/DgH_Y77jrCo/",
+      "post": "Just listed on YardSwaps: Chief EZ Liner II collision frame straightening rack with pullin",
       "type": "REELS"
     },
     {
       "platform": "instagram",
-      "comment_id": "17899670175420774",
-      "reply_to": "17899670175420774",
+      "comment_id": "18032629796858996",
+      "reply_to": "18032629796858996",
       "author": null,
-      "text": "SeNd me This post",
-      "time": "2026-11-22T17:08:29+0000",
+      "text": "forward me this post",
+      "time": "2026-11-24T16:56:27+0000",
       "likes": 0,
-      "media_id": "17951518893357477",
-      "permalink": "https://www.instagram.com/reel/DgDRFubD9uu/",
-      "post": "SHARE YOUR SELLER PAGE",
+      "media_id": "18161508898450552",
+      "permalink": "https://www.instagram.com/reel/DgIavj2j9MW/",
+      "post": "FOUNDING STOREFRONT PRICE",
       "type": "REELS"
+    },
+    {
+      "platform": "instagram",
+      "comment_id": "18150630334567791",
+      "reply_to": "18150630334567791",
+      "author": null,
+      "text": "@my_equipment_texas",
+      "time": "2026-11-24T19:33:02+0000",
+      "likes": 0,
+      "media_id": "18123368407950822",
+      "permalink": "https://www.instagram.com/p/DgIrE0_F0Lt/",
+      "post": "Welcome to our new founding storefront on YardSwaps: MY-Equipment!",
+      "type": "FEED"
     }
   ]
 }
