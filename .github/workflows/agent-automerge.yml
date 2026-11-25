@@ -69,9 +69,6 @@ jobs:
           if [ -n "$hit" ]; then
             labels=$(gh pr view "$PR" --repo "$REPO" --json labels --jq '.labels[].name')
             if ! grep -qx needs-approval <<<"$labels"; then
-              # The label may not exist yet; gh pr edit fails on a missing label.
-              gh label create needs-approval --repo "$REPO" --color D93F0B \
-                --description "Changes workflow files: merge by hand" 2>/dev/null || true
               gh pr edit "$PR" --repo "$REPO" --add-label needs-approval
               gh pr comment "$PR" --repo "$REPO" --body "Not auto-merged: this PR changes \`$hit\`, and the auto-merge workflow is not allowed to merge workflow files. Merge it by hand. (agent-automerge.yml)"
             fi

@@ -39,9 +39,6 @@ SLATE_DEEP = (14, 34, 64)   # --slate-deep  #0E2240
 BLUE = (37, 99, 235)        # --accent-fill #2563EB
 WHITE = (255, 255, 255)
 MUTED = (255, 255, 255, 200)
-PAGE = (243, 243, 245)      # light page, as in the Runway ad-builder ads
-INK = (32, 32, 32)          # --text-primary #202020
-LOGO = os.path.join(ROOT, "broll", "in", "brand-kit", "logo", "yardswaps-logo-512.png")
 
 # A layer whose pixels inside its own outline differ from the photo by more than this
 # (mean absolute difference, 0-255) was redrawn by the model, not cut out.
@@ -262,77 +259,59 @@ def wrap(draw, text, f, width, max_lines):
 
 
 def render(item, W, H, title, price, line, out):
-    """Runway ad-builder house style (the Nov 9 "Idle gear" / "Snap it" ads):
-    light page, big slate headline with a short blue rule, the real item with a
-    soft floor shadow, price in blue, one plain line, app icon + wordmark."""
-    tall = H / W > 1.5
-    canvas = Image.new("RGBA", (W, H), PAGE + (255,))
-    d = ImageDraw.Draw(canvas)
-    pad = round(W * 0.087)
-    # headline: the listing title as written, set tight and condensed like the
-    # ad-builder headlines (Space Grotesk Bold squeezed to 80 % width)
-    squeeze = 0.80
-    hf = bold(round(W * (0.125 if tall else 0.105)))
-    lines = wrap(d, title, hf, round((W - 2 * pad) / squeeze), 3)
-    while len(lines) == 3 and hf.size > W * 0.08 and \
-            d.textlength(lines[-1], font=hf) > (W - 2 * pad) / squeeze:
-        hf = bold(hf.size - 4)
-        lines = wrap(d, title, hf, round((W - 2 * pad) / squeeze), 3)
-    lh = round(hf.size * 0.98)
-    y = round(H * (0.05 if tall else 0.045))
-    for ln in lines:
-        tw = round(d.textlength(ln, font=hf)) + 8
-        layer = Image.new("RGBA", (tw, round(hf.size * 1.3)), (0, 0, 0, 0))
-        ImageDraw.Draw(layer).text((0, 0), ln, font=hf, fill=SLATE)
-        layer = layer.resize((max(1, round(tw * squeeze)), layer.height), Image.LANCZOS)
-        canvas.alpha_composite(layer, (pad, y))
-        y += lh
-    y += round(hf.size * 0.22)
-    d.rectangle((pad, y, pad + round(W * 0.24), y + max(4, round(W * 0.0065))), fill=BLUE)
-    top = y + round(H * (0.035 if tall else 0.03))
-    # bottom block: price, one line, icon + wordmark, url
-    pf = bold(round(W * (0.075 if tall else 0.064)))
-    lf = font("Inter.ttf", round(W * (0.036 if tall else 0.032)))
-    icon_h = round(W * (0.13 if tall else 0.105))
-    uf = font("Inter.ttf", round(W * (0.034 if tall else 0.03)))
-    url_y = H - pad - uf.size
-    icon_y = url_y - round(H * 0.018) - icon_h
-    line_y = icon_y - round(H * (0.04 if tall else 0.03)) - lf.size
-    price_y = line_y - round(lf.size * 0.7) - pf.size if price else line_y
-    box = (pad, top, W - pad, price_y - round(H * 0.035))
-    bw, bh = box[2] - box[0], box[3] - box[1]
-    sc = min(bw / item.width, bh / item.height)
-    it = item.resize((max(1, round(item.width * sc)), max(1, round(item.height * sc))), Image.LANCZOS)
-    x = box[0] + (bw - it.width) // 2
-    yi = box[1] + (bh - it.height) // 2
-    # soft floor shadow from the item's own outline
-    sh = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
-    a = it.getchannel("A").resize((it.width, max(1, it.height // 12)))
-    shadow = Image.new("RGBA", a.size, (20, 30, 45, 0))
-    shadow.putalpha(a.point(lambda v: v * 90 // 255))
-    sh.paste(shadow, (x, yi + it.height - a.height // 2), shadow)
-    canvas.alpha_composite(sh.filter(ImageFilter.GaussianBlur(round(W * 0.014))))
-    canvas.alpha_composite(it, (x, yi))
-    d = ImageDraw.Draw(canvas)
-    if price:
-        d.text((pad, price_y), price, font=pf, fill=BLUE)
-    d.text((pad, line_y), line, font=lf, fill=INK)
-    if os.path.isfile(LOGO):
-        ic = Image.open(LOGO).convert("RGBA").resize((icon_h, icon_h), Image.LANCZOS)
-        m = Image.new("L", ic.size, 0)
-        ImageDraw.Draw(m).rounded_rectangle((0, 0, icon_h - 1, icon_h - 1), radius=round(icon_h * 0.22), fill=255)
-        ic.putalpha(m)
-        canvas.alpha_composite(ic, (pad, icon_y))
+    bg = gradient(W, H)
+    pad = round(W * 0.074)
+    # wordmark on a white pill, top-left (house style)
     if os.path.isfile(WORDMARK):
         wm = Image.open(WORDMARK).convert("RGBA")
-        wh = round(icon_h * 0.78)
+        wh = round(W * 0.052)
         wm = wm.resize((round(wm.width * wh / wm.height), wh), Image.LANCZOS)
-        canvas.alpha_composite(wm, (pad + icon_h + round(W * 0.03), icon_y + (icon_h - wh) // 2))
-    dd = ImageDraw.Draw(canvas)
-    ux = pad
-    for ch in "yardswaps.com":      # medium weight, a little tracking, as in the ads
-        dd.text((ux, url_y), ch, font=uf, fill=SLATE, stroke_width=1, stroke_fill=SLATE)
-        ux += dd.textlength(ch, font=uf) + round(uf.size * 0.06)
+        pill = Image.new("RGBA", (wm.width + 2 * round(wh * 0.55), wh + 2 * round(wh * 0.38)), (0, 0, 0, 0))
+        ImageDraw.Draw(pill).rounded_rectangle((0, 0, pill.width - 1, pill.height - 1),
+                                               radius=pill.height // 2, fill=WHITE)
+        pill.alpha_composite(wm, (round(wh * 0.55), round(wh * 0.38)))
+        bg.paste(pill, (pad, pad), pill)
+        top = pad + pill.height + round(H * 0.03)
+    else:
+        top = pad + round(H * 0.06)
+    text_h = round(H * (0.27 if H / W > 1.5 else 0.30))
+    box = (pad, top, W - pad, H - text_h)          # the whole item fits in here
+    bw, bh = box[2] - box[0], box[3] - box[1]
+    s = min(bw / item.width, bh / item.height)
+    it = item.resize((max(1, round(item.width * s)), max(1, round(item.height * s))), Image.LANCZOS)
+    x = box[0] + (bw - it.width) // 2
+    y = box[1] + (bh - it.height) // 2
+    # ground shadow from the item's own outline
+    sh = Image.new("RGBA", bg.size, (0, 0, 0, 0))
+    a = it.getchannel("A").resize((it.width, max(1, it.height // 10)))
+    shadow = Image.new("RGBA", a.size, (0, 0, 0, 150))
+    shadow.putalpha(a.point(lambda v: v * 150 // 255))
+    sh.paste(shadow, (x, y + it.height - a.height // 2), shadow)
+    sh = sh.filter(ImageFilter.GaussianBlur(round(W * 0.018)))
+    canvas = bg.convert("RGBA")
+    canvas.alpha_composite(sh)
+    canvas.alpha_composite(it, (x, y))
+    d = ImageDraw.Draw(canvas)
+    # lower-left text block with the blue bar
+    ty = H - text_h + round(H * 0.02)
+    tf = bold(round(W * (0.064 if H / W > 1.5 else 0.058)))
+    lines = wrap(d, title, tf, W - 2 * pad - round(W * 0.04), 2)
+    lh = round(tf.size * 1.16)
+    bar_h = lh * len(lines) + (round(tf.size * 1.2) if price else 0)
+    d.rounded_rectangle((pad, ty + 4, pad + round(W * 0.011), ty + bar_h - 4), radius=6, fill=BLUE)
+    tx = pad + round(W * 0.035)
+    for i, ln in enumerate(lines):
+        d.text((tx, ty + i * lh), ln, font=tf, fill=WHITE)
+    yy = ty + lh * len(lines) + round(H * 0.008)
+    if price:
+        pf = bold(round(W * 0.056))
+        pw = d.textlength(price, font=pf)
+        d.rounded_rectangle((tx - 6, yy, tx + pw + 34, yy + round(pf.size * 1.32)),
+                            radius=round(pf.size * 0.66), fill=BLUE)
+        d.text((tx + 14, yy + round(pf.size * 0.12)), price, font=pf, fill=WHITE)
+        yy += round(pf.size * 1.32)
+    ff = font("Inter.ttf", round(W * 0.034))
+    d.text((pad, H - pad - ff.size), line, font=ff, fill=MUTED)
     canvas.convert("RGB").save(out, quality=90, optimize=True, progressive=True)
     return out
 
@@ -346,7 +325,7 @@ def main():
     ap.add_argument("--slug", required=True)
     ap.add_argument("--title", default="")
     ap.add_argument("--price", default="")
-    ap.add_argument("--line", default="Find used equipment near you.")
+    ap.add_argument("--line", default="Find it on YardSwaps · yardswaps.com")
     a = ap.parse_args()
 
     photo = Image.open(a.photo).convert("RGB")
