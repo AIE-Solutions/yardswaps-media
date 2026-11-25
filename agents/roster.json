@@ -690,13 +690,13 @@
       "id": "studio-blog",
       "team": "studio",
       "name": "Studio blog writer",
-      "status": "building",
-      "does": "Writes and publishes one article a day on our own blog through the agent blog API, in place of HeyCatch's and Soro's articles.",
-      "schedule": "Daily 9:20 am, once its task is set",
-      "cadenceHours": 24,
+      "status": "live",
+      "does": "Writes and publishes up to two articles a day (one specific, one broad) on our own blog through the agent blog API, and copies HeyCatch's articles into our store, in place of HeyCatch's and Soro's articles.",
+      "schedule": "Twice a day, 7:21 am and 2:21 pm Central (one article per lane per day)",
+      "cadenceHours": 12,
       "runner": {
         "kind": "task",
-        "ref": "PENDING"
+        "ref": "trig_017Wm3xsQSfmNafRLgYwYfoi"
       },
       "prompt": "agents/BLOG-WRITER-PROMPT.md",
       "owner": "Studio thread",
