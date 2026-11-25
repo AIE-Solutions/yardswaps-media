@@ -708,7 +708,7 @@
       "team": "studio",
       "name": "Studio POV shorts",
       "status": "live",
-      "does": "Builds our own 7.5 second POV shorts from approved listing photos, with the end card, and hands them to the Reels, TikTok and Shorts posters.",
+      "does": "Builds our own 7.5 second POV shorts from approved listing photos, with the end card, up to 5 a day; each waits in the Studio deck (yardswaps.com/admin/studio) for approve / skip, then goes to the Reels, TikTok and Shorts posters.",
       "schedule": "With the listing Reels build",
       "cadenceHours": 24,
       "runner": {
@@ -719,6 +719,23 @@
       "owner": "Studio thread",
       "health": "New studio clips in reels/library.json",
       "heartbeat": null
+    },
+    {
+      "id": "studio-deck",
+      "team": "studio",
+      "name": "Studio deck sync",
+      "status": "building",
+      "does": "Copies the approve / skip / edit decisions from yardswaps.com/admin/studio into reels/library.json, so skipped Studio clips never post, approved ones join the rotation, and clips nobody reviews post after a day. The morning run also scores account health per platform (studio/HEALTH.md), which the posters check before each post.",
+      "schedule": "Three times a day, 7:35 am, 11:35 am and 3:35 pm Mountain",
+      "cadenceHours": 8,
+      "runner": {
+        "kind": "task",
+        "ref": "PENDING"
+      },
+      "prompt": "agents/STUDIO-DECK-SYNC-PROMPT.md",
+      "owner": "Studio thread",
+      "health": "Heartbeat studio-deck",
+      "heartbeat": "studio-deck"
     },
     {
       "id": "studio-analytics",

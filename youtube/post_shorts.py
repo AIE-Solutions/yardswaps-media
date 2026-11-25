@@ -57,6 +57,27 @@ try:
     import rotation as rot  # noqa: E402
 except ImportError:
     rot = None
+sys.path.insert(0, os.path.join(ROOT, "studio"))
+try:
+    import health as account_health  # noqa: E402
+except Exception:
+    account_health = None
+
+
+def health_blocked(posted):
+    """Why account health stops another Short today, or None. Never raises."""
+    if account_health is None:
+        return None
+    try:
+        c = account_health.cap("youtube")
+        if c is None:
+            return None
+        n = account_health.posted_today(posted, "youtube")
+        if n >= c:
+            return "account health: paused (studio/HEALTH.md)" if c == 0 else f"account health cap {c} a day reached ({n} today)"
+    except Exception as e:  # never stop posting over a broken check
+        print(f"  account health check failed: {e}")
+    return None
 
 API = "https://api.buffer.com"
 QUEUE = os.path.join(HERE, "queue.json")
@@ -476,7 +497,8 @@ def main():
     slot = open_slot(queue)
     if gate:
         due = bool(force or dry or check or (slot and not slot_used(posted, slot)
-                                             and handed_last_24h(posted) < MAX_PER_24H))
+                                             and handed_last_24h(posted) < MAX_PER_24H
+                                             and not health_blocked(posted)))
         print(f"slot={slot} due={int(due)}")
         set_output("due", "1" if due else "0")
         return 0
@@ -547,6 +569,8 @@ def main():
         lines.append("youtube: no slot open now (10:00-11:00 am and 4:00-6:30 pm Central)")
     elif not force and slot_used(posted, slot):
         lines.append(f"youtube: slot {slot} already posted")
+    elif not force and health_blocked(posted):
+        lines.append(f"youtube: skipped, {health_blocked(posted)}")
     elif handed_last_24h(posted) >= MAX_PER_24H:
         # Only our own posts count: HeyCatch also publishes to this channel through
         # Buffer (3 on Nov 22), so counting every Buffer post would block us for good.
