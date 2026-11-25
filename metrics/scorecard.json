@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-23",
- "generatedAt": "2026-11-24T22:22:38Z",
+ "generatedAt": "2026-11-25T15:41:46Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": true,
@@ -13,7 +13,7 @@
   "followers": {
    "instagram": {
     "now": 809,
-    "change7d": -14,
+    "change7d": -17,
     "asOf": "2026-11-24"
    },
    "facebook": {
@@ -144,6 +144,22 @@
     "ratio": null
    },
    {
+    "slug": "listed-dustless-blasting-mobile-trailer-r-5c2iy",
+    "posts": 2,
+    "settled": 1,
+    "igSettled": 1,
+    "points": 2.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 2.0,
+    "ratio": null
+   },
+   {
     "slug": "mission-idle-to-work",
     "posts": 1,
     "settled": 1,
@@ -201,6 +217,22 @@
     "category": "trailers",
     "demo": true,
     "structure": "problem-action-result",
+    "ratio": null
+   },
+   {
+    "slug": "listed-toyota-electric-3-wheel-forklift-3-curw5",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 3.0,
+    "views": 0,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.5,
     "ratio": null
    },
    {
@@ -304,6 +336,22 @@
     "demo": true,
     "structure": "problem-action-result",
     "cut": "10s",
+    "ratio": null
+   },
+   {
+    "slug": "listed-john-deere-travel-motor-excavator-gfg33",
+    "posts": 2,
+    "settled": 1,
+    "igSettled": 1,
+    "points": 1.0,
+    "views": 0,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 1.0,
     "ratio": null
    },
    {
@@ -667,8 +715,8 @@
    {
     "slug": "chain-hoist-on-the-beam",
     "posts": 3,
-    "settled": 1,
-    "igSettled": 0,
+    "settled": 3,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -893,7 +941,7 @@
    {
     "slug": "every-category",
     "posts": 2,
-    "settled": 1,
+    "settled": 2,
     "igSettled": 1,
     "points": 0.0,
     "views": 0,
@@ -1224,22 +1272,6 @@
     "ratio": null
    },
    {
-    "slug": "listed-dustless-blasting-mobile-trailer-r-5c2iy",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 3,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "ratio": null
-   },
-   {
     "slug": "listed-floral-walk-in-display-cooler-8-gl-q3khm",
     "posts": 1,
     "settled": 0,
@@ -1258,8 +1290,8 @@
    {
     "slug": "listed-instapak-speedypacker-floor-model-nr7e2",
     "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
+    "settled": 1,
+    "igSettled": 1,
     "points": 0.0,
     "views": 0,
     "likes": 0,
@@ -1268,23 +1300,7 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": null,
-    "ratio": null
-   },
-   {
-    "slug": "listed-john-deere-travel-motor-excavator-gfg33",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
+    "perPost": 0.0,
     "ratio": null
    },
    {
@@ -1324,22 +1340,6 @@
     "structure": "problem-action-result",
     "cut": "10s",
     "real": true,
-    "ratio": null
-   },
-   {
-    "slug": "listed-toyota-electric-3-wheel-forklift-3-curw5",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 3,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
     "ratio": null
    },
    {
@@ -2170,8 +2170,8 @@
   "hook": [
    {
     "value": "pov-idle",
-    "posts": 74,
-    "perPost": 0.72,
+    "posts": 76,
+    "perPost": 0.7,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -2285,7 +2285,7 @@
    },
    {
     "value": "feature-statement",
-    "posts": 5,
+    "posts": 6,
     "perPost": 0.0,
     "ratio": null,
     "verdict": "testing",
@@ -2396,8 +2396,8 @@
    },
    {
     "value": "idle-gear",
-    "posts": 56,
-    "perPost": 0.45,
+    "posts": 58,
+    "perPost": 0.43,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -2455,7 +2455,7 @@
    },
    {
     "value": "seller-offer",
-    "posts": 4,
+    "posts": 5,
     "perPost": 0.0,
     "ratio": null,
     "verdict": "testing",
@@ -2538,8 +2538,8 @@
    },
    {
     "value": "parts",
-    "posts": 15,
-    "perPost": 1.07,
+    "posts": 16,
+    "perPost": 1.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -2741,7 +2741,7 @@
    },
    {
     "value": "cranes",
-    "posts": 1,
+    "posts": 3,
     "perPost": 0.0,
     "ratio": null,
     "verdict": "testing",
@@ -2911,8 +2911,8 @@
   "structure": [
    {
     "value": "problem-action-result",
-    "posts": 61,
-    "perPost": 0.51,
+    "posts": 63,
+    "perPost": 0.49,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
