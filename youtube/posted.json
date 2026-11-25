@@ -64,9 +64,11 @@
   "slug": "lawn-tractor-after-the-route",
   "title": "POV: the mowing route ended. The lawn tractor sits by the barn.",
   "pick": "ok",
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6b07665cb96dd8d3516b515d",
   "due": "2026-11-25T22:56:04.000Z",
-  "video_host": "cdn.jsdelivr.net"
+  "video_host": "cdn.jsdelivr.net",
+  "url": "https://www.youtube.com/shorts/6dSMNvQp60w",
+  "sent": "2026-11-25T22:56:17.430Z"
  }
 ]
