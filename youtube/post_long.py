@@ -7,7 +7,8 @@ This is the YardSwaps, Inc. internal publishing client: it uploads only the
 company's own finished videos to the company's own YouTube channel
 (YardSwaps, UCC_TtVN5pOfs4z9OruWUlhw). It has no users, no sign-in for anyone
 else and reads no one else's YouTube data. Calls it makes, all on the
-channel owner's OAuth grant (scope youtube.upload + youtube.readonly):
+channel owner's OAuth grant (scopes youtube.upload, and youtube.force-ssl because
+captions.insert accepts no narrower scope):
   - oauth2.googleapis.com/token          refresh the access token
   - channels.list (mine) + playlistItems  the channel's last 50 uploads, so a
                                            title already on the channel is

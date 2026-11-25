@@ -102,7 +102,8 @@ uploader on the YouTube Data API: `.github/workflows/youtube-long.yml` runs
 
 It is the YardSwaps, Inc. internal publishing client. It uploads only our own
 finished videos to our own channel (YardSwaps, UCC_TtVN5pOfs4z9OruWUlhw) on the
-channel owner's OAuth grant (`youtube.upload` + `youtube.readonly`), and reads
+channel owner's OAuth grant (`youtube.upload`, plus `youtube.force-ssl` because
+`captions.insert` accepts no narrower scope), and reads
 no one else's data. Per video: `channels.list` + `playlistItems.list` (so a
 title already on the channel is never uploaded twice), `videos.insert`,
 `thumbnails.set` (the brand card) and `captions.insert` (the narration's .srt),
