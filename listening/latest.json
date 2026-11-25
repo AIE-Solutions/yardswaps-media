@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T22:21:28.572801+00:00",
+ "generated_at": "2026-11-25T21:37:20.772069+00:00",
  "lookback_days": 8,
  "sources": [
   {
@@ -40,21 +40,21 @@
   },
   {
    "name": "LawnSite",
-   "status": "error: HTTPError: HTTP Error 406: Not Acceptable",
-   "items": 0,
-   "in_window": 0
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
   },
   {
    "name": "ContractorTalk",
-   "status": "error: HTTPError: HTTP Error 406: Not Acceptable",
-   "items": 0,
-   "in_window": 0
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
   },
   {
    "name": "WeldingWeb",
-   "status": "error: HTTPError: HTTP Error 406: Not Acceptable",
-   "items": 0,
-   "in_window": 0
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
   },
   {
    "name": "Pressure Washing Resource",
@@ -69,7 +69,7 @@
    "link": "https://www.hobby-machinist.com/threads/posted-my-pm-lathe-in-the-machine-for-sale-section-here-cheap-no-views.126386/",
    "text": "hello all, I posted an un-used PM 1236T in the machine for sale section here and its gotten no attention, I'm looking to down size so I also offered to trade for a smaller PM machine with a little cash. I'm thinking very few people are looking at the members for sale section, I know the unregistered public cant see it, which was the point - Id rather take a lose and have a needy member here get a great deal. at this point though I'm thinking of selling off forum so i can get a new PM... Read more",
    "author": "Mr Mike",
-   "time": "2026-11-24T18:35:34+00:00",
+   "time": "2026-11-25T19:10:26+00:00",
    "platform": "Forum",
    "source": "Hobby-Machinist",
    "links_ok": false,
@@ -81,7 +81,26 @@
     "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
     "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
    },
-   "first_seen": "2026-11-24T22:21:28.572801+00:00"
+   "first_seen": "2026-11-25T21:37:20.772069+00:00"
+  },
+  {
+   "title": "FOR SALE - Pratt and Whitney 12x30 Model B",
+   "link": "https://www.practicalmachinist.com/forum/threads/for-sale-pratt-and-whitney-12x30-model-b.452662/",
+   "text": "Looking to sell my Pratt and Whitney 12x30 lathe. I'm moving and downsizing and unfortunately will not have room for it. She may be old (early/mid 1940's model) but still very productive. Well maintained. The ways are in very good shape. Newer 240VAC single phase motor. Import quick change post. 3-jaw, 4-jaw, and some collets. Taper attachment (not complete). Lots of tooling including lots of new brazed carbide. I've owned it for 20 years. Originally out of a military R&D location near... Read more",
+   "author": "Martel70",
+   "time": "2026-11-25T20:49:45+00:00",
+   "platform": "Forum",
+   "source": "Practical Machinist",
+   "links_ok": false,
+   "intent": "sell",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
+   "score": 2,
+   "drafts": {
+    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
+    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
+   },
+   "first_seen": "2026-11-25T21:37:20.772069+00:00"
   },
   {
    "title": "Turnkey in Michigan \u2014 ICE-Built 12' Hot Water Trailer + Soft Wash + Customer List \u2014 $15,500",
@@ -100,14 +119,14 @@
     "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
     "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_trailers"
    },
-   "first_seen": "2026-11-24T22:21:28.572801+00:00"
+   "first_seen": "2026-11-25T21:37:20.772069+00:00"
   },
   {
    "title": "Who makes the second best Micrometer",
    "link": "https://www.hobby-machinist.com/threads/who-makes-the-second-best-micrometer.126293/",
    "text": "starting with this comment.... https://www.hobby-machinist.com/threads/lathe-head-stock-is-tilted-shim-it.126016/post-1354350 I am looking for my first micrometer. I already have my second in the amazon shopping cart, Mitutoyo 103-129, confirmed to be the legit Mitutoyo store. but, I want one that I wont be afraid to break, drop, or have something go very wrong with. some mentioned that I look like I am on a budget. I am not, I do want to buy twice and cry twice. I want to learn... Read more",
    "author": "tater1337",
-   "time": "2026-11-24T16:58:02+00:00",
+   "time": "2026-11-25T16:12:09+00:00",
    "platform": "Forum",
    "source": "Hobby-Machinist",
    "links_ok": false,
@@ -119,7 +138,7 @@
     "no_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?",
     "with_link": "Worth checking local dealers, auctions and Marketplace for a used one. We run YardSwaps, a marketplace for used work equipment from local owners and shops; it's early, so there may not be one near you yet. What size and budget are you after?\nhttps://www.yardswaps.com/?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
    },
-   "first_seen": "2026-11-24T22:21:28.572801+00:00"
+   "first_seen": "2026-11-25T21:37:20.772069+00:00"
   }
  ]
 }
