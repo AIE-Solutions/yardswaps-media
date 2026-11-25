@@ -1,0 +1,68 @@
+{
+ "lift": {
+  "id": "cmwk6sm27000ept3aarac1oi2",
+  "title": "Katool KT-4H110 11,000lbs 4 Post Lift",
+  "price": 2309,
+  "category": "automotive"
+ },
+ "cooler": {
+  "id": "cmwsc8u1f001rqk3af9iq3khm",
+  "title": "Floral Walk-In Display Cooler | 8 Glass Doors",
+  "price": 19900,
+  "category": "refrigeration"
+ },
+ "packer": {
+  "id": "cmwpdczz50009tc3ao0enr7e2",
+  "title": "Instapak SpeedyPacker Floor Model (SP5-11327)",
+  "price": 12000,
+  "category": "parts"
+ },
+ "racking": {
+  "id": "cmwp8zzf0000jqt3a2d3no15x",
+  "title": "Used Pallet Racking \u2014 Complete Lot, 1,419 Pieces \u2014 Beams, Uprights & Wire Decks \u2014 FL",
+  "price": 39000,
+  "category": "warehouse"
+ },
+ "bucket": {
+  "id": "cmwosmtfl0033ob3a2pgagk62",
+  "title": "36 in Excavator Bucket (off a Caterpillar 330)",
+  "price": 3500,
+  "category": "parts"
+ },
+ "conveyor": {
+  "id": "cmwm5nuh9005fql3ag390kwc7",
+  "title": "Omni Metalcraft Powered 24\"W x 40'L Belt Conveyor with 6\"H Side Rails",
+  "price": 3000,
+  "category": "warehouse"
+ },
+ "sweeper": {
+  "id": "cmwlsaj46003pql3auwxsf6pt",
+  "title": "2008 Tennant M20 Ride-On Sweeper-Scrubber - LP - 513 Hours",
+  "price": 29000,
+  "category": "warehouse"
+ },
+ "booster": {
+  "id": "cmwjlna8q000pqi3a8aebyk8l",
+  "title": "Water Booster System -  Tigerflow  ES 3000 booster pump system",
+  "price": 6300,
+  "category": "pumps"
+ },
+ "frame-rack": {
+  "id": "cmwjknly00003o33a91rtb4op",
+  "title": "Chief EZ Liner II collision frame straightening rack with pulling tower",
+  "price": 5400,
+  "category": "automotive"
+ },
+ "engine": {
+  "id": "cmw478lqy001dtd3axzqdsydq",
+  "title": "KOMATSU HD785-7 ENGINE FOR SALE, WORLDWIDE SHIPPING",
+  "price": 155000,
+  "category": "parts"
+ },
+ "condenser": {
+  "id": "cmt55uwwo00hjn23azd3uemvl",
+  "title": "Goodman condenser & air handler HVAC split system",
+  "price": 2000,
+  "category": "hvac"
+ }
+}

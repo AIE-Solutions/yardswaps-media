@@ -1,0 +1,11 @@
+# Large renders, Runway clips and raw recording frames live in project files:
+# yardswaps-campaign/assets/ads/big-items-v4/ (the three cuts, rec/raw/booster) and big-items-v2/clips/
+clips/
+out/
+rec/raw/
+src/*.jpg
+!src/pete05-4.jpg
+!src/booster-1.jpg
+!src/rockbucket-0.jpg
+!src/cooling-1.jpg
+!src/vplow-0.jpg
