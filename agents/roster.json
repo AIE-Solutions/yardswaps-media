@@ -324,8 +324,25 @@
       },
       "prompt": "In the scheduled task",
       "owner": "ElevenLabs thread",
-      "health": "Dated section in growth-loop/HELPER-QUESTIONS.md; heartbeat helper-watch",
-      "heartbeat": "helper-watch"
+      "health": "Scheduled task run; the weekly report section in growth-loop/HELPER-QUESTIONS.md",
+      "heartbeat": null
+    },
+    {
+      "id": "helper-health",
+      "team": "customers",
+      "name": "Site chat helper health check",
+      "status": "live",
+      "does": "Runs the site chat helper's tests and checks the help pages load, so a broken helper is caught within a week.",
+      "schedule": "Mondays 10:47 am",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_018czWbWWoftkofXUBkzXtJW"
+      },
+      "prompt": "Stored in the scheduled task",
+      "owner": "Growth Lead thread",
+      "health": "Heartbeat helper-health; growth-loop/HELPER-HEALTH.md",
+      "heartbeat": "helper-health"
     },
     {
       "id": "billing-watch",
