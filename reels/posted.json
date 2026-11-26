@@ -4331,5 +4331,31 @@
   "status": "posted",
   "id": "18244315105321257",
   "url": "https://www.instagram.com/stories/yardswaps/4038711668684282958"
+ },
+ {
+  "time": "2026-11-26T12:15:26Z",
+  "platform": "instagram",
+  "slug": "micrometer-set-small-tools",
+  "repeat": true,
+  "status": "failed",
+  "error": "POST https://rupload.facebook.com/ig-api-upload/v23.0/18125639518977469 -> 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+ },
+ {
+  "time": "2026-11-26T12:16:00Z",
+  "platform": "facebook",
+  "slug": "combi-oven-after-the-remodel",
+  "repeat": false,
+  "status": "posted",
+  "id": "1826736065268355",
+  "url": "https://www.facebook.com/reel/1826736065268355"
+ },
+ {
+  "time": "2026-11-26T12:16:08Z",
+  "platform": "facebook_story",
+  "slug": "combi-oven-after-the-remodel",
+  "repeat": false,
+  "status": "posted",
+  "id": "1146809038318594",
+  "url": "https://www.facebook.com/stories/1291163214083476"
  }
 ]
