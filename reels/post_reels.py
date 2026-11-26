@@ -285,8 +285,9 @@ def threads_topic(v):
 # Alan, Nov 15: a daily "list your equipment free" post on every social
 # ("All socials yes"). One of the ten daily Reels carries it, so volume
 # does not go up: the first Reel of the Central day at or after
-# LIST_FREE_FROM_CT (the 5:15 pm slot; if that run fails, 6:30 pm or 10:10 pm
-# takes over) gets a "LIST IT FREE" caption and a clip picked for it:
+# LIST_FREE_FROM_CT (the 7:00 am slot since Nov 26, when our Instagram followers
+# are most active, 6 to 9 am in Metricool; it was 5:15 pm. If that run fails the
+# next slot takes over) gets a "LIST IT FREE" caption and a clip picked for it:
 #   - a real item first (the clip names one category; no dealer clips),
 #   - a category the list-it-free posts have not shown in LIST_FREE_CATEGORY_DAYS
 #     days, so the equipment rotates across the categories,
@@ -295,7 +296,7 @@ def threads_topic(v):
 # and stays as it is. Copy is seller-first: free to list, no cut of the sale,
 # every 4 listings earns a free 7-day boost credit (up to 5; the seller spends
 # it, so never say it boosts automatically). Never promise views or sales.
-LIST_FREE_FROM_CT = (17, 15)
+LIST_FREE_FROM_CT = (7, 0)
 LIST_FREE_CATEGORY_DAYS = 7
 LIST_FREE_HEAD = "LIST IT FREE"
 # Rotate so no two days in a row read word for word the same.
@@ -402,7 +403,7 @@ def list_free_threads_caption(v, turn=0):
 # promotions live in reels/promos.json (founding dealer price, Share my page
 # and the invite reward). One Reel a day per platform carries one: the first
 # run of the Central day at or after promos.json "slot_from_ct" (10:00 am; if
-# that run fails a later slot takes over, after the 5:15 pm list-it-free post
+# that run fails a later slot takes over, after the list-it-free post
 # when both are due). The active promotions take turns by day, so volume does
 # not go up. A promotion only posts between its start and end dates and on its
 # own "platforms". The caption opens with the promotion's head, keeps the
@@ -1044,8 +1045,40 @@ def fb_story_publish(token, page_id, path):
 # A Story re-shares the newest Reel posted on the same platform in the last
 # 24 hours that has not been a Story yet. Stories never count toward the Reel
 # cap or the 90-minute HeyCatch spacing (they don't appear in the feed).
+#
+# Three re-shares a day per platform, not one per Reel (Alan, Nov 26: "Re-share
+# 3 Reels a day"). Every Reel used to be re-shared, about eight Stories a day
+# with no link, which buried the two Stories a day that carry a tappable link
+# (stories/linked/, 9:30 am and 12:15 pm Central). STORY_RESHARE_FROM_CT is the
+# earliest Central time for the day's first, second and third re-share: the
+# 7:00 am seller post, the 3:55 pm Reel and the 6:30 pm Reel. A run that fails
+# hands its turn to the next slot. A manual run that names a video (SLUG) is
+# not capped. library.json "story_reshares" (["07:00", ...]) overrides the list;
+# an empty list stops the re-shares.
 
 STORY_BASE = {"instagram_story": "instagram", "facebook_story": "facebook"}
+STORY_RESHARE_FROM_CT = [(7, 0), (15, 55), (18, 30)]
+
+
+def set_story_reshares(lib):
+    """library.json "story_reshares": ["07:00", "15:55", ...] replaces the default times."""
+    times = lib.get("story_reshares")
+    if times is None:
+        return
+    STORY_RESHARE_FROM_CT[:] = sorted(tuple(int(x) for x in str(s).split(":")[:2]) for s in times)
+
+
+def story_reshare_wait(posted, story_platform, t=None):
+    """None when a re-share may go now, else one line saying why not."""
+    local = (t or now()).astimezone(CENTRAL)
+    today = sum(1 for p in posted if p["platform"] == story_platform and p.get("status") == "posted"
+                and not p.get("forced") and parse_time(p["time"]).astimezone(CENTRAL).date() == local.date())
+    if today >= len(STORY_RESHARE_FROM_CT):
+        return f"{today} re-shared today, the daily limit"
+    h, m = STORY_RESHARE_FROM_CT[today]
+    if (local.hour, local.minute) < (h, m):
+        return f"re-share {today + 1} of {len(STORY_RESHARE_FROM_CT)} waits until {h}:{m:02d} Central"
+    return None
 
 
 def story_pick(videos, posted, story_platform):
@@ -1356,6 +1389,7 @@ def main():
 
     lib = load(LIBRARY, {"videos": []})
     set_slots(lib)
+    set_story_reshares(lib)
     videos = with_real_pictures(with_endcard(lib["videos"]))
     LOCATIONS[:] = lib.get("locations", [])
     if lib.get("broad_tags"):
@@ -1493,6 +1527,10 @@ def main():
             summary.extend(takedown(token, posted, platform, video, lib["videos"], entry))
 
     for platform in story_platforms:
+        wait = None if force else story_reshare_wait(posted, platform)
+        if wait:
+            summary.append(f"{platform}: skipped, {wait}")
+            continue
         video = story_pick(videos, posted, platform)
         if dry:
             # In a dry run the Reel above is not logged, so show what it would be.
@@ -1503,6 +1541,8 @@ def main():
             continue
         path = os.path.join(ROOT, video["file"])
         entry = {"time": iso(now()), "platform": platform, "slug": video["slug"], "repeat": False}
+        if force:
+            entry["forced"] = True
         if is_new_look(video):
             entry["look"] = NEW_LOOK
         try:
