@@ -1,1 +1,57 @@
-[]
+[
+  {
+    "time": "2026-11-26T00:10:00Z",
+    "day": "2026-11-25",
+    "slug": "how-to-sell-restaurant-equipment",
+    "title": "How to Sell Used Restaurant Equipment on YardSwaps, Step by Step",
+    "status": "posted",
+    "video_id": "IqY69znRGtc",
+    "url": "https://www.youtube.com/watch?v=IqY69znRGtc",
+    "privacy": "public",
+    "via": "YouTube Studio in the owner's Chrome (API audit pending)",
+    "thumbnail": "ok",
+    "captions": "ok"
+  },
+  {
+    "time": "2026-11-26T00:10:00Z",
+    "day": "2026-11-26",
+    "slug": "weekly-6",
+    "title": "Eight Machines Listed From One Photo Each This Week | YardSwaps",
+    "status": "posted",
+    "video_id": "siQDh4c-uOE",
+    "url": "https://www.youtube.com/watch?v=siQDh4c-uOE",
+    "privacy": "scheduled",
+    "via": "YouTube Studio in the owner's Chrome (API audit pending)",
+    "thumbnail": "ok",
+    "captions": "ok",
+    "publish_at": "2026-11-26T15:30:00Z"
+  },
+  {
+    "time": "2026-11-26T00:10:00Z",
+    "day": "2026-11-27",
+    "slug": "how-to-free-boosts",
+    "title": "How Free Boosts Work on YardSwaps: Starter, Credits, Invites",
+    "status": "posted",
+    "video_id": "cziICFqgnC0",
+    "url": "https://www.youtube.com/watch?v=cziICFqgnC0",
+    "privacy": "scheduled",
+    "via": "YouTube Studio in the owner's Chrome (API audit pending)",
+    "thumbnail": "ok",
+    "captions": "ok",
+    "publish_at": "2026-11-27T15:30:00Z"
+  },
+  {
+    "time": "2026-11-26T00:10:00Z",
+    "day": "2026-11-28",
+    "slug": "weekly-5",
+    "title": "Seven Machines Listed From One Photo Each This Week | YardSwaps",
+    "status": "posted",
+    "video_id": "bEJufqlg3CA",
+    "url": "https://www.youtube.com/watch?v=bEJufqlg3CA",
+    "privacy": "scheduled",
+    "via": "YouTube Studio in the owner's Chrome (API audit pending)",
+    "thumbnail": "ok",
+    "captions": "ok",
+    "publish_at": "2026-11-28T15:30:00Z"
+  }
+]
