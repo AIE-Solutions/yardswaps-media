@@ -53,11 +53,16 @@ A listing Reel shows one shot per photo, joined with hard cuts, and has two layo
 
 - **Stack**, when the first photo is wide and there are two or more wide photos: the top photo, the detail under
   it and the facts line all change with the shot. One wide photo alone keeps a white foot, never a grey panel.
-- **Upright**, when the first photo is upright or square (about half of all listings, phone photos): the same
-  band moved to the top of the safe area (tag top 297, title baseline 560, wordmark 754) and one photo a shot
-  under it from y 789 to the foot of the frame, inside the 64 px text margins. An upright 3:4 photo fills that
-  slot; a square or wide one sits whole at the top of it; a very tall one stands whole on the light panel. Never
-  a narrow photo between pale side bars (the first k2 pass did that and failed its review).
+- **Upright**, when the first photo is upright or square (about half of all listings, phone photos): the
+  wordmark as a masthead at the top of the safe area (baseline 315), then the same tag (top 345), title and facts,
+  and one photo a shot from 40 px under the last line of text to the foot of the frame, flush with the text's
+  left edge. An upright 3:4 photo fills the 952 px column (at most a 6% trim); anything else is shown whole on
+  the white. Never a narrow photo between pale side bars (the first k2 pass did that and failed its review).
+
+The link is on the end card, not on a Reel frame. Titles come in fixed sizes, never one in between: 86 px on
+one line, else 64 px on one or two lines, and 56 px on two lines only when words would otherwise be dropped.
+Capitals are set with no negative tracking. "Used · Good" reads "Good condition", and a bare "Used" is left out
+when there is anything else to say.
 
 Photos that show the same view are shown once (`distinct`). The blue end card holds 2.5 s on listing Reels so
 it lands on a short clip that loops.

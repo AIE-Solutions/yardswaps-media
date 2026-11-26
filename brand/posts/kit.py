@@ -381,25 +381,23 @@ def tag(img, text, x=M, top=TAG_TOP, size=SIZE_TAG, width=None):
     return x + tw + 60
 
 
+TITLE_TRACK = 0.0   # capitals are set open; a negative value made letters touch (critic, 11-26)
 _DANGLING = {"WITH", "AND", "ON", "OF", "FOR", "THE", "A", "AN", "IN", "AT", "TO", "PLUS", "&", "+", "OR", "BY"}
 
 
-def title_lines(d, text, width, size=SIZE_TITLE, floor=64):
-    """An uppercase title on one line at the title size, stepping down to `floor`; only then two lines."""
-    text = " ".join(text.upper().split())
-    s = _fit_size(d, text, sg, size, width, floor, -0.025)
-    if tracked_width(d, text, sg(s), -0.025) <= width:
-        return s, [text]
-    f, lines, cur = sg(floor), [], ""
+def _two_lines(d, text, width, at):
+    """`text` on at most two balanced lines at size `at`, and whether words had to be dropped to do it."""
+    f, lines, cur, dropped = sg(at), [], "", False
     for w in text.split():
         trial = (cur + " " + w).strip()
-        if tracked_width(d, trial, f, -0.025) <= width or not cur:
+        if tracked_width(d, trial, f, TITLE_TRACK) <= width or not cur:
             cur = trial
         else:
             lines.append(cur)
             cur = w
     lines.append(cur)
     if len(lines) > 2:
+        dropped = True
         # never an ellipsis: keep whole words, and do not end on "with", "and", "of"...
         words = " ".join(lines[:2]).split()
         while len(words) > 2 and words[-1].strip(",;:").upper() in _DANGLING:
@@ -407,7 +405,7 @@ def title_lines(d, text, width, size=SIZE_TITLE, floor=64):
         lines, cur = [], ""
         for w in words:
             trial = (cur + " " + w).strip()
-            if tracked_width(d, trial, f, -0.025) <= width or not cur:
+            if tracked_width(d, trial, f, TITLE_TRACK) <= width or not cur:
                 cur = trial
             else:
                 lines.append(cur)
@@ -419,12 +417,28 @@ def title_lines(d, text, width, size=SIZE_TITLE, floor=64):
         words, best = " ".join(lines).split(), None
         for k in range(1, len(words)):
             a, b = " ".join(words[:k]), " ".join(words[k:])
-            wa, wb = tracked_width(d, a, f, -0.025), tracked_width(d, b, f, -0.025)
+            wa, wb = tracked_width(d, a, f, TITLE_TRACK), tracked_width(d, b, f, TITLE_TRACK)
             if wa <= width and wb <= width and (best is None or max(wa, wb) < best[0]):
                 best = (max(wa, wb), [a, b])
         if best:
             lines = best[1]
-    return floor, lines
+    return lines, dropped
+
+
+
+
+def title_lines(d, text, width, size=SIZE_TITLE, floor=64):
+    """An uppercase title in fixed sizes, never a size in between: one line at the title size, else one line at
+    `floor`, else two lines at `floor`. Only a title too long for that is set two lines at 56 px, before any
+    word is dropped; never an ellipsis."""
+    text = " ".join(text.upper().split())
+    for s in (size, floor):
+        if tracked_width(d, text, sg(s), TITLE_TRACK) <= width:
+            return s, [text]
+    lines, dropped = _two_lines(d, text, width, floor)
+    if not dropped:
+        return floor, lines
+    return 56, _two_lines(d, text, width, 56)[0]
 
 
 def wordmark_row(img, base, right_text="yardswaps.com"):
@@ -440,7 +454,7 @@ def wordmark_row(img, base, right_text="yardswaps.com"):
 def band(img, tag_text, title, facts="", second="", body="", wm_base=1205, right_text="yardswaps.com",
          top=TAG_TOP, title_base=TITLE_BASE):
     """Tag, title, facts (and a quieter second line, or a wrapped body line) on the white ground. Positions are fixed,
-    so every post lines up with every other."""
+    so every post lines up with every other. Returns the baseline of the last line of text."""
     d = ImageDraw.Draw(img)
     width = img.width - 2 * M
     tag(img, tag_text, top=top)
@@ -450,7 +464,7 @@ def band(img, tag_text, title, facts="", second="", body="", wm_base=1205, right
     y = first
     for i, ln in enumerate(lines):
         y = first + i * round(size * 1.0)
-        tracked(d, (M, y), ln, sg(size), INK, -0.025, anchor="ls")
+        tracked(d, (M, y), ln, sg(size), INK, TITLE_TRACK, anchor="ls")
     if two and wm_base < 1250:
         second = ""          # the tall frame has room for one facts line under a two-line title
     if facts:
@@ -467,6 +481,7 @@ def band(img, tag_text, title, facts="", second="", body="", wm_base=1205, right
             y += 66 if j == 0 else 50
             d.text((M, y), ln, font=f, fill=GREY, anchor="ls")
     wordmark_row(img, wm_base, right_text)
+    return y
 
 
 # ---------- posts ----------
@@ -499,8 +514,10 @@ def distinct(photos, near=12):
     return kept or photos[:1]
 
 
-TOP_OFF = 269 + 28 - TAG_TOP   # the upright layout: the same band, moved to the top of the safe area
-SLOT_TOP = 1205 + TOP_OFF + 35  # its photo starts as far under the wordmark as the stacked layout's second photo
+MAST_BASE = 269 + 46              # the upright layout: the wordmark as a masthead at the top of the safe area
+UP_TAG = MAST_BASE + 30           # then the same tag, title and facts, 403 px higher than in the stacked layout
+UP_OFF = UP_TAG - TAG_TOP
+UP_GAP = 40                       # from the last line of text down to the photo
 
 
 def _upright(p):
@@ -508,16 +525,21 @@ def _upright(p):
     return p.width < p.height * 1.2
 
 
-def _tall_slot(img, p):
-    """The upright layout's photo: inside the text margins, from under the band to the foot of the frame. An
-    upright phone photo fills it (a sliver trimmed at most); a square or wide one sits whole at the top of it;
-    a very tall one stands whole on the light panel."""
-    w, h = W - 2 * M, TALL_H - SLOT_TOP
+def _tall_slot(img, p, top):
+    """The upright layout's photo: flush with the text's left edge, from under the text to the foot of the
+    frame. An upright phone photo fills the column (a sliver trimmed at most); anything else is shown whole,
+    as wide as fits, on the white. Never a pale bar beside a photo."""
+    w, h = W - 2 * M, TALL_H - top
     s = w / p.width
     if p.height * s <= h:
-        img.paste(p.resize((w, max(1, round(p.height * s))), Image.LANCZOS), (M, SLOT_TOP))
-    else:
-        img.paste(fit_photo(p, w, h), (M, SLOT_TOP))
+        img.paste(p.resize((w, max(1, round(p.height * s))), Image.LANCZOS), (M, top))
+        return
+    trim = (p.height * s - h) / 2 / (p.height * s)
+    if trim <= 0.06:
+        img.paste(cover(p, w, h), (M, top))
+        return
+    s = h / p.height
+    img.paste(p.resize((max(1, round(p.width * s)), h), Image.LANCZOS), (M, top))
 
 
 def reel_layout(photos):
@@ -536,24 +558,26 @@ def reel_shots(photos, title, price, facts_lines):
     Stack (wide photos): the whole item on top (photo i), the white band (the price in the tag and the title on
     every shot, a facts line that changes with the shot), and another wide photo of the same listing below as a
     detail (it sits under the apps' buttons, so nothing there has to be read). One wide photo: the foot stays
-    white. Upright (the first photo is upright): the band sits at the top of the safe area and one photo a shot
-    stands large under it, inside the text margins, so an upright photo is never a narrow strip between bars.
-    Photos that show the same view are shown once."""
+    white. Upright (the first photo is upright or square): the wordmark as a masthead at the top of the safe
+    area, the same tag, title and facts under it, and one photo a shot standing large under the text, flush
+    with its left edge. The link is on the end card, not on the frame. Photos that show the same view are
+    shown once."""
     kind, photos = reel_layout(photos)
     k = len(photos)
     lines = [ln for ln in facts_lines if ln] or [""]
-    out = []
+    out, top = [], None
     for i, p in enumerate(photos):
         img = Image.new("RGB", (W, TALL_H), WHITE)
         if kind == "stack":
             img.paste(fit_photo(p, W, PHOTO_H), (0, 0))
             if k > 1:
                 img.paste(cover(photos[(i + 1) % k], W, TALL_H - 1240), (0, 1240))
-            band(img, price, title, lines[i % len(lines)])
+            band(img, price, title, lines[i % len(lines)], right_text="")
         else:
-            _tall_slot(img, p)
-            band(img, price, title, lines[i % len(lines)], wm_base=1205 + TOP_OFF, top=TAG_TOP + TOP_OFF,
-                 title_base=TITLE_BASE + TOP_OFF)
+            y = band(img, price, title, lines[i % len(lines)], wm_base=MAST_BASE, top=UP_TAG,
+                     title_base=TITLE_BASE + UP_OFF, right_text="")
+            top = top or y + UP_GAP      # the same for every shot of the clip
+            _tall_slot(img, p, top)
         out.append(img)
     return out
 

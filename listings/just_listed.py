@@ -379,10 +379,15 @@ def facts_lines(l):
     where = kit.spell_state(place(l))
     second = []
     cond = re.sub(r"\s*[—–-]\s*", " · ", (l.get("condition") or "").strip())
+    m = re.fullmatch(r"Used · (Excellent|Good|Fair|Poor)", cond)
+    if m:
+        cond = f"{m.group(1)} condition"      # everything here is used; say the part that tells the buyer something
     if cond:
         second.append(cond)
     if l.get("year") and not re.search(r"\b(19|20)\d\d\b", title):   # a year in the title is the seller's word
         second.append(str(l["year"]))
+    if first and second and second[0] == "Used":
+        second = second[1:]      # "Used" alone tells a buyer nothing here; it stays only when it is all we have
     if not first:
         first, second = second, []
     if where:
