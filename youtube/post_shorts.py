@@ -231,25 +231,40 @@ def real_picture(row, lib):
 
 # ---------- studio clips ----------
 
+def library_title(v):
+    """A clip's title, or for a listing Reel (no title) the first sentence of its caption."""
+    if v.get("title"):
+        return v["title"]
+    first = next((ln.strip() for ln in (v.get("body") or "").splitlines() if ln.strip()), "")
+    return first if 0 < len(first) <= 100 else ""
+
+
 def studio_rows(queue):
-    """YardSwaps Studio POV clips (studio/make_pov.py) as queue rows, after the hand-made ones.
-    Each clip's hook is its title; the description is its caption, the app links and its question."""
+    """Real-item library clips as queue rows, after the hand-made ones: YardSwaps Studio POV clips
+    (studio/make_pov.py) and the listing Reels (reels/listing_reels.py, one real listing each).
+    Each clip's hook is its title (a listing Reel's is the first line of its caption); the
+    description is its caption, the app links and its question. Seller clips come first
+    (Alan 11-26: sellers first)."""
     have = {r.get("slug") for r in queue.get("shorts", [])} | {r.get("library_slug") for r in queue.get("shorts", [])}
     vids = rot.library() if rot else []
     rows = []
-    for v in vids:
-        if not v.get("studio") or v.get("hold") or v["slug"] in have or not v.get("title"):
+    for v in sorted(vids, key=lambda v: v.get("audience") != "seller"):
+        if v.get("hold") or v["slug"] in have or not (v.get("studio") or v.get("listing_id")):
             continue
-        # real items only (Alan 11-26): a Studio clip from a stock photo never posts
+        # real items only (Alan 11-26): a clip from a stock or AI photo never posts
         if not (v.get("real") is True or v.get("picture") == "real"):
+            continue
+        title = library_title(v)
+        if not title or not v.get("endcard"):
             continue
         tags = " ".join(t for t in (v.get("ig_tags") or "").split() if t.lower() not in BANNED_TAGS)
         desc = (f"{v.get('body', '').strip()}\n\nStart a listing: yardswaps.com/y (link in our channel profile). "
                 "Get the app: search YardSwaps on the App Store or Google Play.\n\n"
                 f"{tags}\n\n{v.get('question', 'What is sitting in your yard right now?')}")
-        rows.append({"slug": v["slug"], "file": v["file"], "title": v["title"][:100], "description": desc,
+        rows.append({"slug": v["slug"], "file": v["file"], "title": title[:100], "description": desc,
                      "library_slug": v["slug"], "machine": rot.machine_of(v), "endcard": v.get("endcard"),
-                     "studio": True, "source": "reels/library.json studio clip"})
+                     "audience": v.get("audience"), "studio": bool(v.get("studio")),
+                     "source": "reels/library.json " + ("studio clip" if v.get("studio") else "listing Reel")})
     return rows
 
 
