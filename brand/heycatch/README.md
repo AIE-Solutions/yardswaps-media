@@ -25,3 +25,8 @@ price or "for sale" on a plate, because a queued post can go out weeks later, af
 - Only the slideshow format reads on a white plate. The other three formats use a person cutout or a video
   clip with thin outlined text.
 - Free: swipes (20 a day), per-post edits, "Regenerate videos". Costs credits: the "+" for more ideas. Don't.
+- To take a file out of rotation without deleting it: in the library, the pencil on its tile (Edit), untick
+  "Slideshow image", Save. HeyCatch then says "this file won't be used in new posts"; ideas already built with
+  it keep it. The first cut of these plates (uploaded as `yardswaps-hc-*.jpg`, tag cut off on tall photos) is
+  switched off this way; the current cut is in the library as `yardswaps-k2-*.jpg`.
+- The library list shows 24 files, then "Show more". The count on the right is the true total.
