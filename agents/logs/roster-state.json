@@ -1,24 +1,24 @@
 {
-  "checkedAt": "2026-11-25T23:58:20Z",
+  "checkedAt": "2026-11-26T13:05:00Z",
   "checkedBy": "roster-keeper",
   "agents": {
     "roster-keeper": {
-      "lastRun": "2026-11-25T23:58:20Z",
+      "lastRun": "2026-11-26T13:05:00Z",
       "result": "ok",
       "source": "task",
-      "note": "Evening check."
+      "note": "Morning check."
     },
     "platform-ops": {
-      "lastRun": "2026-11-25T09:40:17.327Z",
-      "result": "ok",
+      "lastRun": "2026-11-26T09:41:05Z",
+      "result": "needs_alan",
       "source": "heartbeat",
-      "note": "11-25 kpis 09:38Z: reports 0, no signup clusters, attention none (Concrete flag cleared), AI 43% ok, split tips steady, Katool follow-up opens 11-26, flagForAlan 0, 3 rejects all different, no new demand terms, 7 shorts await first end-card run; nothing routed"
+      "note": "11-26: reports 0, no signup wave; a new account posted 10 restaurant listings in an hour (looks real, Alan to check at /admin); AI budget 51% ok; 1 Just-listed reject; no new demand terms."
     },
     "ops-sweep": {
-      "lastRun": "2026-11-25T11:51:14.872Z",
+      "lastRun": "2026-11-26T11:51:43Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "OK: nothing needed. Production healthy (0 5xx in 24h), CI green, no new advisories; PR #533 has a merge conflict, sent to its thread."
+      "note": "Nothing needed: 0 5xx in 24 h, merges #533-#557 read clean; CI still held by the GitHub Actions billing block."
     },
     "guard": {
       "lastRun": "2026-11-25T22:41:35Z",
@@ -31,10 +31,10 @@
       "source": "task"
     },
     "app-crons": {
-      "lastRun": "2026-11-25T09:01:56Z",
+      "lastRun": "2026-11-26T09:02:38Z",
       "result": "ok",
       "source": "railway",
-      "note": "Daily OpsDigest posted; no attention items."
+      "note": "Daily OpsDigest posted 11-26; no attention items."
     },
     "owner-alerts": {
       "result": "ok",
@@ -60,7 +60,7 @@
       "lastRun": "2026-11-25T21:32:00Z",
       "result": "ok",
       "source": "guard-log",
-      "note": "Outreach pipeline ran 11-25 15:01-21:32Z: 11 Maps intros, 0 claim notes, 0 failed (Guard log)."
+      "note": "Outreach pipeline ran 11-25 15:01-21:32Z: 11 Maps intros, 0 claim notes, 0 failed (Guard log 11-25 row; no outreach-pipeline line on the Marketplace service)."
     },
     "investor-docs": {
       "lastRun": "2026-11-23T18:41:57Z",
@@ -84,7 +84,7 @@
       "source": "task"
     },
     "comment-inbox": {
-      "lastRun": "2026-11-25T23:48:50Z",
+      "lastRun": "2026-11-26T00:27:19Z",
       "result": "ok",
       "source": "workflow"
     },
@@ -109,30 +109,31 @@
       "source": "task"
     },
     "reels-poster": {
-      "lastRun": "2026-11-25T23:42:50Z",
+      "lastRun": "2026-11-26T12:43:35Z",
       "result": "ok",
-      "source": "workflow"
+      "source": "workflow",
+      "note": "12:12Z scheduled run failed; the 12:43Z timer run that followed succeeded."
     },
     "tiktok-poster": {
-      "lastRun": "2026-11-25T22:43:21Z",
+      "lastRun": "2026-11-26T02:06:54Z",
       "result": "ok",
       "source": "workflow"
     },
     "shorts-poster": {
-      "lastRun": "2026-11-25T23:34:08Z",
+      "lastRun": "2026-11-26T08:01:37Z",
       "result": "ok",
       "source": "workflow"
     },
     "youtube-slots": {
-      "lastRun": "2026-11-25T22:36:42Z",
+      "lastRun": "2026-11-26T00:36:13Z",
       "result": "ok",
       "source": "task"
     },
     "just-listed": {
-      "lastRun": "2026-11-25T23:35:01Z",
-      "result": "failed",
+      "lastRun": "2026-11-26T08:14:49Z",
+      "result": "ok",
       "source": "workflow",
-      "note": "Morning prep run (started about 8 h late by GitHub) failed at 'Install photo tools': apt-get install got 404s from security.ubuntu.com (stale package list, no apt-get update first). Last good run 19:02Z."
+      "note": "Back to green: runs at 02:50Z, 03:13Z and 08:14Z succeeded after the 01:07Z failure."
     },
     "just-listed-review": {
       "lastRun": "2026-11-25T17:31:29Z",
@@ -160,7 +161,7 @@
       "source": "task"
     },
     "endcard-check": {
-      "lastRun": "2026-11-25T23:58:20Z",
+      "lastRun": "2026-11-26T13:05:00Z",
       "result": "ok",
       "source": "git",
       "note": "131 of 131 library clips carry the end card."
@@ -199,13 +200,13 @@
       "lastRun": "2026-11-25T20:22:23Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "Nothing written: the specific lane already had an article in the last 24 h."
+      "note": "Nothing written: the specific lane already had an article in the last 24 h; broad lane dropped 11-25 to leave Soro alone."
     },
     "studio-shorts": {
-      "lastRun": "2026-11-25T23:35:01Z",
-      "result": "failed",
+      "lastRun": "2026-11-26T08:14:49Z",
+      "result": "ok",
       "source": "workflow",
-      "note": "Runs inside listings.yml: Morning prep run (started about 8 h late by GitHub) failed at 'Install photo tools': apt-get install got 404s from security.ubuntu.com (stale package list, no apt-get update first). Last good run 19:02Z."
+      "note": "Runs inside listings.yml, green again since 02:50Z."
     },
     "studio-analytics": {
       "note": "Being built in the Studio thread.",
@@ -215,7 +216,7 @@
       "lastRun": "2026-11-25T22:37:09Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "0 approved, 0 skipped; no Studio clips in the library yet."
+      "note": "0 approved, 0 skipped; no Studio clips in the library yet. Next run 14:35Z (7:35 am MT)."
     },
     "studio-audit": {
       "result": null,
@@ -223,7 +224,7 @@
       "note": "New. First run Nov 30 6:40 AM MT."
     },
     "studio-connector": {
-      "lastRun": "2026-11-25T19:24:22Z",
+      "lastRun": "2026-11-26T04:19:11Z",
       "result": "ok",
       "source": "heartbeat",
       "note": "Connector up: 11 tool calls across 2 brands in 24 h, 2 refused or failed."
@@ -233,5 +234,8 @@
     "checked": 131,
     "missing": 0
   },
-  "needsAlan": []
+  "needsAlan": [
+    "GitHub Actions is blocked again (billing or spending limit) since 11-26 00:35Z, so CI does not start on any PR: github.com/organizations/AIE-Solutions/settings/billing.",
+    "A new account posted 10 restaurant listings in an hour; Platform Ops says they look real but asks you to check them at yardswaps.com/admin."
+  ]
 }
