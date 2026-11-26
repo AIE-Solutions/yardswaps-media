@@ -1,10 +1,10 @@
 # YardSwaps weekly scorecard (2026-11-23)
 
-Generated 2026-11-25T21:39:45Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
+Generated 2026-11-26T21:30:32Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
 
 ## Goals
-- Instagram followers: 804 (-22 in 7 days)
-- Facebook followers: 16 (+2 in 7 days)
+- Instagram followers: 804 (-24 in 7 days)
+- Facebook followers: 18 (+4 in 7 days)
 - YouTube: {"subscribers": 10, "views": null, "videoCount": null}
 - Signups 7d: 19 (prev 9); from the app (iOS/Android): 3
 - Listings published 7d: 68 (prev 12); live now: 118
@@ -16,19 +16,19 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 
 | Video | Posts | Views | Likes | Comments | Shares | Saves | Follows | Signups | Points/post | vs median |
 |---|---|---|---|---|---|---|---|---|---|---|
+| listed-chief-ez-liner-ii-collision-frame-tb4op | 2 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | 8.0 | - |
 | plumbing-part-label | 3 | 0 | 2 | 4 | 0 | 0 | 0 | 0 | 4.67 | - |
-| chairs-from-the-closed-office | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 3.5 | - |
-| listed-dustless-blasting-mobile-trailer-r-5c2iy | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 2.0 | - |
-| mission-idle-to-work | 1 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 2.0 | - |
+| see-what-buyers-want-v2 | 3 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | 3.0 | - |
+| mission-idle-to-work | 2 | 0 | 4 | 2 | 0 | 0 | 0 | 0 | 2.0 | - |
 | parts-donor-thumb | 2 | 0 | 3 | 4 | 0 | 0 | 0 | 0 | 2.0 | - |
 | whole-lot-one-link | 3 | 0 | 4 | 2 | 0 | 0 | 0 | 0 | 2.0 | - |
+| listed-commercial-dehumidifiers-4x-phoeni-wr62p | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | - |
+| listed-dustless-blasting-mobile-trailer-r-5c2iy | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | - |
 | listed-toyota-electric-3-wheel-forklift-3-curw5 | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.5 | - |
 | construction-life-compactor | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
-| drilling-rig-parked | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
-| forklift-sitting-there | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
+| drilling-rig-parked | 2 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | 1.0 | - |
 | interior-job-done-lifts | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
 | lift-still-bolted-down | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
-| listed-commercial-dehumidifiers-4x-phoeni-wr62p | 2 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
 | part-tag-scan | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
 | pressure-washer-1000-psi | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
 | shop-went-cnc-lathe | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
@@ -39,52 +39,57 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | surplus-parts-labels | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
 | welder-from-one-job-es | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
 | job-wrapped-generator | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
-| listed-caterpillar-140h-v-plow-fmh3l | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
 | listed-john-deere-travel-motor-excavator-gfg33 | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
-| backhoe-still-on-the-trailer | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| backhoe-still-on-the-trailer | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | bluecollar-shelf-parts | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| boom-lift-after-the-fitout | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | box-truck-after-the-route | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | building-things-concrete-mixer | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | chain-hoist-on-the-beam | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| chop-saw-small-tools | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| chairs-from-the-closed-office | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| chop-saw-small-tools | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| combi-oven-after-the-remodel | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | too new | - |
 | commercial-idle-forklift | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | compressor-by-the-fence | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | condenser-changeout | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| condensers-after-the-changeout | 1 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | too new | - |
-| control-panel-pulled | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| condensers-after-the-changeout | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | too new | - |
+| control-cabinet-off-the-line | 1 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | too new | - |
+| control-panel-pulled | 2 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | 0.0 | - |
 | cooler-still-humming | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | cord-reels-after-the-events | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | dealer-storefront | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | downsized-to-one-truck | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | dryers-from-the-sold-laundromat | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | dump-trailer-after-the-cleanouts | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| every-category | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| find-it-nearby | 2 | 0 | 4 | 4 | 0 | 0 | 0 | 0 | 0.0 | - |
+| every-category | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| find-it-nearby | 3 | 0 | 5 | 4 | 0 | 0 | 0 | 0 | 0.0 | - |
 | flatbed-after-the-last-contract | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | follow-a-seller | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | forklift-finally-deal | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | fryers-from-the-closed-kitchen | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | generator-for-the-storm-season | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| griddle-from-the-closed-diner | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| griddle-from-the-closed-diner | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | import-from-your-website | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | inspection-camera-in-the-van | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | invite-a-seller | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | lathe-from-the-closed-shop | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | laundromat-upgrade-washers | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | lawn-tractor-after-the-route | 1 | 0 | 0 | 6 | 0 | 0 | 0 | 0 | too new | - |
-| leftover-anchor-adhesive | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| leftover-anchor-adhesive | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | leftover-fittings-lot | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | light-tower-after-night-work | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| listed-2008-tennant-m20-ride-on-sweeper-s-sf6pt | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| listed-chief-ez-liner-ii-collision-frame-tb4op | 2 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | too new | - |
-| listed-floral-walk-in-display-cooler-8-gl-q3khm | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| listed-2008-tennant-m20-ride-on-sweeper-s-sf6pt | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| listed-2021-cat-301-7cr-mini-excavator-on-2unc7 | 1 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | too new | - |
+| listed-caterpillar-140h-rear-ripper-multi-5n6mr | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| listed-caterpillar-140h-v-plow-fmh3l | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| listed-floral-walk-in-display-cooler-8-gl-q3khm | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | listed-instapak-speedypacker-floor-model-nr7e2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| listed-komatsu-hd785-7-engine-for-sale-wo-dsydq | 1 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | too new | - |
-| listed-large-roll-of-black-rubber-conveyo-8mnho | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| listed-komatsu-hd785-7-engine-for-sale-wo-dsydq | 2 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | too new | - |
+| listed-large-roll-of-black-rubber-conveyo-8mnho | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | listed-omni-metalcraft-powered-24-w | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| listed-used-pallet-racking-complete-lot-1-no15x | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| listed-zero-tail-swing-deere-50g-with-qui-fbt0s | 1 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | too new | - |
-| micrometer-set-small-tools | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| listed-used-pallet-racking-complete-lot-1-no15x | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| listed-zero-tail-swing-deere-50g-with-qui-fbt0s | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | too new | - |
+| micrometer-set-small-tools | 2 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | 0.0 | - |
 | mixer-after-the-pour | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | mowing-contract-ended | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | office-went-remote | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
@@ -103,13 +108,12 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | second-bay-closed-tools | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | second-jetter-by-the-fence | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | second-location-closed | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| see-what-buyers-want-v2 | 3 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | 0.0 | - |
-| show-the-cold-start | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| seller-espresso-machine | 2 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | too new | - |
 | skid-steer-after-the-grading | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | snap-it-list-it | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | snap-the-part | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | socials-on-storefront | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| sold-it-list-the-next | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
+| sold-it-list-the-next | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | sold-the-septic-route | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | spare-part | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | store-closed-kiosk | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
@@ -125,48 +129,48 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | zero-turn-after-the-account | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 
 ### Opener shapes
-- pov-situation: 0.6 points/post over 5 posts (testing)
+- pov-situation: 1.71 points/post over 7 posts (testing)
 - search-term: 0.6 points/post over 5 posts (testing)
-- pov-idle: 0.5 points/post over 70 posts (testing)
-- question-problem: 0.12 points/post over 8 posts (testing)
-- feature-statement: 0.0 points/post over 5 posts (testing)
+- pov-idle: 0.4 points/post over 67 posts (testing)
+- question-problem: 0.17 points/post over 6 posts (testing)
+- feature-statement: 0.0 points/post over 4 posts (testing)
 - just-listed: 0.0 points/post over 1 posts (testing)
 - origin: 0.0 points/post over 3 posts (testing)
 - me-humor: 0.0 points/post over 1 posts (testing)
 
 ### Topics
 - shelf-parts: 1.6 points/post over 10 posts (testing)
-- small-items: 0.64 points/post over 11 posts (testing)
-- dealer: 0.5 points/post over 6 posts (testing)
+- dealer: 1.5 points/post over 8 posts (testing)
 - parts-spec: 0.4 points/post over 5 posts (testing)
-- idle-gear: 0.26 points/post over 53 posts (testing)
-- seller-offer: 0.0 points/post over 3 posts (testing)
+- idle-gear: 0.25 points/post over 53 posts (testing)
+- small-items: 0.0 points/post over 8 posts (testing)
+- seller-offer: 0.0 points/post over 2 posts (testing)
 - buyer-feature: 0.0 points/post over 3 posts (testing)
 - real-listing: 0.0 points/post over 1 posts (testing)
 - origin-story: 0.0 points/post over 3 posts (testing)
-- seller-tip: 0.0 points/post over 3 posts (testing)
+- seller-tip: 0.0 points/post over 1 posts (testing)
 
 ### Categories
-- office: 2.33 points/post over 3 posts (testing)
-- parts: 1.0 points/post over 16 posts (testing)
+- aerial: 1.67 points/post over 6 posts (testing)
+- parts: 1.07 points/post over 15 posts (testing)
 - excavators: 1.0 points/post over 2 posts (testing)
 - drilling: 1.0 points/post over 1 posts (testing)
 - automotive: 1.0 points/post over 1 posts (testing)
 - trailers: 0.67 points/post over 3 posts (testing)
-- forklifts: 0.6 points/post over 5 posts (testing)
 - welding: 0.6 points/post over 5 posts (testing)
+- forklifts: 0.5 points/post over 4 posts (testing)
 - paving: 0.5 points/post over 2 posts (testing)
 - agriculture: 0.5 points/post over 2 posts (testing)
 - pressure: 0.33 points/post over 3 posts (testing)
-- cooking: 0.33 points/post over 3 posts (testing)
-- aerial: 0.25 points/post over 4 posts (testing)
 - machining: 0.25 points/post over 4 posts (testing)
+- cooking: 0.25 points/post over 4 posts (testing)
 - generators: 0.17 points/post over 6 posts (testing)
-- fleet: 0.0 points/post over 4 posts (testing)
-- concrete: 0.0 points/post over 4 posts (testing)
+- fleet: 0.0 points/post over 3 posts (testing)
+- concrete: 0.0 points/post over 3 posts (testing)
 - cranes: 0.0 points/post over 3 posts (testing)
-- tools: 0.0 points/post over 4 posts (testing)
-- compressors: 0.0 points/post over 3 posts (testing)
+- office: 0.0 points/post over 2 posts (testing)
+- tools: 0.0 points/post over 3 posts (testing)
+- compressors: 0.0 points/post over 2 posts (testing)
 - hvac: 0.0 points/post over 2 posts (testing)
 - electrical: 0.0 points/post over 2 posts (testing)
 - refrigeration: 0.0 points/post over 1 posts (testing)
@@ -183,7 +187,7 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - retail: 0.0 points/post over 1 posts (testing)
 
 ### Video structure tests
-- problem-action-result: 0.35 points/post over 57 posts (testing)
+- problem-action-result: 0.37 points/post over 59 posts (testing)
 - problem-why-app: 0.0 points/post over 3 posts (testing)
 
 ## YouTube title shapes
