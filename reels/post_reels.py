@@ -603,12 +603,59 @@ def with_real_pictures(videos, allow=REAL_PICTURES):
     return ok
 
 
-def pick(videos, posted, platform, force=None, scores=None):
-    ok = [p for p in posted if p["platform"] == platform and p.get("status") == "posted"]
+# Alan, 2026-11-26: "Not paused but start replacing them and add them to Line up" and "Even swap the ones
+# that got sent out with new and improved nice ones". The ads thread re-renders each listing Reel in the new
+# white and blue look in place (same slug, "look": "k2", file ending -k2.mp4). From then on:
+#   - only posts in the same look count for a clip's no-repeat history, so a k2 clip whose old-look version
+#     already went out posts again as a normal Reel (not a Trial Reel);
+#   - those swaps go first, then any other k2 clip; an old-look clip posts only when no k2 clip may;
+#   - once a k2 Reel is live on Instagram or Facebook, takedown() removes that platform's old-look Reels of
+#     the same clip, plus one stock (then one held, badly cropped) Reel: Alan picked "One down per new Reel up".
+NEW_LOOK = "k2"
+
+
+def is_new_look(v):
+    return (v or {}).get("look") == NEW_LOOK
+
+
+def same_look(p, v):
+    """Does this log row count toward clip v's no-repeat history? Rows only count within one look."""
+    return (p.get("look") == NEW_LOOK) == is_new_look(v)
+
+
+def history(videos, posted, platform):
+    """slug -> last time this clip, in its current look, went out on the platform."""
+    looks = {v["slug"]: v for v in videos}
     last = {}
-    for p in ok:
+    for p in posted:
+        if p["platform"] != platform or p.get("status") != "posted":
+            continue
+        # Only where the old post can come down (TAKEDOWN_PLATFORMS) does a new look count as a new clip;
+        # on TikTok and YouTube it would just post the same machine twice.
+        if platform in TAKEDOWN_PLATFORMS and not same_look(p, looks.get(p["slug"])):
+            continue
         t = parse_time(p["time"])
         last[p["slug"]] = max(last.get(p["slug"], t), t)
+    return last
+
+
+def swap_due(v, posted, platform):
+    """A new-look clip whose old-look Reel is still up on this platform and has no new-look post yet."""
+    if not is_new_look(v):
+        return False
+    rows = [p for p in posted if p["platform"] == platform and p["slug"] == v["slug"] and p.get("status") == "posted"]
+    return any(not p.get("removed") and p.get("look") != NEW_LOOK for p in rows) and \
+        not any(p.get("look") == NEW_LOOK for p in rows)
+
+
+def new_look_first(pool):
+    """Only the new-look clips while any is available, else the pool unchanged."""
+    k2 = [v for v in pool if is_new_look(v)]
+    return k2 or pool
+
+
+def pick(videos, posted, platform, force=None, scores=None):
+    last = history(videos, posted, platform)
     if force:
         return next((v for v in videos if v["slug"] == force), None), force in last
     cutoff = now() - dt.timedelta(days=MIN_GAP_DAYS)
@@ -636,6 +683,18 @@ def pick(videos, posted, platform, force=None, scores=None):
     if rot is None:
         raise SystemExit("rotation/rotation.py is missing from this checkout; add it before picking a clip")
     hist = rot.uses()   # always the whole library, so a promo or list-it-free pool maps machines right
+    # Swaps first (see NEW_LOOK): the same machine already went out in the old look and that post comes down
+    # once this one is up, so the machine rotation does not hold a swap back. Oldest old-look post first.
+    swaps = [v for v in usable if swap_due(v, posted, platform)
+             and platform in ("instagram", "facebook")]
+    if swaps:
+        first = {}
+        for p in posted:
+            if p["platform"] == platform and p.get("status") == "posted":
+                first.setdefault(p["slug"], parse_time(p["time"]))
+        swaps.sort(key=lambda v: first.get(v["slug"]) or now())
+        return swaps[0], False
+    usable = new_look_first(usable)
     strict = [v for v in usable if rot.allowed(v, hist)]
     # A clip another surface showed in the last 36 hours goes here next, so Instagram, Facebook and
     # TikTok share one showing of a machine instead of each using up a different one.
@@ -1191,6 +1250,71 @@ def check_only(platforms, force, dry):
     return 0
 
 
+TAKEDOWN_PLATFORMS = ("instagram", "facebook")   # Stories expire by themselves; TikTok/YouTube have no delete
+
+
+def takedown_queue(posted, platform, library):
+    """Old Reels still up on the platform that Alan asked to swap out, in the order they come down:
+    stock pictures first, then the held older clips that cropped the machine, oldest post first."""
+    lib = {v["slug"]: v for v in library}
+
+    def rank(p):
+        v = lib.get(p["slug"])
+        if v is None or not real_picture(v, REAL_PICTURES + ("ad",)):
+            return 0          # stock or AI picture (or a clip no longer in the library)
+        if v.get("hold") and v.get("cut") != "listing":
+            return 1          # older Motion clip held for cropping the machine (Alan 11-26)
+        return None           # a real clip still in rotation stays up
+    rows = [(rank(p), parse_time(p["time"]), p) for p in posted
+            if p["platform"] == platform and p.get("status") == "posted" and p.get("id") and not p.get("removed")
+            and not p.get("takedown_skip")]
+    return [p for r, t, p in sorted((x for x in rows if x[0] is not None), key=lambda x: (x[0], x[1]))]
+
+
+def remove_post(token, platform, p, reason, by):
+    """Delete one of our Instagram or Facebook Reels and mark its log row. Returns a summary line."""
+    try:
+        r = call("DELETE", f"{GRAPH}/{p['id']}?" + urllib.parse.urlencode({"access_token": token}))
+        ok = r is True or (isinstance(r, dict) and (r.get("success") or r.get("deleted_id")))
+        if not ok:
+            raise GraphError(f"unexpected reply {str(r)[:200]}")
+    except (GraphError, urllib.error.URLError) as e:
+        msg = str(e)
+        p.setdefault("takedown_errors", []).append(f"{iso(now())} {msg[:200]}")
+        print(f"::warning::{platform} takedown of {p['slug']} ({p['id']}) failed: {msg[:300]}")
+        if len(p["takedown_errors"]) >= 2:
+            # Twice refused (deleted by hand already, or Meta will not delete this one): stop retrying it,
+            # so the queue moves on; it stays listed for a person to check.
+            p["takedown_skip"] = True
+        return f"  {platform}: could not take down {p['slug']} {p.get('url', '')}: {msg[:160]}"
+    p["removed"] = iso(now())
+    p["removed_reason"] = reason
+    p["replaced_by"] = by
+    return f"  {platform}: took down {p['slug']} ({reason}) {p.get('url', '')}"
+
+
+def takedown(token, posted, platform, video, library, entry):
+    """After a new-look Reel went live: remove this platform's old-look Reels of the same clip, then one
+    Reel from takedown_queue(). Never more than MAX_TAKEDOWNS a run, and a failure never fails the run."""
+    if platform not in TAKEDOWN_PLATFORMS or os.environ.get("TAKEDOWN") == "0":
+        return []
+    lines, done = [], 0
+    same = [p for p in posted if p is not entry and p["platform"] == platform and p["slug"] == video["slug"]
+            and p.get("status") == "posted" and p.get("id") and not p.get("removed") and not p.get("takedown_skip")
+            and p.get("look") != NEW_LOOK]
+    for p in same[:MAX_TAKEDOWNS]:
+        lines.append(remove_post(token, platform, p, "old look, new look posted", entry.get("id")))
+        done += 1
+    queue = takedown_queue(posted, platform, library)
+    if queue and done < MAX_TAKEDOWNS + 1:
+        p = queue[0]
+        lines.append(remove_post(token, platform, p, "one down per new Reel up", entry.get("id")))
+    return lines
+
+
+MAX_TAKEDOWNS = 3
+
+
 def main():
     token = os.environ.get("META_PAGE_TOKEN", "").strip()
     dry = os.environ.get("DRY_RUN") == "1"
@@ -1326,6 +1450,8 @@ def main():
             summary.append(f"{platform}: skipped, already posted {max_ours_per_20h()} in the last 20 hours")
             continue
         entry = {"time": iso(now()), "platform": platform, "slug": video["slug"], "repeat": repeat}
+        if is_new_look(video):
+            entry["look"] = NEW_LOOK
         if force:
             entry["forced"] = True
         if list_free:
@@ -1354,6 +1480,8 @@ def main():
             summary.append(f"{platform}: FAILED {video['slug']}: {e}")
             failed = True
         posted.append(entry)
+        if entry.get("status") == "posted" and is_new_look(video):
+            summary.extend(takedown(token, posted, platform, video, lib["videos"], entry))
 
     for platform in story_platforms:
         video = story_pick(videos, posted, platform)
@@ -1366,6 +1494,8 @@ def main():
             continue
         path = os.path.join(ROOT, video["file"])
         entry = {"time": iso(now()), "platform": platform, "slug": video["slug"], "repeat": False}
+        if is_new_look(video):
+            entry["look"] = NEW_LOOK
         try:
             if platform == "instagram_story":
                 mid, link = ig_publish(token, ig_id, path, "", False, story=True)

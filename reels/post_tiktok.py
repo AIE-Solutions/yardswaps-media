@@ -480,6 +480,8 @@ def main():
             due = clear_of_heycatch(reels.now() + dt.timedelta(minutes=SCHEDULE_AHEAD_MIN))
             entry = {"time": reels.iso(reels.now()), "platform": PLATFORM,
                      "slug": video["slug"], "repeat": repeat}
+            if reels.is_new_look(video):
+                entry["look"] = reels.NEW_LOOK
             if list_free:
                 entry["list_free"] = True
             if promo:
