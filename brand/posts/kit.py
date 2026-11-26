@@ -544,10 +544,11 @@ def _tall_slot(img, p, top):
 
 def reel_layout(photos):
     """("stack" | "upright", the photos it uses). Stack: two or more wide photos, the listing's first photo
-    wide. Upright: the first photo is upright (most phone photos), or there is one wide photo and upright ones."""
+    wide. Upright: the first photo is upright or square (most phone photos), or there is only one wide photo
+    (stacked, a single photo left the lower half of the frame empty)."""
     photos = distinct(photos)
     wide = [p for p in photos if not _upright(p)]
-    if photos and not _upright(photos[0]) and (len(wide) > 1 or len(wide) == len(photos)):
+    if photos and not _upright(photos[0]) and len(wide) > 1:
         return "stack", wide
     return "upright", photos
 
@@ -557,8 +558,8 @@ def reel_shots(photos, title, price, facts_lines):
 
     Stack (wide photos): the whole item on top (photo i), the white band (the price in the tag and the title on
     every shot, a facts line that changes with the shot), and another wide photo of the same listing below as a
-    detail (it sits under the apps' buttons, so nothing there has to be read). One wide photo: the foot stays
-    white. Upright (the first photo is upright or square): the wordmark as a masthead at the top of the safe
+    detail (it sits under the apps' buttons, so nothing there has to be read). Upright (the first photo is
+    upright or square, or there is one wide photo): the wordmark as a masthead at the top of the safe
     area, the same tag, title and facts under it, and one photo a shot standing large under the text, flush
     with its left edge. The link is on the end card, not on the frame. Photos that show the same view are
     shown once."""

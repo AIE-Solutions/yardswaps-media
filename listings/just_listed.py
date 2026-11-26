@@ -390,6 +390,8 @@ def facts_lines(l):
         second = second[1:]      # "Used" alone tells a buyer nothing here; it stays only when it is all we have
     if not first:
         first, second = second, []
+        if where and first[:1] == ["Used"]:
+            first = first[1:]
     if where:
         if len(" · ".join(first[:2] + [where])) > 44:   # hours, miles and a long town: the town goes on the next line
             first, second = first[:2], second + [where]

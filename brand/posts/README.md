@@ -52,8 +52,9 @@ A listing Reel shows one shot per photo, joined with hard cuts, and has two layo
 (`reel_layout` picks):
 
 - **Stack**, when the first photo is wide and there are two or more wide photos: the top photo, the detail under
-  it and the facts line all change with the shot. One wide photo alone keeps a white foot, never a grey panel.
-- **Upright**, when the first photo is upright or square (about half of all listings, phone photos): the
+  it and the facts line all change with the shot.
+- **Upright**, when the first photo is upright or square (about half of all listings, phone photos) or the
+  listing has a single wide photo (stacked, one photo left half the frame empty): the
   wordmark as a masthead at the top of the safe area (baseline 315), then the same tag (top 345), title and facts,
   and one photo a shot from 40 px under the last line of text to the foot of the frame, flush with the text's
   left edge. An upright 3:4 photo fills the 952 px column (at most a 6% trim); anything else is shown whole on
