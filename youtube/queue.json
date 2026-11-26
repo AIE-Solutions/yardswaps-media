@@ -4,15 +4,7 @@
   "10:00-11:00",
   "16:00-18:30"
  ],
- "hold_slots": [
-  "2026-12-01 16:00",
-  "2026-12-02 16:00",
-  "2026-12-03 16:00",
-  "2026-12-04 16:00",
-  "2026-12-05 16:00",
-  "2026-12-06 16:00",
-  "2026-12-07 16:00"
- ],
+ "hold_slots": [],
  "shorts": [
   {
    "slug": "griddle-from-the-closed-diner",
@@ -122,7 +114,7 @@
   {
    "slug": "zero-turn-after-the-account",
    "skip": true,
-   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "skip_reason": "stock picture (real items only, Alan 11-26); its Metricool Dec 1-7 4 pm post was set to draft on 11-26",
    "file": "",
    "title": "",
    "description": ""
@@ -130,7 +122,7 @@
   {
    "slug": "light-tower-after-night-work",
    "skip": true,
-   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "skip_reason": "stock picture (real items only, Alan 11-26); its Metricool Dec 1-7 4 pm post was set to draft on 11-26",
    "file": "",
    "title": "",
    "description": ""
@@ -138,7 +130,7 @@
   {
    "slug": "compressor-by-the-fence",
    "skip": true,
-   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "skip_reason": "stock picture (real items only, Alan 11-26); its Metricool Dec 1-7 4 pm post was set to draft on 11-26",
    "file": "",
    "title": "",
    "description": ""
@@ -146,7 +138,7 @@
   {
    "slug": "rooftop-unit-on-the-pallet",
    "skip": true,
-   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "skip_reason": "stock picture (real items only, Alan 11-26); its Metricool Dec 1-7 4 pm post was set to draft on 11-26",
    "file": "",
    "title": "",
    "description": ""
@@ -154,7 +146,7 @@
   {
    "slug": "roller-after-the-overlay",
    "skip": true,
-   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "skip_reason": "stock picture (real items only, Alan 11-26); its Metricool Dec 1-7 4 pm post was set to draft on 11-26",
    "file": "",
    "title": "",
    "description": ""
@@ -162,7 +154,7 @@
   {
    "slug": "chain-hoist-on-the-beam",
    "skip": true,
-   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "skip_reason": "stock picture (real items only, Alan 11-26); its Metricool Dec 1-7 4 pm post was set to draft on 11-26",
    "file": "",
    "title": "",
    "description": ""
@@ -170,7 +162,7 @@
   {
    "slug": "lift-still-bolted-down",
    "skip": true,
-   "skip_reason": "on Metricool Dec 1-7 at 4 pm (YouTube thread, 11-23)",
+   "skip_reason": "stock picture (real items only, Alan 11-26); its Metricool Dec 1-7 4 pm post was set to draft on 11-26",
    "file": "",
    "title": "",
    "description": ""

@@ -151,3 +151,14 @@ Append rows to `long-queue.json` (order = priority):
 
 Manual runs: Actions > "YouTube long videos" > Run workflow, `mode` dry, test
 or post, optional `slug`.
+
+## Real items only, and the listing Reels (2026-11-26)
+Alan, 2026-11-26: the items in the pictures must be real YardSwaps listings.
+The hand-made POV rows in `queue.json` use stock pictures, so they no longer
+post, which left the poster with nothing to send (the 10 am slot that day went
+empty). After the hand-made rows the poster now also takes every real, unheld
+clip in `reels/library.json` that has an end card: Studio clips and the listing
+Reels (one real listing each). Seller clips go first. A listing Reel has no
+title, so its title is the first line of its caption ("Still parked in the
+yard? List it free on YardSwaps.", "For sale on YardSwaps: ..."). The machine
+rotation still applies across every channel.
