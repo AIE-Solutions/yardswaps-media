@@ -5,7 +5,12 @@ Alan, 2026-11-26: "Heychat allows to setup own images". HeyCatch (app.heycatch.a
 "Background images and videos") takes our own pictures and lays its caption over them. Until now it drew on
 stock pictures, old app screens and trending memes. These plates are what it gets instead: one real listing
 photo each, shown whole on white, the item named on the one blue tag, the wordmark once. No headline, because
-HeyCatch writes its own line on top; nothing to read in the top 200 px or the bottom 340 px.
+HeyCatch writes its own line on top.
+
+HeyCatch shows a slideshow slide as 4:5: the middle 1080 x 1350 of the plate (y 285 to 1635). So the tag, the
+photo and the wordmark all sit inside that window, the tag and the photo start at the same height on every
+plate (slides line up when you swipe), and a white band is left under the photo for the caption, which is
+dragged there in HeyCatch's editor so nothing covers the photo.
 
   python3 brand/heycatch/make_plates.py SRC_DIR     # SRC_DIR holds the listing photos named in PLATES
 
@@ -22,8 +27,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(HERE), "posts"))
 import kit  # noqa: E402
 
 W, H = 1080, 1920
-SAFE_TOP, SAFE_END = 200, 1440   # the tag and the photo sit centred between these, as one group
-BOX_H = 1080                     # the tallest a photo is shown
+TAG_TOP = 345                    # same on every plate; 60 px inside the 4:5 window HeyCatch shows
+BOX_H = 800                      # the tallest a photo is shown; the caption band is what is left under it
 TAG_SIZE, TAG_GAP = 44, 34       # the tag sits this far above the photo, on the photo's left edge
 WM_BASE = 1530
 
@@ -61,7 +66,7 @@ def plate(photo, tag):
     card = kit.card(photo, W - 2 * kit.M, BOX_H, radius=28)
     tag_h = round(kit.TAG_H * TAG_SIZE / kit.SIZE_TAG)
     x = (W - card.width) // 2
-    top = SAFE_TOP + (SAFE_END - SAFE_TOP - tag_h - TAG_GAP - card.height) // 2
+    top = TAG_TOP
     kit.tag(img, tag, x=x, top=top, size=TAG_SIZE, width=card.width)
     img.paste(card, (x, top + tag_h + TAG_GAP), card)
     kit.wordmark_row(img, WM_BASE)

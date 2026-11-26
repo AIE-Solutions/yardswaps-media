@@ -31,7 +31,9 @@
   "sticker_text": "LIST YOURS FREE",
   "instagram_link": "https://www.yardswaps.com/sell-equipment?utm_source=instagram&utm_medium=social&utm_campaign=story_seller_yard_gear",
   "facebook_link": "https://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=story_seller_yard_gear",
-  "status": "planned"
+  "status": "scheduled",
+  "scheduled_epoch": 1795879800,
+  "scheduled_in": "Meta Business Suite, 2026-11-26"
  },
  {
   "date": "2026-11-28",
