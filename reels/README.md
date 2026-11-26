@@ -49,6 +49,26 @@ ad cut). The old stock and AI cuts stay in the library, unposted, nothing delete
 Fewer real clips means fewer posts some days; that is the trade Alan asked for. Supply grows
 with each listing Reel built every morning (`listings/README.md`).
 
+## Sellers first (Alan, 2026-11-26)
+
+"Our mission is for sellers to be posting equipment." Three kinds of real-item clip sit in the library now,
+all in the new look:
+
+- `"cut": "seller"`: a seller Reel. Its first frame is the whole ask ("Equipment sitting idle?" with a
+  "FREE TO LIST" tag over a real listing photo), then "AI writes it", then "No selling fee", then the seller end
+  card. It carries the listing's `listing_id` and `machine`, so the rotation, the seller's social opt-out and
+  the "listing no longer active" hold all apply to it as they do to the listing Reel of the same machine.
+  The daily "List it free" post takes a seller Reel when one is free to run and a listing Reel only when none is.
+- `"cut": "listing"`: a listing Reel, kept as proof of real inventory; its caption and end card close on the
+  seller ask.
+- `"cut": "storefront"` with `"audience": "dealer"` and `"picture": "real"`: a storefront promo made from a real
+  storefront and its real inventory, dealer end card, offer word for word, never "free to list". The daily
+  promotion post picks these on the founding and storefront turns.
+
+A listing Reel with `"hold": true` and a `hold_reason` starting "photo check" failed the 2026-11-26 check of all
+109 (a readable plate, phone number, street address or third-party contact in a photo): re-make it without that
+photo before lifting the hold.
+
 ## Adding new videos (weekly batch)
 
 Every clip ends on the YardSwaps end card (Alan, 2026-11-25; `brand/endcard/`). The posters

@@ -301,46 +301,116 @@ def wrap(draw, text, f, width, max_lines):
     return lines
 
 
+def card_facts(l, with_place=True):
+    """What a buyer asks first, for the card and the listing Reel: condition, year, hours, miles, then the
+    city. Nothing the title already says, three items at most."""
+    title = (l.get("title") or "").lower()
+    bits = []
+    cond = re.sub(r"\s*[—–-]\s*", " · ", (l.get("condition") or "").strip())
+    if cond and cond.lower() not in title:
+        bits.append(cond)
+    if l.get("year") and not re.search(r"\b(19|20)\d\d\b", title):   # a year in the title is the seller's word
+        bits.append(str(l["year"]))
+    if l.get("hours") and "hour" not in title and "hrs" not in title:
+        bits.append(f"{l['hours']:,} hours")
+    if l.get("mileage") and "mile" not in title:
+        bits.append(f"{l['mileage']:,} miles")
+    bits = bits[:3]
+    if with_place and place(l):
+        bits = bits[:2] + [place(l)]
+    return " · ".join(bits)
+
+
+CUT_WORDS = (" with ", " on ", " w/ ")
+DANGLING = {"with", "and", "on", "of", "for", "the", "a", "an", "in", "at", "to", "plus", "&", "+", "or", "by"}
+
+
+def short_title(t):
+    """The part of a seller's title that names the item. Sellers pack hours, condition and extras into the
+    title ("... Leaf Vacuum, 400 hrs, Like New"); a post prints those as facts, so the title stops at the first
+    clause break. Never an ellipsis: a cut title ends on a whole word."""
+    t = re.sub(r"\s+", " ", (t or "").strip())
+    t = re.sub(r"^sale pending\s*[—–,:-]\s*", "", t, flags=re.I)
+    for sep in (" — ", " – ", " - ", " | ", " / ", ", ", " (", " PN:", " pn:"):
+        head = t.split(sep, 1)[0].strip()
+        if head != t and len(head) >= 10 and len(head.split()) >= 2:
+            t = head
+    t = re.sub(r"\s+for sale$", "", t, flags=re.I)
+    if len(t) > 28:
+        for w in CUT_WORDS:
+            i = t.lower().find(w)
+            if i >= 8:
+                t = t[:i]
+    words = t.split()
+    while len(words) > 2 and words[-1].lower().strip(",;:") in DANGLING:
+        words.pop()
+    return " ".join(words).rstrip(" ,;:-")
+
+
+def spec_title(l):
+    """The short title a buyer scans. The seller's own words, cut to the part that names the item
+    ("2008 Tennant M20 Ride-On Sweeper-Scrubber"), when the title opens with the year or the make. An ad-style
+    title ("Zero-tail-swing Deere 50G with quick coupler") becomes year, make, model from the listing's own
+    fields ("2016 John Deere 50G"). A part keeps its own name, never just the machine it fits."""
+    title = nice_title(l.get("title") or "")
+    short = short_title(title)
+    make = (l.get("manufacturer") or "").strip()
+    model = str((l.get("specs") or {}).get("Model") or l.get("model") or "").strip()
+    low = title.lower()
+    first = (short.split() or [""])[0].lower()
+    opens_plain = bool(re.match(r"(19|20)\d\d$", first)) or (make and first == make.split()[0].lower())
+    if (not opens_plain and l.get("year") and make and model and model.lower() in low
+            and make.split()[-1].lower() in low):
+        return " ".join([str(l["year"]), make, model])
+    return short
+
+
+def facts_lines(l):
+    """The facts for the post kit, most asked first, each a short line: hours or miles with the town (state
+    spelled out), then condition and year. Nothing the short title already says."""
+    sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
+    import kit
+    title = spec_title(l).lower()
+    first = []
+    if l.get("hours"):
+        first.append(f"{l['hours']:,} hrs")
+    if l.get("mileage"):
+        first.append(f"{l['mileage']:,} miles")
+    where = kit.spell_state(place(l))
+    second = []
+    cond = re.sub(r"\s*[—–-]\s*", " · ", (l.get("condition") or "").strip())
+    m = re.fullmatch(r"Used · (Excellent|Good|Fair|Poor)", cond)
+    if m:
+        cond = f"{m.group(1)} condition"      # everything here is used; say the part that tells the buyer something
+    if cond:
+        second.append(cond)
+    if l.get("year") and not re.search(r"\b(19|20)\d\d\b", title):   # a year in the title is the seller's word
+        second.append(str(l["year"]))
+    if first and second and second[0] == "Used":
+        second = second[1:]      # "Used" alone tells a buyer nothing here; it stays only when it is all we have
+    if not first:
+        first, second = second, []
+        if where and first[:1] == ["Used"]:
+            first = first[1:]
+    if where:
+        if len(" · ".join(first[:2] + [where])) > 44:   # hours, miles and a long town: the town goes on the next line
+            first, second = first[:2], second + [where]
+        else:
+            first = first[:2] + [where]
+    return [" · ".join(x) for x in (first, second) if x]
+
+
 def render_card(photo_bgr, l, out_path):
+    """The feed card in the post kit look (brand/posts/kit.py, k2): the real photo on top with nothing over it,
+    the price in the blue tag, the short title and the facts on white."""
     import cv2
-    from PIL import Image, ImageDraw
-    W, H, PH = 1080, 1350, 1000
-    img = Image.new("RGB", (W, H), BG)
-    rgb = cv2.cvtColor(photo_bgr, cv2.COLOR_BGR2RGB)
-    ph = Image.fromarray(rgb)
-    # Cover-crop the photo into the top 1080x1000.
-    s = max(W / ph.width, PH / ph.height)
-    ph = ph.resize((int(ph.width * s + 0.5), int(ph.height * s + 0.5)), Image.LANCZOS)
-    left, top = (ph.width - W) // 2, (ph.height - PH) // 2
-    img.paste(ph.crop((left, top, left + W, top + PH)), (0, 0))
-    d = ImageDraw.Draw(img)
-    pad = 56
-    label = "JUST LISTED" if is_new(l) else "FOR SALE ON YARDSWAPS"
-    lf = font("SpaceGrotesk.ttf", 30, b"Bold")
-    # Label pill on the photo, top-left.
-    tw = d.textlength(label, font=lf)
-    d.rounded_rectangle((pad - 4, 44, pad + tw + 40, 44 + 58), radius=29, fill=BLUE)
-    d.text((pad + 18, 44 + 12), label, font=lf, fill=(255, 255, 255))
-    tf = font("SpaceGrotesk.ttf", 50, b"Bold")
-    lines = wrap(d, nice_title(l["title"]), tf, W - 2 * pad, 2)
-    y = PH + 40
-    for line in lines:
-        d.text((pad, y), line, font=tf, fill=SLATE)
-        y += 62
-    y += 14
-    pf = font("SpaceGrotesk.ttf", 44, b"Bold")
-    pt = price_text(l.get("price"))
-    d.text((pad, y), pt, font=pf, fill=BLUE)
-    rest = " · ".join(facts(l).split(" · ")[1:])
-    if rest:
-        rf = font("Inter.ttf", 32, b"Medium")
-        x = pad + d.textlength(pt, font=pf) + 24
-        rest_lines = wrap(d, rest, rf, W - pad - x, 1)
-        d.text((x, y + 8), rest_lines[0], font=rf, fill=GRAY)
-    ff = font("Inter.ttf", 28, b"Medium")
-    foot = "Free to list. Free to browse. yardswaps.com"
-    d.text((pad, H - 64), foot, font=ff, fill=GRAY)
-    img.save(out_path, "JPEG", quality=88, optimize=True)
+    from PIL import Image
+    sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
+    import kit
+    photo = Image.fromarray(cv2.cvtColor(photo_bgr, cv2.COLOR_BGR2RGB))
+    lines = facts_lines(l) + ["", ""]
+    img = kit.listing_post(photo, spec_title(l), price_text(l.get("price")), lines[0], facts2=lines[1])
+    img.save(out_path, "JPEG", quality=90, optimize=True)
 
 
 # ---------- wanted cards ----------
@@ -406,31 +476,11 @@ def wanted_captions(w, turn):
 
 
 def render_wanted_card(w, out_path):
-    from PIL import Image, ImageDraw
-    W, H, pad = 1080, 1350, 72
-    img = Image.new("RGB", (W, H), BG)
-    d = ImageDraw.Draw(img)
-    lf = font("SpaceGrotesk.ttf", 30, b"Bold")
-    label = "WANTED ON YARDSWAPS"
-    tw = d.textlength(label, font=lf)
-    d.rounded_rectangle((pad - 4, 96, pad + tw + 40, 96 + 58), radius=29, fill=BLUE)
-    d.text((pad + 18, 96 + 12), label, font=lf, fill=(255, 255, 255))
-    hf = font("SpaceGrotesk.ttf", 104, b"Bold")
-    sf = font("Inter.ttf", 44, b"Medium")
-    sub = wrap(d, w["card_sub"], sf, W - 2 * pad, 3)
-    block = 124 * len(w["card"]) + 40 + 60 * len(sub)
-    y = 154 + (H - 210 - 154 - block) // 2  # centred between the label and the footer rule
-    for i, line in enumerate(w["card"]):
-        d.text((pad, y), line, font=hf, fill=BLUE if i == len(w["card"]) - 1 else SLATE)
-        y += 124
-    y += 40
-    for line in sub:
-        d.text((pad, y), line, font=sf, fill=GRAY)
-        y += 60
-    d.rectangle((pad, H - 210, W - pad, H - 206), fill=(216, 216, 218))
-    ff = font("SpaceGrotesk.ttf", 40, b"Bold")
-    d.text((pad, H - 170), "Free to list. Local pickup.", font=ff, fill=SLATE)
-    d.text((pad, H - 110), "yardswaps.com", font=ff, fill=BLUE)
+    """Text card in the post kit look (k2): the headline, one line, the wordmark and the link."""
+    sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
+    import kit
+    img = kit.text_post(list(w["card"][:-1]), w["card"][-1].rstrip(".?!"), w["card_sub"],
+                        "yardswaps.com/sell-equipment")
     img.save(out_path, "JPEG", quality=90, optimize=True)
 
 
@@ -666,6 +716,9 @@ def prep(dry):
 def build_card(cv2, np, l, turn):
     """Photo checks + card + cleaned photo for one listing; the queue entry, or None when no photo passes."""
     lid = l["id"]
+    if re.match(r"\s*sale pending", l.get("title") or "", flags=re.I):
+        print(f"  skip {lid}: sale pending")
+        return None
     if not l.get("photoUrls"):
         return None
     if not safe_title(l):
@@ -686,7 +739,8 @@ def build_card(cv2, np, l, turn):
         if nf:
             print(f"  {lid}: {u} has {nf} face(s), trying the next photo")
             continue
-        img2, nblur, ocr = blur_digit_text(img)
+        import photo_privacy      # phone numbers and plates only, not every word with a digit
+        img2, nblur, ocr = photo_privacy.blur_private_text(img)
         chosen = (u, img2, nblur, ocr)
         break
     if not chosen:

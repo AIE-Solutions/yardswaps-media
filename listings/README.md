@@ -7,7 +7,7 @@ One live YardSwaps listing a day goes to Instagram (feed photo) and the Facebook
 1. **prep** (`.github/workflows/listings.yml`, 9:10 am Central). `just_listed.py` reads the public listings API, sorted newest first. Listings never featured go first, then the ones featured longest ago, with at most one card waiting per seller. It checks up to 4 photos per listing:
    - It skips any photo where OpenCV finds a face.
    - It blurs every word that tesseract reads with a digit in it, such as phone numbers, plates and street numbers.
-   - It renders a 1080x1350 card into `cards/<listing id>.jpg`.
+   - It renders a 1080x1350 card into `cards/<listing id>.jpg` in the post kit look (`brand/posts/README.md`, Nov 26): the real photo on top with nothing over it, then on white the price in the one blue tag, the short title, the facts and the wordmark (look k2, white and blue).
    - It queues the card in `queue.json` as `pending`.
    - It keeps up to 3 cards waiting.
 2. **review** (a Claude scheduled task, about 11:30 am Central). The task looks at every `pending` card and sets `approved`, or `rejected` with a `reason`. See "Review rules" below.
@@ -50,6 +50,8 @@ Also reject a listing that is plainly not equipment, or a duplicate of a card th
 Approve everything else. A rejection needs a one-line `reason`.
 
 ### Listing Reels (listings/reel-queue.json)
+Since Nov 26 every frame uses the post kit look (look k2, white and blue: one shot per photo with hard cuts, the whole photo on top, the price in the blue tag, the short title and a facts line that changes with the shot on white, a second photo of the same listing underneath; the question stays in the caption). Older clips are re-made from the same approved photos, 4 a run, as `-k2.mp4` files; the old cuts stay.
+
 Each pending row in `listings/reel-queue.json` is a 12-second Reel cut from a live
 listing's photos (`listings/listing_reels.py`). Open its `preview` contact sheet
 (`listings/reel-previews/<listing id>.jpg`, every photo used plus the end card) and
