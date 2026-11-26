@@ -1,0 +1,115 @@
+name: Agent auto-merge
+
+# Merges an agent PR (a `claude/*` branch) on its own once it is out of draft
+# and every check on its head commit has passed. The owner asked for this on
+# 2026-11-23: agent threads were waiting on a tap for every merge.
+#
+# Marking a PR ready for review is the agent's "ship it". From then on this
+# job waits for the PR's own checks (comments, listings, metrics, listening
+# and profiles run on PRs that touch their folders; most PRs have none), then
+# squash-merges.
+#
+# It never merges when:
+#   - the PR is a draft, targets another branch, or comes from another repo
+#   - the PR has the `needs-approval`, `hold` or `do-not-merge` label
+#     (removing `needs-approval` merges it once the checks are green)
+#   - any check on the exact head commit failed or is still running after
+#     the wait; a new push in between is refused by --match-head-commit
+#   - the PR changes .github/workflows/: GitHub refuses a GITHUB_TOKEN merge
+#     that changes workflow files, so those PRs are labelled `needs-approval`
+#     with a comment and merged by hand
+#
+# A GITHUB_TOKEN merge does not start on:push workflows, so after merging
+# this job dispatches the two that react to a push to main: comments.yml
+# (mode post) when comments/outbox.json changed, and metrics.yml when the
+# scorecard inputs changed.
+#
+# pull_request_target runs this file from main, never from the PR branch,
+# and nothing here checks out or runs PR code.
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review, unlabeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  checks: read
+  actions: write
+
+concurrency:
+  group: agent-automerge-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  auto-merge:
+    if: >-
+      startsWith(github.event.pull_request.head.ref, 'claude/')
+      && github.event.pull_request.head.repo.full_name == github.repository
+      && github.event.pull_request.base.ref == 'main'
+      && !github.event.pull_request.draft
+      && (github.event.action != 'unlabeled' || github.event.label.name == 'needs-approval')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check and merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+          BLOCK_LABELS: needs-approval hold do-not-merge
+        run: |
+          set -euo pipefail
+          say() { echo "$*"; echo "$*" >> "$GITHUB_STEP_SUMMARY"; }
+
+          files=$(gh api "repos/$REPO/pulls/$PR/files" --paginate --jq '.[].filename')
+          hit=$(grep -E '^\.github/workflows/' <<<"$files" | head -1 || true)
+          if [ -n "$hit" ]; then
+            labels=$(gh pr view "$PR" --repo "$REPO" --json labels --jq '.labels[].name')
+            if ! grep -qx needs-approval <<<"$labels"; then
+              gh pr edit "$PR" --repo "$REPO" --add-label needs-approval
+              gh pr comment "$PR" --repo "$REPO" --body "Not auto-merged: this PR changes \`$hit\`, and the auto-merge workflow is not allowed to merge workflow files. Merge it by hand. (agent-automerge.yml)"
+            fi
+            say "#$PR changes $hit. Needs a manual merge."; exit 0
+          fi
+
+          # Give the PR's own checks time to start, then wait for them.
+          sleep 20
+          for attempt in $(seq 1 50); do
+            runs=$(gh api "repos/$REPO/commits/$SHA/check-runs?filter=latest&per_page=100" \
+                     --jq '.check_runs[] | select(.name != "auto-merge") | [.name, .status, (.conclusion // "")] | @tsv')
+            [ -z "$(awk -F'\t' '$2 != "completed"' <<<"$runs")" ] && break
+            sleep 30
+          done
+          say "Checks on $SHA:"; say "$(sed 's/^/    /' <<<"${runs:-    (none)}")"
+          if [ -n "$(awk -F'\t' '$2 != "completed"' <<<"$runs")" ]; then say "#$PR still has checks running. Not merging."; exit 0; fi
+          bad=$(awk -F'\t' '$3 != "success" && $3 != "skipped" && $3 != "neutral"' <<<"$runs")
+          if [ -n "$bad" ]; then say "#$PR has a failed check: $(cut -f1,3 <<<"$bad" | tr '\n' ' ')"; exit 0; fi
+          status=$(gh api "repos/$REPO/commits/$SHA/status" --jq 'if .total_count == 0 then "none" else .state end')
+          if [ "$status" != "none" ] && [ "$status" != "success" ]; then say "#$PR commit status is $status. Not merging."; exit 0; fi
+
+          # Re-read the PR right before merging: labels and draft state can
+          # change while the checks run.
+          info=$(gh pr view "$PR" --repo "$REPO" --json state,isDraft,labels,mergeable,headRefOid)
+          if [ "$(jq -r .state <<<"$info")" != "OPEN" ]; then say "#$PR is no longer open."; exit 0; fi
+          if [ "$(jq -r .isDraft <<<"$info")" = "true" ]; then say "#$PR went back to draft. Not merging."; exit 0; fi
+          if [ "$(jq -r .headRefOid <<<"$info")" != "$SHA" ]; then say "#$PR has a newer commit. Its own run decides."; exit 0; fi
+          labels=$(jq -r '.labels[].name' <<<"$info")
+          for l in $BLOCK_LABELS; do
+            if grep -qx "$l" <<<"$labels"; then say "#$PR has the \`$l\` label. Waiting for the owner."; exit 0; fi
+          done
+          if [ "$(jq -r .mergeable <<<"$info")" = "CONFLICTING" ]; then say "#$PR has merge conflicts. Not merging."; exit 0; fi
+
+          gh pr merge "$PR" --repo "$REPO" --squash --match-head-commit "$SHA"
+          say "Merged #$PR at $SHA."
+
+          if grep -qx 'comments/outbox.json' <<<"$files"; then
+            gh workflow run comments.yml --repo "$REPO" --ref main -f mode=post
+            say "Started comments.yml (mode post) for the new outbox."
+          fi
+          if grep -qE '^metrics/(inputs/|formats\.json$|directives\.json$)' <<<"$files"; then
+            gh workflow run metrics.yml --repo "$REPO" --ref main
+            say "Started metrics.yml for the new scorecard inputs."
+          fi

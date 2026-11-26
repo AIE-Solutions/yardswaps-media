@@ -1,0 +1,79 @@
+{
+ "rockbucket": {
+  "id": "cmwjmcfbm0002p33aldworil7",
+  "title": "Hensley 32\" V-Bottom rock bucket",
+  "price": 1800,
+  "category": "excavators"
+ },
+ "gasifier": {
+  "id": "cmwjm0oou0027qi3an3mfst20",
+  "title": "Gasifier Project (for making methane from various bio sources)",
+  "price": 1500,
+  "category": "parts"
+ },
+ "cooling": {
+  "id": "cmwjlu332001oqi3aln3jc0hj",
+  "title": "Thermal Cooling System - AKG brand",
+  "price": 1200,
+  "category": "parts"
+ },
+ "booster": {
+  "id": "cmwjlna8q000pqi3a8aebyk8l",
+  "title": "Water Booster System -  Tigerflow  ES 3000 booster pump system",
+  "price": 6300,
+  "category": "pumps"
+ },
+ "airlock": {
+  "id": "cmwjlaxlr0001qi3at1saowom",
+  "title": "Rotary airlock valve with electric gear motor drive, square inlet flange",
+  "price": 1200,
+  "category": "pumps"
+ },
+ "vplow": {
+  "id": "cmwosmtfl003bob3aetsfmh3l",
+  "title": "Caterpillar 140H V-Plow",
+  "price": 4000,
+  "category": "landscaping",
+  "seller": "MY Equipment"
+ },
+ "scarifier": {
+  "id": "cmwosmtfl0032ob3almrkk5jj",
+  "title": "Scarifier for Caterpillar 140M, 12M, 160M",
+  "price": 9500,
+  "category": "parts",
+  "seller": "MY Equipment"
+ },
+ "tires": {
+  "id": "cmwosmtfl0034ob3a1uxowtin",
+  "title": "Michelin 14.00R24 Tires and Wheels",
+  "price": 750,
+  "category": "parts",
+  "seller": "MY Equipment"
+ },
+ "myripper": {
+  "id": "cmwosmtfl0035ob3ahly9khq0",
+  "title": "2023 MY Equipment HR Ripper for Cat Motor Graders",
+  "price": 8900,
+  "category": "parts",
+  "seller": "MY Equipment"
+ },
+ "ripper140": {
+  "id": "cmwosmtfl0038ob3a00i158iw",
+  "title": "Caterpillar 140H Ripper",
+  "price": 7500,
+  "category": "parts",
+  "seller": "MY Equipment"
+ },
+ "pete04": {
+  "id": "cmvsinabl0023mp3alnnz3276",
+  "title": "2004 PETERBILT 379 SLEEPER TRUCK \u2014 A/C",
+  "price": 89500,
+  "category": "fleet"
+ },
+ "pete05": {
+  "id": "cmvr3ky2k000rt53a2tvps4ia",
+  "title": "2005 Peterbilt 379 Sleeper Cab \u2013 CAT C15 Diesel",
+  "price": 45000,
+  "category": "fleet"
+ }
+}

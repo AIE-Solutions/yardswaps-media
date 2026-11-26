@@ -118,5 +118,45 @@
   "media_id": "17918102082549503",
   "expires": "2026-11-21T15:29:23Z",
   "verified_live": true
+ },
+ {
+  "date": "2026-11-21",
+  "machine": "zero-turn mower",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/36f488f8c7392119d3cb58c73a686d69883a2251/stories/out/2026-11-21-zero-turn-mower-story.jpg",
+  "time": "2026-11-21T15:28:46Z",
+  "status": "posted",
+  "media_id": "18147931579510323",
+  "expires": "2026-11-22T15:28:58Z",
+  "verified_live": true
+ },
+ {
+  "date": "2026-11-22",
+  "machine": "scissor lift",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/cecb5f0e21e7dfaf2f6c29ca34e37fc6d25ee8e3/stories/out/2026-11-22-scissor-lift-story.jpg",
+  "time": "2026-11-22T15:29:01Z",
+  "status": "posted",
+  "media_id": "18161931664512542",
+  "expires": "2026-11-23T15:29:17Z",
+  "verified_live": true
+ },
+ {
+  "date": "2026-11-24",
+  "machine": "generator",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/713aa97029d87cbb269c0103a7d1dd6468ad58e2/stories/out/2026-11-24-generator-story.jpg",
+  "time": "2026-11-24T15:29:07Z",
+  "status": "posted",
+  "media_id": "18122862454958132",
+  "expires": "2026-11-25T15:29:14Z",
+  "verified_live": true
+ },
+ {
+  "date": "2026-11-25",
+  "machine": "conveyor oven",
+  "image_url": "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/7d0fe331063b2e43812bb95d7da435985b47fc33/stories/out/2026-11-25-conveyor-oven-story.jpg",
+  "time": "2026-11-25T15:29:07Z",
+  "status": "posted",
+  "media_id": "18126511144936277",
+  "expires": "2026-11-26T15:29:15Z",
+  "verified_live": true
  }
 ]

@@ -1,0 +1,4 @@
+{
+ "_about": "Account health enforcement (studio/health.py). pause = only hard pauses (followers -10% in a week, views under a quarter of usual, a platform spam or limit warning) stop posting; caps = the level daily caps apply too; off = report only.",
+ "enforce": "pause"
+}

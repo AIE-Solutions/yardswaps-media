@@ -1,5 +1,5 @@
 {
-  "_about": "Promotions the posters work into existing slots (Alan 2026-11-15: 'Let's add the promotions to the posting on socials'). One promotion post a day per platform, in the first Reel slot at or after slot_from_ct (Central); the active promotions take turns by day. Volume does not go up. Copy rules: plain, concrete numbers, seller-first, never promise views or sales, never a category count; the clip's own question still ends the caption. A promotion posts only between start and end (Central dates, end exclusive) and only on its platforms. GUARD 2b (11-16): a promo line goes in this file only after its payout has one logged redemption. founding: held 11-16 to 11-18 (Guard 2b), released 11-18 after the live no-charge test logged the $29 discount (see the promo's released note); no end date since 11-20 (Alan: first 100 storefronts, no deadline; app PR #424 removed the Dec 1 checkout cutoff), so take it out when FOUNDINGDEALER is used up or switched off. storefront: the plain plan (free 30 days for first-time dealers, 90 until app PR #382 on 11-18, then $49 a month) fills the dealer turn meanwhile; it links /dealers without the founding offer. share: the invite clause ('you both get a free 7-day boost once their first listing has been live 3 days') was held by Guard 11-16 and restored the same day after the share thread logged a real-database run of the referral cron code (GROWTH-LOG 2026-11-16); keep the words tied to the invited seller's first listing being live. reward_live stays false until the share thread confirms the $49 Stripe credit passed its sandbox test. lines_reward follow app PR #351: the reward comes one week after the invited person's first payment, and the 30 free days don't count as a payment. boost (11-17, Push paid boosts everywhere thread): paid listing boosts beside the free ones; prices from the live Stripe catalog; released 11-17 once the first paid boost was confirmed running. Never say a boost brings views or sales: only that it ranks ahead of unboosted listings in search and the home feed for the days paid.",
+  "_about": "Promotions the posters work into existing slots (Alan 2026-11-15: 'Let's add the promotions to the posting on socials'). One promotion post a day per platform, in the first Reel slot at or after slot_from_ct (Central); the active promotions take turns by day. Volume does not go up. Copy rules: plain, concrete numbers, seller-first, never promise views or sales, never a category count; the clip's own question still ends the caption. A promotion posts only between start and end (Central dates, end exclusive) and only on its platforms. GUARD 2b (11-16): a promo line goes in this file only after its payout has one logged redemption. founding: held 11-16 to 11-18 (Guard 2b), released 11-18 after the live no-charge test logged the $29 discount (see the promo's released note); no end date since 11-20 (Alan: first 100 storefronts, no deadline; app PR #424 removed the Dec 1 checkout cutoff), so take it out when FOUNDINGDEALER is used up or switched off. storefront: the features turn for dealers (MESSAGING.md 11-21: same offer words as founding, no 'listing stays free' line for dealers, link yardswaps.com/s); it links /dealers without the founding query. share: the invite clause ('you both get a free 7-day boost once their first listing has been live 3 days') was held by Guard 11-16 and restored the same day after the share thread logged a real-database run of the referral cron code (GROWTH-LOG 2026-11-16); keep the words tied to the invited seller's first listing being live. reward_live stays false until the share thread confirms the $49 Stripe credit passed its sandbox test. lines_reward follow app PR #351: the reward comes one week after the invited person's first payment, and the 30 free days don't count as a payment. boost (11-17, Push paid boosts everywhere thread): paid listing boosts beside the free ones; prices from the live Stripe catalog; released 11-17 once the first paid boost was confirmed running. Never say a boost brings views or sales: only that it ranks ahead of unboosted listings in search and the home feed for the days paid.",
   "slot_from_ct": [
     10,
     0
@@ -7,7 +7,7 @@
   "promos": [
     {
       "id": "founding",
-      "head": "FOUNDING DEALER PRICE",
+      "head": "FOUNDING STOREFRONT PRICE",
       "audience": "dealer",
       "start": "2026-11-18",
       "end": null,
@@ -24,15 +24,15 @@
         "$49 a month"
       ],
       "lines": [
-        "A YardSwaps storefront is free for the first 30 days. For our first 100 storefronts, the first 3 paid months are $29 a month instead of $49. Listing stays free either way.",
+        "A YardSwaps storefront is free for the first 30 days. For our first 100 storefronts, the first 3 paid months are $29 a month instead of $49.",
         "A storefront puts every unit you have on one page, and you can import them from your website. The first 30 days are free. Our first 100 storefronts then pay $29 a month for 3 months, then $49.",
-        "No cap on listings, bulk upload, and stats on every unit. First-time dealers pay nothing for 30 days. For our first 100 storefronts, the first 3 paid months are $29 a month instead of $49."
+        "No cap on listings, bulk upload, and stats on every unit. Your storefront is free for 30 days. For our first 100 storefronts, the first 3 paid months are $29 a month instead of $49."
       ],
       "released": "11-18 15:00Z: Guard 2b proof logged. Alan's no-charge live test got FOUNDINGDEALER from the trial_will_end webhook, first invoice previewed at $29 ($49 - $20), promo times_redeemed 1 (growth-loop GROWTH-LOG 2026-11-18). No end date since 11-20 (Alan dropped the Dec 1 deadline: first 100 storefronts only); take it out when FOUNDINGDEALER is used up or switched off."
     },
     {
       "id": "storefront",
-      "head": "DEALER STOREFRONTS",
+      "head": "OPEN YOUR STOREFRONT",
       "audience": "dealer",
       "start": "2026-11-17",
       "end": null,
@@ -42,19 +42,19 @@
         "threads"
       ],
       "link_path": "/dealers",
-      "typed_link": "yardswaps.com/dealers",
-      "ig_cta": "To open a storefront, type yardswaps.com/dealers in your browser.",
+      "typed_link": "yardswaps.com/s",
+      "ig_cta": "To open your storefront, type yardswaps.com/s in your browser.",
       "drop_sentences_with": [
         "$49 a month"
       ],
       "lines": [
-        "A storefront puts every unit you have on one page, and you can import them from your website. First-time dealers get it free for 30 days, then $49 a month. Listing stays free either way.",
-        "No cap on listings, bulk upload, and stats on every unit. First-time dealers get a storefront free for 30 days, then it is $49 a month. Listing stays free either way.",
-        "Your whole yard on one link: hours, service area, reviews and every unit, searchable. Open a storefront free for 30 days, then $49 a month. Cancel before day 30 and you pay nothing."
+        "A storefront puts every unit you have on one page, and you can import them from your website or a spreadsheet. 30 days free, then $29 a month for 3 months for our first 100 storefronts, then $49.",
+        "No cap on listings, bulk upload, and stats on every unit, plus a report on what buyers near you search for. 30 days free, then $29 a month for 3 months for our first 100 storefronts, then $49.",
+        "Your whole yard on one link: hours, service area, reviews and every unit, searchable. Open your storefront free for 30 days. Cancel before day 30 and you pay nothing."
       ],
       "featured_live": false,
       "lines_featured": [
-        "Storefronts go first in our own Instagram and Facebook listing posts, taking turns with other storefronts. First-time dealers get a storefront free for 30 days, then $49 a month."
+        "Storefronts go first in our own Instagram and Facebook listing posts, taking turns with other storefronts. Your storefront is free for 30 days, then $29 a month for 3 months for our first 100 storefronts, then $49."
       ],
       "featured_note": "Alan 11-18: storefronts are featured in our social posts. HELD (paid-social-feature rule): posters ignore lines_featured until listings/paid-features.json has a posted entry; then set featured_live true and wire it like reward_live. Never promise views, sales or a schedule."
     },

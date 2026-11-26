@@ -1,0 +1,7 @@
+{
+  "_about": "Lines on the YardSwaps end card. Every video we post ends on it (Alan, 2026-11-25). seller = everyone except dealers; dealer = storefront clips (audience: dealer), which never say free to list or posting is free (MESSAGING.md). Re-render with node render.js after a change.",
+  "cards": {
+    "seller": {"line1": "Add a photo. AI fills in the rest.", "line2": "Free to list. No cut of the sale.", "url": "yardswaps.com"},
+    "dealer": {"line1": "Open your storefront.", "line2": "30 days free, then the founding price.", "url": "yardswaps.com/s"}
+  }
+}

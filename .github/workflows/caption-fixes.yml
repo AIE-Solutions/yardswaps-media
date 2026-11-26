@@ -1,0 +1,30 @@
+name: Fix published captions
+
+# One-off corrections to Reels already on the Facebook Page, listed in
+# reels/caption_fixes.json. Runs only when started by hand; safe to re-run.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "1 = only print what would change"
+        default: "0"
+
+permissions:
+  contents: read
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            reels/caption_fixes.py
+            reels/caption_fixes.json
+            reels/post_reels.py
+          sparse-checkout-cone-mode: false
+      - name: Apply caption fixes
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: python3 reels/caption_fixes.py

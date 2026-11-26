@@ -1,9 +1,14 @@
 # LIST IT FREE daily Story
 
 Alan approved (2026-11-08) one Instagram Story a day, ~9:30 am Central, with a
-fixed template. Only the machine changes by weekday:
-Mon generator, Tue conveyor oven, Wed dump trailer, Thu walk-in cooler,
-Fri ice machine, Sat zero-turn mower, Sun scissor lift.
+fixed template. Only the machine changes. Until 2026-11-21 it changed by weekday
+(Mon generator, Tue conveyor oven, Wed dump trailer, Thu walk-in cooler,
+Fri ice machine, Sat zero-turn mower, Sun scissor lift). Since 2026-11-21
+`make_bg.py` picks it by the machine rotation (`rotation/README.md`): among the
+`stories/bank/<machine>/` folders that still hold images, the one shown longest ago,
+preferring a machine and category not posted anywhere in 14 days. The weekday
+machine is only the fallback. A new bank folder (any approved machine slug) adds a
+machine to the rotation, so refills should add new machines, not only top up these 7.
 
 Template (character-for-character, see `render_story.js`):
 - Headline: `LIST IT FREE`
@@ -15,8 +20,15 @@ Template (character-for-character, see `render_story.js`):
 
 ## How it runs
 - A Claude scheduled task dispatches `.github/workflows/story.yml` with
-  `publish=true` at ~9:30 am Central (cron at 14:30 and 15:30 UTC; the task only
+  `publish=true` at ~9:27 am Central (cron at 14:30 and 15:30 UTC; the task only
   dispatches when Central time is 9:15-9:45, so DST needs no edits).
+- Backup (since 2026-11-23, after the task's dispatch was refused on 11-22 and
+  11-23): the workflow's own GitHub schedule runs every 10 minutes from 14:07 to
+  17:57 UTC. A cheap `gate` job reads `stories/posted.json` and stops the run
+  when today's Story is already handled. Schedule runs always publish, but
+  `check` skips any run outside 9:20 am-noon Central (`WINDOW_CT`), so a late
+  GitHub cron never posts in the afternoon. Each run checks out the branch tip,
+  so a run queued behind another sees the Story that one just logged.
 - `publish_story.py check` stops quietly if `stories/posted.json` already has
   an entry for today (Central). The API can't read Story text, so the log is the
   record of what we posted.

@@ -1,0 +1,96 @@
+name: YouTube Shorts
+
+# Two YouTube Shorts a day (SHORTS-CADENCE.md), 10:00 am and 4:00 pm Central,
+# from youtube/queue.json, published through Buffer (see youtube/README.md for
+# why not the YouTube Data API). Slots are in Central time in
+# youtube/post_shorts.py (SLOTS_CT): 10:00-11:00 am and 4:00-6:30 pm, each posts
+# once a day, so every Short stays 90+ minutes from HeyCatch's :33 slots.
+on:
+  schedule:
+    # GitHub starts scheduled runs late or drops them, so these fire every
+    # 20 minutes across both slot windows in winter (UTC-6) and summer (UTC-5).
+    # Each run starts with a gate job that reads two small files and stops in
+    # seconds unless a slot is open and not yet used.
+    - cron: "3,23,43 15,16 * * *"     # 10:00 am slot (16 UTC winter, 15 UTC summer)
+    - cron: "3,23,43 21,22,23 * * *"  # 4:00 pm slot (22-00 UTC winter, 21-23 UTC summer)
+    - cron: "3,23 0 * * *"            # end of the 4:00 pm window in winter
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Post this queue row now (optional), e.g. griddle-from-the-closed-diner"
+        default: ""
+      dry_run:
+        description: "1 = only print the queue, why each row can or can't post, and the next pick"
+        default: "0"
+      check:
+        description: "1 = only list the Buffer channels, recent YouTube posts and the channel's latest videos"
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: youtube-shorts
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      due: ${{ steps.check.outputs.due }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          sparse-checkout: |
+            youtube
+          sparse-checkout-cone-mode: false
+      - name: Is a slot open?
+        id: check
+        env:
+          CHECK_ONLY: "1"
+          SLUG: ${{ inputs.slug }}
+          DRY_RUN: ${{ inputs.dry_run || '0' }}
+          CHECK: ${{ inputs.check || '0' }}
+        run: python3 youtube/post_shorts.py
+
+  post:
+    needs: gate
+    if: needs.gate.outputs.due == '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # The video itself isn't needed here: Buffer fetches it from jsDelivr at
+      # this commit. The logs are, for the machine rotation.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          sparse-checkout: |
+            youtube
+            rotation
+            reels/library.json
+            reels/posted.json
+            reels/tiktok-posted.json
+            reels/heycatch-tiktok.json
+            reels/images-posted.json
+            listings/posted.json
+            listings/queue.json
+            stories/posted.json
+          sparse-checkout-cone-mode: false
+      - name: Post the next Short
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          SLUG: ${{ inputs.slug }}
+          DRY_RUN: ${{ inputs.dry_run || '0' }}
+          CHECK: ${{ inputs.check || '0' }}
+        run: python3 youtube/post_shorts.py
+      - name: Save the posting log
+        if: always()
+        run: |
+          git config user.name "yardswaps-reels-bot"
+          git config user.email "yardswaps@gmail.com"
+          git add youtube/posted.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "YouTube Shorts log $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done

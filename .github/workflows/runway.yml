@@ -19,16 +19,28 @@ on:
         description: "Motion or edit prompt (no people, no text, no new machines)"
         default: ""
       model:
-        description: "gen4_turbo (5 credits/s) | gen4.5 (12/s, 1080p) | gen4_image (edit a photo)"
+        description: "gen4_turbo (5/s) | gen4.5 (12/s) | seedance2_5_flash (20/s at 720p, 4-30 s, min 52) | gen4_image | seedream5.5_layers (cut the real item out: ~9 credits, then brand covers)"
         default: "gen4_turbo"
       ratio:
         description: "720:1280 (Shorts) | 1280:720 (YouTube) | 1080:1920 / 1920:1080 (gen4.5 only)"
         default: "720:1280"
       duration:
-        description: "5 or 10 seconds (video only)"
+        description: "5 or 10 seconds (seedance2_5_flash: 4-30)"
         default: "5"
       seed:
         description: "Optional integer so a run can be repeated"
+        default: ""
+      max_credits:
+        description: "Stop before spending if the estimate is above this"
+        default: "60"
+      max_images:
+        description: "seedream5.5_layers only: images back incl. the base (2-8; 2 credits each at 1k)"
+        default: "4"
+      title:
+        description: "seedream5.5_layers only: card title (the listing title as written)"
+        default: ""
+      price:
+        description: "seedream5.5_layers only: card price, e.g. $12,500 (blank = no price)"
         default: ""
       slug:
         description: "Output name, e.g. forklift-yard"
@@ -53,6 +65,11 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          # the full repo is ~3 GB of media; this job only needs broll/ and the fonts
+          sparse-checkout: |
+            broll
+            listings/fonts
       - name: Download URLs the cloud threads cannot reach (mode=urls)
         if: inputs.mode == 'urls'
         env:
@@ -72,8 +89,11 @@ jobs:
           done
           ls -la "$DEST"
       - name: Install ffmpeg (for the reversed opener copy)
-        if: inputs.mode != 'balance' && inputs.mode != 'urls'
+        if: inputs.mode != 'balance' && inputs.mode != 'urls' && inputs.model != 'seedream5.5_layers'
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+      - name: Install Pillow + NumPy (cutout covers)
+        if: inputs.mode != 'balance' && inputs.mode != 'urls' && inputs.model == 'seedream5.5_layers'
+        run: pip install -q pillow numpy
       - name: Make the clip
         if: inputs.mode != 'urls'
         env:
@@ -86,6 +106,10 @@ jobs:
           DURATION: ${{ inputs.duration }}
           SEED: ${{ inputs.seed }}
           SLUG: ${{ inputs.slug }}
+          MAX_CREDITS: ${{ inputs.max_credits }}
+          MAX_IMAGES: ${{ inputs.max_images }}
+          TITLE: ${{ inputs.title }}
+          PRICE: ${{ inputs.price }}
         run: python3 broll/runway_clip.py
       - name: Commit the output
         if: inputs.mode != 'balance'

@@ -1,0 +1,85 @@
+{
+ "_about": "Hand and scheduled-task posts that no workflow in this repo logs: YouTube Shorts and long videos (Zapier/Metricool rows in WEEKLY-BATCH.md), Typefully X, LinkedIn, Reddit, Motion cuts posted elsewhere, and any HeyCatch post that shows one of our machines. One row per post: time (ISO, UTC), channel, and slug (a reels/library.json slug) or listing_id or machine (a machine key, see rotation/README.md). Whoever posts adds the row in the same commit. rotation/rotation.py reads this file with every other log, so the 14-day machine rule covers these channels too. Text-only posts with no machine on screen don't need a row.",
+ "posts": [
+  {
+   "time": "2026-11-10T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "job-wrapped-generator"
+  },
+  {
+   "time": "2026-11-10T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "downsized-to-one-truck"
+  },
+  {
+   "time": "2026-11-11T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "second-bay-closed-tools"
+  },
+  {
+   "time": "2026-11-11T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "sold-the-septic-route"
+  },
+  {
+   "time": "2026-11-12T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "origin-part-in-a-yard"
+  },
+  {
+   "time": "2026-11-12T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "shop-went-cnc-lathe"
+  },
+  {
+   "time": "2026-11-13T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "interior-job-done-lifts"
+  },
+  {
+   "time": "2026-11-13T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "construction-life-compactor"
+  },
+  {
+   "time": "2026-11-14T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "mowing-contract-ended"
+  },
+  {
+   "time": "2026-11-14T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "warehouse-lease-ended"
+  },
+  {
+   "time": "2026-11-15T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "second-location-closed"
+  },
+  {
+   "time": "2026-11-15T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "laundromat-upgrade-washers"
+  },
+  {
+   "time": "2026-11-16T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "trash-pump-after-the-job"
+  },
+  {
+   "time": "2026-11-16T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "small-business-old-oven"
+  },
+  {
+   "time": "2026-11-17T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "inspection-camera-in-the-van"
+  },
+  {
+   "time": "2026-11-17T16:00:00Z",
+   "channel": "youtube_short",
+   "slug": "second-jetter-by-the-fence"
+  }
+ ]
+}

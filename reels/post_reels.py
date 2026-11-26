@@ -2,7 +2,7 @@
 """Post one YardSwaps Reel to Instagram and Facebook per run.
 
 Runs from .github/workflows/reels.yml; posts at most once per Central-time
-slot (SLOTS_CT, nine a day since Nov 20). Standard library only.
+slot (SLOTS_CT, ten a day since Nov 23). Standard library only.
 
 Picks the next video from reels/library.json (never-posted first, newest
 first; then, among videos posted at least MIN_GAP_DAYS ago, the one whose
@@ -22,7 +22,11 @@ Env:
   PLATFORMS        default "instagram,facebook,instagram_story,facebook_story,threads"
   SLUG             force one video (manual runs)
   DRY_RUN          "1" = pick and print captions, post nothing
-  CHECK_ONLY       "1" = only say whether a slot is open (due=0/1 to GITHUB_OUTPUT)
+  CHECK_ONLY       "1" = only say whether a slot is open (due=0/1 and at=<time>
+                   to GITHUB_OUTPUT)
+  SLOT_AT          the gate job's time (reels.yml passes it): the posting job
+                   judges the slot by it, so a slow video checkout can't push
+                   a run that was due out of its window
   LIST_FREE        "1" = make this run's Reel the "list it free" post (manual
                    or dry runs; scheduled runs decide by LIST_FREE_FROM_CT)
   PROMO            a promos.json id = make this run's Reel that promotion post
@@ -37,6 +41,38 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from zoneinfo import ZoneInfo
+
+# Nov 21 (Alan: "We keep reusing the same machines for our social media posts"): every pick also
+# obeys the shared machine rotation in rotation/rotation.py, which reads every channel's log.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "rotation"))
+try:
+    import rotation as rot  # noqa: E402
+except ImportError:  # a sparse checkout (caption fixes, profiles) that never picks a clip
+    rot = None
+
+# Account health (studio/health.py, 2026-11-25, our version of HeyCatch's): a 0-10 score per platform
+# that can pause a platform for 48 h when it slips, and (policy "caps") hold it to its level's daily cap.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "studio"))
+try:
+    import health as account_health  # noqa: E402
+except ImportError:
+    account_health = None
+
+
+def health_blocked(platform, posted):
+    """Why account health stops another post to this platform today, or None. Never raises."""
+    if account_health is None:
+        return None
+    try:
+        c = account_health.cap(platform)
+        if c is None:
+            return None
+        n = account_health.posted_today(posted, platform)
+        if n >= c:
+            return f"account health: paused (studio/HEALTH.md)" if c == 0 else f"account health cap {c} a day reached ({n} today)"
+    except Exception as e:  # never stop posting over a broken check
+        print(f"  account health check failed: {e}")
+    return None
 
 GRAPH = "https://graph.facebook.com/v23.0"
 RUPLOAD_IG = "https://rupload.facebook.com/ig-api-upload/v23.0"
@@ -72,10 +108,12 @@ CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (
 #                              64 active; HeyCatch 8:33 pm is 92+ min before the early edge)
 #   11:40 pm  until 11:59 pm  (ninth slot, added Nov 20 when the library reached
 #                              96 active; 9:40 pm Pacific, 4.5 h before HeyCatch 4:33 am)
+#   12:40 am  until 1:15 am   (tenth slot, added Nov 23 at 110 active; 10:40 pm Pacific,
+#                              an hour after the 11:40 pm slot, 3+ h before HeyCatch 4:33 am)
 # A run GitHub starts too late for its slot does nothing; the next slot's
 # runs pick up. library.json "slots" (["07:00-09:30", ...]) overrides this.
 CENTRAL = ZoneInfo("America/Chicago")
-SLOTS_CT = [((6, 10), (6, 55)), ((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((15, 55), (16, 45)), ((17, 15), (18, 0)), ((18, 30), (19, 0)), ((22, 10), (23, 0)), ((23, 40), (23, 59))]
+SLOTS_CT = [((0, 40), (1, 15)), ((6, 10), (6, 55)), ((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((15, 55), (16, 45)), ((17, 15), (18, 0)), ((18, 30), (19, 0)), ((22, 10), (23, 0)), ((23, 40), (23, 59))]
 SLOT_EARLY_MINUTES = 5     # a run that starts up to 5 minutes early counts for the slot
 
 
@@ -157,6 +195,10 @@ def fb_tags(v):
 # the automation lists both cases, lowercase is the safe match.
 IG_COMMENT_CTA = ('Comment "list" and we\'ll message you the free listing link, '
                   "or tap yardswaps.com/i in our bio.")
+# A storefront clip speaks to dealers, who never hear "free listing"
+# (MESSAGING.md at the repo root): its close sends them to the storefront page.
+STOREFRONT_IG_CTA = "To open your storefront, type yardswaps.com/s in your browser."
+STOREFRONT_TYPED_LINK = "Open your storefront: yardswaps.com/s"
 
 
 # A Spanish clip ("lang": "es" in library.json) gets its follow line and
@@ -173,7 +215,8 @@ def ig_caption(v, turn=0):
     if is_spanish(v):
         return (f"{v['body']}\n\n{FOLLOW_ES} Publica gratis: yardswaps.com/i (link en el perfil)."
                 f"\n\n{ig_tags(v, turn)}\n\n{v['question']}")
-    return (f"{v['body']}\n\n{FOLLOW_IG} {IG_COMMENT_CTA}"
+    cta = STOREFRONT_IG_CTA if is_dealer_clip(v) else IG_COMMENT_CTA
+    return (f"{v['body']}\n\n{FOLLOW_IG} {cta}"
             f"\n\n{ig_tags(v, turn)}\n\n{v['question']}")
 
 
@@ -204,9 +247,9 @@ def fb_caption(v):
     # Facebook captions click, so the link carries a per-Reel tag (UTM-LINKS.md).
     # A clip about one category ("category" in library.json) links that
     # category's seller page; a storefront clip ("audience": "dealer") links
-    # the Dealer plan page, where the storefront trial starts.
+    # the storefront page (/dealers), where the storefront trial starts.
     path = "/dealers" if is_dealer_clip(v) else seller_path(v)
-    cta = "Get the free app and open your storefront:" if is_dealer_clip(v) else "Get the free app and list it free:"
+    cta = "Open your storefront:" if is_dealer_clip(v) else "Get the free app and list it free:"
     link = (f"https://www.yardswaps.com{path}?utm_source=facebook"
             f"&utm_medium=social&utm_campaign=reels_{v['slug']}")
     if is_spanish(v):
@@ -219,7 +262,12 @@ def fb_caption(v):
 def threads_caption(v):
     # Threads allows one topic tag (sent separately) and 500 characters, so
     # no hashtags here. The typed short link /h is tagged (UTM-LINKS.md).
-    app = "Descarga la app gratis: yardswaps.com/h" if is_spanish(v) else "Get the free YardSwaps app: yardswaps.com/h"
+    if is_spanish(v):
+        app = "Descarga la app gratis: yardswaps.com/h"
+    elif is_dealer_clip(v):
+        app = STOREFRONT_TYPED_LINK
+    else:
+        app = "Get the free YardSwaps app: yardswaps.com/h"
     tail = f"\n\n{app}\n\n{v['question']}"
     body = v["body"]
     while len(body) + len(tail) > THREADS_MAX and ". " in body:
@@ -235,7 +283,7 @@ def threads_topic(v):
 
 # ---------- daily "List it free" Reel ----------
 # Alan, Nov 15: a daily "list your equipment free" post on every social
-# ("All socials yes"). One of the nine daily Reels carries it, so volume
+# ("All socials yes"). One of the ten daily Reels carries it, so volume
 # does not go up: the first Reel of the Central day at or after
 # LIST_FREE_FROM_CT (the 5:15 pm slot; if that run fails, 6:30 pm or 10:10 pm
 # takes over) gets a "LIST IT FREE" caption and a clip picked for it:
@@ -523,6 +571,17 @@ def load(path, default):
         return default
 
 
+def with_endcard(videos):
+    """Only clips that end on the YardSwaps end card post anywhere (Alan, 2026-11-25). The mark comes
+    from brand/endcard/endcard.py fix (run after every listings build), which adds the card where it's
+    missing; a clip without the mark waits for that run."""
+    ok = [v for v in videos if v.get("endcard")]
+    left = [v["slug"] for v in videos if not v.get("endcard") and not v.get("hold")]
+    if left:
+        print(f"::notice::{len(left)} clip(s) wait for the end card check: {', '.join(left[:8])}")
+    return ok
+
+
 def pick(videos, posted, platform, force=None, scores=None):
     ok = [p for p in posted if p["platform"] == platform and p.get("status") == "posted"]
     last = {}
@@ -550,6 +609,36 @@ def pick(videos, posted, platform, force=None, scores=None):
               and v.get("listing_id") not in opted_out
               and platform in (v.get("platforms") or [platform])
               and (not v.get("not_before") or parse_time(v["not_before"]) <= now())]
+    # Machine rotation (rotation/README.md): first only clips whose machine no channel has shown in
+    # 14 days (the same clip may still cross-post inside its 36-hour run); if none, the machine shown
+    # longest ago but never one from the last 7 days; past that the slot is skipped, not repeated.
+    if rot is None:
+        raise SystemExit("rotation/rotation.py is missing from this checkout; add it before picking a clip")
+    hist = rot.uses()   # always the whole library, so a promo or list-it-free pool maps machines right
+    strict = [v for v in usable if rot.allowed(v, hist)]
+    # A clip another surface showed in the last 36 hours goes here next, so Instagram, Facebook and
+    # TikTok share one showing of a machine instead of each using up a different one.
+    cross = [v for v in strict if rot.in_run(v, hist) and (v["slug"] not in last or last[v["slug"]] <= cutoff)]
+    if cross:
+        cross.sort(key=lambda v: rot.last_shown(v, hist))
+        return cross[0], cross[0]["slug"] in last
+    video, repeat = _choose(strict, last, cutoff, platform, scores, hist)
+    if video:
+        return video, repeat
+    floor = [v for v in usable if rot.fallback_ok(v, hist)]
+    floor.sort(key=lambda v: rot.last_shown(v, hist) or now() - dt.timedelta(days=365))
+    floor = [v for v in floor if v["slug"] not in last or last[v["slug"]] <= cutoff]
+    if floor:
+        print(f"rotation: no machine free for 14 days on {platform}; using {floor[0]['slug']}, "
+              f"last shown {rot.last_shown(floor[0], hist)}")
+        return floor[0], floor[0]["slug"] in last
+    print(f"rotation: every machine was shown in the last {rot.FLOOR_DAYS} days; skipping this {platform} slot")
+    return None, False
+
+
+def _choose(usable, last, cutoff, platform, scores, hist):
+    """The old order (week's push, fresh cuts, best repeats) over clips the rotation allows,
+    with real listings first among the fresh cuts and categories spread."""
     # A week's push ("boost" with an active "boost_until") goes ahead of even
     # the fresh cuts once its 10 days are up, so the week's demand clips run
     # this week (Nov 16: generators, pumps, inspection cameras).
@@ -557,11 +646,12 @@ def pick(videos, posted, platform, force=None, scores=None):
               and v.get("boost") and v.get("boost_until") and now() < parse_time(v["boost_until"])]
     if pushed:
         pushed.sort(key=lambda v: (-v["boost"], last[v["slug"]]))
-        return pushed[0], True
+        return rot.spread(pushed, hist, platform)[0], True
     fresh = [v for v in usable if v["slug"] not in last]
     if fresh:
-        fresh.sort(key=lambda v: (-int(v.get("added", "0").replace("-", "")), v.get("priority", 999)))
-        return fresh[0], False
+        fresh.sort(key=lambda v: (not v.get("real"), -int(v.get("added", "0").replace("-", "")),
+                                  v.get("priority", 999)))
+        return rot.spread(fresh, hist, platform)[0], False
     rank = load(RANK, {})
     retired = rank.get("retire") or {}
     old = [v for v in usable if last[v["slug"]] <= cutoff and v["slug"] not in retired]
@@ -583,7 +673,7 @@ def pick(videos, posted, platform, force=None, scores=None):
     hand = lambda v: (v.get("boost", 0) if (not fresh_rank or v.get("boost_keep") or until(v)) and
                       (not v.get("boost_until") or until(v)) else 0)
     old.sort(key=lambda v: (-(scores.get(v["slug"], 0) + hand(v) + auto.get(v["slug"], 0)), last[v["slug"]]))
-    return old[0], True
+    return rot.spread(old, hist, platform)[0], True
 
 
 # ---------- engagement score (for repeats) ----------
@@ -643,6 +733,27 @@ def slot_window(t):
         if mk(start) - early <= t < mk(end):
             return mk(start) - early, mk(end)
     return None
+
+
+# The posting job's full checkout takes 4-5 minutes (all the videos), so a run
+# the gate found due near a window's end used to land outside it and post
+# nothing: the 3:55-4:45 pm slot never posted from Nov 18 to Nov 22 because its
+# only reliable start was at 4:42 pm. The posting job now judges the slot by
+# the gate's time (SLOT_AT) if that is at most SLOT_AT_MAX_MIN old.
+SLOT_AT_MAX_MIN = 20
+
+
+def slot_now():
+    """Time to judge the slot by: the gate's time when recent, else now."""
+    raw = (os.environ.get("SLOT_AT") or "").strip()
+    if raw:
+        try:
+            t = parse_time(raw)
+            if dt.timedelta(0) <= now() - t <= dt.timedelta(minutes=SLOT_AT_MAX_MIN):
+                return t
+        except ValueError:
+            pass
+    return now()
 
 
 def slot_done(posted, platform, t=None):
@@ -982,6 +1093,10 @@ def run_threads(token, videos, posted, dry, summary, force=None):
                            f"{'token set' if token else 'no THREADS_TOKEN yet'})\n"
                            f"video: {threads_video_urls(v)[0]}\n{cap}\n")
         return None
+    why = None if force else health_blocked("threads", posted)
+    if why:
+        summary.append(f"threads: skipped, {why}")
+        return None
     if not token:
         print("::notice::THREADS_TOKEN is not set yet, so nothing went to Threads. See reels/README.md, Threads.")
         summary.append("threads: skipped, THREADS_TOKEN is not set yet")
@@ -1051,7 +1166,7 @@ def check_only(platforms, force, dry):
           + (f", window {win[0]:%H:%M}-{win[1]:%H:%M}" if win else ""))
     if os.environ.get("GITHUB_OUTPUT"):
         with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
-            f.write(f"due={int(due)}\n")
+            f.write(f"due={int(due)}\nat={iso(now())}\n")
     return 0
 
 
@@ -1087,7 +1202,7 @@ def main():
 
     lib = load(LIBRARY, {"videos": []})
     set_slots(lib)
-    videos = lib["videos"]
+    videos = with_endcard(lib["videos"])
     LOCATIONS[:] = lib.get("locations", [])
     if lib.get("broad_tags"):
         BROAD_TAGS[:] = lib["broad_tags"]
@@ -1117,6 +1232,10 @@ def main():
     want_promo = (os.environ.get("PROMO") or "").strip()
     promo_cfg = promos_config()
     for platform in reel_platforms:
+        why = None if force else health_blocked(platform, posted)
+        if why:
+            summary.append(f"{platform}: skipped, {why}")
+            continue
         list_free = want_list_free or (not force and list_free_due(posted, platform))
         video = None
         promo = None
@@ -1176,10 +1295,10 @@ def main():
             continue
         # GitHub can start a scheduled run hours late or drop it, so each slot
         # has backup crons. The first run in a slot window posts; the rest stop.
-        if not force and slot_window(now()) is None:
+        if not force and slot_window(slot_now()) is None:
             summary.append(f"{platform}: skipped, outside the slot windows (" + slots_text() + " Central)")
             continue
-        if not force and slot_done(posted, platform):
+        if not force and slot_done(posted, platform, slot_now()):
             summary.append(f"{platform}: skipped, this slot already posted (late or backup run)")
             continue
         if not force and ours_recent(posted, platform) >= max_ours_per_20h():
