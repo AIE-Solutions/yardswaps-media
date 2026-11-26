@@ -23,3 +23,11 @@ which writes `vr-9x16-tiktok/`, also kept here):
 
 Output: `reels/library/yardswaps-storefront-whole-yard-tiktok-9x16.mp4` (TikTok only, first in line through
 `next_on`), and project files `yardswaps-campaign/assets/ads/storefront-tiktok/`. Loudness -15 LUFS.
+
+## v2, Storefront plan (Nov 25)
+
+Guard eval #37: the /dealers shot still said "Dealer plan" (renamed "Storefront plan" on 11-22). `dealers-card.py`
+now reads `dealers-mobile-live-1125.png` (the live page re-recorded 11-25, cut at row 1334), and
+`vr-9x16-tiktok/stage-dealers.png` is rebuilt from it. Same build command; then
+`python3 brand/endcard/endcard.py add <out> reels/library/yardswaps-storefront-whole-yard-tiktok-9x16-v2.mp4 dealer`.
+Only 8.5-10.0 s differs from v1. Check: `motion/audit/WORDS-VS-SCREEN-2026-11-25-storefront.md`.

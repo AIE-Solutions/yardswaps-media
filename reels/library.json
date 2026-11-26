@@ -1757,13 +1757,10 @@
   {
    "added": "2026-11-25",
    "slug": "storefront-whole-yard-tiktok",
-   "file": "reels/library/yardswaps-storefront-whole-yard-tiktok-9x16.mp4",
+   "file": "reels/library/yardswaps-storefront-whole-yard-tiktok-9x16-v2.mp4",
    "priority": 0,
    "audience": "dealer",
    "platforms": [
-    "tiktok"
-   ],
-   "next_on": [
     "tiktok"
    ],
    "body": "Your whole yard. One page.\n\nA YardSwaps storefront puts every unit you have in one place, with your hours, service area and links. Buyers search your whole inventory and can follow you.\n\n30 days free, then $29 a month for your first 3 paid months (our founding price for the first 100 storefronts), then $49 a month.",
@@ -1771,8 +1768,107 @@
    "tt_tags": "#EquipmentDealer #UsedEquipment #HeavyEquipment #BlueCollar #EquipmentForSale",
    "ig_tags": "#equipmentdealer #usedequipment #heavyequipment #equipmentforsale #yardswaps",
    "machine": "equipment-yard",
-   "note": "TikTok-safe cut of the storefront ad live on Meta (big logo, listing cards, founding end card): text kept out of the right 140 px and bottom 400 px. Source ads/storefront-tiktok/. TikTok only (Alan 11-25).",
+   "note": "TikTok-safe cut of the storefront ad live on Meta (big logo, listing cards, founding end card): text kept out of the right 140 px and bottom 400 px. Source ads/storefront-tiktok/. TikTok only (Alan 11-25). v2 (11-25): the /dealers shot is re-recorded from the live page (Storefront plan card, breadcrumb Storefronts); words-vs-screen sheet motion/audit/WORDS-VS-SCREEN-2026-11-25-storefront.md. v1 file kept: yardswaps-storefront-whole-yard-tiktok-9x16.mp4.",
    "endcard": "dealer-v1"
+  },
+  {
+   "added": "2026-11-25",
+   "slug": "listed-floral-walk-in-display-cooler",
+   "file": "reels/library/yardswaps-listed-floral-walk-in-display-cooler-9x16.mp4",
+   "priority": 0,
+   "body": "Just listed on YardSwaps: a floral walk-in display cooler with 8 glass doors.\n\nA real listing, straight from the app: a floral walk-in display cooler with eight glass doors, new surplus. One photo. AI wrote the title, filed it under Commercial Refrigeration and drafted the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What cooler is standing empty in your store right now?",
+   "ig_tags": "#walkincooler #commercialrefrigeration #floralcooler #usedequipment #yardswaps",
+   "category": "refrigeration",
+   "cut": "10s",
+   "listing_id": "cmwsc8u1f001rqk3af9iq3khm",
+   "real": true,
+   "seconds": 12.2,
+   "endcard": "seller-v1"
+  },
+  {
+   "added": "2026-11-25",
+   "slug": "listed-caterpillar-140h-v-plow",
+   "file": "reels/library/yardswaps-listed-caterpillar-140h-v-plow-9x16.mp4",
+   "priority": 1,
+   "body": "Just listed on YardSwaps: a Caterpillar 140H V-plow.\n\nA real listing, straight from the app: a V-plow blade for a Caterpillar 140H, used, sitting in the shop before the snow. One photo. AI wrote the title, filed it under Landscaping & Turf and drafted the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What plow is parked in your yard until the snow?",
+   "ig_tags": "#snowplow #vplow #snowremoval #usedequipment #yardswaps",
+   "category": "landscaping",
+   "cut": "10s",
+   "listing_id": "cmwosmtfl003bob3aetsfmh3l",
+   "real": true,
+   "seconds": 12.2,
+   "endcard": "seller-v1"
+  },
+  {
+   "added": "2026-11-25",
+   "slug": "combi-oven-after-the-remodel",
+   "file": "reels/library/yardswaps-combi-oven-after-the-remodel-9x16.mp4",
+   "priority": 2,
+   "body": "POV: the hotel kitchen was remodeled. The combi oven came out whole.\n\nA ten pan electric combi oven, three phase, pulled whole from a hotel kitchen remodel. Snap one photo. AI writes the title, files it under Cooking Equipment and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What came out of the kitchen on your last remodel?",
+   "ig_tags": "#combioven #restaurantequipment #commercialkitchen #usedequipment #yardswaps",
+   "category": "cooking",
+   "cut": "10s",
+   "seconds": 12.2,
+   "endcard": "seller-v1"
+  },
+  {
+   "added": "2026-11-25",
+   "slug": "boom-lift-after-the-fitout",
+   "file": "reels/library/yardswaps-boom-lift-after-the-fitout-9x16.mp4",
+   "priority": 3,
+   "body": "POV: the fitout wrapped. The boom lift is parked by the wall.\n\nAn electric articulating boom lift with a 30 foot platform, used on one fitout and parked by the wall since. Snap one photo. AI writes the title, files it under Aerial Lifts and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What lift is parked by your wall since the fitout?",
+   "ig_tags": "#boomlift #aeriallift #constructionequipment #usedequipment #yardswaps",
+   "category": "aerial",
+   "cut": "10s",
+   "seconds": 12.2,
+   "endcard": "seller-v1"
+  },
+  {
+   "added": "2026-11-25",
+   "slug": "control-cabinet-off-the-line",
+   "file": "reels/library/yardswaps-control-cabinet-off-the-line-9x16.mp4",
+   "priority": 4,
+   "body": "POV: the line shut down. The control cabinet is still on the wall.\n\nA 480 volt industrial control cabinet with breakers, contactors and relays, still on the wall of a line that shut down. Snap one photo. AI writes the title, files it under Electrical and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What is still wired on the wall of the line you shut down?",
+   "ig_tags": "#controlpanel #electrical #industrialelectrical #usedequipment #yardswaps",
+   "category": "electrical",
+   "cut": "10s",
+   "seconds": 12.2,
+   "endcard": "seller-v1"
+  },
+  {
+   "added": "2026-11-25",
+   "slug": "drill-rig-between-contracts",
+   "file": "reels/library/yardswaps-drill-rig-between-contracts-9x16.mp4",
+   "priority": 5,
+   "body": "POV: the drilling contract ended. The rig sits on the lot.\n\nA truck-mounted water well drill rig rated to 600 feet, parked on the lot since the last contract ended. Snap one photo. AI writes the title, files it under Drilling & Boring and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What rig is parked on your lot between contracts?",
+   "ig_tags": "#drillrig #welldrilling #drilling #usedequipment #yardswaps",
+   "category": "drilling",
+   "cut": "10s",
+   "seconds": 12.2,
+   "endcard": "seller-v1",
+   "hold": true,
+   "hold_reason": "whole-item rule: photo shows only part of the item (crop-fix check Nov 25); remake with a shot of the whole truck or rig"
+  },
+  {
+   "added": "2026-11-25",
+   "slug": "vac-truck-after-the-season",
+   "file": "reels/library/yardswaps-vac-truck-after-the-season-9x16.mp4",
+   "priority": 6,
+   "body": "POV: the pumping season ended. The vac truck sits in the lot.\n\nA single axle vacuum tank truck, 2,500 gallons with a PTO pump, parked since the pumping season ended. Snap one photo. AI writes the title, files it under Vacuum Trucks and drafts the description. Tap Use price, publish. No typing.\n\nFree to list. No cut of the sale. Free boosts.",
+   "question": "What truck is parked in your lot since the season ended?",
+   "ig_tags": "#vacuumtruck #vactruck #septic #usedequipment #yardswaps",
+   "category": "vacuum",
+   "cut": "10s",
+   "seconds": 12.2,
+   "endcard": "seller-v1",
+   "hold": true,
+   "hold_reason": "whole-item rule: photo shows only part of the item (crop-fix check Nov 25); remake with a shot of the whole truck or rig"
   }
  ]
 }

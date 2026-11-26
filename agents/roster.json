@@ -770,6 +770,23 @@
       "owner": "Studio thread",
       "health": "Heartbeat studio-analytics once live",
       "heartbeat": "studio-analytics"
+    },
+    {
+      "id": "studio-connector",
+      "team": "studio",
+      "name": "Studio connector (Claude)",
+      "status": "live",
+      "does": "Lets Claude use the blog writer and the Studio deck for one brand at a time (YardSwaps, Arkeous, Dacnus), as a custom connector. The YardSwaps side only calls the blog and deck APIs with its own narrow token; it never posts or renders.",
+      "schedule": "Always on; daily heartbeat",
+      "cadenceHours": 24,
+      "runner": {
+        "kind": "app",
+        "ref": "studio-connector (Railway project Studio), Marketplace services/studio-connector, PR #547"
+      },
+      "prompt": "Marketplace services/studio-connector/README.md",
+      "owner": "Studio connector thread",
+      "health": "Heartbeat connector-studio; GET /health",
+      "heartbeat": "connector-studio"
     }
   ],
   "retired": [
