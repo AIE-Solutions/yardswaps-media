@@ -7,7 +7,9 @@
   "sticker_text": "LIST YOURS FREE",
   "instagram_link": "https://www.yardswaps.com/sell-equipment?utm_source=instagram&utm_medium=social&utm_campaign=story_seller_coffee_gear",
   "facebook_link": "https://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=story_seller_coffee_gear",
-  "status": "planned"
+  "status": "scheduled",
+  "scheduled_epoch": 1795793400,
+  "scheduled_in": "Meta Business Suite, 2026-11-26"
  },
  {
   "date": "2026-11-27",
@@ -17,7 +19,9 @@
   "sticker_text": "OPEN YOUR STOREFRONT",
   "instagram_link": "https://www.yardswaps.com/dealers?offer=founding&utm_source=instagram&utm_medium=social&utm_campaign=story_storefront_open_your_storefront",
   "facebook_link": "https://www.yardswaps.com/dealers?offer=founding&utm_source=facebook&utm_medium=social&utm_campaign=story_storefront_open_your_storefront",
-  "status": "planned"
+  "status": "scheduled",
+  "scheduled_epoch": 1795803300,
+  "scheduled_in": "Meta Business Suite, 2026-11-26"
  },
  {
   "date": "2026-11-28",

@@ -168,5 +168,12 @@
   "media_id": "18135051976761158",
   "expires": "2026-11-27T15:28:53Z",
   "verified_live": true
+ },
+ {
+  "date": "2026-11-27",
+  "machine": "linked-story",
+  "time": "2026-11-27T15:30:00Z",
+  "status": "scheduled_by_hand",
+  "note": "Two linked Stories are scheduled in Meta Business Suite for this day (seller 9:30 am CT, storefront 12:15 pm CT; stories/linked/schedule.json). The automatic Story is skipped on purpose so the day does not get a third one without a link."
  }
 ]
