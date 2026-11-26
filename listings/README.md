@@ -7,7 +7,7 @@ One live YardSwaps listing a day goes to Instagram (feed photo) and the Facebook
 1. **prep** (`.github/workflows/listings.yml`, 9:10 am Central). `just_listed.py` reads the public listings API, sorted newest first. Listings never featured go first, then the ones featured longest ago, with at most one card waiting per seller. It checks up to 4 photos per listing:
    - It skips any photo where OpenCV finds a face.
    - It blurs every word that tesseract reads with a digit in it, such as phone numbers, plates and street numbers.
-   - It renders a 1080x1350 card into `cards/<listing id>.jpg` in the post kit look (`brand/posts/README.md`, Nov 26): the real photo on top with nothing over it, then on white the price in the one blue tag, the short title, the facts and the wordmark (look k2, white and blue).
+   - It renders a 1080x1350 card into `cards/<listing id>.jpg` in the card look it had before Nov 26: the real photo across the top with only the blue label on it (JUST LISTED or FOR SALE ON YARDSWAPS), then on the light panel the seller's title in slate, the price in blue with the facts beside it, and the line "Free to list. Free to browse. yardswaps.com". The k2 version (price in the tag, title in capitals) ran for a few hours on Nov 26 and was put back the same day: Alan, of one of the earlier cards, "These images are super nice".
    - It queues the card in `queue.json` as `pending`.
    - It keeps up to 3 cards waiting.
 2. **review** (a Claude scheduled task, about 11:30 am Central). The task looks at every `pending` card and sets `approved`, or `rejected` with a `reason`. See "Review rules" below.

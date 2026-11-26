@@ -104,6 +104,11 @@ schedule when a seller Story is listed for the date, and otherwise takes the sti
 inside `IMAGE_GAP_DAYS`, 7). It is logged in `reels/posted.json` as platform `instagram_image` /
 `facebook_image`, because the posting job commits only that file; the Reel rules ignore those rows except that
 the 90-minute HeyCatch spacing reads them as ours. `reels.yml` with `image_slug` still posts any one image by hand.
+Since the evening of 2026-11-26 the seven feed images are the cards from `brand/posts/make_seller_cards.py`: the
+Just listed card's layout (photo on top, blue label, slate headline, one blue line, footer) with the seller
+message, after Alan put the earlier Just listed card next to the k2 stills ("These images are super nice", "This
+tractor looks different?"). The k2 versions stay in `brand/posts/seller-feed/`; the linked Stories still use the
+k2 pictures in `stories/linked/`.
 
 ## Walkthrough of the day (Alan, 2026-11-26)
 
