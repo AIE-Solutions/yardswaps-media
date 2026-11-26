@@ -16,6 +16,83 @@
       "ig_caption": "Idle gear is cash sitting still.\n\nThe pressure washer the bigger one replaced still runs. List it free, no cut of the sale, buyers message you in the app. Link in bio: yardswaps.com/i\n\n#PressureWasher #UsedEquipment #Tradespeople #IndustrialEquipment #Jobsite\n\nWhat got replaced in your shop this year and never sold?",
       "fb_caption": "Idle gear is cash sitting still.\n\nThe pressure washer the bigger one replaced still runs. List it free, no cut of the sale, buyers message you in the app.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_idle-gear\n\n#PressureWasher #UsedEquipment #Tradespeople #IndustrialEquipment #Jobsite #EquipmentMarketplace\n\nWhat got replaced in your shop this year and never sold?",
       "picture": "stock"
+    },
+    {
+      "slug": "seller-coffee-gear",
+      "feed": "brand/posts/seller-feed/seller-post-coffee-gear.jpg",
+      "story": "stories/linked/seller-coffee-gear.jpg",
+      "ig_caption": "Coffee gear idle?\n\nThe espresso machine or grinder you took out of service can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only. Link in bio: yardswaps.com/i\n\n#EspressoMachine #RestaurantEquipment #CoffeeShop #UsedEquipment #SmallBusiness\n\nWhat came off your counter this year that still works?",
+      "fb_caption": "Coffee gear idle?\n\nThe espresso machine or grinder you took out of service can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_seller-coffee-gear\n\n#EspressoMachine #RestaurantEquipment #CoffeeShop #UsedEquipment #SmallBusiness #EquipmentMarketplace\n\nWhat came off your counter this year that still works?",
+      "picture": "real",
+      "look": "k2",
+      "audience": "seller",
+      "note": "Seller feed post, mixed item types (Alan 11-26). Shown: La Spaziale S11 Melodia and Bunn G9 listings. Dispatch with platforms=instagram,facebook: the Story version goes out with a tappable link through Meta Business Suite (stories/linked/), not through this poster. Built by brand/posts/make_seller_mix.py pairs."
+    },
+    {
+      "slug": "seller-walk-in-cooler",
+      "feed": "brand/posts/seller-feed/seller-post-walk-in-cooler.jpg",
+      "story": "stories/linked/seller-walk-in-cooler.jpg",
+      "ig_caption": "Cooler sitting empty?\n\nA walk-in or display cooler you no longer run can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only. Link in bio: yardswaps.com/i\n\n#WalkInCooler #Refrigeration #RestaurantEquipment #UsedEquipment #SmallBusiness\n\nWhat is the biggest thing you have that nobody is using?",
+      "fb_caption": "Cooler sitting empty?\n\nA walk-in or display cooler you no longer run can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_seller-walk-in-cooler\n\n#WalkInCooler #Refrigeration #RestaurantEquipment #UsedEquipment #SmallBusiness #EquipmentMarketplace\n\nWhat is the biggest thing you have that nobody is using?",
+      "picture": "real",
+      "look": "k2",
+      "audience": "seller",
+      "note": "Seller feed post, mixed item types (Alan 11-26). Shown: the floral walk-in display cooler listing. Dispatch with platforms=instagram,facebook: the Story version goes out with a tappable link through Meta Business Suite (stories/linked/), not through this poster. Built by brand/posts/make_seller_mix.py pairs."
+    },
+    {
+      "slug": "seller-shop-tools",
+      "feed": "brand/posts/seller-feed/seller-post-shop-tools.jpg",
+      "story": "stories/linked/seller-shop-tools.jpg",
+      "ig_caption": "Tools you don't use?\n\nThe measuring set or tool cabinet you stopped using can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only. Link in bio: yardswaps.com/i\n\n#MachinistTools #ToolStorage #UsedTools #Tradespeople #SmallBusiness\n\nWhich tool have you not picked up since last year?",
+      "fb_caption": "Tools you don't use?\n\nThe measuring set or tool cabinet you stopped using can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_seller-shop-tools\n\n#MachinistTools #ToolStorage #UsedTools #Tradespeople #SmallBusiness #EquipmentMarketplace\n\nWhich tool have you not picked up since last year?",
+      "picture": "real",
+      "look": "k2",
+      "audience": "seller",
+      "note": "Seller feed post, mixed item types (Alan 11-26). Shown: Mitutoyo micrometer set and Kennedy cabinet listings. Dispatch with platforms=instagram,facebook: the Story version goes out with a tappable link through Meta Business Suite (stories/linked/), not through this poster. Built by brand/posts/make_seller_mix.py pairs."
+    },
+    {
+      "slug": "seller-hvac-units",
+      "feed": "brand/posts/seller-feed/seller-post-hvac-units.jpg",
+      "story": "stories/linked/seller-hvac-units.jpg",
+      "ig_caption": "HVAC left from a job?\n\nThe condenser or mini split left over from a job can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only. Link in bio: yardswaps.com/i\n\n#HVAC #HVACTech #UsedEquipment #Tradespeople #SmallBusiness\n\nWhat did your last job leave behind?",
+      "fb_caption": "HVAC left from a job?\n\nThe condenser or mini split left over from a job can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_seller-hvac-units\n\n#HVAC #HVACTech #UsedEquipment #Tradespeople #SmallBusiness #EquipmentMarketplace\n\nWhat did your last job leave behind?",
+      "picture": "real",
+      "look": "k2",
+      "audience": "seller",
+      "note": "Seller feed post, mixed item types (Alan 11-26). Shown: Goodman and FresKool unit listings. Dispatch with platforms=instagram,facebook: the Story version goes out with a tappable link through Meta Business Suite (stories/linked/), not through this poster. Built by brand/posts/make_seller_mix.py pairs."
+    },
+    {
+      "slug": "seller-spare-engine",
+      "feed": "brand/posts/seller-feed/seller-post-spare-engine.jpg",
+      "story": "stories/linked/seller-spare-engine.jpg",
+      "ig_caption": "Spare engine in the shop?\n\nThe spare engine on a stand in your shop can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only. Link in bio: yardswaps.com/i\n\n#DieselEngine #HeavyEquipmentParts #UsedParts #Tradespeople #IndustrialEquipment\n\nWhat spare have you kept longer than the machine it fits?",
+      "fb_caption": "Spare engine in the shop?\n\nThe spare engine on a stand in your shop can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_seller-spare-engine\n\n#DieselEngine #HeavyEquipmentParts #UsedParts #Tradespeople #IndustrialEquipment #EquipmentMarketplace\n\nWhat spare have you kept longer than the machine it fits?",
+      "picture": "real",
+      "look": "k2",
+      "audience": "seller",
+      "note": "Seller feed post, mixed item types (Alan 11-26). Shown: the Komatsu HD785-7 engine listing. Dispatch with platforms=instagram,facebook: the Story version goes out with a tappable link through Meta Business Suite (stories/linked/), not through this poster. Built by brand/posts/make_seller_mix.py pairs."
+    },
+    {
+      "slug": "seller-kitchen-ovens",
+      "feed": "brand/posts/seller-feed/seller-post-kitchen-ovens.jpg",
+      "story": "stories/linked/seller-kitchen-ovens.jpg",
+      "ig_caption": "Replaced your oven?\n\nThe oven your kitchen replaced can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only. Link in bio: yardswaps.com/i\n\n#CommercialKitchen #RestaurantEquipment #UsedEquipment #SmallBusiness #FoodService\n\nWhat did your kitchen swap out this year?",
+      "fb_caption": "Replaced your oven?\n\nThe oven your kitchen replaced can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_seller-kitchen-ovens\n\n#CommercialKitchen #RestaurantEquipment #UsedEquipment #SmallBusiness #FoodService #EquipmentMarketplace\n\nWhat did your kitchen swap out this year?",
+      "picture": "real",
+      "look": "k2",
+      "audience": "seller",
+      "note": "Seller feed post, mixed item types (Alan 11-26). Shown: TurboChef and Cadco oven listings. Dispatch with platforms=instagram,facebook: the Story version goes out with a tappable link through Meta Business Suite (stories/linked/), not through this poster. Built by brand/posts/make_seller_mix.py pairs."
+    },
+    {
+      "slug": "seller-yard-gear",
+      "feed": "brand/posts/seller-feed/seller-post-yard-gear.jpg",
+      "story": "stories/linked/seller-yard-gear.jpg",
+      "ig_caption": "Upgraded your mower?\n\nThe mower or leaf vacuum your crew replaced can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only. Link in bio: yardswaps.com/i\n\n#Landscaping #CommercialMower #LawnCare #UsedEquipment #SmallBusiness\n\nWhat did your crew replace this season?",
+      "fb_caption": "Upgraded your mower?\n\nThe mower or leaf vacuum your crew replaced can go on YardSwaps. Take a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nFree to list. No fee when it sells. Local pickup only.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_seller-yard-gear\n\n#Landscaping #CommercialMower #LawnCare #UsedEquipment #SmallBusiness #EquipmentMarketplace\n\nWhat did your crew replace this season?",
+      "picture": "real",
+      "look": "k2",
+      "audience": "seller",
+      "note": "Seller feed post, mixed item types (Alan 11-26). Shown: Billy Goat vacuum and Big Dog mower listings. Dispatch with platforms=instagram,facebook: the Story version goes out with a tappable link through Meta Business Suite (stories/linked/), not through this poster. Built by brand/posts/make_seller_mix.py pairs."
     }
   ]
 }
