@@ -36,6 +36,9 @@ place (same slug, `"look": "k2"`, file ending `-k2.mp4`). `post_reels.py` then:
   held older clips that cropped the machine, oldest first. Rows get `removed`, `removed_reason`,
   `replaced_by`; a delete refused twice gets `takedown_skip` and is left for a person. Stories expire by
   themselves. `TAKEDOWN=0` turns deletes off for a run. Local video files are never deleted.
+- 2026-11-26: Instagram refused every delete with "(#10) Insufficient permissions" (Facebook deletes work).
+  Once a platform answers (#10), takedowns there stop (old Reels stay up) until a run with `TAKEDOWN_RETRY=1`
+  after the token gains the permission.
 
 ## Real items only (Alan, 2026-11-26)
 "The items in the pictures need to improve and be real." Every poster (`post_reels.py`,
