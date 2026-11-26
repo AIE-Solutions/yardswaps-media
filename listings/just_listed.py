@@ -401,16 +401,49 @@ def facts_lines(l):
 
 
 def render_card(photo_bgr, l, out_path):
-    """The feed card in the post kit look (brand/posts/kit.py, k2): the real photo on top with nothing over it,
-    the price in the blue tag, the short title and the facts on white."""
+    """The feed card as it was before 2026-11-26 (Alan that day, of one of these: "These images are super
+    nice"; the k2 version with the price in the tag and the title in capitals ran for a few hours and was put
+    back): the real photo across the top with only the label on it, then on the light panel the seller's
+    title in slate, the price in blue with the facts beside it, and the footer line."""
     import cv2
-    from PIL import Image
-    sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
-    import kit
-    photo = Image.fromarray(cv2.cvtColor(photo_bgr, cv2.COLOR_BGR2RGB))
-    lines = facts_lines(l) + ["", ""]
-    img = kit.listing_post(photo, spec_title(l), price_text(l.get("price")), lines[0], facts2=lines[1])
-    img.save(out_path, "JPEG", quality=90, optimize=True)
+    from PIL import Image, ImageDraw
+    W, H, PH = 1080, 1350, 1000
+    img = Image.new("RGB", (W, H), BG)
+    rgb = cv2.cvtColor(photo_bgr, cv2.COLOR_BGR2RGB)
+    ph = Image.fromarray(rgb)
+    # Cover-crop the photo into the top 1080x1000.
+    s = max(W / ph.width, PH / ph.height)
+    ph = ph.resize((int(ph.width * s + 0.5), int(ph.height * s + 0.5)), Image.LANCZOS)
+    left, top = (ph.width - W) // 2, (ph.height - PH) // 2
+    img.paste(ph.crop((left, top, left + W, top + PH)), (0, 0))
+    d = ImageDraw.Draw(img)
+    pad = 56
+    label = "JUST LISTED" if is_new(l) else "FOR SALE ON YARDSWAPS"
+    lf = font("SpaceGrotesk.ttf", 30, b"Bold")
+    # Label pill on the photo, top-left.
+    tw = d.textlength(label, font=lf)
+    d.rounded_rectangle((pad - 4, 44, pad + tw + 40, 44 + 58), radius=29, fill=BLUE)
+    d.text((pad + 18, 44 + 12), label, font=lf, fill=(255, 255, 255))
+    tf = font("SpaceGrotesk.ttf", 50, b"Bold")
+    lines = wrap(d, nice_title(l["title"]), tf, W - 2 * pad, 2)
+    y = PH + 40
+    for line in lines:
+        d.text((pad, y), line, font=tf, fill=SLATE)
+        y += 62
+    y += 14
+    pf = font("SpaceGrotesk.ttf", 44, b"Bold")
+    pt = price_text(l.get("price"))
+    d.text((pad, y), pt, font=pf, fill=BLUE)
+    rest = " · ".join(facts(l).split(" · ")[1:])
+    if rest:
+        rf = font("Inter.ttf", 32, b"Medium")
+        x = pad + d.textlength(pt, font=pf) + 24
+        rest_lines = wrap(d, rest, rf, W - pad - x, 1)
+        d.text((x, y + 8), rest_lines[0], font=rf, fill=GRAY)
+    ff = font("Inter.ttf", 28, b"Medium")
+    foot = "Free to list. Free to browse. yardswaps.com"
+    d.text((pad, H - 64), foot, font=ff, fill=GRAY)
+    img.save(out_path, "JPEG", quality=88, optimize=True)
 
 
 # ---------- wanted cards ----------

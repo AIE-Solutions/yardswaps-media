@@ -43,7 +43,8 @@ The review page with every frame, before and after: https://claude.ai/artifact/6
 | Post | Made by | Function |
 |---|---|---|
 | Listing Reel (every shot before the end card) | `listings/listing_reels.py` | `reel_shots` |
-| Daily "Just listed" card | `listings/just_listed.py` `render_card` | `listing_post` |
+| Daily "Just listed" card | `listings/just_listed.py` `render_card` | not on the kit: its own earlier card look, kept on purpose (Alan 2026-11-26: "These images are super nice") |
+| Seller still of the day (feed 4:5) | `brand/posts/make_seller_cards.py` | not on the kit: the Just listed card look with the seller message |
 | "Buyers are looking for" card | `listings/just_listed.py` `render_wanted_card` | `text_post` |
 | Tip posts (feed 4:5 and 9:16) | `brand/posts/make_tips.py` from `tips.json` | `tip_post` |
 | Daily Story | `stories/render_story.js` | `story`, drawn again in HTML because the Story job checks out only `stories/` |
