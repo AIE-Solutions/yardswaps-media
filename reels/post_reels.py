@@ -1595,6 +1595,9 @@ def remove_post(token, platform, p, reason, by):
         msg = str(e)
         p.setdefault("takedown_errors", []).append(f"{iso(now())} {msg[:200]}")
         print(f"::warning::{platform} takedown of {p['slug']} ({p['id']}) failed: {msg[:300]}")
+        if "(#10)" in msg:
+            # Meta's permission refusal: this token may not delete the post at all, so retrying is useless.
+            p["takedown_skip"] = True
         if len(p["takedown_errors"]) >= 2:
             # Twice refused (deleted by hand already, or Meta will not delete this one): stop retrying it,
             # so the queue moves on; it stays listed for a person to check.
@@ -1606,11 +1609,21 @@ def remove_post(token, platform, p, reason, by):
     return f"  {platform}: took down {p['slug']} ({reason}) {p.get('url', '')}"
 
 
+def permission_refused(posted, platform):
+    """True once Meta refused a delete on this platform for lack of permission ("(#10)")."""
+    return any(p["platform"] == platform and any("(#10)" in e for e in p.get("takedown_errors", []))
+               for p in posted)
+
+
 def takedown(token, posted, platform, video, library, entry):
     """After a new-look Reel went live: remove this platform's old-look Reels of the same clip, then one
     Reel from takedown_queue(). Never more than MAX_TAKEDOWNS a run, and a failure never fails the run."""
     if platform not in TAKEDOWN_PLATFORMS or os.environ.get("TAKEDOWN") == "0":
         return []
+    if permission_refused(posted, platform) and os.environ.get("TAKEDOWN_RETRY") != "1":
+        # 2026-11-26: Instagram answered every DELETE with "(#10) Insufficient permissions" while Facebook
+        # deletes worked. Stop asking until the token can delete (then run once with TAKEDOWN_RETRY=1).
+        return [f"  {platform}: takedowns off, Meta refused the permission to delete (old Reels stay up)"]
     lines, done = [], 0
     same = [p for p in posted if p is not entry and p["platform"] == platform and p["slug"] == video["slug"]
             and p.get("status") == "posted" and p.get("id") and not p.get("removed") and not p.get("takedown_skip")
