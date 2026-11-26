@@ -91,6 +91,11 @@ listing Reels (proof of real inventory, mostly for buyers) keep the night slots:
   `SELLER_GAP_DAYS` (6), its listing not shown anywhere in the last 48 hours, an item type no seller Reel
   showed that day first, then the type shown least in three days, then the clip posted longest ago.
 - Night slots, and a daytime slot with no seller Reel free: a listing Reel, by the machine rotation.
+Rotation over time (Alan, 2026-11-26: "we need to be doing is rotating items we are showing over time. Not just
+the same ones"): every Monday the fresh-items agent (`agents/FRESH-ITEMS-PROMPT.md`) makes up to six new seller
+Reels and two seller stills from real listings not shown in the two weeks before, spread across item types, and
+rests (holds, never deletes) the seller Reels shown most, so the set turns over week to week.
+No clip enters rotation without a words-vs-screen sheet (Guard, 2026-11-26): run `tools/wordsheet.py <clip> motion/audit/<date>/<slug>-words-vs-screen.jpg`, look at every frame and add the clip's row to that folder's WORDS-VS-SCREEN.md before its library row goes in unheld.
 A seller Reel or walkthrough never fills any other slot on these two platforms. 27 seller Reels (13 from the
 morning, 14 more the same evening) cover about four a day; add more with `brand/posts/make_seller_mix.py`
 (upright or square listing photos only: a wide photo leaves the lower half of the frame empty).
