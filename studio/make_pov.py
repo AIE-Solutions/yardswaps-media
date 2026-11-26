@@ -40,6 +40,7 @@ for p in ("listings", "rotation", os.path.join("brand", "endcard")):
 import just_listed as jl  # noqa: E402
 sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
 import kit  # noqa: E402
+import photo_privacy  # noqa: E402  (phone numbers and plates only, Nov 26)
 import rotation as rot  # noqa: E402
 import endcard  # noqa: E402
 
@@ -328,7 +329,7 @@ def listing_photo(src):
         img = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR)
     if img is None or jl.faces_in(img):
         return None
-    img, _, _ = jl.blur_digit_text(img)
+    img, _, _ = photo_privacy.blur_private_text(img)
     return cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 

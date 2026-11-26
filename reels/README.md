@@ -20,6 +20,23 @@ Goal: engagement, follows and app downloads. Every caption has the body, a follo
 - Location tag: Instagram Reels are tagged with a place from `locations` in `library.json`, one per day: Houston 3 days of every 7 (`weight`: 3), then Dallas, El Paso, San Antonio and Austin. An entry gives a Facebook place Page `id`, or a `wikidata` id whose Facebook Places ID (P1997) is looked up at run time; a city with no id falls back to Houston. A dry run lists the rotation and asks Meta what each id is. If Meta refuses an id, the Reel posts without a location. Stories can't take a location or hashtags through the API.
 - Rules (CAPTIONS.md, ENGAGEMENT-PLAYBOOK.md, UTM-LINKS.md in the campaign folder): seller-first, the body says "Free to list" and "Free boosts", plain words, no emoji or icons, one open question about the viewer's own gear ending in "?", never promise views or sales, posted as the business. No #smallbusiness, #fyp, #reels, #explore.
 
+## New look swap (Alan, 2026-11-26)
+
+"Not paused but start replacing them and add them to Line up" and "Even swap the ones that got sent out with
+new and improved nice ones". The listing builder re-renders each listing Reel in the white and blue look in
+place (same slug, `"look": "k2"`, file ending `-k2.mp4`). `post_reels.py` then:
+
+- logs `"look": "k2"` on every post of a new-look clip; on Instagram and Facebook only posts in the same look
+  count for the 10-day rule, so a listing whose old-look Reel already went out posts again in the new look
+  (a normal Reel, not a Trial Reel). TikTok and YouTube count both looks (no way to delete the old one there).
+- picks swaps first (oldest old-look post first), then any other new-look clip; an old-look clip posts only
+  when no new-look clip may.
+- after each new-look Reel goes live on Instagram or Facebook, deletes that platform's old-look Reels of the
+  same clip, then ONE more old Reel (Alan's card: "One down per new Reel up"): stock pictures first, then the
+  held older clips that cropped the machine, oldest first. Rows get `removed`, `removed_reason`,
+  `replaced_by`; a delete refused twice gets `takedown_skip` and is left for a person. Stories expire by
+  themselves. `TAKEDOWN=0` turns deletes off for a run. Local video files are never deleted.
+
 ## Real items only (Alan, 2026-11-26)
 "The items in the pictures need to improve and be real." Every poster (`post_reels.py`,
 `post_tiktok.py`, the Studio rows in `youtube/post_shorts.py`) only takes a clip whose picture
