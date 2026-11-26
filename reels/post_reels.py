@@ -90,34 +90,30 @@ CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (
 
 # Daily Reel slots in Central time (Nov 8: raised from 2 to 4 a day, Alan:
 # "amplify our video postings"). Each entry is (slot time, latest start). A
-# scheduled run posts once per slot, only between those two times. No slot
-# starts inside the 90 minutes after HeyCatch (about :33 past 4 am, 12 pm and
-# 8 pm Central, and the extra Instagram/Facebook posts it puts in those same
-# slots) or after the 2:15 pm Just listed post, because the script skips a
-# platform when something that isn't ours went up there in the last 90 minutes:
+# scheduled run posts once per slot, only between those two times, so every
+# post stays 90+ minutes from HeyCatch (about :33 past 4 am, 12 pm and 8 pm
+# Central, and the extra Instagram/Facebook posts it puts in those same
+# slots) and from the 2:15 pm Just listed post:
 #   6:10 am   until 6:55 am   (seventh slot, added Nov 13 when the library reached
 #                              71 active; HeyCatch 4:33 am is 92+ min before the early edge)
-#   7:00 am   until 8:00 am   (HeyCatch 4:33 am is 2.5 h before; the seller post since Nov 26)
+#   7:00 am   until 8:00 am   (HeyCatch 4:33 am is 2.5 h before)
 #   8:30 am   until 9:30 am   (fifth slot, added Nov 8 when the library reached 50)
-#   10:00 am  until 11:00 am
-#   11:20 am  until 11:50 am  (moved here Nov 26 from 12:40 am; 43+ min before HeyCatch 12:33 pm)
+#   10:00 am  until 11:00 am  (HeyCatch 12:33 pm is 93+ min after)
 #   3:55 pm   until 4:45 pm   (eighth slot, added Nov 18 when the library reached
 #                              89 active; Just listed 2:15 pm is 95+ min before the early edge)
 #   5:15 pm   until 6:00 pm   (was 4:30 pm until Nov 18; moved so it posts 55+ min
 #                              after the 3:55 pm slot)
-#   6:30 pm   until 7:00 pm
-#   7:30 pm   until 8:00 pm   (moved here Nov 26 from 11:40 pm; 33+ min before HeyCatch 8:33 pm)
+#   6:30 pm   until 7:00 pm   (HeyCatch 8:33 pm is 93+ min after)
 #   10:10 pm  until 11:00 pm  (sixth slot, added Nov 11 when the library reached
 #                              64 active; HeyCatch 8:33 pm is 92+ min before the early edge)
-# Nov 26 (Alan: "based on research is their optimal times to post"): the 11:40 pm and 12:40 am
-# slots sat in the midnight to 4 am window that the 2026 Sprout Social, Buffer and Hootsuite
-# studies all name as the worst, so they moved into late morning (our Facebook followers peak
-# 10 am to noon, Metricool) and early evening. Still ten a day. A two-week test: compare the
-# moved slots' Reels with the kept ones in metrics/ before keeping or undoing it.
+#   11:40 pm  until 11:59 pm  (ninth slot, added Nov 20 when the library reached
+#                              96 active; 9:40 pm Pacific, 4.5 h before HeyCatch 4:33 am)
+#   12:40 am  until 1:15 am   (tenth slot, added Nov 23 at 110 active; 10:40 pm Pacific,
+#                              an hour after the 11:40 pm slot, 3+ h before HeyCatch 4:33 am)
 # A run GitHub starts too late for its slot does nothing; the next slot's
 # runs pick up. library.json "slots" (["07:00-09:30", ...]) overrides this.
 CENTRAL = ZoneInfo("America/Chicago")
-SLOTS_CT = [((6, 10), (6, 55)), ((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((11, 20), (11, 50)), ((15, 55), (16, 45)), ((17, 15), (18, 0)), ((18, 30), (19, 0)), ((19, 30), (20, 0)), ((22, 10), (23, 0))]
+SLOTS_CT = [((0, 40), (1, 15)), ((6, 10), (6, 55)), ((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((15, 55), (16, 45)), ((17, 15), (18, 0)), ((18, 30), (19, 0)), ((22, 10), (23, 0)), ((23, 40), (23, 59))]
 SLOT_EARLY_MINUTES = 5     # a run that starts up to 5 minutes early counts for the slot
 
 
@@ -1049,8 +1045,40 @@ def fb_story_publish(token, page_id, path):
 # A Story re-shares the newest Reel posted on the same platform in the last
 # 24 hours that has not been a Story yet. Stories never count toward the Reel
 # cap or the 90-minute HeyCatch spacing (they don't appear in the feed).
+#
+# Three re-shares a day per platform, not one per Reel (Alan, Nov 26: "Re-share
+# 3 Reels a day"). Every Reel used to be re-shared, about eight Stories a day
+# with no link, which buried the two Stories a day that carry a tappable link
+# (stories/linked/, 9:30 am and 12:15 pm Central). STORY_RESHARE_FROM_CT is the
+# earliest Central time for the day's first, second and third re-share: the
+# 7:00 am seller post, the 3:55 pm Reel and the 6:30 pm Reel. A run that fails
+# hands its turn to the next slot. A manual run that names a video (SLUG) is
+# not capped. library.json "story_reshares" (["07:00", ...]) overrides the list;
+# an empty list stops the re-shares.
 
 STORY_BASE = {"instagram_story": "instagram", "facebook_story": "facebook"}
+STORY_RESHARE_FROM_CT = [(7, 0), (15, 55), (18, 30)]
+
+
+def set_story_reshares(lib):
+    """library.json "story_reshares": ["07:00", "15:55", ...] replaces the default times."""
+    times = lib.get("story_reshares")
+    if times is None:
+        return
+    STORY_RESHARE_FROM_CT[:] = sorted(tuple(int(x) for x in str(s).split(":")[:2]) for s in times)
+
+
+def story_reshare_wait(posted, story_platform, t=None):
+    """None when a re-share may go now, else one line saying why not."""
+    local = (t or now()).astimezone(CENTRAL)
+    today = sum(1 for p in posted if p["platform"] == story_platform and p.get("status") == "posted"
+                and not p.get("forced") and parse_time(p["time"]).astimezone(CENTRAL).date() == local.date())
+    if today >= len(STORY_RESHARE_FROM_CT):
+        return f"{today} re-shared today, the daily limit"
+    h, m = STORY_RESHARE_FROM_CT[today]
+    if (local.hour, local.minute) < (h, m):
+        return f"re-share {today + 1} of {len(STORY_RESHARE_FROM_CT)} waits until {h}:{m:02d} Central"
+    return None
 
 
 def story_pick(videos, posted, story_platform):
@@ -1361,6 +1389,7 @@ def main():
 
     lib = load(LIBRARY, {"videos": []})
     set_slots(lib)
+    set_story_reshares(lib)
     videos = with_real_pictures(with_endcard(lib["videos"]))
     LOCATIONS[:] = lib.get("locations", [])
     if lib.get("broad_tags"):
@@ -1498,6 +1527,10 @@ def main():
             summary.extend(takedown(token, posted, platform, video, lib["videos"], entry))
 
     for platform in story_platforms:
+        wait = None if force else story_reshare_wait(posted, platform)
+        if wait:
+            summary.append(f"{platform}: skipped, {wait}")
+            continue
         video = story_pick(videos, posted, platform)
         if dry:
             # In a dry run the Reel above is not logged, so show what it would be.
@@ -1508,6 +1541,8 @@ def main():
             continue
         path = os.path.join(ROOT, video["file"])
         entry = {"time": iso(now()), "platform": platform, "slug": video["slug"], "repeat": False}
+        if force:
+            entry["forced"] = True
         if is_new_look(video):
             entry["look"] = NEW_LOOK
         try:
