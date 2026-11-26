@@ -2,7 +2,7 @@
 """Pick today's REAL listing photo for the daily seller Story.
 
 Runs in GitHub Actions (story.yml). Writes stories/out/<date>-listing-<id>-bg.jpg, a small
-stories/out/<date>-listing-<id>-bg.json ({"credit": "Title · $1,200"}) that render_story.js prints on the chip,
+stories/out/<date>-listing-<id>-bg.json ({"credit": "Title · $1,200"}) that render_story.js prints as a small "Shown:" line,
 and KEY=VALUE lines for $GITHUB_OUTPUT (date, machine, slug, bg).
 
 Alan, 2026-11-26: item pictures must be real ("looks like ai slop"). Until then this script took an AI-made
@@ -14,7 +14,7 @@ generated.
 
 Order: a listing never shown in this Story first (newest first), then the one shown longest ago. A listing
 that is no longer live is left out. If the listings API cannot be reached the photo still goes out, but
-without the "On YardSwaps now" chip, because we could not confirm the listing is still for sale.
+without the "Shown:" line, because we could not confirm the listing is still for sale.
 
 Env: BG_URL = use this https image instead (a real photo someone picked by hand); MACHINE names it in the log.
 """

@@ -15,13 +15,13 @@ Runs in the listings workflow right after prep (9:10 am Central). Each run:
    not shown anywhere in 14 days, newest first, one per seller, categories interleaved), skipping
    listings that already have a clip.
 
-Each Reel shows only the listing's own photos (up to 3, each the WHOLE item as a sharp card in the brand
-frame from brand/posts/kit.py, settling in slowly and cross-fading to the next), with the same checks as the
-Just listed card: no photo with a face, every word with a digit blurred (plates, phones, street numbers), no
-title with contact details. On screen: the YardSwaps wordmark, "Just listed", the title, the price and the
-facts (condition, year, hours), then the 2-second YardSwaps
-end card every video ends on (brand/endcard: wordmark, "Add a photo. AI fills in the rest.", store badges,
-yardswaps.com). After the build, brand/endcard/endcard.py fix checks every clip in the library and the
+Each Reel shows only the listing's own photos (up to 3) in the post kit look (brand/posts/kit.py, k2): the
+WHOLE item across the top with nothing drawn over it, the price in the one blue tag, the short title and a line
+of facts on white, and another photo of the same listing underneath. Shots are joined with hard cuts and every
+shot changes the top photo, the detail and the facts line. Same checks as the Just listed card: no photo with a
+face, every word with a digit blurred (plates, phones, street numbers), no title with contact details. Then the
+2-second YardSwaps end card every video ends on (brand/endcard: wordmark, "Add a photo. AI fills in the rest.",
+store badges, yardswaps.com). After the build, brand/endcard/endcard.py fix checks every clip in the library and the
 Shorts queue and adds the card where one is missing (posters only post clips it has marked). No seller name, no description, no location.
 Music: one of the licensed beds in music/v2, low.
 
@@ -93,22 +93,8 @@ def load_library():
 
 # ---------- frames ----------
 # The look comes from brand/posts/kit.py (Alan, 2026-11-26: "whatever we are sending to the socials looks like
-# ai slop"): the wordmark and a "Just listed" pill on top, the WHOLE photo as a sharp card (no blurred fill of
-# itself, nothing AI), then the title, the price and the facts in big type on the slate panel. Until 11-26 the
-# photo sat small on a darkened blur with the words in two small boxes and no logo before the end card.
-
-FADE_SECONDS = 0.4     # cross-fade from one photo to the next
-SETTLE = 0.035         # each photo card grows by this much over its shot (slow walkthrough pace rule)
-
-
-def facts_for(l):
-    """Condition, year, hours, miles: what a buyer asks first. No place on the Reel and nothing the title
-    already says."""
-    return jl.card_facts(l, with_place=False)
-
-
-def label_for(l):
-    return "Just listed" if jl.is_new(l) else "For sale"
+# ai slop", then "The white and blue is much cleaner than the blue in blue"). No fades and no slow zoom: each
+# shot is a still, and the cut to the next one is hard.
 
 
 def end_card():
@@ -117,40 +103,13 @@ def end_card():
     return Image.open(endcard.card_png("seller", W, H)).convert("RGB").resize((W, H))
 
 
-def _layers(base, cards):
-    """Each photo card on a padded transparent canvas with its soft shadow, ready to scale about its centre."""
-    from PIL import Image, ImageDraw, ImageFilter
-    pad = 90
-    out = []
-    for c, x, y in cards:
-        cv = Image.new("RGBA", (c.width + 2 * pad, c.height + 2 * pad), (0, 0, 0, 0))
-        sh = Image.new("RGBA", cv.size, (0, 0, 0, 0))
-        ImageDraw.Draw(sh).rounded_rectangle((pad, pad + 22, pad + c.width, pad + c.height + 22), 30,
-                                             fill=(4, 12, 28, 150))
-        cv = Image.alpha_composite(cv, sh.filter(ImageFilter.GaussianBlur(30)))
-        cv.alpha_composite(c, (pad, pad))
-        out.append((cv, x - pad, y - pad))
-    return out
-
-
-def _settled(layer, k):
-    """The layer scaled by k (<= 1) about its centre, same canvas size, smooth to a fraction of a pixel."""
-    from PIL import Image
-    w, h = layer.size
-    inv = 1.0 / k
-    return layer.transform((w, h), Image.AFFINE, (inv, 0, (w / 2) * (1 - inv), 0, inv, (h / 2) * (1 - inv)),
-                           resample=Image.BICUBIC)
-
-
 def render(l, photos_rgb, question, out_mp4, sheet_jpg):
     """Encode the Reel; returns its length in seconds. `question` stays in the caption, not on the frame."""
     from PIL import Image
     photos = [Image.fromarray(p) for p in photos_rgb]
-    base, cards = kit.reel_frame(photos, jl.nice_title(l["title"]), jl.price_text(l.get("price")),
-                                 facts_for(l), label_for(l))
-    layers = _layers(base, cards)
-    k = len(layers)
-    n, nf = int(PHOTO_SECONDS * FPS), int(FADE_SECONDS * FPS)
+    shots = kit.reel_shots(photos, jl.spec_title(l), jl.price_text(l.get("price")), jl.facts_lines(l))
+    k = len(shots)
+    n = int(PHOTO_SECONDS * FPS)
     total = k * PHOTO_SECONDS + END_SECONDS
     tracks = sorted(f for f in os.listdir(MUSIC) if f.endswith(".mp3")) if os.path.isdir(MUSIC) else []
     args = ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
@@ -163,23 +122,11 @@ def render(l, photos_rgb, question, out_mp4, sheet_jpg):
              "-movflags", "+faststart", "-t", f"{total}", out_mp4]
     enc = subprocess.Popen(args, stdin=subprocess.PIPE)
 
-    def shot(i, f):
-        """The frame with photo i at frame f of its shot (only the photo's own area is redrawn)."""
-        cv, x, y = layers[i]
-        img = base.copy()
-        cv = _settled(cv, 1 - SETTLE * (1 - min(f, n + nf) / (n + nf)))
-        img.paste(cv, (x, y), cv)
-        return img
-
-    stills = []
-    for i in range(k):
-        for f in range(n):
-            img = shot(i, f)
-            if i and f < nf:           # the photo before this one is still fading out under it
-                img = Image.blend(shot(i - 1, n + f), img, (f + 1) / (nf + 1))
-            if f == n - 1:
-                stills.append(img)
-            enc.stdin.write(img.tobytes())
+    for img in shots:
+        frame = img.tobytes()
+        for _ in range(n):
+            enc.stdin.write(frame)
+    stills = list(shots)
     end = end_card()
     endb = end.tobytes()
     for _ in range(int(END_SECONDS * FPS)):

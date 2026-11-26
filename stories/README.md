@@ -3,9 +3,9 @@
 > **Nov 26 (Alan: our posts "look like ai slop"): the Story now sits on a real photo from a live listing.**
 > `make_bg.py` picks an approved "Just listed" photo (`listings/queue.json`, never shown in a Story first, newest
 > first, only listings still live) and `render_story.js` draws it in the post kit look (`brand/posts/README.md`):
-> wordmark tab, "On YardSwaps now" chip with the listing and price, headline "Sitting idle? / List it free.",
-> body "Snap a photo and the AI writes the listing. No selling fee. Local pickup.", and
-> `yardswaps.com/sell-equipment` in the "List yours" box. No AI backdrops, no Runway, no bank: with no approved
+> white and blue (look k2): a light strip, the photo with nothing over it, then on white the blue tag "LIST IT FREE",
+> the headline "Sitting idle?", the body "Snap a photo and the AI writes the listing. No selling fee. Local pickup.",
+> the wordmark with `yardswaps.com/sell-equipment`, and a small "Shown: listing · price" line. No AI backdrops, no Runway, no bank: with no approved
 > photo there is no Story that day. The bank and template notes below describe how it worked before.
 
 Alan approved (2026-11-08) one Instagram Story a day, ~9:30 am Central, with a

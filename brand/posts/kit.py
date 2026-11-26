@@ -2,25 +2,31 @@
 """YardSwaps post kit: one designed look for every still post and Reel frame.
 
 Alan, 2026-11-26: "we need to improve quality of post and imagery and branding ... whatever we are sending to the
-socials looks like ai slop". Before this, each pipeline drew its own frame: a small photo on a blurred copy of
-itself, an AI backdrop on the daily Story, small type, no logo until the end card.
+socials looks like ai slop". Three outside critics rated the first pass (k1: white wordmark tab, blue highlight
+bar, tip box, striped footer) "fix", and a second hard critic reviewed this one. This is k2.
 
 The look (brand colours and fonts only, CLAUDE.md of the app repo):
-- a REAL listing photo, big and sharp (never an AI or stock picture, never a blurred fill);
-- the YardSwaps wordmark on a white tab, top left, on every frame;
-- a bold Space Grotesk headline, one line on a blue highlight bar;
-- a brand slate panel (#1A3353) under the photo for the words, so type is never on a busy picture;
-- feed posts end in the brand bar (wordmark, "Buy and sell used equipment", blue stripes).
+- the PHOTO is the hero: a real listing photo across the top, the whole item, with nothing drawn over it
+  (never an AI or stock picture, never a blurred fill, no melt, no shadow);
+- a WHITE ground under it (Alan, 11-26: "The white and blue is much cleaner than the blue in blue"), which is
+  also how the app looks;
+- ONE blue tag per frame holding the one fact that matters (the price, the hours, the offer);
+- a slate (#1A3353) Space Grotesk Bold uppercase title on one line, one line of facts in Inter, the wordmark
+  once ("Yard" slate, "Swaps" blue, as in the app);
+- one margin (64 px) and one type scale: hook 140, headline 104, title 86, facts 50, second line 40, small 36,
+  wordmark 46, tag 118;
+- on 9:16 every word sits between y 269 and y 1248, the part the apps do not cover;
+- no pills, stripes, check marks, icons, emoji, gradients or "POV:". Never the blue tag on slate or navy.
 
 Pillow only, so every workflow can use it (the listings job has no browser).
 
-    tip_post(photo, kicker, headline, body, tip, ...)      1080x1350 feed post, or 1080x1920 with tall=True
-    listing_post(photo, title, price, facts, label)        1080x1350 feed post
-    story(photo, headline, body, label, line, ...)         1080x1920 Story
-    reel_frame(photos, title, price, facts, label)         1080x1920 base frame + where each photo goes
-                                                            (listings/listing_reels.py animates the photos)
+    listing_post(photo, title, price, facts, facts2)       1080x1350 feed post
+    reel_shots(photos, title, price, facts_lines)          1080x1920 frames, one per shot (hard cuts)
+    tip_post(photo, tag, headline, body, credit_text)      1080x1350 feed post, or 1080x1920 with tall=True
+    text_post(headline, tag, body, url)                    1080x1350 feed post with no photo
+    story(photo, tag, headline, body, url)                 1080x1920 Story
 
-Headline lines are a list; a line starting with "*" gets the blue bar. Copy follows MESSAGING.md.
+Copy follows MESSAGING.md.
 """
 import os
 
@@ -29,7 +35,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 FONTS = os.path.join(ROOT, "listings", "fonts")
 
-LOOK = "k1"   # bump when the look changes; listing Reels re-make older clips that carry another value
+LOOK = "k2"   # bump when the look changes; listing Reels re-make older clips that carry another value
 W = 1080
 FEED_H, TALL_H = 1350, 1920
 WHITE, BLUE = (255, 255, 255), (37, 99, 235)
@@ -63,11 +69,11 @@ def tracked_width(d, text, f, tracking):
     return sum(d.textlength(c, font=f) for c in text) + tracking * f.size * max(len(text) - 1, 0)
 
 
-def tracked(d, xy, text, f, fill, tracking):
-    """Draw text with letter spacing (in em). Returns its width."""
+def tracked(d, xy, text, f, fill, tracking, anchor=None):
+    """Draw text with letter spacing (in em). Returns its width. anchor="ls" puts y on the baseline."""
     x, y = xy
     for c in text:
-        d.text((x, y), c, font=f, fill=fill)
+        d.text((x, y), c, font=f, fill=fill, anchor=anchor)
         x += d.textlength(c, font=f) + tracking * f.size
     return x - xy[0] - tracking * f.size
 
@@ -308,117 +314,250 @@ def _photo_top(img, photo, top_of_text, pos, under=70, fade=240):
     melt(img, ph - fade, ph)
 
 
+# ---------- k2: the spec band ----------
+
+INK, GREY, LIGHT = SLATE, (74, 85, 104), (238, 242, 248)   # type, facts, and a panel with no photo
+M = 64                    # the one margin
+PHOTO_H = 720             # the photo fills 0..720 (a 3:2 photo is shown whole)
+TAG_TOP, TAG_H = 748, 162  # the blue tag sits on the white, clear of the photo
+TITLE_BASE = 1011         # baseline of the title's first line
+TEXT_TOP, TEXT_BOTTOM = 269, 1248   # 9:16: the area the apps do not cover
+SIZE_HOOK, SIZE_HEAD, SIZE_TITLE, SIZE_FACTS, SIZE_SECOND, SIZE_SMALL, SIZE_WM, SIZE_TAG = 140, 104, 86, 50, 40, 36, 46, 118
+
+STATES = {"AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas", "CA": "California", "CO": "Colorado",
+          "CT": "Connecticut", "DE": "Delaware", "FL": "Florida", "GA": "Georgia", "HI": "Hawaii", "ID": "Idaho",
+          "IL": "Illinois", "IN": "Indiana", "IA": "Iowa", "KS": "Kansas", "KY": "Kentucky", "LA": "Louisiana",
+          "ME": "Maine", "MD": "Maryland", "MA": "Massachusetts", "MI": "Michigan", "MN": "Minnesota",
+          "MS": "Mississippi", "MO": "Missouri", "MT": "Montana", "NE": "Nebraska", "NV": "Nevada",
+          "NH": "New Hampshire", "NJ": "New Jersey", "NM": "New Mexico", "NY": "New York", "NC": "North Carolina",
+          "ND": "North Dakota", "OH": "Ohio", "OK": "Oklahoma", "OR": "Oregon", "PA": "Pennsylvania",
+          "RI": "Rhode Island", "SC": "South Carolina", "SD": "South Dakota", "TN": "Tennessee", "TX": "Texas",
+          "UT": "Utah", "VT": "Vermont", "VA": "Virginia", "WA": "Washington", "WV": "West Virginia",
+          "WI": "Wisconsin", "WY": "Wyoming", "DC": "D.C."}
+
+
+def spell_state(place):
+    """"Finger, TN" -> "Finger, Tennessee": a two-letter state next to a short town reads as a typo."""
+    if place and "," in place:
+        town, st = place.rsplit(",", 1)
+        return f"{town.strip()}, {STATES.get(st.strip().upper(), st.strip())}"
+    return STATES.get((place or "").strip().upper(), place or "")
+
+
+def fit_photo(photo, w, h, tol=0.06, pos=(0.5, 0.5)):
+    """The photo for a w x h slot. Filled edge to edge when that trims no more than `tol` off a side (a 4:3
+    phone photo loses a sliver of sky and ground); otherwise the WHOLE photo, standing on the bottom edge on the
+    light panel, so no part of the item is ever cut away."""
+    s = max(w / photo.width, h / photo.height)
+    trim = max(photo.width * s - w, photo.height * s - h) / 2 / max(photo.width * s, photo.height * s)
+    if trim <= tol:
+        return cover(photo, w, h, pos)
+    out = Image.new("RGB", (w, h), LIGHT)
+    s = min(w / photo.width, h / photo.height)
+    im = photo.resize((max(1, round(photo.width * s)), max(1, round(photo.height * s))), Image.LANCZOS)
+    out.paste(im, ((w - im.width) // 2, h - im.height))
+    return out
+
+
+def _fit_size(d, text, make, size, width, floor, tracking=0.0):
+    while size > floor and tracked_width(d, text, make(size), tracking) > width:
+        size -= 2
+    return size
+
+
+def tag(img, text, x=M, top=TAG_TOP, size=SIZE_TAG, width=None):
+    """The one blue tag: the key fact in Space Grotesk Bold. Returns its right edge."""
+    d = ImageDraw.Draw(img)
+    text = text.upper()
+    width = width or img.width - 2 * M
+    size = _fit_size(d, text, sg, size, width - 60, 60, -0.02)
+    f = sg(size)
+    h = round(TAG_H * size / SIZE_TAG)
+    tw = tracked_width(d, text, f, -0.02)
+    d.rounded_rectangle((x, top, x + tw + 60, top + h), 10, fill=BLUE)
+    cap = f.getbbox("H")[3] - f.getbbox("H")[1]
+    base = top + (h + cap) // 2 - round(size * 0.012)
+    tracked(d, (x + 30, base), text, f, WHITE, -0.02, anchor="ls")
+    return x + tw + 60
+
+
+_DANGLING = {"WITH", "AND", "ON", "OF", "FOR", "THE", "A", "AN", "IN", "AT", "TO", "PLUS", "&", "+", "OR", "BY"}
+
+
+def title_lines(d, text, width, size=SIZE_TITLE, floor=64):
+    """An uppercase title on one line at the title size, stepping down to `floor`; only then two lines."""
+    text = " ".join(text.upper().split())
+    s = _fit_size(d, text, sg, size, width, floor, -0.025)
+    if tracked_width(d, text, sg(s), -0.025) <= width:
+        return s, [text]
+    f, lines, cur = sg(floor), [], ""
+    for w in text.split():
+        trial = (cur + " " + w).strip()
+        if tracked_width(d, trial, f, -0.025) <= width or not cur:
+            cur = trial
+        else:
+            lines.append(cur)
+            cur = w
+    lines.append(cur)
+    if len(lines) > 2:
+        # never an ellipsis: keep whole words, and do not end on "with", "and", "of"...
+        words = " ".join(lines[:2]).split()
+        while len(words) > 2 and words[-1].strip(",;:").upper() in _DANGLING:
+            words.pop()
+        lines, cur = [], ""
+        for w in words:
+            trial = (cur + " " + w).strip()
+            if tracked_width(d, trial, f, -0.025) <= width or not cur:
+                cur = trial
+            else:
+                lines.append(cur)
+                cur = w
+        lines.append(cur)
+        lines = [ln.rstrip(",;:-") for ln in lines[:2]]
+    if len(lines) == 2:
+        # balance the two lines, so the second is never a lone word
+        words, best = " ".join(lines).split(), None
+        for k in range(1, len(words)):
+            a, b = " ".join(words[:k]), " ".join(words[k:])
+            wa, wb = tracked_width(d, a, f, -0.025), tracked_width(d, b, f, -0.025)
+            if wa <= width and wb <= width and (best is None or max(wa, wb) < best[0]):
+                best = (max(wa, wb), [a, b])
+        if best:
+            lines = best[1]
+    return floor, lines
+
+
+def wordmark_row(img, base, right_text="yardswaps.com"):
+    """The wordmark once, bottom left, and one small line on the right (the link or the listing shown)."""
+    d = ImageDraw.Draw(img)
+    w = tracked(d, (M, base), "Yard", sg(SIZE_WM), INK, -0.02, anchor="ls") + SIZE_WM * -0.02
+    w += tracked(d, (M + w, base), "Swaps", sg(SIZE_WM), BLUE, -0.02, anchor="ls")
+    if right_text:
+        size = _fit_size(d, right_text, lambda z: inter(z, b"Medium"), SIZE_SMALL, img.width - 2 * M - w - 40, 26)
+        d.text((img.width - M, base), right_text, font=inter(size, b"Medium"), fill=GREY, anchor="rs")
+
+
+def band(img, tag_text, title, facts="", second="", body="", wm_base=1205, right_text="yardswaps.com",
+         top=TAG_TOP, title_base=TITLE_BASE):
+    """Tag, title, facts (and a quieter second line, or a wrapped body line) on the white ground. Positions are fixed,
+    so every post lines up with every other."""
+    d = ImageDraw.Draw(img)
+    width = img.width - 2 * M
+    tag(img, tag_text, top=top)
+    size, lines = title_lines(d, title, width)
+    two = len(lines) > 1
+    first = title_base - 19 if two else title_base
+    y = first
+    for i, ln in enumerate(lines):
+        y = first + i * round(size * 1.0)
+        tracked(d, (M, y), ln, sg(size), INK, -0.025, anchor="ls")
+    if two and wm_base < 1250:
+        second = ""          # the tall frame has room for one facts line under a two-line title
+    if facts:
+        y += 70 if two else 78
+        fs = _fit_size(d, facts, inter, SIZE_FACTS, width, 38)
+        d.text((M, y), facts, font=inter(fs), fill=GREY, anchor="ls")
+    if second:
+        y += 62
+        ss = _fit_size(d, second, lambda z: inter(z, b"Medium"), SIZE_SECOND, width, 30)
+        d.text((M, y), second, font=inter(ss, b"Medium"), fill=GREY, anchor="ls")
+    if body:
+        f = inter(SIZE_SECOND, b"Medium")
+        for j, ln in enumerate(wrap(d, body, f, min(width, 900), 2)):
+            y += 66 if j == 0 else 50
+            d.text((M, y), ln, font=f, fill=GREY, anchor="ls")
+    wordmark_row(img, wm_base, right_text)
+
+
 # ---------- posts ----------
 
-def tip_post(photo, kicker, headline, body, tip, tip_label="PRO TIP", credit_text=None, pos=(0.5, 0.5), tall=False):
-    H = TALL_H if tall else FEED_H
-    pad = 56 if tall else 64
-    img = Image.new("RGB", (W, H), PANEL)
-    d = ImageDraw.Draw(img)
-    width = W - 2 * pad
-    blocks = [b_kicker(d, kicker), b_headline(d, headline, width, 150 if tall else 132),
-              b_text(d, body, min(width, 940), 46 if tall else 37),
-              b_tip(d, tip_label, tip, width, 32 if tall else 27, 38 if tall else 33)]
-    gaps = [14, 20, 26] if not tall else [18, 26, 32]
-    bottom = H - (SAFE_BOTTOM + 30 if tall else BAR_H + 40)
-    _photo_top(img, photo, column_top(blocks, gaps, bottom), pos)
+def listing_post(photo, title, price, facts="", label=None, pos=(0.5, 0.5), facts2=""):
+    """Feed post for one real listing: the photo, the price in the tag, the title, the facts. (`label` is from
+    k1 and no longer drawn: the caption says "Just listed".)"""
+    img = Image.new("RGB", (W, FEED_H), WHITE)
+    img.paste(fit_photo(photo, W, PHOTO_H, pos=pos), (0, 0))
+    band(img, price, title, facts, facts2, wm_base=1283)
+    return img
+
+
+def reel_shots(photos, title, price, facts_lines):
+    """The frames of a listing Reel, one per shot, joined with hard cuts by listings/listing_reels.py.
+
+    Top: the whole item (photo i). White band: the price in the tag and the title on every shot, and a facts
+    line that changes with the shot. Bottom: another photo of the same listing as a detail (it sits under the
+    apps' buttons, so nothing there has to be read). One photo: the bottom is a plain light panel."""
+    k = len(photos)
+    lines = [ln for ln in facts_lines if ln] or [""]
+    out = []
+    for i, p in enumerate(photos):
+        img = Image.new("RGB", (W, TALL_H), WHITE)
+        img.paste(fit_photo(p, W, PHOTO_H), (0, 0))
+        if k > 1:
+            img.paste(cover(photos[(i + 1) % k], W, TALL_H - 1240), (0, 1240))
+        else:
+            ImageDraw.Draw(img).rectangle((0, 1240, W, TALL_H), fill=LIGHT)
+        band(img, price, title, lines[i % len(lines)])
+        out.append(img)
+    return out
+
+
+def reel_still(photos, title, price, facts_lines, i=0):
+    """One finished frame (shot i), for previews and review sheets."""
+    return reel_shots(photos, title, price, facts_lines)[i]
+
+
+def tip_post(photo, tag_text, headline, body, credit_text=None, pos=(0.5, 0.5), tall=False):
+    """A tip: the photo PROVES the tip (the meter, the plate, the wear), the tag holds the fact in the photo,
+    the headline is one plain instruction and the body one line that says the same thing."""
+    img = Image.new("RGB", (W, TALL_H if tall else FEED_H), WHITE)
+    img.paste(cover(photo, W, PHOTO_H, pos), (0, 0))
     if tall:
-        shade_top(img)
-    column(img, blocks, gaps, pad, bottom)
-    tab(img, pad, SAFE_TOP if tall else 0, hanging=not tall)
+        ImageDraw.Draw(img).rectangle((0, 1240, W, TALL_H), fill=LIGHT)
+    band(img, tag_text, headline, body=body, wm_base=1205 if tall else 1283, right_text=credit_text or "yardswaps.com")
+    return img
+
+
+def text_post(headline, tag_text, body, url="yardswaps.com"):
+    """Feed post with no photo (the "buyers are looking for" cards): the headline, the key words in the blue
+    tag under it, one line, the wordmark. The block sits in the middle of the frame."""
+    img = Image.new("RGB", (W, FEED_H), WHITE)
+    d = ImageDraw.Draw(img)
+    width = W - 2 * M
+    lines = [ln.lstrip("*").upper() for ln in headline]
+    size = SIZE_HEAD
+    while size > 72 and max(tracked_width(d, ln, sg(size), -0.025) for ln in lines) > width:
+        size -= 2
+    f = sg(size)
+    cap = f.getbbox("H")[3] - f.getbbox("H")[1]
+    bf = inter(44, b"Medium")
+    body_lines = wrap(d, body, bf, min(width, 900), 3)
+    total = cap + (len(lines) - 1) * round(size * 0.98) + 44 + TAG_H + 78 + (len(body_lines) - 1) * 58
+    y = (FEED_H - 120 - total) // 2 + cap
+    for ln in lines:
+        tracked(d, (M, y), ln, f, INK, -0.025, anchor="ls")
+        y += round(size * 0.98)
+    y += 44 - round(size * 0.98)
+    tag(img, tag_text, top=y)
+    y += TAG_H + 78
+    for ln in body_lines:
+        d.text((M, y), ln, font=bf, fill=GREY, anchor="ls")
+        y += 58
+    wordmark_row(img, 1283, url)
+    return img
+
+
+STORY_OFF = 200   # a Story sits 200 px lower: Instagram's own header covers the light strip, not the photo
+
+
+def story(photo, tag_text, headline, body, url="yardswaps.com", pos=(0.5, 0.5), credit_text=None):
+    """Seller Story: a light strip, the real photo, then the tag, a one-line headline, the body and the link on
+    white, and the light panel. stories/render_story.js draws the same thing in HTML for the daily job."""
+    o = STORY_OFF
+    img = Image.new("RGB", (W, TALL_H), LIGHT)
+    img.paste(fit_photo(photo, W, PHOTO_H, pos=pos), (0, o))
+    d = ImageDraw.Draw(img)
+    d.rectangle((0, o + PHOTO_H, W, o + 1240), fill=WHITE)
+    band(img, tag_text, headline, body=body, wm_base=1205 + o, right_text=url, top=TAG_TOP + o, title_base=TITLE_BASE + o)
     if credit_text:
-        credit(img, W - (pad if tall else 40), SAFE_TOP + 6 if tall else 30, "On YardSwaps now", credit_text)
-    if not tall:
-        bar(img)
-    return img
-
-
-def text_post(kicker, headline, body, label, line):
-    """Feed post with no photo (the "buyers are looking for" cards): the words carry it, same panel and bar."""
-    img = Image.new("RGB", (W, FEED_H), PANEL)
-    d = ImageDraw.Draw(img)
-    pad, width = 64, W - 128
-    blocks = [b_kicker(d, kicker), b_headline(d, headline, width, 150), b_text(d, body, min(width, 900), 44),
-              b_tip(d, label, line, width, 28, 40)]
-    gaps = [18, 26, 44]
-    total = sum(h for h, _ in blocks) + sum(gaps)
-    top, bottom = 150, FEED_H - BAR_H - 50
-    column(img, blocks, gaps, pad, top + (bottom - top + total) // 2)
-    tab(img, pad, 0, hanging=True)
-    bar(img)
-    return img
-
-
-def story(photo, headline, body, label, line, credit_text=None, pos=(0.5, 0.5)):
-    """Seller Story: headline, one line of body, and the link in the labelled box."""
-    img = Image.new("RGB", (W, TALL_H), PANEL)
-    d = ImageDraw.Draw(img)
-    pad, width = 56, W - 112
-    blocks = [b_headline(d, headline, width, 150), b_text(d, body, width, 46), b_tip(d, label, line, width, 32, 48)]
-    gaps = [22, 32]
-    bottom = TALL_H - SAFE_BOTTOM - 30
-    _photo_top(img, photo, column_top(blocks, gaps, bottom), pos)
-    shade_top(img)
-    column(img, blocks, gaps, pad, bottom)
-    tab(img, pad, SAFE_TOP, hanging=False)
-    if credit_text:
-        credit(img, W - pad, SAFE_TOP + 6, "On YardSwaps now", credit_text)
-    return img
-
-
-def listing_post(photo, title, price, facts="", label="Just listed", pos=(0.5, 0.5)):
-    """Feed post for one real listing: the photo, its title, the price, the facts."""
-    img = Image.new("RGB", (W, FEED_H), PANEL)
-    d = ImageDraw.Draw(img)
-    pad, width = 64, W - 128
-    blocks = [b_kicker(d, label), b_title(d, title, width, 60), b_price(d, price, facts, width, 124, 36)]
-    gaps = [14, 14]
-    bottom = FEED_H - BAR_H - 36
-    top = column_top(blocks, gaps, bottom)
-    if photo.height / photo.width > (top + 20) / W * 1.12:
-        # a tall photo: show all of it as a card instead of cropping half the machine away
-        c = card(photo, W - 80, top - 34 - 40)
-        x, y = (W - c.width) // 2, 40 + (top - 34 - 40 - c.height) // 2
-        img = drop_shadow(img, (x, y, x + c.width, y + c.height))
-        img.paste(c, (x, y), c)
-        tab(img, pad, 0, hanging=True)
-    else:
-        _photo_top(img, photo, top, pos, under=40, fade=150)
-        tab(img, pad, 0, hanging=True)
-    column(img, blocks, gaps, pad, bottom)
-    bar(img)
-    return img
-
-
-def reel_frame(photos, title, price, facts="", label="Just listed"):
-    """Base frame of a listing Reel (everything but the photos) and each photo as a card with where it goes.
-
-    Returns (base RGB image, [(card RGBA, x, y), ...]). The text never moves; listing_reels.py lets each
-    photo card settle in and cross-fades to the next, so the item is whole in every frame. The header, the
-    photo and the text sit together in the middle of the safe area, sized for the tallest photo."""
-    img = Image.new("RGB", (W, TALL_H), PANEL)
-    d = ImageDraw.Draw(img)
-    pad, width = 56, W - 112
-    blocks = [b_title(d, title, width, 58, 3), b_price(d, price, facts, width, 132, 40)]
-    gaps = [16]
-    text_h = sum(h for h, _ in blocks) + gaps[0]
-    head_h, gap = 96, 34
-    lo, hi = SAFE_TOP, TALL_H - SAFE_BOTTOM - 30
-    box_h = hi - lo - head_h - text_h - 2 * gap
-    cards = [card(p, W - 80, box_h) for p in photos]
-    tallest = max(c.height for c in cards)
-    y = lo + (hi - lo - (head_h + gap + tallest + gap + text_h)) // 2
-    tab(img, pad, y, hanging=False)
-    pill(img, W - pad, y + 12, label)
-    y0 = y + head_h + gap
-    column(img, blocks, gaps, pad, y0 + tallest + gap + text_h)
-    return img, [(c, (W - c.width) // 2, y0 + (tallest - c.height) // 2) for c in cards]
-
-
-def reel_still(photos, title, price, facts="", label="Just listed", i=0):
-    """One finished frame (photo i in place), for previews and review sheets."""
-    base, cards = reel_frame(photos, title, price, facts, label)
-    c, x, y = cards[i]
-    img = drop_shadow(base, (x, y, x + c.width, y + c.height))
-    img.paste(c, (x, y), c)
+        d.text((M, o + 1306), "Shown: " + credit_text, font=inter(32, b"Medium"), fill=GREY, anchor="ls")
     return img

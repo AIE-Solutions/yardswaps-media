@@ -4,9 +4,9 @@
     python3 brand/posts/make_tips.py            # every tip
     python3 brand/posts/make_tips.py tip-cold-start
 
-Each tip sits on a real photo from a live listing. The "On YardSwaps now" chip names that listing and its
-price only when the listings API says it is still live today; otherwise the post goes out without the chip.
-Run it again on the day a tip is posted, so the chip is never stale.
+Each tip sits on a real photo from a live listing that proves the tip. The corner names that listing only when
+the listings API says it is still live today. Run it again on the day a tip is posted. Tips marked "held" in
+tips.json are skipped.
 """
 import json
 import os
@@ -47,20 +47,18 @@ def main():
     live = live_listings()
     os.makedirs(os.path.join(HERE, "out"), exist_ok=True)
     for t in tips:
-        if want and t["slug"] not in want:
+        if (want and t["slug"] not in want) or t.get("held"):
+            if t.get("held") and (not want or t["slug"] in want):
+                print(f"{t['slug']}: held ({t.get('held_why', 'no reason given')})")
             continue
         photo = Image.open(os.path.join(HERE, "photos", t["slug"] + ".jpg")).convert("RGB")
-        l = live.get(t.get("listing_id"))
-        chip = None
-        if l and t.get("credit") and l.get("price"):
-            chip = f"{t['credit']} · ${l['price']:,.0f}"
+        credit = t.get("credit") if t.get("listing_id") in live else None
         for tall, name in ((False, "4x5"), (True, "9x16")):
-            img = kit.tip_post(photo, t["kicker"], t["headline"], t["body"], t["tip"],
-                               tip_label=t.get("tip_label", "PRO TIP"), credit_text=chip,
+            img = kit.tip_post(photo, t["tag"], t["headline"], t["body"], credit_text=credit,
                                pos=tuple(t.get("pos", (0.5, 0.5))), tall=tall)
             out = os.path.join(HERE, "out", f"{t['slug']}-{name}.jpg")
             img.save(out, "JPEG", quality=90, optimize=True)
-        print(f"{t['slug']}: {'chip ' + chip if chip else 'no chip (listing not live)'}")
+        print(f"{t['slug']}: {'names ' + credit if credit else 'listing not live, no name in the corner'}")
     return 0
 
 

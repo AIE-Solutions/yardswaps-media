@@ -309,7 +309,7 @@ def card_facts(l, with_place=True):
     cond = re.sub(r"\s*[—–-]\s*", " · ", (l.get("condition") or "").strip())
     if cond and cond.lower() not in title:
         bits.append(cond)
-    if l.get("year") and str(l["year"]) not in title:
+    if l.get("year") and not re.search(r"\b(19|20)\d\d\b", title):   # a year in the title is the seller's word
         bits.append(str(l["year"]))
     if l.get("hours") and "hour" not in title and "hrs" not in title:
         bits.append(f"{l['hours']:,} hours")
@@ -321,16 +321,85 @@ def card_facts(l, with_place=True):
     return " · ".join(bits)
 
 
+CUT_WORDS = (" with ", " on ", " w/ ")
+DANGLING = {"with", "and", "on", "of", "for", "the", "a", "an", "in", "at", "to", "plus", "&", "+", "or", "by"}
+
+
+def short_title(t):
+    """The part of a seller's title that names the item. Sellers pack hours, condition and extras into the
+    title ("... Leaf Vacuum, 400 hrs, Like New"); a post prints those as facts, so the title stops at the first
+    clause break. Never an ellipsis: a cut title ends on a whole word."""
+    t = re.sub(r"\s+", " ", (t or "").strip())
+    t = re.sub(r"^sale pending\s*[—–,:-]\s*", "", t, flags=re.I)
+    for sep in (" — ", " – ", " - ", " | ", " / ", ", ", " (", " PN:", " pn:"):
+        head = t.split(sep, 1)[0].strip()
+        if head != t and len(head) >= 10 and len(head.split()) >= 2:
+            t = head
+    t = re.sub(r"\s+for sale$", "", t, flags=re.I)
+    if len(t) > 28:
+        for w in CUT_WORDS:
+            i = t.lower().find(w)
+            if i >= 8:
+                t = t[:i]
+    words = t.split()
+    while len(words) > 2 and words[-1].lower().strip(",;:") in DANGLING:
+        words.pop()
+    return " ".join(words).rstrip(" ,;:-")
+
+
+def spec_title(l):
+    """The short title a buyer scans. The seller's own words, cut to the part that names the item
+    ("2008 Tennant M20 Ride-On Sweeper-Scrubber"), when the title opens with the year or the make. An ad-style
+    title ("Zero-tail-swing Deere 50G with quick coupler") becomes year, make, model from the listing's own
+    fields ("2016 John Deere 50G"). A part keeps its own name, never just the machine it fits."""
+    title = nice_title(l.get("title") or "")
+    short = short_title(title)
+    make = (l.get("manufacturer") or "").strip()
+    model = str((l.get("specs") or {}).get("Model") or l.get("model") or "").strip()
+    low = title.lower()
+    first = (short.split() or [""])[0].lower()
+    opens_plain = bool(re.match(r"(19|20)\d\d$", first)) or (make and first == make.split()[0].lower())
+    if (not opens_plain and l.get("year") and make and model and model.lower() in low
+            and make.split()[-1].lower() in low):
+        return " ".join([str(l["year"]), make, model])
+    return short
+
+
+def facts_lines(l):
+    """The facts for the post kit, most asked first, each a short line: hours or miles with the town (state
+    spelled out), then condition and year. Nothing the short title already says."""
+    sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
+    import kit
+    title = spec_title(l).lower()
+    first = []
+    if l.get("hours"):
+        first.append(f"{l['hours']:,} hrs")
+    if l.get("mileage"):
+        first.append(f"{l['mileage']:,} miles")
+    where = kit.spell_state(place(l))
+    second = []
+    cond = re.sub(r"\s*[—–-]\s*", " · ", (l.get("condition") or "").strip())
+    if cond:
+        second.append(cond)
+    if l.get("year") and not re.search(r"\b(19|20)\d\d\b", title):   # a year in the title is the seller's word
+        second.append(str(l["year"]))
+    if not first:
+        first, second = second, []
+    if where:
+        first = first[:2] + [where]
+    return [" · ".join(x) for x in (first, second) if x]
+
+
 def render_card(photo_bgr, l, out_path):
-    """The feed card in the post kit look (brand/posts/kit.py, Nov 26): the real photo big, the YardSwaps
-    tab on it, the title and price on the slate panel, the brand bar underneath."""
+    """The feed card in the post kit look (brand/posts/kit.py, k2): the real photo on top with nothing over it,
+    the price in the blue tag, the short title and the facts on white."""
     import cv2
     from PIL import Image
     sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
     import kit
     photo = Image.fromarray(cv2.cvtColor(photo_bgr, cv2.COLOR_BGR2RGB))
-    label = "Just listed" if is_new(l) else "For sale"
-    img = kit.listing_post(photo, nice_title(l["title"]), price_text(l.get("price")), card_facts(l), label)
+    lines = facts_lines(l) + ["", ""]
+    img = kit.listing_post(photo, spec_title(l), price_text(l.get("price")), lines[0], facts2=lines[1])
     img.save(out_path, "JPEG", quality=90, optimize=True)
 
 
@@ -397,11 +466,11 @@ def wanted_captions(w, turn):
 
 
 def render_wanted_card(w, out_path):
-    """Text card in the post kit look: the last headline line sits on the blue bar."""
+    """Text card in the post kit look (k2): the headline, one line, the wordmark and the link."""
     sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
     import kit
-    head = list(w["card"][:-1]) + ["*" + w["card"][-1]]
-    img = kit.text_post("On YardSwaps", head, w["card_sub"], "List yours", "yardswaps.com/sell-equipment")
+    img = kit.text_post(list(w["card"][:-1]), w["card"][-1].rstrip(".?!"), w["card_sub"],
+                        "yardswaps.com/sell-equipment")
     img.save(out_path, "JPEG", quality=90, optimize=True)
 
 
@@ -637,6 +706,9 @@ def prep(dry):
 def build_card(cv2, np, l, turn):
     """Photo checks + card + cleaned photo for one listing; the queue entry, or None when no photo passes."""
     lid = l["id"]
+    if re.match(r"\s*sale pending", l.get("title") or "", flags=re.I):
+        print(f"  skip {lid}: sale pending")
+        return None
     if not l.get("photoUrls"):
         return None
     if not safe_title(l):
