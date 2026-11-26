@@ -111,6 +111,9 @@ def main():
     e = next((x for x in entries if x["slug"] == slug), None)
     if not e:
         sys.exit(f"no image entry {slug!r} in reels/images.json")
+    if e.get("picture") != "real":
+        # Alan 11-26, real items only: nothing AI, Canva or stock goes out as a picture post.
+        sys.exit(f"{slug}: picture is {e.get('picture')!r}, not 'real'. Only real photos post (see reels/images.json).")
     for k in ("feed", "story"):
         if not os.path.exists(os.path.join(ROOT, e[k])):
             sys.exit(f"missing file {e[k]}")

@@ -1,0 +1,58 @@
+{
+  "_readme": "Designed tip posts for the feed. Each one sits on a real photo from a live YardSwaps listing (brand/posts/photos/<slug>.jpg, faces and plates checked by eye, serials and phone numbers blurred). make_tips.py renders brand/posts/out/<slug>-4x5.jpg and -9x16.jpg; the 'On YardSwaps now' chip is printed only when the listing is still live that day. Rules: plain advice a mechanic would agree with, no numbers we can't back up, no promises of views or sales, never a stock or AI picture (Alan 11-26).",
+  "tips": [
+    {
+      "slug": "tip-cold-start",
+      "listing_id": "cmwtgo7p9000klh3al5ceakzm",
+      "credit": "2006 Chevrolet Kodiak C4500",
+      "kicker": "Buying used",
+      "headline": [
+        "Ask for a",
+        "*cold start."
+      ],
+      "body": "Ask the seller not to run it before you get there. A cold engine shows how it really starts, idles and smokes.",
+      "tip": "Put your hand on the hood when you arrive. Warm means it already ran."
+    },
+    {
+      "slug": "tip-whole-machine",
+      "listing_id": "cmwlsaj46003pql3auwxsf6pt",
+      "credit": "Tennant M20 sweeper-scrubber",
+      "kicker": "Selling used",
+      "headline": [
+        "Show the",
+        "*whole machine."
+      ],
+      "body": "Shoot all four sides, the hour meter, the data plate and any wear. Clear photos answer questions before buyers ask.",
+      "tip_label": "ON YARDSWAPS",
+      "tip": "Add a photo and the AI fills in the title, make, model and specs. You check it before it posts."
+    },
+    {
+      "slug": "tip-data-plate",
+      "listing_id": "cmwoncoba001iob3am60cgusj",
+      "credit": "SMG TCA1400 turf groomer",
+      "kicker": "Buying used",
+      "headline": [
+        "The data plate",
+        "*is the machine's ID."
+      ],
+      "body": "Make, model, serial number and year are stamped on it. Match the plate to the listing and the paperwork before you pay.",
+      "tip": "Selling? Put a clear photo of the plate in your listing.",
+      "pos": [
+        0.5,
+        0.3
+      ]
+    },
+    {
+      "slug": "tip-lead-with-hours",
+      "listing_id": "cmwosmtfl002vob3aj5n8onnv",
+      "credit": "2005 Caterpillar 325CL",
+      "kicker": "Selling used",
+      "headline": [
+        "Lead with",
+        "*the hours."
+      ],
+      "body": "Year, hours and condition are the first things a buyer asks. Put all three in the title or the first line.",
+      "tip": "Add a photo of the hour meter, so nobody has to take your word for it."
+    }
+  ]
+}

@@ -127,6 +127,9 @@ def uses(videos=None):
     for p in load(os.path.join(ROOT, "stories", "posted.json"), []):
         if p.get("status") == "posted":
             slug = (p.get("machine") or "").replace(" ", "-")
+            if slug.startswith("listing-"):   # since 2026-11-26 the Story shows a real listing photo
+                add(slug, queue.get(slug[len("listing-"):], {}).get("category"), "list_free_story", slug, p.get("time"))
+                continue
             add("story-" + slug, STORY_CATEGORY.get(slug), "list_free_story", slug, p.get("time"))
     for p in load(os.path.join(ROOT, "reels", "images-posted.json"), []):
         if p.get("ok"):

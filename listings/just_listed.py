@@ -301,46 +301,37 @@ def wrap(draw, text, f, width, max_lines):
     return lines
 
 
+def card_facts(l, with_place=True):
+    """What a buyer asks first, for the card and the listing Reel: condition, year, hours, miles, then the
+    city. Nothing the title already says, three items at most."""
+    title = (l.get("title") or "").lower()
+    bits = []
+    cond = re.sub(r"\s*[—–-]\s*", " · ", (l.get("condition") or "").strip())
+    if cond and cond.lower() not in title:
+        bits.append(cond)
+    if l.get("year") and str(l["year"]) not in title:
+        bits.append(str(l["year"]))
+    if l.get("hours") and "hour" not in title and "hrs" not in title:
+        bits.append(f"{l['hours']:,} hours")
+    if l.get("mileage") and "mile" not in title:
+        bits.append(f"{l['mileage']:,} miles")
+    bits = bits[:3]
+    if with_place and place(l):
+        bits = bits[:2] + [place(l)]
+    return " · ".join(bits)
+
+
 def render_card(photo_bgr, l, out_path):
+    """The feed card in the post kit look (brand/posts/kit.py, Nov 26): the real photo big, the YardSwaps
+    tab on it, the title and price on the slate panel, the brand bar underneath."""
     import cv2
-    from PIL import Image, ImageDraw
-    W, H, PH = 1080, 1350, 1000
-    img = Image.new("RGB", (W, H), BG)
-    rgb = cv2.cvtColor(photo_bgr, cv2.COLOR_BGR2RGB)
-    ph = Image.fromarray(rgb)
-    # Cover-crop the photo into the top 1080x1000.
-    s = max(W / ph.width, PH / ph.height)
-    ph = ph.resize((int(ph.width * s + 0.5), int(ph.height * s + 0.5)), Image.LANCZOS)
-    left, top = (ph.width - W) // 2, (ph.height - PH) // 2
-    img.paste(ph.crop((left, top, left + W, top + PH)), (0, 0))
-    d = ImageDraw.Draw(img)
-    pad = 56
-    label = "JUST LISTED" if is_new(l) else "FOR SALE ON YARDSWAPS"
-    lf = font("SpaceGrotesk.ttf", 30, b"Bold")
-    # Label pill on the photo, top-left.
-    tw = d.textlength(label, font=lf)
-    d.rounded_rectangle((pad - 4, 44, pad + tw + 40, 44 + 58), radius=29, fill=BLUE)
-    d.text((pad + 18, 44 + 12), label, font=lf, fill=(255, 255, 255))
-    tf = font("SpaceGrotesk.ttf", 50, b"Bold")
-    lines = wrap(d, nice_title(l["title"]), tf, W - 2 * pad, 2)
-    y = PH + 40
-    for line in lines:
-        d.text((pad, y), line, font=tf, fill=SLATE)
-        y += 62
-    y += 14
-    pf = font("SpaceGrotesk.ttf", 44, b"Bold")
-    pt = price_text(l.get("price"))
-    d.text((pad, y), pt, font=pf, fill=BLUE)
-    rest = " · ".join(facts(l).split(" · ")[1:])
-    if rest:
-        rf = font("Inter.ttf", 32, b"Medium")
-        x = pad + d.textlength(pt, font=pf) + 24
-        rest_lines = wrap(d, rest, rf, W - pad - x, 1)
-        d.text((x, y + 8), rest_lines[0], font=rf, fill=GRAY)
-    ff = font("Inter.ttf", 28, b"Medium")
-    foot = "Free to list. Free to browse. yardswaps.com"
-    d.text((pad, H - 64), foot, font=ff, fill=GRAY)
-    img.save(out_path, "JPEG", quality=88, optimize=True)
+    from PIL import Image
+    sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
+    import kit
+    photo = Image.fromarray(cv2.cvtColor(photo_bgr, cv2.COLOR_BGR2RGB))
+    label = "Just listed" if is_new(l) else "For sale"
+    img = kit.listing_post(photo, nice_title(l["title"]), price_text(l.get("price")), card_facts(l), label)
+    img.save(out_path, "JPEG", quality=90, optimize=True)
 
 
 # ---------- wanted cards ----------
@@ -406,31 +397,11 @@ def wanted_captions(w, turn):
 
 
 def render_wanted_card(w, out_path):
-    from PIL import Image, ImageDraw
-    W, H, pad = 1080, 1350, 72
-    img = Image.new("RGB", (W, H), BG)
-    d = ImageDraw.Draw(img)
-    lf = font("SpaceGrotesk.ttf", 30, b"Bold")
-    label = "WANTED ON YARDSWAPS"
-    tw = d.textlength(label, font=lf)
-    d.rounded_rectangle((pad - 4, 96, pad + tw + 40, 96 + 58), radius=29, fill=BLUE)
-    d.text((pad + 18, 96 + 12), label, font=lf, fill=(255, 255, 255))
-    hf = font("SpaceGrotesk.ttf", 104, b"Bold")
-    sf = font("Inter.ttf", 44, b"Medium")
-    sub = wrap(d, w["card_sub"], sf, W - 2 * pad, 3)
-    block = 124 * len(w["card"]) + 40 + 60 * len(sub)
-    y = 154 + (H - 210 - 154 - block) // 2  # centred between the label and the footer rule
-    for i, line in enumerate(w["card"]):
-        d.text((pad, y), line, font=hf, fill=BLUE if i == len(w["card"]) - 1 else SLATE)
-        y += 124
-    y += 40
-    for line in sub:
-        d.text((pad, y), line, font=sf, fill=GRAY)
-        y += 60
-    d.rectangle((pad, H - 210, W - pad, H - 206), fill=(216, 216, 218))
-    ff = font("SpaceGrotesk.ttf", 40, b"Bold")
-    d.text((pad, H - 170), "Free to list. Local pickup.", font=ff, fill=SLATE)
-    d.text((pad, H - 110), "yardswaps.com", font=ff, fill=BLUE)
+    """Text card in the post kit look: the last headline line sits on the blue bar."""
+    sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
+    import kit
+    head = list(w["card"][:-1]) + ["*" + w["card"][-1]]
+    img = kit.text_post("On YardSwaps", head, w["card_sub"], "List yours", "yardswaps.com/sell-equipment")
     img.save(out_path, "JPEG", quality=90, optimize=True)
 
 

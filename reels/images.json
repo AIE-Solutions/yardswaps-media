@@ -1,19 +1,57 @@
 {
-  "_readme": "One-off image posts (not Reels). Dispatch reels.yml with image_slug=<slug>. feed = 4:5 for the IG + FB feed, story = 9:16 for IG + FB Stories. Captions end with an open question (Alan's rule).",
+  "_readme": "One-off image posts (not Reels). Dispatch reels.yml with image_slug=<slug>. feed = 4:5 for the IG + FB feed, story = 9:16 for IG + FB Stories. Captions end with an open question (Alan's rule). picture: 'real' = a real photo from a live listing or the real app; 'stock' = AI, Canva or stock. post_image.py posts only 'real' (Alan 11-26, real items only). Tip posts (tip-*) are made by brand/posts/make_tips.py from brand/posts/tips.json: run it again the day a tip posts, so the 'On YardSwaps now' chip is checked against the live listing.",
   "images": [
     {
       "slug": "snap-it",
       "feed": "broll/fetch/range-ad/runway-ad-1-snap-it-4x5.jpg",
       "story": "broll/fetch/range-ad/runway-ad-1-snap-it-9x16.jpg",
       "ig_caption": "Snap it. List it. Done.\n\nOne photo of the truck and the app writes the listing. Free to list, no cut of the sale. Link in bio: yardswaps.com/i\n\n#UsedEquipment #WorkTruck #FleetTrucks #Jobsite #EquipmentMarketplace\n\nWhat is sitting in your yard right now?",
-      "fb_caption": "Snap it. List it. Done.\n\nOne photo of the truck and the app writes the listing. Free to list, no cut of the sale.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_snap-it\n\n#UsedEquipment #WorkTruck #FleetTrucks #Jobsite #EquipmentMarketplace #Tradespeople #IndustrialEquipment\n\nWhat is sitting in your yard right now?"
+      "fb_caption": "Snap it. List it. Done.\n\nOne photo of the truck and the app writes the listing. Free to list, no cut of the sale.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_snap-it\n\n#UsedEquipment #WorkTruck #FleetTrucks #Jobsite #EquipmentMarketplace #Tradespeople #IndustrialEquipment\n\nWhat is sitting in your yard right now?",
+      "picture": "stock"
     },
     {
       "slug": "idle-gear",
       "feed": "broll/fetch/range-ad/runway-ad-2-idle-gear-4x5.jpg",
       "story": "broll/fetch/range-ad/runway-ad-2-idle-gear-9x16.jpg",
       "ig_caption": "Idle gear is cash sitting still.\n\nThe pressure washer the bigger one replaced still runs. List it free, no cut of the sale, buyers message you in the app. Link in bio: yardswaps.com/i\n\n#PressureWasher #UsedEquipment #Tradespeople #IndustrialEquipment #Jobsite\n\nWhat got replaced in your shop this year and never sold?",
-      "fb_caption": "Idle gear is cash sitting still.\n\nThe pressure washer the bigger one replaced still runs. List it free, no cut of the sale, buyers message you in the app.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_idle-gear\n\n#PressureWasher #UsedEquipment #Tradespeople #IndustrialEquipment #Jobsite #EquipmentMarketplace\n\nWhat got replaced in your shop this year and never sold?"
+      "fb_caption": "Idle gear is cash sitting still.\n\nThe pressure washer the bigger one replaced still runs. List it free, no cut of the sale, buyers message you in the app.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_idle-gear\n\n#PressureWasher #UsedEquipment #Tradespeople #IndustrialEquipment #Jobsite #EquipmentMarketplace\n\nWhat got replaced in your shop this year and never sold?",
+      "picture": "stock"
+    },
+    {
+      "slug": "tip-cold-start",
+      "picture": "real",
+      "look": "k1",
+      "feed": "brand/posts/out/tip-cold-start-4x5.jpg",
+      "story": "brand/posts/out/tip-cold-start-9x16.jpg",
+      "ig_caption": "Ask for a cold start.\n\nBuying a used truck or machine? Ask the seller not to run it before you get there. A cold engine shows how it really starts, idles and smokes. Put your hand on the hood when you arrive. Warm means it already ran.\n\nThe truck in the photo is a real listing on YardSwaps. Find used equipment near you. Link in bio: yardswaps.com\n\n#UsedEquipment #WorkTruck #FleetTrucks #DieselTruck #EquipmentMarketplace\n\nWhat do you check first when you look at a used truck?",
+      "fb_caption": "Ask for a cold start.\n\nBuying a used truck or machine? Ask the seller not to run it before you get there. A cold engine shows how it really starts, idles and smokes. Put your hand on the hood when you arrive. Warm means it already ran.\n\nThe truck in the photo is a real listing on YardSwaps. Find used equipment near you.\nhttps://www.yardswaps.com/?utm_source=facebook&utm_medium=social&utm_campaign=image_tip-cold-start\n\n#UsedEquipment #WorkTruck #FleetTrucks #DieselTruck #EquipmentMarketplace #Tradespeople\n\nWhat do you check first when you look at a used truck?"
+    },
+    {
+      "slug": "tip-whole-machine",
+      "picture": "real",
+      "look": "k1",
+      "feed": "brand/posts/out/tip-whole-machine-4x5.jpg",
+      "story": "brand/posts/out/tip-whole-machine-9x16.jpg",
+      "ig_caption": "Show the whole machine.\n\nSelling used equipment? Shoot all four sides, the hour meter, the data plate and any wear. Clear photos answer questions before buyers ask.\n\nOn YardSwaps you add a photo and the AI fills in the title, make, model and specs. You check it before it posts. Free to list, no selling fee. Link in bio: yardswaps.com/i\n\n#UsedEquipment #FloorScrubber #IndustrialEquipment #Warehouse #EquipmentMarketplace\n\nWhich photo do sellers leave out most often?",
+      "fb_caption": "Show the whole machine.\n\nSelling used equipment? Shoot all four sides, the hour meter, the data plate and any wear. Clear photos answer questions before buyers ask.\n\nOn YardSwaps you add a photo and the AI fills in the title, make, model and specs. You check it before it posts. Free to list, no selling fee.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_tip-whole-machine\n\n#UsedEquipment #FloorScrubber #IndustrialEquipment #Warehouse #EquipmentMarketplace #Tradespeople\n\nWhich photo do sellers leave out most often?"
+    },
+    {
+      "slug": "tip-data-plate",
+      "picture": "real",
+      "look": "k1",
+      "feed": "brand/posts/out/tip-data-plate-4x5.jpg",
+      "story": "brand/posts/out/tip-data-plate-9x16.jpg",
+      "ig_caption": "The data plate is the machine's ID.\n\nMake, model, serial number and year are stamped on it. Before you pay for a used machine, match the plate to the listing and the paperwork. Selling? Put a clear photo of the plate in your listing.\n\nThe plate in the photo is from a real listing on YardSwaps. Find used equipment near you. Link in bio: yardswaps.com\n\n#UsedEquipment #IndustrialEquipment #HeavyEquipment #Jobsite #EquipmentMarketplace\n\nEver looked at a machine whose plate didn't match the ad?",
+      "fb_caption": "The data plate is the machine's ID.\n\nMake, model, serial number and year are stamped on it. Before you pay for a used machine, match the plate to the listing and the paperwork. Selling? Put a clear photo of the plate in your listing.\n\nThe plate in the photo is from a real listing on YardSwaps. Find used equipment near you.\nhttps://www.yardswaps.com/?utm_source=facebook&utm_medium=social&utm_campaign=image_tip-data-plate\n\n#UsedEquipment #IndustrialEquipment #HeavyEquipment #Jobsite #EquipmentMarketplace #Tradespeople\n\nEver looked at a machine whose plate didn't match the ad?"
+    },
+    {
+      "slug": "tip-lead-with-hours",
+      "picture": "real",
+      "look": "k1",
+      "feed": "brand/posts/out/tip-lead-with-hours-4x5.jpg",
+      "story": "brand/posts/out/tip-lead-with-hours-9x16.jpg",
+      "ig_caption": "Lead with the hours.\n\nYear, hours and condition are the first things a buyer asks. Put all three in the title or the first line of your listing, and add a photo of the hour meter so nobody has to take your word for it.\n\nList it free on YardSwaps. No selling fee. Link in bio: yardswaps.com/i\n\n#UsedEquipment #Excavator #HeavyEquipment #Construction #EquipmentMarketplace\n\nHow many hours is too many for you on a used excavator?",
+      "fb_caption": "Lead with the hours.\n\nYear, hours and condition are the first things a buyer asks. Put all three in the title or the first line of your listing, and add a photo of the hour meter so nobody has to take your word for it.\n\nList it free on YardSwaps. No selling fee.\nhttps://www.yardswaps.com/sell-equipment?utm_source=facebook&utm_medium=social&utm_campaign=image_tip-lead-with-hours\n\n#UsedEquipment #Excavator #HeavyEquipment #Construction #EquipmentMarketplace #Tradespeople\n\nHow many hours is too many for you on a used excavator?"
     }
   ]
 }

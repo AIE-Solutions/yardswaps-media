@@ -38,6 +38,8 @@ ROOT = os.path.dirname(HERE)
 for p in ("listings", "rotation", os.path.join("brand", "endcard")):
     sys.path.insert(0, os.path.join(ROOT, p))
 import just_listed as jl  # noqa: E402
+sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
+import kit  # noqa: E402
 import rotation as rot  # noqa: E402
 import endcard  # noqa: E402
 
@@ -270,7 +272,12 @@ def overlay_png(hook_line, price, path):
     for part in parts:
         lines += jl.wrap(d, part, hf, right - left - 64, 4)
     lines = lines[:5]
-    top = 230
+    # the wordmark tab, as on every post (it sits on this layer so the slow push-in does not move it)
+    wf = kit.sg(54)
+    ww = int(kit.tracked_width(d, "YardSwaps", wf, -0.035)) + 68
+    d.rounded_rectangle((left, 150, left + ww, 246), radius=22, fill=WHITE + (255,))
+    kit.tracked(d, (left + 34, 167), "YardSwaps", wf, BLUE, -0.035)
+    top = 270
     h = 34 + (82 if label else 0) + len(lines) * 80 + 30
     d.rounded_rectangle((left, top, right, top + h), radius=30, fill=WHITE + (245,))
     y = top + 26
@@ -287,22 +294,25 @@ def overlay_png(hook_line, price, path):
         d.text((left + 28, py + 12), price, font=pf, fill=WHITE)
     assert top + h + 120 < H - SAFE_BOTTOM
     img.save(path)
+    return top + h + (94 if price else 0)     # where the words end; the photo starts under this
 
 
-def still_frame(photo_rgb, path):
-    """The whole photo fitted over a blurred, darkened fill of itself (fit whole item rule)."""
-    from PIL import Image, ImageFilter, ImageEnhance
+def still_frame(photo_rgb, path, top=620):
+    """The whole photo as a card on the brand slate panel (post kit look, brand/posts/README.md; fit whole
+    item rule). Until 2026-11-26 it sat on a blurred, darkened copy of itself, which Alan called "ai slop"."""
+    from PIL import Image
     ph = Image.fromarray(photo_rgb)
-    s = max(W / ph.width, H / ph.height)
     if ph.height / ph.width >= 1.6:     # already a tall 9:16 frame (the stock set): fill the screen
+        s = max(W / ph.width, H / ph.height)
         ph.resize((round(ph.width * s), round(ph.height * s)), Image.LANCZOS).crop((0, 0, W, H)).save(path)
         return
-    bg = ph.resize((int(ph.width * s) + 1, int(ph.height * s) + 1)).crop((0, 0, W, H))
-    bg = ImageEnhance.Brightness(bg.filter(ImageFilter.GaussianBlur(40))).enhance(0.55)
-    box_w, box_h = W - 60, 1000
-    s = min(box_w / ph.width, box_h / ph.height)
-    fg = ph.resize((int(ph.width * s), int(ph.height * s)), Image.LANCZOS)
-    bg.paste(fg, ((W - fg.width) // 2, 700 + (box_h - fg.height) // 2 - 120))
+    bg = Image.new("RGB", (W, H), kit.PANEL)
+    top += 36
+    box_w, box_h = W - 80, H - kit.SAFE_BOTTOM - top
+    c = kit.card(ph, box_w, box_h)
+    x, y = (W - c.width) // 2, top + (box_h - c.height) // 2
+    bg = kit.drop_shadow(bg, (x, y, x + c.width, y + c.height))
+    bg.paste(c, (x, y), c)
     bg.save(path)
 
 
@@ -327,7 +337,7 @@ def render(src, hook_line, out_mp4, seed):
     tmp = tempfile.mkdtemp(prefix="pov-")
     over = os.path.join(tmp, "over.png")
     price = jl.price_text(src["listing"].get("price")) if src.get("listing") else ""
-    overlay_png(hook_line, price, over)
+    words_end = overlay_png(hook_line, price, over)
     endp = os.path.join(tmp, "end.png")
     from PIL import Image
     Image.open(endcard.card_png("seller", W, H)).convert("RGB").resize((W, H)).save(endp)
@@ -338,7 +348,7 @@ def render(src, hook_line, out_mp4, seed):
         if photo is None:
             return None
         still = os.path.join(tmp, "still.png")
-        still_frame(photo, still)
+        still_frame(photo, still, words_end)
         args += ["-i", still]
         shot = (f"[0:v]scale={W * 2}:{H * 2},zoompan=z='1+0.06*on/{n}':d={n}:"
                 f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps={FPS},setsar=1[s]")

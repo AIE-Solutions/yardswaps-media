@@ -112,6 +112,9 @@ competitor claims we haven't checked.
   card ("Open your storefront." / "30 days free, then the founding price.") because
   dealers never hear "free to list". `brand/endcard/endcard.py add` puts it on any
   video; the posters skip a clip without it.
+- **One look for every post** (Alan, 2026-11-26): stills, Stories and listing Reels use the post kit in
+  `brand/posts/` (real listing photo, wordmark tab, blue highlight bar, slate panel). No AI, Canva or stock
+  pictures.
 - Cite credible sources only (manufacturer, government, trade body).
 
 ## Don't

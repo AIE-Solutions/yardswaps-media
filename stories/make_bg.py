@@ -1,119 +1,144 @@
 #!/usr/bin/env python3
-"""Pick today's machine and get a 9:16 background for the LIST IT FREE Story.
+"""Pick today's REAL listing photo for the daily seller Story.
 
-Runs in GitHub Actions (story.yml). Writes stories/out/<date>-<machine>-bg.<ext>
-and prints KEY=VALUE lines for $GITHUB_OUTPUT (date, machine, bg).
+Runs in GitHub Actions (story.yml). Writes stories/out/<date>-listing-<id>-bg.jpg, a small
+stories/out/<date>-listing-<id>-bg.json ({"credit": "Title · $1,200"}) that render_story.js prints on the chip,
+and KEY=VALUE lines for $GITHUB_OUTPUT (date, machine, slug, bg).
 
-Background: today's existing stories/out/<date>-<machine>-bg.png if present,
-else the oldest unused image in stories/bank/<machine>/, else BG_URL (an https image made elsewhere, e.g. ElevenLabs) if given, else one Runway gen4_image text-to-image at 1080:1920 (about 8 credits).
-The image is an illustrative backdrop only, never a real listing.
+Alan, 2026-11-26: item pictures must be real ("looks like ai slop"). Until then this script took an AI-made
+backdrop of a yard at sunset (a bank of ElevenLabs images, else a Runway render). Now the picture is a live
+listing's own photo, and only one the daily listing review already approved for the Just listed card
+(listings/queue.json, status approved or posted): that photo has passed the face check and the plate and
+phone blur, and it sits in listings/photos/<id>.jpg. No approved photo, no Story that day; nothing is
+generated.
+
+Order: a listing never shown in this Story first (newest first), then the one shown longest ago. A listing
+that is no longer live is left out. If the listings API cannot be reached the photo still goes out, but
+without the "On YardSwaps now" chip, because we could not confirm the listing is still for sale.
+
+Env: BG_URL = use this https image instead (a real photo someone picked by hand); MACHINE names it in the log.
 """
+import glob
 import json
 import os
+import re
 import sys
 import urllib.request
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "broll"))
-import runway_clip as rw  # noqa: E402  (req / wait / download helpers)
-
-# Approved by Alan 2026-11-08: one machine per weekday (Monday = 0).
-MACHINES = ["generator", "conveyor oven", "dump trailer", "walk-in cooler",
-            "ice machine", "zero-turn mower", "scissor lift"]
-
-PROMPT = (
-    "Vertical photorealistic photo of a used commercial equipment yard at golden hour. "
-    "Prominently in the center foreground: a used {machine}, with normal wear, parked on gravel. "
-    "Behind it, softly out of focus, a few other used machines and pallets along a chain-link fence. "
-    "Warm low sun, long shadows. The top third of the frame is clean open sky, darker deep blue, "
-    "empty, left for text. No people, no text, no letters, no logos, no brand names, no signs, "
-    "no license plates. Natural 35mm camera photo, shallow depth of field."
-)
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SITE = "https://www.yardswaps.com"
+RAW = "https://raw.githubusercontent.com/AIE-Solutions/yardswaps-media/main/"
+UA = "yardswaps-story/1.0 (https://github.com/AIE-Solutions/yardswaps-media)"
+CREDIT_CHARS = 30   # the chip holds about this much of a title next to the price
 
 
-def rotation_pick(now):
-    """Nov 21 (Alan: "We keep reusing the same machines"): instead of the fixed weekday machine, take the
-    bank machine that no channel has shown longest (rotation/rotation.py reads every posting log), skipping
-    machines and categories shown in the last 14 days when another choice exists. A new folder in
-    stories/bank/<machine-slug>/ adds that machine to the rotation. Falls back to the weekday machine."""
-    weekday = MACHINES[now.weekday()]
+def die(msg):
+    print(f"error: {msg}", file=sys.stderr)
+    sys.exit(1)
+
+
+def fetch(url, timeout=60):
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read()
+
+
+def load(path, default):
     try:
-        sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "rotation"))
-        import rotation as rot
-    except ImportError:
-        return weekday
-    bank = os.path.join(os.path.dirname(__file__), "bank")
-    have = sorted(d for d in os.listdir(bank) if os.path.isdir(os.path.join(bank, d))
-                  and any(f.endswith(".png") for f in os.listdir(os.path.join(bank, d)))) if os.path.isdir(bank) else []
-    if not have:
-        return weekday
-    hist = rot.uses()
-    cutoff = rot.now() - rot.dt.timedelta(days=rot.ROTATION_DAYS)
-    last_m, last_c = {}, {}
-    for u in hist:
-        last_m[u["machine"]] = u["time"]
-        if u["category"]:
-            last_c[u["category"]] = u["time"]
-    old = rot.now() - rot.dt.timedelta(days=3650)
+        with open(os.path.join(ROOT, path), encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, ValueError):
+        return default
 
-    def key(slug):
-        lm = last_m.get("story-" + slug, old)
-        lc = last_c.get(rot.STORY_CATEGORY.get(slug, ""), old)
-        return (lm >= cutoff, lc >= cutoff, lm, lc)
-    pick = sorted(have, key=key)[0]
-    print(f"rotation picked {pick} for the Story (bank: {', '.join(have)})")
-    return pick.replace("-", " ")
+
+def active_ids():
+    """Ids of every live listing, or None when the API cannot be read."""
+    got, total = [], None
+    try:
+        while total is None or len(got) < total:
+            d = json.loads(fetch(f"{SITE}/api/listings?sort=newest&limit=100&offset={len(got)}"))
+            page = d.get("listings") or []
+            total = d.get("total", len(got) + len(page))
+            if not page:
+                break
+            got += page
+    except Exception as e:
+        print(f"listings API not readable ({e}); no chip today")
+        return None
+    return {l["id"] for l in got if l.get("status", "active") == "active"}
+
+
+def short_title(t, n=CREDIT_CHARS):
+    t = re.sub(r"\s+", " ", (t or "").strip())
+    t = re.split(r"\s[–—|/-]\s|,\s", t)[0] if len(t) > n else t
+    if len(t) > n:
+        t = t[:n + 1].rsplit(" ", 1)[0].rstrip(",;:-")
+    return t
+
+
+def pick(queue, posted, active):
+    """The approved listing photo to show today, or None."""
+    last = {}
+    for p in posted:
+        if p.get("status") == "posted" and str(p.get("machine", "")).startswith("listing-"):
+            last[p["machine"][len("listing-"):]] = p.get("time") or p.get("date") or ""
+    pool = [q for q in queue if q.get("status") in ("approved", "posted") and q.get("photo_file")
+            and q.get("listing_id") and not q.get("kind")]
+    if active is not None:
+        pool = [q for q in pool if q["listing_id"] in active]
+    pool.sort(key=lambda q: q.get("added") or "", reverse=True)        # newest first ...
+    pool.sort(key=lambda q: last.get(q["listing_id"], ""))             # ... never shown first, then oldest shown
+    return pool[0] if pool else None
+
+
+def out(**kv):
+    for k, v in kv.items():
+        print(f"{k}={v}")
+    gh = os.environ.get("GITHUB_OUTPUT")
+    if gh:
+        with open(gh, "a") as f:
+            for k, v in kv.items():
+                f.write(f"{k}={v}\n")
 
 
 def main():
     now = datetime.now(ZoneInfo("America/Chicago"))
-    machine = (os.environ.get("MACHINE") or "").strip().lower() or rotation_pick(now)
-    bank_slugs = os.listdir(os.path.join(os.path.dirname(__file__), "bank")) \
-        if os.path.isdir(os.path.join(os.path.dirname(__file__), "bank")) else []
-    if machine not in MACHINES and machine.replace(" ", "-") not in bank_slugs:
-        rw.die(f"machine {machine!r} is not on the approved list {MACHINES} and has no bank folder")
     date = now.strftime("%Y-%m-%d")
-    slug = machine.replace(" ", "-")
-    os.makedirs("stories/out", exist_ok=True)
+    os.makedirs(os.path.join(ROOT, "stories", "out"), exist_ok=True)
     bg_url = (os.environ.get("BG_URL") or "").strip()
-    existing = f"stories/out/{date}-{slug}-bg.png"
-    bank_dir = f"stories/bank/{slug}"
-    bank = sorted(f for f in os.listdir(bank_dir) if f.endswith(".png")) if os.path.isdir(bank_dir) else []
-    if os.path.isfile(existing) and not bg_url:
-        print(f"reusing today's background {existing}")
-        out = existing
-    elif bank and not bg_url:
-        # Pre-made backdrops (ElevenLabs, see README): each is used once, then
-        # moved out of the bank, so every Story still gets an unused image.
-        src = os.path.join(bank_dir, bank[0])
-        out = existing
-        os.replace(src, out)
-        print(f"using bank image {src} ({len(bank) - 1} left for {machine})")
-    elif bg_url:
+    if bg_url:
         if not bg_url.startswith("https://"):
-            rw.die("BG_URL must be https")
-        out = f"stories/out/{date}-{slug}-bg.png"
-        rw.download(bg_url, out)
-    else:
-        key = os.environ.get("RUNWAYML_API_SECRET", "").strip()
-        if not key:
-            rw.die("RUNWAYML_API_SECRET not set and no BG_URL given")
-        body = {"model": "gen4_image", "promptText": PROMPT.format(machine=machine),
-                "ratio": "1080:1920"}
-        task = rw.req("POST", "/v1/text_to_image", key, body)
-        print(f"text_to_image task {task.get('id')} for {machine}")
-        done = rw.wait(task["id"], key)
-        out = f"stories/out/{date}-{slug}-bg.png"
-        rw.download(done["output"][0], out)
-    print(f"date={date}")
-    print(f"machine={machine}")
-    print(f"slug={slug}")
-    print(f"bg={out}")
-    gh = os.environ.get("GITHUB_OUTPUT")
-    if gh:
-        with open(gh, "a") as f:
-            f.write(f"date={date}\nmachine={machine}\nslug={slug}\nbg={out}\n")
+            die("BG_URL must be https")
+        slug = re.sub(r"[^a-z0-9]+", "-", (os.environ.get("MACHINE") or "manual").lower()).strip("-") or "manual"
+        bg = f"stories/out/{date}-{slug}-bg.jpg"
+        with open(os.path.join(ROOT, bg), "wb") as f:
+            f.write(fetch(bg_url))
+        return out(date=date, machine=slug, slug=slug, bg=bg)
+    today = sorted(glob.glob(os.path.join(ROOT, "stories", "out", f"{date}-listing-*-bg.jpg")))
+    if today:   # a second run today: the same photo, not another one
+        bg = os.path.relpath(today[0], ROOT)
+        slug = os.path.basename(bg)[len(date) + 1:-len("-bg.jpg")]
+        print(f"reusing today's photo {bg}")
+        return out(date=date, machine=slug, slug=slug, bg=bg)
+    active = active_ids()
+    q = pick(load("listings/queue.json", []), load("stories/posted.json", []), active)
+    if not q:
+        die("no approved real listing photo to show today; no Story (nothing is generated, Alan 2026-11-26)")
+    slug = "listing-" + q["listing_id"]
+    bg = f"stories/out/{date}-{slug}-bg.jpg"
+    local = os.path.join(ROOT, q["photo_file"])
+    data = open(local, "rb").read() if os.path.exists(local) else fetch(RAW + q["photo_file"])
+    with open(os.path.join(ROOT, bg), "wb") as f:
+        f.write(data)
+    if active is not None:
+        price = q.get("price")
+        credit = short_title(q.get("title")) + (f" · ${price:,.0f}" if price and price > 0 else "")
+        with open(os.path.join(ROOT, bg[:-4] + ".json"), "w", encoding="utf-8") as f:
+            json.dump({"credit": credit, "listing_id": q["listing_id"], "title": q.get("title")}, f)
+    print(f"Story photo: {q.get('title')} ({q['listing_id']}), {len(data)} bytes")
+    out(date=date, machine=slug, slug=slug, bg=bg)
 
 
 if __name__ == "__main__":
