@@ -1,0 +1,50 @@
+{
+ "raw": "WORK/rig/raw/racking",
+ "photo": "WORK/rig/racking-full.jpg",
+ "template": "WORK/wt/o/sell-empty.png",
+ "hook": [
+  "POV: selling a lot of",
+  "pallet racking."
+ ],
+ "ask": [
+  "What racking is stacked",
+  "in your warehouse?"
+ ],
+ "music": "yardswaps-music-bed-a-100bpm.mp3",
+ "caps": [
+  [
+   "List it from your phone.",
+   "Tap Take Photo."
+  ],
+  [
+   "Add a photo.",
+   "AI reads it."
+  ],
+  [
+   "AI fills in the rest.",
+   "Title, category, details."
+  ],
+  [
+   "Add your price.",
+   "You set it."
+  ],
+  [
+   "Check the details.",
+   "Change anything."
+  ],
+  [
+   "Tap Publish.",
+   "One tap."
+  ],
+  [
+   "Your listing is live.",
+   "Free to list. No cut of the sale."
+  ]
+ ],
+ "end_frames": "WORK/endc/e-racking",
+ "final": {
+  "image": "WORK/rig/racking_pub.png",
+  "frames": 52,
+  "cap": 6
+ }
+}

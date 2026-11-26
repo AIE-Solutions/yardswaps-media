@@ -69,6 +69,17 @@ A listing Reel with `"hold": true` and a `hold_reason` starting "photo check" fa
 109 (a readable plate, phone number, street address or third-party contact in a photo): re-make it without that
 photo before lifting the hold.
 
+## Walkthrough of the day (Alan, 2026-11-26)
+
+"These are critical to our promotion", then, on the live-app sample: "Yup perfect". One walkthrough a day on
+Instagram and on Facebook, in the first regular slot from 8:30 am Central (`WALK_FROM_CT`), ahead of the swaps.
+- `"walkthrough": "live"`: the live-app set (the real sell flow recorded in the app with one live listing's own
+  photo and facts, ending on the earlier walkthroughs' animated end card; `studio/walkthrough/live/README.md`).
+  These go first. A clip's `machine` is its own slug, because the clip is about the app; `item_machine` names
+  the listing in its opener, and the clip waits 48 hours after that listing was last shown anywhere.
+- `"earlier_look_ok": true`: the eight earlier walkthroughs. One posts only on a day no live-app clip may run.
+Both follow the 10-day no-repeat rule. On TikTok and YouTube the live-app clips are ordinary new-look clips.
+
 ## Adding new videos (weekly batch)
 
 Every clip ends on the YardSwaps end card (Alan, 2026-11-25; `brand/endcard/`). The posters
@@ -119,6 +130,7 @@ Alan, Nov 15 ("All socials yes"): one "list your equipment free" post a day on e
 Alan, Nov 15: "Let's add the promotions to the posting on socials." The promotions live in `reels/promos.json`; nothing else needs editing to change them.
 
 - One post a day per platform carries a promotion: the first Reel run of the Central day at or after `slot_from_ct` (10:00 am). It takes an existing slot, so volume does not go up. On the day the 10 am run fails, a later slot takes it (after the 5:15 pm list-it-free post when both are due).
+- From 2026-11-26 (Alan: "Storefronts are also very important and need to keep pushing") `promos.json` sets `"daily_audience": "dealer"`: the storefront promotions (`founding`, `storefront`) take that 10:00 am post every day, turn about, on a storefront Reel (`"cut": "storefront"`; seven in the library, and a day with none free falls back to a real-item clip), and the seller promotions (`share`, `boost`) take turns in a second post from `second_slot_from_ct` (5:15 pm). A platform with only one kind (TikTok has `share` alone) keeps one promotion post a day. `promo_now()` in `post_reels.py` decides.
 - Active promotions take turns by day. Each has `start` / `end` (Central dates, end exclusive) and its own `platforms`. Today: `founding` (Dealer storefront at $29/mo for the first 3 paid months, first 100 storefronts, no end date; Instagram, Facebook, Threads; typed link yardswaps.com/o, which opens /dealers with `?offer=founding`) and `share` (Share my page plus the invite boost, proven 11-16 per GROWTH-LOG; the storefront reward waits on reward_live; Instagram, Facebook, Threads, TikTok).
 - `share` uses `lines` until the share reward (app PR #347) is merged and live; then set `"reward_live": true` and it uses `lines_reward` ("If they pay for a storefront, you get a free month of yours, or 5 free boosts if you don't have one.").
 - Caption: the promotion's `head`, the clip's text (minus its free-listing closer and any sentence in `drop_sentences_with`), one rotating promotion line, the follow line with `ig_cta` (Instagram) or a tagged link (Facebook, campaign `promo_<id>_<slug>`, plus `link_query`), hashtags, then the clip's question. Threads gets head, line, typed link and question; TikTok gets no web address.

@@ -1,0 +1,50 @@
+{
+ "raw": "WORK/rig/raw/cooler",
+ "photo": "WORK/rig/cooler-full.jpg",
+ "template": "WORK/wt/o/sell-empty.png",
+ "hook": [
+  "POV: selling a walk-in",
+  "display cooler."
+ ],
+ "ask": [
+  "What equipment is taking",
+  "up your floor space?"
+ ],
+ "music": "yardswaps-music-clean-120bpm.mp3",
+ "caps": [
+  [
+   "List it from your phone.",
+   "Tap Take Photo."
+  ],
+  [
+   "Add a photo.",
+   "AI reads it."
+  ],
+  [
+   "AI fills in the rest.",
+   "Title, category, details."
+  ],
+  [
+   "Add your price.",
+   "You set it."
+  ],
+  [
+   "Check the details.",
+   "Change anything."
+  ],
+  [
+   "Tap Publish.",
+   "One tap."
+  ],
+  [
+   "Your listing is live.",
+   "Free to list. No cut of the sale."
+  ]
+ ],
+ "end_frames": "WORK/endc/e-cooler",
+ "final": {
+  "image": "WORK/rig/cooler_pub.png",
+  "frames": 52,
+  "cap": 6
+ }
+}

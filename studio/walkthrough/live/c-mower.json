@@ -1,0 +1,50 @@
+{
+ "raw": "WORK/rig/raw/mower",
+ "photo": "WORK/rig/mower-full.jpg",
+ "template": "WORK/wt/o/sell-empty.png",
+ "hook": [
+  "POV: selling a walk-behind",
+  "commercial mower."
+ ],
+ "ask": [
+  "What mowers are parked",
+  "in your shop?"
+ ],
+ "music": "yardswaps-music-bed-b-112bpm.mp3",
+ "caps": [
+  [
+   "List it from your phone.",
+   "Tap Take Photo."
+  ],
+  [
+   "Add a photo.",
+   "AI reads it."
+  ],
+  [
+   "AI fills in the rest.",
+   "Title, category, details."
+  ],
+  [
+   "Add your price.",
+   "You set it."
+  ],
+  [
+   "Check the details.",
+   "Change anything."
+  ],
+  [
+   "Tap Publish.",
+   "One tap."
+  ],
+  [
+   "Your listing is live.",
+   "Free to list. No cut of the sale."
+  ]
+ ],
+ "end_frames": "WORK/endc/e-mower",
+ "final": {
+  "image": "WORK/rig/mower_pub.png",
+  "frames": 52,
+  "cap": 6
+ }
+}
