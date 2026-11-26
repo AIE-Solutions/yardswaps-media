@@ -693,7 +693,22 @@ def pick(videos, posted, platform, force=None, scores=None):
     if rot is None:
         raise SystemExit("rotation/rotation.py is missing from this checkout; add it before picking a clip")
     hist = rot.uses()   # always the whole library, so a promo or list-it-free pool maps machines right
-    # Swaps first (see NEW_LOOK): the same machine already went out in the old look and that post comes down
+    # One earlier walkthrough a day per platform, ahead of the swaps (Alan, 2026-11-26: "These are critical
+    # to our promotion I really liked them"). Only clips marked "earlier_look_ok", under the same 10-day
+    # no-repeat rule as everything else; the one posted longest ago goes first.
+    if platform in ("instagram", "facebook"):
+        walk = {v["slug"] for v in videos if v.get("earlier_look_ok")}
+        day = now().astimezone(CENTRAL).replace(hour=0, minute=0, second=0, microsecond=0)
+        if walk and not any(p["platform"] == platform and p.get("status") == "posted" and p["slug"] in walk
+                            and parse_time(p["time"]) >= day for p in posted):
+            free = [v for v in usable if v["slug"] in walk
+                    and (v["slug"] not in last or last[v["slug"]] <= cutoff)]
+            # Machine rule: 14 days clear first, else the rotation's own 7-day floor, never closer.
+            due = [v for v in free if rot.allowed(v, hist)] or [v for v in free if rot.fallback_ok(v, hist)]
+            if due:
+                due.sort(key=lambda v: last.get(v["slug"]) or now() - dt.timedelta(days=365))
+                return due[0], due[0]["slug"] in last
+    # Then swaps (see NEW_LOOK): the same machine already went out in the old look and that post comes down
     # once this one is up, so the machine rotation does not hold a swap back. Oldest old-look post first.
     swaps = [v for v in usable if swap_due(v, posted, platform)
              and platform in ("instagram", "facebook")]

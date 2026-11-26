@@ -36,8 +36,8 @@
    "machine": "hydraulic-cylinders",
    "endcard": "seller-v1",
    "picture": "real",
-   "hold": true,
-   "hold_reason": "crop check: opener may cut the machine off (Alan 11-26 'you can't even see the equipment')"
+   "crop_checked": "2026-11-26: whole item clear in the opening frames",
+   "earlier_look_ok": true
   },
   {
    "added": "2026-11-08",
@@ -228,8 +228,8 @@
    "machine": "hydraulic-cylinders",
    "endcard": "seller-v1",
    "picture": "real",
-   "hold": true,
-   "hold_reason": "crop check: opener may cut the machine off (Alan 11-26 'you can't even see the equipment')"
+   "crop_checked": "2026-11-26: whole item clear in the opening frames",
+   "earlier_look_ok": true
   },
   {
    "slug": "forklift-finally-deal",
@@ -305,8 +305,8 @@
    "machine": "excavator-thumb",
    "endcard": "seller-v1",
    "picture": "real",
-   "hold": true,
-   "hold_reason": "crop check: opener may cut the machine off (Alan 11-26 'you can't even see the equipment')"
+   "crop_checked": "2026-11-26: whole item clear in the opening frames",
+   "earlier_look_ok": true
   },
   {
    "slug": "leftover-fittings-lot",
@@ -423,11 +423,11 @@
    "ig_tags": "#hvac #hvactech #usedequipment #yardswaps",
    "boost": 50,
    "category": "hvac",
-   "hold": true,
    "machine": "ac-condenser",
    "endcard": "seller-v1",
    "picture": "real",
-   "hold_reason": "crop check: opener may cut the machine off (Alan 11-26 'you can't even see the equipment')"
+   "crop_checked": "2026-11-26: whole item clear in the opening frames",
+   "earlier_look_ok": true
   },
   {
    "slug": "save-a-search",
@@ -464,11 +464,11 @@
    "ig_tags": "#pressurewasher #hotsy #usedequipment #yardswaps",
    "boost": 50,
    "category": "pressure",
-   "hold": true,
    "machine": "pressure-washer-red-hot-water",
    "endcard": "seller-v1",
    "picture": "real",
-   "hold_reason": "crop check: opener may cut the machine off (Alan 11-26 'you can't even see the equipment')"
+   "crop_checked": "2026-11-26: whole item clear in the opening frames",
+   "earlier_look_ok": true
   },
   {
    "slug": "message-the-seller",
@@ -549,11 +549,11 @@
    "ig_tags": "#cnc #machinetools #usedequipment #yardswaps",
    "boost": 50,
    "category": "machining",
-   "hold": true,
    "machine": "boring-bars",
    "endcard": "seller-v1",
    "picture": "real",
-   "hold_reason": "crop check: opener may cut the machine off (Alan 11-26 'you can't even see the equipment')"
+   "crop_checked": "2026-11-26: whole item clear in the opening frames",
+   "earlier_look_ok": true
   },
   {
    "slug": "ai-lists-it",
@@ -681,11 +681,11 @@
    "ig_tags": "#hilti #concrete #usedequipment #yardswaps",
    "boost": 50,
    "category": "concrete",
-   "hold": true,
    "machine": "anchor-adhesive",
    "endcard": "seller-v1",
    "picture": "real",
-   "hold_reason": "crop check: opener may cut the machine off (Alan 11-26 'you can't even see the equipment')"
+   "crop_checked": "2026-11-26: whole item clear in the opening frames",
+   "earlier_look_ok": true
   },
   {
    "slug": "every-category",
@@ -773,8 +773,8 @@
    "machine": "pressure-washer-red-hot-water",
    "endcard": "seller-v1",
    "picture": "real",
-   "hold": true,
-   "hold_reason": "crop check: opener may cut the machine off (Alan 11-26 'you can't even see the equipment')"
+   "crop_checked": "2026-11-26: whole item clear in the opening frames",
+   "earlier_look_ok": true
   },
   {
    "added": "2026-11-07",
