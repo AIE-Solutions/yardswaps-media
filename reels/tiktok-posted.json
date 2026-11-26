@@ -369,8 +369,19 @@
   "slug": "listed-chief-ez-liner-ii-collision-frame-tb4op",
   "repeat": false,
   "list_free": true,
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6b0748e6b39ac731b6fc6845",
-  "due": "2026-11-25T20:50:22.000Z"
+  "due": "2026-11-25T20:50:22.000Z",
+  "url": "https://www.tiktok.com/@yardwaps/video/7712214299246218510?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+  "sent": "2026-11-25T20:51:11.080Z"
+ },
+ {
+  "time": "2026-11-26T13:45:07Z",
+  "platform": "tiktok",
+  "slug": "lawn-tractor-after-the-route",
+  "repeat": false,
+  "list_free": true,
+  "status": "failed",
+  "error": "Invalid post: Video could not be read from its URL."
  }
 ]
