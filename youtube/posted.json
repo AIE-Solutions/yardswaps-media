@@ -79,9 +79,11 @@
   "pick": "ok",
   "library_slug": "seller-sitting-idle",
   "machine": "seller-sitting-idle",
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6b08ad9482b7c4bc165554df",
   "due": "2026-11-26T22:12:12.000Z",
-  "video_host": "cdn.jsdelivr.net"
+  "video_host": "cdn.jsdelivr.net",
+  "url": "https://www.youtube.com/shorts/jtD9d19b6H0",
+  "sent": "2026-11-26T22:12:17.120Z"
  }
 ]
