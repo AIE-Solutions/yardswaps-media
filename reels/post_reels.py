@@ -90,30 +90,34 @@ CLEAR_MINUTES = 90         # skip a platform if anything went up this recently (
 
 # Daily Reel slots in Central time (Nov 8: raised from 2 to 4 a day, Alan:
 # "amplify our video postings"). Each entry is (slot time, latest start). A
-# scheduled run posts once per slot, only between those two times, so every
-# post stays 90+ minutes from HeyCatch (about :33 past 4 am, 12 pm and 8 pm
-# Central, and the extra Instagram/Facebook posts it puts in those same
-# slots) and from the 2:15 pm Just listed post:
+# scheduled run posts once per slot, only between those two times. No slot
+# starts inside the 90 minutes after HeyCatch (about :33 past 4 am, 12 pm and
+# 8 pm Central, and the extra Instagram/Facebook posts it puts in those same
+# slots) or after the 2:15 pm Just listed post, because the script skips a
+# platform when something that isn't ours went up there in the last 90 minutes:
 #   6:10 am   until 6:55 am   (seventh slot, added Nov 13 when the library reached
 #                              71 active; HeyCatch 4:33 am is 92+ min before the early edge)
-#   7:00 am   until 8:00 am   (HeyCatch 4:33 am is 2.5 h before)
+#   7:00 am   until 8:00 am   (HeyCatch 4:33 am is 2.5 h before; the seller post since Nov 26)
 #   8:30 am   until 9:30 am   (fifth slot, added Nov 8 when the library reached 50)
-#   10:00 am  until 11:00 am  (HeyCatch 12:33 pm is 93+ min after)
+#   10:00 am  until 11:00 am
+#   11:20 am  until 11:50 am  (moved here Nov 26 from 12:40 am; 43+ min before HeyCatch 12:33 pm)
 #   3:55 pm   until 4:45 pm   (eighth slot, added Nov 18 when the library reached
 #                              89 active; Just listed 2:15 pm is 95+ min before the early edge)
 #   5:15 pm   until 6:00 pm   (was 4:30 pm until Nov 18; moved so it posts 55+ min
 #                              after the 3:55 pm slot)
-#   6:30 pm   until 7:00 pm   (HeyCatch 8:33 pm is 93+ min after)
+#   6:30 pm   until 7:00 pm
+#   7:30 pm   until 8:00 pm   (moved here Nov 26 from 11:40 pm; 33+ min before HeyCatch 8:33 pm)
 #   10:10 pm  until 11:00 pm  (sixth slot, added Nov 11 when the library reached
 #                              64 active; HeyCatch 8:33 pm is 92+ min before the early edge)
-#   11:40 pm  until 11:59 pm  (ninth slot, added Nov 20 when the library reached
-#                              96 active; 9:40 pm Pacific, 4.5 h before HeyCatch 4:33 am)
-#   12:40 am  until 1:15 am   (tenth slot, added Nov 23 at 110 active; 10:40 pm Pacific,
-#                              an hour after the 11:40 pm slot, 3+ h before HeyCatch 4:33 am)
+# Nov 26 (Alan: "based on research is their optimal times to post"): the 11:40 pm and 12:40 am
+# slots sat in the midnight to 4 am window that the 2026 Sprout Social, Buffer and Hootsuite
+# studies all name as the worst, so they moved into late morning (our Facebook followers peak
+# 10 am to noon, Metricool) and early evening. Still ten a day. A two-week test: compare the
+# moved slots' Reels with the kept ones in metrics/ before keeping or undoing it.
 # A run GitHub starts too late for its slot does nothing; the next slot's
 # runs pick up. library.json "slots" (["07:00-09:30", ...]) overrides this.
 CENTRAL = ZoneInfo("America/Chicago")
-SLOTS_CT = [((0, 40), (1, 15)), ((6, 10), (6, 55)), ((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((15, 55), (16, 45)), ((17, 15), (18, 0)), ((18, 30), (19, 0)), ((22, 10), (23, 0)), ((23, 40), (23, 59))]
+SLOTS_CT = [((6, 10), (6, 55)), ((7, 0), (8, 0)), ((8, 30), (9, 30)), ((10, 0), (11, 0)), ((11, 20), (11, 50)), ((15, 55), (16, 45)), ((17, 15), (18, 0)), ((18, 30), (19, 0)), ((19, 30), (20, 0)), ((22, 10), (23, 0))]
 SLOT_EARLY_MINUTES = 5     # a run that starts up to 5 minutes early counts for the slot
 
 
@@ -285,8 +289,9 @@ def threads_topic(v):
 # Alan, Nov 15: a daily "list your equipment free" post on every social
 # ("All socials yes"). One of the ten daily Reels carries it, so volume
 # does not go up: the first Reel of the Central day at or after
-# LIST_FREE_FROM_CT (the 5:15 pm slot; if that run fails, 6:30 pm or 10:10 pm
-# takes over) gets a "LIST IT FREE" caption and a clip picked for it:
+# LIST_FREE_FROM_CT (the 7:00 am slot since Nov 26, when our Instagram followers
+# are most active, 6 to 9 am in Metricool; it was 5:15 pm. If that run fails the
+# next slot takes over) gets a "LIST IT FREE" caption and a clip picked for it:
 #   - a real item first (the clip names one category; no dealer clips),
 #   - a category the list-it-free posts have not shown in LIST_FREE_CATEGORY_DAYS
 #     days, so the equipment rotates across the categories,
@@ -295,7 +300,7 @@ def threads_topic(v):
 # and stays as it is. Copy is seller-first: free to list, no cut of the sale,
 # every 4 listings earns a free 7-day boost credit (up to 5; the seller spends
 # it, so never say it boosts automatically). Never promise views or sales.
-LIST_FREE_FROM_CT = (17, 15)
+LIST_FREE_FROM_CT = (7, 0)
 LIST_FREE_CATEGORY_DAYS = 7
 LIST_FREE_HEAD = "LIST IT FREE"
 # Rotate so no two days in a row read word for word the same.
@@ -402,7 +407,7 @@ def list_free_threads_caption(v, turn=0):
 # promotions live in reels/promos.json (founding dealer price, Share my page
 # and the invite reward). One Reel a day per platform carries one: the first
 # run of the Central day at or after promos.json "slot_from_ct" (10:00 am; if
-# that run fails a later slot takes over, after the 5:15 pm list-it-free post
+# that run fails a later slot takes over, after the list-it-free post
 # when both are due). The active promotions take turns by day, so volume does
 # not go up. A promotion only posts between its start and end dates and on its
 # own "platforms". The caption opens with the promotion's head, keeps the
