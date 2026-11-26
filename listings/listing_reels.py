@@ -30,7 +30,7 @@ already approved on the listing's card goes straight in. Any other clip goes in 
 "pending" row in listings/reel-queue.json, with a contact sheet of every frame it uses in
 listings/reel-previews/<id>.jpg, until the review task approves it.
 
-Env: DRY_RUN=1 renders into /tmp and changes nothing; REELS_PER_RUN (default 6); LISTINGS_JSON = read the
+Env: DRY_RUN=1 renders into /tmp and changes nothing; REELS_PER_RUN (default 6); PER_SELLER (default 1, clips per seller per run); LISTINGS_JSON = read the
 listings from this file instead of the API (tests).
 """
 import datetime as dt
@@ -59,6 +59,7 @@ PREVIEWS = os.path.join(ROOT, "listings", "reel-previews")
 MUSIC = os.path.join(ROOT, "music", "v2")
 
 REELS_PER_RUN = int(os.environ.get("REELS_PER_RUN") or 6)
+PER_SELLER = int(os.environ.get("PER_SELLER") or 1)   # clips per seller per run; a backfill run raises it
 W, H, FPS = 1080, 1920, 30
 PHOTO_SECONDS = 3.4
 END_SECONDS = 2.0
@@ -272,20 +273,6 @@ def restyle(vids, active, rq, queue, dry, limit):
 
 # ---------- main ----------
 
-def fetch_all():
-    """Every active listing. The API returns at most 100 a call, so one call missed the older listings and
-    the "listing no longer active" hold never ran (it needs the full list)."""
-    got, total = [], None
-    while total is None or len(got) < total:
-        d = json.loads(jl.fetch(f"{jl.API}?sort=newest&limit=100&offset={len(got)}"))
-        page = d.get("listings") or []
-        total = d.get("total", len(got) + len(page))
-        if not page:
-            break
-        got += page
-    return {"listings": got, "total": total}
-
-
 def body_for(l):
     title = jl.nice_title(l["title"])
     lead = "Just listed on YardSwaps" if jl.is_new(l) else "For sale on YardSwaps"
@@ -297,6 +284,21 @@ def body_for(l):
 def tags_for(l):
     cat = jl.CATEGORY_TAGS.get(l.get("category"), ["#Equipment", "#ForSale"])
     return " ".join([t.lower() for t in cat] + ["#usedequipment", "#yardswaps"])
+
+
+def fetch_all():
+    """Every live listing: the API returns at most 100 a page, so page with offset until total
+    (before Nov 26 only the newest 100 of 146 were ever seen)."""
+    got, total, off = [], None, 0
+    while True:
+        d = json.loads(jl.fetch(f"{jl.API}?sort=newest&limit=100&offset={off}"))
+        page = d.get("listings", d) if isinstance(d, dict) else d
+        total = d.get("total") if isinstance(d, dict) else None
+        got += [l for l in page if l["id"] not in {g["id"] for g in got}]
+        off += 100
+        if not page or total is None or off >= total or off > 2000:
+            break
+    return {"listings": got, "total": total}
 
 
 def main():
@@ -349,8 +351,19 @@ def main():
     rejected = {lid for lid, r in latest.items() if r.get("status") == "rejected" and lid not in skips}
     card_ok = {q["listing_id"]: q for q in queue if q.get("status") in ("approved", "posted") and q.get("photo_file")}
     hist = rot.uses(vids)
-    order = [l for l in rot.rank_listings(list(active.values()), hist, opted_out)
-             if l["id"] not in have and l["id"] not in rejected and jl.safe_title(l)]
+    # filter before ranking: a seller's slot must go to a listing that can still get a clip, not to
+    # one that already has one (Nov 26: per_seller=1 after the clip filter left 3 of 146 buildable)
+    todo = [l for l in active.values() if l["id"] not in have and l["id"] not in rejected and jl.safe_title(l)]
+    order = rot.rank_listings(todo, hist, opted_out, per_seller=PER_SELLER)
+    if PER_SELLER > 1:   # several per seller: take them seller by seller in turn so one dealer's lot is spread out
+        by_seller = {}
+        for l in order:
+            by_seller.setdefault(l.get("sellerId"), []).append(l)
+        order = []
+        while any(by_seller.values()):
+            for q in by_seller.values():
+                if q:
+                    order.append(q.pop(0))
     print(f"{len(active)} active listings, {len(order)} without a clip and free under the 14-day rule")
     built = 0
     if order:
