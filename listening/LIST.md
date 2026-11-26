@@ -1,8 +1,20 @@
-# Listening list, updated Wed Nov 25, 2026
+# Listening list, updated Thu Nov 26, 2026
 
 People asking to buy or sell used work equipment in public places, last 8 days. Nothing here was posted. Reply by hand, as the business, only where the place's rules allow it; use the link version only where links are allowed.
 
-## 1. Selling: Metalworking & CNC (Hobby-Machinist, Wed Nov 25)
+## 1. Selling: Metalworking & CNC (Practical Machinist, Thu Nov 26)
+
+> FS: Vintage US Machine Tool Manual Mill - Selling my manual mill located in Millersville MD. I'm not sure how much to ask for this machine. When I bought this mill 25 years ago I had no idea it had any sort of collector following. I just thought it was "old" I've taken great care of it. Probably should have cleaned it for pictures though. Chips are proof it's useful. The machine is a US Machine Tools manual mill. It does not have a namepl
+
+Open: https://www.practicalmachinist.com/forum/threads/fs-vintage-us-machine-tool-manual-mill.452682/
+
+Draft reply:
+
+```
+For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
+```
+
+## 2. Selling: Metalworking & CNC (Hobby-Machinist, Wed Nov 25)
 
 > Posted my PM lathe in the machine for sale section here cheap - no views. - hello all, I posted an un-used PM 1236T in the machine for sale section here and its gotten no attention, I'm looking to down size so I also offered to trade for a smaller PM machine with a little cash. I'm thinking very few people are looking at the members for sale section, I know the unregistered public cant see it, which was the point - Id rather take a lose and have a needy member here get a 
 
@@ -14,7 +26,7 @@ Draft reply:
 For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
 ```
 
-## 2. Selling: Metalworking & CNC (Practical Machinist, Wed Nov 25)
+## 3. Selling: Metalworking & CNC (Practical Machinist, Wed Nov 25)
 
 > FOR SALE - Pratt and Whitney 12x30 Model B - Looking to sell my Pratt and Whitney 12x30 lathe. I'm moving and downsizing and unfortunately will not have room for it. She may be old (early/mid 1940's model) but still very productive. Well maintained. The ways are in very good shape. Newer 240VAC single phase motor. Import quick change post. 3-jaw, 4-jaw, and some collets. Taper attachment (not complete). Lots of tooling including lots of new 
 
@@ -26,7 +38,7 @@ Draft reply:
 For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
 ```
 
-## 3. Selling: Trailers (Pressure Washing Resource, Sun Nov 22)
+## 4. Selling: Trailers (Pressure Washing Resource, Sun Nov 22)
 
 > Turnkey in Michigan — ICE-Built 12' Hot Water Trailer + Soft Wash + Customer List — $15,500 - Selling my turnkey 12’ tandem pressure washing and soft wash trailer. Milford, MI. Professionally built by Industrial Cleaning Equipment (ICE) and serviced by Hotsy Midwest in Livonia. Everything works — hook it up and go to work. Pressure-Pro hot water unit, Honda GX630, 5.5 GPM @ 3,500 PSI — only 227 hours 12V soft wash (Everflo 5.5 GPM) plus a spare pump head still in the box 550-gal buffer tan
 
@@ -38,7 +50,7 @@ Draft reply:
 For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?
 ```
 
-## 4. Buying: Metalworking & CNC (Hobby-Machinist, Wed Nov 25)
+## 5. Buying: Metalworking & CNC (Hobby-Machinist, Thu Nov 26)
 
 > Who makes the second best Micrometer - starting with this comment.... https://www.hobby-machinist.com/threads/lathe-head-stock-is-tilted-shim-it.126016/post-1354350 I am looking for my first micrometer. I already have my second in the amazon shopping cart, Mitutoyo 103-129, confirmed to be the legit Mitutoyo store. but, I want one that I wont be afraid to break, drop, or have something go very wrong with. some mentioned that I look lik
 
