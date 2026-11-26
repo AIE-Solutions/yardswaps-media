@@ -384,7 +384,7 @@
       "name": "Reels and Stories poster",
       "status": "live",
       "does": "Posts our Reels and Stories to Instagram and Facebook in 10 daily slots, skipping clips without the end card.",
-      "schedule": "10 slots, 5:10 am to 11:40 pm",
+      "schedule": "10 slots, 5:10 am to 9:10 pm",
       "cadenceHours": 8,
       "runner": {
         "kind": "workflow",
