@@ -386,7 +386,10 @@ def facts_lines(l):
     if not first:
         first, second = second, []
     if where:
-        first = first[:2] + [where]
+        if len(" · ".join(first[:2] + [where])) > 44:   # hours, miles and a long town: the town goes on the next line
+            first, second = first[:2], second + [where]
+        else:
+            first = first[:2] + [where]
     return [" · ".join(x) for x in (first, second) if x]
 
 

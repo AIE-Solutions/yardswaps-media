@@ -480,23 +480,80 @@ def listing_post(photo, title, price, facts="", label=None, pos=(0.5, 0.5), fact
     return img
 
 
+def _dhash(img):
+    """A 64-bit difference hash: two photos of the same view land within a few bits of each other."""
+    g = img.convert("L").resize((9, 8), Image.LANCZOS)
+    px = list(g.getdata())
+    return [px[r * 9 + c] > px[r * 9 + c + 1] for r in range(8) for c in range(8)]
+
+
+def distinct(photos, near=12):
+    """The photos with near-duplicates dropped (same view twice reads as a mistake once they sit in one frame).
+    Order is kept; the first photo always stays."""
+    kept, hashes = [], []
+    for p in photos:
+        h = _dhash(p)
+        if all(sum(a != b for a, b in zip(h, k)) > near for k in hashes):
+            kept.append(p)
+            hashes.append(h)
+    return kept or photos[:1]
+
+
+TOP_OFF = 269 + 28 - TAG_TOP   # the upright layout: the same band, moved to the top of the safe area
+SLOT_TOP = 1205 + TOP_OFF + 35  # its photo starts as far under the wordmark as the stacked layout's second photo
+
+
+def _upright(p):
+    """Upright or square: too tall for the 3:2 slot of the stacked layout."""
+    return p.width < p.height * 1.2
+
+
+def _tall_slot(img, p):
+    """The upright layout's photo: inside the text margins, from under the band to the foot of the frame. An
+    upright phone photo fills it (a sliver trimmed at most); a square or wide one sits whole at the top of it;
+    a very tall one stands whole on the light panel."""
+    w, h = W - 2 * M, TALL_H - SLOT_TOP
+    s = w / p.width
+    if p.height * s <= h:
+        img.paste(p.resize((w, max(1, round(p.height * s))), Image.LANCZOS), (M, SLOT_TOP))
+    else:
+        img.paste(fit_photo(p, w, h), (M, SLOT_TOP))
+
+
+def reel_layout(photos):
+    """("stack" | "upright", the photos it uses). Stack: two or more wide photos, the listing's first photo
+    wide. Upright: the first photo is upright (most phone photos), or there is one wide photo and upright ones."""
+    photos = distinct(photos)
+    wide = [p for p in photos if not _upright(p)]
+    if photos and not _upright(photos[0]) and (len(wide) > 1 or len(wide) == len(photos)):
+        return "stack", wide
+    return "upright", photos
+
+
 def reel_shots(photos, title, price, facts_lines):
     """The frames of a listing Reel, one per shot, joined with hard cuts by listings/listing_reels.py.
 
-    Top: the whole item (photo i). White band: the price in the tag and the title on every shot, and a facts
-    line that changes with the shot. Bottom: another photo of the same listing as a detail (it sits under the
-    apps' buttons, so nothing there has to be read). One photo: the bottom is a plain light panel."""
+    Stack (wide photos): the whole item on top (photo i), the white band (the price in the tag and the title on
+    every shot, a facts line that changes with the shot), and another wide photo of the same listing below as a
+    detail (it sits under the apps' buttons, so nothing there has to be read). One wide photo: the foot stays
+    white. Upright (the first photo is upright): the band sits at the top of the safe area and one photo a shot
+    stands large under it, inside the text margins, so an upright photo is never a narrow strip between bars.
+    Photos that show the same view are shown once."""
+    kind, photos = reel_layout(photos)
     k = len(photos)
     lines = [ln for ln in facts_lines if ln] or [""]
     out = []
     for i, p in enumerate(photos):
         img = Image.new("RGB", (W, TALL_H), WHITE)
-        img.paste(fit_photo(p, W, PHOTO_H), (0, 0))
-        if k > 1:
-            img.paste(cover(photos[(i + 1) % k], W, TALL_H - 1240), (0, 1240))
+        if kind == "stack":
+            img.paste(fit_photo(p, W, PHOTO_H), (0, 0))
+            if k > 1:
+                img.paste(cover(photos[(i + 1) % k], W, TALL_H - 1240), (0, 1240))
+            band(img, price, title, lines[i % len(lines)])
         else:
-            ImageDraw.Draw(img).rectangle((0, 1240, W, TALL_H), fill=LIGHT)
-        band(img, price, title, lines[i % len(lines)])
+            _tall_slot(img, p)
+            band(img, price, title, lines[i % len(lines)], wm_base=1205 + TOP_OFF, top=TAG_TOP + TOP_OFF,
+                 title_base=TITLE_BASE + TOP_OFF)
         out.append(img)
     return out
 

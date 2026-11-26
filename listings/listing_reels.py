@@ -20,7 +20,7 @@ WHOLE item across the top with nothing drawn over it, the price in the one blue 
 of facts on white, and another photo of the same listing underneath. Shots are joined with hard cuts and every
 shot changes the top photo, the detail and the facts line. Same checks as the Just listed card: no photo with a
 face, every word with a digit blurred (plates, phones, street numbers), no title with contact details. Then the
-2-second YardSwaps end card every video ends on (brand/endcard: wordmark, "Add a photo. AI fills in the rest.",
+2.5-second YardSwaps end card every video ends on (brand/endcard: wordmark, "Add a photo. AI fills in the rest.",
 store badges, yardswaps.com). After the build, brand/endcard/endcard.py fix checks every clip in the library and the
 Shorts queue and adds the card where one is missing (posters only post clips it has marked). No seller name, no description, no location.
 Music: one of the licensed beds in music/v2, low.
@@ -62,7 +62,7 @@ REELS_PER_RUN = int(os.environ.get("REELS_PER_RUN") or 6)
 PER_SELLER = int(os.environ.get("PER_SELLER") or 1)   # clips per seller per run; a backfill run raises it
 W, H, FPS = 1080, 1920, 30
 PHOTO_SECONDS = 3.4
-END_SECONDS = 2.0
+END_SECONDS = 2.5   # Alan 11-26: on a 5 s clip that loops, 2 s of end card went by unseen
 MAX_PHOTOS = 3
 
 WHITE, BLUE, SLATE = (255, 255, 255), (37, 99, 235), (26, 51, 83)
