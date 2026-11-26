@@ -3,7 +3,7 @@
 have a mixture of types of items", "theres more thing other than machines").
 
     python3 brand/posts/seller_photos.py <words from listing Reel slugs>   first: fetch the real photos
-    python3 brand/posts/make_seller_mix.py [reels] [pairs]
+    python3 brand/posts/make_seller_mix.py [reels] [pairs] [slug ...]
 
 reels  one 9:16 seller Reel per listing: "FREE TO LIST" + a hook that names the item, then "AI WRITES IT",
        then "NO SELLING FEE", then the seller end card. Lands in brand/posts/seller-mix-out/ as
@@ -106,6 +106,22 @@ REELS=[
  ('tool-cabinet','navll',[0],['TOOL CABINET','YOU OUTGREW?'],'Kennedy 8-drawer roller cabinet'),
  ('extra-mower','behok',[0],['EXTRA MOWER','IN THE SHOP?'],'Big Dog Hike T-36 mower'),
  ('generator','gyurk',[1,0],['GENERATOR YOU',"DON'T NEED?"],'Westinghouse WGen11500TFc'),
+ # Second set, 2026-11-26 (Alan: "we need people to list more items like sellers"): seller Reels are now the
+ # main share of each day, so the set has to be deep enough to rotate.
+ ('packaging-machine','nr7e2',[1,0,2],['PACKAGING MACHINE','SITTING IDLE?'],'Instapak SpeedyPacker'),
+ ('mini-excavator','2unc7',[1,0],['MINI EXCAVATOR','BETWEEN JOBS?'],'CAT 301.7CR mini excavator'),
+ ('coffee-brewer','dwlxs',[0],['COFFEE BREWER','OFF THE COUNTER?'],'Bunn single-funnel brewer'),
+ ('spare-controls','oupw3',[0,1],['SPARE PARTS','ON THE SHELF?'],'Genie Smart Link control module'),
+ ('wheels','ng1nl',[0],['WHEELS YOU','TOOK OFF?'],'8-lug Chevy rims'),
+ ('ice-maker','3uv4m',[0],['ICE MAKER','UNPLUGGED?'],'Osion OCU-200 ice maker'),
+ ('tooling','o6blx',[0],['TOOLING YOU','STOPPED USING?'],'Kennametal indexable boring bars'),
+ ('leaf-vacuum','tp04q',[0,1],['LEAF VACUUM DONE','FOR THE SEASON?'],'Billy Goat DL3700VE leaf vacuum'),
+ ('convection-oven','1z3jc',[0],['CONVECTION OVEN','NOT IN USE?'],'Cadco Bakerlux convection oven'),
+ ('sod-cutter','8m6yd',[0],['SOD CUTTER YOU','RARELY USE?'],'BlueBird SC18 sod cutter'),
+ ('display-fridge','xrl5y',[0],['DISPLAY FRIDGE','TAKING UP SPACE?'],'Coldline G53 display refrigerator'),
+ ('tool-chest','vp7u1',[0],['TOOL CHEST','GATHERING DUST?'],'Kennedy tool chest and roller cabinet'),
+ ('coffee-grinder','vnu8r',[0],['COFFEE GRINDER','OFF THE BAR?'],'Bunn G9 coffee grinder'),
+ ('stand-on-mower','bq30f',[0],['STAND-ON MOWER','SITTING OUT?'],'Ferris Z3X stand-on mower'),
 ]
 BODY='Snap a photo and the AI writes the listing.\nNo selling fee. Local pickup.'
 # slug, (fragA,iA), (fragB,iB), headline, credit
@@ -119,11 +135,14 @@ PAIRS=[
  ('yard-gear',('tp04q',0),('behok',0),'UPGRADED YOUR MOWER?','Billy Goat vacuum and Big Dog mower'),
 ]
 if __name__=='__main__':
-    what=sys.argv[1:] or ['reels','pairs']
+    # Slugs after reels/pairs build only those pieces (their photos must be in seller-src/).
+    names=[a for a in sys.argv[1:] if a not in ('reels','pairs')]
+    what=[a for a in sys.argv[1:] if a in ('reels','pairs')] or ['reels','pairs']
     os.makedirs(OUT,exist_ok=True)
     sheet=[]
     if 'reels' in what:
         for slug,frag,idx,hook,credit in REELS:
+            if names and slug not in names: continue
             ph=[P(frag,i) for i in idx]
             shots=[ushot(ph[0],'FREE TO LIST',hook,'',credit),ushot(ph[1%len(ph)],*S2,credit),ushot(ph[2%len(ph)],*S3,credit)]
             secs=encode(shots,f'{OUT}/yardswaps-seller-{slug}-9x16-k2.mp4',slug)
@@ -132,6 +151,7 @@ if __name__=='__main__':
             print('reel',slug,secs,flush=True)
     if 'pairs' in what:
         for slug,(fa,ia),(fb,ib),head,credit in PAIRS:
+            if names and slug not in names: continue
             top=pair(P(fa,ia),P(fb,ib))
             story(top,'LIST IT FREE',head,BODY,credit).save(f'{OUT}/story-{slug}.jpg',quality=92)
             feed(top,'LIST IT FREE',head,BODY,credit).save(f'{OUT}/seller-post-{slug}.jpg',quality=92)

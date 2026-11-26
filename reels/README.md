@@ -56,8 +56,9 @@ all in the new look:
 
 - `"cut": "seller"`: a seller Reel. Its first frame is the whole ask ("Equipment sitting idle?" with a
   "FREE TO LIST" tag over a real listing photo), then "AI writes it", then "No selling fee", then the seller end
-  card. It carries the listing's `listing_id` and `machine`, so the rotation, the seller's social opt-out and
-  the "listing no longer active" hold all apply to it as they do to the listing Reel of the same machine.
+  card. It carries the listing's `listing_id`, so the seller's social opt-out and the "listing no longer
+  active" hold apply to it. Like a live-app walkthrough it is about listing, not about the item in its photo:
+  its `machine` is its own slug and `item_machine` names the listing shown.
   The daily "List it free" post takes a seller Reel when one is free to run and a listing Reel only when none is.
 - `"cut": "listing"`: a listing Reel, kept as proof of real inventory; its caption and end card close on the
   seller ask.
@@ -68,6 +69,41 @@ all in the new look:
 A listing Reel with `"hold": true` and a `hold_reason` starting "photo check" failed the 2026-11-26 check of all
 109 (a readable plate, phone number, street address or third-party contact in a photo): re-make it without that
 photo before lifting the hold.
+
+### The shape of a day on Instagram and Facebook (Alan, 2026-11-26, evening)
+
+"Remember rightnow we need people to list more items like sellers", "Storefronts are also very important and
+need to keep pushing". Seller posts are the main share of each day, a storefront post goes out every day, and
+listing Reels (proof of real inventory, mostly for buyers) keep the night slots:
+
+- 7:00 am Central: the "List it free" post, on a seller Reel.
+- 8:30 am: the walkthrough of the day (below).
+- 10:00 am: the storefront promotion (`promos.json`, founding and storefront in turn), always on a storefront
+  clip: when none is free under the usual 10 days, the one posted longest ago runs again once it is
+  `STOREFRONT_GAP_DAYS` (6) old.
+- 2:40 pm: the day's still image (below).
+- 5:15 pm: the seller promotion (boost and share in turn), on a listing Reel.
+- Every other regular slot that starts between 6 am and 9 pm (`SELLER_HOURS_CT`): a seller Reel, until
+  `SELLER_PER_DAY` (3) have gone out. `seller_due()` picks it: not posted on that platform in the last
+  `SELLER_GAP_DAYS` (6), its listing not shown anywhere in the last 48 hours, an item type no seller Reel
+  showed that day first, then the type shown least in three days, then the clip posted longest ago.
+- Night slots, and a daytime slot with no seller Reel free: a listing Reel, by the machine rotation.
+A seller Reel or walkthrough never fills any other slot on these two platforms. 27 seller Reels (13 from the
+morning, 14 more the same evening) cover about four a day; add more with `brand/posts/make_seller_mix.py`
+(upright or square listing photos only: a wide photo leaves the lower half of the frame empty).
+
+### Still image of the day (Alan, 2026-11-26)
+
+"We still need this link still images like we already had everyday to say post for free." One seller still
+from `reels/images.json` (`"audience": "seller"`, `"picture": "real"`, `"look": "k2"`) goes to the Instagram
+and Facebook feed each day in its own window, 2:40 to 3:25 pm Central (`IMAGE_WINDOW_CT`), posted by
+`run_image()` in `post_reels.py` with `post_image.py`'s publish calls. The Facebook caption carries the
+tappable link. On Instagram a feed caption cannot link, so the same picture is that morning's linked Story
+(`stories/linked/schedule.json`, scheduled by hand in Meta Business Suite): the still of the day follows that
+schedule when a seller Story is listed for the date, and otherwise takes the still posted longest ago (never
+inside `IMAGE_GAP_DAYS`, 7). It is logged in `reels/posted.json` as platform `instagram_image` /
+`facebook_image`, because the posting job commits only that file; the Reel rules ignore those rows except that
+the 90-minute HeyCatch spacing reads them as ours. `reels.yml` with `image_slug` still posts any one image by hand.
 
 ## Walkthrough of the day (Alan, 2026-11-26)
 
