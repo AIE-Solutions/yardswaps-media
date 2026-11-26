@@ -8,8 +8,10 @@
   "id": "18381856978208520",
   "url": "https://www.instagram.com/reel/DfNjcvjAL_H/",
   "takedown_errors": [
-   "2026-11-26T19:26:33Z DELETE https://graph.facebook.com/v23.0/18381856978208520 -> 400: {\"error\":{\"message\":\"(#10) Insufficient permissions to access this data\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AvmiE3u7P2g1M"
-  ]
+   "2026-11-26T19:26:33Z DELETE https://graph.facebook.com/v23.0/18381856978208520 -> 400: {\"error\":{\"message\":\"(#10) Insufficient permissions to access this data\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AvmiE3u7P2g1M",
+   "2026-11-26T22:46:06Z DELETE https://graph.facebook.com/v23.0/18381856978208520 -> 400: {\"error\":{\"message\":\"(#10) Insufficient permissions to access this data\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AYhM7Z0aZgTrf"
+  ],
+  "takedown_skip": true
  },
  {
   "time": "2026-11-01T20:08:18Z",
@@ -59,7 +61,10 @@
   "forced": true,
   "status": "posted",
   "id": "1122097813516662",
-  "url": "https://www.facebook.com/reel/1122097813516662"
+  "url": "https://www.facebook.com/reel/1122097813516662",
+  "removed": "2026-11-26T22:46:19Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1703489564817993"
  },
  {
   "time": "2026-11-01T21:20:51Z",
@@ -4477,5 +4482,27 @@
   "status": "posted",
   "id": "1623821622325717",
   "url": "https://www.facebook.com/reel/1623821622325717"
+ },
+ {
+  "time": "2026-11-26T22:45:28Z",
+  "platform": "instagram",
+  "slug": "seller-convection-oven",
+  "repeat": false,
+  "look": "k2",
+  "list_free": true,
+  "status": "posted",
+  "id": "18073402700790431",
+  "url": "https://www.instagram.com/reel/DgONX3uIc8l/"
+ },
+ {
+  "time": "2026-11-26T22:46:06Z",
+  "platform": "facebook",
+  "slug": "seller-convection-oven",
+  "repeat": false,
+  "look": "k2",
+  "list_free": true,
+  "status": "posted",
+  "id": "1703489564817993",
+  "url": "https://www.facebook.com/reel/1703489564817993"
  }
 ]
