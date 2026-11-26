@@ -6,7 +6,10 @@
   "repeat": false,
   "status": "posted",
   "id": "18381856978208520",
-  "url": "https://www.instagram.com/reel/DfNjcvjAL_H/"
+  "url": "https://www.instagram.com/reel/DfNjcvjAL_H/",
+  "takedown_errors": [
+   "2026-11-26T19:26:33Z DELETE https://graph.facebook.com/v23.0/18381856978208520 -> 400: {\"error\":{\"message\":\"(#10) Insufficient permissions to access this data\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AvmiE3u7P2g1M"
+  ]
  },
  {
   "time": "2026-11-01T20:08:18Z",
@@ -15,7 +18,10 @@
   "repeat": false,
   "status": "posted",
   "id": "2923211331407518",
-  "url": "https://www.facebook.com/reel/2923211331407518"
+  "url": "https://www.facebook.com/reel/2923211331407518",
+  "removed": "2026-11-26T19:26:45Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1623821622325717"
  },
  {
   "time": "2026-11-01T20:31:35Z",
@@ -4449,5 +4455,27 @@
   "status": "posted",
   "id": "4608726339400245",
   "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-26T19:26:02Z",
+  "platform": "instagram",
+  "slug": "seller-espresso-machine",
+  "repeat": false,
+  "look": "k2",
+  "forced": true,
+  "status": "posted",
+  "id": "18127486001317770",
+  "url": "https://www.instagram.com/reel/DgN2i7fhP1r/"
+ },
+ {
+  "time": "2026-11-26T19:26:33Z",
+  "platform": "facebook",
+  "slug": "seller-espresso-machine",
+  "repeat": false,
+  "look": "k2",
+  "forced": true,
+  "status": "posted",
+  "id": "1623821622325717",
+  "url": "https://www.facebook.com/reel/1623821622325717"
  }
 ]
