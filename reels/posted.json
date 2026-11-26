@@ -100,7 +100,10 @@
   "repeat": false,
   "status": "posted",
   "id": "972496965934352",
-  "url": "https://www.facebook.com/reel/972496965934352"
+  "url": "https://www.facebook.com/reel/972496965934352",
+  "removed": "2026-11-26T23:46:20Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1983104633074378"
  },
  {
   "time": "2026-11-01T23:42:54Z",
@@ -4504,5 +4507,27 @@
   "status": "posted",
   "id": "1703489564817993",
   "url": "https://www.facebook.com/reel/1703489564817993"
+ },
+ {
+  "time": "2026-11-26T23:45:28Z",
+  "platform": "instagram",
+  "slug": "storefront-open-your-storefront",
+  "repeat": false,
+  "look": "k2",
+  "promo": "founding",
+  "status": "posted",
+  "id": "17981472789069080",
+  "url": "https://www.instagram.com/reel/DgOUPJ4NJT5/"
+ },
+ {
+  "time": "2026-11-26T23:46:08Z",
+  "platform": "facebook",
+  "slug": "storefront-open-your-storefront",
+  "repeat": false,
+  "look": "k2",
+  "promo": "founding",
+  "status": "posted",
+  "id": "1983104633074378",
+  "url": "https://www.facebook.com/reel/1983104633074378"
  }
 ]
