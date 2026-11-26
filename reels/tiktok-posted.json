@@ -390,8 +390,9 @@
   "slug": "listed-zero-tail-swing-deere-50g-with-qui-fbt0s",
   "repeat": false,
   "list_free": true,
-  "status": "scheduled",
+  "status": "failed",
   "buffer_id": "6b0845d3b2044ab9dfaed65f",
-  "due": "2026-11-26T14:49:33.000Z"
+  "due": "2026-11-26T14:49:33.000Z",
+  "error": "TikTok flagged this post as potential spam and blocked it from publishing. Please review your content and try again. If this persists, try posting directly through TikTok to verify your account is in good standing. Failed to create media container for tiktok: Tiktok update failed to publish: 0: spam_risk (status: FAILED)"
  }
 ]
