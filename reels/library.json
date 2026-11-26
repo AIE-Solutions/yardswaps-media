@@ -1534,7 +1534,9 @@
    "cut": "listing",
    "seconds": 12.7,
    "endcard": "seller-v1",
-   "look": "k2"
+   "look": "k2",
+   "hold": true,
+   "hold_reason": "photo check 11-26: a third-party rebuilder tag with a toll-free number is readable in shot 2; re-make without that photo"
   },
   {
    "added": "2026-11-21",
@@ -1585,7 +1587,9 @@
    "cut": "listing",
    "seconds": 9.3,
    "endcard": "seller-v1",
-   "look": "k2"
+   "look": "k2",
+   "hold": true,
+   "hold_reason": "photo check 11-26: a dealer sticker with two phone numbers and a battery sticker with a web address are readable in shot 2; re-make without that photo or blur them"
   },
   {
    "added": "2026-11-21",
@@ -2036,7 +2040,9 @@
    "cut": "listing",
    "seconds": 5.9,
    "endcard": "seller-v1",
-   "look": "k2"
+   "look": "k2",
+   "hold": true,
+   "hold_reason": "photo check 11-26: a sticker with a street address is readable on the ladder; re-make with it cropped or blurred"
   },
   {
    "added": "2026-11-26",
@@ -2393,7 +2399,9 @@
    "cut": "listing",
    "seconds": 12.7,
    "endcard": "seller-v1",
-   "look": "k2"
+   "look": "k2",
+   "hold": true,
+   "hold_reason": "photo check 11-26: rear plate and the carrier's name on the sleeper are readable; re-make with both blurred"
   },
   {
    "added": "2026-11-26",
@@ -2699,7 +2707,9 @@
    "cut": "listing",
    "seconds": 12.7,
    "endcard": "seller-v1",
-   "look": "k2"
+   "look": "k2",
+   "hold": true,
+   "hold_reason": "photo check 11-26: a trailer dealer's name and web address are readable on the decal and strap; re-make without that photo"
   },
   {
    "added": "2026-11-26",
@@ -3277,7 +3287,9 @@
    "cut": "listing",
    "seconds": 12.7,
    "endcard": "seller-v1",
-   "look": "k2"
+   "look": "k2",
+   "hold": true,
+   "hold_reason": "photo check 11-26: the title says 12G but the badge on the machine reads 160H; fix the listing title with the seller before it posts"
   },
   {
    "added": "2026-11-26",
@@ -3328,7 +3340,9 @@
    "cut": "listing",
    "seconds": 12.7,
    "endcard": "seller-v1",
-   "look": "k2"
+   "look": "k2",
+   "hold": true,
+   "hold_reason": "photo check 11-26: political profanity is readable on the haul truck in the first photo; re-make with that photo cropped or dropped"
   },
   {
    "added": "2026-11-26",
@@ -3498,7 +3512,9 @@
    "cut": "listing",
    "seconds": 12.7,
    "endcard": "seller-v1",
-   "look": "k2"
+   "look": "k2",
+   "hold": true,
+   "hold_reason": "photo check 11-26: a sticker with a street address and part of a phone number is readable on the ladder; re-make with it cropped or blurred"
   },
   {
    "added": "2026-11-26",
@@ -3584,6 +3600,114 @@
    "seconds": 12.7,
    "endcard": "seller-v1",
    "look": "k2"
+  },
+  {
+   "added": "2026-11-26",
+   "slug": "seller-sitting-idle",
+   "file": "reels/library/yardswaps-seller-sitting-idle-9x16-k2.mp4",
+   "priority": 0,
+   "body": "Equipment sitting idle? List it free on YardSwaps.\n\nSnap a few photos and the AI writes the listing: title, make, model and specs, with a suggested price. You check it before it posts.\n\nNo selling fee. Buyers message you in the app and can make an offer. Local pickup only.",
+   "question": "What's sitting in your yard that hasn't run this year?",
+   "ig_tags": "#sellequipment #usedequipment #heavyequipment #excavator #yardswaps",
+   "category": "excavators",
+   "machine": "listing-cmvsip9ad002jmp3arr5fbt0s",
+   "listing_id": "cmvsip9ad002jmp3arr5fbt0s",
+   "real": true,
+   "cut": "seller",
+   "audience": "seller",
+   "seconds": 12.7,
+   "endcard": "seller-v1",
+   "look": "k2",
+   "note": "Seller Reel (Alan 11-26: 'our mission is for sellers to be posting equipment'). Hook 'Equipment sitting idle?', then AI writes it, then no selling fee. Shown: the Deere 50G listing."
+  },
+  {
+   "added": "2026-11-26",
+   "slug": "seller-parked-truck",
+   "file": "reels/library/yardswaps-seller-parked-truck-9x16-k2.mp4",
+   "priority": 0,
+   "body": "Still parked in the yard? List it free on YardSwaps.\n\nTake a few photos and the AI fills in the title, make, model and specs, and suggests a price. You check it before it posts.\n\nNo fee when it sells. Buyers message you in the app. Local pickup only.",
+   "question": "What would you do with the space?",
+   "ig_tags": "#sellequipment #boxtruck #fleettrucks #usedequipment #yardswaps",
+   "category": "fleet",
+   "machine": "listing-cmw3u96du008gnw3acr41b7b8",
+   "listing_id": "cmw3u96du008gnw3acr41b7b8",
+   "real": true,
+   "cut": "seller",
+   "audience": "seller",
+   "seconds": 12.7,
+   "endcard": "seller-v1",
+   "look": "k2",
+   "note": "Seller Reel. Hook 'Still parked in the yard?'. Shown: the 2019 Hino 268 listing (phone camera stamp painted out)."
+  },
+  {
+   "added": "2026-11-26",
+   "slug": "seller-shop-space",
+   "file": "reels/library/yardswaps-seller-shop-space-9x16-k2.mp4",
+   "priority": 0,
+   "body": "Taking up shop space? List it free on YardSwaps.\n\nAdd a photo and the AI fills in the rest: title, make, model and specs. You check it before it posts.\n\nNo cut of the sale. Buyers message you in the app. Local pickup only.",
+   "question": "Which machine in your shop has sat the longest?",
+   "ig_tags": "#sellequipment #usedequipment #equipmentforsale #trailer #yardswaps",
+   "category": "trailers",
+   "machine": "listing-cmwjep9en0021nz3a66q5c2iy",
+   "listing_id": "cmwjep9en0021nz3a66q5c2iy",
+   "real": true,
+   "cut": "seller",
+   "audience": "seller",
+   "seconds": 9.3,
+   "endcard": "seller-v1",
+   "look": "k2",
+   "note": "Seller Reel. Hook 'Taking up shop space?'. Shown: the Dustless Blasting trailer listing."
+  },
+  {
+   "added": "2026-11-26",
+   "slug": "storefront-open-your-storefront",
+   "file": "reels/library/yardswaps-storefront-open-your-storefront-9x16-k2.mp4",
+   "priority": 0,
+   "body": "Open your storefront on YardSwaps.\n\nYour logo, website and social links, and your whole inventory on one link. Buyers search every unit you have. It comes with the Storefront plan.\n\n30 days free, then $29 a month for your first 3 paid months (our founding price for the first 100 storefronts), then $49 a month.",
+   "question": "How many units are on your lot right now?",
+   "ig_tags": "#equipmentdealer #usedequipment #dealerinventory #equipmentforsale #yardswaps",
+   "audience": "dealer",
+   "machine": "storefront-quiet-village-page",
+   "picture": "real",
+   "cut": "storefront",
+   "seconds": 12.7,
+   "endcard": "dealer-v1",
+   "look": "k2",
+   "note": "Storefront promo in the new look. Shown: Quiet Village Landscaping's real storefront page and inventory (Landscaping & Turf units only, no trucks, so no plates)."
+  },
+  {
+   "added": "2026-11-26",
+   "slug": "storefront-inventory-one-link",
+   "file": "reels/library/yardswaps-storefront-inventory-one-link-9x16-k2.mp4",
+   "priority": 0,
+   "body": "Your whole inventory on one link.\n\nImport your units from your website or a spreadsheet, with no listing cap, and your new listings get featured in our posts. It comes with the Storefront plan.\n\n30 days free, then $29 a month for your first 3 paid months (our founding price for the first 100 storefronts), then $49 a month.",
+   "question": "Where do buyers find your inventory today?",
+   "ig_tags": "#equipmentdealer #usedequipment #dealerinventory #equipmentforsale #yardswaps",
+   "audience": "dealer",
+   "machine": "storefront-quiet-village-inventory",
+   "picture": "real",
+   "cut": "storefront",
+   "seconds": 12.7,
+   "endcard": "dealer-v1",
+   "look": "k2",
+   "note": "Storefront promo in the new look. Shown: real storefront inventory."
+  },
+  {
+   "added": "2026-11-26",
+   "slug": "storefront-new-storefronts",
+   "file": "reels/library/yardswaps-storefront-new-storefronts-9x16-k2.mp4",
+   "priority": 0,
+   "body": "New storefronts on YardSwaps: Steve Lewis, Auto SA Texas and Quiet Village Landscaping.\n\nA storefront puts every unit you have on one link, with your hours, service area and contact details. Buyers search your whole inventory.\n\n30 days free, then $29 a month for your first 3 paid months (our founding price for the first 100 storefronts), then $49 a month.",
+   "question": "What would you put at the top of your storefront?",
+   "ig_tags": "#equipmentdealer #usedequipment #dealerinventory #equipmentforsale #yardswaps",
+   "audience": "dealer",
+   "machine": "storefront-new-storefronts",
+   "picture": "real",
+   "cut": "storefront",
+   "seconds": 13.7,
+   "endcard": "dealer-v1",
+   "look": "k2",
+   "note": "Storefront promo in the new look. Shown: Steve Lewis, Auto SA Texas and Quiet Village Landscaping units (Auto SA Texas photos cropped above the address and phone banner). Hold it if one of the three closes its storefront or turns off social features."
   }
  ]
 }

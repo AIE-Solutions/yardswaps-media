@@ -346,6 +346,15 @@ def list_free_pick(videos, posted, platform, scores=None):
               and p.get("status") == "posted" and parse_time(p["time"]) >= since}
     ok = [v for v in videos if list_free_ok(v)]
     fresh_cat = [v for v in ok if v.get("category") not in recent]
+    # Sellers first (Alan, 2026-11-26: "our mission is for sellers to be posting equipment"): a seller
+    # Reel ("cut": "seller", its whole first frame is the ask to list) carries this post when one is
+    # free to run; a listing Reel only when none is.
+    seller = [v for v in ok if v.get("cut") == "seller"]
+    for pool in ([v for v in seller if v in fresh_cat], seller):
+        if pool:
+            video, repeat = pick(pool, posted, platform, None, scores)
+            if video and not repeat:
+                return video, repeat
     for pool in (fresh_cat, ok):
         video, repeat = pick(pool, posted, platform, None, scores)
         if video:
