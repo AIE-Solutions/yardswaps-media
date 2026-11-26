@@ -91,3 +91,20 @@ No tip posts until Alan says go. `post_image.py` refuses any entry in `reels/ima
 Rules for a new tip: plain advice a mechanic would agree with, nothing we can't back up, no promise of views or
 sales, a real photo with no face or plate (blur serials and phone numbers), and a caption that ends with an open
 question. Copy follows MESSAGING.md.
+
+## Seller pieces across item types (`make_seller_mix.py`)
+
+Alan, 2026-11-26: "I liek th eone syou made but we gotta have a mixture of types of items", "theres more thing
+other than machines." So the seller pieces show an espresso machine, a walk-in cooler, a micrometer set, an
+HVAC unit, pallet racking, a spare engine, a kitchen oven, a tool cabinet, a mower and a generator, each a
+live listing's own photo with the listing named on the wordmark row.
+
+- `seller_photos.py <words>` fetches the photos (the same privacy-cleaned ones the listing Reel shows) into
+  `brand/posts/seller-src/`, which is not committed.
+- `make_seller_mix.py reels` makes one 9:16 seller Reel per listing: "FREE TO LIST" and a hook that names the
+  item, "AI WRITES IT", "NO SELLING FEE", then the seller end card. The ten in `reels/library.json` are
+  `seller-*` with `"cut": "seller"`, so the Reels poster uses them for the seller posts.
+- `make_seller_mix.py pairs` makes the two-photo Stories (`stories/linked/seller-*.jpg`, linked by hand in Meta
+  Business Suite) and 4:5 feed posts (`brand/posts/seller-feed/`, listed in `reels/images.json`, posted one at a
+  time by dispatching reels.yml with `image_slug` and `platforms=instagram,facebook`).
+- Before a piece goes out again after a few weeks, check its listing is still live; a sold item comes out.
