@@ -336,7 +336,9 @@ def main():
         print("::notice::BUFFER_API_KEY is not set yet, so nothing went to TikTok. See reels/README.md, TikTok.")
         return 0
 
-    videos = reels.with_endcard(reels.load(reels.LIBRARY, {"videos": []})["videos"])
+    # Real items only, like the Reels (Alan 11-26); "ad" also lets the storefront ad Alan asked for on TikTok run.
+    videos = reels.with_real_pictures(reels.with_endcard(reels.load(reels.LIBRARY, {"videos": []})["videos"]),
+                                      allow=("real", "ad"))
     posted = reels.load(LOG, [])
     summary, failed = [], False
 

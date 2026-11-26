@@ -8,8 +8,8 @@ they hold viewers better than our 12-20 s cuts (YouTube Nov 9-16: HeyCatch avg 4
 
   - a live listing's photo that the daily listing review already approved (the Just listed card photo
     in listings/queue.json, or an approved row of listings/reel-queue.json), with a slow push-in, or
-  - a text-free stock equipment photo from studio/stock (Canva stock, no AI, no people; each comes back
-    with a new hook after 21 days), or
+  - (off since 2026-11-26, Alan: the items must be real) a text-free stock equipment photo from
+    studio/stock, only with STUDIO_STOCK=1, and such a clip never posts (reels/post_reels.py REAL_PICTURES), or
   - 5.5 s of a library clip marked "clean": true (most of our cuts carry their own words, so none yet),
 
 then the POV hook from studio/hooks.json at the top (kept clear of TikTok's right and bottom UI), the
@@ -212,6 +212,10 @@ def listing_sources(active, opted_out):
 
 
 STOCK = os.path.join(HERE, "stock", "stock.json")
+# Off since 2026-11-26 (Alan: "the items in the pictures need to improve and be real"): Studio clips use only
+# real listing photos and real-item library clips. STUDIO_STOCK=1 turns the stock photos back on for a test;
+# the posters still skip any clip that is not a real item (reels/post_reels.py REAL_PICTURES).
+USE_STOCK = os.environ.get("STUDIO_STOCK") == "1"
 STOCK_REUSE_DAYS = 21
 
 
@@ -232,6 +236,9 @@ def clip_sources(videos):
         if v.get("cut") in ("listing", "pov") or v.get("platforms") or v.get("lang") not in (None, "en"):
             continue
         if not os.path.exists(os.path.join(ROOT, v.get("file", ""))) or not machine_thing(v.get("machine")):
+            continue
+        # real items only (Alan 11-26): a clip whose picture is not a real listing item is not a source
+        if not (v.get("real") is True or v.get("picture") == "real"):
             continue
         srcs.append({"kind": "clip", "machine": rot.machine_of(v), "file": v["file"], "category": v.get("category"),
                      "slug": v["slug"], "seconds": v.get("seconds"), "thing": machine_thing(v.get("machine"))})
@@ -419,7 +426,8 @@ def plan(videos, posted, active, opted_out, hist, per_run=PER_RUN, backlog=BACKL
     recent = {v.get("source_ref") for v in videos if v.get("studio") and v.get("added", "") >= cut}
     lsrc = [s for s in listing_sources(active, opted_out) if s["listing_id"] not in have]
     csrc = [s for s in clip_sources(videos) if s["slug"] not in have]
-    csrc += [s for s in stock_sources() if s["slug"] not in recent]
+    if USE_STOCK:
+        csrc += [s for s in stock_sources() if s["slug"] not in recent]
 
     def last(s):
         return rot.last_shown({"machine": s["machine"]}, hist) or dt.datetime(2000, 1, 1, tzinfo=dt.timezone.utc)
@@ -483,13 +491,15 @@ def main():
             continue
         entry = {"added": today, "slug": slug, "file": rel, "priority": 0, "body": body, "question": q,
                  "ig_tags": ig, "tt_tags": tt, "category": src.get("category"), "machine": src["machine"],
-                 "real": True, "cut": "pov", "studio": True, "hook": hook, "title": line.replace("\n", " "),
+                 "real": src["kind"] in ("listing", "clip"), "cut": "pov", "studio": True, "hook": hook, "title": line.replace("\n", " "),
                  "source_ref": ref, "seconds": secs, "endcard": f"seller-{endcard.VERSION}",
                  # waits in the Studio deck (yardswaps.com/admin/studio) until approved, skipped or
                  # auto-approved after a day; studio/sync_deck.py applies the decision
                  "review": "pending", "hold": True, "made": now().strftime("%Y-%m-%dT%H:%M:%SZ")}
         if src.get("listing_id"):
             entry["listing_id"] = src["listing_id"]
+        if src["kind"] == "stock":
+            entry["picture"] = "stock"
         videos.append(entry)
         used.append(hook)
         built += 1
