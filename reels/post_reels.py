@@ -431,29 +431,54 @@ def active_promos(platform, t=None, cfg=None):
     return out
 
 
-def promo_of_day(platform, t=None, cfg=None):
-    """Today's promotion on `platform` (they take turns by day), or None."""
+def promo_groups(platform, t=None, cfg=None):
+    """[(from_ct, promos)] for today on `platform`. With "daily_audience" set in promos.json (Alan,
+    2026-11-26: "Storefronts are also very important and need to keep pushing"), that audience's
+    promotions post every day from "slot_from_ct", taking turns by day among themselves, and the other
+    promotions take turns in a second post from "second_slot_from_ct". A platform with only one of the
+    two kinds keeps its single daily promotion post at "slot_from_ct"."""
+    cfg = cfg if cfg is not None else promos_config()
     live = active_promos(platform, t, cfg)
     if not live:
+        return []
+    first = tuple(cfg.get("slot_from_ct") or (10, 0))
+    aud = cfg.get("daily_audience")
+    lead = [pr for pr in live if aud and pr.get("audience") == aud]
+    rest = [pr for pr in live if pr not in lead]
+    if not lead or not rest:
+        return [(first, live)]
+    return [(first, lead), (tuple(cfg.get("second_slot_from_ct") or (17, 15)), rest)]
+
+
+def promo_now(posted, platform, t=None, cfg=None):
+    """The promotion this run's post on `platform` should carry, or None."""
+    cfg = cfg if cfg is not None else promos_config()
+    t = t or now()
+    local = t.astimezone(CENTRAL)
+    day = local.replace(hour=0, minute=0, second=0, microsecond=0)
+    done = {p.get("promo") for p in posted if p["platform"] == platform and p.get("status") == "posted"
+            and p.get("promo") and parse_time(p["time"]) >= day}
+    for from_ct, group in promo_groups(platform, t, cfg):
+        start = local.replace(hour=from_ct[0], minute=from_ct[1],
+                              second=0, microsecond=0) - dt.timedelta(minutes=SLOT_EARLY_MINUTES)
+        if local < start or done & {pr["id"] for pr in group}:
+            continue
+        return group[local.date().toordinal() % len(group)]
+    return None
+
+
+def promo_of_day(platform, t=None, cfg=None):
+    """Today's first promotion on `platform` (each group takes turns by day), or None."""
+    groups = promo_groups(platform, t, cfg)
+    if not groups:
         return None
-    return live[(t or now()).astimezone(CENTRAL).date().toordinal() % len(live)]
+    group = groups[0][1]
+    return group[(t or now()).astimezone(CENTRAL).date().toordinal() % len(group)]
 
 
 def promo_due(posted, platform, t=None, cfg=None):
-    """True when this run's post on `platform` should be today's promotion post."""
-    cfg = cfg if cfg is not None else promos_config()
-    if not promo_of_day(platform, t, cfg):
-        return False
-    from_ct = tuple(cfg.get("slot_from_ct") or (10, 0))
-    t = t or now()
-    local = t.astimezone(CENTRAL)
-    start = local.replace(hour=from_ct[0], minute=from_ct[1],
-                          second=0, microsecond=0) - dt.timedelta(minutes=SLOT_EARLY_MINUTES)
-    if local < start:
-        return False
-    day = local.replace(hour=0, minute=0, second=0, microsecond=0)
-    return not any(p["platform"] == platform and p.get("status") == "posted" and p.get("promo")
-                   and parse_time(p["time"]) >= day for p in posted)
+    """True when this run's post on `platform` should be a promotion post."""
+    return promo_now(posted, platform, t, cfg) is not None
 
 
 def promo_pool(videos, promo):
@@ -622,6 +647,8 @@ def with_real_pictures(videos, allow=REAL_PICTURES):
 #   - once a k2 Reel is live on Instagram or Facebook, takedown() removes that platform's old-look Reels of
 #     the same clip, plus one stock (then one held, badly cropped) Reel: Alan picked "One down per new Reel up".
 NEW_LOOK = "k2"
+WALK_FROM_CT = (8, 30)     # the day's walkthrough posts in the first regular slot from here (Central)
+WALK_ITEM_HOURS = 48       # a live-app walkthrough waits this long after its listing was last shown
 
 
 def is_new_look(v):
@@ -693,21 +720,38 @@ def pick(videos, posted, platform, force=None, scores=None):
     if rot is None:
         raise SystemExit("rotation/rotation.py is missing from this checkout; add it before picking a clip")
     hist = rot.uses()   # always the whole library, so a promo or list-it-free pool maps machines right
-    # One earlier walkthrough a day per platform, ahead of the swaps (Alan, 2026-11-26: "These are critical
-    # to our promotion I really liked them"). Only clips marked "earlier_look_ok", under the same 10-day
-    # no-repeat rule as everything else; the one posted longest ago goes first.
-    if platform in ("instagram", "facebook"):
-        walk = {v["slug"] for v in videos if v.get("earlier_look_ok")}
-        day = now().astimezone(CENTRAL).replace(hour=0, minute=0, second=0, microsecond=0)
+    # One walkthrough a day per platform, ahead of the swaps (Alan, 2026-11-26: "These are critical to our
+    # promotion I really liked them"), in the first regular slot from WALK_FROM_CT so it never lands on a
+    # night slot. The live-app set ("walkthrough": "live"; Alan the same day: "a live motion video of our
+    # application in action", "Yup perfect") goes first; an earlier walkthrough ("earlier_look_ok") only on
+    # a day no live-app one may run. A live-app clip is about the app, so its machine key is its own slug,
+    # and "item_machine" names the listing in its opener: it waits while that listing was shown anywhere in
+    # the last WALK_ITEM_HOURS, and the one whose listing was shown longest ago goes first. Same 10-day
+    # no-repeat rule as everything else.
+    local = now().astimezone(CENTRAL)
+    walk_from = local.replace(hour=WALK_FROM_CT[0], minute=WALK_FROM_CT[1], second=0,
+                              microsecond=0) - dt.timedelta(minutes=SLOT_EARLY_MINUTES)
+    if platform in ("instagram", "facebook") and local >= walk_from:
+        live = {v["slug"] for v in videos if v.get("walkthrough") == "live"}
+        walk = live | {v["slug"] for v in videos if v.get("earlier_look_ok")}
+        day = local.replace(hour=0, minute=0, second=0, microsecond=0)
         if walk and not any(p["platform"] == platform and p.get("status") == "posted" and p["slug"] in walk
                             and parse_time(p["time"]) >= day for p in posted):
-            free = [v for v in usable if v["slug"] in walk
-                    and (v["slug"] not in last or last[v["slug"]] <= cutoff)]
-            # Machine rule: 14 days clear first, else the rotation's own 7-day floor, never closer.
-            due = [v for v in free if rot.allowed(v, hist)] or [v for v in free if rot.fallback_ok(v, hist)]
-            if due:
-                due.sort(key=lambda v: last.get(v["slug"]) or now() - dt.timedelta(days=365))
-                return due[0], due[0]["slug"] in last
+            long_ago = now() - dt.timedelta(days=365)
+            item_last = lambda v: rot.last_shown({"machine": v.get("item_machine") or v["slug"]}, hist) or long_ago
+            for group in (live, walk - live):
+                free = [v for v in usable if v["slug"] in group
+                        and (v["slug"] not in last or last[v["slug"]] <= cutoff)]
+                if group is live:
+                    due = [v for v in free if now() - item_last(v) >= dt.timedelta(hours=WALK_ITEM_HOURS)
+                           and (rot.allowed(v, hist) or rot.fallback_ok(v, hist))]
+                    due.sort(key=lambda v: (last.get(v["slug"]) or long_ago, item_last(v)))
+                else:
+                    # Machine rule: 14 days clear first, else the rotation's own 7-day floor, never closer.
+                    due = [v for v in free if rot.allowed(v, hist)] or [v for v in free if rot.fallback_ok(v, hist)]
+                    due.sort(key=lambda v: last.get(v["slug"]) or long_ago)
+                if due:
+                    return due[0], due[0]["slug"] in last
     # Then swaps (see NEW_LOOK): the same machine already went out in the old look and that post comes down
     # once this one is up, so the machine rotation does not hold a swap back. Oldest old-look post first.
     swaps = [v for v in usable if swap_due(v, posted, platform)
@@ -1445,8 +1489,8 @@ def main():
         if not list_free:
             if want_promo:
                 promo = next((pr for pr in promo_cfg.get("promos", []) if pr["id"] == want_promo), None)
-            elif not force and promo_due(posted, platform, cfg=promo_cfg):
-                promo = promo_of_day(platform, cfg=promo_cfg)
+            elif not force:
+                promo = promo_now(posted, platform, cfg=promo_cfg)
         if promo and not force:
             video, repeat = promo_pick(videos, posted, platform, promo)
             if repeat and token:

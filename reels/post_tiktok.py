@@ -420,8 +420,8 @@ def main():
         cfg = reels.promos_config()
         if want:
             promo = next((pr for pr in cfg.get("promos", []) if pr["id"] == want), None)
-        elif reels.promo_due(used, PLATFORM, cfg=cfg):
-            promo = reels.promo_of_day(PLATFORM, cfg=cfg)
+        else:
+            promo = reels.promo_now(used, PLATFORM, cfg=cfg)
     # "next_on": ["tiktok"] in library.json puts a clip first in line for TikTok (Alan 11-25: "We should post our
     # awesome storefront ads there"). It takes the next scheduled slot instead of the list-it-free or promotion
     # post, so the daily count, the windows, the spacing and the spam back-off all stay as they are. Once it has

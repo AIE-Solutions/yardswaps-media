@@ -1,0 +1,50 @@
+{
+ "raw": "WORK/rig/raw/boxtruck",
+ "photo": "WORK/rig/boxtruck-full.jpg",
+ "template": "WORK/wt/o/sell-empty.png",
+ "hook": [
+  "POV: selling a 26 ft",
+  "box truck."
+ ],
+ "ask": [
+  "What trucks are parked",
+  "in your yard?"
+ ],
+ "music": "yardswaps-music-road-124bpm.mp3",
+ "caps": [
+  [
+   "List it from your phone.",
+   "Tap Take Photo."
+  ],
+  [
+   "Add a photo.",
+   "AI reads it."
+  ],
+  [
+   "AI fills in the rest.",
+   "Title, category, details."
+  ],
+  [
+   "Add your price.",
+   "You set it."
+  ],
+  [
+   "Check the details.",
+   "Change anything."
+  ],
+  [
+   "Tap Publish.",
+   "One tap."
+  ],
+  [
+   "Your listing is live.",
+   "Free to list. No cut of the sale."
+  ]
+ ],
+ "end_frames": "WORK/endc/e-boxtruck",
+ "final": {
+  "image": "WORK/rig/boxtruck_pub.png",
+  "frames": 52,
+  "cap": 6
+ }
+}

@@ -1,0 +1,58 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:SG;src:url(file:///home/user/Marketplace/node_modules/@expo-google-fonts/space-grotesk/700Bold/SpaceGrotesk_700Bold.ttf);font-weight:700}
+@font-face{font-family:SG;src:url(file:///home/user/Marketplace/node_modules/@expo-google-fonts/space-grotesk/600SemiBold/SpaceGrotesk_600SemiBold.ttf);font-weight:600}
+@font-face{font-family:SG;src:url(file:///home/user/Marketplace/node_modules/@expo-google-fonts/space-grotesk/500Medium/SpaceGrotesk_500Medium.ttf);font-weight:500}
+:root{--bg:#F6F6F8;--slate:#1A3353;--blue:#2563EB;--g1:#2C71F6;--g2:#1D4FC4;--muted:#545456}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:var(--W);height:var(--H);overflow:hidden;background:transparent}
+body{font-family:SG,Inter,sans-serif;color:var(--slate);-webkit-font-smoothing:antialiased}
+.layer{position:absolute;inset:0;overflow:hidden;opacity:0}
+.brand{background:linear-gradient(160deg,var(--g1),var(--g2));color:#fff}
+.abs{position:absolute}
+.h{font-weight:700;letter-spacing:-0.025em;line-height:1.04}
+.white{color:#fff}
+.badges{position:absolute;display:flex;gap:22px;justify-content:center;left:0;right:0}
+.badges img{height:108px;display:block}
+</style></head><body><div id="root"></div><script>
+// The ending of the earlier phone walkthroughs, lifted unchanged from assets/motion/source/app-first/app.html (endCard).
+const Q=new URLSearchParams(location.search);
+const W=+Q.get('w')||1080,H=+Q.get('h')||1920;
+document.documentElement.style.setProperty('--W',W+'px');document.documentElement.style.setProperty('--H',H+'px');
+const AR=H/W>1.6?'tall':(H/W>1.1?'45':'sq'), isTall=AR==='tall', isSq=AR==='sq', isWide=H/W<0.8;
+const root=document.getElementById('root');
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>clamp((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const back=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const lerp=(a,b,p)=>a+(b-a)*p;
+function el(tag,cls,html,parent){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;(parent||root).appendChild(e);return e}
+function css(e,o){for(const k in o)e.style[k]=o[k];}
+function show(L,t,a,b){L.style.opacity=(t>=a&&t<b)?1:0;}
+function endCard(tag1,tag2){
+  const L=el('div','layer brand',null,root);
+  const cy=isTall?760:H/2-90;
+  const word=el('div','abs h white','',L);css(word,{left:0,right:0,top:(cy-150)+'px',textAlign:'center',fontSize:(isSq?170:180)+'px',letterSpacing:'-0.03em'});
+  const letters=[...'YardSwaps'].map(c=>{const s=el('span','',c,word);css(s,{display:'inline-block'});return s;});
+  const t1=el('div','abs',tag1,L);css(t1,{left:0,right:0,top:(cy+70)+'px',textAlign:'center',fontSize:'50px',fontWeight:600});
+  const t2=el('div','abs',tag2,L);css(t2,{left:0,right:0,top:(cy+140)+'px',textAlign:'center',fontSize:'36px',fontWeight:500});
+  const b=el('div','badges','<img src="app-store-badge.svg"><img src="google-play-badge.png">',L);css(b,{top:(cy+235)+'px'});
+  const u=el('div','abs','yardswaps.com',L);css(u,{left:0,right:0,top:(cy+370)+'px',textAlign:'center',fontSize:'42px',fontWeight:700});
+  // optional comment question (ASK env / ?ask=): one line in a white pill under the URL, inside the Reels safe zone
+  const ask=Q.get('ask');let q=null;if(ask){const w=el('div','abs',null,L);css(w,{left:0,right:0,top:(cy+460)+'px',textAlign:'center'});
+    q=el('span','',ask,w);css(q,{display:'inline-block',background:'#fff',color:'var(--slate)',borderRadius:'999px',padding:'14px 34px',fontSize:(isWide?36:isTall?50:40)+'px',fontWeight:600,whiteSpace:'nowrap'});
+    let fs=isWide?36:isTall?50:40;while(q.offsetWidth>W-120&&fs>24){fs-=2;css(q,{fontSize:fs+'px'});}}
+  const circ=el('div','abs','',root);css(circ,{borderRadius:'50%',background:'linear-gradient(160deg,#2C71F6,#1D4FC4)',opacity:0});
+  return (t,a)=>{const pw=seg(t,a,a+.45),R=Math.hypot(W,H)*eio(pw);
+    css(circ,{left:(W/2-R)+'px',top:(H/2-R)+'px',width:2*R+'px',height:2*R+'px',opacity:(t>=a&&pw<1)?1:0});
+    show(L,t,a+.45,1e9);const tl=t-(a+.45);
+    letters.forEach((s,i)=>{const p=seg(tl,i*.04,i*.04+.45);css(s,{transform:`translateY(${(1-back(p))*60}px)`,opacity:p});});
+    [[t1,.45,1],[t2,.6,.85],[b,.8,1],[u,1.0,1]].concat(q?[[q,1.2,1]]:[]).forEach(([e,d,o])=>{const p=seg(tl,d,d+.45);css(e,{opacity:o*p,transform:`translateY(${(1-eo(p))*30}px) scale(${e===b?lerp(.9,1,back(p)):1})`});});};
+}
+
+
+let END;
+window.init=async()=>{await document.fonts.load('700 50px SG');await document.fonts.load('500 50px SG');await document.fonts.load('600 50px SG');
+  END=endCard(Q.get('t1'),Q.get('t2'));await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return true;};
+window.renderAt=t=>END(t,0);
+</script></body></html>

@@ -1,0 +1,50 @@
+{
+ "raw": "WORK/rig/raw/trailer",
+ "photo": "WORK/rig/trailer-full.jpg",
+ "template": "WORK/wt/o/sell-empty.png",
+ "hook": [
+  "POV: selling a blasting",
+  "trailer rig."
+ ],
+ "ask": [
+  "What rigs are parked",
+  "in your yard?"
+ ],
+ "music": "yardswaps-music-funk-112bpm.mp3",
+ "caps": [
+  [
+   "List it from your phone.",
+   "Tap Take Photo."
+  ],
+  [
+   "Add a photo.",
+   "AI reads it."
+  ],
+  [
+   "AI fills in the rest.",
+   "Title, category, details."
+  ],
+  [
+   "Add your price.",
+   "You set it."
+  ],
+  [
+   "Check the details.",
+   "Change anything."
+  ],
+  [
+   "Tap Publish.",
+   "One tap."
+  ],
+  [
+   "Your listing is live.",
+   "Free to list. No cut of the sale."
+  ]
+ ],
+ "end_frames": "WORK/endc/e-trailer",
+ "final": {
+  "image": "WORK/rig/trailer_pub.png",
+  "frames": 52,
+  "cap": 6
+ }
+}

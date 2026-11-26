@@ -1,0 +1,50 @@
+{
+ "raw": "WORK/rig/raw/toolcabinet",
+ "photo": "WORK/rig/toolcabinet-full.jpg",
+ "template": "WORK/wt/o/sell-empty.png",
+ "hook": [
+  "POV: selling a roller",
+  "tool cabinet."
+ ],
+ "ask": [
+  "What tools are sitting",
+  "in your shop?"
+ ],
+ "music": "yardswaps-music-shop-110bpm.mp3",
+ "caps": [
+  [
+   "List it from your phone.",
+   "Tap Take Photo."
+  ],
+  [
+   "Add a photo.",
+   "AI reads it."
+  ],
+  [
+   "AI fills in the rest.",
+   "Title, category, details."
+  ],
+  [
+   "Add your price.",
+   "You set it."
+  ],
+  [
+   "Check the details.",
+   "Change anything."
+  ],
+  [
+   "Tap Publish.",
+   "One tap."
+  ],
+  [
+   "Your listing is live.",
+   "Free to list. No cut of the sale."
+  ]
+ ],
+ "end_frames": "WORK/endc/e-toolcabinet",
+ "final": {
+  "image": "WORK/rig/toolcabinet_pub.png",
+  "frames": 52,
+  "cap": 6
+ }
+}
