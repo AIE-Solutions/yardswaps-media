@@ -76,9 +76,10 @@ def card(ph, line1, line2, shown, anchor=(0.5, 0.5)):
 def story(ph, line1, line2, shown, anchor=(0.5, 0.5)):
     """The same card at Story size (1080x1920) for the linked Stories (stories/linked/). The photo runs from
     the top edge; the label starts under the top 200 px that the app covers with the account name; the link
-    sticker goes on the empty band between the blue line and the footer (centre about y 1455); nothing to read
+    sticker (about 740 x 140 px at this size) goes on the empty band between the blue line and the footer,
+    centre about y 1425; nothing to read
     in the bottom 340 px."""
-    SW, SH, SPH = 1080, 1920, 1130
+    SW, SH, SPH = 1080, 1920, 1080
     img = Image.new("RGB", (SW, SH), BG)
     s = max(SW / ph.width, SPH / ph.height)
     ph = ph.resize((int(ph.width * s + 0.5), int(ph.height * s + 0.5)), Image.LANCZOS)
@@ -103,7 +104,7 @@ def story(ph, line1, line2, shown, anchor=(0.5, 0.5)):
     ff = font("Inter.ttf", 28, b"Medium")
     foot = f"Shown: {shown}. yardswaps.com"
     assert d.textlength(foot, font=ff) <= SW - 2 * PAD, foot
-    d.text((PAD, 1540), foot, font=ff, fill=GRAY)
+    d.text((PAD, 1530), foot, font=ff, fill=GRAY)
     return img
 
 
