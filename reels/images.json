@@ -1,5 +1,5 @@
 {
-  "_readme": "One-off image posts (not Reels). Dispatch reels.yml with image_slug=<slug>. feed = 4:5 for the IG + FB feed, story = 9:16 for IG + FB Stories. Captions end with an open question (Alan's rule). picture: 'real' = a real photo from a live listing or the real app; 'stock' = AI, Canva or stock. post_image.py posts only 'real' (Alan 11-26, real items only). Tip posts (tip-*) are made by brand/posts/make_tips.py from brand/posts/tips.json: run it again the day a tip posts, so the 'On YardSwaps now' chip is checked against the live listing.",
+  "_readme": "Image posts (not Reels). The Reels poster posts one seller still a day to the Instagram and Facebook feed (audience 'seller', picture 'real', look 'k2'; reels/README.md, Still image of the day); any entry can also be posted by hand by dispatching reels.yml with image_slug=<slug>. feed = 4:5 for the IG + FB feed, story = 9:16 for IG + FB Stories. Captions end with an open question (Alan's rule). picture: 'real' = a real photo from a live listing or the real app; 'stock' = AI, Canva or stock. post_image.py posts only 'real' (Alan 11-26, real items only). Tip posts (tip-*) are made by brand/posts/make_tips.py from brand/posts/tips.json: run it again the day a tip posts, so the 'On YardSwaps now' chip is checked against the live listing.",
   "images": [
     {
       "slug": "snap-it",

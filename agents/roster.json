@@ -383,7 +383,7 @@
       "team": "posting",
       "name": "Reels and Stories poster",
       "status": "live",
-      "does": "Posts our Reels and Stories to Instagram and Facebook in 10 daily slots, skipping clips without the end card.",
+      "does": "Posts our Reels and Stories to Instagram and Facebook in 10 daily slots, seller Reels in the daytime slots and listing Reels at night, plus one seller still image a day on the feed; skips clips without the end card.",
       "schedule": "10 slots, 5:10 am to 11:40 pm",
       "cadenceHours": 8,
       "runner": {
