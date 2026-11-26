@@ -48,8 +48,19 @@ The review page with every frame, before and after: https://claude.ai/artifact/6
 | Tip posts (feed 4:5 and 9:16) | `brand/posts/make_tips.py` from `tips.json` | `tip_post` |
 | Daily Story | `stories/render_story.js` | `story`, drawn again in HTML because the Story job checks out only `stories/` |
 
-A listing Reel shows one shot per photo: the top photo, the detail under it and the facts line all change with
-the shot; the price and the title stay.
+A listing Reel shows one shot per photo, joined with hard cuts, and has two layouts in the one look
+(`reel_layout` picks):
+
+- **Stack**, when the first photo is wide and there are two or more wide photos: the top photo, the detail under
+  it and the facts line all change with the shot. One wide photo alone keeps a white foot, never a grey panel.
+- **Upright**, when the first photo is upright or square (about half of all listings, phone photos): the same
+  band moved to the top of the safe area (tag top 297, title baseline 560, wordmark 754) and one photo a shot
+  under it from y 789 to the foot of the frame, inside the 64 px text margins. An upright 3:4 photo fills that
+  slot; a square or wide one sits whole at the top of it; a very tall one stands whole on the light panel. Never
+  a narrow photo between pale side bars (the first k2 pass did that and failed its review).
+
+Photos that show the same view are shown once (`distinct`). The blue end card holds 2.5 s on listing Reels so
+it lands on a short clip that loops.
 
 `LOOK` in `kit.py` names the version. When it changes, the listings job re-makes older listing Reels from the
 photos their review already approved (4 a run), keeps the old files, and points the library entry at the new
