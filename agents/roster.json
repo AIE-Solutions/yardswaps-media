@@ -1,6 +1,6 @@
 {
   "$comment": "The agent workforce roster (Alan 2026-11-25: \"Build our agent workforce to take on all these new corporate tasks to keep everything flowing\"). One row per agent: what it does, when it runs (Mountain time, Alan's), what runs it, its prompt, and how we know it worked. The Roster Keeper (ROSTER-KEEPER-PROMPT.md) reads this file twice a day, matches each row to its scheduled task, workflow run or heartbeat, and republishes the status page. Change a row by PR. runner.kind: task = a project scheduled task (trig_ id), workflow = a GitHub Actions workflow in this repo (file name), app = a Railway cron or app code in AIE-Solutions/Marketplace, external = a paid tool outside our code. cadenceHours = longest normal gap between runs; a row quiet for 1.5x that is flagged. heartbeat = the X-Agent-Name it sends to POST /api/agent/heartbeat at the end of a run (null = no heartbeat; health comes from the runner).",
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "statusPage": "https://claude.ai/artifact/LqHZjy1HennvyA5GaA2L3r",
   "hardLimits": "No spend, no investor contact, no deleting data or removing listings, no Stripe or console changes, no subscription cancellations, no bans (Alan's call). Copy follows MESSAGING.md. Never Alan's personal name in anything users read. Every video ends on the end card.",
   "teams": [
@@ -787,6 +787,23 @@
       "owner": "Studio connector thread",
       "health": "Heartbeat connector-studio; GET /health",
       "heartbeat": "connector-studio"
+    },
+    {
+      "id": "fresh-items",
+      "team": "content",
+      "name": "Fresh items (weekly rotation)",
+      "status": "live",
+      "does": "Makes up to six new seller Reels and two seller stills from real listings not shown in two weeks, across item types; rests the seller Reels shown most; lines up next week's seller Stories (Alan 11-26: rotate the items we show).",
+      "schedule": "Mondays 11:17 am",
+      "cadenceHours": 168,
+      "runner": {
+        "kind": "task",
+        "ref": "trig_01QkBLScv1VFqGXMiDEXq76V"
+      },
+      "prompt": "agents/FRESH-ITEMS-PROMPT.md",
+      "owner": "Ads home thread",
+      "health": "Weekly PR with new reels/library.json seller rows and motion/audit/<date>/ sheets",
+      "heartbeat": "fresh-items"
     }
   ],
   "retired": [
