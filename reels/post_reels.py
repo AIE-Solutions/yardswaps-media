@@ -582,6 +582,27 @@ def with_endcard(videos):
     return ok
 
 
+# Alan, 2026-11-26: "For the reels the items in the pictures need to improve and be real, the rig one looks
+# terrible." Only a clip whose item is a real YardSwaps listing photo posts: "real": true (listing Reels, real-
+# listing Motion cuts) or "picture": "real" (a Motion cut whose opener is a listing photo). A clip with no
+# "picture" key is treated as not real, so a new stock or generated picture can never slip into the rotation;
+# "picture": "stock" names the Canva/Pexels/Unsplash/Commons/generated ones. reels/README.md "Real items only".
+REAL_PICTURES = ("real",)
+
+
+def real_picture(v, allow=REAL_PICTURES):
+    return v.get("real") is True or v.get("picture") in allow
+
+
+def with_real_pictures(videos, allow=REAL_PICTURES):
+    """Only clips that show a real item from a YardSwaps listing post (see REAL_PICTURES)."""
+    ok = [v for v in videos if real_picture(v, allow)]
+    left = len([v for v in videos if not v.get("hold") and not real_picture(v, allow)])
+    if left:
+        print(f"::notice::{left} clip(s) skipped: the picture is not a real YardSwaps listing item")
+    return ok
+
+
 def pick(videos, posted, platform, force=None, scores=None):
     ok = [p for p in posted if p["platform"] == platform and p.get("status") == "posted"]
     last = {}
@@ -1202,7 +1223,7 @@ def main():
 
     lib = load(LIBRARY, {"videos": []})
     set_slots(lib)
-    videos = with_endcard(lib["videos"])
+    videos = with_real_pictures(with_endcard(lib["videos"]))
     LOCATIONS[:] = lib.get("locations", [])
     if lib.get("broad_tags"):
         BROAD_TAGS[:] = lib["broad_tags"]

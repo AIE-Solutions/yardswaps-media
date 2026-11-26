@@ -20,6 +20,18 @@ Goal: engagement, follows and app downloads. Every caption has the body, a follo
 - Location tag: Instagram Reels are tagged with a place from `locations` in `library.json`, one per day: Houston 3 days of every 7 (`weight`: 3), then Dallas, El Paso, San Antonio and Austin. An entry gives a Facebook place Page `id`, or a `wikidata` id whose Facebook Places ID (P1997) is looked up at run time; a city with no id falls back to Houston. A dry run lists the rotation and asks Meta what each id is. If Meta refuses an id, the Reel posts without a location. Stories can't take a location or hashtags through the API.
 - Rules (CAPTIONS.md, ENGAGEMENT-PLAYBOOK.md, UTM-LINKS.md in the campaign folder): seller-first, the body says "Free to list" and "Free boosts", plain words, no emoji or icons, one open question about the viewer's own gear ending in "?", never promise views or sales, posted as the business. No #smallbusiness, #fyp, #reels, #explore.
 
+## Real items only (Alan, 2026-11-26)
+"The items in the pictures need to improve and be real." Every poster (`post_reels.py`,
+`post_tiktok.py`, the Studio rows in `youtube/post_shorts.py`) only takes a clip whose picture
+is a real item from a YardSwaps listing: `"real": true` (listing Reels and Studio clips built
+from listing photos) or `"picture": "real"` (a situational cut made from a real listing photo).
+`"picture": "stock"` (Canva, Pexels, Unsplash, Wikimedia or an AI image) never posts, and an entry
+with no `picture` key is treated as stock. TikTok also allows `"picture": "ad"` (the storefront
+ad cut). The old stock and AI cuts stay in the library, unposted, nothing deleted. The rig clip
+(`drilling-rig-parked`, a distant stock derrick) is on hold until a real drill rig is listed.
+Fewer real clips means fewer posts some days; that is the trade Alan asked for. Supply grows
+with each listing Reel built every morning (`listings/README.md`).
+
 ## Adding new videos (weekly batch)
 
 Every clip ends on the YardSwaps end card (Alan, 2026-11-25; `brand/endcard/`). The posters
@@ -30,7 +42,7 @@ storefront version for `"audience": "dealer"`. `listings/listing_reels.py` runs 
 so a new clip waits at most a day; run it yourself after adding clips to post them sooner.
 For each new 9:16 video with music:
 1. Copy it to `reels/library/yardswaps-<slug>-9x16.mp4` (keep files under ~15 MB; Reels must be 3 to 60 seconds for Facebook).
-2. Add an entry to `library.json`: `slug`, `file`, `priority` (0 = first), `added` (YYYY-MM-DD, today), `body` (seller text ending with a "Free to list ... Free boosts." line; a storefront clip ends on the storefront offer instead, worded as in `MESSAGING.md`, and never says listing is free), `question` (from the comment prompt bank, not used before, ending in "?"), `ig_tags`, optional `boost` (adds to the repeat score), optional `"audience": "dealer"` for a storefront clip (its Facebook caption then links yardswaps.com/dealers with "Open your storefront:" instead of the seller page, its Instagram and Threads captions point to yardswaps.com/s, and its TikTok caption closes on the storefront), `machine` (the equipment it shows; reuse the key of any clip cut from the same opener photo, a new photo gets a new key, see `rotation/README.md`), optional `hold: true` (+ `hold_reason`) to keep a video out of Reels, Stories and repeats until its cut is fixed. A fixed cut of an already-posted video goes in as a new slug with today's `added` date, so it posts at the next slot.
+2. Add an entry to `library.json`: `slug`, `file`, `priority` (0 = first), `added` (YYYY-MM-DD, today), `body` (seller text ending with a "Free to list ... Free boosts." line; a storefront clip ends on the storefront offer instead, worded as in `MESSAGING.md`, and never says listing is free), `question` (from the comment prompt bank, not used before, ending in "?"), `ig_tags`, optional `boost` (adds to the repeat score), optional `"audience": "dealer"` for a storefront clip (its Facebook caption then links yardswaps.com/dealers with "Open your storefront:" instead of the seller page, its Instagram and Threads captions point to yardswaps.com/s, and its TikTok caption closes on the storefront), `picture` (`"real"` only when the opener is a photo from a live YardSwaps listing, with its `listing_id`; anything else is `"stock"` and never posts), `machine` (the equipment it shows; reuse the key of any clip cut from the same opener photo, a new photo gets a new key, see `rotation/README.md`), optional `hold: true` (+ `hold_reason`) to keep a video out of Reels, Stories and repeats until its cut is fixed. A fixed cut of an already-posted video goes in as a new slug with today's `added` date, so it posts at the next slot.
 3. Commit to `main`. Newest `added` posts first.
 Never delete `reels/` when clearing a week folder.
 

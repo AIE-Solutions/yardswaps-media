@@ -213,6 +213,22 @@ def entry_for(row, lib):
     return v
 
 
+def real_picture(row, lib):
+    """Real items only (Alan, 2026-11-26: "the items in the pictures need to improve and be real").
+    A row posts only when its library entry is "real": true or "picture": "real"; a row with no
+    library entry needs "real": true on the row itself. Stock and AI pictures never post."""
+    if row.get("real") is True:
+        return True
+    if not lib:
+        try:
+            with open(os.path.join(ROOT, "reels", "library.json")) as f:
+                lib = {v["slug"]: v for v in json.load(f).get("videos", [])}
+        except Exception:
+            lib = {}
+    v = lib.get(row.get("library_slug") or row["slug"], {})
+    return v.get("real") is True or v.get("picture") == "real"
+
+
 # ---------- studio clips ----------
 
 def studio_rows(queue):
@@ -223,6 +239,9 @@ def studio_rows(queue):
     rows = []
     for v in vids:
         if not v.get("studio") or v.get("hold") or v["slug"] in have or not v.get("title"):
+            continue
+        # real items only (Alan 11-26): a Studio clip from a stock photo never posts
+        if not (v.get("real") is True or v.get("picture") == "real"):
             continue
         tags = " ".join(t for t in (v.get("ig_tags") or "").split() if t.lower() not in BANNED_TAGS)
         desc = (f"{v.get('body', '').strip()}\n\nStart a listing: yardswaps.com/y (link in our channel profile). "
@@ -266,6 +285,9 @@ def candidates(queue, posted, on_channel, t=None):
             continue
         if row["slug"] in done:
             out.append((row, "already posted"))
+            continue
+        if not real_picture(row, lib):
+            out.append((row, "not a real YardSwaps listing item (stock or AI picture, Alan 11-26)"))
             continue
         fails = [p for p in posted if p.get("slug") == row["slug"] and p.get("status") == "failed"]
         if len(fails) >= 2:

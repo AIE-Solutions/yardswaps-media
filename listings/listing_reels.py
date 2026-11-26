@@ -188,15 +188,18 @@ def render(l, photos_rgb, question, out_mp4, sheet_jpg):
 
 # ---------- photos ----------
 
-def clean_photos(cv2, np, l, card_photo=None):
-    """(photos_rgb, urls) that pass the face check, with digit words blurred."""
+def clean_photos(cv2, np, l, card_photo=None, skip=()):
+    """(photos_rgb, urls) that pass the face check, with digit words blurred. `skip`: photo URLs a review
+    rejected, never used again for this listing."""
     out, urls = [], []
     if card_photo and os.path.exists(os.path.join(ROOT, card_photo)):
         img = cv2.imread(os.path.join(ROOT, card_photo))
         return [cv2.cvtColor(img, cv2.COLOR_BGR2RGB)], ["card"]
-    for u in (l.get("photoUrls") or [])[:jl.PHOTOS_TRIED + 1]:
+    for u in (l.get("photoUrls") or [])[:jl.PHOTOS_TRIED + 1 + len(skip)]:
         if len(out) >= MAX_PHOTOS:
             break
+        if u in skip:
+            continue
         url = u if u.startswith("http") else jl.SITE + u
         try:
             raw = jl.fetch(url)
@@ -213,6 +216,44 @@ def clean_photos(cv2, np, l, card_photo=None):
         out.append(cv2.cvtColor(img2, cv2.COLOR_BGR2RGB))
         urls.append(u)
     return out, urls
+
+
+# ---------- rebuilds ----------
+
+PHOTO_NUM = re.compile(r"\bphotos? (\d)\b", re.I)
+
+
+def bad_photos(r):
+    """Photo URLs a rejected review row names ("photo 2 is a close-up ..."), or None when the reason is about
+    the listing as a whole (a watermark on every photo, a title mismatch, no number at all)."""
+    reason = r.get("reason") or ""
+    photos = [u for u in (r.get("photos") or []) if u != "card"]
+    nums = {int(n) for n in PHOTO_NUM.findall(reason)}
+    if not nums or not photos or any(n < 1 or n > len(photos) for n in nums):
+        return None
+    if re.search(r"\b(photos|every photo|all photos|watermark|title|not equipment|duplicate)\b", reason, re.I):
+        return None
+    return {photos[n - 1] for n in nums}
+
+
+def rebuild_skips(rq):
+    """listing_id -> photo URLs to leave out, for listings whose clip was rejected over one or two photos.
+
+    Alan, 2026-11-26: Reels must show real items. Most rejected listing Reels failed on a single photo (a
+    close-up, a person's boots, a readable truck door) while the listing's other photos were fine, so the
+    clip is made again from the rest and goes back to the review. Every rejection of the same listing adds
+    its photos to the list; a listing whose latest rejection is about the whole listing never comes back."""
+    skips = {}
+    for r in rq:
+        lid = r.get("listing_id")
+        if r.get("status") != "rejected" or not lid:
+            continue
+        bad = bad_photos(r)
+        if bad is None:
+            skips[lid] = None
+        elif skips.get(lid, set()) is not None:
+            skips[lid] = skips.get(lid, set()) | bad
+    return {k: v for k, v in skips.items() if v}
 
 
 # ---------- main ----------
@@ -275,7 +316,9 @@ def main():
 
     # 2. build
     have = {v.get("listing_id") for v in vids if v.get("listing_id") and not v.get("studio")}
-    rejected = {r["listing_id"] for r in rq if r.get("status") == "rejected"}
+    skips = rebuild_skips(rq)
+    latest = {r["listing_id"]: r for r in rq if r.get("listing_id")}
+    rejected = {lid for lid, r in latest.items() if r.get("status") == "rejected" and lid not in skips}
     card_ok = {q["listing_id"]: q for q in queue if q.get("status") in ("approved", "posted") and q.get("photo_file")}
     hist = rot.uses(vids)
     order = [l for l in rot.rank_listings(list(active.values()), hist, opted_out)
@@ -292,7 +335,10 @@ def main():
             if built >= REELS_PER_RUN:
                 break
             card = card_ok.get(l["id"], {}).get("photo_file")
-            photos, urls = clean_photos(cv2, np, l, card)
+            skip = skips.get(l["id"]) or set()
+            if skip:
+                card = None   # the review turned down a photo of this listing: use only the ones it did not name
+            photos, urls = clean_photos(cv2, np, l, card, skip)
             if not photos:
                 print(f"  skip {l['id']}: no usable photo")
                 continue
@@ -316,6 +362,8 @@ def main():
             vids.append(entry)
             built += 1
             changed = True
+            if skip:
+                print(f"  rebuilt {slug} without {len(skip)} rejected photo(s)")
             print(f"  built {slug} ({secs}s, {len(photos)} photo(s), "
                   f"{'card photo, no hold' if card else 'held for review'}) -> {out}")
     print(f"built {built} listing Reel(s)")

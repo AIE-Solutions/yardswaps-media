@@ -59,6 +59,11 @@ number the blur missed, and the title and price boxes match the photos. Set `sta
 `reviewed_by`. Commit `reel-queue.json`. The next prep run clears the hold on approved
 clips and removes rejected ones. Clips built from an already approved card photo skip
 this queue.
+When a rejection names only some photos ("photo 2 is cut off"), the next run rebuilds the
+listing's clip without those photos and puts it back in this queue as a new pending row
+(Nov 26: real listing photos are now the only pictures the Reels use, so a clip is worth
+saving). A reason about every photo, a watermark, the title or a non-equipment item still
+drops the listing.
 
 ## "Buyers are looking" cards (wanted.json)
 
