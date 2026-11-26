@@ -737,7 +737,8 @@ def build_card(cv2, np, l, turn):
         if nf:
             print(f"  {lid}: {u} has {nf} face(s), trying the next photo")
             continue
-        img2, nblur, ocr = blur_digit_text(img)
+        import photo_privacy      # phone numbers and plates only, not every word with a digit
+        img2, nblur, ocr = photo_privacy.blur_private_text(img)
         chosen = (u, img2, nblur, ocr)
         break
     if not chosen:

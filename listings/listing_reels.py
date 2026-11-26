@@ -48,6 +48,7 @@ sys.path.insert(0, os.path.join(ROOT, "rotation"))
 sys.path.insert(0, os.path.join(ROOT, "brand", "endcard"))
 sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
 import endcard  # noqa: E402
+import photo_privacy  # noqa: E402  (phone numbers and plates only; listings/photo_privacy.py)
 import kit  # noqa: E402
 import just_listed as jl  # noqa: E402
 import rotation as rot  # noqa: E402
@@ -147,7 +148,7 @@ def render(l, photos_rgb, question, out_mp4, sheet_jpg):
 # ---------- photos ----------
 
 def clean_photos(cv2, np, l, card_photo=None, skip=()):
-    """(photos_rgb, urls) that pass the face check, with digit words blurred. `skip`: photo URLs a review
+    """(photos_rgb, urls) that pass the face check, with phone numbers and plates blurred. `skip`: photo URLs a review
     rejected, never used again for this listing."""
     out, urls = [], []
     if card_photo and os.path.exists(os.path.join(ROOT, card_photo)):
@@ -170,7 +171,7 @@ def clean_photos(cv2, np, l, card_photo=None, skip=()):
         if jl.faces_in(img):
             print(f"  {l['id']}: face in {u}, skipped")
             continue
-        img2, _, _ = jl.blur_digit_text(img)
+        img2, _, _ = photo_privacy.blur_private_text(img)
         out.append(cv2.cvtColor(img2, cv2.COLOR_BGR2RGB))
         urls.append(u)
     return out, urls
@@ -231,7 +232,7 @@ def same_photos(cv2, np, l, r, card_photo):
         img = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR)
         if img is None or jl.faces_in(img):
             return [], []
-        out.append(cv2.cvtColor(jl.blur_digit_text(img)[0], cv2.COLOR_BGR2RGB))
+        out.append(cv2.cvtColor(photo_privacy.blur_private_text(img)[0], cv2.COLOR_BGR2RGB))
     return out, urls
 
 
