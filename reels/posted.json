@@ -553,7 +553,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1811329086656725",
-  "url": "https://www.facebook.com/reel/1811329086656725"
+  "url": "https://www.facebook.com/reel/1811329086656725",
+  "removed": "2026-11-27T17:36:52Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1163765986137524"
  },
  {
   "time": "2026-11-08T13:45:07Z",
@@ -4697,5 +4700,25 @@
   "status": "posted",
   "id": "1455673819471024",
   "url": "https://www.facebook.com/reel/1455673819471024"
+ },
+ {
+  "time": "2026-11-27T17:36:01Z",
+  "platform": "instagram",
+  "slug": "seller-hvac-unit",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "18120548176997069",
+  "url": "https://www.instagram.com/reel/DgQOwXcoDjs/"
+ },
+ {
+  "time": "2026-11-27T17:36:38Z",
+  "platform": "facebook",
+  "slug": "walkthrough-live-toolcabinet",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "1163765986137524",
+  "url": "https://www.facebook.com/reel/1163765986137524"
  }
 ]
