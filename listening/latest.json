@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T21:26:39.849906+00:00",
+ "generated_at": "2026-11-27T21:11:05.887150+00:00",
  "lookback_days": 8,
  "sources": [
   {
@@ -40,21 +40,21 @@
   },
   {
    "name": "LawnSite",
-   "status": "error: HTTPError: HTTP Error 409: Conflict",
-   "items": 0,
-   "in_window": 0
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
   },
   {
    "name": "ContractorTalk",
-   "status": "error: HTTPError: HTTP Error 409: Conflict",
-   "items": 0,
-   "in_window": 0
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
   },
   {
    "name": "WeldingWeb",
-   "status": "error: HTTPError: HTTP Error 409: Conflict",
-   "items": 0,
-   "in_window": 0
+   "status": "ok",
+   "items": 35,
+   "in_window": 35
   },
   {
    "name": "Pressure Washing Resource",
@@ -64,6 +64,25 @@
   }
  ],
  "posts": [
+  {
+   "title": "Posted my PM lathe in the machine for sale section here cheap - no views.",
+   "link": "https://www.hobby-machinist.com/threads/posted-my-pm-lathe-in-the-machine-for-sale-section-here-cheap-no-views.126386/",
+   "text": "hello all, I posted an un-used PM 1236T in the machine for sale section here and its gotten no attention, I'm looking to down size so I also offered to trade for a smaller PM machine with a little cash. I'm thinking very few people are looking at the members for sale section, I know the unregistered public cant see it, which was the point - Id rather take a lose and have a needy member here get a great deal. at this point though I'm thinking of selling off forum so i can get a new PM... Read more",
+   "author": "Mr Mike",
+   "time": "2026-11-27T18:27:46+00:00",
+   "platform": "Forum",
+   "source": "Hobby-Machinist",
+   "links_ok": false,
+   "intent": "sell",
+   "category": "machining",
+   "category_name": "Metalworking & CNC",
+   "score": 4,
+   "drafts": {
+    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
+    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
+   },
+   "first_seen": "2026-11-27T21:11:05.887150+00:00"
+  },
   {
    "title": "FS: Vintage US Machine Tool Manual Mill",
    "link": "https://www.practicalmachinist.com/forum/threads/fs-vintage-us-machine-tool-manual-mill.452682/",
@@ -82,25 +101,6 @@
     "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
    },
    "first_seen": "2026-11-26T21:26:39.849906+00:00"
-  },
-  {
-   "title": "Posted my PM lathe in the machine for sale section here cheap - no views.",
-   "link": "https://www.hobby-machinist.com/threads/posted-my-pm-lathe-in-the-machine-for-sale-section-here-cheap-no-views.126386/",
-   "text": "hello all, I posted an un-used PM 1236T in the machine for sale section here and its gotten no attention, I'm looking to down size so I also offered to trade for a smaller PM machine with a little cash. I'm thinking very few people are looking at the members for sale section, I know the unregistered public cant see it, which was the point - Id rather take a lose and have a needy member here get a great deal. at this point though I'm thinking of selling off forum so i can get a new PM... Read more",
-   "author": "Mr Mike",
-   "time": "2026-11-25T19:10:26+00:00",
-   "platform": "Forum",
-   "source": "Hobby-Machinist",
-   "links_ok": false,
-   "intent": "sell",
-   "category": "machining",
-   "category_name": "Metalworking & CNC",
-   "score": 4,
-   "drafts": {
-    "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
-    "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_machining"
-   },
-   "first_seen": "2026-11-25T21:37:20.772069+00:00"
   },
   {
    "title": "FOR SALE - Pratt and Whitney 12x30 Model B",
@@ -138,7 +138,7 @@
     "no_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?",
     "with_link": "For a used machine like this, the usual routes are Facebook Marketplace, Craigslist, a local dealer or an auction if it's big iron. We run YardSwaps, a free marketplace just for used work equipment, so that's one more place to list it at no cost (no fee, no cut, buyer picks up and pays you). Clear photos of the data plate and hours help on any site. What's the condition on it?\nhttps://www.yardswaps.com/sell-equipment?utm_source=forum&utm_medium=social&utm_campaign=listening_trailers"
    },
-   "first_seen": "2026-11-26T21:26:39.849906+00:00"
+   "first_seen": "2026-11-27T21:11:05.887150+00:00"
   },
   {
    "title": "Who makes the second best Micrometer",
