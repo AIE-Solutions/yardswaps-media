@@ -1,12 +1,12 @@
 {
-  "checkedAt": "2026-11-27T13:00:00Z",
+  "checkedAt": "2026-11-27T23:59:00Z",
   "checkedBy": "roster-keeper",
   "agents": {
     "roster-keeper": {
-      "lastRun": "2026-11-27T12:53:17Z",
+      "lastRun": "2026-11-27T23:53:10Z",
       "result": "ok",
       "source": "task",
-      "note": "Morning check."
+      "note": "Evening check."
     },
     "platform-ops": {
       "lastRun": "2026-11-27T09:41:04Z",
@@ -21,10 +21,10 @@
       "note": "OK: nothing needed (0 5xx in 24 h, no new bugs; CI still blocked by Actions billing)"
     },
     "guard": {
-      "lastRun": "2026-11-26T22:41:17Z",
+      "lastRun": "2026-11-27T22:41:29Z",
       "result": "ok",
       "source": "task",
-      "note": "Thanksgiving run: caps OK, bounces 2.4%; new holds sent to the ads home thread (feed card, 50 clip sheets, Dec 1 Story)."
+      "note": "Friday run 22:41Z: caps OK (claim notes 0/15, Maps 0/25), 1 large-firm intro, 4 El Paso follow-ups."
     },
     "optimizer": {
       "lastRun": "2026-11-22T21:44:02Z",
@@ -35,7 +35,7 @@
       "lastRun": "2026-11-27T09:01:33Z",
       "result": "ok",
       "source": "railway",
-      "note": "Daily OpsDigest posted 11-27 09:01Z; no attention items."
+      "note": "Daily OpsDigest posted 11-27 09:01Z; no attention items. Next one about 09:01Z 11-28."
     },
     "owner-alerts": {
       "result": "ok",
@@ -43,7 +43,7 @@
       "source": "app"
     },
     "growth-lead": {
-      "lastRun": "2026-11-26T13:24:12Z",
+      "lastRun": "2026-11-27T13:24:04Z",
       "result": "ok",
       "source": "task"
     },
@@ -58,10 +58,10 @@
       "source": "task"
     },
     "cold-email": {
-      "lastRun": "2026-11-26T21:32:00Z",
+      "lastRun": "2026-11-27T21:35:00Z",
       "result": "ok",
       "source": "guard-log",
-      "note": "Last window read: 11-26 15:02-21:32Z, 9 El Paso follow-ups, 0 claim notes, 0 failed (Guard log 11-26 row). Friday window starts about 15:00Z; no outreach-pipeline line on the Marketplace service."
+      "note": "Friday window read: 11-27 15:04-21:35Z, 1 large-firm intro, 4 El Paso follow-ups, 0 claim notes, 0 failed (Guard log 11-27 row). No outreach-pipeline line on the Marketplace service. Next window Monday."
     },
     "investor-docs": {
       "lastRun": "2026-11-23T18:41:57Z",
@@ -69,23 +69,23 @@
       "source": "task"
     },
     "reply-handler": {
-      "lastRun": "2026-11-26T23:17:55Z",
+      "lastRun": "2026-11-27T23:17:34Z",
       "result": "ok",
       "source": "task"
     },
     "storefront-care": {
-      "lastRun": "2026-11-26T19:16:24Z",
+      "lastRun": "2026-11-27T19:15:52Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "4 storefronts seen, all pages 200; setup notes 0 sent / 3 refused (409, 30-day limit); welcome rows 0 queued / 0 posted (Quiet Village held for 11-27)"
+      "note": "4 storefronts seen, all pages 200; setup notes 0 sent / 3 refused (409, 30-day limit); welcomes 0 queued / 0 posted (all 4 already posted, Quiet Village today 18:58Z)"
     },
     "comment-replies": {
-      "lastRun": "2026-11-26T17:41:51Z",
+      "lastRun": "2026-11-27T17:42:08Z",
       "result": "ok",
       "source": "task"
     },
     "comment-inbox": {
-      "lastRun": "2026-11-27T00:38:20Z",
+      "lastRun": "2026-11-27T23:45:39Z",
       "result": "ok",
       "source": "workflow"
     },
@@ -100,54 +100,56 @@
       "note": "New. First run Nov 30 10:47 AM MT."
     },
     "billing-watch": {
-      "lastRun": "2026-11-26T15:11:03Z",
+      "lastRun": "2026-11-27T15:11:06Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "2026-11-26: new trials 0, paid 0 new, cancels 0 new, failed 0 (0 open invoices), founding checks: 0 trials end within 4 days, Quiet Village waiting (trial ends Dec 24), projected $29/mo (full $49/mo), MRR $9.99. Log in media PR #137 (merged)."
+      "note": "2026-11-27: new trials 0, paid 0 new, cancels 0 new, failed 0, founding checks 0 due (Quiet Village waiting, trial ends Dec 24), projected $29/mo (full $49), MRR $9.99"
     },
     "founding-check-quiet-village": {
       "note": "Fires Dec 22, 9 am. Billing Watch also checks it daily from Dec 20.",
       "source": "task"
     },
     "reels-poster": {
-      "lastRun": "2026-11-27T12:43:20Z",
+      "lastRun": "2026-11-27T23:43:15Z",
       "result": "ok",
       "source": "workflow",
-      "note": "6:42 am timer run 12:43Z green."
+      "note": "reels.yml green, newest run 23:43Z (5:42 pm timer). The old 11:42 pm timer trig_01PFHJ5q was switched off 11-27 by design (media PR #157 moved that slot); the roster row still lists it instead of the new trig_011u1UcH (11:32 am + 7:32 pm)."
     },
     "tiktok-poster": {
-      "lastRun": "2026-11-27T02:06:09Z",
+      "lastRun": "2026-11-27T22:43:10Z",
       "result": "ok",
-      "source": "workflow"
+      "source": "workflow",
+      "note": "tiktok.yml green, newest run 22:43Z."
     },
     "shorts-poster": {
-      "lastRun": "2026-11-27T08:06:08Z",
+      "lastRun": "2026-11-27T23:22:55Z",
       "result": "ok",
-      "source": "workflow"
+      "source": "workflow",
+      "note": "youtube-shorts.yml green, newest run 23:22Z; 4 pm Short live 11-27."
     },
     "youtube-slots": {
-      "lastRun": "2026-11-27T00:36:00Z",
+      "lastRun": "2026-11-27T22:36:14Z",
       "result": "ok",
       "source": "task"
     },
     "just-listed": {
-      "lastRun": "2026-11-27T08:29:05Z",
+      "lastRun": "2026-11-27T23:23:05Z",
       "result": "ok",
       "source": "workflow",
-      "note": "listings.yml green on its last 3 runs (02:50Z, 03:17Z, 08:29Z 11-27). The apt-get update fix for the earlier failures is still in media PR #157."
+      "note": "listings.yml green on its last 3 runs (08:29Z, 18:52Z, 23:23Z 11-27). The apt-get fix merged with media PR #157."
     },
     "just-listed-review": {
-      "lastRun": "2026-11-26T17:31:57Z",
+      "lastRun": "2026-11-27T17:31:25Z",
       "result": "ok",
       "source": "task"
     },
     "listing-reels-review": {
-      "lastRun": "2026-11-26T17:47:16Z",
+      "lastRun": "2026-11-27T17:47:14Z",
       "result": "ok",
       "source": "task"
     },
     "list-it-free-story": {
-      "lastRun": "2026-11-26T15:27:15Z",
+      "lastRun": "2026-11-27T15:27:22Z",
       "result": "ok",
       "source": "task"
     },
@@ -157,16 +159,16 @@
       "source": "external"
     },
     "motion-shorts": {
-      "lastRun": "2026-11-25T14:52:58Z",
+      "lastRun": "2026-11-27T14:37:44Z",
       "result": "ok",
       "source": "task",
-      "note": "Friday run next: Nov 27 8:37 am CT."
+      "note": "Friday run fired 14:37Z 11-27. Next: Mon Nov 30 6:41 am MT."
     },
     "endcard-check": {
-      "lastRun": "2026-11-27T13:00:00Z",
+      "lastRun": "2026-11-27T23:59:00Z",
       "result": "ok",
       "source": "git",
-      "note": "265 of 265 library clips carry the end card."
+      "note": "272 of 272 library clips carry the end card."
     },
     "monday-batch": {
       "lastRun": "2026-11-23T19:47:23Z",
@@ -179,7 +181,7 @@
       "source": "task"
     },
     "listening": {
-      "lastRun": "2026-11-26T21:26:31Z",
+      "lastRun": "2026-11-27T21:11:02Z",
       "result": "ok",
       "source": "workflow"
     },
@@ -189,7 +191,7 @@
       "source": "task"
     },
     "scorecard": {
-      "lastRun": "2026-11-26T21:26:31Z",
+      "lastRun": "2026-11-27T21:09:20Z",
       "result": "ok",
       "source": "workflow"
     },
@@ -199,26 +201,26 @@
       "source": "workflow"
     },
     "studio-blog": {
-      "lastRun": "2026-11-26T20:23:19Z",
+      "lastRun": "2026-11-27T20:23:05Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "Nothing written: one already saved in the last 24 h (Used Walk-In Cooler Box: What to Check Before You Buy, 13:25Z); specific lane only per BLOG-WRITER-PROMPT, no broad/Soro-lane article, 1 HeyCatch copied"
+      "note": "Nothing written: today's specific-lane article (Used Electric Forklift Battery: What to Check Before You Buy) already saved 13:27Z; broad lane is off per BLOG-WRITER-PROMPT (Soro keeps broad topics), 1 HeyCatch copied"
     },
     "studio-shorts": {
-      "lastRun": "2026-11-27T08:29:05Z",
+      "lastRun": "2026-11-27T23:23:05Z",
       "result": "ok",
       "source": "workflow",
-      "note": "Runs inside listings.yml, green since 02:50Z 11-27."
+      "note": "Runs inside listings.yml, green 23:23Z 11-27."
     },
     "studio-analytics": {
       "note": "Being built in the Studio thread.",
       "source": "task"
     },
     "studio-deck": {
-      "lastRun": "2026-11-26T22:37:17Z",
+      "lastRun": "2026-11-27T22:37:37Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "3:35 pm run: studio deck: 0 approved, 0 skipped, 0 auto-approved, 0 caption edit(s), 0 to re-render, 0 waiting for review (sync timestamp committed c5d14dc)"
+      "note": "studio deck: 0 approved, 0 skipped, 0 auto-approved, 0 caption edit(s), 0 to re-render, 0 waiting for review (3:35 pm MT run, sync time stamped in 309e02f)"
     },
     "studio-audit": {
       "result": null,
@@ -238,11 +240,10 @@
     }
   },
   "endcard": {
-    "checked": 265,
+    "checked": 272,
     "missing": 0
   },
   "needsAlan": [
-    "GitHub Actions is still blocked (billing or spending limit) on the app repo, so CI does not start on any PR (Ops Sweep, 11-27 11:50Z): github.com/organizations/AIE-Solutions/settings/billing.",
-    "Media PR #157 (listings install fix + Reels slot move) is labelled needs-approval and waits on your manual merge. Just listed posts are green again since 02:50Z, but the fix makes that hold."
+    "GitHub Actions is still blocked (billing or spending limit) on the app repo, so CI does not start on any PR (Ops Sweep, 11-27 11:50Z): github.com/organizations/AIE-Solutions/settings/billing."
   ]
 }
