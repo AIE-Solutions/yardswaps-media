@@ -85,5 +85,18 @@
   "video_host": "cdn.jsdelivr.net",
   "url": "https://www.youtube.com/shorts/jtD9d19b6H0",
   "sent": "2026-11-26T22:12:17.120Z"
+ },
+ {
+  "time": "2026-11-27T16:24:33Z",
+  "slot": "2026-11-27 10:00",
+  "slug": "seller-parked-truck",
+  "title": "Still parked in the yard? List it free on YardSwaps.",
+  "pick": "ok",
+  "library_slug": "seller-parked-truck",
+  "machine": "seller-parked-truck",
+  "status": "scheduled",
+  "buffer_id": "6b09aec3bb117e5ba7604b55",
+  "due": "2026-11-27T16:29:33.000Z",
+  "video_host": "cdn.jsdelivr.net"
  }
 ]
