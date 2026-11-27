@@ -631,7 +631,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1639314654237487",
-  "url": "https://www.facebook.com/reel/1639314654237487"
+  "url": "https://www.facebook.com/reel/1639314654237487",
+  "removed": "2026-11-27T23:46:03Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1712382286980204"
  },
  {
   "time": "2026-11-08T22:47:19Z",
@@ -3746,7 +3749,10 @@
   "list_free": true,
   "status": "posted",
   "id": "1876265290234589",
-  "url": "https://www.facebook.com/reel/1876265290234589"
+  "url": "https://www.facebook.com/reel/1876265290234589",
+  "removed": "2026-11-27T23:45:59Z",
+  "removed_reason": "old look, new look posted",
+  "replaced_by": "1712382286980204"
  },
  {
   "time": "2026-11-24T04:49:11Z",
@@ -4763,5 +4769,27 @@
   "status": "posted",
   "id": "1810174080214898",
   "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-27T23:45:11Z",
+  "platform": "instagram",
+  "slug": "listed-used-pallet-racking-complete-lot-1-no15x",
+  "repeat": false,
+  "look": "k2",
+  "promo": "boost",
+  "status": "posted",
+  "id": "18159169861535619",
+  "url": "https://www.instagram.com/reel/DgQ4_-ZO9rN/"
+ },
+ {
+  "time": "2026-11-27T23:45:48Z",
+  "platform": "facebook",
+  "slug": "listed-instapak-speedypacker-floor-model-nr7e2",
+  "repeat": false,
+  "look": "k2",
+  "promo": "boost",
+  "status": "posted",
+  "id": "1712382286980204",
+  "url": "https://www.facebook.com/reel/1712382286980204"
  }
 ]
