@@ -2510,5 +2510,33 @@
   "added": "2026-11-26T14:54:05Z",
   "updated": "2026-11-26T14:54:21Z",
   "reviewed_by": "claude"
+ },
+ {
+  "listing_id": "cmwy4o2v4003gqh3a5t2sla37",
+  "slug": "listed-2022-caterpillar-d2-crawler-dozer-sla37",
+  "title": "2022 Caterpillar D2 Crawler Dozer | Approximately 309 Hours",
+  "category": "excavators",
+  "photos": [
+   "/api/images/listings/1795732335916-3941683b74f9.jpg",
+   "/api/images/listings/1795732336151-460f76b0c41c.jpg",
+   "/api/images/listings/1795732336245-c407a94e1359.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwy4o2v4003gqh3a5t2sla37.jpg",
+  "status": "pending",
+  "added": "2026-11-27T23:26:28Z"
+ },
+ {
+  "listing_id": "cmwzadjte00hunw3am677u0eg",
+  "slug": "listed-1994-alum-line-gooseneck-flatbed-t-7u0eg",
+  "title": "1994 Alum-Line Gooseneck Flatbed Trailer, 102\" x 25'",
+  "category": "trailers",
+  "photos": [
+   "/api/images/listings/1795802388092-10d29a01969d.jpg",
+   "/api/images/listings/1795802388254-ff6440bb5eeb.jpg",
+   "/api/images/listings/1795802388395-2a15c722b837.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwzadjte00hunw3am677u0eg.jpg",
+  "status": "pending",
+  "added": "2026-11-27T23:26:35Z"
  }
 ]
