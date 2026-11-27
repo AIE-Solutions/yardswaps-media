@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-27T00:39:05Z",
+  "fetched_at": "2026-11-27T17:46:55Z",
   "can_reply": {
     "instagram": false,
     "facebook": false
@@ -17,6 +17,15 @@
     "facebook comments 2923211331407518: GET /2923211331407518 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '2923211331407518' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api",
     "facebook comments 1122097813516662: GET /1122097813516662 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '1122097813516662' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api",
     "facebook comments 972496965934352: GET /972496965934352 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '972496965934352' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api\",",
+    "facebook comments 1109218535312659: GET /1109218535312659 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '1109218535312659' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api",
+    "facebook comments 1527973532500599: GET /1527973532500599 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '1527973532500599' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api",
+    "facebook comments 1843843373458930: GET /1843843373458930 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '1843843373458930' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api",
+    "facebook comments 1778545733207566: GET /1778545733207566 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '1778545733207566' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api",
+    "facebook comments 1491992536155136: GET /1491992536155136 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '1491992536155136' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api",
+    "facebook comments 1184347344550940: GET /1184347344550940 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '1184347344550940' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api",
+    "facebook comments 1811329086656725: GET /1811329086656725 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '1811329086656725' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api",
+    "facebook comments 1151715120690470: GET /1151715120690470 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '1151715120690470' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api",
+    "facebook comments 2311584319628256: GET /2311584319628256 -> 400: {\"error\":{\"message\":\"Unsupported get request. Object with ID '2311584319628256' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https:\\/\\/developers.facebook.com\\/docs\\/graph-api",
     "facebook: comments on 100 page posts not readable; the token needs pages_read_user_content (Reels comments still read)"
   ],
   "items": [
@@ -148,6 +157,32 @@
       "media_id": "17981472789069080",
       "permalink": "https://www.instagram.com/reel/DgOUPJ4NJT5/",
       "post": "FOUNDING STOREFRONT PRICE",
+      "type": "REELS"
+    },
+    {
+      "platform": "instagram",
+      "comment_id": "18128975980994329",
+      "reply_to": "18128975980994329",
+      "author": null,
+      "text": "F0RwarD M€ Thi$ C0nTenT",
+      "time": "2026-11-27T12:46:58+0000",
+      "likes": 0,
+      "media_id": "18046779068836872",
+      "permalink": "https://www.instagram.com/reel/DgPtffuRaPI/",
+      "post": "Display fridge taking up space? List it free on YardSwaps.",
+      "type": "REELS"
+    },
+    {
+      "platform": "instagram",
+      "comment_id": "18487868944113522",
+      "reply_to": "18487868944113522",
+      "author": null,
+      "text": "forward me this post",
+      "time": "2026-11-27T17:37:41+0000",
+      "likes": 0,
+      "media_id": "18120548176997069",
+      "permalink": "https://www.instagram.com/reel/DgQOwXcoDjs/",
+      "post": "HVAC unit left from a job? List it free on YardSwaps.",
       "type": "REELS"
     }
   ]
