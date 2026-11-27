@@ -652,9 +652,9 @@
     "place": "St. Louis, MO",
     "ig_caption": "Welcome to our new founding storefront on YardSwaps: Quiet Village Landscaping!\n\nMowers, a sod cutter, a mini excavator and work trucks out of St. Louis, MO. Come see their inventory and others just like them on YardSwaps: yardswaps.com/i (link in bio).\n\nFollow @yardswaps to see every new storefront.\n\n#Landscaping #LawnCare #CommercialMowers #MiniExcavator #UsedEquipment #StLouis #EquipmentMarketplace #YardSwaps\n\nWhat's the first machine you'd add to a landscaping crew?",
     "fb_caption": "Welcome to our new founding storefront on YardSwaps: Quiet Village Landscaping!\n\nMowers, a sod cutter, a mini excavator and work trucks out of St. Louis, MO. Come see their inventory and others just like them on YardSwaps: https://www.yardswaps.com/dealer/quiet-village-landscaping?utm_source=facebook&utm_medium=social&utm_campaign=storefront_welcome\n\n#Landscaping #LawnCare #CommercialMowers #MiniExcavator #UsedEquipment #StLouis #EquipmentMarketplace #YardSwaps\n\nWhat's the first machine you'd add to a landscaping crew?",
-    "status": "held",
+    "status": "approved",
     "added": "2026-11-24T22:30:00Z",
-    "updated": "2026-11-24T22:30:00Z",
+    "updated": "2026-11-27T18:55:00Z",
     "reviewed_by": "claude",
     "note": "Storefront welcome (Storefront plan signup 2026-11-24). HELD so the daily post can't pick it early: one welcome post a day (Steve Lewis Wed 11-25). On Fri 2026-11-27 ~noon MT set status approved and run listings.yml mode=post listing_id=welcome-quiet-village-landscaping (storefront promotion thread)."
   },
