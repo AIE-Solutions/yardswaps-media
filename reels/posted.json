@@ -367,7 +367,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1491992536155136",
-  "url": "https://www.facebook.com/reel/1491992536155136"
+  "url": "https://www.facebook.com/reel/1491992536155136",
+  "removed": "2026-11-27T14:46:45Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "3042885066063962"
  },
  {
   "time": "2026-11-05T22:43:57Z",
@@ -4648,5 +4651,26 @@
   "status": "posted",
   "id": "1661822968720179",
   "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-27T14:46:06Z",
+  "platform": "instagram",
+  "slug": "walkthrough-live-toolcabinet",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "18116384561607491",
+  "url": "https://www.instagram.com/reel/DgP7TiWstld/"
+ },
+ {
+  "time": "2026-11-27T14:46:34Z",
+  "platform": "facebook",
+  "slug": "seller-extra-mower",
+  "repeat": false,
+  "look": "k2",
+  "list_free": true,
+  "status": "posted",
+  "id": "3042885066063962",
+  "url": "https://www.facebook.com/reel/3042885066063962"
  }
 ]
