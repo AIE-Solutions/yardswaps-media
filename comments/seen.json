@@ -164,5 +164,55 @@
     "status": "skipped",
     "why": "bot spam: no author, 'send/forward/share me this post' template",
     "at": "2026-11-26T17:45:17Z"
+  },
+  "17994578637082134": {
+    "status": "skipped",
+    "why": "bot spam: no author, send/forward me this post template (same as 11-18 to 11-26)",
+    "at": "2026-11-27T17:47:05Z"
+  },
+  "18037642058670539": {
+    "status": "skipped",
+    "why": "bot spam: no author, send/forward me this post template (same as 11-18 to 11-26)",
+    "at": "2026-11-27T17:47:05Z"
+  },
+  "18122941771992282": {
+    "status": "skipped",
+    "why": "bot spam: no author, send/forward me this post template (same as 11-18 to 11-26)",
+    "at": "2026-11-27T17:47:05Z"
+  },
+  "18127272146058295": {
+    "status": "skipped",
+    "why": "bot spam: no author, send/forward me this post template (same as 11-18 to 11-26)",
+    "at": "2026-11-27T17:47:05Z"
+  },
+  "18127646138287112": {
+    "status": "skipped",
+    "why": "bot spam: no author, send/forward me this post template (same as 11-18 to 11-26)",
+    "at": "2026-11-27T17:47:05Z"
+  },
+  "18156693481553964": {
+    "status": "skipped",
+    "why": "bot spam: no author, send/forward me this post template (same as 11-18 to 11-26)",
+    "at": "2026-11-27T17:47:05Z"
+  },
+  "18139768381733833": {
+    "status": "skipped",
+    "why": "bot spam: no author, send/forward me this post template (same as 11-18 to 11-26)",
+    "at": "2026-11-27T17:47:05Z"
+  },
+  "18026570417953146": {
+    "status": "skipped",
+    "why": "bot spam: no author, send/forward me this post template (same as 11-18 to 11-26)",
+    "at": "2026-11-27T17:47:05Z"
+  },
+  "17898269178615109": {
+    "status": "skipped",
+    "why": "bot spam: no author, send/forward me this post template (same as 11-18 to 11-26)",
+    "at": "2026-11-27T17:47:05Z"
+  },
+  "17869710654675111": {
+    "status": "skipped",
+    "why": "bot spam: no author, send/forward me this post template (same as 11-18 to 11-26)",
+    "at": "2026-11-27T17:47:05Z"
   }
 }
