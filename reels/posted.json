@@ -289,7 +289,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1843843373458930",
-  "url": "https://www.facebook.com/reel/1843843373458930"
+  "url": "https://www.facebook.com/reel/1843843373458930",
+  "removed": "2026-11-27T05:46:24Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1462434099197368"
  },
  {
   "time": "2026-11-04T22:47:27Z",
@@ -3393,7 +3396,10 @@
   "repeat": false,
   "status": "posted",
   "id": "2311584319628256",
-  "url": "https://www.facebook.com/reel/2311584319628256"
+  "url": "https://www.facebook.com/reel/2311584319628256",
+  "removed": "2026-11-27T05:46:20Z",
+  "removed_reason": "old look, new look posted",
+  "replaced_by": "1462434099197368"
  },
  {
   "time": "2026-11-22T12:46:45Z",
@@ -4578,5 +4584,15 @@
   "status": "posted",
   "id": "1035144272941312",
   "url": "https://www.facebook.com/reel/1035144272941312"
+ },
+ {
+  "time": "2026-11-27T05:46:09Z",
+  "platform": "facebook",
+  "slug": "listed-caterpillar-140h-v-plow-fmh3l",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "1462434099197368",
+  "url": "https://www.facebook.com/reel/1462434099197368"
  }
 ]
