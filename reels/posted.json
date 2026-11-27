@@ -175,7 +175,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1109218535312659",
-  "url": "https://www.facebook.com/reel/1109218535312659"
+  "url": "https://www.facebook.com/reel/1109218535312659",
+  "removed": "2026-11-27T00:46:15Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "2659976114431161"
  },
  {
   "time": "2026-11-03T14:58:15Z",
@@ -4529,5 +4532,35 @@
   "status": "posted",
   "id": "1983104633074378",
   "url": "https://www.facebook.com/reel/1983104633074378"
+ },
+ {
+  "time": "2026-11-27T00:45:08Z",
+  "platform": "instagram",
+  "slug": "walkthrough-live-generator",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "18673097515020651",
+  "url": "https://www.instagram.com/reel/DgObEM4MvVo/"
+ },
+ {
+  "time": "2026-11-27T00:45:42Z",
+  "platform": "facebook",
+  "slug": "walkthrough-live-generator",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "2659976114431161",
+  "url": "https://www.facebook.com/reel/2659976114431161"
+ },
+ {
+  "time": "2026-11-27T00:46:15Z",
+  "platform": "facebook_story",
+  "slug": "walkthrough-live-generator",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "1123533223879647",
+  "url": "https://www.facebook.com/stories/1291163214083476"
  }
 ]
