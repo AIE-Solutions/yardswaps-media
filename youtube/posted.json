@@ -94,9 +94,11 @@
   "pick": "ok",
   "library_slug": "seller-parked-truck",
   "machine": "seller-parked-truck",
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6b09aec3bb117e5ba7604b55",
   "due": "2026-11-27T16:29:33.000Z",
-  "video_host": "cdn.jsdelivr.net"
+  "video_host": "cdn.jsdelivr.net",
+  "url": "https://www.youtube.com/shorts/cX8g_oovnEU",
+  "sent": "2026-11-27T16:29:46.190Z"
  }
 ]
