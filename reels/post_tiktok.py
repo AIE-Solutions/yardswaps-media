@@ -51,7 +51,7 @@ PLATFORM = "tiktok"
 # HeyCatch's 3 a day (about 8 a day on a new account, every caption ending in
 # the same follow line and web address). Cut to 3 a day spread over the day;
 # with HeyCatch that is 6, about one every 2 to 4 hours.
-MAX_OURS_PER_20H = 2   # Nov 10 pm: 2 after a second spam block (was 3)
+MAX_OURS_PER_20H = 1   # Nov 27: Alan "We need to bring TikTok posting to 1 a day" (was 2, before that 3)
 # When TikTok blocks one of our posts as spam_risk, post nothing for this long
 # after the blocked post was due. Pushing more posts at a flagged account
 # digs it deeper; a quiet spell lets it recover.
@@ -63,7 +63,11 @@ SPAM_COOLDOWN_H = 72
 # posts, the rest stop at the gate. Both windows are 90+ minutes from HeyCatch
 # (4:33 am, 12:33 pm, 8:33 pm). A run outside them posts nothing unless it
 # forces a slug.
-TIKTOK_WINDOWS_CT = [((7, 42), (9, 40)), ((14, 42), (16, 40))]
+# Nov 27: one TikTok a day, in one window. Metricool best time for TikTok is
+# 10 am Central every day of the week, so the window opens at 9:40 (the last
+# tiktok.yml morning crons, 9:42 and 9:52 in winter) and the 10:42 am
+# scheduled dispatch is its backup. The afternoon crons now stop at the gate.
+TIKTOK_WINDOWS_CT = [((9, 40), (11, 0))]
 MIN_GAP_MIN = 220
 SCHEDULE_AHEAD_MIN = 5      # Buffer publishes this many minutes after the run
 JSDELIVR_MAX_BYTES = 19_000_000  # jsDelivr serves GitHub files up to 20 MB
@@ -251,7 +255,7 @@ def window_used(posted, t):
 def window_check(posted, t):
     """None when a scheduled run may post now, else the reason it may not."""
     if tiktok_window(t) is None:
-        return "outside the TikTok windows (7:42-9:40 am, 2:42-4:40 pm Central)"
+        return "outside the TikTok window (9:40-11:00 am Central)"
     if window_used(posted, t):
         return "this window already posted"
     return None
