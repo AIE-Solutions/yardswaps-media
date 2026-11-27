@@ -1,13 +1,14 @@
 name: Reels to Instagram and Facebook
 
-# Ten Reels a day on each platform (Nov 23; nine from Nov 20, eight from Nov 18, seven from Nov 13, four from Nov 8, up from two), each re-shared to
-# Stories right after and shared to Threads (once THREADS_TOKEN is set).
+# Ten Reels a day on each platform (Nov 23; nine from Nov 20, eight from Nov 18, seven from Nov 13, four from Nov 8, up from two), three of them a day
+# re-shared to Stories (STORY_RESHARE_FROM_CT, Nov 26) and each shared to Threads (once THREADS_TOKEN is set).
 # Slots are set in Central time in reels/post_reels.py (SLOTS_CT), so they
 # don't move when daylight saving changes:
-#   12:40, 6:10, 7:00, 8:30, 10:00 am, 3:55, 5:15, 6:30, 10:10 and 11:40 pm Central
-# each with a short window (see post_reels.py) that keeps every post 90+
-# minutes from HeyCatch (about :33 past 4 am, 12 pm and 8 pm Central) and the
-# 2:15 pm Just listed post.
+#   6:10, 7:00, 8:30, 10:00 and 11:20 am, 3:55, 5:15, 6:30, 7:30 and 10:10 pm Central
+# (Nov 26: the 11:40 pm and 12:40 am slots moved to 11:20 am and 7:30 pm, out of the
+# midnight to 4 am window), each with a short window (see post_reels.py). No slot starts
+# in the 90 minutes after HeyCatch (about :33 past 4 am, 12 pm and 8 pm Central) or after
+# the 2:15 pm Just listed post.
 on:
   schedule:
     # GitHub starts scheduled runs here late or drops them (Nov 22-23: 7 of 26
@@ -17,10 +18,10 @@ on:
     # slot window, in both winter (UTC-6) and summer (UTC-5) time; the first
     # run that lands inside a window posts, and the cheap gate job stops the
     # rest in seconds (no video checkout).
-    - cron: "3,13,23,33,43,53 11-16 * * *"   # 6:10 am to 11:00 am slots
+    - cron: "3,13,23,33,43,53 11-17 * * *"   # 6:10 am to 11:50 am slots
     - cron: "3,13,23,33,43,53 20-23 * * *"   # 3:55 pm to 6:00 pm slots (and 6:30 pm in summer)
-    - cron: "3,13,23,33,43,53 0 * * *"       # 6:30 pm slot in winter
-    - cron: "3,13,23,33,43,53 3-7 * * *"     # 10:10 pm, 11:40 pm and 12:40 am slots
+    - cron: "3,13,23,33,43,53 0-1 * * *"     # 6:30 pm and 7:30 pm slots
+    - cron: "3,13,23,33,43,53 3-4 * * *"     # 10:10 pm slot
   workflow_dispatch:
     inputs:
       platforms:
