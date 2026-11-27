@@ -1,24 +1,24 @@
 {
-  "checkedAt": "2026-11-26T23:58:00Z",
+  "checkedAt": "2026-11-27T13:00:00Z",
   "checkedBy": "roster-keeper",
   "agents": {
     "roster-keeper": {
-      "lastRun": "2026-11-26T23:54:08Z",
+      "lastRun": "2026-11-27T12:53:17Z",
       "result": "ok",
       "source": "task",
-      "note": "Evening check."
+      "note": "Morning check."
     },
     "platform-ops": {
-      "lastRun": "2026-11-26T09:41:05Z",
-      "result": "needs_alan",
-      "source": "heartbeat",
-      "note": "11-26: reports 0, no signup wave; a new account posted 10 restaurant listings in an hour (looks real, Alan to check at /admin); AI budget 51% ok."
-    },
-    "ops-sweep": {
-      "lastRun": "2026-11-26T11:51:43Z",
+      "lastRun": "2026-11-27T09:41:04Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "Nothing needed: 0 5xx in 24 h, merges #533-#557 read clean; CI still held by the GitHub Actions billing block."
+      "note": "2026-11-27: reports 0, signups 2 no clusters, attention none, AI 55% ok, split tips ok, checkouts unchanged, flagForAlan 0, rejects 0, end card ok; routed 2 new demand terms (Ferrari FMAX transplanters, Starrett tools) to WANTED-POSTS Requests; nothing for Alan"
+    },
+    "ops-sweep": {
+      "lastRun": "2026-11-27T11:50:22Z",
+      "result": "ok",
+      "source": "heartbeat",
+      "note": "OK: nothing needed (0 5xx in 24 h, no new bugs; CI still blocked by Actions billing)"
     },
     "guard": {
       "lastRun": "2026-11-26T22:41:17Z",
@@ -32,10 +32,10 @@
       "source": "task"
     },
     "app-crons": {
-      "lastRun": "2026-11-26T09:02:38Z",
+      "lastRun": "2026-11-27T09:01:33Z",
       "result": "ok",
       "source": "railway",
-      "note": "Daily OpsDigest posted 11-26 09:02Z; no attention items."
+      "note": "Daily OpsDigest posted 11-27 09:01Z; no attention items."
     },
     "owner-alerts": {
       "result": "ok",
@@ -61,7 +61,7 @@
       "lastRun": "2026-11-26T21:32:00Z",
       "result": "ok",
       "source": "guard-log",
-      "note": "Outreach pipeline ran 11-26 15:02-21:32Z: 9 El Paso follow-ups, 0 claim notes, 0 failed (Guard log 11-26 row; no outreach-pipeline line on the Marketplace service)."
+      "note": "Last window read: 11-26 15:02-21:32Z, 9 El Paso follow-ups, 0 claim notes, 0 failed (Guard log 11-26 row). Friday window starts about 15:00Z; no outreach-pipeline line on the Marketplace service."
     },
     "investor-docs": {
       "lastRun": "2026-11-23T18:41:57Z",
@@ -77,7 +77,7 @@
       "lastRun": "2026-11-26T19:16:24Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "4 storefronts, all pages 200; 0 setup notes (3 refused, 30-day limit); Quiet Village welcome held for 11-27."
+      "note": "4 storefronts seen, all pages 200; setup notes 0 sent / 3 refused (409, 30-day limit); welcome rows 0 queued / 0 posted (Quiet Village held for 11-27)"
     },
     "comment-replies": {
       "lastRun": "2026-11-26T17:41:51Z",
@@ -85,7 +85,7 @@
       "source": "task"
     },
     "comment-inbox": {
-      "lastRun": "2026-11-26T17:45:01Z",
+      "lastRun": "2026-11-27T00:38:20Z",
       "result": "ok",
       "source": "workflow"
     },
@@ -103,39 +103,38 @@
       "lastRun": "2026-11-26T15:11:03Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "0 new trials, 0 failed payments, no founding checks due within 4 days; Quiet Village waiting."
+      "note": "2026-11-26: new trials 0, paid 0 new, cancels 0 new, failed 0 (0 open invoices), founding checks: 0 trials end within 4 days, Quiet Village waiting (trial ends Dec 24), projected $29/mo (full $49/mo), MRR $9.99. Log in media PR #137 (merged)."
     },
     "founding-check-quiet-village": {
       "note": "Fires Dec 22, 9 am. Billing Watch also checks it daily from Dec 20.",
       "source": "task"
     },
     "reels-poster": {
-      "lastRun": "2026-11-26T23:43:32Z",
+      "lastRun": "2026-11-27T12:43:20Z",
       "result": "ok",
       "source": "workflow",
-      "note": "All runs today green; 5:42 pm timer run 23:43Z ok."
+      "note": "6:42 am timer run 12:43Z green."
     },
     "tiktok-poster": {
-      "lastRun": "2026-11-26T22:43:33Z",
+      "lastRun": "2026-11-27T02:06:09Z",
       "result": "ok",
-      "source": "workflow",
-      "note": "13:43Z run failed; every run after it succeeded."
+      "source": "workflow"
     },
     "shorts-poster": {
-      "lastRun": "2026-11-26T23:44:23Z",
+      "lastRun": "2026-11-27T08:06:08Z",
       "result": "ok",
       "source": "workflow"
     },
     "youtube-slots": {
-      "lastRun": "2026-11-26T22:36:33Z",
+      "lastRun": "2026-11-27T00:36:00Z",
       "result": "ok",
       "source": "task"
     },
     "just-listed": {
-      "lastRun": "2026-11-26T23:45:51Z",
-      "result": "failed",
+      "lastRun": "2026-11-27T08:29:05Z",
+      "result": "ok",
       "source": "workflow",
-      "note": "listings.yml 23:45Z failed again at Install photo tools (apt-get 404s, same as 11-25 23:35Z). The fix is in media PR #157 (needs-approval, manual merge)."
+      "note": "listings.yml green on its last 3 runs (02:50Z, 03:17Z, 08:29Z 11-27). The apt-get update fix for the earlier failures is still in media PR #157."
     },
     "just-listed-review": {
       "lastRun": "2026-11-26T17:31:57Z",
@@ -164,7 +163,7 @@
       "note": "Friday run next: Nov 27 8:37 am CT."
     },
     "endcard-check": {
-      "lastRun": "2026-11-26T23:58:00Z",
+      "lastRun": "2026-11-27T13:00:00Z",
       "result": "ok",
       "source": "git",
       "note": "265 of 265 library clips carry the end card."
@@ -203,13 +202,13 @@
       "lastRun": "2026-11-26T20:23:19Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "Nothing written: one article already saved in the last 24 h (walk-in cooler buying guide, 13:25Z)."
+      "note": "Nothing written: one already saved in the last 24 h (Used Walk-In Cooler Box: What to Check Before You Buy, 13:25Z); specific lane only per BLOG-WRITER-PROMPT, no broad/Soro-lane article, 1 HeyCatch copied"
     },
     "studio-shorts": {
-      "lastRun": "2026-11-26T23:45:51Z",
-      "result": "failed",
+      "lastRun": "2026-11-27T08:29:05Z",
+      "result": "ok",
       "source": "workflow",
-      "note": "Runs inside listings.yml, which failed 23:45Z at Install photo tools (fix in media PR #157)."
+      "note": "Runs inside listings.yml, green since 02:50Z 11-27."
     },
     "studio-analytics": {
       "note": "Being built in the Studio thread.",
@@ -219,7 +218,7 @@
       "lastRun": "2026-11-26T22:37:17Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "3:35 pm run: 0 approved, 0 skipped, 0 waiting for review."
+      "note": "3:35 pm run: studio deck: 0 approved, 0 skipped, 0 auto-approved, 0 caption edit(s), 0 to re-render, 0 waiting for review (sync timestamp committed c5d14dc)"
     },
     "studio-audit": {
       "result": null,
@@ -227,10 +226,10 @@
       "note": "New. First run Nov 30 6:40 AM MT."
     },
     "studio-connector": {
-      "lastRun": "2026-11-26T04:19:11Z",
+      "lastRun": "2026-11-27T04:17:11Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "Connector up: 11 tool calls across 2 brands in 24 h, 2 refused or failed."
+      "note": "Connector up. No tool calls in the last 24 h."
     },
     "fresh-items": {
       "result": null,
@@ -243,8 +242,7 @@
     "missing": 0
   },
   "needsAlan": [
-    "GitHub Actions is still blocked (billing or spending limit) on the app repo, so CI does not start on any PR (checked 20:04Z): github.com/organizations/AIE-Solutions/settings/billing.",
-    "A new account posted 10 restaurant listings in an hour; Platform Ops says they look real but asks you to check them at yardswaps.com/admin.",
-    "Media PR #157 (listings install fix + Reels slot move) is labelled needs-approval and waits on your manual merge; until then Just listed posts keep failing (again 23:45Z)."
+    "GitHub Actions is still blocked (billing or spending limit) on the app repo, so CI does not start on any PR (Ops Sweep, 11-27 11:50Z): github.com/organizations/AIE-Solutions/settings/billing.",
+    "Media PR #157 (listings install fix + Reels slot move) is labelled needs-approval and waits on your manual merge. Just listed posts are green again since 02:50Z, but the fix makes that hold."
   ]
 }
