@@ -109,9 +109,11 @@
   "pick": "ok",
   "library_slug": "seller-shop-space",
   "machine": "seller-shop-space",
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6b0a003f70e80ae8f1ad0355",
   "due": "2026-11-27T22:17:13.000Z",
-  "video_host": "cdn.jsdelivr.net"
+  "video_host": "cdn.jsdelivr.net",
+  "url": "https://www.youtube.com/shorts/1ii4Ex1obAk",
+  "sent": "2026-11-27T22:17:17.142Z"
  }
 ]
