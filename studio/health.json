@@ -1,24 +1,23 @@
 {
- "checkedAt": "2026-11-26T14:37:26Z",
+ "checkedAt": "2026-11-27T14:37:39Z",
  "policy": "pause",
  "platforms": {
   "instagram": {
    "platform": "instagram",
-   "score": 4.0,
-   "level": "low",
-   "cap": 2,
+   "score": 5.0,
+   "level": "held",
+   "cap": 4,
    "pausedUntil": null,
-   "postsPerDay7d": 7.3,
+   "postsPerDay7d": 7.4,
    "reasons": [
-    "followers 828 -> 804 in a week (-2.9%)",
-    "likes+comments per post 1.9 -> 1.0 (0.55x)",
-    "views a week, all posts 2396 -> 3404 (1.42x)",
-    "views per post 70 -> 57 (0.81x)",
-    "51 of our posts in 7 days (7.3 a day), 1 failed"
+    "followers 815 -> 804 in a week (-1.3%)",
+    "likes+comments per post 1.8 -> 1.4 (0.82x)",
+    "views a week, all posts 2501 -> 3608 (1.44x)",
+    "views per post 68 -> 59 (0.87x)",
+    "52 of our posts in 7 days (7.4 a day), 1 failed"
    ],
    "fixes": [
-    "Followers are falling: post fewer, better clips here and answer every comment for a few days.",
-    "Each post gets less engagement than it did: repeat the best openers (metrics/rank.json boost) and retire the weakest."
+    "Followers are falling: post fewer, better clips here and answer every comment for a few days."
    ]
   },
   "facebook": {
@@ -27,10 +26,10 @@
    "level": "regular",
    "cap": 7,
    "pausedUntil": null,
-   "postsPerDay7d": 6.1,
+   "postsPerDay7d": 6.4,
    "reasons": [
-    "followers 14 -> 16 in a week (+14.3%)",
-    "43 of our posts in 7 days (6.1 a day), 0 failed"
+    "followers 14 -> 18 in a week (+28.6%)",
+    "45 of our posts in 7 days (6.4 a day), 0 failed"
    ],
    "fixes": [
     "Profile fields that don't match profiles.json: description."
@@ -52,13 +51,14 @@
   },
   "tiktok": {
    "platform": "tiktok",
-   "score": 6.0,
-   "level": "regular",
-   "cap": 2,
-   "pausedUntil": null,
-   "postsPerDay7d": 1.6,
+   "score": 4.0,
+   "level": "low",
+   "cap": 0,
+   "pausedUntil": "2026-11-29T14:44:33Z",
+   "postsPerDay7d": 1.3,
    "reasons": [
-    "11 of our posts in 7 days (1.6 a day), 2 failed"
+    "9 of our posts in 7 days (1.3 a day), 3 failed",
+    "platform warning: TikTok flagged this post as potential spam and blocked it from publishing. Pleas"
    ],
    "fixes": []
   },
@@ -68,9 +68,9 @@
    "level": "regular",
    "cap": 2,
    "pausedUntil": null,
-   "postsPerDay7d": 0.7,
+   "postsPerDay7d": 0.9,
    "reasons": [
-    "5 of our posts in 7 days (0.7 a day), 1 failed"
+    "6 of our posts in 7 days (0.9 a day), 1 failed"
    ],
    "fixes": []
   }
@@ -78,7 +78,7 @@
  "social": {
   "instagram": {
    "followers": 804,
-   "followers7dAgo": 828,
+   "followers7dAgo": 815,
    "followers30dAgo": null,
    "firstDate": "2026-11-03",
    "firstFollowers": 13,
@@ -174,11 +174,15 @@
     {
      "date": "2026-11-25",
      "followers": 804
+    },
+    {
+     "date": "2026-11-26",
+     "followers": 804
     }
    ]
   },
   "facebook": {
-   "followers": 16,
+   "followers": 18,
    "followers7dAgo": 14,
    "followers30dAgo": null,
    "firstDate": "2026-11-03",
@@ -275,6 +279,10 @@
     {
      "date": "2026-11-25",
      "followers": 16
+    },
+    {
+     "date": "2026-11-26",
+     "followers": 18
     }
    ]
   },
@@ -372,8 +380,8 @@
    }
   ],
   "postsLast30Days": {
-   "instagram": 140,
-   "facebook": 107
+   "instagram": 149,
+   "facebook": 114
   }
  }
 }
