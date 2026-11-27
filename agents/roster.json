@@ -409,7 +409,7 @@
       "team": "posting",
       "name": "TikTok poster",
       "status": "live",
-      "does": "Posts 2 of our videos a day to TikTok, never within 75 minutes of the last one.",
+      "does": "Posts 1 of our videos a day to TikTok, between 9:40 and 11 am Central (Alan, Nov 27: one a day).",
       "schedule": "2 a day, mornings and afternoons",
       "cadenceHours": 24,
       "runner": {

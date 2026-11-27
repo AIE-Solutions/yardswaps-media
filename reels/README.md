@@ -170,7 +170,7 @@ Alan, Nov 15 ("All socials yes"): one "list your equipment free" post a day on e
 
 - **Instagram + Facebook Reels:** the first Reel of each Central day at or after 7:00 am (`LIST_FREE_FROM_CT`, moved from 5:15 pm on 2026-11-26 to the hours our Instagram followers are most active; the next slot takes over if that run fails) is the list-it-free post. Its caption opens with `LIST IT FREE`, keeps the clip's own text minus its closing free line, adds one rotating line from `LIST_FREE_LINES` (free to list, no cut of the sale, every 4 listings earns a free 7-day boost up to 5), then the usual follow line, tags and question. Facebook links `/sell-equipment/<category>` tagged `utm_campaign=listfree_<slug>`. The Story re-share follows it as usual.
 - **Threads:** when the Threads poster runs (needs `THREADS_TOKEN`), a Threads post that follows a list-it-free Instagram Reel gets the list-it-free caption with yardswaps.com/h.
-- **TikTok:** the first TikTok of each Central day (still 2 a day in total) is the list-it-free one; its opener and closing lines rotate and it has no web address.
+- **TikTok:** the first TikTok of each Central day (1 a day since Nov 27) is the list-it-free one; its opener and closing lines rotate and it has no web address.
 - **Which clip:** a real-item clip (one `category`, no dealer clips, not `hold`, not `"list_free": false`) whose category this platform's list-it-free posts haven't shown in 7 days; 10-day no-repeat as usual. Log entries carry `"list_free": true`.
 - **Test:** `DRY_RUN=1 LIST_FREE=1 python reels/post_reels.py` (or `post_tiktok.py`) prints the list-it-free captions.
 - The 9:27 am "LIST IT FREE" Instagram Story (`stories/`) is separate and unchanged.
