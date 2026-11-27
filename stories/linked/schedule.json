@@ -116,13 +116,14 @@
   "date": "2026-12-01",
   "time_central": "12:15",
   "audience": "storefront",
-  "image": "stories/linked/storefront-featured-in-our-posts.jpg",
+  "image": "stories/linked/storefront-logo-and-links.jpg",
   "sticker_text": "OPEN YOUR STOREFRONT",
-  "instagram_link": "https://www.yardswaps.com/dealers?offer=founding&utm_source=instagram&utm_medium=social&utm_campaign=story_storefront_featured_in_our_posts",
-  "facebook_link": "https://www.yardswaps.com/dealers?offer=founding&utm_source=facebook&utm_medium=social&utm_campaign=story_storefront_featured_in_our_posts",
+  "instagram_link": "https://www.yardswaps.com/dealers?offer=founding&utm_source=instagram&utm_medium=social&utm_campaign=story_storefront_logo_and_links",
+  "facebook_link": "https://www.yardswaps.com/dealers?offer=founding&utm_source=facebook&utm_medium=social&utm_campaign=story_storefront_logo_and_links",
   "status": "scheduled",
   "scheduled_epoch": 1796148900,
-  "scheduled_in": "Meta Business Suite, 2026-11-26"
+  "scheduled_in": "Meta Business Suite, 2026-11-26; swapped 2026-11-26 evening to the logo and links Story (Alan picked 'Swap it for the logo and links one'): the 'featured in our posts' version promised features that had not posted yet",
+  "earlier_image": "stories/linked/storefront-featured-in-our-posts.jpg"
  },
  {
   "date": "2026-12-02",
