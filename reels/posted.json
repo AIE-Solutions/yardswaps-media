@@ -328,7 +328,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1778545733207566",
-  "url": "https://www.facebook.com/reel/1778545733207566"
+  "url": "https://www.facebook.com/reel/1778545733207566",
+  "removed": "2026-11-27T12:46:05Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "3322644151267829"
  },
  {
   "time": "2026-11-05T13:45:55Z",
@@ -4594,5 +4597,25 @@
   "status": "posted",
   "id": "1462434099197368",
   "url": "https://www.facebook.com/reel/1462434099197368"
+ },
+ {
+  "time": "2026-11-27T12:45:23Z",
+  "platform": "instagram",
+  "slug": "seller-display-fridge",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "18046779068836872",
+  "url": "https://www.instagram.com/reel/DgPtffuRaPI/"
+ },
+ {
+  "time": "2026-11-27T12:45:54Z",
+  "platform": "facebook",
+  "slug": "seller-display-fridge",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "3322644151267829",
+  "url": "https://www.facebook.com/reel/3322644151267829"
  }
 ]
