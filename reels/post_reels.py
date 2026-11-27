@@ -285,8 +285,9 @@ def threads_topic(v):
 # Alan, Nov 15: a daily "list your equipment free" post on every social
 # ("All socials yes"). One of the ten daily Reels carries it, so volume
 # does not go up: the first Reel of the Central day at or after
-# LIST_FREE_FROM_CT (the 5:15 pm slot; if that run fails, 6:30 pm or 10:10 pm
-# takes over) gets a "LIST IT FREE" caption and a clip picked for it:
+# LIST_FREE_FROM_CT (the 7:00 am slot since Nov 26, when our Instagram followers
+# are most active, 6 to 9 am in Metricool; it was 5:15 pm. If that run fails the
+# next slot takes over) gets a "LIST IT FREE" caption and a clip picked for it:
 #   - a real item first (the clip names one category; no dealer clips),
 #   - a category the list-it-free posts have not shown in LIST_FREE_CATEGORY_DAYS
 #     days, so the equipment rotates across the categories,
@@ -295,7 +296,7 @@ def threads_topic(v):
 # and stays as it is. Copy is seller-first: free to list, no cut of the sale,
 # every 4 listings earns a free 7-day boost credit (up to 5; the seller spends
 # it, so never say it boosts automatically). Never promise views or sales.
-LIST_FREE_FROM_CT = (17, 15)
+LIST_FREE_FROM_CT = (7, 0)
 LIST_FREE_CATEGORY_DAYS = 7
 LIST_FREE_HEAD = "LIST IT FREE"
 # Rotate so no two days in a row read word for word the same.
@@ -346,6 +347,16 @@ def list_free_pick(videos, posted, platform, scores=None):
               and p.get("status") == "posted" and parse_time(p["time"]) >= since}
     ok = [v for v in videos if list_free_ok(v)]
     fresh_cat = [v for v in ok if v.get("category") not in recent]
+    # Sellers first (Alan, 2026-11-26: "our mission is for sellers to be posting equipment"): a seller
+    # Reel ("cut": "seller", its whole first frame is the ask to list) carries this post when one is
+    # free to run; a listing Reel only when none is.
+    # From 2026-11-26 evening the seller Reels rotate by seller_due() (own machine key, SELLER_GAP_DAYS),
+    # so the post stays a seller Reel after each one has run once.
+    last = history(videos, posted, platform)
+    seller = seller_due(usable_clips(ok, platform), videos, posted, platform, last, rot.uses() if rot else [])
+    for pool in ([v for v in seller if v in fresh_cat], seller):
+        if pool:
+            return pool[0], pool[0]["slug"] in last
     for pool in (fresh_cat, ok):
         video, repeat = pick(pool, posted, platform, None, scores)
         if video:
@@ -393,12 +404,13 @@ def list_free_threads_caption(v, turn=0):
 # promotions live in reels/promos.json (founding dealer price, Share my page
 # and the invite reward). One Reel a day per platform carries one: the first
 # run of the Central day at or after promos.json "slot_from_ct" (10:00 am; if
-# that run fails a later slot takes over, after the 5:15 pm list-it-free post
+# that run fails a later slot takes over, after the list-it-free post
 # when both are due). The active promotions take turns by day, so volume does
 # not go up. A promotion only posts between its start and end dates and on its
 # own "platforms". The caption opens with the promotion's head, keeps the
 # clip's text, adds the promotion's line and ends on the clip's question.
 PROMOS = os.path.join(ROOT, "reels", "promos.json")
+STOREFRONT_GAP_DAYS = 6    # a storefront clip may carry the daily storefront promotion again after this
 
 
 def promos_config():
@@ -421,29 +433,54 @@ def active_promos(platform, t=None, cfg=None):
     return out
 
 
-def promo_of_day(platform, t=None, cfg=None):
-    """Today's promotion on `platform` (they take turns by day), or None."""
+def promo_groups(platform, t=None, cfg=None):
+    """[(from_ct, promos)] for today on `platform`. With "daily_audience" set in promos.json (Alan,
+    2026-11-26: "Storefronts are also very important and need to keep pushing"), that audience's
+    promotions post every day from "slot_from_ct", taking turns by day among themselves, and the other
+    promotions take turns in a second post from "second_slot_from_ct". A platform with only one of the
+    two kinds keeps its single daily promotion post at "slot_from_ct"."""
+    cfg = cfg if cfg is not None else promos_config()
     live = active_promos(platform, t, cfg)
     if not live:
+        return []
+    first = tuple(cfg.get("slot_from_ct") or (10, 0))
+    aud = cfg.get("daily_audience")
+    lead = [pr for pr in live if aud and pr.get("audience") == aud]
+    rest = [pr for pr in live if pr not in lead]
+    if not lead or not rest:
+        return [(first, live)]
+    return [(first, lead), (tuple(cfg.get("second_slot_from_ct") or (17, 15)), rest)]
+
+
+def promo_now(posted, platform, t=None, cfg=None):
+    """The promotion this run's post on `platform` should carry, or None."""
+    cfg = cfg if cfg is not None else promos_config()
+    t = t or now()
+    local = t.astimezone(CENTRAL)
+    day = local.replace(hour=0, minute=0, second=0, microsecond=0)
+    done = {p.get("promo") for p in posted if p["platform"] == platform and p.get("status") == "posted"
+            and p.get("promo") and parse_time(p["time"]) >= day}
+    for from_ct, group in promo_groups(platform, t, cfg):
+        start = local.replace(hour=from_ct[0], minute=from_ct[1],
+                              second=0, microsecond=0) - dt.timedelta(minutes=SLOT_EARLY_MINUTES)
+        if local < start or done & {pr["id"] for pr in group}:
+            continue
+        return group[local.date().toordinal() % len(group)]
+    return None
+
+
+def promo_of_day(platform, t=None, cfg=None):
+    """Today's first promotion on `platform` (each group takes turns by day), or None."""
+    groups = promo_groups(platform, t, cfg)
+    if not groups:
         return None
-    return live[(t or now()).astimezone(CENTRAL).date().toordinal() % len(live)]
+    group = groups[0][1]
+    return group[(t or now()).astimezone(CENTRAL).date().toordinal() % len(group)]
 
 
 def promo_due(posted, platform, t=None, cfg=None):
-    """True when this run's post on `platform` should be today's promotion post."""
-    cfg = cfg if cfg is not None else promos_config()
-    if not promo_of_day(platform, t, cfg):
-        return False
-    from_ct = tuple(cfg.get("slot_from_ct") or (10, 0))
-    t = t or now()
-    local = t.astimezone(CENTRAL)
-    start = local.replace(hour=from_ct[0], minute=from_ct[1],
-                          second=0, microsecond=0) - dt.timedelta(minutes=SLOT_EARLY_MINUTES)
-    if local < start:
-        return False
-    day = local.replace(hour=0, minute=0, second=0, microsecond=0)
-    return not any(p["platform"] == platform and p.get("status") == "posted" and p.get("promo")
-                   and parse_time(p["time"]) >= day for p in posted)
+    """True when this run's post on `platform` should be a promotion post."""
+    return promo_now(posted, platform, t, cfg) is not None
 
 
 def promo_pool(videos, promo):
@@ -463,10 +500,20 @@ def promo_pick(videos, posted, platform, promo, scores=None):
     pools = [promo_pool(videos, promo)]
     if promo.get("audience") == "dealer":
         pools.append(promo_pool(videos, {"audience": "seller"}))
-    for pool in pools:
+    for i, pool in enumerate(pools):
         video, repeat = pick(pool, posted, platform, None, scores)
         if video:
             return video, repeat
+        if i == 0 and promo.get("audience") == "dealer":
+            # Alan, 2026-11-26: "Storefronts are also very important and need to keep pushing". The day's
+            # storefront promotion stays on a storefront clip: when none is free under the usual rules,
+            # the one posted here longest ago runs again once it is STOREFRONT_GAP_DAYS old, before the
+            # promotion falls back onto a seller clip.
+            last = history(videos, posted, platform)
+            gap = now() - dt.timedelta(days=STOREFRONT_GAP_DAYS)
+            again = [v for v in usable_clips(pool, platform) if v["slug"] in last and last[v["slug"]] <= gap]
+            if again:
+                return min(again, key=lambda v: last[v["slug"]]), True
     return None, False
 
 
@@ -582,15 +629,90 @@ def with_endcard(videos):
     return ok
 
 
-def pick(videos, posted, platform, force=None, scores=None):
-    ok = [p for p in posted if p["platform"] == platform and p.get("status") == "posted"]
+# Alan, 2026-11-26: "For the reels the items in the pictures need to improve and be real, the rig one looks
+# terrible." Only a clip whose item is a real YardSwaps listing photo posts: "real": true (listing Reels, real-
+# listing Motion cuts) or "picture": "real" (a Motion cut whose opener is a listing photo). A clip with no
+# "picture" key is treated as not real, so a new stock or generated picture can never slip into the rotation;
+# "picture": "stock" names the Canva/Pexels/Unsplash/Commons/generated ones. reels/README.md "Real items only".
+REAL_PICTURES = ("real",)
+
+
+def real_picture(v, allow=REAL_PICTURES):
+    return v.get("real") is True or v.get("picture") in allow
+
+
+def with_real_pictures(videos, allow=REAL_PICTURES):
+    """Only clips that show a real item from a YardSwaps listing post (see REAL_PICTURES)."""
+    ok = [v for v in videos if real_picture(v, allow)]
+    left = len([v for v in videos if not v.get("hold") and not real_picture(v, allow)])
+    if left:
+        print(f"::notice::{left} clip(s) skipped: the picture is not a real YardSwaps listing item")
+    return ok
+
+
+# Alan, 2026-11-26: "Not paused but start replacing them and add them to Line up" and "Even swap the ones
+# that got sent out with new and improved nice ones". The ads thread re-renders each listing Reel in the new
+# white and blue look in place (same slug, "look": "k2", file ending -k2.mp4). From then on:
+#   - only posts in the same look count for a clip's no-repeat history, so a k2 clip whose old-look version
+#     already went out posts again as a normal Reel (not a Trial Reel);
+#   - those swaps go first, then any other k2 clip; an old-look clip posts only when no k2 clip may;
+#   - once a k2 Reel is live on Instagram or Facebook, takedown() removes that platform's old-look Reels of
+#     the same clip, plus one stock (then one held, badly cropped) Reel: Alan picked "One down per new Reel up".
+NEW_LOOK = "k2"
+WALK_FROM_CT = (8, 30)     # the day's walkthrough posts in the first regular slot from here (Central)
+WALK_ITEM_HOURS = 48       # a live-app walkthrough waits this long after its listing was last shown
+# Sellers first (Alan, 2026-11-26: "remember rightnow we need people to list more items like sellers").
+# On Instagram and Facebook the daytime regular slots carry a seller Reel ("cut": "seller") until
+# SELLER_PER_DAY have gone out that day; with the list-it-free post, the walkthrough and the seller
+# promotion that makes seller posts the main share of the day, and listing Reels (proof for buyers)
+# keep the night slots and whatever is left.
+SELLER_PER_DAY = 3         # seller Reels a day in regular slots, on top of the list-it-free post
+SELLER_HOURS_CT = (6, 21)  # regular slots that start in these Central hours are seller slots
+SELLER_GAP_DAYS = 6        # a seller Reel may run again on a platform after this (it recruits, it is not an item ad)
+
+
+def is_new_look(v):
+    return (v or {}).get("look") == NEW_LOOK
+
+
+def same_look(p, v):
+    """Does this log row count toward clip v's no-repeat history? Rows only count within one look."""
+    return (p.get("look") == NEW_LOOK) == is_new_look(v)
+
+
+def history(videos, posted, platform):
+    """slug -> last time this clip, in its current look, went out on the platform."""
+    looks = {v["slug"]: v for v in videos}
     last = {}
-    for p in ok:
+    for p in posted:
+        if p["platform"] != platform or p.get("status") != "posted":
+            continue
+        # Only where the old post can come down (TAKEDOWN_PLATFORMS) does a new look count as a new clip;
+        # on TikTok and YouTube it would just post the same machine twice.
+        if platform in TAKEDOWN_PLATFORMS and not same_look(p, looks.get(p["slug"])):
+            continue
         t = parse_time(p["time"])
         last[p["slug"]] = max(last.get(p["slug"], t), t)
-    if force:
-        return next((v for v in videos if v["slug"] == force), None), force in last
-    cutoff = now() - dt.timedelta(days=MIN_GAP_DAYS)
+    return last
+
+
+def swap_due(v, posted, platform):
+    """A new-look clip whose old-look Reel is still up on this platform and has no new-look post yet."""
+    if not is_new_look(v):
+        return False
+    rows = [p for p in posted if p["platform"] == platform and p["slug"] == v["slug"] and p.get("status") == "posted"]
+    return any(not p.get("removed") and p.get("look") != NEW_LOOK for p in rows) and \
+        not any(p.get("look") == NEW_LOOK for p in rows)
+
+
+def new_look_first(pool):
+    """Only the new-look clips while any is available, else the pool unchanged."""
+    k2 = [v for v in pool if is_new_look(v)]
+    return k2 or pool
+
+
+def usable_clips(videos, platform):
+    """The clips that may go out on `platform` right now, before any rotation rule."""
     # "hold": true keeps a video out of the queue (for example while its cut
     # is being fixed) without losing its place or history.
     # "platforms": [...] limits a clip to those posters (a Spanish cut that
@@ -604,17 +726,146 @@ def pick(videos, posted, platform, force=None, scores=None):
     # A seller who switched off "Feature my listings in YardSwaps social posts" (just_listed.py marks their
     # queue entries opted_out) never gets a real-listing Short posted again.
     opted_out = {q["listing_id"] for q in load(os.path.join(ROOT, "listings", "queue.json"), []) if q.get("opted_out")}
-    usable = [v for v in videos if not v.get("hold") and os.path.exists(os.path.join(ROOT, v["file"]))
-              and v.get("listing_id") not in listed_today
-              and v.get("listing_id") not in opted_out
-              and platform in (v.get("platforms") or [platform])
-              and (not v.get("not_before") or parse_time(v["not_before"]) <= now())]
+    return [v for v in videos if not v.get("hold") and os.path.exists(os.path.join(ROOT, v["file"]))
+            and v.get("listing_id") not in listed_today
+            and v.get("listing_id") not in opted_out
+            and platform in (v.get("platforms") or [platform])
+            and (not v.get("not_before") or parse_time(v["not_before"]) <= now())]
+
+
+def _day_start(t=None):
+    return (t or now()).astimezone(CENTRAL).replace(hour=0, minute=0, second=0, microsecond=0)
+
+
+def item_last_shown(v, videos, posted, hist):
+    """When the listing a seller Reel or live-app walkthrough shows ("item_machine") was last on screen:
+    in its own listing Reel or card on any channel (the machine rotation's history), or in another seller
+    Reel or walkthrough here. None when never."""
+    item = v.get("item_machine") or v["slug"]
+    t = rot.last_shown({"machine": item}, hist)
+    same = {x["slug"] for x in videos if x.get("item_machine") == item and x["slug"] != v["slug"]}
+    for p in posted:
+        if p["slug"] in same and p.get("status") == "posted":
+            pt = parse_time(p["time"])
+            t = pt if t is None or pt > t else t
+    return t
+
+
+def seller_due(usable, videos, posted, platform, last, hist):
+    """Seller Reels free to run on `platform` now, best first. A seller Reel is about listing, not about
+    the item in its photo, so its machine key is its own slug and "item_machine" names the listing shown:
+    it waits SELLER_GAP_DAYS after its own last post here and WALK_ITEM_HOURS after that listing was last
+    shown anywhere. Item types are spread: a category no seller Reel showed here today goes first, then the
+    category shown least in the last three days, then the clip posted longest ago."""
+    if rot is None:
+        return []
+    by_slug = {v["slug"]: v for v in videos}
+    gap = now() - dt.timedelta(days=SELLER_GAP_DAYS)
+    long_ago = now() - dt.timedelta(days=365)
+    day = _day_start()
+    # Seller Reels this platform ran today and in the last three days, by category.
+    today, recent = set(), {}
+    for p in posted:
+        v = by_slug.get(p["slug"]) or {}
+        if p["platform"] != platform or p.get("status") != "posted" or v.get("cut") != "seller":
+            continue
+        t = parse_time(p["time"])
+        if t >= day:
+            today.add(v.get("category"))
+        if t >= now() - dt.timedelta(days=3):
+            recent[v.get("category")] = recent.get(v.get("category"), 0) + 1
+    item_last = lambda v: item_last_shown(v, videos, posted, hist) or long_ago
+    free = [v for v in usable if v.get("cut") == "seller"
+            and (v["slug"] not in last or last[v["slug"]] <= gap)
+            and now() - item_last(v) >= dt.timedelta(hours=WALK_ITEM_HOURS)]
+    free.sort(key=lambda v: (v.get("category") in today, recent.get(v.get("category"), 0),
+                             last.get(v["slug"]) or long_ago, item_last(v), v["slug"]))
+    return free
+
+
+def seller_slot(videos, posted, platform, t=None):
+    """True when this run's regular Reel on `platform` should be a seller Reel: a daytime slot
+    (SELLER_HOURS_CT) on a day with fewer than SELLER_PER_DAY seller Reels in regular slots so far."""
+    if platform not in ("instagram", "facebook"):
+        return False
+    local = (t or now()).astimezone(CENTRAL) + dt.timedelta(minutes=SLOT_EARLY_MINUTES)
+    if not SELLER_HOURS_CT[0] <= local.hour < SELLER_HOURS_CT[1]:
+        return False
+    cut = {v["slug"] for v in videos if v.get("cut") == "seller"}
+    day = _day_start(t)
+    n = sum(1 for p in posted if p["platform"] == platform and p.get("status") == "posted"
+            and p["slug"] in cut and not p.get("list_free") and not p.get("promo")
+            and parse_time(p["time"]) >= day)
+    return n < SELLER_PER_DAY
+
+
+def pick(videos, posted, platform, force=None, scores=None, regular=False):
+    """The next clip for `platform`. regular=True is the day's ordinary slot over the whole library
+    (the seller-slot rule applies); the list-it-free and promotion pickers pass their own pool."""
+    last = history(videos, posted, platform)
+    if force:
+        return next((v for v in videos if v["slug"] == force), None), force in last
+    cutoff = now() - dt.timedelta(days=MIN_GAP_DAYS)
+    usable = usable_clips(videos, platform)
     # Machine rotation (rotation/README.md): first only clips whose machine no channel has shown in
     # 14 days (the same clip may still cross-post inside its 36-hour run); if none, the machine shown
     # longest ago but never one from the last 7 days; past that the slot is skipped, not repeated.
     if rot is None:
         raise SystemExit("rotation/rotation.py is missing from this checkout; add it before picking a clip")
     hist = rot.uses()   # always the whole library, so a promo or list-it-free pool maps machines right
+    lib_videos = rot.library()
+    # One walkthrough a day per platform, ahead of the swaps (Alan, 2026-11-26: "These are critical to our
+    # promotion I really liked them"), in the first regular slot from WALK_FROM_CT so it never lands on a
+    # night slot. The live-app set ("walkthrough": "live"; Alan the same day: "a live motion video of our
+    # application in action", "Yup perfect") goes first; an earlier walkthrough ("earlier_look_ok") only on
+    # a day no live-app one may run. A live-app clip is about the app, so its machine key is its own slug,
+    # and "item_machine" names the listing in its opener: it waits while that listing was shown anywhere in
+    # the last WALK_ITEM_HOURS, and the one whose listing was shown longest ago goes first. Same 10-day
+    # no-repeat rule as everything else.
+    local = now().astimezone(CENTRAL)
+    walk_from = local.replace(hour=WALK_FROM_CT[0], minute=WALK_FROM_CT[1], second=0,
+                              microsecond=0) - dt.timedelta(minutes=SLOT_EARLY_MINUTES)
+    if platform in ("instagram", "facebook") and local >= walk_from:
+        live = {v["slug"] for v in videos if v.get("walkthrough") == "live"}
+        walk = live | {v["slug"] for v in videos if v.get("earlier_look_ok")}
+        day = local.replace(hour=0, minute=0, second=0, microsecond=0)
+        if walk and not any(p["platform"] == platform and p.get("status") == "posted" and p["slug"] in walk
+                            and parse_time(p["time"]) >= day for p in posted):
+            long_ago = now() - dt.timedelta(days=365)
+            item_last = lambda v: item_last_shown(v, lib_videos, posted, hist) or long_ago
+            for group in (live, walk - live):
+                free = [v for v in usable if v["slug"] in group
+                        and (v["slug"] not in last or last[v["slug"]] <= cutoff)]
+                if group is live:
+                    due = [v for v in free if now() - item_last(v) >= dt.timedelta(hours=WALK_ITEM_HOURS)
+                           and (rot.allowed(v, hist) or rot.fallback_ok(v, hist))]
+                    due.sort(key=lambda v: (last.get(v["slug"]) or long_ago, item_last(v)))
+                else:
+                    # Machine rule: 14 days clear first, else the rotation's own 7-day floor, never closer.
+                    due = [v for v in free if rot.allowed(v, hist)] or [v for v in free if rot.fallback_ok(v, hist)]
+                    due.sort(key=lambda v: last.get(v["slug"]) or long_ago)
+                if due:
+                    return due[0], due[0]["slug"] in last
+    if platform in ("instagram", "facebook"):
+        if regular and seller_slot(videos, posted, platform):
+            due = seller_due(usable, videos, posted, platform, last, hist)
+            if due:
+                return due[0], due[0]["slug"] in last
+        # Everywhere else on these two a seller Reel or a walkthrough has its own place in the day (above,
+        # the list-it-free post, the walkthrough of the day), so it never fills another slot as well.
+        usable = [v for v in usable if v.get("cut") not in ("seller", "walkthrough")] or usable
+    # Then swaps (see NEW_LOOK): the same machine already went out in the old look and that post comes down
+    # once this one is up, so the machine rotation does not hold a swap back. Oldest old-look post first.
+    swaps = [v for v in usable if swap_due(v, posted, platform)
+             and platform in ("instagram", "facebook")]
+    if swaps:
+        first = {}
+        for p in posted:
+            if p["platform"] == platform and p.get("status") == "posted":
+                first.setdefault(p["slug"], parse_time(p["time"]))
+        swaps.sort(key=lambda v: first.get(v["slug"]) or now())
+        return swaps[0], False
+    usable = new_look_first(usable)
     strict = [v for v in usable if rot.allowed(v, hist)]
     # A clip another surface showed in the last 36 hours goes here next, so Instagram, Facebook and
     # TikTok share one showing of a machine instead of each using up a different one.
@@ -786,9 +1037,116 @@ LISTINGS_POSTED = os.path.join(ROOT, "listings", "posted.json")
 def is_ours(posted, platform, when, slack_minutes=10):
     """True when a post time on the account is one of our own logged posts
     (Reels, or the daily "Just listed" photo post from listings/)."""
-    return any(p["platform"] == platform and p.get("status") == "posted"
+    names = (platform, IMAGE_KEYS.get(platform))   # the day's still image is ours too
+    return any(p["platform"] in names and p.get("status") == "posted"
                and abs((parse_time(p["time"]) - when).total_seconds()) <= slack_minutes * 60
                for p in posted + load(LISTINGS_POSTED, []))
+
+
+# ---------- the day's still image ----------
+# Alan, 2026-11-26: "we still need this link still images like we already had everyday to say post for
+# free". One seller still (reels/images.json: real photos, the white and blue look) goes to the Instagram
+# and Facebook feed every day in its own window. The Facebook caption carries the tappable link; on
+# Instagram the same picture is that morning's linked Story (stories/linked/schedule.json, scheduled in
+# Meta Business Suite), which is where its link can be tapped, so the day's still follows that schedule
+# when there is one and otherwise takes the still posted longest ago. Logged in reels/posted.json as
+# platform "instagram_image" / "facebook_image" (the posting job commits only that file).
+IMAGES = os.path.join(ROOT, "reels", "images.json")
+IMAGES_POSTED = os.path.join(ROOT, "reels", "images-posted.json")
+LINKED_STORIES = os.path.join(ROOT, "stories", "linked", "schedule.json")
+IMAGE_WINDOW_CT = ((14, 40), (15, 25))   # between the 2:15 pm Just listed post and the 3:55 pm Reel
+IMAGE_GAP_DAYS = 7
+IMAGE_KEYS = {"instagram": "instagram_image", "facebook": "facebook_image"}
+
+
+def image_window(t=None):
+    t = t or now()
+    day = t.astimezone(CENTRAL)
+    mk = lambda hm: day.replace(hour=hm[0], minute=hm[1], second=0, microsecond=0)
+    return mk(IMAGE_WINDOW_CT[0]) <= t < mk(IMAGE_WINDOW_CT[1])
+
+
+def image_due(posted, platforms, t=None):
+    """The feeds still owed today's still, when t is inside the image window."""
+    t = t or now()
+    if not image_window(t):
+        return []
+    day = _day_start(t)
+    done = {p["platform"] for p in posted if p["platform"] in IMAGE_KEYS.values()
+            and p.get("status") == "posted" and parse_time(p["time"]) >= day}
+    return [p for p in platforms if p in IMAGE_KEYS and IMAGE_KEYS[p] not in done]
+
+
+def image_pick(posted, t=None):
+    """Today's still: the one whose linked Story is scheduled today, else the seller still posted longest
+    ago (never inside IMAGE_GAP_DAYS). None when images.json is not in this checkout or none is free."""
+    t = t or now()
+    entries = [e for e in load(IMAGES, {}).get("images", [])
+               if e.get("picture") == "real" and e.get("audience") == "seller" and e.get("look") == NEW_LOOK
+               and not e.get("hold") and os.path.exists(os.path.join(ROOT, e["feed"]))]
+    today = t.astimezone(CENTRAL).strftime("%Y-%m-%d")
+    story = next((r.get("image") for r in load(LINKED_STORIES, [])
+                  if r.get("date") == today and r.get("audience") == "seller"), None)
+    last = {}
+    for p in posted:
+        if p["platform"] in IMAGE_KEYS.values() and p.get("status") == "posted":
+            last[p["slug"]] = max(last.get(p["slug"], parse_time(p["time"])), parse_time(p["time"]))
+    for r in load(IMAGES_POSTED, []):
+        if r.get("ok") and r.get("platform") in IMAGE_KEYS and r.get("time"):
+            last[r["slug"]] = max(last.get(r["slug"], parse_time(r["time"])), parse_time(r["time"]))
+    day = _day_start(t)
+    free = [e for e in entries if e["slug"] not in last or last[e["slug"]] >= day
+            or last[e["slug"]] <= t - dt.timedelta(days=IMAGE_GAP_DAYS)]
+    # One feed may already have today's still (the other failed or was held): finish that one first.
+    free.sort(key=lambda e: (not (e["slug"] in last and last[e["slug"]] >= day),
+                             not (story and e.get("story") == story),
+                             last.get(e["slug"]) or t - dt.timedelta(days=365)))
+    return free[0] if free else None
+
+
+def run_image(token, posted, platforms, dry, summary, ig_id, page_id):
+    """Post today's still to the feeds that are due. A failure never fails the run."""
+    due = [p for p in platforms if p in IMAGE_KEYS] if dry else image_due(posted, platforms, slot_now())
+    if not due:
+        return
+    e = image_pick(posted)
+    if not e:
+        summary.append("still image: none is free today (reels/images.json)")
+        return
+    if dry:
+        summary.append(f"still image: would post {e['slug']} to {', '.join(due)} in the "
+                       f"{IMAGE_WINDOW_CT[0][0]}:{IMAGE_WINDOW_CT[0][1]:02d} Central window\n{e['fb_caption']}\n")
+        return
+    import post_image   # same folder; not in the gate's sparse checkout, so only imported here
+    url = post_image.raw_url(e["feed"])
+    for platform in due:
+        why = health_blocked(platform, posted)
+        if why:
+            summary.append(f"{platform} still image: skipped, {why}")
+            continue
+        try:
+            last = ig_last_post_time(token, ig_id) if platform == "instagram" else fb_last_post_time(token, page_id)
+            if (last and now() - last < dt.timedelta(minutes=CLEAR_MINUTES)
+                    and not is_ours(posted, platform, last)):
+                summary.append(f"{platform} still image: skipped, a post went up "
+                               f"{int((now() - last).total_seconds() // 60)} min ago (HeyCatch spacing)")
+                continue
+        except GraphError as ex:
+            print(f"  could not read recent {platform} posts, posting the still anyway: {ex}")
+        entry = {"time": iso(now()), "platform": IMAGE_KEYS[platform], "slug": e["slug"], "repeat": False,
+                 "kind": "image", "look": NEW_LOOK}
+        try:
+            if platform == "instagram":
+                mid, link = post_image.ig_feed(token, ig_id, url, e["ig_caption"])
+            else:
+                mid, link = post_image.fb_feed(token, page_id, url, e["fb_caption"])
+            entry.update(status="posted", id=mid, url=link)
+            summary.append(f"{platform} still image: posted {e['slug']} {link}")
+        except post_image.GraphError as ex:
+            entry.update(status="failed", error=str(ex)[:500])
+            summary.append(f"{platform} still image: FAILED {e['slug']}: {ex}")
+            print(f"::warning::{platform} still image failed: {str(ex)[:300]}")
+        posted.append(entry)
 
 
 # ---------- Instagram ----------
@@ -955,8 +1313,40 @@ def fb_story_publish(token, page_id, path):
 # A Story re-shares the newest Reel posted on the same platform in the last
 # 24 hours that has not been a Story yet. Stories never count toward the Reel
 # cap or the 90-minute HeyCatch spacing (they don't appear in the feed).
+#
+# Three re-shares a day per platform, not one per Reel (Alan, Nov 26: "Re-share
+# 3 Reels a day"). Every Reel used to be re-shared, about eight Stories a day
+# with no link, which buried the two Stories a day that carry a tappable link
+# (stories/linked/, 9:30 am and 12:15 pm Central). STORY_RESHARE_FROM_CT is the
+# earliest Central time for the day's first, second and third re-share: the
+# 7:00 am seller post, the 3:55 pm Reel and the 6:30 pm Reel. A run that fails
+# hands its turn to the next slot. A manual run that names a video (SLUG) is
+# not capped. library.json "story_reshares" (["07:00", ...]) overrides the list;
+# an empty list stops the re-shares.
 
 STORY_BASE = {"instagram_story": "instagram", "facebook_story": "facebook"}
+STORY_RESHARE_FROM_CT = [(7, 0), (15, 55), (18, 30)]
+
+
+def set_story_reshares(lib):
+    """library.json "story_reshares": ["07:00", "15:55", ...] replaces the default times."""
+    times = lib.get("story_reshares")
+    if times is None:
+        return
+    STORY_RESHARE_FROM_CT[:] = sorted(tuple(int(x) for x in str(s).split(":")[:2]) for s in times)
+
+
+def story_reshare_wait(posted, story_platform, t=None):
+    """None when a re-share may go now, else one line saying why not."""
+    local = (t or now()).astimezone(CENTRAL)
+    today = sum(1 for p in posted if p["platform"] == story_platform and p.get("status") == "posted"
+                and not p.get("forced") and parse_time(p["time"]).astimezone(CENTRAL).date() == local.date())
+    if today >= len(STORY_RESHARE_FROM_CT):
+        return f"{today} re-shared today, the daily limit"
+    h, m = STORY_RESHARE_FROM_CT[today]
+    if (local.hour, local.minute) < (h, m):
+        return f"re-share {today + 1} of {len(STORY_RESHARE_FROM_CT)} waits until {h}:{m:02d} Central"
+    return None
 
 
 def story_pick(videos, posted, story_platform):
@@ -1161,6 +1551,9 @@ def check_only(platforms, force, dry):
         open_ = [p for p in reels if not slot_done(posted, p)
                  and ours_recent(posted, p) < max_ours_per_20h()]
         due, why = bool(open_), ("slot open on " + ",".join(open_)) if open_ else "this slot already posted"
+    still = [] if (force or dry) else image_due(posted, reels)
+    if still and not due:
+        due, why = True, "still image due on " + ",".join(still)
     win = slot_window(now())
     print(f"due={int(due)} ({why}); now {now().astimezone(CENTRAL):%a %H:%M} Central"
           + (f", window {win[0]:%H:%M}-{win[1]:%H:%M}" if win else ""))
@@ -1168,6 +1561,84 @@ def check_only(platforms, force, dry):
         with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
             f.write(f"due={int(due)}\nat={iso(now())}\n")
     return 0
+
+
+TAKEDOWN_PLATFORMS = ("instagram", "facebook")   # Stories expire by themselves; TikTok/YouTube have no delete
+
+
+def takedown_queue(posted, platform, library):
+    """Old Reels still up on the platform that Alan asked to swap out, in the order they come down:
+    stock pictures first, then the held older clips that cropped the machine, oldest post first."""
+    lib = {v["slug"]: v for v in library}
+
+    def rank(p):
+        v = lib.get(p["slug"])
+        if v is None or not real_picture(v, REAL_PICTURES + ("ad",)):
+            return 0          # stock or AI picture (or a clip no longer in the library)
+        if v.get("hold") and v.get("cut") != "listing":
+            return 1          # older Motion clip held for cropping the machine (Alan 11-26)
+        return None           # a real clip still in rotation stays up
+    rows = [(rank(p), parse_time(p["time"]), p) for p in posted
+            if p["platform"] == platform and p.get("status") == "posted" and p.get("id") and not p.get("removed")
+            and not p.get("takedown_skip")]
+    return [p for r, t, p in sorted((x for x in rows if x[0] is not None), key=lambda x: (x[0], x[1]))]
+
+
+def remove_post(token, platform, p, reason, by):
+    """Delete one of our Instagram or Facebook Reels and mark its log row. Returns a summary line."""
+    try:
+        r = call("DELETE", f"{GRAPH}/{p['id']}?" + urllib.parse.urlencode({"access_token": token}))
+        ok = r is True or (isinstance(r, dict) and (r.get("success") or r.get("deleted_id")))
+        if not ok:
+            raise GraphError(f"unexpected reply {str(r)[:200]}")
+    except (GraphError, urllib.error.URLError) as e:
+        msg = str(e)
+        p.setdefault("takedown_errors", []).append(f"{iso(now())} {msg[:200]}")
+        print(f"::warning::{platform} takedown of {p['slug']} ({p['id']}) failed: {msg[:300]}")
+        if "(#10)" in msg:
+            # Meta's permission refusal: this token may not delete the post at all, so retrying is useless.
+            p["takedown_skip"] = True
+        if len(p["takedown_errors"]) >= 2:
+            # Twice refused (deleted by hand already, or Meta will not delete this one): stop retrying it,
+            # so the queue moves on; it stays listed for a person to check.
+            p["takedown_skip"] = True
+        return f"  {platform}: could not take down {p['slug']} {p.get('url', '')}: {msg[:160]}"
+    p["removed"] = iso(now())
+    p["removed_reason"] = reason
+    p["replaced_by"] = by
+    return f"  {platform}: took down {p['slug']} ({reason}) {p.get('url', '')}"
+
+
+def permission_refused(posted, platform):
+    """True once Meta refused a delete on this platform for lack of permission ("(#10)")."""
+    return any(p["platform"] == platform and any("(#10)" in e for e in p.get("takedown_errors", []))
+               for p in posted)
+
+
+def takedown(token, posted, platform, video, library, entry):
+    """After a new-look Reel went live: remove this platform's old-look Reels of the same clip, then one
+    Reel from takedown_queue(). Never more than MAX_TAKEDOWNS a run, and a failure never fails the run."""
+    if platform not in TAKEDOWN_PLATFORMS or os.environ.get("TAKEDOWN") == "0":
+        return []
+    if permission_refused(posted, platform) and os.environ.get("TAKEDOWN_RETRY") != "1":
+        # 2026-11-26: Instagram answered every DELETE with "(#10) Insufficient permissions" while Facebook
+        # deletes worked. Stop asking until the token can delete (then run once with TAKEDOWN_RETRY=1).
+        return [f"  {platform}: takedowns off, Meta refused the permission to delete (old Reels stay up)"]
+    lines, done = [], 0
+    same = [p for p in posted if p is not entry and p["platform"] == platform and p["slug"] == video["slug"]
+            and p.get("status") == "posted" and p.get("id") and not p.get("removed") and not p.get("takedown_skip")
+            and p.get("look") != NEW_LOOK]
+    for p in same[:MAX_TAKEDOWNS]:
+        lines.append(remove_post(token, platform, p, "old look, new look posted", entry.get("id")))
+        done += 1
+    queue = takedown_queue(posted, platform, library)
+    if queue and done < MAX_TAKEDOWNS + 1:
+        p = queue[0]
+        lines.append(remove_post(token, platform, p, "one down per new Reel up", entry.get("id")))
+    return lines
+
+
+MAX_TAKEDOWNS = 3
 
 
 def main():
@@ -1202,7 +1673,8 @@ def main():
 
     lib = load(LIBRARY, {"videos": []})
     set_slots(lib)
-    videos = with_endcard(lib["videos"])
+    set_story_reshares(lib)
+    videos = with_real_pictures(with_endcard(lib["videos"]))
     LOCATIONS[:] = lib.get("locations", [])
     if lib.get("broad_tags"):
         BROAD_TAGS[:] = lib["broad_tags"]
@@ -1228,6 +1700,13 @@ def main():
     reel_platforms = [p for p in platforms if p in ("instagram", "facebook")]
     story_platforms = [p for p in platforms if p in STORY_BASE]
 
+    # A run the gate opened only for the day's still image (outside every Reel slot) posts nothing else.
+    image_only = (not force and not dry and slot_window(slot_now()) is None
+                  and bool(image_due(posted, reel_platforms, slot_now())))
+    image_platforms = list(reel_platforms)
+    if image_only:
+        reel_platforms, story_platforms = [], []
+
     want_list_free = os.environ.get("LIST_FREE") == "1"
     want_promo = (os.environ.get("PROMO") or "").strip()
     promo_cfg = promos_config()
@@ -1242,8 +1721,8 @@ def main():
         if not list_free:
             if want_promo:
                 promo = next((pr for pr in promo_cfg.get("promos", []) if pr["id"] == want_promo), None)
-            elif not force and promo_due(posted, platform, cfg=promo_cfg):
-                promo = promo_of_day(platform, cfg=promo_cfg)
+            elif not force:
+                promo = promo_now(posted, platform, cfg=promo_cfg)
         if promo and not force:
             video, repeat = promo_pick(videos, posted, platform, promo)
             if repeat and token:
@@ -1263,7 +1742,7 @@ def main():
                 list_free = False
                 summary.append(f"{platform}: no clip fits the list-it-free post, posting a regular Reel")
         if video is None:
-            video, repeat = pick(videos, posted, platform, force)
+            video, repeat = pick(videos, posted, platform, force, regular=True)
         if not list_free and not promo and repeat and not force and token:
             # Only score when a repeat is due, so fresh weeks cost no extra calls.
             if scores is None:
@@ -1271,7 +1750,7 @@ def main():
                 if scores:
                     top = sorted(scores.items(), key=lambda kv: -kv[1])[:5]
                     print("  top Reels by engagement: " + ", ".join(f"{k} {v}" for k, v in top))
-            video, repeat = pick(videos, posted, platform, force, scores)
+            video, repeat = pick(videos, posted, platform, force, scores, regular=True)
         if not video:
             summary.append(f"{platform}: skipped, every video was posted in the last {MIN_GAP_DAYS} days")
             continue
@@ -1305,6 +1784,8 @@ def main():
             summary.append(f"{platform}: skipped, already posted {max_ours_per_20h()} in the last 20 hours")
             continue
         entry = {"time": iso(now()), "platform": platform, "slug": video["slug"], "repeat": repeat}
+        if is_new_look(video):
+            entry["look"] = NEW_LOOK
         if force:
             entry["forced"] = True
         if list_free:
@@ -1333,8 +1814,14 @@ def main():
             summary.append(f"{platform}: FAILED {video['slug']}: {e}")
             failed = True
         posted.append(entry)
+        if entry.get("status") == "posted" and is_new_look(video):
+            summary.extend(takedown(token, posted, platform, video, lib["videos"], entry))
 
     for platform in story_platforms:
+        wait = None if force else story_reshare_wait(posted, platform)
+        if wait:
+            summary.append(f"{platform}: skipped, {wait}")
+            continue
         video = story_pick(videos, posted, platform)
         if dry:
             # In a dry run the Reel above is not logged, so show what it would be.
@@ -1345,6 +1832,10 @@ def main():
             continue
         path = os.path.join(ROOT, video["file"])
         entry = {"time": iso(now()), "platform": platform, "slug": video["slug"], "repeat": False}
+        if force:
+            entry["forced"] = True
+        if is_new_look(video):
+            entry["look"] = NEW_LOOK
         try:
             if platform == "instagram_story":
                 mid, link = ig_publish(token, ig_id, path, "", False, story=True)
@@ -1360,8 +1851,11 @@ def main():
         posted.append(entry)
 
     threads_warning = None
-    if "threads" in platforms:
+    if "threads" in platforms and not image_only:
         threads_warning = run_threads(threads_token, videos, posted, dry, summary, force)
+
+    if not force:
+        run_image(token, posted, image_platforms, dry, summary, ig_id, page_id)
 
     if not dry:
         with open(POSTED, "w", encoding="utf-8") as f:

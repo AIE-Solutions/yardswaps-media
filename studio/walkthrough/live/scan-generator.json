@@ -1,0 +1,17 @@
+{
+ "title": "Westinghouse WGen11500TFc tri-fuel portable generator",
+ "manufacturer": "Westinghouse",
+ "model": "WGen11500TFc",
+ "category": "generators",
+ "condition": "Used — Excellent",
+ "description": "Westinghouse WGen11500TFc tri-fuel generator: 11,500 running / 14,500 peak watts on gasoline. Push-button electric start, 120/240V with 50A, 30A and GFCI 20A outlets plus USB. Clean, stored indoors on wheels.",
+ "specs": {
+  "Start": "Push-button electric",
+  "Fuel Tank": "9.5 gal",
+  "Frequency": "60 Hz"
+ },
+ "suggestedPriceMin": null,
+ "suggestedPriceMax": null,
+ "priceBasis": null,
+ "priceExplanation": null
+}

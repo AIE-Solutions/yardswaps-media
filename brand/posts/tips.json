@@ -1,0 +1,78 @@
+{
+  "_readme": "Tip posts for the feed (post kit k2). Each tip needs a real photo from a live YardSwaps listing that PROVES the tip (the meter, the plate, the wear), in brand/posts/photos/<slug>.jpg, faces and plates checked by eye. tag = the fact you can read in the photo; headline = one plain instruction that fits one line; body = one line that says the same thing. make_tips.py renders brand/posts/out/<slug>-4x5.jpg and -9x16.jpg and names the listing in the corner only while it is still live. A tip marked held is not rendered: the critics (11-26) sent back every tip whose photo did not show the tip. Rules: plain advice a mechanic would agree with, no numbers we cannot back up, no promises of views or sales, never a stock or AI picture (Alan 11-26). Nothing here posts until Alan says go.",
+  "tips": [
+    {
+      "slug": "tip-hour-meter",
+      "listing_id": "cmwosmtfl002uob3a2ii1dhys",
+      "credit": "2015 Caterpillar 336FL · Houston, Texas",
+      "tag": "12,402 HRS",
+      "headline": "Show the hour meter.",
+      "body": "A clear photo of the meter backs up the hours in your listing.",
+      "pos": [
+        0.5,
+        0.42
+      ]
+    },
+    {
+      "slug": "tip-cold-start",
+      "listing_id": "cmwtgo7p9000klh3al5ceakzm",
+      "credit": "2006 Chevrolet Kodiak C4500",
+      "kicker": "Buying used",
+      "headline": [
+        "Ask for a",
+        "*cold start."
+      ],
+      "body": "Ask the seller not to run it before you get there. A cold engine shows how it really starts, idles and smokes.",
+      "tip": "Put your hand on the hood when you arrive. Warm means it already ran.",
+      "held": true,
+      "held_why": "k1 fields and a photo that does not show the tip; needs a photo that proves it, a tag, a one-line headline and a one-line body"
+    },
+    {
+      "slug": "tip-whole-machine",
+      "listing_id": "cmwlsaj46003pql3auwxsf6pt",
+      "credit": "Tennant M20 sweeper-scrubber",
+      "kicker": "Selling used",
+      "headline": [
+        "Show the",
+        "*whole machine."
+      ],
+      "body": "Shoot all four sides, the hour meter, the data plate and any wear. Clear photos answer questions before buyers ask.",
+      "tip_label": "ON YARDSWAPS",
+      "tip": "Add a photo and the AI fills in the title, make, model and specs. You check it before it posts.",
+      "held": true,
+      "held_why": "k1 fields and a photo that does not show the tip; needs a photo that proves it, a tag, a one-line headline and a one-line body"
+    },
+    {
+      "slug": "tip-data-plate",
+      "listing_id": "cmwoncoba001iob3am60cgusj",
+      "credit": "SMG TCA1400 turf groomer",
+      "kicker": "Buying used",
+      "headline": [
+        "The data plate",
+        "*is the machine's ID."
+      ],
+      "body": "Make, model, serial number and year are stamped on it. Match the plate to the listing and the paperwork before you pay.",
+      "tip": "Selling? Put a clear photo of the plate in your listing.",
+      "pos": [
+        0.5,
+        0.3
+      ],
+      "held": true,
+      "held_why": "k1 fields and a photo that does not show the tip; needs a photo that proves it, a tag, a one-line headline and a one-line body"
+    },
+    {
+      "slug": "tip-lead-with-hours",
+      "listing_id": "cmwosmtfl002vob3aj5n8onnv",
+      "credit": "2005 Caterpillar 325CL",
+      "kicker": "Selling used",
+      "headline": [
+        "Lead with",
+        "*the hours."
+      ],
+      "body": "Year, hours and condition are the first things a buyer asks. Put all three in the title or the first line.",
+      "tip": "Add a photo of the hour meter, so nobody has to take your word for it.",
+      "held": true,
+      "held_why": "k1 fields and a photo that does not show the tip; needs a photo that proves it, a tag, a one-line headline and a one-line body"
+    }
+  ]
+}

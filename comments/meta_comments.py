@@ -198,11 +198,13 @@ def fb_objects(token, page_id, since, errors):
     except GraphError as e:
         errors.append(f"facebook reels list: {str(e)[:200]}")
     for p in load(POSTED, []):
-        if p.get("platform") != "facebook" or p.get("status") != "posted" or not p.get("id"):
+        # "facebook_image" = the day's still image on the feed (post_reels.py run_image).
+        if p.get("platform") not in ("facebook", "facebook_image") or p.get("status") != "posted" or not p.get("id"):
             continue
         t = parse_time(p.get("time"))
         if t and t >= since:
-            objs.setdefault(p["id"], {"post": p.get("slug"), "permalink": p.get("url"), "type": "REELS"})
+            objs.setdefault(p["id"], {"post": p.get("slug"), "permalink": p.get("url"),
+                                      "type": "IMAGE" if p["platform"] == "facebook_image" else "REELS"})
     return objs
 
 

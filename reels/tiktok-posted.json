@@ -357,8 +357,42 @@
   "platform": "tiktok",
   "slug": "storefront-whole-yard-tiktok",
   "repeat": false,
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6b06e692d0aab12c5e411d4b",
-  "due": "2026-11-25T13:50:50.000Z"
+  "due": "2026-11-25T13:50:50.000Z",
+  "url": "https://tiktok.com/@yardwaps/video/7712106209129663758",
+  "sent": "2026-11-25T13:51:42.420Z"
+ },
+ {
+  "time": "2026-11-25T20:45:22Z",
+  "platform": "tiktok",
+  "slug": "listed-chief-ez-liner-ii-collision-frame-tb4op",
+  "repeat": false,
+  "list_free": true,
+  "status": "posted",
+  "buffer_id": "6b0748e6b39ac731b6fc6845",
+  "due": "2026-11-25T20:50:22.000Z",
+  "url": "https://www.tiktok.com/@yardwaps/video/7712214299246218510?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+  "sent": "2026-11-25T20:51:11.080Z"
+ },
+ {
+  "time": "2026-11-26T13:45:07Z",
+  "platform": "tiktok",
+  "slug": "lawn-tractor-after-the-route",
+  "repeat": false,
+  "list_free": true,
+  "status": "failed",
+  "error": "Invalid post: Video could not be read from its URL."
+ },
+ {
+  "time": "2026-11-26T14:44:33Z",
+  "platform": "tiktok",
+  "slug": "listed-zero-tail-swing-deere-50g-with-qui-fbt0s",
+  "repeat": false,
+  "list_free": true,
+  "status": "failed",
+  "buffer_id": "6b0845d3b2044ab9dfaed65f",
+  "due": "2026-11-26T14:49:33.000Z",
+  "error": "TikTok flagged this post as potential spam and blocked it from publishing. Please review your content and try again. If this persists, try posting directly through TikTok to verify your account is in good standing. Failed to create media container for tiktok: Tiktok update failed to publish: 0: spam_risk (status: FAILED)"
  }
 ]

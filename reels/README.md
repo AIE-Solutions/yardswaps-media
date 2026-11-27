@@ -7,7 +7,7 @@ Free, automatic Reels for @yardswaps (Instagram) and the YardSwaps Facebook Page
 - Picks the next video from `library.json`: videos never posted on that platform first (newest `added` first, then `priority`). Once every video has run, repeats go best performer first: each video's past Instagram Reels are scored by follows x10, shares x4, saves x3, comments x3, likes x1 (follows, shares and saves need the `instagram_manage_insights` permission; without it the score uses likes and comments). An optional `boost` number on a library entry adds to its score, so the weekly batch can push a cut that brought app signups. The same video never goes out twice on a platform within 10 days. Above that sits the machine rotation (2026-11-21, `rotation/README.md`): a machine (the equipment a clip shows, the `machine` key in `library.json`) is blocked on every channel for 14 days after its 36-hour run, whichever clip shows it; with nothing free the slot takes the machine shown longest ago but never one from the last 7 days, else it skips. On Instagram a repeat goes out as a Trial Reel (shown to non-followers first, shared to followers only if it does well), so followers don't see reruns.
 - Uploads the file from `library/` directly, builds the caption and writes the result to `posted.json` (time, platform, video, post id, link).
 - Safety cap: at most one of our Reels per slot (4) per platform in any 20 hours.
-- Stories: right after each Reel, the same video goes to the @yardswaps Instagram Story and the YardSwaps Page Story (one per Reel slot, each live 24 hours). A Story re-shares the newest Reel from the last 24 hours that hasn't been a Story yet, so a skipped Reel slot means no Story that slot. Stories don't count toward the Reel cap or the 90-minute spacing, and a failed Story never fails the run (it shows as a warning and `failed` in `posted.json`). The API can't add link stickers or captions to Stories, so the link lives in the bio and in the Reel caption. Same token and permissions as Reels (`instagram_content_publish`, `pages_manage_posts`).
+- Stories: three Reels a day are re-shared to the @yardswaps Instagram Story and the YardSwaps Page Story (each live 24 hours), not every Reel (Alan 2026-11-26, "Re-share 3 Reels a day": about eight unlinked re-shares a day were burying the two Stories a day that carry a tappable link, `stories/linked/`). `STORY_RESHARE_FROM_CT` in `post_reels.py` gives the earliest Central time for the day's first, second and third re-share: 7:00 am (the list-it-free Reel), 3:55 pm and 6:30 pm. `story_reshares` in `library.json` (`["07:00", "15:55", "18:30"]`) overrides it, and an empty list stops the re-shares. A Story re-shares the newest Reel from the last 24 hours that hasn't been a Story yet; a run that fails or is skipped hands its turn to the next slot. A manual run with `slug` is not capped. Stories don't count toward the Reel cap or the 90-minute spacing, and a failed Story never fails the run (it shows as a warning and `failed` in `posted.json`). The API can't add link stickers or captions to Stories, so the linked Stories are scheduled by hand in Meta Business Suite and the re-shares carry none. Same token and permissions as Reels (`instagram_content_publish`, `pages_manage_posts`).
 
 ## Captions (built by `post_reels.py` from each video's `body`, `question`, `ig_tags`)
 Goal: engagement, follows and app downloads. Every caption has the body, a follow line, the app link, hashtags, and ends with the open question.
@@ -20,6 +20,115 @@ Goal: engagement, follows and app downloads. Every caption has the body, a follo
 - Location tag: Instagram Reels are tagged with a place from `locations` in `library.json`, one per day: Houston 3 days of every 7 (`weight`: 3), then Dallas, El Paso, San Antonio and Austin. An entry gives a Facebook place Page `id`, or a `wikidata` id whose Facebook Places ID (P1997) is looked up at run time; a city with no id falls back to Houston. A dry run lists the rotation and asks Meta what each id is. If Meta refuses an id, the Reel posts without a location. Stories can't take a location or hashtags through the API.
 - Rules (CAPTIONS.md, ENGAGEMENT-PLAYBOOK.md, UTM-LINKS.md in the campaign folder): seller-first, the body says "Free to list" and "Free boosts", plain words, no emoji or icons, one open question about the viewer's own gear ending in "?", never promise views or sales, posted as the business. No #smallbusiness, #fyp, #reels, #explore.
 
+## New look swap (Alan, 2026-11-26)
+
+"Not paused but start replacing them and add them to Line up" and "Even swap the ones that got sent out with
+new and improved nice ones". The listing builder re-renders each listing Reel in the white and blue look in
+place (same slug, `"look": "k2"`, file ending `-k2.mp4`). `post_reels.py` then:
+
+- logs `"look": "k2"` on every post of a new-look clip; on Instagram and Facebook only posts in the same look
+  count for the 10-day rule, so a listing whose old-look Reel already went out posts again in the new look
+  (a normal Reel, not a Trial Reel). TikTok and YouTube count both looks (no way to delete the old one there).
+- picks swaps first (oldest old-look post first), then any other new-look clip; an old-look clip posts only
+  when no new-look clip may.
+- after each new-look Reel goes live on Instagram or Facebook, deletes that platform's old-look Reels of the
+  same clip, then ONE more old Reel (Alan's card: "One down per new Reel up"): stock pictures first, then the
+  held older clips that cropped the machine, oldest first. Rows get `removed`, `removed_reason`,
+  `replaced_by`; a delete refused twice gets `takedown_skip` and is left for a person. Stories expire by
+  themselves. `TAKEDOWN=0` turns deletes off for a run. Local video files are never deleted.
+- 2026-11-26: Instagram refused every delete with "(#10) Insufficient permissions" (Facebook deletes work).
+  Once a platform answers (#10), takedowns there stop (old Reels stay up) until a run with `TAKEDOWN_RETRY=1`
+  after the token gains the permission.
+
+## Real items only (Alan, 2026-11-26)
+"The items in the pictures need to improve and be real." Every poster (`post_reels.py`,
+`post_tiktok.py`, the Studio rows in `youtube/post_shorts.py`) only takes a clip whose picture
+is a real item from a YardSwaps listing: `"real": true` (listing Reels and Studio clips built
+from listing photos) or `"picture": "real"` (a situational cut made from a real listing photo).
+`"picture": "stock"` (Canva, Pexels, Unsplash, Wikimedia or an AI image) never posts, and an entry
+with no `picture` key is treated as stock. TikTok also allows `"picture": "ad"` (the storefront
+ad cut). The old stock and AI cuts stay in the library, unposted, nothing deleted. The rig clip
+(`drilling-rig-parked`, a distant stock derrick) is on hold until a real drill rig is listed.
+Fewer real clips means fewer posts some days; that is the trade Alan asked for. Supply grows
+with each listing Reel built every morning (`listings/README.md`).
+
+## Sellers first (Alan, 2026-11-26)
+
+"Our mission is for sellers to be posting equipment." Three kinds of real-item clip sit in the library now,
+all in the new look:
+
+- `"cut": "seller"`: a seller Reel. Its first frame is the whole ask ("Equipment sitting idle?" with a
+  "FREE TO LIST" tag over a real listing photo), then "AI writes it", then "No selling fee", then the seller end
+  card. It carries the listing's `listing_id`, so the seller's social opt-out and the "listing no longer
+  active" hold apply to it. Like a live-app walkthrough it is about listing, not about the item in its photo:
+  its `machine` is its own slug and `item_machine` names the listing shown.
+  The daily "List it free" post takes a seller Reel when one is free to run and a listing Reel only when none is.
+- `"cut": "listing"`: a listing Reel, kept as proof of real inventory; its caption and end card close on the
+  seller ask.
+- `"cut": "storefront"` with `"audience": "dealer"` and `"picture": "real"`: a storefront promo made from a real
+  storefront and its real inventory, dealer end card, offer word for word, never "free to list". The daily
+  promotion post picks these on the founding and storefront turns.
+
+A listing Reel with `"hold": true` and a `hold_reason` starting "photo check" failed the 2026-11-26 check of all
+109 (a readable plate, phone number, street address or third-party contact in a photo): re-make it without that
+photo before lifting the hold.
+
+### The shape of a day on Instagram and Facebook (Alan, 2026-11-26, evening)
+
+"Remember rightnow we need people to list more items like sellers", "Storefronts are also very important and
+need to keep pushing". Seller posts are the main share of each day, a storefront post goes out every day, and
+listing Reels (proof of real inventory, mostly for buyers) keep the night slots:
+
+- 7:00 am Central: the "List it free" post, on a seller Reel.
+- 8:30 am: the walkthrough of the day (below).
+- 10:00 am: the storefront promotion (`promos.json`, founding and storefront in turn), always on a storefront
+  clip: when none is free under the usual 10 days, the one posted longest ago runs again once it is
+  `STOREFRONT_GAP_DAYS` (6) old.
+- 2:40 pm: the day's still image (below).
+- 5:15 pm: the seller promotion (boost and share in turn), on a listing Reel.
+- Every other regular slot that starts between 6 am and 9 pm (`SELLER_HOURS_CT`): a seller Reel, until
+  `SELLER_PER_DAY` (3) have gone out. `seller_due()` picks it: not posted on that platform in the last
+  `SELLER_GAP_DAYS` (6), its listing not shown anywhere in the last 48 hours, an item type no seller Reel
+  showed that day first, then the type shown least in three days, then the clip posted longest ago.
+- Night slots, and a daytime slot with no seller Reel free: a listing Reel, by the machine rotation.
+Rotation over time (Alan, 2026-11-26: "we need to be doing is rotating items we are showing over time. Not just
+the same ones"): every Monday the fresh-items agent (`agents/FRESH-ITEMS-PROMPT.md`) makes up to six new seller
+Reels and two seller stills from real listings not shown in the two weeks before, spread across item types, and
+rests (holds, never deletes) the seller Reels shown most, so the set turns over week to week.
+No clip enters rotation without a words-vs-screen sheet (Guard, 2026-11-26): run `tools/wordsheet.py <clip> motion/audit/<date>/<slug>-words-vs-screen.jpg`, look at every frame and add the clip's row to that folder's WORDS-VS-SCREEN.md before its library row goes in unheld.
+A seller Reel or walkthrough never fills any other slot on these two platforms. 27 seller Reels (13 from the
+morning, 14 more the same evening) cover about four a day; add more with `brand/posts/make_seller_mix.py`
+(upright or square listing photos only: a wide photo leaves the lower half of the frame empty).
+
+### Still image of the day (Alan, 2026-11-26)
+
+"We still need this link still images like we already had everyday to say post for free." One seller still
+from `reels/images.json` (`"audience": "seller"`, `"picture": "real"`, `"look": "k2"`) goes to the Instagram
+and Facebook feed each day in its own window, 2:40 to 3:25 pm Central (`IMAGE_WINDOW_CT`), posted by
+`run_image()` in `post_reels.py` with `post_image.py`'s publish calls. The Facebook caption carries the
+tappable link. On Instagram a feed caption cannot link, so the same picture is that morning's linked Story
+(`stories/linked/schedule.json`, scheduled by hand in Meta Business Suite): the still of the day follows that
+schedule when a seller Story is listed for the date, and otherwise takes the still posted longest ago (never
+inside `IMAGE_GAP_DAYS`, 7). It is logged in `reels/posted.json` as platform `instagram_image` /
+`facebook_image`, because the posting job commits only that file; the Reel rules ignore those rows except that
+the 90-minute HeyCatch spacing reads them as ours. `reels.yml` with `image_slug` still posts any one image by hand.
+Since the evening of 2026-11-26 the seven feed images are the cards from `brand/posts/make_seller_cards.py`: the
+Just listed card's layout (photo on top, blue label, slate headline, one blue line, footer) with the seller
+message, after Alan put the earlier Just listed card next to the k2 stills ("These images are super nice", "This
+tractor looks different?"). The k2 versions stay in `brand/posts/seller-feed/`; the linked Stories still use the
+k2 pictures in `stories/linked/`.
+
+## Walkthrough of the day (Alan, 2026-11-26)
+
+"These are critical to our promotion", then, on the live-app sample: "Yup perfect". One walkthrough a day on
+Instagram and on Facebook, in the first regular slot from 8:30 am Central (`WALK_FROM_CT`), ahead of the swaps.
+- `"walkthrough": "live"`: the live-app set (the real sell flow recorded in the app with one live listing's own
+  photo and facts, ending on the earlier walkthroughs' animated end card; `studio/walkthrough/live/README.md`).
+  These go first. A clip's `machine` is its own slug, because the clip is about the app; `item_machine` names
+  the listing in its opener, and the clip waits 48 hours after that listing was last shown anywhere.
+- `"earlier_look_ok": true`: the eight earlier walkthroughs. One posts only on a day no live-app clip may run.
+Both follow the 10-day no-repeat rule. On TikTok and YouTube the live-app clips are ordinary new-look clips.
+
 ## Adding new videos (weekly batch)
 
 Every clip ends on the YardSwaps end card (Alan, 2026-11-25; `brand/endcard/`). The posters
@@ -30,7 +139,7 @@ storefront version for `"audience": "dealer"`. `listings/listing_reels.py` runs 
 so a new clip waits at most a day; run it yourself after adding clips to post them sooner.
 For each new 9:16 video with music:
 1. Copy it to `reels/library/yardswaps-<slug>-9x16.mp4` (keep files under ~15 MB; Reels must be 3 to 60 seconds for Facebook).
-2. Add an entry to `library.json`: `slug`, `file`, `priority` (0 = first), `added` (YYYY-MM-DD, today), `body` (seller text ending with a "Free to list ... Free boosts." line; a storefront clip ends on the storefront offer instead, worded as in `MESSAGING.md`, and never says listing is free), `question` (from the comment prompt bank, not used before, ending in "?"), `ig_tags`, optional `boost` (adds to the repeat score), optional `"audience": "dealer"` for a storefront clip (its Facebook caption then links yardswaps.com/dealers with "Open your storefront:" instead of the seller page, its Instagram and Threads captions point to yardswaps.com/s, and its TikTok caption closes on the storefront), `machine` (the equipment it shows; reuse the key of any clip cut from the same opener photo, a new photo gets a new key, see `rotation/README.md`), optional `hold: true` (+ `hold_reason`) to keep a video out of Reels, Stories and repeats until its cut is fixed. A fixed cut of an already-posted video goes in as a new slug with today's `added` date, so it posts at the next slot.
+2. Add an entry to `library.json`: `slug`, `file`, `priority` (0 = first), `added` (YYYY-MM-DD, today), `body` (seller text ending with a "Free to list ... Free boosts." line; a storefront clip ends on the storefront offer instead, worded as in `MESSAGING.md`, and never says listing is free), `question` (from the comment prompt bank, not used before, ending in "?"), `ig_tags`, optional `boost` (adds to the repeat score), optional `"audience": "dealer"` for a storefront clip (its Facebook caption then links yardswaps.com/dealers with "Open your storefront:" instead of the seller page, its Instagram and Threads captions point to yardswaps.com/s, and its TikTok caption closes on the storefront), `picture` (`"real"` only when the opener is a photo from a live YardSwaps listing, with its `listing_id`; anything else is `"stock"` and never posts), `machine` (the equipment it shows; reuse the key of any clip cut from the same opener photo, a new photo gets a new key, see `rotation/README.md`), optional `hold: true` (+ `hold_reason`) to keep a video out of Reels, Stories and repeats until its cut is fixed. A fixed cut of an already-posted video goes in as a new slug with today's `added` date, so it posts at the next slot.
 3. Commit to `main`. Newest `added` posts first.
 Never delete `reels/` when clearing a week folder.
 
@@ -58,7 +167,7 @@ Current token: Page token for page 1291163214083476 from Meta app "YardSwaps Ree
 
 Alan, Nov 15 ("All socials yes"): one "list your equipment free" post a day on every social. It rides the existing posters, so no platform posts more than before:
 
-- **Instagram + Facebook Reels:** the first Reel of each Central day at or after 5:15 pm (`LIST_FREE_FROM_CT`; 6:30 pm or 10:10 pm takes over if that run fails) is the list-it-free post. Its caption opens with `LIST IT FREE`, keeps the clip's own text minus its closing free line, adds one rotating line from `LIST_FREE_LINES` (free to list, no cut of the sale, every 4 listings earns a free 7-day boost up to 5), then the usual follow line, tags and question. Facebook links `/sell-equipment/<category>` tagged `utm_campaign=listfree_<slug>`. The Story re-share follows it as usual.
+- **Instagram + Facebook Reels:** the first Reel of each Central day at or after 7:00 am (`LIST_FREE_FROM_CT`, moved from 5:15 pm on 2026-11-26 to the hours our Instagram followers are most active; the next slot takes over if that run fails) is the list-it-free post. Its caption opens with `LIST IT FREE`, keeps the clip's own text minus its closing free line, adds one rotating line from `LIST_FREE_LINES` (free to list, no cut of the sale, every 4 listings earns a free 7-day boost up to 5), then the usual follow line, tags and question. Facebook links `/sell-equipment/<category>` tagged `utm_campaign=listfree_<slug>`. The Story re-share follows it as usual.
 - **Threads:** when the Threads poster runs (needs `THREADS_TOKEN`), a Threads post that follows a list-it-free Instagram Reel gets the list-it-free caption with yardswaps.com/h.
 - **TikTok:** the first TikTok of each Central day (still 2 a day in total) is the list-it-free one; its opener and closing lines rotate and it has no web address.
 - **Which clip:** a real-item clip (one `category`, no dealer clips, not `hold`, not `"list_free": false`) whose category this platform's list-it-free posts haven't shown in 7 days; 10-day no-repeat as usual. Log entries carry `"list_free": true`.
@@ -70,6 +179,7 @@ Alan, Nov 15 ("All socials yes"): one "list your equipment free" post a day on e
 Alan, Nov 15: "Let's add the promotions to the posting on socials." The promotions live in `reels/promos.json`; nothing else needs editing to change them.
 
 - One post a day per platform carries a promotion: the first Reel run of the Central day at or after `slot_from_ct` (10:00 am). It takes an existing slot, so volume does not go up. On the day the 10 am run fails, a later slot takes it (after the 5:15 pm list-it-free post when both are due).
+- From 2026-11-26 (Alan: "Storefronts are also very important and need to keep pushing") `promos.json` sets `"daily_audience": "dealer"`: the storefront promotions (`founding`, `storefront`) take that 10:00 am post every day, turn about, on a storefront Reel (`"cut": "storefront"`; seven in the library, and a day with none free falls back to a real-item clip), and the seller promotions (`share`, `boost`) take turns in a second post from `second_slot_from_ct` (5:15 pm). A platform with only one kind (TikTok has `share` alone) keeps one promotion post a day. `promo_now()` in `post_reels.py` decides.
 - Active promotions take turns by day. Each has `start` / `end` (Central dates, end exclusive) and its own `platforms`. Today: `founding` (Dealer storefront at $29/mo for the first 3 paid months, first 100 storefronts, no end date; Instagram, Facebook, Threads; typed link yardswaps.com/o, which opens /dealers with `?offer=founding`) and `share` (Share my page plus the invite boost, proven 11-16 per GROWTH-LOG; the storefront reward waits on reward_live; Instagram, Facebook, Threads, TikTok).
 - `share` uses `lines` until the share reward (app PR #347) is merged and live; then set `"reward_live": true` and it uses `lines_reward` ("If they pay for a storefront, you get a free month of yours, or 5 free boosts if you don't have one.").
 - Caption: the promotion's `head`, the clip's text (minus its free-listing closer and any sentence in `drop_sentences_with`), one rotating promotion line, the follow line with `ig_cta` (Instagram) or a tagged link (Facebook, campaign `promo_<id>_<slug>`, plus `link_query`), hashtags, then the clip's question. Threads gets head, line, typed link and question; TikTok gets no web address.

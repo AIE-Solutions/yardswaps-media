@@ -1,20 +1,20 @@
 {
- "checkedAt": "2026-11-25T14:40:48Z",
+ "checkedAt": "2026-11-26T14:37:26Z",
  "policy": "pause",
  "platforms": {
   "instagram": {
    "platform": "instagram",
-   "score": 3.0,
+   "score": 4.0,
    "level": "low",
    "cap": 2,
    "pausedUntil": null,
-   "postsPerDay7d": 7.1,
+   "postsPerDay7d": 7.3,
    "reasons": [
-    "followers 826 -> 809 in a week (-2.1%)",
-    "likes+comments per post 2.0 -> 0.9 (0.46x)",
-    "views a week, all posts 2295 -> 3273 (1.43x)",
-    "views per post 71 -> 57 (0.80x)",
-    "50 of our posts in 7 days (7.1 a day), 0 failed"
+    "followers 828 -> 804 in a week (-2.9%)",
+    "likes+comments per post 1.9 -> 1.0 (0.55x)",
+    "views a week, all posts 2396 -> 3404 (1.42x)",
+    "views per post 70 -> 57 (0.81x)",
+    "51 of our posts in 7 days (7.3 a day), 1 failed"
    ],
    "fixes": [
     "Followers are falling: post fewer, better clips here and answer every comment for a few days.",
@@ -27,10 +27,10 @@
    "level": "regular",
    "cap": 7,
    "pausedUntil": null,
-   "postsPerDay7d": 6.0,
+   "postsPerDay7d": 6.1,
    "reasons": [
-    "followers 14 -> 15 in a week (+7.1%)",
-    "42 of our posts in 7 days (6.0 a day), 0 failed"
+    "followers 14 -> 16 in a week (+14.3%)",
+    "43 of our posts in 7 days (6.1 a day), 0 failed"
    ],
    "fixes": [
     "Profile fields that don't match profiles.json: description."
@@ -56,9 +56,9 @@
    "level": "regular",
    "cap": 2,
    "pausedUntil": null,
-   "postsPerDay7d": 1.7,
+   "postsPerDay7d": 1.6,
    "reasons": [
-    "12 of our posts in 7 days (1.7 a day), 1 failed"
+    "11 of our posts in 7 days (1.6 a day), 2 failed"
    ],
    "fixes": []
   },
@@ -68,17 +68,17 @@
    "level": "regular",
    "cap": 2,
    "pausedUntil": null,
-   "postsPerDay7d": 0.4,
+   "postsPerDay7d": 0.7,
    "reasons": [
-    "3 of our posts in 7 days (0.4 a day), 1 failed"
+    "5 of our posts in 7 days (0.7 a day), 1 failed"
    ],
    "fixes": []
   }
  },
  "social": {
   "instagram": {
-   "followers": 809,
-   "followers7dAgo": 826,
+   "followers": 804,
+   "followers7dAgo": 828,
    "followers30dAgo": null,
    "firstDate": "2026-11-03",
    "firstFollowers": 13,
@@ -170,11 +170,15 @@
     {
      "date": "2026-11-24",
      "followers": 809
+    },
+    {
+     "date": "2026-11-25",
+     "followers": 804
     }
    ]
   },
   "facebook": {
-   "followers": 15,
+   "followers": 16,
    "followers7dAgo": 14,
    "followers30dAgo": null,
    "firstDate": "2026-11-03",
@@ -267,14 +271,33 @@
     {
      "date": "2026-11-24",
      "followers": 15
+    },
+    {
+     "date": "2026-11-25",
+     "followers": 16
     }
    ]
   },
-  "youtube": {
-   "subscribers": 10,
-   "readOn": "2026-11-23"
-  },
+  "youtube": null,
   "topPosts": [
+   {
+    "platform": "instagram",
+    "time": "2026-11-25T12:36:46Z",
+    "likes": 0,
+    "comments": 6,
+    "slug": "lawn-tractor-after-the-route",
+    "caption": "POV: the mowing route ended. The lawn tractor sits by the barn.",
+    "permalink": "https://www.instagram.com/reel/DgKi3ekBiUU/"
+   },
+   {
+    "platform": "instagram",
+    "time": "2026-11-25T13:45:44Z",
+    "likes": 4,
+    "comments": 4,
+    "slug": "find-it-nearby",
+    "caption": "Buyers on YardSwaps look for used equipment near them, so the gear sitting in your yard ca",
+    "permalink": "https://www.instagram.com/reel/DgKqwlJBZSr/"
+   },
    {
     "platform": "instagram",
     "time": "2026-11-08T16:46:27Z",
@@ -292,6 +315,15 @@
     "slug": "plumbing-part-label",
     "caption": "SHARE YOUR SELLER PAGE",
     "permalink": "https://www.instagram.com/reel/DgDRFubD9uu/"
+   },
+   {
+    "platform": "instagram",
+    "time": "2026-11-25T14:46:16Z",
+    "likes": 1,
+    "comments": 4,
+    "slug": "parts-donor-thumb",
+    "caption": "POV: the excavator is gone. Its thumb is still here.",
+    "permalink": "https://www.instagram.com/reel/DgKxrq0qEFl/"
    },
    {
     "platform": "instagram",
@@ -337,38 +369,11 @@
     "slug": "stripped-well-pump",
     "caption": "POV: the well pump died. The parts didn't.",
     "permalink": "https://www.instagram.com/reel/Dfzmx2vDx6f/"
-   },
-   {
-    "platform": "instagram",
-    "time": "2026-11-01T21:20:37Z",
-    "likes": 3,
-    "comments": 2,
-    "slug": "surplus-parts-cash-flow",
-    "caption": "POV: the surplus parts shelf nobody has touched since spring.",
-    "permalink": "https://www.instagram.com/reel/DfNrvLmDVLH/"
-   },
-   {
-    "platform": "instagram",
-    "time": "2026-11-21T12:47:09Z",
-    "likes": 3,
-    "comments": 2,
-    "slug": "flatbed-after-the-last-contract",
-    "caption": "POV: the last contract ended. The flatbed sits by the shop.",
-    "permalink": "https://www.instagram.com/reel/DgAQ33nCaBw/"
-   },
-   {
-    "platform": "instagram",
-    "time": "2026-11-09T13:45:54Z",
-    "likes": 2,
-    "comments": 2,
-    "slug": "small-business-old-oven",
-    "caption": "Small business owners: the old oven in the back still works.",
-    "permalink": "https://www.instagram.com/reel/DfheDyAjTw8/"
    }
   ],
   "postsLast30Days": {
-   "instagram": 130,
-   "facebook": 99
+   "instagram": 140,
+   "facebook": 107
   }
  }
 }

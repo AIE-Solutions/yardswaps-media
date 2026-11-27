@@ -213,24 +213,58 @@ def entry_for(row, lib):
     return v
 
 
+def real_picture(row, lib):
+    """Real items only (Alan, 2026-11-26: "the items in the pictures need to improve and be real").
+    A row posts only when its library entry is "real": true or "picture": "real"; a row with no
+    library entry needs "real": true on the row itself. Stock and AI pictures never post."""
+    if row.get("real") is True:
+        return True
+    if not lib:
+        try:
+            with open(os.path.join(ROOT, "reels", "library.json")) as f:
+                lib = {v["slug"]: v for v in json.load(f).get("videos", [])}
+        except Exception:
+            lib = {}
+    v = lib.get(row.get("library_slug") or row["slug"], {})
+    return v.get("real") is True or v.get("picture") == "real"
+
+
 # ---------- studio clips ----------
 
+def library_title(v):
+    """A clip's title, or for a listing Reel (no title) the first sentence of its caption."""
+    if v.get("title"):
+        return v["title"]
+    first = next((ln.strip() for ln in (v.get("body") or "").splitlines() if ln.strip()), "")
+    return first if 0 < len(first) <= 100 else ""
+
+
 def studio_rows(queue):
-    """YardSwaps Studio POV clips (studio/make_pov.py) as queue rows, after the hand-made ones.
-    Each clip's hook is its title; the description is its caption, the app links and its question."""
+    """Real-item library clips as queue rows, after the hand-made ones: YardSwaps Studio POV clips
+    (studio/make_pov.py) and the listing Reels (reels/listing_reels.py, one real listing each).
+    Each clip's hook is its title (a listing Reel's is the first line of its caption); the
+    description is its caption, the app links and its question. Seller clips come first
+    (Alan 11-26: sellers first)."""
     have = {r.get("slug") for r in queue.get("shorts", [])} | {r.get("library_slug") for r in queue.get("shorts", [])}
     vids = rot.library() if rot else []
     rows = []
-    for v in vids:
-        if not v.get("studio") or v.get("hold") or v["slug"] in have or not v.get("title"):
+    for v in sorted(vids, key=lambda v: v.get("audience") != "seller"):
+        if v.get("hold") or v["slug"] in have or not (v.get("studio") or v.get("listing_id")):
+            continue
+        # real items only (Alan 11-26): a clip from a stock or AI photo never posts
+        if not (v.get("real") is True or v.get("picture") == "real"):
+            continue
+        title = library_title(v)
+        if not title or not v.get("endcard"):
             continue
         tags = " ".join(t for t in (v.get("ig_tags") or "").split() if t.lower() not in BANNED_TAGS)
         desc = (f"{v.get('body', '').strip()}\n\nStart a listing: yardswaps.com/y (link in our channel profile). "
                 "Get the app: search YardSwaps on the App Store or Google Play.\n\n"
                 f"{tags}\n\n{v.get('question', 'What is sitting in your yard right now?')}")
-        rows.append({"slug": v["slug"], "file": v["file"], "title": v["title"][:100], "description": desc,
+        rows.append({"slug": v["slug"], "file": v["file"], "title": title[:100], "description": desc,
                      "library_slug": v["slug"], "machine": rot.machine_of(v), "endcard": v.get("endcard"),
-                     "studio": True, "source": "reels/library.json studio clip"})
+                     "audience": v.get("audience"), "studio": bool(v.get("studio")),
+                     "source": "reels/library.json " + ("studio clip" if v.get("studio") else "listing Reel")})
     return rows
 
 
@@ -266,6 +300,9 @@ def candidates(queue, posted, on_channel, t=None):
             continue
         if row["slug"] in done:
             out.append((row, "already posted"))
+            continue
+        if not real_picture(row, lib):
+            out.append((row, "not a real YardSwaps listing item (stock or AI picture, Alan 11-26)"))
             continue
         fails = [p for p in posted if p.get("slug") == row["slug"] and p.get("status") == "failed"]
         if len(fails) >= 2:

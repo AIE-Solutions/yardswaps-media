@@ -704,6 +704,64 @@
    "demo": true,
    "structure": "problem-action-result",
    "cut": "10s"
+  },
+  "listed-floral-walk-in-display-cooler": {
+   "hook": "just-listed",
+   "angle": "real-listing",
+   "category": "refrigeration",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s",
+   "real": true
+  },
+  "listed-caterpillar-140h-v-plow": {
+   "hook": "just-listed",
+   "angle": "real-listing",
+   "category": "landscaping",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s",
+   "real": true
+  },
+  "combi-oven-after-the-remodel": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "cooking",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "boom-lift-after-the-fitout": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "aerial",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "control-cabinet-off-the-line": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "electrical",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "drill-rig-between-contracts": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "drilling",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
+  },
+  "vac-truck-after-the-season": {
+   "hook": "pov-idle",
+   "angle": "idle-gear",
+   "category": "vacuum",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s"
   }
  }
 }

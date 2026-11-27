@@ -7,7 +7,7 @@ One live YardSwaps listing a day goes to Instagram (feed photo) and the Facebook
 1. **prep** (`.github/workflows/listings.yml`, 9:10 am Central). `just_listed.py` reads the public listings API, sorted newest first. Listings never featured go first, then the ones featured longest ago, with at most one card waiting per seller. It checks up to 4 photos per listing:
    - It skips any photo where OpenCV finds a face.
    - It blurs every word that tesseract reads with a digit in it, such as phone numbers, plates and street numbers.
-   - It renders a 1080x1350 card into `cards/<listing id>.jpg`.
+   - It renders a 1080x1350 card into `cards/<listing id>.jpg` in the card look it had before Nov 26: the real photo across the top with only the blue label on it (JUST LISTED or FOR SALE ON YARDSWAPS), then on the light panel the seller's title in slate, the price in blue with the facts beside it, and the line "Free to list. Free to browse. yardswaps.com". The k2 version (price in the tag, title in capitals) ran for a few hours on Nov 26 and was put back the same day: Alan, of one of the earlier cards, "These images are super nice".
    - It queues the card in `queue.json` as `pending`.
    - It keeps up to 3 cards waiting.
 2. **review** (a Claude scheduled task, about 11:30 am Central). The task looks at every `pending` card and sets `approved`, or `rejected` with a `reason`. See "Review rules" below.
@@ -50,6 +50,8 @@ Also reject a listing that is plainly not equipment, or a duplicate of a card th
 Approve everything else. A rejection needs a one-line `reason`.
 
 ### Listing Reels (listings/reel-queue.json)
+Since Nov 26 every frame uses the post kit look (look k2, white and blue: one shot per photo with hard cuts, the whole photo on top, the price in the blue tag, the short title and a facts line that changes with the shot on white, a second photo of the same listing underneath; the question stays in the caption). Older clips are re-made from the same approved photos, 4 a run, as `-k2.mp4` files; the old cuts stay.
+
 Each pending row in `listings/reel-queue.json` is a 12-second Reel cut from a live
 listing's photos (`listings/listing_reels.py`). Open its `preview` contact sheet
 (`listings/reel-previews/<listing id>.jpg`, every photo used plus the end card) and
@@ -59,6 +61,11 @@ number the blur missed, and the title and price boxes match the photos. Set `sta
 `reviewed_by`. Commit `reel-queue.json`. The next prep run clears the hold on approved
 clips and removes rejected ones. Clips built from an already approved card photo skip
 this queue.
+When a rejection names only some photos ("photo 2 is cut off"), the next run rebuilds the
+listing's clip without those photos and puts it back in this queue as a new pending row
+(Nov 26: real listing photos are now the only pictures the Reels use, so a clip is worth
+saving). A reason about every photo, a watermark, the title or a non-equipment item still
+drops the listing.
 
 ## "Buyers are looking" cards (wanted.json)
 

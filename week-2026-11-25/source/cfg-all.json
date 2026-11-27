@@ -1,0 +1,3367 @@
+{
+ "n59": {
+  "key": "trashpump",
+  "id": "trash-pump-after-the-job",
+  "T": 4.3,
+  "img": "trash-pump",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the dewatering job wrapped.",
+  "l2": "The trash pump never left the yard.",
+  "caps": [
+   [
+    "Job wrapped?",
+    "Snap the trash pump."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, inlet."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Inlet"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Sat in the yard"
+  },
+  "end": {
+   "tag1": "One photo of the pump. Listing done.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What size trash pump is sitting in your yard?"
+  }
+ },
+ "n60": {
+  "key": "camera",
+  "id": "inspection-camera-in-the-van",
+  "T": 4.3,
+  "img": "inspection-camera",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: you got out of drain work.",
+  "l2": "The inspection camera is still in the van.",
+  "caps": [
+   [
+    "Out of drain work?",
+    "Snap the camera."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, rod length."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Rod length"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Sat in the van"
+  },
+  "end": {
+   "tag1": "One photo of the camera. Listing done.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "How many feet of push rod are sitting in your van?"
+  }
+ },
+ "n61": {
+  "key": "jetter",
+  "id": "second-jetter-by-the-fence",
+  "T": 4.3,
+  "img": "jetter-trailer",
+  "move": "push",
+  "label": null,
+  "l1": "POV: you run one jetter now.",
+  "l2": "The second jetter sits by the fence.",
+  "caps": [
+   [
+    "Running one jetter?",
+    "Snap the spare."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, description."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Description"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Sat by the fence"
+  },
+  "end": {
+   "tag1": "One photo of the jetter. Listing done.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "How long has the spare jetter sat by the fence?"
+  }
+ },
+ "n62": {
+  "key": "cooler",
+  "id": "cooler-still-humming",
+  "T": 4.3,
+  "img": "beverage-cooler",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the shop closed in October.",
+  "l2": "The cooler is still humming.",
+  "caps": [
+   [
+    "Shop closed?",
+    "Snap the cooler."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, description."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Description"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Still plugged in"
+  },
+  "end": {
+   "tag1": "One photo of the cooler. Listing done.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still plugged in at the closed shop?"
+  }
+ },
+ "n63": {
+  "key": "hoist",
+  "id": "chain-hoist-on-the-beam",
+  "T": 4.3,
+  "img": "chain-hoist",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the big press moved out.",
+  "l2": "The chain hoist stayed on the beam.",
+  "caps": [
+   [
+    "Press moved out?",
+    "Snap the hoist."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Capacity filled."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Capacity"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Hung on the beam"
+  },
+  "end": {
+   "tag1": "One photo of the hoist. Listing done.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still hanging from your shop beam?"
+  }
+ },
+ "n69": {
+  "key": "lift",
+  "id": "lift-still-bolted-down",
+  "T": 4.3,
+  "img": "two-post-lift",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the shop closed in September.",
+  "l2": "The two-post lift is still bolted down.",
+  "caps": [
+   [
+    "Shop closed?",
+    "Snap the lift."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Capacity filled."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Capacity"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Bolted to the floor"
+  },
+  "end": {
+   "tag1": "One photo of the lift. Listing done.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still bolted down in the shop you closed?"
+  }
+ },
+ "n70": {
+  "key": "boxtruck",
+  "id": "box-truck-after-the-route",
+  "T": 4.3,
+  "img": "box-truck",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the delivery route got cut.",
+  "l2": "The box truck sits behind the shop.",
+  "caps": [
+   [
+    "Route got cut?",
+    "Snap the truck."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, body."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Body"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Parked out back"
+  },
+  "end": {
+   "tag1": "One photo of the box truck. Listing done.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is parked behind your shop since the route was cut?"
+  }
+ },
+ "n71": {
+  "key": "roller",
+  "id": "roller-after-the-overlay",
+  "T": 4.3,
+  "img": "road-roller",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the overlay job is done.",
+  "l2": "The roller has not moved since.",
+  "caps": [
+   [
+    "Overlay done?",
+    "Snap the roller."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, drums."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Drums"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Parked since the job"
+  },
+  "end": {
+   "tag1": "One photo of the roller. Listing done.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What paving gear has not moved since your last job?"
+  }
+ },
+ "n72": {
+  "key": "safety",
+  "id": "safety-gear-on-the-wall",
+  "T": 4.3,
+  "img": "safety-gear",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the crew got smaller.",
+  "l2": "The hard hats and vests stayed on the wall.",
+  "caps": [
+   [
+    "Crew got smaller?",
+    "Snap the gear."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, count."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Count"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Hung on the wall"
+  },
+  "end": {
+   "tag1": "One photo of the gear. Listing done.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "How much safety gear is hanging unused in your shop?"
+  }
+ },
+ "n15": {
+  "key": "motor",
+  "id": "spare-part",
+  "T": 4.3,
+  "img": "gear-motor",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the spare motor",
+  "l2": "does not fit anything you own.",
+  "caps": [
+   [
+    "Spare motor?",
+    "Snap the part."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, mount."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Mount"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "On the shelf"
+  },
+  "end": {
+   "tag1": "Snap the part. AI writes the listing.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What spare parts are sitting in your shop?"
+  }
+ },
+ "n17": {
+  "key": "compressor",
+  "id": "show-the-cold-start",
+  "T": 4.3,
+  "img": "air-compressor",
+  "move": "push",
+  "label": null,
+  "l1": "POV: every buyer asks",
+  "l2": "\"does it start?\"",
+  "caps": [
+   [
+    "Does it start?",
+    "Snap it anyway."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, CFM."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "CFM"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Sat in the shop"
+  },
+  "end": {
+   "tag1": "Show it running in the chat. List it free.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "Which of your machines is hardest to start?"
+  }
+ },
+ "n19": {
+  "key": "trailer",
+  "id": "that-trailer-next-season",
+  "T": 4.3,
+  "img": "enclosed-trailer",
+  "move": "pan",
+  "label": null,
+  "l1": "Me pretending I'll use",
+  "l2": "that trailer again next season.",
+  "caps": [
+   [
+    "Parked all year?",
+    "Snap the trailer."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, axles."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Axles"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Parked since spring"
+  },
+  "end": {
+   "tag1": "Snap the trailer. AI writes the listing.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "How long has your trailer been parked?"
+  }
+ },
+ "n22": {
+  "key": "motor",
+  "id": "surplus-parts-cash-flow",
+  "T": 4.3,
+  "img": "gear-motor",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the surplus parts shelf",
+  "l2": "nobody has touched since spring.",
+  "caps": [
+   [
+    "Surplus shelf?",
+    "Snap one part."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, mount."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Mount"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "On the shelf"
+  },
+  "end": {
+   "tag1": "Surplus parts into cash. One photo each.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What's the oldest part still on your shelf?"
+  }
+ },
+ "n23": {
+  "key": "cylinders",
+  "id": "surplus-parts-labels",
+  "T": 4.3,
+  "img": "surplus-cylinders",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the pallet of surplus cylinders",
+  "l2": "nobody has touched since spring.",
+  "caps": [
+   [
+    "Surplus pallet?",
+    "Snap it, labels up."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, count."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Count"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "On the pallet"
+  },
+  "end": {
+   "tag1": "Surplus parts into cash. One photo each.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What's the oldest part still on your shelf?"
+  }
+ },
+ "n24": {
+  "key": "mics",
+  "id": "micrometer-set-small-tools",
+  "T": 4.3,
+  "img": "micrometer-set",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the micrometer set",
+  "l2": "from the shop that closed.",
+  "caps": [
+   [
+    "Shop closed?",
+    "Snap the case."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, range."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Range"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "In the drawer"
+  },
+  "end": {
+   "tag1": "Small tools sell too. One photo each.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What's in the drawer you never open?"
+  }
+ },
+ "n25": {
+  "key": "bars",
+  "id": "boring-bars-tooling",
+  "T": 4.3,
+  "img": "boring-bars",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the boring bars",
+  "l2": "the new lathe does not take.",
+  "caps": [
+   [
+    "New lathe?",
+    "Snap the old tooling."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, shank."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Shank"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Boxed since the swap"
+  },
+  "end": {
+   "tag1": "Tooling sells too. One photo each.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What tooling is still boxed from the last machine?"
+  }
+ },
+ "n26": {
+  "key": "saw",
+  "id": "chop-saw-small-tools",
+  "T": 4.3,
+  "img": "chop-saw",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the chop saw nobody",
+  "l2": "has run since the fence job.",
+  "caps": [
+   [
+    "Fence job done?",
+    "Snap the saw."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, blade."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Blade"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "In the corner"
+  },
+  "end": {
+   "tag1": "Small tools sell too. One photo each.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What tool did you replace but never sell?"
+  }
+ },
+ "n27": {
+  "key": "hvac",
+  "id": "condenser-changeout",
+  "T": 4.3,
+  "img": "condenser-unit",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the condenser you pulled",
+  "l2": "on the last changeout.",
+  "caps": [
+   [
+    "Pulled working?",
+    "Snap the unit."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, tonnage."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Tonnage"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Behind the shop"
+  },
+  "end": {
+   "tag1": "HVAC gear sells too. One photo each.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "How many pulled units are behind your shop?"
+  }
+ },
+ "n28": {
+  "key": "hotsy",
+  "id": "pressure-washer-replaced",
+  "T": 4.3,
+  "img": "hotsy-washer",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the pressure washer",
+  "l2": "the bigger one replaced.",
+  "caps": [
+   [
+    "Got a bigger one?",
+    "Snap the old washer."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, PSI."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "PSI"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Pushed to the wall"
+  },
+  "end": {
+   "tag1": "Shop gear sells too. One photo each.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What got replaced in your shop this year and never sold?"
+  }
+ },
+ "n29": {
+  "key": "mover",
+  "id": "air-mover-fleet",
+  "T": 4.3,
+  "img": "air-mover",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the air movers from",
+  "l2": "the fleet you cut in half.",
+  "caps": [
+   [
+    "Fleet cut in half?",
+    "Snap one."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, motor."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Motor"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Stacked in the van"
+  },
+  "end": {
+   "tag1": "Small gear sells too. One photo each.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "How many of these do you own that you never use?"
+  }
+ },
+ "n30": {
+  "key": "wheel",
+  "id": "spare-truck-wheel",
+  "T": 4.3,
+  "img": "truck-wheel",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the spare wheel from",
+  "l2": "the truck you already sold.",
+  "caps": [
+   [
+    "Truck sold?",
+    "Snap the spare."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, size."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Size"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Left in the bay"
+  },
+  "end": {
+   "tag1": "Parts sell too. One photo each.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What's left from the truck you sold?"
+  }
+ },
+ "n31": {
+  "key": "hilti",
+  "id": "leftover-anchor-adhesive",
+  "T": 4.3,
+  "img": "anchor-adhesive",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the anchor adhesive",
+  "l2": "left over from the last pour.",
+  "caps": [
+   [
+    "Pour done?",
+    "Snap the cartridges."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, count."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Count"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Sealed on the shelf"
+  },
+  "end": {
+   "tag1": "Leftover supplies sell too. One photo each.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What did the last job leave sealed on your shelf?"
+  }
+ },
+ "n36": {
+  "key": "fitting",
+  "id": "plumbing-part-label",
+  "T": 4.3,
+  "img": "brass-fitting",
+  "move": "push",
+  "label": null,
+  "l1": "POV: one brass fitting",
+  "l2": "left from the water job.",
+  "caps": [
+   [
+    "One left over?",
+    "Snap it, label in."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, size."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Size"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "On the shelf"
+  },
+  "end": {
+   "tag1": "One fitting is still extra cash. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What's the last fitting you bought twice?"
+  }
+ },
+ "n37": {
+  "key": "fittings",
+  "id": "leftover-fittings-lot",
+  "T": 4.3,
+  "img": "fittings-lot",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the fittings left over",
+  "l2": "from the last three jobs.",
+  "caps": [
+   [
+    "Three jobs of extras?",
+    "Snap the pile."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, count."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Count"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Riding in the van"
+  },
+  "end": {
+   "tag1": "Leftover fittings sell as a lot. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "Which fitting do you always over-order?"
+  }
+ },
+ "n38": {
+  "key": "wellpump",
+  "id": "stripped-well-pump",
+  "T": 4.3,
+  "img": "dead-well-pump",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the well pump died.",
+  "l2": "The parts didn't.",
+  "caps": [
+   [
+    "Pump died?",
+    "Snap the parts."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "For parts. What works."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "For parts",
+    "Motor turns"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "On the bench"
+  },
+  "end": {
+   "tag1": "Dead machines still have parts. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What dead pump is still on your bench?"
+  }
+ },
+ "n39": {
+  "key": "panel",
+  "id": "control-panel-pulled",
+  "T": 4.3,
+  "img": "control-panel",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the control panel",
+  "l2": "from the line you pulled.",
+  "caps": [
+   [
+    "Line shut down?",
+    "Snap the panel."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, PLC."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "PLC"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Bolted to a wall"
+  },
+  "end": {
+   "tag1": "Pulled panels sell too. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What's still bolted to a wall, unused?"
+  }
+ },
+ "n53": {
+  "key": "vactruck",
+  "id": "downsized-to-one-truck",
+  "T": 4.3,
+  "img": "vacuum-truck",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: you downsized to one truck.",
+  "l2": "The second vac truck sits in the lot.",
+  "caps": [
+   [
+    "Down to one truck?",
+    "Snap the other."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, tank."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Tank"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Sat in the lot"
+  },
+  "end": {
+   "tag1": "One photo of the truck. Listing done.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What's sitting in your lot since you downsized?"
+  }
+ },
+ "n74": {
+  "key": "stickwelder",
+  "id": "welder-from-one-job",
+  "T": 4.3,
+  "img": "stick-welder",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the welder you bought",
+  "l2": "for one job, two years ago.",
+  "caps": [
+   [
+    "One job done?",
+    "Snap the welder."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, amps."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Amps"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Under the bench"
+  },
+  "end": {
+   "tag1": "Shop gear sells too. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What did you buy for one job and never use again?"
+  }
+ },
+ "n75": {
+  "key": "towable",
+  "id": "compressor-by-the-fence",
+  "T": 4.3,
+  "img": "towable-compressor",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the crew rents compressors now.",
+  "l2": "The towable one sits by the fence.",
+  "caps": [
+   [
+    "Renting now?",
+    "Snap the old one."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, CFM."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "CFM"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "By the fence"
+  },
+  "end": {
+   "tag1": "One photo of the compressor. Done.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is parked by your fence since you switched to rentals?"
+  }
+ },
+ "n76": {
+  "key": "rtu",
+  "id": "rooftop-unit-on-the-pallet",
+  "T": 4.3,
+  "img": "rooftop-unit",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the changeout is done.",
+  "l2": "The old rooftop unit is on a pallet.",
+  "caps": [
+   [
+    "Pulled working?",
+    "Snap the unit."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, tons."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Tons"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "On the pallet"
+  },
+  "end": {
+   "tag1": "Pulled units sell too. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "How many pulled units are on pallets behind your shop?"
+  }
+ },
+ "n77": {
+  "key": "sprayer",
+  "id": "sprayer-after-the-season",
+  "T": 4.3,
+  "img": "sprayer-rig",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the season ended.",
+  "l2": "The sprayer is still at the field edge.",
+  "caps": [
+   [
+    "Season over?",
+    "Snap the sprayer."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, axles."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Axles"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "At the field edge"
+  },
+  "end": {
+   "tag1": "Farm gear sells too. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still parked at your field edge from last season?"
+  }
+ },
+ "n78": {
+  "key": "lighttower",
+  "id": "light-tower-after-night-work",
+  "T": 4.3,
+  "img": "light-tower",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the night work ended.",
+  "l2": "The light tower has not lit since.",
+  "caps": [
+   [
+    "Night work done?",
+    "Snap the tower."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, lamps."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Lamps"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Parked in the yard"
+  },
+  "end": {
+   "tag1": "One photo of the tower. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What has not lit up since your last night job?"
+  }
+ },
+ "n79": {
+  "key": "fryers",
+  "id": "fryers-from-the-closed-kitchen",
+  "T": 4.3,
+  "img": "fryer-line",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the kitchen closed.",
+  "l2": "The fryer line never got sold.",
+  "caps": [
+   [
+    "Kitchen closed?",
+    "Snap the fryers."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, bays."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Bays"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "In the closed kitchen"
+  },
+  "end": {
+   "tag1": "Kitchen gear sells too. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still sitting in the kitchen you closed?"
+  }
+ },
+ "n80": {
+  "key": "zeroturn",
+  "id": "zero-turn-after-the-account",
+  "T": 4.3,
+  "img": "zero-turn-mower",
+  "move": "push",
+  "label": null,
+  "l1": "POV: you lost the big account.",
+  "l2": "The zero-turn is still on the trailer.",
+  "caps": [
+   [
+    "Lost the account?",
+    "Snap the mower."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, deck."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Deck"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "On the trailer"
+  },
+  "end": {
+   "tag1": "One photo of the mower. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still strapped on your trailer from the last account?"
+  }
+ },
+ "n81": {
+  "key": "gen",
+  "id": "generator-for-the-storm-season",
+  "T": 4.3,
+  "img": "generator-trailer",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the generator you bought",
+  "l2": "for storm season. It never ran.",
+  "caps": [
+   [
+    "Storms passed?",
+    "Snap the genset."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, kW."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "kW"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Never ran"
+  },
+  "end": {
+   "tag1": "One photo of the genset. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What did you buy for storm season and never run?"
+  }
+ },
+ "n82": {
+  "key": "migcart",
+  "id": "soldadora-en-el-carrito",
+  "T": 4.3,
+  "img": "welder-cart",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: la soldadora MIG en el carrito.",
+  "l2": "Nadie la enciende desde marzo.",
+  "caps": [
+   [
+    "\u00bfParada?",
+    "Una foto."
+   ],
+   [
+    "La IA lo llena.",
+    "T\u00edtulo. Tipo."
+   ],
+   [
+    "Escrito por IA.",
+    "Estado, amperios."
+   ],
+   [
+    "Un toque.",
+    "Precio puesto."
+   ],
+   [
+    "Publicada.",
+    "Sin costo."
+   ]
+  ],
+  "pills": [
+   [
+    "T\u00edtulo",
+    "Categor\u00eda"
+   ],
+   [
+    "Estado",
+    "Amperios"
+   ],
+   [
+    "Precio"
+   ]
+  ],
+  "result": {
+   "text": "Una foto. Sin escribir. Gratis.",
+   "before": "En el carrito"
+  },
+  "end": {
+   "tag1": "Una foto de la soldadora. Lista.",
+   "tag2": "Publicar es gratis. Sin comisi\u00f3n.",
+   "ask": "\u00bfQu\u00e9 soldadora tienes parada en el taller?"
+  }
+ },
+ "n83": {
+  "key": "engwelder",
+  "id": "read-the-plate-welder",
+  "T": 4.3,
+  "img": "engine-welder",
+  "move": "push",
+  "label": null,
+  "l1": "POV: you forgot the amps.",
+  "l2": "The plate did not.",
+  "caps": [
+   [
+    "Forgot the amps?",
+    "Snap the plate."
+   ],
+   [
+    "Plate read.",
+    "300 A, filled in."
+   ],
+   [
+    "AI wrote it.",
+    "Volts, process."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Volts",
+    "Process"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo of the plate. Listed free.",
+   "before": "Parked since fall"
+  },
+  "end": {
+   "tag1": "Snap the plate. Specs fill in.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "Which machine's plate do you need to read again?"
+  }
+ },
+ "n84": {
+  "key": "skid",
+  "id": "skid-steer-after-the-grading",
+  "T": 4.3,
+  "img": "skid-steer",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the grading work dried up.",
+  "l2": "The skid steer sits by the pile.",
+  "caps": [
+   [
+    "Grading dried up?",
+    "Snap the loader."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, hours."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Hours"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "By the dirt pile"
+  },
+  "end": {
+   "tag1": "One photo of the loader. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is parked by your dirt pile since the last job?"
+  }
+ },
+ "n85": {
+  "key": "dumptrailer",
+  "id": "dump-trailer-after-the-cleanouts",
+  "T": 4.3,
+  "img": "dump-trailer",
+  "move": "push",
+  "label": null,
+  "l1": "POV: you stopped doing cleanouts.",
+  "l2": "The dump trailer sits in the lot.",
+  "caps": [
+   [
+    "Done hauling?",
+    "Snap the trailer."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, axles."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Axles"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Sat in the lot"
+  },
+  "end": {
+   "tag1": "One photo of the trailer. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is sitting in your lot since you stopped hauling?"
+  }
+ },
+ "n86": {
+  "key": "reels",
+  "id": "cord-reels-after-the-events",
+  "T": 4.3,
+  "img": "cord-reels",
+  "move": "pan",
+  "label": null,
+  "l1": "POV: the event work dried up.",
+  "l2": "The cord reels sit in the shop.",
+  "caps": [
+   [
+    "Events dried up?",
+    "Snap the reels."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, type."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Type"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Stacked in the shop"
+  },
+  "end": {
+   "tag1": "Small gear sells too. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "How many cord reels are stacked in your shop?"
+  }
+ },
+ "n87": {
+  "key": "wrenches",
+  "id": "wrench-wall-from-the-sold-shop",
+  "T": 4.3,
+  "img": "wrench-wall",
+  "move": "push",
+  "label": null,
+  "l1": "POV: you sold the shop.",
+  "l2": "The wrench wall came home with you.",
+  "caps": [
+   [
+    "Sold the shop?",
+    "Snap the wall."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, type."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Type"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "On the garage wall"
+  },
+  "end": {
+   "tag1": "Hand tools sell too. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What came home with you when you sold the shop?"
+  }
+ },
+ "r90kwc7": {
+  "key": "r90kwc7",
+  "id": "listed-omni-metalcraft-powered-24-w",
+  "T": 4.3,
+  "img": "real-90kwc7",
+  "move": "push",
+  "label": null,
+  "l1": "Just listed on YardSwaps.",
+  "l2": "A 40 ft powered belt conveyor.",
+  "caps": [
+   [
+    "Just listed?",
+    "Snap it."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, type."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Type"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Just listed"
+  },
+  "end": {
+   "tag1": "One photo of the conveyor. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What warehouse gear is idle since your last move?"
+  }
+ },
+ "n88": {
+  "key": "washer",
+  "id": "pressure-washer-the-crew-skips",
+  "T": 4.3,
+  "img": "hot-pressure-washer",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the new crew",
+  "l2": "never touches the pressure washer.",
+  "caps": [
+   [
+    "Crew skips it?",
+    "Snap the washer."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, PSI."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "PSI"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Crew skips it"
+  },
+  "end": {
+   "tag1": "One photo of the washer. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What does your new crew never reach for?"
+  }
+ },
+ "n89": {
+  "key": "mixer",
+  "id": "mixer-after-the-pour",
+  "T": 4.3,
+  "img": "towable-mixer",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the pour is done.",
+  "l2": "The mixer sits by the garage.",
+  "caps": [
+   [
+    "Pour done?",
+    "Snap the mixer."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, type."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Type"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Pour done"
+  },
+  "end": {
+   "tag1": "One photo of the mixer. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still parked by your garage from the last pour?"
+  }
+ },
+ "n90": {
+  "key": "scissor",
+  "id": "scissor-lift-after-the-fitout",
+  "T": 4.3,
+  "img": "scissor-lift",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the fit-out wrapped.",
+  "l2": "The scissor lift sits in the aisle.",
+  "caps": [
+   [
+    "Fit-out done?",
+    "Snap the lift."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, height."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Height"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Fit-out done"
+  },
+  "end": {
+   "tag1": "One photo of the lift. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What lift is parked in your aisle since the fit-out?"
+  }
+ },
+ "n91": {
+  "key": "lathe",
+  "id": "lathe-from-the-closed-shop",
+  "T": 4.3,
+  "img": "engine-lathe",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the machine shop closed.",
+  "l2": "The lathe is still bolted down.",
+  "caps": [
+   [
+    "Shop closed?",
+    "Snap the lathe."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, type."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Type"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Shop closed"
+  },
+  "end": {
+   "tag1": "One photo of the lathe. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still bolted to the floor of the shop you closed?"
+  }
+ },
+ "n92": {
+  "key": "flatbed",
+  "id": "flatbed-after-the-last-contract",
+  "T": 4.3,
+  "img": "flatbed-truck",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the last contract ended.",
+  "l2": "The flatbed sits by the shop.",
+  "caps": [
+   [
+    "Contract over?",
+    "Snap the truck."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, body."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Body"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Contract over"
+  },
+  "end": {
+   "tag1": "One photo of the truck. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What truck is parked by your shop since the last contract?"
+  }
+ },
+ "n93": {
+  "key": "chairs",
+  "id": "chairs-from-the-closed-office",
+  "T": 4.3,
+  "img": "office-chairs",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the office went remote.",
+  "l2": "The chairs still face the table.",
+  "caps": [
+   [
+    "Office closed?",
+    "Snap the chairs."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, type."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Type"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Office closed"
+  },
+  "end": {
+   "tag1": "One photo of the chairs. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still sitting in the office you emptied?"
+  }
+ },
+ "renr7e2": {
+  "key": "renr7e2",
+  "id": "listed-instapak-speedypacker-floor-model",
+  "T": 2.4,
+  "img": "real-enr7e2",
+  "move": "push",
+  "label": null,
+  "l1": "Just listed on YardSwaps.",
+  "l2": "Instapak SpeedyPacker Floor Model.",
+  "caps": [
+   [
+    "Just listed?",
+    "Snap it."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, specs."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Specs"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Just listed"
+  },
+  "end": {
+   "tag1": "Real listing. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What machine is idle on your packing floor right now?"
+  },
+  "listing_id": "cmwpdczz50009tc3ao0enr7e2",
+  "category": "warehouse",
+  "real": true
+ },
+ "r3no15x": {
+  "key": "r3no15x",
+  "id": "listed-used-pallet-racking-complete",
+  "T": 2.4,
+  "img": "real-3no15x",
+  "move": "pan",
+  "label": null,
+  "l1": "Just listed on YardSwaps.",
+  "l2": "Used pallet racking, complete lot.",
+  "caps": [
+   [
+    "Just listed?",
+    "Snap it."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, specs."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Specs"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Just listed"
+  },
+  "end": {
+   "tag1": "Real listing. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What racking is on the floor since your last move?"
+  },
+  "listing_id": "cmwp8zzf0000jqt3a2d3no15x",
+  "category": "warehouse",
+  "real": true
+ },
+ "n95": {
+  "key": "griddle",
+  "id": "griddle-from-the-closed-diner",
+  "T": 4.3,
+  "img": "flat-top-griddle",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the diner closed.",
+  "l2": "The griddle is still on the line.",
+  "caps": [
+   [
+    "Diner closed?",
+    "Snap the griddle."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, fuel."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Fuel"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Diner closed"
+  },
+  "end": {
+   "tag1": "One photo of the griddle. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still on the line in the kitchen you closed?"
+  }
+ },
+ "n96": {
+  "key": "dryers",
+  "id": "dryers-from-the-sold-laundromat",
+  "T": 4.3,
+  "img": "commercial-dryers",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the laundromat sold.",
+  "l2": "The dryers still line the wall.",
+  "caps": [
+   [
+    "Store sold?",
+    "Snap the dryers."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, heat."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Heat"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Store sold"
+  },
+  "end": {
+   "tag1": "One photo of the dryers. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still bolted down in the store you sold?"
+  }
+ },
+ "n97": {
+  "key": "condensers",
+  "id": "condensers-after-the-changeout",
+  "T": 4.3,
+  "img": "hvac-condensers",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the changeout is done.",
+  "l2": "The old condensers sit by the pipes.",
+  "caps": [
+   [
+    "Changeout done?",
+    "Snap the units."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, tons."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Tons"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Changeout done"
+  },
+  "end": {
+   "tag1": "One photo of the units. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What came off the roof on your last changeout?"
+  }
+ },
+ "n98": {
+  "key": "lawntractor",
+  "id": "lawn-tractor-after-the-route",
+  "T": 4.3,
+  "img": "lawn-tractor",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the mowing route ended.",
+  "l2": "The lawn tractor sits by the barn.",
+  "caps": [
+   [
+    "Route ended?",
+    "Snap the mower."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, deck."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Deck"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Route ended"
+  },
+  "end": {
+   "tag1": "One photo of the mower. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is parked by your barn since the route ended?"
+  }
+ },
+ "n99": {
+  "key": "backhoe",
+  "id": "backhoe-still-on-the-trailer",
+  "T": 4.3,
+  "img": "backhoe-lowboy",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the site work ended.",
+  "l2": "The backhoe is still on the trailer.",
+  "caps": [
+   [
+    "Site done?",
+    "Snap the backhoe."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, HP."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "HP"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Site done"
+  },
+  "end": {
+   "tag1": "One photo of the backhoe. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still chained to the trailer from the last site?"
+  }
+ },
+ "riq3khm": {
+  "key": "riq3khm",
+  "id": "listed-floral-walk-in-display-cooler",
+  "T": 2.4,
+  "img": "real-iq3khm",
+  "move": "push",
+  "label": null,
+  "l1": "Just listed on YardSwaps.",
+  "l2": "Floral Walk-In Display Cooler.",
+  "caps": [
+   [
+    "Just listed?",
+    "Snap it."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, specs."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Specs"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Just listed"
+  },
+  "end": {
+   "tag1": "Real listing. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What cooler is standing empty in your store right now?"
+  },
+  "listing_id": "cmwsc8u1f001rqk3af9iq3khm",
+  "category": "refrigeration",
+  "real": true
+ },
+ "rsfmh3l": {
+  "key": "rsfmh3l",
+  "id": "listed-caterpillar-140h-v-plow",
+  "T": 2.4,
+  "img": "real-sfmh3l",
+  "move": "pan",
+  "label": null,
+  "l1": "Just listed on YardSwaps.",
+  "l2": "Caterpillar 140H V-Plow.",
+  "caps": [
+   [
+    "Just listed?",
+    "Snap it."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, specs."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Specs"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Just listed"
+  },
+  "end": {
+   "tag1": "Real listing. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What plow is parked in your yard until the snow?"
+  },
+  "listing_id": "cmwosmtfl003bob3aetsfmh3l",
+  "category": "landscaping",
+  "real": true
+ },
+ "n100": {
+  "key": "combioven",
+  "id": "combi-oven-after-the-remodel",
+  "T": 4.3,
+  "img": "combi-oven",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the hotel kitchen was remodeled.",
+  "l2": "The combi oven came out whole.",
+  "caps": [
+   [
+    "Remodel done?",
+    "Snap the oven."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, fuel."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Fuel"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Remodel done"
+  },
+  "end": {
+   "tag1": "One photo of the oven. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What came out of the kitchen on your last remodel?"
+  },
+  "category": "cooking"
+ },
+ "n101": {
+  "key": "boomlift",
+  "id": "boom-lift-after-the-fitout",
+  "T": 4.3,
+  "img": "boom-lift-yellow",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the fitout wrapped.",
+  "l2": "The boom lift is parked by the wall.",
+  "caps": [
+   [
+    "Fitout done?",
+    "Snap the lift."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, reach."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Reach"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Fitout done"
+  },
+  "end": {
+   "tag1": "One photo of the lift. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What lift is parked by your wall since the fitout?"
+  },
+  "category": "aerial"
+ },
+ "n102": {
+  "key": "ecabinet",
+  "id": "control-cabinet-off-the-line",
+  "T": 4.3,
+  "img": "electrical-cabinet",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the line shut down.",
+  "l2": "The control cabinet is still on the wall.",
+  "caps": [
+   [
+    "Line down?",
+    "Snap the panel."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, volts."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Volts"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Line down"
+  },
+  "end": {
+   "tag1": "One photo of the panel. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is still wired on the wall of the line you shut down?"
+  },
+  "category": "electrical"
+ },
+ "n103": {
+  "key": "drillrig",
+  "id": "drill-rig-between-contracts",
+  "T": 4.3,
+  "img": "drill-rig",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the drilling contract ended.",
+  "l2": "The rig sits on the lot.",
+  "caps": [
+   [
+    "Contract over?",
+    "Snap the rig."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, depth."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Depth"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Contract over"
+  },
+  "end": {
+   "tag1": "One photo of the rig. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What rig is parked on your lot between contracts?"
+  },
+  "category": "drilling"
+ },
+ "n104": {
+  "key": "vactank",
+  "id": "vac-truck-after-the-season",
+  "T": 4.3,
+  "img": "vac-tank-truck",
+  "move": "push",
+  "label": null,
+  "l1": "POV: the pumping season ended.",
+  "l2": "The vac truck sits in the lot.",
+  "caps": [
+   [
+    "Season over?",
+    "Snap the truck."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, tank."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Tank"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Season over"
+  },
+  "end": {
+   "tag1": "One photo of the truck. Listed.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What truck is parked in your lot since the season ended?"
+  },
+  "category": "vacuum"
+ }
+}

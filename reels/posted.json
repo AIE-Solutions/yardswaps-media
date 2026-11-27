@@ -6,7 +6,12 @@
   "repeat": false,
   "status": "posted",
   "id": "18381856978208520",
-  "url": "https://www.instagram.com/reel/DfNjcvjAL_H/"
+  "url": "https://www.instagram.com/reel/DfNjcvjAL_H/",
+  "takedown_errors": [
+   "2026-11-26T19:26:33Z DELETE https://graph.facebook.com/v23.0/18381856978208520 -> 400: {\"error\":{\"message\":\"(#10) Insufficient permissions to access this data\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AvmiE3u7P2g1M",
+   "2026-11-26T22:46:06Z DELETE https://graph.facebook.com/v23.0/18381856978208520 -> 400: {\"error\":{\"message\":\"(#10) Insufficient permissions to access this data\",\"code\":10,\"type\":\"OAuthException\",\"fbtrace_id\":\"AYhM7Z0aZgTrf"
+  ],
+  "takedown_skip": true
  },
  {
   "time": "2026-11-01T20:08:18Z",
@@ -15,7 +20,10 @@
   "repeat": false,
   "status": "posted",
   "id": "2923211331407518",
-  "url": "https://www.facebook.com/reel/2923211331407518"
+  "url": "https://www.facebook.com/reel/2923211331407518",
+  "removed": "2026-11-26T19:26:45Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1623821622325717"
  },
  {
   "time": "2026-11-01T20:31:35Z",
@@ -53,7 +61,10 @@
   "forced": true,
   "status": "posted",
   "id": "1122097813516662",
-  "url": "https://www.facebook.com/reel/1122097813516662"
+  "url": "https://www.facebook.com/reel/1122097813516662",
+  "removed": "2026-11-26T22:46:19Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1703489564817993"
  },
  {
   "time": "2026-11-01T21:20:51Z",
@@ -89,7 +100,10 @@
   "repeat": false,
   "status": "posted",
   "id": "972496965934352",
-  "url": "https://www.facebook.com/reel/972496965934352"
+  "url": "https://www.facebook.com/reel/972496965934352",
+  "removed": "2026-11-26T23:46:20Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1983104633074378"
  },
  {
   "time": "2026-11-01T23:42:54Z",
@@ -161,7 +175,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1109218535312659",
-  "url": "https://www.facebook.com/reel/1109218535312659"
+  "url": "https://www.facebook.com/reel/1109218535312659",
+  "removed": "2026-11-27T00:46:15Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "2659976114431161"
  },
  {
   "time": "2026-11-03T14:58:15Z",
@@ -197,7 +214,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1527973532500599",
-  "url": "https://www.facebook.com/reel/1527973532500599"
+  "url": "https://www.facebook.com/reel/1527973532500599",
+  "removed": "2026-11-27T04:45:29Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1035144272941312"
  },
  {
   "time": "2026-11-03T20:15:24Z",
@@ -269,7 +289,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1843843373458930",
-  "url": "https://www.facebook.com/reel/1843843373458930"
+  "url": "https://www.facebook.com/reel/1843843373458930",
+  "removed": "2026-11-27T05:46:24Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1462434099197368"
  },
  {
   "time": "2026-11-04T22:47:27Z",
@@ -305,7 +328,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1778545733207566",
-  "url": "https://www.facebook.com/reel/1778545733207566"
+  "url": "https://www.facebook.com/reel/1778545733207566",
+  "removed": "2026-11-27T12:46:05Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "3322644151267829"
  },
  {
   "time": "2026-11-05T13:45:55Z",
@@ -3334,7 +3360,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1151715120690470",
-  "url": "https://www.facebook.com/reel/1151715120690470"
+  "url": "https://www.facebook.com/reel/1151715120690470",
+  "removed": "2026-11-27T04:45:26Z",
+  "removed_reason": "old look, new look posted",
+  "replaced_by": "1035144272941312"
  },
  {
   "time": "2026-11-22T04:47:59Z",
@@ -3370,7 +3399,10 @@
   "repeat": false,
   "status": "posted",
   "id": "2311584319628256",
-  "url": "https://www.facebook.com/reel/2311584319628256"
+  "url": "https://www.facebook.com/reel/2311584319628256",
+  "removed": "2026-11-27T05:46:20Z",
+  "removed_reason": "old look, new look posted",
+  "replaced_by": "1462434099197368"
  },
  {
   "time": "2026-11-22T12:46:45Z",
@@ -4138,5 +4170,452 @@
   "status": "posted",
   "id": "4646015315684135",
   "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-25T16:49:19Z",
+  "platform": "instagram",
+  "slug": "whole-lot-one-link",
+  "repeat": true,
+  "promo": "storefront",
+  "status": "posted",
+  "id": "18506173162097362",
+  "url": "https://www.instagram.com/reel/DgK_0rbok5n/"
+ },
+ {
+  "time": "2026-11-25T16:49:54Z",
+  "platform": "facebook",
+  "slug": "whole-lot-one-link",
+  "repeat": true,
+  "promo": "storefront",
+  "status": "posted",
+  "id": "29332070006459055",
+  "url": "https://www.facebook.com/reel/29332070006459055"
+ },
+ {
+  "time": "2026-11-25T16:50:05Z",
+  "platform": "instagram_story",
+  "slug": "whole-lot-one-link",
+  "repeat": false,
+  "status": "posted",
+  "id": "18083447129733772",
+  "url": "https://www.instagram.com/stories/yardswaps/4038321085138123170"
+ },
+ {
+  "time": "2026-11-25T16:50:37Z",
+  "platform": "facebook_story",
+  "slug": "whole-lot-one-link",
+  "repeat": false,
+  "status": "posted",
+  "id": "29572376205733263",
+  "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-25T22:46:14Z",
+  "platform": "instagram",
+  "slug": "combi-oven-after-the-remodel",
+  "repeat": false,
+  "status": "posted",
+  "id": "18162185458470360",
+  "url": "https://www.instagram.com/reel/DgLoqdKhVbf/"
+ },
+ {
+  "time": "2026-11-25T22:46:50Z",
+  "platform": "facebook",
+  "slug": "listed-komatsu-hd785-7-engine-for-sale-wo-dsydq",
+  "repeat": false,
+  "status": "posted",
+  "id": "1686808339906913",
+  "url": "https://www.facebook.com/reel/1686808339906913"
+ },
+ {
+  "time": "2026-11-25T22:46:58Z",
+  "platform": "instagram_story",
+  "slug": "combi-oven-after-the-remodel",
+  "repeat": false,
+  "status": "posted",
+  "id": "18005419388806903",
+  "url": "https://www.instagram.com/stories/yardswaps/4038500691516822503"
+ },
+ {
+  "time": "2026-11-25T22:47:30Z",
+  "platform": "facebook_story",
+  "slug": "listed-komatsu-hd785-7-engine-for-sale-wo-dsydq",
+  "repeat": false,
+  "status": "posted",
+  "id": "1804733801660873",
+  "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-25T23:45:15Z",
+  "platform": "instagram",
+  "slug": "boom-lift-after-the-fitout",
+  "repeat": false,
+  "list_free": true,
+  "status": "posted",
+  "id": "18124642798935893",
+  "url": "https://www.instagram.com/reel/DgLvazShuQo/"
+ },
+ {
+  "time": "2026-11-25T23:45:48Z",
+  "platform": "facebook",
+  "slug": "condensers-after-the-changeout",
+  "repeat": false,
+  "list_free": true,
+  "status": "posted",
+  "id": "1707211610982130",
+  "url": "https://www.facebook.com/reel/1707211610982130"
+ },
+ {
+  "time": "2026-11-25T23:45:57Z",
+  "platform": "instagram_story",
+  "slug": "boom-lift-after-the-fitout",
+  "repeat": false,
+  "status": "posted",
+  "id": "17924250969483036",
+  "url": "https://www.instagram.com/stories/yardswaps/4038530383934174897"
+ },
+ {
+  "time": "2026-11-25T23:46:27Z",
+  "platform": "facebook_story",
+  "slug": "condensers-after-the-changeout",
+  "repeat": false,
+  "status": "posted",
+  "id": "1409666887650984",
+  "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-26T00:47:13Z",
+  "platform": "instagram",
+  "slug": "control-cabinet-off-the-line",
+  "repeat": false,
+  "status": "posted",
+  "id": "17968011861217046",
+  "url": "https://www.instagram.com/reel/DgL2gnZqTWN/"
+ },
+ {
+  "time": "2026-11-26T00:47:49Z",
+  "platform": "facebook",
+  "slug": "listed-zero-tail-swing-deere-50g-with-qui-fbt0s",
+  "repeat": false,
+  "status": "posted",
+  "id": "1801453204243870",
+  "url": "https://www.facebook.com/reel/1801453204243870"
+ },
+ {
+  "time": "2026-11-26T00:47:58Z",
+  "platform": "instagram_story",
+  "slug": "control-cabinet-off-the-line",
+  "repeat": false,
+  "status": "posted",
+  "id": "18131228836872193",
+  "url": "https://www.instagram.com/stories/yardswaps/4038561612551631066"
+ },
+ {
+  "time": "2026-11-26T00:48:32Z",
+  "platform": "facebook_story",
+  "slug": "listed-zero-tail-swing-deere-50g-with-qui-fbt0s",
+  "repeat": false,
+  "status": "posted",
+  "id": "1154430177549185",
+  "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-26T04:45:32Z",
+  "platform": "instagram",
+  "slug": "drilling-rig-parked",
+  "repeat": true,
+  "status": "posted",
+  "id": "18419124466087353",
+  "url": "https://www.instagram.com/reel/DgMRx9yhYcd/"
+ },
+ {
+  "time": "2026-11-26T04:46:02Z",
+  "platform": "facebook",
+  "slug": "find-it-nearby",
+  "repeat": true,
+  "status": "posted",
+  "id": "1523902174133663",
+  "url": "https://www.facebook.com/reel/1523902174133663"
+ },
+ {
+  "time": "2026-11-26T04:46:09Z",
+  "platform": "instagram_story",
+  "slug": "drilling-rig-parked",
+  "repeat": false,
+  "status": "posted",
+  "id": "17897642274438340",
+  "url": "https://www.instagram.com/stories/yardswaps/4038681473535257726"
+ },
+ {
+  "time": "2026-11-26T04:46:39Z",
+  "platform": "facebook_story",
+  "slug": "find-it-nearby",
+  "repeat": false,
+  "status": "posted",
+  "id": "1542702941048398",
+  "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-26T05:46:08Z",
+  "platform": "instagram_story",
+  "slug": "parts-donor-thumb",
+  "repeat": false,
+  "status": "posted",
+  "id": "18244315105321257",
+  "url": "https://www.instagram.com/stories/yardswaps/4038711668684282958"
+ },
+ {
+  "time": "2026-11-26T12:15:26Z",
+  "platform": "instagram",
+  "slug": "micrometer-set-small-tools",
+  "repeat": true,
+  "status": "failed",
+  "error": "POST https://rupload.facebook.com/ig-api-upload/v23.0/18125639518977469 -> 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+ },
+ {
+  "time": "2026-11-26T12:16:00Z",
+  "platform": "facebook",
+  "slug": "combi-oven-after-the-remodel",
+  "repeat": false,
+  "status": "posted",
+  "id": "1826736065268355",
+  "url": "https://www.facebook.com/reel/1826736065268355"
+ },
+ {
+  "time": "2026-11-26T12:16:08Z",
+  "platform": "facebook_story",
+  "slug": "combi-oven-after-the-remodel",
+  "repeat": false,
+  "status": "posted",
+  "id": "1146809038318594",
+  "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-26T12:46:43Z",
+  "platform": "instagram",
+  "slug": "micrometer-set-small-tools",
+  "repeat": true,
+  "status": "posted",
+  "id": "18146238037614447",
+  "url": "https://www.instagram.com/reel/DgNI2e1BuIN/"
+ },
+ {
+  "time": "2026-11-26T12:47:19Z",
+  "platform": "instagram_story",
+  "slug": "micrometer-set-small-tools",
+  "repeat": false,
+  "status": "posted",
+  "id": "18144142714622086",
+  "url": "https://www.instagram.com/stories/yardswaps/4038923671279478774"
+ },
+ {
+  "time": "2026-11-26T13:45:58Z",
+  "platform": "instagram",
+  "slug": "control-panel-pulled",
+  "repeat": true,
+  "status": "posted",
+  "id": "18273749704307064",
+  "url": "https://www.instagram.com/reel/DgNPobXorX8/"
+ },
+ {
+  "time": "2026-11-26T13:46:30Z",
+  "platform": "instagram_story",
+  "slug": "control-panel-pulled",
+  "repeat": false,
+  "status": "posted",
+  "id": "18134060813487304",
+  "url": "https://www.instagram.com/stories/yardswaps/4038953455067351041"
+ },
+ {
+  "time": "2026-11-26T14:45:20Z",
+  "platform": "instagram",
+  "slug": "mission-idle-to-work",
+  "repeat": true,
+  "status": "posted",
+  "id": "18132690652864612",
+  "url": "https://www.instagram.com/reel/DgNWbGbMVGp/"
+ },
+ {
+  "time": "2026-11-26T14:45:54Z",
+  "platform": "instagram_story",
+  "slug": "mission-idle-to-work",
+  "repeat": false,
+  "status": "posted",
+  "id": "18087998321711415",
+  "url": "https://www.instagram.com/stories/yardswaps/4038983341506126169"
+ },
+ {
+  "time": "2026-11-26T16:44:39Z",
+  "platform": "instagram",
+  "slug": "listed-2021-cat-301-7cr-mini-excavator-on-2unc7",
+  "repeat": false,
+  "promo": "share",
+  "status": "posted",
+  "id": "18078071099769871",
+  "url": "https://www.instagram.com/reel/DgNkFJDq_WO/"
+ },
+ {
+  "time": "2026-11-26T16:45:09Z",
+  "platform": "facebook",
+  "slug": "listed-caterpillar-140h-rear-ripper-multi-5n6mr",
+  "repeat": false,
+  "promo": "share",
+  "status": "posted",
+  "id": "1472483471490635",
+  "url": "https://www.facebook.com/reel/1472483471490635"
+ },
+ {
+  "time": "2026-11-26T16:45:19Z",
+  "platform": "instagram_story",
+  "slug": "listed-2021-cat-301-7cr-mini-excavator-on-2unc7",
+  "repeat": false,
+  "status": "posted",
+  "id": "17920087131536844",
+  "url": "https://www.instagram.com/stories/yardswaps/4039043445118505409"
+ },
+ {
+  "time": "2026-11-26T16:45:49Z",
+  "platform": "facebook_story",
+  "slug": "listed-caterpillar-140h-rear-ripper-multi-5n6mr",
+  "repeat": false,
+  "status": "posted",
+  "id": "4608726339400245",
+  "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-26T19:26:02Z",
+  "platform": "instagram",
+  "slug": "seller-espresso-machine",
+  "repeat": false,
+  "look": "k2",
+  "forced": true,
+  "status": "posted",
+  "id": "18127486001317770",
+  "url": "https://www.instagram.com/reel/DgN2i7fhP1r/"
+ },
+ {
+  "time": "2026-11-26T19:26:33Z",
+  "platform": "facebook",
+  "slug": "seller-espresso-machine",
+  "repeat": false,
+  "look": "k2",
+  "forced": true,
+  "status": "posted",
+  "id": "1623821622325717",
+  "url": "https://www.facebook.com/reel/1623821622325717"
+ },
+ {
+  "time": "2026-11-26T22:45:28Z",
+  "platform": "instagram",
+  "slug": "seller-convection-oven",
+  "repeat": false,
+  "look": "k2",
+  "list_free": true,
+  "status": "posted",
+  "id": "18073402700790431",
+  "url": "https://www.instagram.com/reel/DgONX3uIc8l/"
+ },
+ {
+  "time": "2026-11-26T22:46:06Z",
+  "platform": "facebook",
+  "slug": "seller-convection-oven",
+  "repeat": false,
+  "look": "k2",
+  "list_free": true,
+  "status": "posted",
+  "id": "1703489564817993",
+  "url": "https://www.facebook.com/reel/1703489564817993"
+ },
+ {
+  "time": "2026-11-26T23:45:28Z",
+  "platform": "instagram",
+  "slug": "storefront-open-your-storefront",
+  "repeat": false,
+  "look": "k2",
+  "promo": "founding",
+  "status": "posted",
+  "id": "17981472789069080",
+  "url": "https://www.instagram.com/reel/DgOUPJ4NJT5/"
+ },
+ {
+  "time": "2026-11-26T23:46:08Z",
+  "platform": "facebook",
+  "slug": "storefront-open-your-storefront",
+  "repeat": false,
+  "look": "k2",
+  "promo": "founding",
+  "status": "posted",
+  "id": "1983104633074378",
+  "url": "https://www.facebook.com/reel/1983104633074378"
+ },
+ {
+  "time": "2026-11-27T00:45:08Z",
+  "platform": "instagram",
+  "slug": "walkthrough-live-generator",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "18673097515020651",
+  "url": "https://www.instagram.com/reel/DgObEM4MvVo/"
+ },
+ {
+  "time": "2026-11-27T00:45:42Z",
+  "platform": "facebook",
+  "slug": "walkthrough-live-generator",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "2659976114431161",
+  "url": "https://www.facebook.com/reel/2659976114431161"
+ },
+ {
+  "time": "2026-11-27T00:46:15Z",
+  "platform": "facebook_story",
+  "slug": "walkthrough-live-generator",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "1123533223879647",
+  "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-27T04:45:16Z",
+  "platform": "facebook",
+  "slug": "listed-used-pallet-racking-complete-lot-1-no15x",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "1035144272941312",
+  "url": "https://www.facebook.com/reel/1035144272941312"
+ },
+ {
+  "time": "2026-11-27T05:46:09Z",
+  "platform": "facebook",
+  "slug": "listed-caterpillar-140h-v-plow-fmh3l",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "1462434099197368",
+  "url": "https://www.facebook.com/reel/1462434099197368"
+ },
+ {
+  "time": "2026-11-27T12:45:23Z",
+  "platform": "instagram",
+  "slug": "seller-display-fridge",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "18046779068836872",
+  "url": "https://www.instagram.com/reel/DgPtffuRaPI/"
+ },
+ {
+  "time": "2026-11-27T12:45:54Z",
+  "platform": "facebook",
+  "slug": "seller-display-fridge",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "3322644151267829",
+  "url": "https://www.facebook.com/reel/3322644151267829"
  }
 ]

@@ -8,8 +8,8 @@ they hold viewers better than our 12-20 s cuts (YouTube Nov 9-16: HeyCatch avg 4
 
   - a live listing's photo that the daily listing review already approved (the Just listed card photo
     in listings/queue.json, or an approved row of listings/reel-queue.json), with a slow push-in, or
-  - a text-free stock equipment photo from studio/stock (Canva stock, no AI, no people; each comes back
-    with a new hook after 21 days), or
+  - (off since 2026-11-26, Alan: the items must be real) a text-free stock equipment photo from
+    studio/stock, only with STUDIO_STOCK=1, and such a clip never posts (reels/post_reels.py REAL_PICTURES), or
   - 5.5 s of a library clip marked "clean": true (most of our cuts carry their own words, so none yet),
 
 then the POV hook from studio/hooks.json at the top (kept clear of TikTok's right and bottom UI), the
@@ -38,6 +38,9 @@ ROOT = os.path.dirname(HERE)
 for p in ("listings", "rotation", os.path.join("brand", "endcard")):
     sys.path.insert(0, os.path.join(ROOT, p))
 import just_listed as jl  # noqa: E402
+sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
+import kit  # noqa: E402
+import photo_privacy  # noqa: E402  (phone numbers and plates only, Nov 26)
 import rotation as rot  # noqa: E402
 import endcard  # noqa: E402
 
@@ -212,6 +215,10 @@ def listing_sources(active, opted_out):
 
 
 STOCK = os.path.join(HERE, "stock", "stock.json")
+# Off since 2026-11-26 (Alan: "the items in the pictures need to improve and be real"): Studio clips use only
+# real listing photos and real-item library clips. STUDIO_STOCK=1 turns the stock photos back on for a test;
+# the posters still skip any clip that is not a real item (reels/post_reels.py REAL_PICTURES).
+USE_STOCK = os.environ.get("STUDIO_STOCK") == "1"
 STOCK_REUSE_DAYS = 21
 
 
@@ -232,6 +239,9 @@ def clip_sources(videos):
         if v.get("cut") in ("listing", "pov") or v.get("platforms") or v.get("lang") not in (None, "en"):
             continue
         if not os.path.exists(os.path.join(ROOT, v.get("file", ""))) or not machine_thing(v.get("machine")):
+            continue
+        # real items only (Alan 11-26): a clip whose picture is not a real listing item is not a source
+        if not (v.get("real") is True or v.get("picture") == "real"):
             continue
         srcs.append({"kind": "clip", "machine": rot.machine_of(v), "file": v["file"], "category": v.get("category"),
                      "slug": v["slug"], "seconds": v.get("seconds"), "thing": machine_thing(v.get("machine"))})
@@ -263,7 +273,12 @@ def overlay_png(hook_line, price, path):
     for part in parts:
         lines += jl.wrap(d, part, hf, right - left - 64, 4)
     lines = lines[:5]
-    top = 230
+    # the wordmark tab, as on every post (it sits on this layer so the slow push-in does not move it)
+    wf = kit.sg(54)
+    ww = int(kit.tracked_width(d, "YardSwaps", wf, -0.035)) + 68
+    d.rounded_rectangle((left, 150, left + ww, 246), radius=22, fill=WHITE + (255,))
+    kit.tracked(d, (left + 34, 167), "YardSwaps", wf, BLUE, -0.035)
+    top = 270
     h = 34 + (82 if label else 0) + len(lines) * 80 + 30
     d.rounded_rectangle((left, top, right, top + h), radius=30, fill=WHITE + (245,))
     y = top + 26
@@ -280,22 +295,25 @@ def overlay_png(hook_line, price, path):
         d.text((left + 28, py + 12), price, font=pf, fill=WHITE)
     assert top + h + 120 < H - SAFE_BOTTOM
     img.save(path)
+    return top + h + (94 if price else 0)     # where the words end; the photo starts under this
 
 
-def still_frame(photo_rgb, path):
-    """The whole photo fitted over a blurred, darkened fill of itself (fit whole item rule)."""
-    from PIL import Image, ImageFilter, ImageEnhance
+def still_frame(photo_rgb, path, top=620):
+    """The whole photo as a card on the brand slate panel (post kit look, brand/posts/README.md; fit whole
+    item rule). Until 2026-11-26 it sat on a blurred, darkened copy of itself, which Alan called "ai slop"."""
+    from PIL import Image
     ph = Image.fromarray(photo_rgb)
-    s = max(W / ph.width, H / ph.height)
     if ph.height / ph.width >= 1.6:     # already a tall 9:16 frame (the stock set): fill the screen
+        s = max(W / ph.width, H / ph.height)
         ph.resize((round(ph.width * s), round(ph.height * s)), Image.LANCZOS).crop((0, 0, W, H)).save(path)
         return
-    bg = ph.resize((int(ph.width * s) + 1, int(ph.height * s) + 1)).crop((0, 0, W, H))
-    bg = ImageEnhance.Brightness(bg.filter(ImageFilter.GaussianBlur(40))).enhance(0.55)
-    box_w, box_h = W - 60, 1000
-    s = min(box_w / ph.width, box_h / ph.height)
-    fg = ph.resize((int(ph.width * s), int(ph.height * s)), Image.LANCZOS)
-    bg.paste(fg, ((W - fg.width) // 2, 700 + (box_h - fg.height) // 2 - 120))
+    bg = Image.new("RGB", (W, H), kit.PANEL)
+    top += 36
+    box_w, box_h = W - 80, H - kit.SAFE_BOTTOM - top
+    c = kit.card(ph, box_w, box_h)
+    x, y = (W - c.width) // 2, top + (box_h - c.height) // 2
+    bg = kit.drop_shadow(bg, (x, y, x + c.width, y + c.height))
+    bg.paste(c, (x, y), c)
     bg.save(path)
 
 
@@ -311,7 +329,7 @@ def listing_photo(src):
         img = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR)
     if img is None or jl.faces_in(img):
         return None
-    img, _, _ = jl.blur_digit_text(img)
+    img, _, _ = photo_privacy.blur_private_text(img)
     return cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 
@@ -320,7 +338,7 @@ def render(src, hook_line, out_mp4, seed):
     tmp = tempfile.mkdtemp(prefix="pov-")
     over = os.path.join(tmp, "over.png")
     price = jl.price_text(src["listing"].get("price")) if src.get("listing") else ""
-    overlay_png(hook_line, price, over)
+    words_end = overlay_png(hook_line, price, over)
     endp = os.path.join(tmp, "end.png")
     from PIL import Image
     Image.open(endcard.card_png("seller", W, H)).convert("RGB").resize((W, H)).save(endp)
@@ -331,7 +349,7 @@ def render(src, hook_line, out_mp4, seed):
         if photo is None:
             return None
         still = os.path.join(tmp, "still.png")
-        still_frame(photo, still)
+        still_frame(photo, still, words_end)
         args += ["-i", still]
         shot = (f"[0:v]scale={W * 2}:{H * 2},zoompan=z='1+0.06*on/{n}':d={n}:"
                 f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps={FPS},setsar=1[s]")
@@ -419,7 +437,8 @@ def plan(videos, posted, active, opted_out, hist, per_run=PER_RUN, backlog=BACKL
     recent = {v.get("source_ref") for v in videos if v.get("studio") and v.get("added", "") >= cut}
     lsrc = [s for s in listing_sources(active, opted_out) if s["listing_id"] not in have]
     csrc = [s for s in clip_sources(videos) if s["slug"] not in have]
-    csrc += [s for s in stock_sources() if s["slug"] not in recent]
+    if USE_STOCK:
+        csrc += [s for s in stock_sources() if s["slug"] not in recent]
 
     def last(s):
         return rot.last_shown({"machine": s["machine"]}, hist) or dt.datetime(2000, 1, 1, tzinfo=dt.timezone.utc)
@@ -483,13 +502,15 @@ def main():
             continue
         entry = {"added": today, "slug": slug, "file": rel, "priority": 0, "body": body, "question": q,
                  "ig_tags": ig, "tt_tags": tt, "category": src.get("category"), "machine": src["machine"],
-                 "real": True, "cut": "pov", "studio": True, "hook": hook, "title": line.replace("\n", " "),
+                 "real": src["kind"] in ("listing", "clip"), "cut": "pov", "studio": True, "hook": hook, "title": line.replace("\n", " "),
                  "source_ref": ref, "seconds": secs, "endcard": f"seller-{endcard.VERSION}",
                  # waits in the Studio deck (yardswaps.com/admin/studio) until approved, skipped or
                  # auto-approved after a day; studio/sync_deck.py applies the decision
                  "review": "pending", "hold": True, "made": now().strftime("%Y-%m-%dT%H:%M:%SZ")}
         if src.get("listing_id"):
             entry["listing_id"] = src["listing_id"]
+        if src["kind"] == "stock":
+            entry["picture"] = "stock"
         videos.append(entry)
         used.append(hook)
         built += 1

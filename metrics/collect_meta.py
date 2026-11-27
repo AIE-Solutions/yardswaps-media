@@ -81,7 +81,8 @@ def main():
     since = now - dt.timedelta(days=DAYS)
     posted = load(POSTED, [])
     ours_ig = {p["id"]: p for p in posted if p.get("platform") == "instagram" and p.get("status") == "posted" and p.get("id")}
-    ours_fb = [p for p in posted if p.get("platform") == "facebook" and p.get("status") == "posted" and p.get("id")]
+    ours_fb = [p for p in posted if p.get("platform") == "facebook" and p.get("status") == "posted" and p.get("id")
+               and not p.get("removed")]  # a Reel we took down (reels/post_reels.py takedown) has no stats left
     # Daily "Just listed" photo posts (listings/just_listed.py): ours, tagged so
     # the scorecard can compare them with Reels.
     listing_ig = {p["id"]: p for p in load(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "listings", "posted.json"), [])

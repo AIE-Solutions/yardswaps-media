@@ -1,0 +1,50 @@
+{
+ "raw": "WORK/rig/raw/generator",
+ "photo": "WORK/rig/generator-full.jpg",
+ "template": "WORK/wt/o/sell-empty.png",
+ "hook": [
+  "POV: selling a tri-fuel",
+  "portable generator."
+ ],
+ "ask": [
+  "What gear is sitting",
+  "in your garage?"
+ ],
+ "music": "yardswaps-music-bed-b-112bpm.mp3",
+ "caps": [
+  [
+   "List it from your phone.",
+   "Tap Take Photo."
+  ],
+  [
+   "Add a photo.",
+   "AI reads it."
+  ],
+  [
+   "AI fills in the rest.",
+   "Title, category, details."
+  ],
+  [
+   "Add your price.",
+   "You set it."
+  ],
+  [
+   "Check the details.",
+   "Change anything."
+  ],
+  [
+   "Tap Publish.",
+   "One tap."
+  ],
+  [
+   "Your listing is live.",
+   "Free to list. No cut of the sale."
+  ]
+ ],
+ "end_frames": "WORK/endc/e-generator",
+ "final": {
+  "image": "WORK/rig/generator_pub.png",
+  "frames": 52,
+  "cap": 6
+ }
+}

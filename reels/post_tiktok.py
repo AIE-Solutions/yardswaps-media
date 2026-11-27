@@ -336,7 +336,9 @@ def main():
         print("::notice::BUFFER_API_KEY is not set yet, so nothing went to TikTok. See reels/README.md, TikTok.")
         return 0
 
-    videos = reels.with_endcard(reels.load(reels.LIBRARY, {"videos": []})["videos"])
+    # Real items only, like the Reels (Alan 11-26); "ad" also lets the storefront ad Alan asked for on TikTok run.
+    videos = reels.with_real_pictures(reels.with_endcard(reels.load(reels.LIBRARY, {"videos": []})["videos"]),
+                                      allow=("real", "ad"))
     posted = reels.load(LOG, [])
     summary, failed = [], False
 
@@ -418,8 +420,8 @@ def main():
         cfg = reels.promos_config()
         if want:
             promo = next((pr for pr in cfg.get("promos", []) if pr["id"] == want), None)
-        elif reels.promo_due(used, PLATFORM, cfg=cfg):
-            promo = reels.promo_of_day(PLATFORM, cfg=cfg)
+        else:
+            promo = reels.promo_now(used, PLATFORM, cfg=cfg)
     # "next_on": ["tiktok"] in library.json puts a clip first in line for TikTok (Alan 11-25: "We should post our
     # awesome storefront ads there"). It takes the next scheduled slot instead of the list-it-free or promotion
     # post, so the daily count, the windows, the spacing and the spam back-off all stay as they are. Once it has
@@ -478,6 +480,8 @@ def main():
             due = clear_of_heycatch(reels.now() + dt.timedelta(minutes=SCHEDULE_AHEAD_MIN))
             entry = {"time": reels.iso(reels.now()), "platform": PLATFORM,
                      "slug": video["slug"], "repeat": repeat}
+            if reels.is_new_look(video):
+                entry["look"] = reels.NEW_LOOK
             if list_free:
                 entry["list_free"] = True
             if promo:
