@@ -214,7 +214,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1527973532500599",
-  "url": "https://www.facebook.com/reel/1527973532500599"
+  "url": "https://www.facebook.com/reel/1527973532500599",
+  "removed": "2026-11-27T04:45:29Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1035144272941312"
  },
  {
   "time": "2026-11-03T20:15:24Z",
@@ -3351,7 +3354,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1151715120690470",
-  "url": "https://www.facebook.com/reel/1151715120690470"
+  "url": "https://www.facebook.com/reel/1151715120690470",
+  "removed": "2026-11-27T04:45:26Z",
+  "removed_reason": "old look, new look posted",
+  "replaced_by": "1035144272941312"
  },
  {
   "time": "2026-11-22T04:47:59Z",
@@ -4562,5 +4568,15 @@
   "status": "posted",
   "id": "1123533223879647",
   "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-27T04:45:16Z",
+  "platform": "facebook",
+  "slug": "listed-used-pallet-racking-complete-lot-1-no15x",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "1035144272941312",
+  "url": "https://www.facebook.com/reel/1035144272941312"
  }
 ]
