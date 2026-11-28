@@ -844,7 +844,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1681736423317090",
-  "url": "https://www.facebook.com/reel/1681736423317090"
+  "url": "https://www.facebook.com/reel/1681736423317090",
+  "removed": "2026-11-28T13:46:24Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1134100289406328"
  },
  {
   "time": "2026-11-10T00:48:25Z",
@@ -4919,5 +4922,26 @@
   "status": "posted",
   "id": "17993301558088616",
   "url": "https://www.instagram.com/reel/DgSYi9kMJ-V/"
+ },
+ {
+  "time": "2026-11-28T13:46:12Z",
+  "platform": "facebook",
+  "slug": "seller-spare-controls",
+  "repeat": false,
+  "look": "k2",
+  "list_free": true,
+  "status": "posted",
+  "id": "1134100289406328",
+  "url": "https://www.facebook.com/reel/1134100289406328"
+ },
+ {
+  "time": "2026-11-28T13:46:24Z",
+  "platform": "facebook_story",
+  "slug": "seller-spare-controls",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "1661876272103507",
+  "url": "https://www.facebook.com/stories/1291163214083476"
  }
 ]
