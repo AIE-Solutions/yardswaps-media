@@ -112,7 +112,7 @@ REELS=[
  ('mini-excavator','2unc7',[1,0],['MINI EXCAVATOR','BETWEEN JOBS?'],'CAT 301.7CR mini excavator'),
  ('coffee-brewer','dwlxs',[0],['COFFEE BREWER','OFF THE COUNTER?'],'Bunn single-funnel brewer'),
  ('spare-controls','oupw3',[0,1],['SPARE PARTS','ON THE SHELF?'],'Genie Smart Link control module'),
- ('wheels','ng1nl',[0],['WHEELS YOU','TOOK OFF?'],'8-lug Chevy rims'),
+ # ('wheels','ng1nl',...) removed: Alan 11-27 'Take those rims out'
  ('ice-maker','3uv4m',[0],['ICE MAKER','UNPLUGGED?'],'Osion OCU-200 ice maker'),
  ('tooling','o6blx',[0],['TOOLING YOU','STOPPED USING?'],'Kennametal indexable boring bars'),
  ('leaf-vacuum','tp04q',[0,1],['LEAF VACUUM DONE','FOR THE SEASON?'],'Billy Goat DL3700VE leaf vacuum'),

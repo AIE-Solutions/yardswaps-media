@@ -750,7 +750,8 @@
    "/api/images/listings/1774658963511-b55a76d2648d.jpg"
   ],
   "preview": "listings/reel-previews/cmn9m4kbc0005ms3adulng1nl.jpg",
-  "status": "approved",
+  "status": "rejected",
+  "reason": "Alan 11-27: 'Take those rims out'",
   "added": "2026-11-26T14:35:15Z",
   "updated": "2026-11-26T14:51:43Z",
   "reviewed_by": "claude"
