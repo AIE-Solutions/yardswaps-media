@@ -115,5 +115,18 @@
   "video_host": "cdn.jsdelivr.net",
   "url": "https://www.youtube.com/shorts/1ii4Ex1obAk",
   "sent": "2026-11-27T22:17:17.142Z"
+ },
+ {
+  "time": "2026-11-28T16:42:07Z",
+  "slot": "2026-11-28 10:00",
+  "slug": "seller-walk-in-cooler",
+  "title": "Walk-in cooler sitting empty? List it free on YardSwaps.",
+  "pick": "ok",
+  "library_slug": "seller-walk-in-cooler",
+  "machine": "seller-walk-in-cooler",
+  "status": "scheduled",
+  "buffer_id": "6b0b0462a4bb9f8231254157",
+  "due": "2026-11-28T16:47:07.000Z",
+  "video_host": "cdn.jsdelivr.net"
  }
 ]
