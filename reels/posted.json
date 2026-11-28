@@ -709,7 +709,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1455176483255856",
-  "url": "https://www.facebook.com/reel/1455176483255856"
+  "url": "https://www.facebook.com/reel/1455176483255856",
+  "removed": "2026-11-28T01:35:57Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1673816767624567"
  },
  {
   "time": "2026-11-09T13:46:08Z",
@@ -3791,7 +3794,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1666536851863962",
-  "url": "https://www.facebook.com/reel/1666536851863962"
+  "url": "https://www.facebook.com/reel/1666536851863962",
+  "removed": "2026-11-28T01:35:53Z",
+  "removed_reason": "old look, new look posted",
+  "replaced_by": "1673816767624567"
  },
  {
   "time": "2026-11-24T07:01:57Z",
@@ -4834,5 +4840,25 @@
   "status": "posted",
   "id": "2413377716105984",
   "url": "https://www.facebook.com/stories/1291163214083476"
+ },
+ {
+  "time": "2026-11-28T01:35:08Z",
+  "platform": "instagram",
+  "slug": "listed-instapak-speedypacker-floor-model-nr7e2",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "17887224447522808",
+  "url": "https://www.instagram.com/reel/DgRFlazNycr/"
+ },
+ {
+  "time": "2026-11-28T01:35:40Z",
+  "platform": "facebook",
+  "slug": "listed-dustless-blasting-mobile-trailer-r-5c2iy",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "1673816767624567",
+  "url": "https://www.facebook.com/reel/1673816767624567"
  }
 ]
