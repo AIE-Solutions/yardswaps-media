@@ -748,7 +748,10 @@
   "repeat": false,
   "status": "posted",
   "id": "954561437511788",
-  "url": "https://www.facebook.com/reel/954561437511788"
+  "url": "https://www.facebook.com/reel/954561437511788",
+  "removed": "2026-11-28T04:46:27Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "29382969508026592"
  },
  {
   "time": "2026-11-09T14:46:40Z",
@@ -3833,7 +3836,10 @@
   "repeat": false,
   "status": "posted",
   "id": "4634569190199977",
-  "url": "https://www.facebook.com/reel/4634569190199977"
+  "url": "https://www.facebook.com/reel/4634569190199977",
+  "removed": "2026-11-28T04:46:23Z",
+  "removed_reason": "old look, new look posted",
+  "replaced_by": "29382969508026592"
  },
  {
   "time": "2026-11-24T12:48:37Z",
@@ -4860,5 +4866,25 @@
   "status": "posted",
   "id": "1673816767624567",
   "url": "https://www.facebook.com/reel/1673816767624567"
+ },
+ {
+  "time": "2026-11-28T04:45:37Z",
+  "platform": "instagram",
+  "slug": "listed-dustless-blasting-mobile-trailer-r-5c2iy",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "18653387842055401",
+  "url": "https://www.instagram.com/reel/DgRbYd9uFb6/"
+ },
+ {
+  "time": "2026-11-28T04:46:12Z",
+  "platform": "facebook",
+  "slug": "listed-commercial-dehumidifiers-4x-phoeni-wr62p",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "29382969508026592",
+  "url": "https://www.facebook.com/reel/29382969508026592"
  }
 ]
