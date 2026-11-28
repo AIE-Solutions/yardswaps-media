@@ -1,20 +1,21 @@
 {
- "checkedAt": "2026-11-27T14:37:39Z",
+ "checkedAt": "2026-11-28T14:37:40Z",
  "policy": "pause",
  "platforms": {
   "instagram": {
    "platform": "instagram",
-   "score": 5.0,
-   "level": "held",
-   "cap": 4,
+   "score": 6.0,
+   "level": "regular",
+   "cap": 7,
    "pausedUntil": null,
-   "postsPerDay7d": 7.4,
+   "postsPerDay7d": 7.7,
    "reasons": [
-    "followers 815 -> 804 in a week (-1.3%)",
-    "likes+comments per post 1.8 -> 1.4 (0.82x)",
-    "views a week, all posts 2501 -> 3608 (1.44x)",
-    "views per post 68 -> 59 (0.87x)",
-    "52 of our posts in 7 days (7.4 a day), 1 failed"
+    "followers 809 -> 798 in a week (-1.4%)",
+    "likes+comments per post 1.7 -> 2.0 (1.21x)",
+    "views a week, all posts 2576 -> 3777 (1.47x)",
+    "views per post 65 -> 63 (0.97x)",
+    "54 of our posts in 7 days (7.7 a day), 2 failed",
+    "platform warning cleared by a later post: POST https://graph.facebook.com/v23.0/17841429324062623/medi"
    ],
    "fixes": [
     "Followers are falling: post fewer, better clips here and answer every comment for a few days."
@@ -26,10 +27,10 @@
    "level": "regular",
    "cap": 7,
    "pausedUntil": null,
-   "postsPerDay7d": 6.4,
+   "postsPerDay7d": 6.9,
    "reasons": [
     "followers 14 -> 18 in a week (+28.6%)",
-    "45 of our posts in 7 days (6.4 a day), 0 failed"
+    "48 of our posts in 7 days (6.9 a day), 0 failed"
    ],
    "fixes": [
     "Profile fields that don't match profiles.json: description."
@@ -55,9 +56,9 @@
    "level": "low",
    "cap": 0,
    "pausedUntil": "2026-11-29T14:44:33Z",
-   "postsPerDay7d": 1.3,
+   "postsPerDay7d": 1.1,
    "reasons": [
-    "9 of our posts in 7 days (1.3 a day), 3 failed",
+    "8 of our posts in 7 days (1.1 a day), 2 failed",
     "platform warning: TikTok flagged this post as potential spam and blocked it from publishing. Pleas"
    ],
    "fixes": []
@@ -68,17 +69,17 @@
    "level": "regular",
    "cap": 2,
    "pausedUntil": null,
-   "postsPerDay7d": 0.9,
+   "postsPerDay7d": 1.1,
    "reasons": [
-    "6 of our posts in 7 days (0.9 a day), 1 failed"
+    "8 of our posts in 7 days (1.1 a day), 1 failed"
    ],
    "fixes": []
   }
  },
  "social": {
   "instagram": {
-   "followers": 804,
-   "followers7dAgo": 815,
+   "followers": 798,
+   "followers7dAgo": 809,
    "followers30dAgo": null,
    "firstDate": "2026-11-03",
    "firstFollowers": 13,
@@ -178,6 +179,10 @@
     {
      "date": "2026-11-26",
      "followers": 804
+    },
+    {
+     "date": "2026-11-27",
+     "followers": 798
     }
    ]
   },
@@ -283,6 +288,10 @@
     {
      "date": "2026-11-26",
      "followers": 18
+    },
+    {
+     "date": "2026-11-27",
+     "followers": 18
     }
    ]
   },
@@ -299,8 +308,17 @@
    },
    {
     "platform": "instagram",
+    "time": "2026-11-27T17:36:31Z",
+    "likes": 3,
+    "comments": 5,
+    "slug": "seller-hvac-unit",
+    "caption": "HVAC unit left from a job? List it free on YardSwaps.",
+    "permalink": "https://www.instagram.com/reel/DgQOwXcoDjs/"
+   },
+   {
+    "platform": "instagram",
     "time": "2026-11-25T13:45:44Z",
-    "likes": 4,
+    "likes": 5,
     "comments": 4,
     "slug": "find-it-nearby",
     "caption": "Buyers on YardSwaps look for used equipment near them, so the gear sitting in your yard ca",
@@ -317,6 +335,15 @@
    },
    {
     "platform": "instagram",
+    "time": "2026-11-26T19:26:27Z",
+    "likes": 3,
+    "comments": 4,
+    "slug": "seller-espresso-machine",
+    "caption": "Espresso machine not in use? List it free on YardSwaps.",
+    "permalink": "https://www.instagram.com/reel/DgN2i7fhP1r/"
+   },
+   {
+    "platform": "instagram",
     "time": "2026-11-22T16:46:45Z",
     "likes": 2,
     "comments": 4,
@@ -327,7 +354,7 @@
    {
     "platform": "instagram",
     "time": "2026-11-25T14:46:16Z",
-    "likes": 1,
+    "likes": 2,
     "comments": 4,
     "slug": "parts-donor-thumb",
     "caption": "POV: the excavator is gone. Its thumb is still here.",
@@ -353,35 +380,17 @@
    },
    {
     "platform": "instagram",
-    "time": "2026-11-12T14:48:21Z",
-    "likes": 1,
-    "comments": 3,
-    "slug": "second-jetter-by-the-fence",
-    "caption": "POV: you run one jetter now. The second jetter sits by the fence.",
-    "permalink": "https://www.instagram.com/reel/DfpTltkiV1Y/"
-   },
-   {
-    "platform": "instagram",
-    "time": "2026-11-15T16:44:21Z",
-    "likes": 1,
-    "comments": 3,
-    "slug": "condenser-changeout",
-    "caption": "POV: the condenser you pulled on the last changeout.",
-    "permalink": "https://www.instagram.com/reel/DfxPQEbADfy/"
-   },
-   {
-    "platform": "instagram",
-    "time": "2026-11-16T14:48:25Z",
-    "likes": 1,
-    "comments": 3,
-    "slug": "stripped-well-pump",
-    "caption": "POV: the well pump died. The parts didn't.",
-    "permalink": "https://www.instagram.com/reel/Dfzmx2vDx6f/"
+    "time": "2026-11-27T13:46:51Z",
+    "likes": 5,
+    "comments": 2,
+    "slug": "seller-extra-mower",
+    "caption": "LIST IT FREE",
+    "permalink": "https://www.instagram.com/reel/DgP0e_EgNnN/"
    }
   ],
   "postsLast30Days": {
-   "instagram": 149,
-   "facebook": 114
+   "instagram": 159,
+   "facebook": 123
   }
  }
 }
