@@ -2538,5 +2538,33 @@
   "preview": "listings/reel-previews/cmwzadjte00hunw3am677u0eg.jpg",
   "status": "pending",
   "added": "2026-11-27T23:26:35Z"
+ },
+ {
+  "listing_id": "cmwy4ni58002bqh3a5kuodgcc",
+  "slug": "listed-2026-caterpillar-265-compact-track-odgcc",
+  "title": "2026 Caterpillar 265 Compact Track Loader | 118 Hours",
+  "category": "excavators",
+  "photos": [
+   "/api/images/listings/1795732308718-7d73278548f7.jpg",
+   "/api/images/listings/1795732308857-fe983765c9ff.jpg",
+   "/api/images/listings/1795732308964-f0af163bfe22.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwy4ni58002bqh3a5kuodgcc.jpg",
+  "status": "pending",
+  "added": "2026-11-28T00:42:50Z"
+ },
+ {
+  "listing_id": "cmwyw9tk800a4qh3a42daodca",
+  "slug": "listed-i-j-cover-crop-roller-crimper-190-aodca",
+  "title": "I&J Cover Crop Roller Crimper, 190\" (15 ft), 3-Point",
+  "category": "agriculture",
+  "photos": [
+   "/api/images/listings/1795778699988-4dfa805f6e8a.jpg",
+   "/api/images/listings/1795778700186-d6dce67a4bfe.jpg",
+   "/api/images/listings/1795778700519-df26021792cf.jpg"
+  ],
+  "preview": "listings/reel-previews/cmwyw9tk800a4qh3a42daodca.jpg",
+  "status": "pending",
+  "added": "2026-11-28T00:43:01Z"
  }
 ]
