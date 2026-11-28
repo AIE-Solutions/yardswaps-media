@@ -762,6 +762,24 @@
    "demo": true,
    "structure": "problem-action-result",
    "cut": "10s"
+  },
+  "listed-billy-goat-leaf-vacuum": {
+   "hook": "just-listed",
+   "angle": "real-listing",
+   "category": "landscaping",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s",
+   "real": true
+  },
+  "listed-deere-50g-excavator": {
+   "hook": "just-listed",
+   "angle": "real-listing",
+   "category": "excavators",
+   "demo": true,
+   "structure": "problem-action-result",
+   "cut": "10s",
+   "real": true
   }
  }
 }

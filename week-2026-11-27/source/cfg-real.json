@@ -1,0 +1,116 @@
+{
+ "r5fbt0s": {
+  "key": "r5fbt0s",
+  "id": "listed-deere-50g-excavator",
+  "T": 2.4,
+  "img": "real-5fbt0s",
+  "move": "push",
+  "label": null,
+  "l1": "Just listed on YardSwaps.",
+  "l2": "Deere 50G excavator.",
+  "caps": [
+   [
+    "Just listed?",
+    "Snap it."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, specs."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Specs"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Just listed"
+  },
+  "end": {
+   "tag1": "Real listing. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What machine sits in your yard between jobs?"
+  },
+  "listing_id": "cmvsip9ad002jmp3arr5fbt0s",
+  "category": "excavators",
+  "real": true
+ },
+ "r3tp04q": {
+  "key": "r3tp04q",
+  "id": "listed-billy-goat-leaf-vacuum",
+  "T": 2.4,
+  "img": "real-3tp04q",
+  "move": "pan",
+  "label": null,
+  "l1": "Just listed on YardSwaps.",
+  "l2": "Billy Goat leaf vacuum.",
+  "caps": [
+   [
+    "Just listed?",
+    "Snap it."
+   ],
+   [
+    "AI fills it.",
+    "Title. Category."
+   ],
+   [
+    "AI wrote it.",
+    "Condition, specs."
+   ],
+   [
+    "Tap once.",
+    "Price set."
+   ],
+   [
+    "Published.",
+    "Listed free."
+   ]
+  ],
+  "pills": [
+   [
+    "Title",
+    "Category"
+   ],
+   [
+    "Condition",
+    "Specs"
+   ],
+   [
+    "Price"
+   ]
+  ],
+  "result": {
+   "text": "One photo. No typing. Listed free.",
+   "before": "Just listed"
+  },
+  "end": {
+   "tag1": "Real listing. One photo.",
+   "tag2": "Free to list. No cut of the sale.",
+   "ask": "What is parked in your shop until the leaves fall?"
+  },
+  "listing_id": "cmwv95og80026t83akg3tp04q",
+  "category": "landscaping",
+  "real": true
+ }
+}
