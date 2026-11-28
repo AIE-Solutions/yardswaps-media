@@ -865,7 +865,13 @@ def post(dry, force):
         print(f"::warning::card not public yet at {image_url}: {e}")
         return 0
     results = []
+    ig_held = instagram_paused()
+    if ig_held:
+        results.append({"platform": "instagram", "status": "skipped", "error": "Instagram paused by account health"})
+        print("::warning::Instagram is paused by account health (studio/HEALTH.md); Facebook only today")
     try:
+        if ig_held:
+            raise _Skip()
         c = graph("POST", f"{IG_ID}/media", token, image_url=image_url, caption=pick["ig_caption"])
         for _ in range(12):
             st = graph("GET", c["id"], token, fields="status_code")
@@ -879,6 +885,8 @@ def post(dry, force):
     except GraphError as e:
         results.append({"platform": "instagram", "status": "failed", "error": str(e)[:400]})
         print(f"::warning::Instagram failed: {e}")
+    except _Skip:
+        pass
     try:
         r = graph("POST", f"{PAGE_ID}/photos", token, url=image_url, caption=pick["fb_caption"], published="true")
         pid = r.get("post_id") or r.get("id")
@@ -899,6 +907,22 @@ def post(dry, force):
         paid_log("posted", seller=pick.get("seller"), listing_id=pick["listing_id"], rank=pick.get("rank"),
                  title=pick.get("title"), links=[r.get("link") for r in results if r["status"] == "posted"])
     return 0 if any(r["status"] == "posted" for r in results) else 1
+
+
+class _Skip(Exception):
+    """Instagram is held by account health: skip it, post Facebook."""
+
+
+def instagram_paused():
+    """True while account health (studio/health.py) has paused Instagram, e.g. 72 h after Meta answered
+    "The Instagram account is restricted" (2026-11-28). Never raises: a broken check never stops posting."""
+    try:
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "studio"))
+        import health
+        return health.cap("instagram") == 0
+    except Exception as e:  # pragma: no cover
+        print(f"  account health check failed: {e}")
+        return False
 
 
 def main():
