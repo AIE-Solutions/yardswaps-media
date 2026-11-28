@@ -1,9 +1,9 @@
 # YardSwaps weekly scorecard (2026-11-23)
 
-Generated 2026-11-27T21:12:04Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
+Generated 2026-11-28T10:14:14Z by metrics/scorecard.py. Sources: meta snapshot yes, app growth digest yes, app ops digest yes, youtube yes, metricool yes.
 
 ## Goals
-- Instagram followers: 798 (-17 in 7 days)
+- Instagram followers: 798 (-11 in 7 days)
 - Facebook followers: 18 (+4 in 7 days)
 - YouTube: {"subscribers": 10, "views": null, "videoCount": null}
 - Signups 7d: 19 (prev 9); from the app (iOS/Android): 3
@@ -17,14 +17,18 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | Video | Posts | Views | Likes | Comments | Shares | Saves | Follows | Signups | Points/post | vs median |
 |---|---|---|---|---|---|---|---|---|---|---|
 | lawn-tractor-after-the-route | 1 | 0 | 0 | 6 | 0 | 0 | 0 | 0 | 18.0 | - |
-| find-it-nearby | 2 | 0 | 6 | 4 | 0 | 0 | 0 | 0 | 17.0 | - |
+| drilling-rig-parked | 1 | 0 | 4 | 2 | 0 | 0 | 0 | 0 | 10.0 | - |
+| find-it-nearby | 2 | 0 | 6 | 4 | 0 | 0 | 0 | 0 | 9.0 | - |
+| control-cabinet-off-the-line | 1 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | 8.0 | - |
 | parts-donor-thumb | 2 | 0 | 4 | 4 | 0 | 0 | 0 | 0 | 8.0 | - |
-| condensers-after-the-changeout | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 7.0 | - |
-| listed-zero-tail-swing-deere-50g-with-qui-fbt0s | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 6.0 | - |
+| combi-oven-after-the-remodel | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 7.0 | - |
 | listed-chief-ez-liner-ii-collision-frame-tb4op | 2 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | 4.0 | - |
 | whole-lot-one-link | 3 | 0 | 5 | 2 | 0 | 0 | 0 | 0 | 3.67 | - |
-| listed-komatsu-hd785-7-engine-for-sale-wo-dsydq | 2 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 3.0 | - |
+| condensers-after-the-changeout | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 3.5 | - |
+| listed-zero-tail-swing-deere-50g-with-qui-fbt0s | 2 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 3.0 | - |
 | see-what-buyers-want-v2 | 3 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | 3.0 | - |
+| listed-komatsu-hd785-7-engine-for-sale-wo-dsydq | 2 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 2.5 | - |
+| boom-lift-after-the-fitout | 1 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 2.0 | - |
 | listed-commercial-dehumidifiers-4x-phoeni-wr62p | 1 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 2.0 | - |
 | mission-idle-to-work | 2 | 0 | 5 | 2 | 0 | 0 | 0 | 0 | 2.0 | - |
 | backhoe-still-on-the-trailer | 2 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | 1.0 | - |
@@ -45,22 +49,18 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | job-wrapped-generator | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
 | listed-2008-tennant-m20-ride-on-sweeper-s-sf6pt | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0.5 | - |
 | bluecollar-shelf-parts | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| boom-lift-after-the-fitout | 1 | 0 | 2 | 0 | 0 | 0 | 0 | 0 | too new | - |
 | box-truck-after-the-route | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | chain-hoist-on-the-beam | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | chairs-from-the-closed-office | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | chop-saw-small-tools | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| combi-oven-after-the-remodel | 2 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | too new | - |
 | commercial-idle-forklift | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | compressor-by-the-fence | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | condenser-changeout | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| control-cabinet-off-the-line | 1 | 0 | 2 | 2 | 0 | 0 | 0 | 0 | too new | - |
 | control-panel-pulled | 1 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | too new | - |
 | cooler-still-humming | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | cord-reels-after-the-events | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | dealer-storefront | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | downsized-to-one-truck | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
-| drilling-rig-parked | 1 | 0 | 4 | 2 | 0 | 0 | 0 | 0 | too new | - |
 | dump-trailer-after-the-cleanouts | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | every-category | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 | flatbed-after-the-last-contract | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
@@ -132,9 +132,9 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 | zero-turn-after-the-account | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.0 | - |
 
 ### Opener shapes
-- feature-statement: 5.67 points/post over 3 posts (testing)
+- feature-statement: 4.5 points/post over 4 posts (testing)
 - pov-situation: 2.33 points/post over 9 posts (testing)
-- pov-idle: 0.82 points/post over 66 posts (testing)
+- pov-idle: 1.14 points/post over 71 posts (testing)
 - search-term: 0.75 points/post over 4 posts (testing)
 - question-problem: 0.17 points/post over 6 posts (testing)
 - just-listed: 0.0 points/post over 1 posts (testing)
@@ -142,10 +142,10 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - me-humor: 0.0 points/post over 1 posts (testing)
 
 ### Topics
-- buyer-feature: 8.5 points/post over 2 posts (testing)
+- buyer-feature: 6.0 points/post over 3 posts (testing)
 - shelf-parts: 2.29 points/post over 7 posts (testing)
 - dealer: 2.1 points/post over 10 posts (testing)
-- idle-gear: 0.73 points/post over 55 posts (testing)
+- idle-gear: 1.12 points/post over 60 posts (testing)
 - parts-spec: 0.5 points/post over 4 posts (testing)
 - small-items: 0.0 points/post over 8 posts (testing)
 - seller-offer: 0.0 points/post over 2 posts (testing)
@@ -154,12 +154,15 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - seller-tip: 0.0 points/post over 1 posts (testing)
 
 ### Categories
-- forklifts: 6.33 points/post over 3 posts (testing)
+- drilling: 10.0 points/post over 1 posts (testing)
 - landscaping: 6.0 points/post over 3 posts (testing)
+- forklifts: 5.0 points/post over 4 posts (testing)
+- electrical: 4.0 points/post over 2 posts (testing)
 - excavators: 3.6 points/post over 5 posts (testing)
-- hvac: 2.33 points/post over 3 posts (testing)
 - trailers: 2.2 points/post over 5 posts (testing)
-- aerial: 1.67 points/post over 6 posts (testing)
+- hvac: 1.75 points/post over 4 posts (testing)
+- aerial: 1.71 points/post over 7 posts (testing)
+- cooking: 1.33 points/post over 6 posts (testing)
 - automotive: 1.0 points/post over 1 posts (testing)
 - welding: 0.6 points/post over 5 posts (testing)
 - paving: 0.5 points/post over 2 posts (testing)
@@ -168,7 +171,6 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - laundry: 0.33 points/post over 3 posts (testing)
 - machining: 0.25 points/post over 4 posts (testing)
 - parts: 0.22 points/post over 9 posts (testing)
-- cooking: 0.2 points/post over 5 posts (testing)
 - generators: 0.17 points/post over 6 posts (testing)
 - fleet: 0.0 points/post over 3 posts (testing)
 - cranes: 0.0 points/post over 2 posts (testing)
@@ -176,7 +178,6 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - tools: 0.0 points/post over 3 posts (testing)
 - compressors: 0.0 points/post over 2 posts (testing)
 - refrigeration: 0.0 points/post over 1 posts (testing)
-- electrical: 0.0 points/post over 1 posts (testing)
 - vacuum: 0.0 points/post over 1 posts (testing)
 - inspection: 0.0 points/post over 1 posts (testing)
 - concrete: 0.0 points/post over 2 posts (testing)
@@ -189,7 +190,7 @@ Median points per post: 0.0. Points = follows x10, shares x4, saves x3, comments
 - retail: 0.0 points/post over 1 posts (testing)
 
 ### Video structure tests
-- problem-action-result: 0.89 points/post over 66 posts (testing)
+- problem-action-result: 1.09 points/post over 70 posts (testing)
 - problem-why-app: 0.0 points/post over 3 posts (testing)
 
 ## YouTube title shapes
