@@ -89,7 +89,22 @@ def check(token, ig_id):
     out(already="false")
 
 
+def instagram_paused():
+    """True while account health (studio/health.py) has paused Instagram, e.g. 72 h after Meta answered
+    "The Instagram account is restricted" (2026-11-28). Never raises: a broken check never stops posting."""
+    try:
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "studio"))
+        import health
+        return health.cap("instagram") == 0
+    except Exception as e:  # pragma: no cover
+        print(f"  account health check failed: {e}")
+        return False
+
+
 def publish(token, ig_id):
+    if instagram_paused():
+        print("::warning::Instagram is paused by account health (studio/HEALTH.md); no Story today")
+        return
     date = today()
     image_url = os.environ["IMAGE_URL"]
     machine = os.environ["MACHINE"]

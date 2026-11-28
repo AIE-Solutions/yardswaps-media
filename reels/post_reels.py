@@ -1822,6 +1822,12 @@ def main():
             summary.extend(takedown(token, posted, platform, video, lib["videos"], entry))
 
     for platform in story_platforms:
+        # 2026-11-28: Instagram answered "The Instagram account is restricted". When account health has
+        # paused the feed platform, its Story re-share waits too, so we don't keep hitting a refusal.
+        held = None if force else health_blocked(STORY_BASE[platform], posted)
+        if held:
+            summary.append(f"{platform}: skipped, {held}")
+            continue
         wait = None if force else story_reshare_wait(posted, platform)
         if wait:
             summary.append(f"{platform}: skipped, {wait}")
