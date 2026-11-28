@@ -48,6 +48,7 @@ sys.path.insert(0, os.path.join(ROOT, "rotation"))
 sys.path.insert(0, os.path.join(ROOT, "brand", "endcard"))
 sys.path.insert(0, os.path.join(ROOT, "brand", "posts"))
 import endcard  # noqa: E402
+import app_tail  # noqa: E402
 import photo_privacy  # noqa: E402  (phone numbers and plates only; listings/photo_privacy.py)
 import kit  # noqa: E402
 import just_listed as jl  # noqa: E402
@@ -105,14 +106,16 @@ def end_card():
     return Image.open(endcard.card_png("seller", W, H)).convert("RGB").resize((W, H))
 
 
-def render(l, photos_rgb, question, out_mp4, sheet_jpg):
-    """Encode the Reel; returns its length in seconds. `question` stays in the caption, not on the frame."""
+def render(l, photos_rgb, question, out_mp4, sheet_jpg, tail=None):
+    """Encode the Reel; returns its length in seconds. `question` stays in the caption, not on the frame.
+    `tail` (listings/app_tail.py) is the walkthrough item whose real-app scan moment goes before the end card."""
     from PIL import Image
     photos = [Image.fromarray(p) for p in photos_rgb]
     shots = kit.reel_shots(photos, jl.spec_title(l), jl.price_text(l.get("price")), jl.facts_lines(l))
     k = len(shots)
     n = int(PHOTO_SECONDS * FPS)
-    total = k * PHOTO_SECONDS + END_SECONDS
+    tail_frames = app_tail.frames(tail, W, H, FPS) if tail else []
+    total = k * PHOTO_SECONDS + len(tail_frames) / FPS + END_SECONDS
     tracks = sorted(f for f in os.listdir(MUSIC) if f.endswith(".mp3")) if os.path.isdir(MUSIC) else []
     args = ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
             "-r", str(FPS), "-i", "-"]
@@ -129,6 +132,10 @@ def render(l, photos_rgb, question, out_mp4, sheet_jpg):
         for _ in range(n):
             enc.stdin.write(frame)
     stills = list(shots)
+    for frame in tail_frames:
+        enc.stdin.write(frame)
+    if tail_frames:
+        stills.append(Image.frombytes("RGB", (W, H), tail_frames[len(tail_frames) * 2 // 3]))
     end = end_card()
     endb = end.tobytes()
     for _ in range(int(END_SECONDS * FPS)):
@@ -264,7 +271,9 @@ def restyle(vids, active, rq, queue, dry, limit):
         rel = f"reels/library/yardswaps-{v['slug']}-9x16-{kit.LOOK}.mp4"
         out = os.path.join(tempfile.gettempdir(), os.path.basename(rel)) if dry else os.path.join(ROOT, rel)
         sheet = os.path.join(tempfile.gettempdir() if dry else PREVIEWS, f"{l['id']}.jpg")
-        v["seconds"] = render(l, photos, v.get("question", ""), out, sheet)
+        tail = app_tail.pick(l)
+        v["seconds"] = render(l, photos, v.get("question", ""), out, sheet, tail)
+        v["app_tail"], v["app_tail_from"] = tail or "none", app_tail.TEST_FROM
         v["file"], v["look"] = rel, kit.LOOK
         v.pop("endcard_checked", None)
         done += 1
@@ -389,12 +398,13 @@ def main():
             out = os.path.join(tempfile.gettempdir(), os.path.basename(rel)) if dry else os.path.join(ROOT, rel)
             sheet = os.path.join(tempfile.gettempdir() if dry else PREVIEWS, f"{l['id']}.jpg")
             q = QUESTIONS[(len(have) + built) % len(QUESTIONS)]
-            secs = render(l, photos, q, out, sheet)
+            tail = app_tail.pick(l)
+            secs = render(l, photos, q, out, sheet, tail)
             entry = {"added": today, "slug": slug, "file": rel, "priority": 0, "body": body_for(l),
                      "question": q, "ig_tags": tags_for(l), "category": l.get("category"),
                      "machine": "listing-" + l["id"], "listing_id": l["id"], "real": True,
                      "cut": "listing", "seconds": secs, "endcard": f"seller-{endcard.VERSION}",
-                     "look": kit.LOOK}
+                     "look": kit.LOOK, "app_tail": tail or "none", "app_tail_from": app_tail.TEST_FROM}
             if not card:
                 entry["hold"] = True
                 entry["hold_reason"] = "awaiting the daily listing review (listings/reel-queue.json)"

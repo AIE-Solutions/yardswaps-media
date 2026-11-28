@@ -24,3 +24,14 @@ Hand-set findings go in `directives.json`, for example numbers read from Metrico
 - Store installs (App Store Connect, Play Console) are not read; app signups on iOS/Android are the proxy.
 - Follows/shares/saves per Reel need `instagram_manage_insights` on the token (added at the Dec renewal). Until then the snapshot's `insights.refused` lists what Meta refused and the score runs on likes, comments and views.
 - TikTok numbers are not readable (Metricool's TikTok link is stale).
+
+## Test: real-app moment at the end of listing Reels (from 2026-11-28)
+Our Instagram numbers for Nov 14-27 (Metricool, 117 Reels): platform-first Reels (feature statements,
+storefront, live-app walkthroughs, 19 posts) had a median reach of 17 and 85% skipped in 3 s; listing Reels
+(15) had 95; item-first seller Reels (63) had 31. So the platform rides inside listing Reels instead:
+`listings/app_tail.py` puts 3 s of the live-app scan ("Add a photo. AI reads it." / "AI fills in the rest.")
+between the last photo and the end card for half of the listing Reels built or restyled from Nov 28 (split by
+listing id). Library entries carry `"app_tail": "<item>"` or `"app_tail": "none"`.
+Read it after two weeks or 10 posts a side: Metricool Instagram Reels (IGRE11 reach, IGRE24 average watch,
+IGRE30 skip rate, IGRE10 likes) for listing Reels posted from Nov 28, tail vs none. Keep the tail if reach holds
+(no more than 20% under the control median) and watch time or likes go up; otherwise drop it.
