@@ -79,5 +79,28 @@
     "captions": "week-2026-11-13/yardswaps-weekly-5-16x9-voice.en.srt",
     "kit_slot": "Sat 11/28, 8:30 am",
     "endcard": "seller-v1"
+  },
+  {
+    "slug": "weekly-7",
+    "file": "week-2026-11-27/yardswaps-weekly-7-16x9-music.mp4",
+    "title": "Six Real Listings From One Photo Each This Week | YardSwaps",
+    "description": "Six real listings from the YardSwaps app this week, back to back: a Billy Goat leaf vacuum, an Instapak SpeedyPacker floor model, a floral walk-in display cooler, a set of used pallet racking, a Caterpillar 140H V-plow and a Deere 50G excavator. Every opener is the listing's own photo. One photo each, the AI writes the title and picks the category, set a price, publish free.\n\n0:00 Billy Goat leaf vacuum, parked until the leaves fall\n0:09 Instapak SpeedyPacker floor model, off the packing line\n0:17 Floral walk-in display cooler from a closed shop\n0:24 Used pallet racking, complete\n0:32 Caterpillar 140H V-plow between contracts\n0:39 Deere 50G excavator between jobs\n\nFree to list, no cut of the sale, local pickup. Post 4 listings within 14 days of your first and every listing is boosted free for 14 days.\n\nList your equipment free: https://www.yardswaps.com/sell-equipment?utm_source=youtube&utm_medium=video&utm_campaign=weekly_7\nGet the app: iPhone https://apps.apple.com/app/id6765955041 | Android https://play.google.com/store/apps/details?id=com.yardswaps.app | yardswaps.com/y\n\nWhich of these six is sitting in your yard right now? Tell us in the comments.\n\n#sellequipment #usedequipment #yardswaps",
+    "tags": [
+      "used equipment",
+      "sell equipment",
+      "equipment for sale",
+      "leaf vacuum",
+      "pallet racking",
+      "mini excavator",
+      "YardSwaps"
+    ],
+    "category_id": "28",
+    "language": "en",
+    "thumbnail": "week-2026-11-27/yardswaps-weekly-7-cover-youtube-16x9.jpg",
+    "kit_slot": "Sat 12/5, 8:30 am",
+    "endcard": "seller-v1",
+    "real": true,
+    "narration": "pending: music cut for now; swap in -16x9-voice.mp4 when the PC route narrates it",
+    "not_before": "2026-11-30T00:00:00Z"
   }
 ]
