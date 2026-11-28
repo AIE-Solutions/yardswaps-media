@@ -1,24 +1,24 @@
 {
-  "checkedAt": "2026-11-27T23:59:00Z",
+  "checkedAt": "2026-11-28T13:12:00Z",
   "checkedBy": "roster-keeper",
   "agents": {
     "roster-keeper": {
-      "lastRun": "2026-11-27T23:53:10Z",
+      "lastRun": "2026-11-28T12:53:59Z",
       "result": "ok",
       "source": "task",
-      "note": "Evening check."
+      "note": "Morning check."
     },
     "platform-ops": {
-      "lastRun": "2026-11-27T09:41:04Z",
-      "result": "ok",
+      "lastRun": "2026-11-28T09:40:26Z",
+      "result": "needs_alan",
       "source": "heartbeat",
-      "note": "2026-11-27: reports 0, signups 2 no clusters, attention none, AI 55% ok, split tips ok, checkouts unchanged, flagForAlan 0, rejects 0, end card ok; routed 2 new demand terms (Ferrari FMAX transplanters, Starrett tools) to WANTED-POSTS Requests; nothing for Alan"
+      "note": "11-28: 1 chat sender flagged in 3+ threads in 24 h (medium), routed to Alan by Platform Ops; AI $28.35/$50 ok; checkouts unchanged; 0 Just-listed rejects; end card ok."
     },
     "ops-sweep": {
-      "lastRun": "2026-11-27T11:50:22Z",
+      "lastRun": "2026-11-28T11:49:48Z",
       "result": "ok",
       "source": "heartbeat",
-      "note": "OK: nothing needed (0 5xx in 24 h, no new bugs; CI still blocked by Actions billing)"
+      "note": "OK: nothing needed (0 5xx in 24 h, no new merges to review, CI still blocked by Actions billing)"
     },
     "guard": {
       "lastRun": "2026-11-27T22:41:29Z",
@@ -32,10 +32,10 @@
       "source": "task"
     },
     "app-crons": {
-      "lastRun": "2026-11-27T09:01:33Z",
+      "lastRun": "2026-11-28T09:00:17Z",
       "result": "ok",
       "source": "railway",
-      "note": "Daily OpsDigest posted 11-27 09:01Z; no attention items. Next one about 09:01Z 11-28."
+      "note": "Daily OpsDigest posted 11-28 09:00Z. Attention: 1 chat sender flagged in 3+ threads in 24 h (medium), since 11-27 17:53Z; Platform Ops routed it to Alan."
     },
     "owner-alerts": {
       "result": "ok",
@@ -45,7 +45,8 @@
     "growth-lead": {
       "lastRun": "2026-11-27T13:24:04Z",
       "result": "ok",
-      "source": "task"
+      "source": "task",
+      "note": "Today's 7:23 am CT run is due 13:23Z, after this check."
     },
     "dealer-loader": {
       "lastRun": "2026-11-25T00:23:31Z",
@@ -61,7 +62,7 @@
       "lastRun": "2026-11-27T21:35:00Z",
       "result": "ok",
       "source": "guard-log",
-      "note": "Friday window read: 11-27 15:04-21:35Z, 1 large-firm intro, 4 El Paso follow-ups, 0 claim notes, 0 failed (Guard log 11-27 row). No outreach-pipeline line on the Marketplace service. Next window Monday."
+      "note": "Saturday, no send window. Last read: Friday 11-27 15:04-21:35Z, 1 large-firm intro, 4 El Paso follow-ups, 0 failed (Guard log 11-27 row). Next window Monday."
     },
     "investor-docs": {
       "lastRun": "2026-11-23T18:41:57Z",
@@ -85,7 +86,7 @@
       "source": "task"
     },
     "comment-inbox": {
-      "lastRun": "2026-11-27T23:45:39Z",
+      "lastRun": "2026-11-28T00:05:03Z",
       "result": "ok",
       "source": "workflow"
     },
@@ -110,33 +111,33 @@
       "source": "task"
     },
     "reels-poster": {
-      "lastRun": "2026-11-27T23:43:15Z",
-      "result": "ok",
+      "lastRun": "2026-11-28T12:43:48Z",
+      "result": "failed",
       "source": "workflow",
-      "note": "reels.yml green, newest run 23:43Z (5:42 pm timer). The old 11:42 pm timer trig_01PFHJ5q was switched off 11-27 by design (media PR #157 moved that slot); the roster row still lists it instead of the new trig_011u1UcH (11:32 am + 7:32 pm)."
+      "note": "reels.yml failed 12:43Z (6:42 am timer run): Instagram refused the Reel with \"The Instagram account is restricted\" (Graph error 25 / 2207050, User access is restricted). Facebook posted the same Reel. Last Instagram Reel that went up: 04:45Z 11-28. Routed to the Growth Lead thread."
     },
     "tiktok-poster": {
-      "lastRun": "2026-11-27T22:43:10Z",
+      "lastRun": "2026-11-28T01:50:11Z",
       "result": "ok",
       "source": "workflow",
-      "note": "tiktok.yml green, newest run 22:43Z."
+      "note": "tiktok.yml green, newest run 01:50Z."
     },
     "shorts-poster": {
-      "lastRun": "2026-11-27T23:22:55Z",
+      "lastRun": "2026-11-28T07:32:44Z",
       "result": "ok",
       "source": "workflow",
-      "note": "youtube-shorts.yml green, newest run 23:22Z; 4 pm Short live 11-27."
+      "note": "youtube-shorts.yml green, newest run 07:32Z (gate)."
     },
     "youtube-slots": {
-      "lastRun": "2026-11-27T22:36:14Z",
+      "lastRun": "2026-11-28T00:36:03Z",
       "result": "ok",
       "source": "task"
     },
     "just-listed": {
-      "lastRun": "2026-11-27T23:23:05Z",
+      "lastRun": "2026-11-28T07:46:35Z",
       "result": "ok",
       "source": "workflow",
-      "note": "listings.yml green on its last 3 runs (08:29Z, 18:52Z, 23:23Z 11-27). The apt-get fix merged with media PR #157."
+      "note": "listings.yml green on its last 3 runs (02:40Z, 02:58Z, 07:46Z 11-28)."
     },
     "just-listed-review": {
       "lastRun": "2026-11-27T17:31:25Z",
@@ -165,10 +166,10 @@
       "note": "Friday run fired 14:37Z 11-27. Next: Mon Nov 30 6:41 am MT."
     },
     "endcard-check": {
-      "lastRun": "2026-11-27T23:59:00Z",
+      "lastRun": "2026-11-28T13:12:00Z",
       "result": "ok",
       "source": "git",
-      "note": "272 of 272 library clips carry the end card."
+      "note": "281 of 281 library clips carry the end card."
     },
     "monday-batch": {
       "lastRun": "2026-11-23T19:47:23Z",
@@ -191,7 +192,7 @@
       "source": "task"
     },
     "scorecard": {
-      "lastRun": "2026-11-27T21:09:20Z",
+      "lastRun": "2026-11-28T10:12:19Z",
       "result": "ok",
       "source": "workflow"
     },
@@ -207,10 +208,10 @@
       "note": "Nothing written: today's specific-lane article (Used Electric Forklift Battery: What to Check Before You Buy) already saved 13:27Z; broad lane is off per BLOG-WRITER-PROMPT (Soro keeps broad topics), 1 HeyCatch copied"
     },
     "studio-shorts": {
-      "lastRun": "2026-11-27T23:23:05Z",
+      "lastRun": "2026-11-28T07:46:35Z",
       "result": "ok",
       "source": "workflow",
-      "note": "Runs inside listings.yml, green 23:23Z 11-27."
+      "note": "Runs inside listings.yml, green 07:46Z 11-28."
     },
     "studio-analytics": {
       "note": "Being built in the Studio thread.",
@@ -228,7 +229,7 @@
       "note": "New. First run Nov 30 6:40 AM MT."
     },
     "studio-connector": {
-      "lastRun": "2026-11-27T04:17:11Z",
+      "lastRun": "2026-11-28T04:17:11Z",
       "result": "ok",
       "source": "heartbeat",
       "note": "Connector up. No tool calls in the last 24 h."
@@ -240,10 +241,11 @@
     }
   },
   "endcard": {
-    "checked": 272,
+    "checked": 281,
     "missing": 0
   },
   "needsAlan": [
-    "GitHub Actions is still blocked (billing or spending limit) on the app repo, so CI does not start on any PR (Ops Sweep, 11-27 11:50Z): github.com/organizations/AIE-Solutions/settings/billing."
+    "GitHub Actions is still blocked (billing or spending limit) on the app repo, so CI does not start on any PR (Ops Sweep, 11-28 11:49Z): github.com/organizations/AIE-Solutions/settings/billing.",
+    "Look at the chat sender flagged in 3+ threads in 24 hours (Platform Ops 11-28 09:40Z, OpsDigest attention item, medium) in /admin."
   ]
 }
