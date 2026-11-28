@@ -883,7 +883,10 @@
   "repeat": false,
   "status": "posted",
   "id": "987568367234522",
-  "url": "https://www.facebook.com/reel/987568367234522"
+  "url": "https://www.facebook.com/reel/987568367234522",
+  "removed": "2026-11-28T14:47:02Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "3719701334848874"
  },
  {
   "time": "2026-11-10T13:48:24Z",
@@ -4964,5 +4967,24 @@
   "status": "posted",
   "id": "18135433915744257",
   "url": "https://www.instagram.com/stories/yardswaps/4040405936713891739"
+ },
+ {
+  "time": "2026-11-28T14:46:18Z",
+  "platform": "instagram",
+  "slug": "walkthrough-live-cooler",
+  "repeat": false,
+  "look": "k2",
+  "status": "failed",
+  "error": "POST https://rupload.facebook.com/ig-api-upload/v23.0/18126004831977469 -> 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+ },
+ {
+  "time": "2026-11-28T14:46:51Z",
+  "platform": "facebook",
+  "slug": "walkthrough-live-cooler",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "3719701334848874",
+  "url": "https://www.facebook.com/reel/3719701334848874"
  }
 ]
