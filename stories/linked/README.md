@@ -5,7 +5,14 @@ Alan 2026-11-26: "Other companies add links to their post", "but a working link"
 "we need storefronts and sellers to post first to increase our inventory".
 
 The Graph API cannot add a link sticker to a Story, so these are scheduled by hand in
-Meta Business Suite (Story composer, Edit, Stickers, Link). `schedule.json` is the week:
+Meta Business Suite (Story composer, Edit, Stickers, Link).
+
+Alan 2026-11-28, of a Story with the link sticker: "Make sure all still images have this". So these are
+the ONLY still Stories: the automatic 9:27 am Story (`stories/publish_story.py`) and the one-off image
+poster (`reels/post_image.py`) no longer post still Stories, because neither can add a sticker. Feed
+posts cannot hold a tappable link on Instagram at all, so feed stills say "Link in bio:
+yardswaps.com/i" there and carry the full https link in the Facebook caption, where it is tappable.
+Reel Stories (video re-shares) are not stills and are unchanged. `schedule.json` is the week:
 date, Central time, audience, image, sticker text and the link for each platform.
 
 - Three kinds, each with its own link: seller ("list your items", /sell-equipment),

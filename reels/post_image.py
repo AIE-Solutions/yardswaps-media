@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-off IMAGE post to Instagram + Facebook (feed) and both Stories.
+"""One-off IMAGE post to the Instagram + Facebook feeds (never Stories: a still Story needs a link sticker).
 
 Not the Reels queue: reels.yml dispatches this when image_slug is set. The
 entry comes from reels/images.json; images are served from the public repo at
@@ -8,7 +8,7 @@ Log: reels/images-posted.json. One attempt per platform; a failure on one
 platform does not stop the others.
 
 Env: META_PAGE_TOKEN (required), IMAGE_SLUG, PLATFORMS (default
-instagram,facebook,instagram_story,facebook_story), DRY_RUN=1 prints only,
+instagram,facebook; Story platforms are dropped), DRY_RUN=1 prints only,
 FB_PAGE_ID / IG_USER_ID defaults as in post_reels.py.
 """
 import datetime as dt
@@ -103,8 +103,13 @@ def main():
     dry = os.environ.get("DRY_RUN") == "1"
     page_id = os.environ.get("FB_PAGE_ID") or "1291163214083476"
     ig_id = os.environ.get("IG_USER_ID") or "17841429324062623"
-    platforms = [p.strip() for p in (os.environ.get("PLATFORMS") or "instagram,facebook,instagram_story,facebook_story").split(",") if p.strip()]
-    platforms = [p for p in platforms if p != "threads"]
+    platforms = [p.strip() for p in (os.environ.get("PLATFORMS") or "instagram,facebook").split(",") if p.strip()]
+    # Alan 2026-11-28: every still Story carries a tappable link sticker, which the API cannot add.
+    # Still Stories go through Meta Business Suite (stories/linked/), never from here.
+    dropped = [p for p in platforms if p in ("threads", "instagram_story", "facebook_story")]
+    platforms = [p for p in platforms if p not in dropped]
+    if dropped:
+        print(f"skipping {dropped}: a still Story needs a link sticker (stories/linked/README.md)")
     if not slug:
         sys.exit("IMAGE_SLUG is empty")
     entries = json.load(open(os.path.join(HERE, "images.json"), encoding="utf-8"))["images"]
