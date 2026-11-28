@@ -1,7 +1,7 @@
 {
  "v": 1,
  "week": "2026-11-23",
- "generatedAt": "2026-11-27T21:12:04Z",
+ "generatedAt": "2026-11-28T10:14:14Z",
  "sources": {
   "meta snapshot": true,
   "app growth digest": true,
@@ -13,7 +13,7 @@
   "followers": {
    "instagram": {
     "now": 798,
-    "change7d": -17,
+    "change7d": -11,
     "asOf": "2026-11-27"
    },
    "facebook": {
@@ -84,11 +84,30 @@
     "ratio": null
    },
    {
-    "slug": "find-it-nearby",
-    "posts": 2,
+    "slug": "drilling-rig-parked",
+    "posts": 1,
     "settled": 1,
     "igSettled": 1,
-    "points": 17.0,
+    "points": 10.0,
+    "views": 0,
+    "likes": 4,
+    "comments": 2,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 10.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "drilling",
+    "ratio": null
+   },
+   {
+    "slug": "find-it-nearby",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 18.0,
     "views": 0,
     "likes": 6,
     "comments": 4,
@@ -96,10 +115,32 @@
     "saved": 0,
     "follows": 0,
     "signups": 0,
-    "perPost": 17.0,
+    "perPost": 9.0,
     "hook": "feature-statement",
     "angle": "buyer-feature",
     "category": "forklifts",
+    "ratio": null
+   },
+   {
+    "slug": "control-cabinet-off-the-line",
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 1,
+    "points": 8.0,
+    "views": 0,
+    "likes": 2,
+    "comments": 2,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 8.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "electrical",
+    "demo": true,
+    "structure": "problem-action-result",
+    "cut": "10s",
     "ratio": null
    },
    {
@@ -122,7 +163,7 @@
     "ratio": null
    },
    {
-    "slug": "condensers-after-the-changeout",
+    "slug": "combi-oven-after-the-remodel",
     "posts": 2,
     "settled": 1,
     "igSettled": 1,
@@ -137,26 +178,10 @@
     "perPost": 7.0,
     "hook": "pov-idle",
     "angle": "idle-gear",
-    "category": "hvac",
+    "category": "cooking",
     "demo": true,
     "structure": "problem-action-result",
     "cut": "10s",
-    "ratio": null
-   },
-   {
-    "slug": "listed-zero-tail-swing-deere-50g-with-qui-fbt0s",
-    "posts": 2,
-    "settled": 1,
-    "igSettled": 1,
-    "points": 6.0,
-    "views": 0,
-    "likes": 0,
-    "comments": 2,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": 6.0,
     "ratio": null
    },
    {
@@ -197,14 +222,36 @@
     "ratio": null
    },
    {
-    "slug": "listed-komatsu-hd785-7-engine-for-sale-wo-dsydq",
+    "slug": "condensers-after-the-changeout",
     "posts": 2,
-    "settled": 1,
+    "settled": 2,
     "igSettled": 1,
-    "points": 3.0,
+    "points": 7.0,
     "views": 0,
-    "likes": 5,
-    "comments": 0,
+    "likes": 1,
+    "comments": 2,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 3.5,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "hvac",
+    "demo": true,
+    "structure": "problem-action-result",
+    "cut": "10s",
+    "ratio": null
+   },
+   {
+    "slug": "listed-zero-tail-swing-deere-50g-with-qui-fbt0s",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 6.0,
+    "views": 0,
+    "likes": 0,
+    "comments": 2,
     "shares": 0,
     "saved": 0,
     "follows": 0,
@@ -231,6 +278,44 @@
     "category": "aerial",
     "demo": true,
     "structure": "problem-action-result",
+    "ratio": null
+   },
+   {
+    "slug": "listed-komatsu-hd785-7-engine-for-sale-wo-dsydq",
+    "posts": 2,
+    "settled": 2,
+    "igSettled": 1,
+    "points": 5.0,
+    "views": 0,
+    "likes": 5,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 2.5,
+    "ratio": null
+   },
+   {
+    "slug": "boom-lift-after-the-fitout",
+    "posts": 1,
+    "settled": 1,
+    "igSettled": 1,
+    "points": 2.0,
+    "views": 0,
+    "likes": 2,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "follows": 0,
+    "signups": 0,
+    "perPost": 2.0,
+    "hook": "pov-idle",
+    "angle": "idle-gear",
+    "category": "aerial",
+    "demo": true,
+    "structure": "problem-action-result",
+    "cut": "10s",
     "ratio": null
    },
    {
@@ -646,28 +731,6 @@
     "ratio": null
    },
    {
-    "slug": "boom-lift-after-the-fitout",
-    "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 2,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "aerial",
-    "demo": true,
-    "structure": "problem-action-result",
-    "cut": "10s",
-    "ratio": null
-   },
-   {
     "slug": "box-truck-after-the-route",
     "posts": 1,
     "settled": 1,
@@ -752,28 +815,6 @@
     "ratio": null
    },
    {
-    "slug": "combi-oven-after-the-remodel",
-    "posts": 2,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 1,
-    "comments": 2,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "cooking",
-    "demo": true,
-    "structure": "problem-action-result",
-    "cut": "10s",
-    "ratio": null
-   },
-   {
     "slug": "commercial-idle-forklift",
     "posts": 1,
     "settled": 1,
@@ -831,28 +872,6 @@
     "hook": "pov-idle",
     "angle": "idle-gear",
     "category": "hvac",
-    "ratio": null
-   },
-   {
-    "slug": "control-cabinet-off-the-line",
-    "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 2,
-    "comments": 2,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "electrical",
-    "demo": true,
-    "structure": "problem-action-result",
-    "cut": "10s",
     "ratio": null
    },
    {
@@ -956,25 +975,6 @@
     "demo": true,
     "structure": "problem-action-result",
     "cut": "10s",
-    "ratio": null
-   },
-   {
-    "slug": "drilling-rig-parked",
-    "posts": 1,
-    "settled": 0,
-    "igSettled": 0,
-    "points": 0.0,
-    "views": 0,
-    "likes": 4,
-    "comments": 2,
-    "shares": 0,
-    "saved": 0,
-    "follows": 0,
-    "signups": 0,
-    "perPost": null,
-    "hook": "pov-idle",
-    "angle": "idle-gear",
-    "category": "drilling",
     "ratio": null
    },
    {
@@ -2357,8 +2357,8 @@
   "hook": [
    {
     "value": "feature-statement",
-    "posts": 3,
-    "perPost": 5.67,
+    "posts": 4,
+    "perPost": 4.5,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -2383,14 +2383,18 @@
    },
    {
     "value": "pov-idle",
-    "posts": 66,
-    "perPost": 0.82,
+    "posts": 71,
+    "perPost": 1.14,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "lawn-tractor-after-the-route",
+     "drilling-rig-parked",
+     "control-cabinet-off-the-line",
      "parts-donor-thumb",
+     "combi-oven-after-the-remodel",
      "condensers-after-the-changeout",
+     "boom-lift-after-the-fitout",
      "mission-idle-to-work",
      "backhoe-still-on-the-trailer",
      "interior-job-done-lifts",
@@ -2514,8 +2518,8 @@
   "angle": [
    {
     "value": "buyer-feature",
-    "posts": 2,
-    "perPost": 8.5,
+    "posts": 3,
+    "perPost": 6.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
@@ -2555,13 +2559,17 @@
    },
    {
     "value": "idle-gear",
-    "posts": 55,
-    "perPost": 0.73,
+    "posts": 60,
+    "perPost": 1.12,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "lawn-tractor-after-the-route",
+     "drilling-rig-parked",
+     "control-cabinet-off-the-line",
+     "combi-oven-after-the-remodel",
      "condensers-after-the-changeout",
+     "boom-lift-after-the-fitout",
      "mission-idle-to-work",
      "backhoe-still-on-the-trailer",
      "construction-life-compactor",
@@ -2688,15 +2696,13 @@
   ],
   "category": [
    {
-    "value": "forklifts",
-    "posts": 3,
-    "perPost": 6.33,
+    "value": "drilling",
+    "posts": 1,
+    "perPost": 10.0,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
-     "find-it-nearby",
-     "mission-idle-to-work",
-     "commercial-idle-forklift"
+     "drilling-rig-parked"
     ]
    },
    {
@@ -2712,6 +2718,29 @@
     ]
    },
    {
+    "value": "forklifts",
+    "posts": 4,
+    "perPost": 5.0,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "find-it-nearby",
+     "mission-idle-to-work",
+     "commercial-idle-forklift"
+    ]
+   },
+   {
+    "value": "electrical",
+    "posts": 2,
+    "perPost": 4.0,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "control-cabinet-off-the-line",
+     "cord-reels-after-the-events"
+    ]
+   },
+   {
     "value": "excavators",
     "posts": 5,
     "perPost": 3.6,
@@ -2721,18 +2750,6 @@
      "parts-donor-thumb",
      "backhoe-still-on-the-trailer",
      "skid-steer-after-the-grading"
-    ]
-   },
-   {
-    "value": "hvac",
-    "posts": 3,
-    "perPost": 2.33,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "condensers-after-the-changeout",
-     "condenser-changeout",
-     "rooftop-unit-on-the-pallet"
     ]
    },
    {
@@ -2748,16 +2765,43 @@
     ]
    },
    {
+    "value": "hvac",
+    "posts": 4,
+    "perPost": 1.75,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "condensers-after-the-changeout",
+     "condenser-changeout",
+     "rooftop-unit-on-the-pallet"
+    ]
+   },
+   {
     "value": "aerial",
-    "posts": 6,
-    "perPost": 1.67,
+    "posts": 7,
+    "perPost": 1.71,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "see-what-buyers-want-v2",
+     "boom-lift-after-the-fitout",
      "interior-job-done-lifts",
      "save-a-search",
      "scissor-lift-after-the-fitout"
+    ]
+   },
+   {
+    "value": "cooking",
+    "posts": 6,
+    "perPost": 1.33,
+    "ratio": null,
+    "verdict": "testing",
+    "slugs": [
+     "combi-oven-after-the-remodel",
+     "small-business-old-oven",
+     "fryers-from-the-closed-kitchen",
+     "griddle-from-the-closed-diner",
+     "socials-on-storefront"
     ]
    },
    {
@@ -2861,19 +2905,6 @@
     ]
    },
    {
-    "value": "cooking",
-    "posts": 5,
-    "perPost": 0.2,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "small-business-old-oven",
-     "fryers-from-the-closed-kitchen",
-     "griddle-from-the-closed-diner",
-     "socials-on-storefront"
-    ]
-   },
-   {
     "value": "generators",
     "posts": 6,
     "perPost": 0.17,
@@ -2951,16 +2982,6 @@
     "verdict": "testing",
     "slugs": [
      "cooler-still-humming"
-    ]
-   },
-   {
-    "value": "electrical",
-    "posts": 1,
-    "perPost": 0.0,
-    "ratio": null,
-    "verdict": "testing",
-    "slugs": [
-     "cord-reels-after-the-events"
     ]
    },
    {
@@ -3071,15 +3092,18 @@
   "structure": [
    {
     "value": "problem-action-result",
-    "posts": 66,
-    "perPost": 0.89,
+    "posts": 70,
+    "perPost": 1.09,
     "ratio": null,
     "verdict": "testing",
     "slugs": [
      "lawn-tractor-after-the-route",
-     "condensers-after-the-changeout",
+     "control-cabinet-off-the-line",
+     "combi-oven-after-the-remodel",
      "whole-lot-one-link",
+     "condensers-after-the-changeout",
      "see-what-buyers-want-v2",
+     "boom-lift-after-the-fitout",
      "backhoe-still-on-the-trailer",
      "construction-life-compactor",
      "interior-job-done-lifts",
