@@ -961,7 +961,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1902854727825980",
-  "url": "https://www.facebook.com/reel/1902854727825980"
+  "url": "https://www.facebook.com/reel/1902854727825980",
+  "removed": "2026-11-28T17:36:11Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "2559482731202574"
  },
  {
   "time": "2026-11-10T16:48:29Z",
@@ -5011,5 +5014,15 @@
   "status": "posted",
   "id": "1103793526022067",
   "url": "https://www.facebook.com/reel/1103793526022067"
+ },
+ {
+  "time": "2026-11-28T17:35:57Z",
+  "platform": "facebook",
+  "slug": "seller-spare-engine",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "2559482731202574",
+  "url": "https://www.facebook.com/reel/2559482731202574"
  }
 ]
