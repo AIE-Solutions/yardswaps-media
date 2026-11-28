@@ -118,6 +118,14 @@ CARDS = [
     ("spare-engine", ("dsydq", 0), "Spare engine in the shop?", L2, "Komatsu HD785-7 engine", (0.5, 0.5)),
     ("walk-in-cooler", ("q3khm", 0), "Cooler sitting empty?", L2, "Floral walk-in display cooler", (0.5, 0.5)),
     ("kitchen-ovens", ("s8tqf", 0), "Replaced your oven?", L2, "TurboChef Eco oven", (0.5, 0.3)),
+    # Week of Dec 4 to 10 (linked Stories), listings not shown in a seller Story before, live on 11-28.
+    ("mini-excavator", ("2unc7", 1), "Mini excavator sitting parked?", L2, "CAT 301.7CR mini excavator", (0.5, 0.6)),
+    ("tool-chest", ("vp7u1", 0), "Extra tool chest in the shop?", L2, "Kennedy tool chest and roller cabinet", (0.5, 0.35)),
+    ("floor-sweeper", ("sf6pt", 0), "Replaced your floor sweeper?", L2, "Tennant M20 sweeper-scrubber", (0.5, 0.5)),
+    ("booster-pump", ("byk8l", 0), "Pump skid left from a job?", L2, "Tigerflow water booster system", (0.5, 0.5)),
+    ("leaf-vacuum", ("tp04q", 1), "Leaf vac done for the season?", L2, "Billy Goat DL3700VE leaf vacuum", (0.5, 0.55)),
+    ("forklift", ("curw5", 0), "Forklift you replaced?", L2, "Toyota electric 3-wheel forklift", (0.5, 0.5)),
+    ("display-cooler", ("xrl5y", 0), "Second cooler sitting idle?", L2, "Coldline G53 display cooler", (0.5, 0.45)),
 ]
 
 # The Story crop is taller, so a few photos sit differently in it.
