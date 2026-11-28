@@ -3,6 +3,45 @@
  "as_of": "2026-11-08",
  "posts": [
   {
+   "key": "alignment-machines",
+   "category": "automotive",
+   "slug": "auto-shop-equipment",
+   "card": [
+    "Buyers are looking",
+    "for alignment machines."
+   ],
+   "card_sub": "Upgraded the shop? List the old one free.",
+   "body": "Buyers have been searching YardSwaps for wheel alignment machines.\nIf an older aligner has sat in the back of the shop since you upgraded, list it free: take a few photos and the AI writes the listing for you. You check it before it posts. The buyer picks up at your shop.",
+   "question": "What aligner is your shop running now?",
+   "source": "Growth Lead, buyer searches week of 2026-11-23 (relay of Alan's 'Do what you need to do for our platform to grow', 11-28)"
+  },
+  {
+   "key": "transplanters",
+   "category": "agriculture",
+   "slug": "farm-equipment",
+   "card": [
+    "Buyers are looking",
+    "for transplanters."
+   ],
+   "card_sub": "Parked since last season? List it free.",
+   "body": "Buyers have been searching YardSwaps for transplanters.\nIf a vegetable or tree transplanter has been parked in the barn since last season, list it free: take a few photos and the AI writes the listing for you. You check it before it posts. The buyer picks up at your place.",
+   "question": "How many rows does yours plant?",
+   "source": "Growth Lead, buyer searches week of 2026-11-23"
+  },
+  {
+   "key": "starrett-tools",
+   "category": "machining",
+   "slug": "metalworking-and-cnc",
+   "card": [
+    "Buyers are looking",
+    "for Starrett tools."
+   ],
+   "card_sub": "A spare set in the drawer? List it free.",
+   "body": "Buyers have been searching YardSwaps for Starrett tools.\nMicrometers, indicators, squares, height gauges: if a spare set sits in a drawer, or a whole cabinet came out of a shop that closed, list it free. Take a few photos and the AI writes the listing for you. You check it before it posts. Local pickup.",
+   "question": "What's the oldest Starrett tool in your box?",
+   "source": "Growth Lead, buyer searches week of 2026-11-23"
+  },
+  {
    "key": "ai-3-steps",
    "category": null,
    "slug": null,

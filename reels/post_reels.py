@@ -673,6 +673,16 @@ WALK_ITEM_HOURS = 48       # a live-app walkthrough waits this long after its li
 SELLER_PER_DAY = 3         # seller Reels a day in regular slots, on top of the list-it-free post
 SELLER_HOURS_CT = (6, 21)  # regular slots that start in these Central hours are seller slots
 SELLER_GAP_DAYS = 6        # a seller Reel may run again on a platform after this (it recruits, it is not an item ad)
+# Seller-first push (Growth Lead, 2026-11-28, relaying Alan's "Do what you need to do for our platform to grow":
+# new listings in 7 days fell to 41 from 71). Through the last day named here (Central), every daytime regular
+# slot except the walkthrough carries a seller Reel; after it SELLER_PER_DAY applies again on its own.
+SELLER_PUSH_PER_DAY = 6
+SELLER_PUSH_LAST_DAY_CT = "2026-11-29"
+
+
+def seller_per_day(t=None):
+    day = (t or now()).astimezone(CENTRAL).strftime("%Y-%m-%d")
+    return SELLER_PUSH_PER_DAY if day <= SELLER_PUSH_LAST_DAY_CT else SELLER_PER_DAY
 
 
 def is_new_look(v):
@@ -800,7 +810,7 @@ def seller_slot(videos, posted, platform, t=None):
     n = sum(1 for p in posted if p["platform"] == platform and p.get("status") == "posted"
             and p["slug"] in cut and not p.get("list_free") and not p.get("promo")
             and parse_time(p["time"]) >= day)
-    return n < SELLER_PER_DAY
+    return n < seller_per_day(t)
 
 
 def pick(videos, posted, platform, force=None, scores=None, regular=False):
