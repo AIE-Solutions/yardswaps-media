@@ -124,9 +124,11 @@
   "pick": "ok",
   "library_slug": "seller-walk-in-cooler",
   "machine": "seller-walk-in-cooler",
-  "status": "scheduled",
+  "status": "posted",
   "buffer_id": "6b0b0462a4bb9f8231254157",
   "due": "2026-11-28T16:47:07.000Z",
-  "video_host": "cdn.jsdelivr.net"
+  "video_host": "cdn.jsdelivr.net",
+  "url": "https://www.youtube.com/watch?v=DLZO0lm1dBg",
+  "sent": "2026-11-28T16:47:16.762Z"
  }
 ]
