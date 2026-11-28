@@ -72,6 +72,13 @@ def outside_window():
     return f"{hm} Central is outside the backup window {raw}"
 
 
+# Alan, 2026-11-28, of a Story with a tappable link sticker: "Make sure all still images have this".
+# The Graph API cannot add a link sticker, so this automatic Story could only go out with no link. It
+# stays off; the day's still Stories are the linked ones in stories/linked/schedule.json, scheduled by
+# hand in Meta Business Suite with the sticker on.
+AUTO_STORY = False
+
+
 def check(token, ig_id):
     why = outside_window()
     if why:
@@ -79,6 +86,11 @@ def check(token, ig_id):
         out(already="true")
         return
     date = today()
+    if not AUTO_STORY:
+        print(f"No automatic Story on {date}: it could not carry a link sticker. "
+              "Schedule that day's linked Stories (stories/linked/schedule.json) in Meta Business Suite.")
+        out(already="true")
+        return
     mine = [e for e in load_log() if e.get("date") == date]
     if mine:
         # Any logged attempt today (posted, failed or unknown) means no second

@@ -1,3 +1,9 @@
+> **Nov 28 (Alan, of a Story with a tappable link sticker: "Make sure all still images have this"): this
+> automatic Story is OFF.** The Graph API cannot add a link sticker, so it could only post with no link.
+> `publish_story.py check` now always skips (`AUTO_STORY = False`). Every still Story is a linked one from
+> `stories/linked/schedule.json`, scheduled by hand in Meta Business Suite with the sticker on. A week with no
+> linked Stories scheduled has no still Stories at all, so schedule the next week before the current one ends.
+
 # LIST IT FREE daily Story
 
 > **Nov 26 (Alan: our posts "look like ai slop"): the Story now sits on a real photo from a live listing.**
