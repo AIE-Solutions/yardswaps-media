@@ -805,7 +805,10 @@
   "repeat": false,
   "status": "posted",
   "id": "1093161066887114",
-  "url": "https://www.facebook.com/reel/1093161066887114"
+  "url": "https://www.facebook.com/reel/1093161066887114",
+  "removed": "2026-11-28T12:47:13Z",
+  "removed_reason": "one down per new Reel up",
+  "replaced_by": "1458438459834313"
  },
  {
   "time": "2026-11-09T22:48:54Z",
@@ -4886,5 +4889,24 @@
   "status": "posted",
   "id": "29382969508026592",
   "url": "https://www.facebook.com/reel/29382969508026592"
+ },
+ {
+  "time": "2026-11-28T12:47:00Z",
+  "platform": "instagram",
+  "slug": "seller-precision-tools",
+  "repeat": false,
+  "look": "k2",
+  "status": "failed",
+  "error": "POST https://graph.facebook.com/v23.0/17841429324062623/media -> 400: {\"error\":{\"message\":\"User access is restricted\",\"code\":25,\"type\":\"OAuthException\",\"error_subcode\":2207050,\"is_transient\":false,\"error_user_msg\":\"The Instagram account is restricted.\",\"error_user_title\":\"User is restricted\",\"fbtrace_id\":\"AcVMLE9yJmJLfRn7a0RQOtI\"}}"
+ },
+ {
+  "time": "2026-11-28T12:47:02Z",
+  "platform": "facebook",
+  "slug": "seller-precision-tools",
+  "repeat": false,
+  "look": "k2",
+  "status": "posted",
+  "id": "1458438459834313",
+  "url": "https://www.facebook.com/reel/1458438459834313"
  }
 ]
