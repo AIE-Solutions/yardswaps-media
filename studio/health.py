@@ -178,10 +178,16 @@ def score_platform(platform, snaps, logs, inputs, profile, at):
     limited = [p for p in week if LIMIT_WORDS.search(str(p.get("error") or ""))]
     ours = [p for p in week if p.get("status") in ("posted", "scheduled")]
     reasons.append(f"{len(ours)} of our posts in 7 days ({len(ours) / 7:.1f} a day), {len(failed)} failed")
-    if limited:
+    last_limit = max((parse(p["time"]) for p in limited), default=None)
+    # A post that went through after the warning shows the platform takes our posts again (2026-11-28:
+    # Instagram said "restricted" at 12:47Z, then took a retry at 13:40Z), so the pause lifts.
+    cleared = last_limit and any(p.get("status") == "posted" and (t := parse(p.get("time"))) and t > last_limit
+                                 for p in week)
+    if limited and cleared:
+        reasons.append(f"platform warning cleared by a later post: {str(limited[-1].get('error'))[:60]}")
+    elif limited:
         score -= 2
-        last = max(parse(p["time"]) for p in limited)
-        pause_until = max(pause_until or at, last + dt.timedelta(hours=72))
+        pause_until = max(pause_until or at, last_limit + dt.timedelta(hours=72))
         reasons.append(f"platform warning: {str(limited[-1].get('error'))[:80]}")
     elif len(failed) >= 3:
         score -= 1
